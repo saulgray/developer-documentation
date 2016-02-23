@@ -144,25 +144,25 @@
 </blockquote>
 <pre class="highlight shell"><code>curl https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllCustomQuestionsByAccount/<span class="o">{</span>CountryLanguageID<span class="o">}</span>?key<span class="o">={</span>APIKey<span class="o">}</span>
 </code></pre>
-<pre class="highlight plaintext"><code>require 'net/http'
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
 
-uri = URI('https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllCustomQuestionsByAccount/{CountryLanguageID}?key={APIKey}')
+<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllCustomQuestionsByAccount/{CountryLanguageID}?key={APIKey}'</span><span class="p">)</span>
 
-http = Net::HTTP.new(uri.host, uri.port)
+<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">uri</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
 
-http.use_ssl = true
+<span class="n">http</span><span class="p">.</span><span class="nf">use_ssl</span> <span class="o">=</span> <span class="kp">true</span>
 
-request = Net::HTTP::Get.new(uri.request_uri)
+<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">request_uri</span><span class="p">)</span>
 
-surveys = http.request(request) 
+<span class="n">surveys</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span> 
 </code></pre>
-<pre class="highlight plaintext"><code>&lt;?php
-$surveys = file_get_contents('https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}');
-?&gt;
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$surveys</span> <span class="o">=</span> <span class="nb">file_get_contents</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}'</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
 </code></pre>
-<pre class="highlight plaintext"><code>import requests
+<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-surveys = requests.get('https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}')
+<span class="n">surveys</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}'</span><span class="p">)</span>
 </code></pre>
 <pre class="highlight csharp"><code><span class="k">using</span> <span class="nn">System.Net</span><span class="p">;</span>
 
