@@ -235,6 +235,8 @@
 
 <h1 id="supply">Supply</h1>
 
+<p><a href="https://www.getpostman.com/run-collection/aca6db324b878ba8fd78"><img alt="Run in Postman" src="https://run.pstmn.io/button.png" /></a></p>
+
 <h1 id="surveys">Surveys</h1>
 
 <p>The Survey resource contains basic information about a survey opportunity posted by a sample buyer. More detailed information about who qualifies for the survey is contained in the <a href="#qualifications">Qualifications</a> and <a href="#quotas">Quotas</a> resources.</p>
@@ -523,7 +525,22 @@
 -X POST --data <span class="s1">'{"SupplierLinkTypeCode": "OWS", "TrackingTypeCode": "NONE"}'</span> <span class="se">\</span>
 https://api.samplicio.us/Supply/v1/SupplierLinks/Create/<span class="o">{</span>SurveyNumber<span class="o">}</span>/<span class="o">{</span>SupplierCode<span class="o">}</span>?key<span class="o">={</span>APIKey<span class="o">}</span>
 </code></pre>
-<pre class="highlight ruby"><code>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
+<span class="nb">require</span> <span class="s1">'json'</span>
+
+<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/SupplierLinks/Create/{SurveyNumber}/{SupplierCode}?key={APIKey}'</span><span class="p">)</span>
+
+<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">uri</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
+
+<span class="n">http</span><span class="p">.</span><span class="nf">use_ssl</span> <span class="o">=</span> <span class="kp">true</span>
+
+<span class="n">fullUriPath</span> <span class="o">=</span> <span class="n">uri</span><span class="p">.</span><span class="nf">path</span> <span class="o">+</span> <span class="s1">'?'</span> <span class="o">+</span> <span class="n">uri</span><span class="p">.</span><span class="nf">query</span>
+
+<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Post</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">fullUriPath</span><span class="p">,</span> <span class="n">initheader</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'Content-Type'</span> <span class="o">=&gt;</span><span class="s1">'application/json'</span><span class="p">})</span>
+
+<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="p">{</span><span class="no">SupplierLinkTypeCode</span><span class="ss">:"OWS"</span><span class="p">,</span><span class="no">TrackingTypeCode</span><span class="ss">:"NONE"</span><span class="p">}.</span><span class="nf">to_json</span>
+
+<span class="n">supplierLink</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
 </code></pre>
 <pre class="highlight php"><code>
 </code></pre>
@@ -537,7 +554,32 @@ https://api.samplicio.us/Supply/v1/SupplierLinks/Create/<span class="o">{</span>
 </code></pre>
 <pre class="highlight csharp"><code>
 </code></pre>
-<pre class="highlight javascript"><code>
+<pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'https'</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"POST"</span><span class="p">,</span>
+  <span class="s2">"hostname"</span><span class="p">:</span> <span class="s2">"api.samplicio.us"</span><span class="p">,</span>
+  <span class="s2">"port"</span><span class="p">:</span> <span class="mi">443</span><span class="p">,</span>
+  <span class="s2">"path"</span><span class="p">:</span> <span class="s2">"/Supply/v1/SupplierLinks/Create/{SurveyNumber}/{SupplierCode}?key={APIKey}"</span><span class="p">,</span>
+  <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span><span class="s1">'Content-Type'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">supplierLink</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">chunks</span> <span class="o">=</span> <span class="p">[];</span>
+
+  <span class="nx">supplierLink</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">"data"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">chunk</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">chunks</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">chunk</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="nx">supplierLink</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">"end"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">body</span> <span class="o">=</span> <span class="nx">Buffer</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="nx">chunks</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+
+<span class="nx">request</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">"{\n\t\"SupplierLinkTypeCode\": \"OWS\",\n\t\"TrackingTypeCode\": \"NONE\"\n}"</span><span class="p">);</span>
+
+<span class="nx">request</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>
 </code></pre>
 
 <blockquote>
@@ -570,7 +612,7 @@ https://api.samplicio.us/Supply/v1/SupplierLinks/Create/<span class="o">{</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="update-a-links">Update a Links</h2>
+<h2 id="update-a-link">Update a Link</h2>
 
 <h2 id="show-a-link">Show a Link</h2>
 
