@@ -129,9 +129,9 @@
 
 <h1 id="question-library">Question Library</h1>
 
-<h2 id="list-standard-qualifications">List Standard Qualifications</h2>
+<h2 id="list-standard-questions">List Standard Questions</h2>
 
-<h2 id="list-custom-qualifications">List Custom Qualifications</h2>
+<h2 id="list-custom-questions">List Custom Questions</h2>
 
 <blockquote>
 <p>Definition </p>
@@ -154,25 +154,25 @@
 
 <span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">request_uri</span><span class="p">)</span>
 
-<span class="n">customQuals</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span> 
+<span class="n">customQs</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span> 
 </code></pre>
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$customQuals</span> <span class="o">=</span> <span class="nb">file_get_contents</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}'</span><span class="p">);</span>
+<span class="nv">$customQs</span> <span class="o">=</span> <span class="nb">file_get_contents</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}'</span><span class="p">);</span>
 <span class="cp">?&gt;</span>
 </code></pre>
 <pre class="highlight python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">customQuals</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}'</span><span class="p">)</span>
+<span class="n">customQs</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}'</span><span class="p">)</span>
 </code></pre>
 <pre class="highlight csharp"><code><span class="k">using</span> <span class="nn">System.Net</span><span class="p">;</span>
 
 <span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}"</span><span class="p">);</span>
 
-<span class="n">WebResponse</span> <span class="n">customQuals</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">GetResponse</span><span class="p">();</span>
+<span class="n">WebResponse</span> <span class="n">customQs</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">GetResponse</span><span class="p">();</span>
 </code></pre>
 <pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'https'</span><span class="p">);</span>
 
-<span class="kd">var</span> <span class="nx">customQuals</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">customQs</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}'</span><span class="p">);</span>
 </code></pre>
 
 <blockquote>
@@ -209,7 +209,7 @@
 </span><span class="p">}</span><span class="w">    
 </span></code></pre>
 
-<p>Returns a list of custom qualifications associated with and created by your account for the specified country-language pair.</p>
+<p>Returns a list of custom questions associated with and created by your account for the specified country-language pair.</p>
 
 <h3 id="arguments">Arguments</h3>
 
@@ -225,7 +225,7 @@
 <td>CountryLanguageID</td>
 <td>int</td>
 <td>true</td>
-<td>Unique id associated with the country-language pair the qualification text applies to.</td>
+<td>Unique id associated with the country-language pair the question text applies to.</td>
 </tr>
 </tbody></table>
 
