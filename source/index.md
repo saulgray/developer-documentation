@@ -89,9 +89,100 @@ The Fulcrum API requires by default that all requests and responses be written i
 
 #Question Library
 
-##List Standard Qualifications
+##List Standard Questions
 
-##List Custom Qualifications
+##List Custom Questions
+
+> Definition 
+
+```plaintext
+GET  https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllCustomQuestionsByAccount/{CountryLanguageID}?key={APIKey}
+```
+> Example Request
+
+```shell
+curl https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllCustomQuestionsByAccount/{CountryLanguageID}?key={APIKey}
+```
+
+```ruby
+require 'net/http'
+
+uri = URI('https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllCustomQuestionsByAccount/{CountryLanguageID}?key={APIKey}')
+
+http = Net::HTTP.new(uri.host, uri.port)
+
+http.use_ssl = true
+
+request = Net::HTTP::Get.new(uri.request_uri)
+
+customQs = http.request(request) 
+```
+
+```php
+<?php
+$customQs = file_get_contents('https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}');
+?>
+```
+
+```python
+import requests
+
+customQs = requests.get('https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}')
+```
+```csharp
+using System.Net;
+
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}");
+
+WebResponse customQs = request.GetResponse();
+```
+```javascript
+const https = require('https');
+
+var customQs = https.get('https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}');
+```
+
+> Example Response
+
+```json 
+{
+  "ApiResult": 0,
+  "ApiResultCode": 0,
+  "ApiAccount": "Anon",
+  "AccountType": 2,
+  "ApiAccountStatus": 1,
+  "AccountCode": "AA",
+  "ApiMessages": [
+    "API Message: Response initialized.",
+    "API Message: GetAllQuestions successful."
+  ],
+  "ResultCount": 3,
+  "Questions": [
+    {
+      "__type": "PublicQuestionModel",
+      "IsCoreDemographic": false,
+      "IsFeasibilityFactor": false,
+      "LK_QuestionClassificationID": null,
+      "Name": "HHI",
+      "QuestionID": 51,
+      "QuestionText": "What is your annual household income before taxes?",
+      "QuestionType": "Single Punch",
+      "SurveyUse": 2,
+      "AccountID": 1
+    },
+    {...},
+    {...}
+  ]
+}    
+```
+
+Returns a list of custom questions associated with and created by your account for the specified country-language pair.
+
+### Arguments
+
+| Property                     | Type     | Required | Description                                                                                                                                  |
+|------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| CountryLanguageID            | int      | true     | Unique id associated with the country-language pair the question text applies to.                                                            |
 
 ##Show Question Text
 
@@ -111,7 +202,7 @@ The Survey resource contains basic information about a survey opportunity posted
 | SurveyNumber                 | int      | Unique number associated with the survey.                                                                                                               |
 | SurveySID                    | string   | Unique hash value (GUID) assoicated with the survey.                                                                                                    |
 | AccountName                  | string   | Name of the buyer running the survey.                                                                                                                   |
-| CountryLanguageID            | int      | ID of the country-language combination that the survey is open to.                                                                                      |
+| CountryLanguageID            | int      | Unique id associated with the country-language pair the survey is open to.                                                                              |
 | LengthOfInterview            | int      | Median time for a respondent to complete the survey excluding the Fulcrum prescreener in minutes.                                                       |
 | BidIncidence                 | double   | Estimated incidence rate of the survey as provided by the buyer.                                                                                        |
 | Conversion                   | int      | Percentage of respondents who complete the survey after qualifying.                                                                                     |
@@ -122,9 +213,9 @@ The Survey resource contains basic information about a survey opportunity posted
 | OverallCompletes             | int      | Number of completes already achieved.                                                                                                                   |
 | TotalRemaining               | int      | Number of completes still available.                                                                                                                    |
 | CompletionPercentage         | int      | Percentage of the survey that has filled in terms of completes.                                                                                         |
-| SurveyGroup                  | string   | Deprecated: Will return `null`. Instead use the SurveyGroupExists property.                                                                               |
-| SurveyGroupID                | int      | Deprecated: Will return `null`. If SurveyGroupExists is `true`, then [list the survey's groups](#list-a-survey’s-groups).                                   |
-| SurveyGroupExists            | int      | Indicates whether there is a survey group(s) associated with the survey. (0=`false`, 1=`true`)                                                              |
+| SurveyGroup                  | string   | Deprecated: Will return `null`. Instead use the SurveyGroupExists property.                                                                             |
+| SurveyGroupID                | int      | Deprecated: Will return `null`. If SurveyGroupExists is `true`, then [list the survey's groups](#list-a-survey’s-groups).                               |
+| SurveyGroupExists            | int      | Indicates whether there is a survey group(s) associated with the survey. (0=`false`, 1=`true`)                                                          |
 | BidLengthOfInterview         | int      | Estimated time for a respondent to complete the survey excluding the Fulcrum prescreener in minutes as provided by the buyer.                           |
 | TerminationLengthOfInterview | int      | Median time for a respondent to be termed in minutes.                                                                                                   |
 | IsTrueSample                 | string   | Indicates whether True Sample's Identity Validation feature is enabled for the study.                                                                   |
@@ -157,19 +248,19 @@ http.use_ssl = true
 
 request = Net::HTTP::Get.new(uri.request_uri)
 
-response = http.request(request)  
+surveys = http.request(request)  
 ```
 
 ```php
 <?php
-$request = file_get_contents('https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}');
+$surveys = file_get_contents('https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}');
 ?>
 ```
 
 ```python
 import requests
 
-request = requests.get('https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}')
+surveys = requests.get('https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}')
 ```
 
 ```csharp
@@ -177,13 +268,13 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}");
 
-WebResponse response = request.GetResponse();
+WebResponse surveys = request.GetResponse();
 ```
 
 ```javascript
 const https = require('https');
 
-https.get('https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}');
+var surveys = https.get('https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}');
 ```
 
 > Example Response
@@ -286,10 +377,44 @@ https://api.samplicio.us/Supply/v1/SupplierLinks/Create/{SurveyNumber}/{Supplier
 ```
 
 ```ruby
+require 'net/http'
+require 'json'
 
+uri = URI.parse('https://api.samplicio.us/Supply/v1/SupplierLinks/Create/{SurveyNumber}/{SupplierCode}?key={APIKey}')
+
+http = Net::HTTP.new(uri.host, uri.port)
+
+http.use_ssl = true
+
+fullUriPath = uri.path + '?' + uri.query
+
+request = Net::HTTP::Post.new(fullUriPath, initheader = {'Content-Type' =>'application/json'})
+
+request.body = {SupplierLinkTypeCode:"OWS",TrackingTypeCode:"NONE"}.to_json
+
+supplierLink = http.request(request)
 ```
 
 ```php
+<?php
+$curl = curl_init();
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL => "https://stg-api.samplicio.us/Supply/v1/SupplierLinks/Create/94525/196?key=YOUR_API_KEY_HERE",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => "",
+  CURLOPT_HTTPHEADER => array('Content-Type: application/json'),
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => "POST",
+  CURLOPT_POSTFIELDS => "{\n\t\"SupplierLinkTypeCode\": \"OWS\",\n\t\"TrackingTypeCode\": \"NONE\"\n}",
+));
+
+$supplierLink = curl_exec($curl);
+
+curl_close($curl);
+?>
 
 ```
 
@@ -304,11 +429,52 @@ request = requests.post(url, data=json.dumps(data), headers=headers)
 ```
 
 ```csharp
+using System.IO;
+using System.Net;
+using System.Text;
 
+WebRequest request = WebRequest.Create(https://api.samplicio.us/Supply/v1/SupplierLinks/Create/{SurveyNumber}/{SupplierCode}?key={APIKey}");
+
+string params = "{\"SupplierLinkTypeCode\":\"OWS\","+"\"TrackingTypeCode\":\"NONE\"}";
+    
+request.Method = "POST";
+request.ContentType = "application/json";
+
+StreamWriter streamWriter = new StreamWriter(request.GetRequestStream());
+streamWriter.Write(params);
+streamWriter.Flush();
+streamWriter.Close();
+
+WebResponse supplierLink = request.GetResponse();
 ```
 
 ```javascript
+const https = require('https');
 
+var options = {
+  "method": "POST",
+  "hostname": "api.samplicio.us",
+  "port": 443,
+  "path": "/Supply/v1/SupplierLinks/Create/{SurveyNumber}/{SupplierCode}?key={APIKey}",
+  "headers": {'Content-Type': 'application/json'}
+};
+
+var request = https.request(options, function (supplierLink) {
+  var chunks = [];
+
+  supplierLink.on("data", function (chunk) {
+    chunks.push(chunk);
+  });
+
+  supplierLink.on("end", function () {
+    var body = Buffer.concat(chunks);
+    console.log(body.toString());
+  });
+});
+
+request.write("{\n\t\"SupplierLinkTypeCode\": \"OWS\",\n\t\"TrackingTypeCode\": \"NONE\"\n}");
+
+request.end();
 ```
 
 > Example Response
@@ -405,7 +571,7 @@ request = requests.post(url, data=json.dumps(data), headers=headers)
 
 ##Add to a Group
 
-##Show a Group
+##List a Survey's Groups
 
 ##Remove from a Group
 
@@ -466,9 +632,11 @@ DELETE  http://stg-api.samplicio.us/Demand/v1/SupplierAllocations/Delete/{Survey
 
 ##Show Completes per Day
 
-#Recruits
+#Recontact
 
 ##List Qualified Respondents
+
+##Update Qualified Respondents
 
 #Guides
 
