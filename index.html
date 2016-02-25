@@ -131,6 +131,100 @@
 
 <h2 id="list-standard-questions">List Standard Questions</h2>
 
+<blockquote>
+<p>Definition </p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET  https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllQuestions/{CountryLanguageID}?key={APIKey}
+</code></pre>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllQuestions/<span class="o">{</span>CountryLanguageID<span class="o">}</span>?key<span class="o">={</span>APIKey<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
+
+<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllQuestions/{CountryLanguageID}?key={APIKey}'</span><span class="p">)</span>
+
+<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">uri</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
+
+<span class="n">http</span><span class="p">.</span><span class="nf">use_ssl</span> <span class="o">=</span> <span class="kp">true</span>
+
+<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">request_uri</span><span class="p">)</span>
+
+<span class="n">customQs</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span> 
+</code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$customQs</span> <span class="o">=</span> <span class="nb">file_get_contents</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllQuestions/{CountryLanguageID}?key={APIKey}'</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">customQs</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllQuestions/{CountryLanguageID}?key={APIKey}'</span><span class="p">)</span>
+</code></pre>
+<pre class="highlight csharp"><code><span class="k">using</span> <span class="nn">System.Net</span><span class="p">;</span>
+
+<span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllQuestions/{CountryLanguageID}?key={APIKey}"</span><span class="p">);</span>
+
+<span class="n">WebResponse</span> <span class="n">customQs</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">GetResponse</span><span class="p">();</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'https'</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">customQs</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllQuestions/{CountryLanguageID}?key={APIKey}'</span><span class="p">);</span>
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"ApiResult"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiResultCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiAccount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Anon"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"AccountType"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiAccountStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"AccountCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AA"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiMessages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"API Message: Response initialized."</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"API Message: GetAllQuestions successful."</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"ResultCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Questions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"IsCoreDemographic"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsFeasibilityFactor"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"LK_QuestionClassificationID"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AGE"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"QuestionID"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"QuestionText"</span><span class="p">:</span><span class="w"> </span><span class="s2">"What is your age?"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"QuestionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Numeric - Open-end"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"SurveyUse"</span><span class="p">:</span><span class="w"> </span><span class="mi">8162</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="err">...</span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="err">...</span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">    
+</span></code></pre>
+
+<p>Returns a list of all Standard Qualifications and question texts for the specified country-language pair.</p>
+
+<h3 id="arguments">Arguments</h3>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>CountryLanguageID</td>
+<td>int</td>
+<td>true</td>
+<td>Unique id associated with the country-language pair the question text applies to.</td>
+</tr>
+</tbody></table>
+
 <h2 id="list-custom-questions">List Custom Questions</h2>
 
 <blockquote>
@@ -157,22 +251,22 @@
 <span class="n">customQs</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span> 
 </code></pre>
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$customQs</span> <span class="o">=</span> <span class="nb">file_get_contents</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}'</span><span class="p">);</span>
+<span class="nv">$customQs</span> <span class="o">=</span> <span class="nb">file_get_contents</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/QuestionLibrary/AllCustomQuestionsByAccount/{CountryLanguageID}?key={APIKey}'</span><span class="p">);</span>
 <span class="cp">?&gt;</span>
 </code></pre>
 <pre class="highlight python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">customQs</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}'</span><span class="p">)</span>
+<span class="n">customQs</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://api.samplicio.us/QuestionLibrary/AllCustomQuestionsByAccount/{CountryLanguageID}?key={APIKey}'</span><span class="p">)</span>
 </code></pre>
 <pre class="highlight csharp"><code><span class="k">using</span> <span class="nn">System.Net</span><span class="p">;</span>
 
-<span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}"</span><span class="p">);</span>
+<span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/QuestionLibrary/AllCustomQuestionsByAccount/{CountryLanguageID}?key={APIKey}"</span><span class="p">);</span>
 
 <span class="n">WebResponse</span> <span class="n">customQs</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">GetResponse</span><span class="p">();</span>
 </code></pre>
 <pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'https'</span><span class="p">);</span>
 
-<span class="kd">var</span> <span class="nx">customQs</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">customQs</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/QuestionLibrary/AllCustomQuestionsByAccount/{CountryLanguageID}?key={APIKey}'</span><span class="p">);</span>
 </code></pre>
 
 <blockquote>
