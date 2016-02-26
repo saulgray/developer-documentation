@@ -26,6 +26,7 @@ includes:
   - lookup/question-library
   - supply/introduction
   - supply/surveys
+  - supply/groups
   - supply/qualifications
   - supply/quotas
   - supply/entry-links
