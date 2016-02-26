@@ -638,7 +638,7 @@ https://api.samplicio.us/Supply/v1/SupplierLinks/Create/<span class="o">{</span>
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://stg-api.samplicio.us/Supply/v1/SupplierLinks/Create/94525/196?key=***REMOVED***"</span><span class="p">,</span>
+  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://api.samplicio.us/Supply/v1/SupplierLinks/Create/</span><span class="si">{</span><span class="nv">SurveyNumber}/{SupplierCode}?key={APIKey</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
   <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
   <span class="nx">CURLOPT_ENCODING</span> <span class="o">=&gt;</span> <span class="s2">""</span><span class="p">,</span>
   <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">'Content-Type: application/json'</span><span class="p">),</span>
@@ -661,14 +661,14 @@ https://api.samplicio.us/Supply/v1/SupplierLinks/Create/<span class="o">{</span>
 <span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s">'SupplierLinkTypeCode'</span><span class="p">:</span><span class="s">'OWS'</span><span class="p">,</span><span class="s">'TrackingTypeCode'</span><span class="p">:</span><span class="s">'NONE'</span><span class="p">}</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Content-type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span> <span class="s">'Accept'</span><span class="p">:</span> <span class="s">'text/plain'</span><span class="p">}</span>
 
-<span class="n">request</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="n">supplierLink</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">params</span><span class="p">),</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
 </code></pre>
 <pre class="highlight csharp"><code><span class="k">using</span> <span class="nn">System.IO</span><span class="p">;</span>
 <span class="k">using</span> <span class="nn">System.Net</span><span class="p">;</span>
 <span class="k">using</span> <span class="nn">System.Text</span><span class="p">;</span>
 
-<span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="n">https</span><span class="p">:</span><span class="c1">//api.samplicio.us/Supply/v1/SupplierLinks/Create/{SurveyNumber}/{SupplierCode}?key={APIKey}");
-</span>
+<span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Supply/v1/SupplierLinks/Create/{SurveyNumber}/{SupplierCode}?key={APIKey}"</span><span class="p">);</span>
+
 <span class="kt">string</span> <span class="k">params</span> <span class="p">=</span> <span class="s">"{\"SupplierLinkTypeCode\":\"OWS\","</span><span class="p">+</span><span class="s">"\"TrackingTypeCode\":\"NONE\"}"</span><span class="p">;</span>
 
 <span class="n">request</span><span class="p">.</span><span class="n">Method</span> <span class="p">=</span> <span class="s">"POST"</span><span class="p">;</span>
