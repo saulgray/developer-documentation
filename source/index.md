@@ -91,6 +91,95 @@ The Fulcrum API requires by default that all requests and responses be written i
 
 ##List Standard Questions
 
+> Definition 
+
+```plaintext
+GET  https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllQuestions/{CountryLanguageID}?key={APIKey}
+```
+> Example Request
+
+```shell
+curl https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllQuestions/{CountryLanguageID}?key={APIKey}
+```
+
+```ruby
+require 'net/http'
+
+uri = URI('https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllQuestions/{CountryLanguageID}?key={APIKey}')
+
+http = Net::HTTP.new(uri.host, uri.port)
+
+http.use_ssl = true
+
+request = Net::HTTP::Get.new(uri.request_uri)
+
+standardQs = http.request(request) 
+```
+
+```php
+<?php
+$standardQs = file_get_contents('https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllQuestions/{CountryLanguageID}?key={APIKey}');
+?>
+```
+
+```python
+import requests
+
+standardQs = requests.get('https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllQuestions/{CountryLanguageID}?key={APIKey}')
+```
+```csharp
+using System.Net;
+
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllQuestions/{CountryLanguageID}?key={APIKey}");
+
+WebResponse standardQs = request.GetResponse();
+```
+```javascript
+const https = require('https');
+
+var standardQs = https.get('https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllQuestions/{CountryLanguageID}?key={APIKey}');
+```
+
+> Example Response
+
+```json 
+{
+  "ApiResult": 0,
+  "ApiResultCode": 0,
+  "ApiAccount": "Anon",
+  "AccountType": 2,
+  "ApiAccountStatus": 1,
+  "AccountCode": "AA",
+  "ApiMessages": [
+    "API Message: Response initialized.",
+    "API Message: GetAllQuestions successful."
+  ],
+  "ResultCount": 3,
+  "Questions": [
+    {
+      "IsCoreDemographic": true,
+      "IsFeasibilityFactor": true,
+      "LK_QuestionClassificationID": 8,
+      "Name": "AGE",
+      "QuestionID": 42,
+      "QuestionText": "What is your age?",
+      "QuestionType": "Numeric - Open-end",
+      "SurveyUse": 8162
+    },
+    {...},
+    {...}
+  ]
+}    
+```
+
+Returns a list of all Standard Questions and question texts for the specified country-language pair.
+
+### Arguments
+
+| Property                     | Type     | Required | Description                                                                                                                                  |
+|------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| CountryLanguageID            | int      | true     | Unique id associated with the country-language pair the question text applies to.                                                            |
+
 ##List Custom Questions
 
 > Definition 
@@ -120,26 +209,26 @@ customQs = http.request(request)
 
 ```php
 <?php
-$customQs = file_get_contents('https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}');
+$customQs = file_get_contents('https://api.samplicio.us/Supply/v1/QuestionLibrary/AllCustomQuestionsByAccount/{CountryLanguageID}?key={APIKey}');
 ?>
 ```
 
 ```python
 import requests
 
-customQs = requests.get('https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}')
+customQs = requests.get('https://api.samplicio.us/QuestionLibrary/AllCustomQuestionsByAccount/{CountryLanguageID}?key={APIKey}')
 ```
 ```csharp
 using System.Net;
 
-WebRequest request = WebRequest.Create("https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}");
+WebRequest request = WebRequest.Create("https://api.samplicio.us/QuestionLibrary/AllCustomQuestionsByAccount/{CountryLanguageID}?key={APIKey}");
 
 WebResponse customQs = request.GetResponse();
 ```
 ```javascript
 const https = require('https');
 
-var customQs = https.get('https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}');
+var customQs = https.get('https://api.samplicio.us/QuestionLibrary/AllCustomQuestionsByAccount/{CountryLanguageID}?key={APIKey}');
 ```
 
 > Example Response
@@ -400,7 +489,7 @@ supplierLink = http.request(request)
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "https://stg-api.samplicio.us/Supply/v1/SupplierLinks/Create/94525/196?key=YOUR_API_KEY_HERE",
+  CURLOPT_URL => "https://api.samplicio.us/Supply/v1/SupplierLinks/Create/{SurveyNumber}/{SupplierCode}?key={APIKey}",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
   CURLOPT_HTTPHEADER => array('Content-Type: application/json'),
@@ -425,7 +514,7 @@ url = 'https://api.samplicio.us/Supply/v1/SupplierLinks/Create/{SurveyNumber}/{S
 params = {'SupplierLinkTypeCode':'OWS','TrackingTypeCode':'NONE'}
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
-request = requests.post(url, data=json.dumps(data), headers=headers)
+supplierLink = requests.post(url, data=json.dumps(params), headers=headers)
 ```
 
 ```csharp
@@ -433,7 +522,7 @@ using System.IO;
 using System.Net;
 using System.Text;
 
-WebRequest request = WebRequest.Create(https://api.samplicio.us/Supply/v1/SupplierLinks/Create/{SurveyNumber}/{SupplierCode}?key={APIKey}");
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Supply/v1/SupplierLinks/Create/{SurveyNumber}/{SupplierCode}?key={APIKey}");
 
 string params = "{\"SupplierLinkTypeCode\":\"OWS\","+"\"TrackingTypeCode\":\"NONE\"}";
     
