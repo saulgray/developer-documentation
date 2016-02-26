@@ -7,6 +7,7 @@ language_tabs:
   - php : PHP
   - python : Python
   - csharp : C#
+  - javascript : Node.js
 
 toc_footers:
   - <a href='https://luc.id/fulcrum/'>Get access to Fulcrum APIs</a>
