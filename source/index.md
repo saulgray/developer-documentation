@@ -728,7 +728,9 @@ requests.delete('http://api.samplicio.us/Demand/v1/SupplierAllocations/Delete/{S
 using System.Net; 
 
 WebRequest request = WebRequest.Create("http://api.samplicio.us/Demand/v1/SupplierAllocations/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}");
+
 request.Method = "DELETE";
+
 request.GetResponse();
 ```
 
@@ -742,9 +744,9 @@ var options = {
   "path": "/Demand/v1/SupplierAllocations/Delete/66900/196?key=***REMOVED***",
   "headers": {}
 };
-// Makes a request to a secure web server.
+
 var request = https.request(options);
-// Finishes sending the request.
+
 request.end();
 ```
 
