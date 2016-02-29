@@ -63,9 +63,10 @@ import requests, json
 
 url = 'https://api.samplicio.us/Supply/v1/SupplierLinks/Create/{SurveyNumber}/{SupplierCode}?key={APIKey}'
 params = {'SupplierLinkTypeCode':'OWS','TrackingTypeCode':'NONE'}
+data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
-supplierLink = requests.post(url, data=json.dumps(params), headers=headers)
+supplierLink = requests.post(url, data=data, headers=headers)
 ```
 
 ```csharp
@@ -79,10 +80,12 @@ string params = "{\"SupplierLinkTypeCode\":\"OWS\","+"\"TrackingTypeCode\":\"NON
 request.Method = "POST";
 request.ContentType = "application/json";
 
-StreamWriter streamWriter = new StreamWriter(request.GetRequestStream());
+using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
+{
 streamWriter.Write(params);
 streamWriter.Flush();
 streamWriter.Close();
+}
 
 WebResponse supplierLink = request.GetResponse();
 ```
@@ -202,10 +205,11 @@ curl_close($curl);
 import requests, json
 
 url = 'https://api.samplicio.us/Supply/v1/SupplierLinks/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}'
-payload = {'SupplierLinkTypeCode':'OWS','TrackingTypeCode':'NONE','DefaultLink':'','SuccessLink':'','FailureLink':'','OverQuotaLink':'','QualityTerminationLink':''}
+params = {'SupplierLinkTypeCode':'OWS','TrackingTypeCode':'NONE','DefaultLink':'','SuccessLink':'','FailureLink':'','OverQuotaLink':'','QualityTerminationLink':''}
+data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
-updatedSupplierLink = requests.put(url, data=json.dumps(payload), headers=headers)
+updatedSupplierLink = requests.put(url, data=data, headers=headers)
 ```
 
 ```csharp
@@ -219,10 +223,12 @@ string params = "{\"SupplierLinkTypeCode\":\"OWS\","+"\"TrackingTypeCode\":\"NON
 request.Method = "PUT";
 request.ContentType = "application/json";
 
-StreamWriter streamWriter = new StreamWriter(request.GetRequestStream());
-streamWriter.Write(params);
-streamWriter.Flush();
-streamWriter.Close();
+using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
+        {
+            streamWriter.Write(params);
+            streamWriter.Flush();
+            streamWriter.Close();
+        }
 
 WebResponse updatedSupplierLink = request.GetResponse();
 ```
