@@ -149,7 +149,9 @@ Returns a list of all live survey opportunities available through the Exchange f
 #Allocations
 
 ##List Allocated Surveys
+Windows is cranky.
 
 ##Show an Allocated Survey
+Windows is cranky.
 
 ##List Recently Allocated Surveys
