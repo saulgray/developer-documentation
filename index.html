@@ -201,7 +201,198 @@
 
 <h2 id="list-suppliers">List Suppliers</h2>
 
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET  https://api.samplicio.us/Core/v1/Suppliers/AllWithAccount?key={APIKey}
+</code></pre>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl https://api.samplicio.us/Core/v1/Suppliers/AllWithAccount?key<span class="o">={</span>APIKey<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
+
+<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Core/v1/Suppliers/AllWithAccount?key={APIKey}'</span><span class="p">)</span>
+
+<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">uri</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
+
+<span class="n">http</span><span class="p">.</span><span class="nf">use_ssl</span> <span class="o">=</span> <span class="kp">true</span>
+
+<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">request_uri</span><span class="p">)</span>
+
+<span class="n">customQs</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span> 
+</code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$customQs</span> <span class="o">=</span> <span class="nb">file_get_contents</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Core/v1/Suppliers/AllWithAccount?key={APIKey}'</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">customQs</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://api.samplicio.us/Core/v1/Suppliers/AllWithAccount?key={APIKey}'</span><span class="p">)</span>
+</code></pre>
+<pre class="highlight csharp"><code><span class="k">using</span> <span class="nn">System.Net</span><span class="p">;</span>
+
+<span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Core/v1/Suppliers/AllWithAccount?key={APIKey}"</span><span class="p">);</span>
+
+<span class="n">WebResponse</span> <span class="n">customQs</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">GetResponse</span><span class="p">();</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'https'</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">customQs</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Core/v1/Suppliers/AllWithAccount?key={APIKey}'</span><span class="p">);</span>
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"ApiResult"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiResultCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiAccount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AA"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"AccountType"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiAccountStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"AccountCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AA"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiMessages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"API Message: Response initialized."</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"API Message: GetAllSuppliersGroupedByAccount successful."</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"ResultCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"AccountsWithSuppliers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"AccountName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Federated Sample"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Suppliers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Federated Sample"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1010"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Premium Survey Solutions"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1010"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fed_Test_Supplier"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1010"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Federated Offers"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1010"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"AccountName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Duration"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Suppliers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Duration Inc"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1010"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Duration Singapore Pte Ltd"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1010"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Duration Manila"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1010"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ARF_Router"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1010"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"AccountName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vision Critical"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Suppliers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Springboard America"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1010"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Springboard UK"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1010"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vision Critical"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1010"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+</span></code></pre>
+
+<p>Returns a list of all available suppliers.</p>
+
 <h2 id="list-business-units">List Business Units</h2>
+
+<blockquote>
+<p>Definition </p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET  https://api.samplicio.us/Core/v1/BusinessUnits/All?key={APIKey}
+</code></pre>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl https://api.samplicio.us/Core/v1/BusinessUnits/All?key<span class="o">={</span>APIKey<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
+
+<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Core/v1/BusinessUnits/All?key={APIKey}'</span><span class="p">)</span>
+
+<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">uri</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
+
+<span class="n">http</span><span class="p">.</span><span class="nf">use_ssl</span> <span class="o">=</span> <span class="kp">true</span>
+
+<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">request_uri</span><span class="p">)</span>
+
+<span class="n">standardQs</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span> 
+</code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$standardQs</span> <span class="o">=</span> <span class="nb">file_get_contents</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Core/v1/BusinessUnits/All?key={APIKey}'</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">standardQs</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://api.samplicio.us/Core/v1/BusinessUnits/All?key={APIKey}'</span><span class="p">)</span>
+</code></pre>
+<pre class="highlight csharp"><code><span class="k">using</span> <span class="nn">System.Net</span><span class="p">;</span>
+
+<span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Core/v1/BusinessUnits/All?key={APIKey}"</span><span class="p">);</span>
+
+<span class="n">WebResponse</span> <span class="n">standardQs</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">GetResponse</span><span class="p">();</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'https'</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">standardQs</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Core/v1/BusinessUnits/All?key={APIKey}'</span><span class="p">);</span>
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="nt">"ApiResult"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiResultCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiAccount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fulcrum"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"AccountType"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiAccountStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"AccountCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AA"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiMessages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"API Message: Response initialized."</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"API Message: GetAllBusinessUnits successful."</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"ResultCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"BusinessUnits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"AccountID"</span><span class="p">:</span><span class="w"> </span><span class="mi">111</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"111"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fulcrum"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span><span class="err">Returns</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">list</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">all</span><span class="w"> </span><span class="err">Business</span><span class="w"> </span><span class="err">Units.</span><span class="w">
+</span></code></pre>
 
           <h1 id="question-library">Question Library</h1>
 
@@ -660,7 +851,11 @@
 
 <h2 id="list-allocated-surveys">List Allocated Surveys</h2>
 
+<p>Windows is cranky.</p>
+
 <h2 id="show-an-allocated-survey">Show an Allocated Survey</h2>
+
+<p>Windows is cranky.</p>
 
 <h2 id="list-recently-allocated-surveys">List Recently Allocated Surveys</h2>
 
@@ -735,9 +930,10 @@ https://api.samplicio.us/Supply/v1/SupplierLinks/Create/<span class="o">{</span>
 
 <span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.samplicio.us/Supply/v1/SupplierLinks/Create/{SurveyNumber}/{SupplierCode}?key={APIKey}'</span>
 <span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s">'SupplierLinkTypeCode'</span><span class="p">:</span><span class="s">'OWS'</span><span class="p">,</span><span class="s">'TrackingTypeCode'</span><span class="p">:</span><span class="s">'NONE'</span><span class="p">}</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Content-type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span> <span class="s">'Accept'</span><span class="p">:</span> <span class="s">'text/plain'</span><span class="p">}</span>
 
-<span class="n">supplierLink</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">params</span><span class="p">),</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="n">supplierLink</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
 </code></pre>
 <pre class="highlight csharp"><code><span class="k">using</span> <span class="nn">System.IO</span><span class="p">;</span>
 <span class="k">using</span> <span class="nn">System.Net</span><span class="p">;</span>
@@ -749,10 +945,12 @@ https://api.samplicio.us/Supply/v1/SupplierLinks/Create/<span class="o">{</span>
 <span class="n">request</span><span class="p">.</span><span class="n">Method</span> <span class="p">=</span> <span class="s">"POST"</span><span class="p">;</span>
 <span class="n">request</span><span class="p">.</span><span class="n">ContentType</span> <span class="p">=</span> <span class="s">"application/json"</span><span class="p">;</span>
 
-<span class="n">StreamWriter</span> <span class="n">streamWriter</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">StreamWriter</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="nf">GetRequestStream</span><span class="p">());</span>
+<span class="k">using</span><span class="p">(</span><span class="n">StreamWriter</span> <span class="n">streamWriter</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">StreamWriter</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="nf">GetRequestStream</span><span class="p">()))</span>
+<span class="p">{</span>
 <span class="n">streamWriter</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="k">params</span><span class="p">);</span>
 <span class="n">streamWriter</span><span class="p">.</span><span class="nf">Flush</span><span class="p">();</span>
 <span class="n">streamWriter</span><span class="p">.</span><span class="nf">Close</span><span class="p">();</span>
+<span class="p">}</span>
 
 <span class="n">WebResponse</span> <span class="n">supplierLink</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">GetResponse</span><span class="p">();</span>
 </code></pre>
@@ -864,10 +1062,11 @@ https://api.samplicio.us/Supply/v1/SupplierLinks/Create/<span class="o">{</span>
 <pre class="highlight python"><code><span class="kn">import</span> <span class="nn">requests</span><span class="o">,</span> <span class="nn">json</span>
 
 <span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.samplicio.us/Supply/v1/SupplierLinks/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}'</span>
-<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">'SupplierLinkTypeCode'</span><span class="p">:</span><span class="s">'OWS'</span><span class="p">,</span><span class="s">'TrackingTypeCode'</span><span class="p">:</span><span class="s">'NONE'</span><span class="p">,</span><span class="s">'DefaultLink'</span><span class="p">:</span><span class="s">''</span><span class="p">,</span><span class="s">'SuccessLink'</span><span class="p">:</span><span class="s">''</span><span class="p">,</span><span class="s">'FailureLink'</span><span class="p">:</span><span class="s">''</span><span class="p">,</span><span class="s">'OverQuotaLink'</span><span class="p">:</span><span class="s">''</span><span class="p">,</span><span class="s">'QualityTerminationLink'</span><span class="p">:</span><span class="s">''</span><span class="p">}</span>
+<span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s">'SupplierLinkTypeCode'</span><span class="p">:</span><span class="s">'OWS'</span><span class="p">,</span><span class="s">'TrackingTypeCode'</span><span class="p">:</span><span class="s">'NONE'</span><span class="p">,</span><span class="s">'DefaultLink'</span><span class="p">:</span><span class="s">''</span><span class="p">,</span><span class="s">'SuccessLink'</span><span class="p">:</span><span class="s">''</span><span class="p">,</span><span class="s">'FailureLink'</span><span class="p">:</span><span class="s">''</span><span class="p">,</span><span class="s">'OverQuotaLink'</span><span class="p">:</span><span class="s">''</span><span class="p">,</span><span class="s">'QualityTerminationLink'</span><span class="p">:</span><span class="s">''</span><span class="p">}</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Content-type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span> <span class="s">'Accept'</span><span class="p">:</span> <span class="s">'text/plain'</span><span class="p">}</span>
 
-<span class="n">updatedSupplierLink</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">payload</span><span class="p">),</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="n">updatedSupplierLink</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
 </code></pre>
 <pre class="highlight csharp"><code><span class="k">using</span> <span class="nn">System.IO</span><span class="p">;</span>
 <span class="k">using</span> <span class="nn">System.Net</span><span class="p">;</span>
@@ -879,10 +1078,12 @@ https://api.samplicio.us/Supply/v1/SupplierLinks/Create/<span class="o">{</span>
 <span class="n">request</span><span class="p">.</span><span class="n">Method</span> <span class="p">=</span> <span class="s">"PUT"</span><span class="p">;</span>
 <span class="n">request</span><span class="p">.</span><span class="n">ContentType</span> <span class="p">=</span> <span class="s">"application/json"</span><span class="p">;</span>
 
-<span class="n">StreamWriter</span> <span class="n">streamWriter</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">StreamWriter</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="nf">GetRequestStream</span><span class="p">());</span>
-<span class="n">streamWriter</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="k">params</span><span class="p">);</span>
-<span class="n">streamWriter</span><span class="p">.</span><span class="nf">Flush</span><span class="p">();</span>
-<span class="n">streamWriter</span><span class="p">.</span><span class="nf">Close</span><span class="p">();</span>
+<span class="k">using</span><span class="p">(</span><span class="n">StreamWriter</span> <span class="n">streamWriter</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">StreamWriter</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="nf">GetRequestStream</span><span class="p">()))</span>
+        <span class="p">{</span>
+            <span class="n">streamWriter</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="k">params</span><span class="p">);</span>
+            <span class="n">streamWriter</span><span class="p">.</span><span class="nf">Flush</span><span class="p">();</span>
+            <span class="n">streamWriter</span><span class="p">.</span><span class="nf">Close</span><span class="p">();</span>
+        <span class="p">}</span>
 
 <span class="n">WebResponse</span> <span class="n">updatedSupplierLink</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">GetResponse</span><span class="p">();</span>
 </code></pre>
