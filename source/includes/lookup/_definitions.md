@@ -2,6 +2,181 @@
 
 ##List Global Definitions
 
+> Definition
+
+```plaintext
+GET  http://api.samplicio.us/Lookup/v1/BasicLookups/BundledLookups/CountryLanguages,Industries,SampleTypes,StudyTypes,SupplierLinkTypes,SurveyStatuses?key={APIKey}
+```
+> Example Request
+
+```shell
+curl https://api.samplicio.us/Lookup/v1/BasicLookups/BundledLookups/CountryLanguages,Industries,SampleTypes,StudyTypes,SupplierLinkTypes,SurveyStatuses?key={APIKey}
+```
+
+```ruby
+require 'net/http'
+
+uri = URI('https://api.samplicio.us/Lookup/v1/BasicLookups/BundledLookups/CountryLanguages,Industries,SampleTypes,StudyTypes,SupplierLinkTypes,SurveyStatuses?key={APIKey}')
+
+http = Net::HTTP.new(uri.host, uri.port)
+
+http.use_ssl = true
+
+request = Net::HTTP::Get.new(uri.request_uri)
+
+globalDefinitions = http.request(request) 
+```
+
+```php
+<?php
+$globalDefinitions = file_get_contents('https://api.samplicio.us/Lookup/v1/BasicLookups/BundledLookups/CountryLanguages,Industries,SampleTypes,StudyTypes,SupplierLinkTypes,SurveyStatuses?key={APIKey}');
+?>
+```
+
+```python
+import requests
+
+globalDefinitions = requests.get('https://api.samplicio.us/Lookup/v1/BasicLookups/BundledLookups/CountryLanguages,Industries,SampleTypes,StudyTypes,SupplierLinkTypes,SurveyStatuses?key={APIKey}')
+```
+```csharp
+using System.Net;
+
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Lookup/v1/BasicLookups/BundledLookups/CountryLanguages,Industries,SampleTypes,StudyTypes,SupplierLinkTypes,SurveyStatuses?key={APIKey}");
+
+WebResponse globalDefinitions = request.GetResponse();
+```
+```javascript
+const https = require('https');
+
+var globalDefinitions = https.get('https://api.samplicio.us/Lookup/v1/BasicLookups/BundledLookups/CountryLanguages,Industries,SampleTypes,StudyTypes,SupplierLinkTypes,SurveyStatuses?key={APIKey}');
+```
+
+> Example Response
+
+```json 
+{
+  "ApiResult": 0,
+  "ApiResultCode": 0,
+  "ApiAccount": "Anon",
+  "AccountType": 2,
+  "ApiAccountStatus": 1,
+  "AccountCode": "AA",
+  "ApiMessages": [
+    "API Message: Response initialized.",
+    "API Message: GetBundledLookups successful."
+  ],
+  "ResultCount": 6,
+  "AllBidProbabilities": [],
+  "AllBidStatuses": [],
+  "AllCategoryLockOutDurations": [],
+  "AllCountries": [],
+  "AllCountryLanguages": [
+  {
+      "Code": "CHI-CN",
+      "Id": "1",
+      "IsActive": true,
+      "Name": "Chinese Simplified - China",
+      "SortOrder": 1
+    },
+  ],
+  "AllIndustries": [
+  {
+      "Code": "AUTO",
+      "Id": "1",
+      "IsActive": true,
+      "Name": "Automotive",
+      "SortOrder": 1
+    },
+  ]
+  "AllProposalTypes": [],
+  "AllQuestionClassifications": [],
+  "AllSampleTypes": [
+  {
+      "Code": "Consumer",
+      "Id": "100",
+      "IsActive": true,
+      "Name": "Consumer",
+      "SortOrder": 1
+    },
+  ],
+  "AllStudyTypes": [
+  {
+      "Code": "ADH",
+      "Id": "1",
+      "IsActive": true,
+      "Name": "Adhoc",
+      "SortOrder": 1
+    },
+  ],
+  "AllSupplierLinkTypes": [
+  {
+      "Code": "TS",
+      "Id": "1",
+      "IsActive": true,
+      "Name": "Targeted / Standalone",
+      "SortOrder": 1
+    },
+  ],
+  "AllSupplierPreferenceTypes": [],
+  "AllSupplierRequestStatuses": [],
+  "AllSupplierTrackingUrlTypes": [],
+  "AllSurveyPlatforms": [],
+  "AllSurveyStatuses": [
+  {
+      "Code": "02",
+      "Id": "1",
+      "IsActive": true,
+      "Name": "Pending",
+      "SortOrder": 1
+    },
+  ],
+  "AllThirdPartyServices": []
+  }
+
+```
+
+Returns a list of available global system definitions. Arguments can be passed individually or in aggregate, with arguments separated by a comma. One argument must be provided at minimum.  
+
+<aside class="notice">Only some of these should be checked regularly for updates and modifications, namely CountryLanguages, Industries, and SupplierLinkTypes.</aside>
+
+### Arguments
+
+| Property                     | Type     | Required | Description                                                                                                                                  |
+|------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| Countries 	               | string   | false    | Array of all countries available.      
+|------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| CountryLanguages             | string   | false    | Array of all Country-Language pairs by ID.      
+|------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| Industries	               | string   | false    | Array of all options for industry type.      
+|------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| SampleTypes	               | string   | false    | Array of all types of sample that buyers can field on the platform.      
+|------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| StudyTypes	               | string   | false    | Array of all types of studies buyers can field on the platform.      
+|------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| SupplierLinkTypes            | string   | false    | Array of all link types suppliers can use to send sample.      
+|------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| SurveyStatuses               | string   | false    | Array of all possible survey statuses on the platform.      
+|------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| BidProbabilities             | string   | false    | Array of all probabilities of a bid being awarded (Low, Med, High).      
+|------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| BidStatuses	               | string   | false    | Array of all possible statuses for a bid.      
+|------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| ProposalTypes                | string   | false    | Array of all possible proposal types.      
+|------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| CategoryLockOutDurations     | string   | false    | Array of all possible lockout times.      
+|------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| QuestionClassifications      | string   | false    | Array of all question categories on the platform. 
+|------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| SupplierPreferenceTypes      | string   | false    | Array of all possible preferences a supplier can communicate. 
+|------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| SupplierRequestStatuses      | string   | false    | Array of all tracking methods a supplier can use to track a respondent's status. 
+|------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| SurveyPlatforms	       | string   | false    | Array of survey platforms users may be sending to or from. 
+|------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| ThirdPartyServices	       | string   | false    | Array of all Third Party Services available on the platform. 
+
+
+
 ##List Suppliers
 
 > Definition
@@ -26,31 +201,31 @@ http.use_ssl = true
 
 request = Net::HTTP::Get.new(uri.request_uri)
 
-customQs = http.request(request) 
+suppliers = http.request(request) 
 ```
 
 ```php
 <?php
-$customQs = file_get_contents('https://api.samplicio.us/Core/v1/Suppliers/AllWithAccount?key={APIKey}');
+$suppliers = file_get_contents('https://api.samplicio.us/Core/v1/Suppliers/AllWithAccount?key={APIKey}');
 ?>
 ```
 
 ```python
 import requests
 
-customQs = requests.get('https://api.samplicio.us/Core/v1/Suppliers/AllWithAccount?key={APIKey}')
+suppliers = requests.get('https://api.samplicio.us/Core/v1/Suppliers/AllWithAccount?key={APIKey}')
 ```
 ```csharp
 using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Core/v1/Suppliers/AllWithAccount?key={APIKey}");
 
-WebResponse customQs = request.GetResponse();
+WebResponse suppliers = request.GetResponse();
 ```
 ```javascript
 const https = require('https');
 
-var customQs = https.get('https://api.samplicio.us/Core/v1/Suppliers/AllWithAccount?key={APIKey}');
+var suppliers = https.get('https://api.samplicio.us/Core/v1/Suppliers/AllWithAccount?key={APIKey}');
 ```
 
 > Example Response
@@ -59,7 +234,7 @@ var customQs = https.get('https://api.samplicio.us/Core/v1/Suppliers/AllWithAcco
 {
   "ApiResult": 0,
   "ApiResultCode": 0,
-  "ApiAccount": "AA",
+  "ApiAccount": "Anon",
   "AccountType": 2,
   "ApiAccountStatus": 1,
   "AccountCode": "AA",
@@ -70,60 +245,60 @@ var customQs = https.get('https://api.samplicio.us/Core/v1/Suppliers/AllWithAcco
   "ResultCount": 11,
   "AccountsWithSuppliers": [
     {
-      "AccountName": "Federated Sample",
+      "AccountName": "Sample Company",
       "Suppliers": [
         {
-          "Name": "Federated Sample",
+          "Name": "Supplier 1",
           "Code": "1010"
         },
         {
-          "Name": "Premium Survey Solutions",
+          "Name": "Supplier 2",
           "Code": "1010"
         },
         {
-          "Name": "Fed_Test_Supplier",
+          "Name": "Supplier 3",
           "Code": "1010"
         },
         {
-          "Name": "Federated Offers",
+          "Name": "Supplier 4",
           "Code": "1010"
         },
       ]
     },
     {
-      "AccountName": "Duration",
+      "AccountName": "Sample Company",
       "Suppliers": [
         {
-          "Name": "Duration Inc",
+          "Name": "Supplier 5",
           "Code": "1010"
         },
         {
-          "Name": "Duration Singapore Pte Ltd",
+          "Name": "Supplier 6",
           "Code": "1010"
         },
         {
-          "Name": "Duration Manila",
+          "Name": "Supplier 7",
           "Code": "1010"
         },
         {
-          "Name": "ARF_Router",
+          "Name": "Supplier 8",
           "Code": "1010"
         }
       ]
     },
     {
-      "AccountName": "Vision Critical",
+      "AccountName": "Sample Company",
       "Suppliers": [
         {
-          "Name": "Springboard America",
+          "Name": "Supplier 9",
           "Code": "1010"
         },
         {
-          "Name": "Springboard UK",
+          "Name": "Supplier 10",
           "Code": "1010"
         },
         {
-          "Name": "Vision Critical",
+          "Name": "Supplier 11",
           "Code": "1010"
         },
         
@@ -157,31 +332,31 @@ http.use_ssl = true
 
 request = Net::HTTP::Get.new(uri.request_uri)
 
-standardQs = http.request(request) 
+businessUnits = http.request(request) 
 ```
 
 ```php
 <?php
-$standardQs = file_get_contents('https://api.samplicio.us/Core/v1/BusinessUnits/All?key={APIKey}');
+$businessUnits = file_get_contents('https://api.samplicio.us/Core/v1/BusinessUnits/All?key={APIKey}');
 ?>
 ```
 
 ```python
 import requests
 
-standardQs = requests.get('https://api.samplicio.us/Core/v1/BusinessUnits/All?key={APIKey}')
+businessUnits = requests.get('https://api.samplicio.us/Core/v1/BusinessUnits/All?key={APIKey}')
 ```
 ```csharp
 using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Core/v1/BusinessUnits/All?key={APIKey}");
 
-WebResponse standardQs = request.GetResponse();
+WebResponse businessUnits = request.GetResponse();
 ```
 ```javascript
 const https = require('https');
 
-var standardQs = https.get('https://api.samplicio.us/Core/v1/BusinessUnits/All?key={APIKey}');
+var businessUnits = https.get('https://api.samplicio.us/Core/v1/BusinessUnits/All?key={APIKey}');
 ```
 
 > Example Response
@@ -190,7 +365,7 @@ var standardQs = https.get('https://api.samplicio.us/Core/v1/BusinessUnits/All?k
  {
   "ApiResult": 0,
   "ApiResultCode": 0,
-  "ApiAccount": "Fulcrum",
+  "ApiAccount": "Anon",
   "AccountType": 2,
   "ApiAccountStatus": 1,
   "AccountCode": "AA",
@@ -201,11 +376,12 @@ var standardQs = https.get('https://api.samplicio.us/Core/v1/BusinessUnits/All?k
   "ResultCount": 1,
   "BusinessUnits": [
     {
-      "AccountID": 111,
-      "Id": "111",
+      "AccountID": 001,
+      "Id": "001",
       "Name": "Fulcrum"
     },
   ]
 }
 
+```
 Returns a list of all Business Units.
