@@ -42,14 +42,14 @@ under the License.
         });
       </script>
     <% end %>
-    <script>
+  <script>
     $( document ).ready(function() {
-        $('body').css('visibility', 'visible');
+        $('body').attr('visibility', 'visible');
     });
-    </script>
+  </script>
   </head>
 
-  <body class="<%= page_classes %>">
+  <body style="visibility: hidden" class="<%= page_classes %>">
     <a href="#" id="nav-button">
       <span>
         NAV
