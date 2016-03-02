@@ -41,15 +41,21 @@ under the License.
           setupLanguages(<%= language_tabs.map{ |lang| lang.is_a?(Hash) ? lang.keys.first : lang }.to_json %>);
         });
       </script>
-    <% end %>
+    <% end %
+    <style type="text/css">
+      .no-fouc {display: none;}
+    </style>
+    <script type="text/javascript">
+      document.documentElement.className = 'no-fouc';
+    </script>
   <script>
     $( document ).ready(function() {
-        $('body').attr('visibility', 'visible');
+        $('.no-fouc').removeClass('no-fouc');
     });
   </script>
   </head>
 
-  <body style="visibility: hidden" class="<%= page_classes %>">
+  <body class="<%= page_classes %>">
     <a href="#" id="nav-button">
       <span>
         NAV
