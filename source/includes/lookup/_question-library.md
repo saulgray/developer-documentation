@@ -370,5 +370,4 @@ Returns the answer options and associated precodes for a specific QuestionID and
   Property                     | Type     | Required | Description                                                                                                                                  |
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
 | CountryLanguageID            | int      | true     | Unique id associated with the country-language pair the question text applies to.     
-|------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
 | QuestionId                   | int      | true     | Unique id associated with the question the question text applies to.    
