@@ -1,6 +1,6 @@
 #Entry Links
-<h2><u>POST</u>Create a Link</h2>
-##Create a Link
+
+<h2><span id="post_tag">POST</span> Create a Link</h2>
 
 > Definition
 
