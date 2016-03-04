@@ -428,6 +428,16 @@ html, body {
       font-size: 22px;
       color:#4482f7;
   }
+  #get_tag {
+      @extend %code-font;
+      font-size: 22px;
+      color:#82e150;
+  }
+  #delete_tag {
+      @extend %code-font;
+      font-size: 22px;
+      color:#ff3232;
+  }
 
   // h2s right after h1s should bump right up
   // against the h1s.

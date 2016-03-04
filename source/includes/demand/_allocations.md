@@ -4,7 +4,7 @@
 
 ##Update an Allocation
 
-##Delete an Allocation
+<h2 id="head2"><span id="delete_tag">DELETE</span> Delete an Allocation</h2>
 > Definition
 
 ```plaintext
