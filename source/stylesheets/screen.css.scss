@@ -409,7 +409,8 @@ html, body {
   
   #post_tag {
       @extend %code-font;
-      color:f6a916;
+      font-size: 22px;
+      color:#f6a916;
   }
 
   // h2s right after h1s should bump right up
