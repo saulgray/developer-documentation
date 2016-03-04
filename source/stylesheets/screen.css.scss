@@ -407,15 +407,15 @@ html, body {
     padding-bottom: 1.2em;
   }
   
-  #head2 {
-    @extend %header-font;
-    font-size: 22px;
-    margin-top: 4em;
-    margin-bottom: 0;
-    border-top: 1px solid #ccc;
-    padding-top: 1.2em;
-    padding-bottom: 1.2em;
-  }
+//   #head2 {
+//     @extend %header-font;
+//     font-size: 22px;
+//     margin-top: 4em;
+//     margin-bottom: 0;
+//     border-top: 1px solid #ccc;
+//     padding-top: 1.2em;
+//     padding-bottom: 1.2em;
+//   }
   
   // HTTP tags in front of headers
   #post_tag {
