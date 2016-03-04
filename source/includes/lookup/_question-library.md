@@ -267,8 +267,6 @@ var surveys = https.get('https://api.samplicio.us/Lookup/v1/QuestionLibrary/Ques
 
 Returns the details of a specific Standard or Custom Qualification.
 
-<aside class="notice"></aside>
-
 ### Arguments
 
  Property                     | Type     | Required | Description                                                                                                                                  |
