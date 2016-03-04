@@ -406,6 +406,11 @@ html, body {
     padding-top: 1.2em;
     padding-bottom: 1.2em;
   }
+  
+  #post_tag {
+      @extend %code-font;
+      color:f6a916;
+  }
 
   // h2s right after h1s should bump right up
   // against the h1s.
