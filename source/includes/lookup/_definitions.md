@@ -77,7 +77,7 @@ var globalDefinitions = https.get('https://api.samplicio.us/Lookup/v1/BasicLooku
       "IsActive": true,
       "Name": "Chinese Simplified - China",
       "SortOrder": 1
-    },
+    }
   ],
   "AllIndustries": [
   {
@@ -86,7 +86,7 @@ var globalDefinitions = https.get('https://api.samplicio.us/Lookup/v1/BasicLooku
       "IsActive": true,
       "Name": "Automotive",
       "SortOrder": 1
-    },
+    }
   ],
   "AllProposalTypes": [],
   "AllQuestionClassifications": [],
@@ -97,7 +97,7 @@ var globalDefinitions = https.get('https://api.samplicio.us/Lookup/v1/BasicLooku
       "IsActive": true,
       "Name": "Consumer",
       "SortOrder": 1
-    },
+    }
   ],
   "AllStudyTypes": [
   {
@@ -106,7 +106,7 @@ var globalDefinitions = https.get('https://api.samplicio.us/Lookup/v1/BasicLooku
       "IsActive": true,
       "Name": "Adhoc",
       "SortOrder": 1
-    },
+    }
   ],
   "AllSupplierLinkTypes": [
   {
@@ -115,7 +115,7 @@ var globalDefinitions = https.get('https://api.samplicio.us/Lookup/v1/BasicLooku
       "IsActive": true,
       "Name": "Targeted / Standalone",
       "SortOrder": 1
-    },
+    }
   ],
   "AllSupplierPreferenceTypes": [],
   "AllSupplierRequestStatuses": [],
@@ -128,7 +128,7 @@ var globalDefinitions = https.get('https://api.samplicio.us/Lookup/v1/BasicLooku
       "IsActive": true,
       "Name": "Pending",
       "SortOrder": 1
-    },
+    }
   ],
   "AllThirdPartyServices": []
   }
