@@ -16,7 +16,7 @@ curl https://api.samplicio.us/Lookup/v1/BasicLookups/BundledLookups/CountryLangu
 ```ruby
 require 'net/http'
 
-uri = URI('https://api.samplicio.us/Lookup/v1/BasicLookups/BundledLookups/CountryLanguages,Industries,SampleTypes,StudyTypes,SupplierLinkTypes,SurveyStatuses?key={APIKey}')
+uri = URI('https://api.samplicio.us/Lookup/v1/BasicLookups/BundledLookups/{Bundle}?key={APIKey}')
 
 http = Net::HTTP.new(uri.host, uri.port)
 
@@ -143,22 +143,28 @@ Returns a list of available global system definitions. Arguments can be passed i
 
 | Property                     | Type     | Required | Description                                                                                                                                  |
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| Countries 	                 | string   | false    | Array of all countries available.      
-| CountryLanguages             | string   | false    | Array of all Country-Language pairs by ID.      
-| Industries	                 | string   | false    | Array of all options for industry type.      
-| SampleTypes	                 | string   | false    | Array of all types of sample that buyers can field on the platform.      
-| StudyTypes	                 | string   | false    | Array of all types of studies buyers can field on the platform.      
-| SupplierLinkTypes            | string   | false    | Array of all link types suppliers can use to send sample.      
-| SurveyStatuses               | string   | false    | Array of all possible survey statuses on the platform.      
-| BidProbabilities             | string   | false    | Array of all probabilities of a bid being awarded (Low, Med, High).      
-| BidStatuses	                 | string   | false    | Array of all possible statuses for a bid.      
-| ProposalTypes                | string   | false    | Array of all possible proposal types.      
-| CategoryLockOutDurations     | string   | false    | Array of all possible lockout times.      
-| QuestionClassifications      | string   | false    | Array of all question categories on the platform. 
-| SupplierPreferenceTypes      | string   | false    | Array of all possible preferences a supplier can communicate. 
-| SupplierRequestStatuses      | string   | false    | Array of all tracking methods a supplier can use to track a respondent's status. 
-| SurveyPlatforms	             | string   | false    | Array of survey platforms users may be sending to or from. 
-| ThirdPartyServices	         | string   | false    | Array of all Third Party Services available on the platform. 
+| Bundle                       | string   | false    | A string of lookup options delimited by a comma.  
+
+### Options
+
+| Option                       | Description                                                                         |
+|------------------------------|-------------------------------------------------------------------------------------|
+| Countries 	                 | Array of all countries available.      
+| CountryLanguages             | Array of all Country-Language pairs by ID.      
+| Industries	                 | Array of all options for industry type.      
+| SampleTypes	                 | Array of all types of sample that buyers can field on the platform.      
+| StudyTypes	                 | Array of all types of studies buyers can field on the platform.      
+| SupplierLinkTypes            | Array of all link types suppliers can use to send sample.      
+| SurveyStatuses               | Array of all possible survey statuses on the platform.      
+| BidProbabilities             | Array of all probabilities of a bid being awarded (Low, Med, High).      
+| BidStatuses	                 | Array of all possible statuses for a bid.      
+| ProposalTypes                | Array of all possible proposal types.      
+| CategoryLockOutDurations     | Array of all possible lockout times.      
+| QuestionClassifications      | Array of all question categories on the platform. 
+| SupplierPreferenceTypes      | Array of all possible preferences a supplier can communicate. 
+| SupplierRequestStatuses      | Array of all tracking methods a supplier can use to track a respondent's status. 
+| SurveyPlatforms	             | Array of survey platforms users may be sending to or from. 
+| ThirdPartyServices	         | Array of all Third Party Services available on the platform. 
 
 
 
