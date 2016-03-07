@@ -217,6 +217,7 @@ html, body {
     &>li:last-child {
       box-shadow: none; // otherwise it'll overflow out of the subheader
     }
+    
   }
 
   .toc-footer {
@@ -411,32 +412,22 @@ html, body {
   .post>span {
       @extend %code-font;
       font-size: 24px;
-      color:#f6a916;
+      color:$post;
   }
   .put>span {
      @extend %code-font;
       font-size: 24px;
-      color:#4482f7; 
+      color:$put;
   }
-//   #post_tag {
-//       @extend %code-font;
-//       font-size: 24px;
-//       color:#f6a916;
-//   }
-//   #put_tag {
-//       @extend %code-font;
-//       font-size: 24px;
-//       color:#4482f7;
-//   }
-  #get_tag {
+  .get>span {
       @extend %code-font;
       font-size: 24px;
-      color:#82e150;
+      color:$get;
   }
-  #delete_tag {
+  .delete>span {
       @extend %code-font;
       font-size: 24px;
-      color:#ff3232;
+      color:$delete;
   }
 
   // h2s right after h1s should bump right up

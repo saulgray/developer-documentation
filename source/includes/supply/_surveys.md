@@ -31,7 +31,7 @@ The Survey resource contains basic information about a survey opportunity posted
 | SurveyQuotaCalcTypeID        | int      | Indicates whether quotas are calculated based on completes or prescreens (1=Completes, 2=Prescreens).                                                   |
 | SampleTypeID                 | int      | The type of sample the survey is open to (i.e. consumer, business-to-business, etc).                                                                    |
 
-<h2 id="list-exchange-surveys"><span id="get_tag">GET</span> List Exchange Surveys</h2>
+<h2 class="get" id="list-exchange-surveys"><span>GET</span> List Exchange Surveys</h2>
 
 > Definition
 
