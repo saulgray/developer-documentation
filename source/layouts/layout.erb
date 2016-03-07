@@ -41,18 +41,13 @@ under the License.
           setupLanguages(<%= language_tabs.map{ |lang| lang.is_a?(Hash) ? lang.keys.first : lang }.to_json %>);
         });
       </script>
-    <% end %
+    <% end %>
     <style type="text/css">
-      .no-fouc {display: none;}
+    .js #fouc { display: none; }
     </style>
     <script type="text/javascript">
-      document.documentElement.className = 'no-fouc';
+        document.documentElement.className = 'js';
     </script>
-  <script>
-    $( document ).ready(function() {
-        $('.no-fouc').removeClass('no-fouc');
-    });
-  </script>
   </head>
 
   <body class="<%= page_classes %>">
@@ -62,6 +57,7 @@ under the License.
         <%= image_tag('navbar.png') %>
       </span>
     </a>
+    <div id="fouc">
     <div class="tocify-wrapper">
       <%= image_tag "lucid-fulcrum-type-[color].png" %>
       <% if language_tabs %>
@@ -113,5 +109,9 @@ under the License.
         <% end %>
       </div>
     </div>
+    </div>
+    <script type="text/javascript">
+      document.getElementById("fouc").style.display="block";
+    </script>
   </body>
 </html>
