@@ -23,7 +23,7 @@
     
     # used to fix FOUC
     <style type="text/css">
-    .js .flash-of-unstyled-content { display: none; }
+    .js #fouc { display: none; }
     </style>
     <script type="text/javascript">
         document.documentElement.className = 'js';
@@ -38,8 +38,9 @@
         <img src="images/navbar.png" />
       </span>
     </a>
+    # FOUC stands for flash of unstyled content
     # this first div is used to hide the body until everything is loaded
-    <div class="flash-of-unstyled-content">
+    <div id="fouc">
         <div class="tocify-wrapper">
           <img src="images/lucid-fulcrum-type-[color].png" />
             <div class="lang-selector">
@@ -1771,7 +1772,7 @@ https://api.samplicio.us/Supply/v1/SupplierLinks/Create/<span class="o">{</span>
     
     # Unhides the body by displaying block
     <script type="text/javascript">
-      document.getElementById("flash-of-unstyled-content").style.display="block";
+      document.getElementById("fouc").style.display="block";
     </script>
     
   </body>
