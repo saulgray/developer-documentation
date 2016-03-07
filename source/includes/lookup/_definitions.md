@@ -143,22 +143,22 @@ Returns a list of available global system definitions. Arguments can be passed i
 
 | Property                     | Type     | Required | Description                                                                                                                                  |
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| Countries 	               | string   | false    | Array of all countries available.      
+| Countries 	                 | string   | false    | Array of all countries available.      
 | CountryLanguages             | string   | false    | Array of all Country-Language pairs by ID.      
-| Industries	               | string   | false    | Array of all options for industry type.      
-| SampleTypes	               | string   | false    | Array of all types of sample that buyers can field on the platform.      
-| StudyTypes	               | string   | false    | Array of all types of studies buyers can field on the platform.      
+| Industries	                 | string   | false    | Array of all options for industry type.      
+| SampleTypes	                 | string   | false    | Array of all types of sample that buyers can field on the platform.      
+| StudyTypes	                 | string   | false    | Array of all types of studies buyers can field on the platform.      
 | SupplierLinkTypes            | string   | false    | Array of all link types suppliers can use to send sample.      
 | SurveyStatuses               | string   | false    | Array of all possible survey statuses on the platform.      
 | BidProbabilities             | string   | false    | Array of all probabilities of a bid being awarded (Low, Med, High).      
-| BidStatuses	               | string   | false    | Array of all possible statuses for a bid.      
+| BidStatuses	                 | string   | false    | Array of all possible statuses for a bid.      
 | ProposalTypes                | string   | false    | Array of all possible proposal types.      
 | CategoryLockOutDurations     | string   | false    | Array of all possible lockout times.      
 | QuestionClassifications      | string   | false    | Array of all question categories on the platform. 
 | SupplierPreferenceTypes      | string   | false    | Array of all possible preferences a supplier can communicate. 
 | SupplierRequestStatuses      | string   | false    | Array of all tracking methods a supplier can use to track a respondent's status. 
-| SurveyPlatforms	       | string   | false    | Array of survey platforms users may be sending to or from. 
-| ThirdPartyServices	       | string   | false    | Array of all Third Party Services available on the platform. 
+| SurveyPlatforms	             | string   | false    | Array of survey platforms users may be sending to or from. 
+| ThirdPartyServices	         | string   | false    | Array of all Third Party Services available on the platform. 
 
 
 
@@ -227,7 +227,7 @@ var suppliers = https.get('https://api.samplicio.us/Core/v1/Suppliers/AllWithAcc
     "API Message: Response initialized.",
     "API Message: GetAllSuppliersGroupedByAccount successful."
   ],
-  "ResultCount": 11,
+  "ResultCount": 4,
   "AccountsWithSuppliers": [
     {
       "AccountName": "Sample Company",
@@ -249,46 +249,10 @@ var suppliers = https.get('https://api.samplicio.us/Core/v1/Suppliers/AllWithAcc
           "Code": "1010"
         },
       ]
-    },
-    {
-      "AccountName": "Sample Company",
-      "Suppliers": [
-        {
-          "Name": "Supplier 5",
-          "Code": "1010"
-        },
-        {
-          "Name": "Supplier 6",
-          "Code": "1010"
-        },
-        {
-          "Name": "Supplier 7",
-          "Code": "1010"
-        },
-        {
-          "Name": "Supplier 8",
-          "Code": "1010"
-        }
-      ]
-    },
-    {
-      "AccountName": "Sample Company",
-      "Suppliers": [
-        {
-          "Name": "Supplier 9",
-          "Code": "1010"
-        },
-        {
-          "Name": "Supplier 10",
-          "Code": "1010"
-        },
-        {
-          "Name": "Supplier 11",
-          "Code": "1010"
-        },
-        
-      ]
-    },
+    }
+  ]
+}
+
 ```
 
 Returns a list of all available suppliers.
