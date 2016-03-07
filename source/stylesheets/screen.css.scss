@@ -408,16 +408,26 @@ html, body {
   }
   
   // HTTP tags in front of headers
-  #post_tag {
+  .post>span {
       @extend %code-font;
       font-size: 24px;
       color:#f6a916;
   }
-  #put_tag {
-      @extend %code-font;
+  .put>span {
+     @extend %code-font;
       font-size: 24px;
-      color:#4482f7;
+      color:#4482f7; 
   }
+//   #post_tag {
+//       @extend %code-font;
+//       font-size: 24px;
+//       color:#f6a916;
+//   }
+//   #put_tag {
+//       @extend %code-font;
+//       font-size: 24px;
+//       color:#4482f7;
+//   }
   #get_tag {
       @extend %code-font;
       font-size: 24px;
