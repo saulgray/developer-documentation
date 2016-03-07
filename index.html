@@ -20,6 +20,12 @@
           setupLanguages(["shell","ruby","php","python","csharp","javascript"]);
         });
       </script>
+    <style type="text/css">
+    .js #fouc { display: none; }
+    </style>
+    <script type="text/javascript">
+        document.documentElement.className = 'js';
+    </script>
   </head>
 
   <body class="index">
@@ -29,9 +35,9 @@
         <img src="images/navbar.png" />
       </span>
     </a>
-    <div class="tocify-wrapper">
+    <div class="tocify-wrapper" id="fouc">
       <img src="images/lucid-fulcrum-type-[color].png" />
-        <div class="lang-selector">
+        <div class="lang-selector" id="fouc">
               <a href="#" data-language-name="shell">curl</a>
               <a href="#" data-language-name="ruby">Ruby</a>
               <a href="#" data-language-name="php">PHP</a>
@@ -39,7 +45,7 @@
               <a href="#" data-language-name="csharp">C#</a>
               <a href="#" data-language-name="javascript">Node.js</a>
         </div>
-        <div class="search">
+        <div class="search" id="fouc">
           <input type="text" class="search" id="input-search" placeholder="Search">
         </div>
         <ul class="search-results"></ul>
@@ -49,9 +55,9 @@
             <li><a href='https://luc.id/fulcrum/'>Get access to Fulcrum APIs</a></li>
         </ul>
     </div>
-    <div class="page-wrapper">
-      <div class="dark-box"></div>
-      <div class="content">
+    <div class="page-wrapper" id="fouc">
+      <div class="dark-box" id="fouc"></div>
+      <div class="content" id="fouc">
         
           <h1 id="introduction">Introduction</h1>
 
@@ -1745,8 +1751,8 @@ https://api.samplicio.us/Supply/v1/SupplierLinks/Create/<span class="o">{</span>
 <h2 id="enterprise-market-research-buyer">Enterprise Market Research Buyer</h2>
 
       </div>
-      <div class="dark-box">
-          <div class="lang-selector">
+      <div class="dark-box" id="fouc">
+          <div class="lang-selector" id="fouc">
                 <a href="#" data-language-name="shell">curl</a>
                 <a href="#" data-language-name="ruby">Ruby</a>
                 <a href="#" data-language-name="php">PHP</a>
@@ -1756,5 +1762,8 @@ https://api.samplicio.us/Supply/v1/SupplierLinks/Create/<span class="o">{</span>
           </div>
       </div>
     </div>
+    <script type="text/javascript">
+      document.getElementById("fouc").style.display="block";
+    </script>
   </body>
 </html>
