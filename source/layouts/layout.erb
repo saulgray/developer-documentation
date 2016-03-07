@@ -57,10 +57,11 @@ under the License.
         <%= image_tag('navbar.png') %>
       </span>
     </a>
-    <div class="tocify-wrapper" id="fouc">
+    <div id="fouc">
+    <div class="tocify-wrapper">
       <%= image_tag "lucid-fulcrum-type-[color].png" %>
       <% if language_tabs %>
-        <div class="lang-selector" id="fouc">
+        <div class="lang-selector">
           <% language_tabs.each do |lang| %>
             <% if lang.is_a? Hash %>
               <a href="#" data-language-name="<%= lang.keys.first %>"><%= lang.values.first %></a>
@@ -71,7 +72,7 @@ under the License.
         </div>
       <% end %>
       <% if current_page.data.search %>
-        <div class="search" id="fouc">
+        <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
         </div>
         <ul class="search-results"></ul>
@@ -86,17 +87,17 @@ under the License.
         </ul>
       <% end %>
     </div>
-    <div class="page-wrapper" id="fouc">
-      <div class="dark-box" id="fouc"></div>
-      <div class="content" id="fouc">
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
         <%= yield %>
         <% current_page.data.includes && current_page.data.includes.each do |include| %>
           <%= partial "includes/#{include}" %>
         <% end %>
       </div>
-      <div class="dark-box" id="fouc">
+      <div class="dark-box">
         <% if language_tabs %>
-          <div class="lang-selector" id="fouc">
+          <div class="lang-selector">
             <% language_tabs.each do |lang| %>
               <% if lang.is_a? Hash %>
                 <a href="#" data-language-name="<%= lang.keys.first %>"><%= lang.values.first %></a>
@@ -107,6 +108,7 @@ under the License.
           </div>
         <% end %>
       </div>
+    </div>
     </div>
     <script type="text/javascript">
       document.getElementById("fouc").style.display="block";
