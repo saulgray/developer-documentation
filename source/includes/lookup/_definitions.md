@@ -5,7 +5,7 @@
 > Definition
 
 ```plaintext
-GET  http://api.samplicio.us/Lookup/v1/BasicLookups/BundledLookups/CountryLanguages,Industries,SampleTypes,StudyTypes,SupplierLinkTypes,SurveyStatuses?key={APIKey}
+GET  http://api.samplicio.us/Lookup/v1/BasicLookups/BundledLookups/{Bundle}?key={APIKey}
 ```
 > Example Request
 
@@ -16,7 +16,7 @@ curl https://api.samplicio.us/Lookup/v1/BasicLookups/BundledLookups/CountryLangu
 ```ruby
 require 'net/http'
 
-uri = URI('https://api.samplicio.us/Lookup/v1/BasicLookups/BundledLookups/{Bundle}?key={APIKey}')
+uri = URI('https://api.samplicio.us/Lookup/v1/BasicLookups/BundledLookups/CountryLanguages,Industries,SampleTypes,StudyTypes,SupplierLinkTypes,SurveyStatuses?key={APIKey}')
 
 http = Net::HTTP.new(uri.host, uri.port)
 
