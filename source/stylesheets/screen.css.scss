@@ -407,36 +407,30 @@ html, body {
     padding-bottom: 1.2em;
   }
   
-//   #head2 {
-//     @extend %header-font;
-//     font-size: 22px;
-//     margin-top: 4em;
-//     margin-bottom: 0;
-//     border-top: 1px solid #ccc;
-//     padding-top: 1.2em;
-//     padding-bottom: 1.2em;
-//   }
-  
   // HTTP tags in front of headers
   #post_tag {
       @extend %code-font;
       font-size: 22px;
       color:#f6a916;
+      font-weight: bold;
   }
   #put_tag {
       @extend %code-font;
       font-size: 22px;
       color:#4482f7;
+      font-weight: bold;
   }
   #get_tag {
       @extend %code-font;
       font-size: 22px;
       color:#82e150;
+      font-weight: bold;
   }
   #delete_tag {
       @extend %code-font;
       font-size: 22px;
       color:#ff3232;
+      font-weight: bold;
   }
 
   // h2s right after h1s should bump right up

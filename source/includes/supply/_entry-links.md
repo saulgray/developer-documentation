@@ -1,6 +1,6 @@
 #Entry Links
 
-<h2><span id="post_tag">POST</span> Create a Link</h2>
+<h2 id="create-a-link"><span id="post_tag">POST</span> Create a Link</h2>
 
 > Definition
 
@@ -145,7 +145,7 @@ request.end();
 }
 ```
 
-<h2><span id="put_tag">PUT</span> Update a Link</h2>
+<h2 id="update-a-link"><span id="put_tag">PUT</span> Update a Link</h2>
 
 > Definition
 
