@@ -212,7 +212,7 @@
 </code></pre>
 <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
 
-<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Lookup/v1/BasicLookups/BundledLookups/CountryLanguages,Industries,SampleTypes,StudyTypes,SupplierLinkTypes,SurveyStatuses?key={APIKey}'</span><span class="p">)</span>
+<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Lookup/v1/BasicLookups/BundledLookups/{Bundle}?key={APIKey}'</span><span class="p">)</span>
 
 <span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">uri</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
 
@@ -340,99 +340,83 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>Countries</td>
+<td>Bundle</td>
 <td>string</td>
 <td>false</td>
+<td>A string of lookup options delimited by a comma.</td>
+</tr>
+</tbody></table>
+
+<h3 id="options">Options</h3>
+
+<table><thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Countries</td>
 <td>Array of all countries available.</td>
 </tr>
 <tr>
 <td>CountryLanguages</td>
-<td>string</td>
-<td>false</td>
 <td>Array of all Country-Language pairs by ID.</td>
 </tr>
 <tr>
 <td>Industries</td>
-<td>string</td>
-<td>false</td>
 <td>Array of all options for industry type.</td>
 </tr>
 <tr>
 <td>SampleTypes</td>
-<td>string</td>
-<td>false</td>
 <td>Array of all types of sample that buyers can field on the platform.</td>
 </tr>
 <tr>
 <td>StudyTypes</td>
-<td>string</td>
-<td>false</td>
 <td>Array of all types of studies buyers can field on the platform.</td>
 </tr>
 <tr>
 <td>SupplierLinkTypes</td>
-<td>string</td>
-<td>false</td>
 <td>Array of all link types suppliers can use to send sample.</td>
 </tr>
 <tr>
 <td>SurveyStatuses</td>
-<td>string</td>
-<td>false</td>
 <td>Array of all possible survey statuses on the platform.</td>
 </tr>
 <tr>
 <td>BidProbabilities</td>
-<td>string</td>
-<td>false</td>
 <td>Array of all probabilities of a bid being awarded (Low, Med, High).</td>
 </tr>
 <tr>
 <td>BidStatuses</td>
-<td>string</td>
-<td>false</td>
 <td>Array of all possible statuses for a bid.</td>
 </tr>
 <tr>
 <td>ProposalTypes</td>
-<td>string</td>
-<td>false</td>
 <td>Array of all possible proposal types.</td>
 </tr>
 <tr>
 <td>CategoryLockOutDurations</td>
-<td>string</td>
-<td>false</td>
 <td>Array of all possible lockout times.</td>
 </tr>
 <tr>
 <td>QuestionClassifications</td>
-<td>string</td>
-<td>false</td>
 <td>Array of all question categories on the platform.</td>
 </tr>
 <tr>
 <td>SupplierPreferenceTypes</td>
-<td>string</td>
-<td>false</td>
 <td>Array of all possible preferences a supplier can communicate.</td>
 </tr>
 <tr>
 <td>SupplierRequestStatuses</td>
-<td>string</td>
-<td>false</td>
 <td>Array of all tracking methods a supplier can use to track a respondent&rsquo;s status.</td>
 </tr>
 <tr>
 <td>SurveyPlatforms</td>
-<td>string</td>
-<td>false</td>
 <td>Array of survey platforms users may be sending to or from.</td>
 </tr>
 <tr>
 <td>ThirdPartyServices</td>
-<td>string</td>
-<td>false</td>
 <td>Array of all Third Party Services available on the platform.</td>
 </tr>
 </tbody></table>
