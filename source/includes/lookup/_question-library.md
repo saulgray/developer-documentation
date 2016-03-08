@@ -184,6 +184,94 @@ Returns a list of custom questions associated with and created by your account f
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
 | CountryLanguageID            | int      | true     | Unique id associated with the country-language pair the question text applies to.                                                            |
 
-##Show Question Text
+## Show Question Text
+> Definition
+
+```plaintext
+GET  https://api.samplicio.us/Lookup/v1/QuestionLibrary/QuestionById/{CountryLanguageID}/{QuestionID}?key={APIKey}
+```
+
+> Example Request
+
+```shell
+curl https://api.samplicio.us/Lookup/v1/QuestionLibrary/QuestionById/{CountryLanguageID}/{QuestionID}?key={APIKey}
+```
+
+```ruby
+require 'net/http'
+
+uri = URI('https://api.samplicio.us/Lookup/v1/QuestionLibrary/QuestionById/{CountryLanguageID}/{QuestionID}?key={APIKey}')
+
+http = Net::HTTP.new(uri.host, uri.port)
+
+http.use_ssl = true
+
+request = Net::HTTP::Get.new(uri.request_uri)
+
+questionText = http.request(request)  
+```
+
+```php
+<?php
+$questionText = file_get_contents('https://api.samplicio.us/Lookup/v1/QuestionLibrary/QuestionById/{CountryLanguageID}/{QuestionID}?key={APIKey}');
+?>
+```
+
+```python
+import requests
+
+questionText = requests.get('https://api.samplicio.us/Lookup/v1/QuestionLibrary/QuestionById/{CountryLanguageID}/{QuestionID}?key={APIKey}')
+```
+
+```csharp
+using System.Net;
+
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Lookup/v1/QuestionLibrary/QuestionById/{CountryLanguageID}/{QuestionID}?key={APIKey}");
+
+WebResponse questionText = request.GetResponse();
+```
+
+```javascript
+const https = require('https');
+
+var questionText = https.get('https://api.samplicio.us/Lookup/v1/QuestionLibrary/QuestionById/{CountryLanguageID}/{QuestionID}?key={APIKey}');
+```
+
+> Example Response
+
+```json 
+{
+  "ApiResult": 0,
+  "ApiResultCode": 0,
+  "ApiAccount": "Anon",
+  "AccountType": 2,
+  "ApiAccountStatus": 1,
+  "AccountCode": "AA",
+  "ApiMessages": [
+    "API Message: Response initialized.",
+    "API Message: GetQuestionById successful."
+  ],
+  "ResultCount": 1,
+  "Question": {
+    "IsCoreDemographic": true,
+    "IsFeasibilityFactor": true,
+    "LK_QuestionClassificationID": 8,
+    "Name": "AGE",
+    "QuestionID": 42,
+    "QuestionText": "What is your age?",
+    "QuestionType": "Numeric - Open-end",
+    "SurveyUse": 8420
+  }
+}
+```
+
+Returns the details of a specific Standard or Custom Qualification.
+
+### Arguments
+
+ Property                     | Type     | Required | Description                                                                                                                                  |
+|------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| CountryLanguageID            | int      | true     | Unique id associated with the country-language pair the question text applies to.                                                            |
+| QuestionID                   | int      | true     | Unique id associated with the question the question text applies to.                                                            |
 
 ##Show Question Options
