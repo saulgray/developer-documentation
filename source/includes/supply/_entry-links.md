@@ -63,15 +63,15 @@ import requests, json
 
 url = 'https://api.samplicio.us/Supply/v1/SupplierLinks/Create/{SurveyNumber}/{SupplierCode}?key={APIKey}'
 params = {'SupplierLinkTypeCode':'OWS','TrackingTypeCode':'NONE'}
+data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
-supplierLink = requests.post(url, data=json.dumps(params), headers=headers)
+supplierLink = requests.post(url, data=data, headers=headers)
 ```
 
 ```csharp
 using System.IO;
 using System.Net;
-using System.Text;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Supply/v1/SupplierLinks/Create/{SurveyNumber}/{SupplierCode}?key={APIKey}");
 
@@ -80,10 +80,12 @@ string params = "{\"SupplierLinkTypeCode\":\"OWS\","+"\"TrackingTypeCode\":\"NON
 request.Method = "POST";
 request.ContentType = "application/json";
 
-StreamWriter streamWriter = new StreamWriter(request.GetRequestStream());
+using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
+{
 streamWriter.Write(params);
 streamWriter.Flush();
 streamWriter.Close();
+}
 
 WebResponse supplierLink = request.GetResponse();
 ```
@@ -105,11 +107,7 @@ var request = https.request(options, function (supplierLink) {
   supplierLink.on("data", function (chunk) {
     chunks.push(chunk);
   });
-
-  supplierLink.on("end", function () {
-    var body = Buffer.concat(chunks);
-    console.log(body.toString());
-  });
+  
 });
 
 request.write("{\n\t\"SupplierLinkTypeCode\": \"OWS\",\n\t\"TrackingTypeCode\": \"NONE\"\n}");
@@ -148,5 +146,146 @@ request.end();
 ```
 
 ##Update a Links
+
+> Definition
+
+```plaintext
+PUT  https://api.samplicio.us/Supply/v1/SupplierLinks/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}
+```
+
+> Example Request
+
+```shell
+curl -H "Content-Type: application/json" \
+-X PUT  --data '{"SupplierLinkTypeCode": "OWS", "TrackingTypeCode": "NONE", "DefaultLink":"","SuccessLink":"","FailureLink":"","OverQuotaLink":"","QualityTerminationLink":""}' \ https://api.samplicio.us/Supply/v1/SupplierLinks/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}
+```
+
+```ruby
+require 'net/http'
+require 'json'
+
+uri = URI('https://api.samplicio.us/Supply/v1/SupplierLinks/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}')
+
+http = Net::HTTP.new(uri.host, uri.port)
+
+http.use_ssl = true
+
+fullUriPath = uri.path + '?' + uri.query
+
+request = Net::HTTP::Post.new(fullUriPath, initheader = {'Content-Type' =>'application/json'})
+
+request.body = {SupplierLinkTypeCode:"OWS",TrackingTypeCode:"NONE",DefaultLink:"",SuccessLink:"",FailureLink:"",OverQuotaLink:"",QualityTerminationLink:""}.to_json
+
+updatedSupplierLink = http.request(request)
+```
+
+```php
+<?php
+$curl = curl_init();
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL => "https://api.samplicio.us/Supply/v1/SupplierLinks/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => "",
+  CURLOPT_HTTPHEADER => array('Content-Type: application/json'),
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => "PUT",
+  CURLOPT_POSTFIELDS => "{\n\t\"SupplierLinkTypeCode\": \"OWS\",\n\t\"TrackingTypeCode\": \"NONE\",\n\t\"DefaultLink\": \"\",\n\t\"SuccessLink\": \"\",\n\t\"FailureLink\": \"\",\n\t\"OverQuotaLink\": \"\",\n\t\"QualityTerminationLink\": \"\"}",
+));
+
+$updatedSupplierLink = curl_exec($curl);
+
+curl_close($curl);
+?>
+```
+
+```python
+import requests, json
+
+url = 'https://api.samplicio.us/Supply/v1/SupplierLinks/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}'
+params = {'SupplierLinkTypeCode':'OWS','TrackingTypeCode':'NONE','DefaultLink':'','SuccessLink':'','FailureLink':'','OverQuotaLink':'','QualityTerminationLink':''}
+data = json.dumps(params)
+headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
+
+updatedSupplierLink = requests.put(url, data=data, headers=headers)
+```
+
+```csharp
+using System.IO;
+using System.Net;
+
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Supply/v1/SupplierLinks/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}");
+
+string params = "{\"SupplierLinkTypeCode\":\"OWS\","+"\"TrackingTypeCode\":\"NONE\","+"\"DefaultLink\":\"\","+"\"SuccessLink\":\"\","+"\"FailureLink\":\"\","+"\"OverQuotaLink\":\"\","+"\"QualityTerminationLink\":\"\"}";
+    
+request.Method = "PUT";
+request.ContentType = "application/json";
+
+using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
+        {
+            streamWriter.Write(params);
+            streamWriter.Flush();
+            streamWriter.Close();
+        }
+
+WebResponse updatedSupplierLink = request.GetResponse();
+```
+
+```javascript
+const https = require('https');
+
+var options = {
+  "method": "PUT",
+  "hostname": "api.samplicio.us",
+  "port": 443,
+  "path": "/Supply/v1/SupplierLinks/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}",
+  "headers": {'Content-Type': 'application/json'}
+};
+
+var request = https.request(options, function (updatedSupplierLink) {
+  var chunks = [];
+
+  updatedSupplierLink.on("data", function (chunk) {
+    chunks.push(chunk);
+  });
+
+});
+
+request.write("{\n\t\"SupplierLinkTypeCode\": \"OWS\",\n\t\"TrackingTypeCode\": \"NONE\",\n\t\"DefaultLink\": \"\",\n\t\"SuccessLink\": \"\",\n\t\"FailureLink\": \"\",\n\t\"OverQuotaLink\": \"\",\n\t\"QualityTerminationLink\": \"\"}");
+
+request.end();
+```
+
+> Example Response
+
+```json 
+{
+  "ApiResult": 0,
+  "ApiResultCode": 0,
+  "ApiAccount": "Anon",
+  "AccountType": 2,
+  "ApiAccountStatus": 1,
+  "AccountCode": "AA",
+  "ApiMessages": [
+    "API Message: Response initialized.",
+    "API Message: UpdateSupplierLinkF romModel successful."
+  ],
+  "ResultCount": 1,
+  "SupplierLink": {
+    "SupplierLinkTypeCode": "OWS",
+    "TrackingTypeCode": "NONE",
+    "DefaultLink": "",
+    "SuccessLink": "",
+    "FailureLink": "",
+    "OverQuotaLink": "",
+    "QualityTerminatio nLink": "",
+    "LiveLink": "http:\/\/staging.samplicio.us\/router\/default.aspx?SID=52c795a7-15fh-454d-9ap2-3d5d803aa7af&PID=",
+    "TestLink": "http:\/\/staging.samplicio.us\/router\/default.aspx?SID=a348dif7- 3491-42v0-be51-0e4fdf25582f&FIRID=MSDHQNI7&SUMSTAT=8&PID=test",
+    "CPI": 100
+  }
+}
+```
 
 ##Show a Link
