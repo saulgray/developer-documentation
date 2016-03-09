@@ -20,7 +20,7 @@
           setupLanguages(["shell","ruby","php","python","csharp","javascript"]);
         });
       </script>
-    <style type="text/css">
+    <style>
     .js #fouc { display: none; }
     </style>
     <script type="text/javascript">
@@ -36,41 +36,41 @@
       </span>
     </a>
     <div id="fouc">
-    <div class="tocify-wrapper">
-      <img src="images/lucid-fulcrum-type-[color].png" />
-        <div class="lang-selector">
-              <a href="#" data-language-name="shell">curl</a>
-              <a href="#" data-language-name="ruby">Ruby</a>
-              <a href="#" data-language-name="php">PHP</a>
-              <a href="#" data-language-name="python">Python</a>
-              <a href="#" data-language-name="csharp">C#</a>
-              <a href="#" data-language-name="javascript">Node.js</a>
+        <div class="tocify-wrapper">
+          <img src="images/lucid-fulcrum-type-[color].png" />
+            <div class="lang-selector">
+                  <a href="#" data-language-name="shell">curl</a>
+                  <a href="#" data-language-name="ruby">Ruby</a>
+                  <a href="#" data-language-name="php">PHP</a>
+                  <a href="#" data-language-name="python">Python</a>
+                  <a href="#" data-language-name="csharp">C#</a>
+                  <a href="#" data-language-name="javascript">Node.js</a>
+            </div>
+            <div class="search">
+              <input type="text" class="search" id="input-search" placeholder="Search">
+            </div>
+            <ul class="search-results"></ul>
+          <div id="toc">
+          </div>
+            <ul class="toc-footer">
+                <li><a href='https://luc.id/fulcrum/'>Get access to Fulcrum APIs</a></li>
+            </ul>
         </div>
-        <div class="search">
-          <input type="text" class="search" id="input-search" placeholder="Search">
-        </div>
-        <ul class="search-results"></ul>
-      <div id="toc">
-      </div>
-        <ul class="toc-footer">
-            <li><a href='https://luc.id/fulcrum/'>Get access to Fulcrum APIs</a></li>
-        </ul>
-    </div>
-    <div class="page-wrapper">
-      <div class="dark-box"></div>
-      <div class="content">
-        
-          <h1 id="introduction">Introduction</h1>
+        <div class="page-wrapper">
+          <div class="dark-box"></div>
+          <div class="content">
+            
+              <h1 id="introduction">Introduction</h1>
 
 <p>Lucid brings efficiency and automation to online sampling with Fulcrum, today’s most powerful, open, and customizable online sampling platform.</p>
 
 <p>The API is based on REST (REpresentational State Transfer) principles, which makes it very easy to write and test applications. Both JSON and XML data formats are supported.</p>
 
-          <h1 id="guides">Guides</h1>
+              <h1 id="guides">Guides</h1>
 
-          <h1 id="authentication">Authentication</h1>
+              <h1 id="authentication">Authentication</h1>
 
-          <h1 id="resources">Resources</h1>
+              <h1 id="resources">Resources</h1>
 
 <p>To begin testing the Fulcrum API, first download a REST Client extension for your browser. Whether you are testing the Supply or Demand API, you will need a REST Client in order to make POST, PUT,     and DELETE calls. All GET calls can be made directly through your browser.</p>
 
@@ -81,9 +81,9 @@
 <li>Opera Simple REST Client: <a href="https://addons.opera.com/en/extensions/details/simple-rest-client/?display=en">https://addons.opera.com/en/extensions/details/simple-rest-client/?display=en</a></li>
 </ul>
 
-          <h1 id="environments">Environments</h1>
+              <h1 id="environments">Environments</h1>
 
-          <h1 id="interacting-with-the-api">Interacting with the API</h1>
+              <h1 id="interacting-with-the-api">Interacting with the API</h1>
 
 <h2 id="making-an-api-call">Making an API Call</h2>
 
@@ -109,7 +109,7 @@
 
 <p><code class="prettyprint">GET  http://stg-api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/xml/22789?key=5175285E-D74B-46A8-AE2C-EF95B3A5175B</code></p>
 
-          <h1 id="http-status-codes">HTTP Status Codes</h1>
+              <h1 id="http-status-codes">HTTP Status Codes</h1>
 
 <p>Fulcrum uses conventional HTTP response codes to indicate the success or falure of an API request. In general, codes in the <code class="prettyprint">2xx</code> range indicate success, codes in the <code class="prettyprint">4xx</code> range indicate an error caused by the information provided (i.e., a required parameter was omitted, a method was not found, etc.), and codes in the <code class="prettyprint">5xx</code> range indicate an error with Fulcrum&rsquo;s servers (these are rare). </p>
 
@@ -192,17 +192,17 @@
 </tr>
 </tbody></table>
 
-          <h1 id="changelog">Changelog</h1>
+              <h1 id="changelog">Changelog</h1>
 
-          <h1 id="glossary">Glossary</h1>
+              <h1 id="glossary">Glossary</h1>
 
 <h2 id="identifiers">Identifiers</h2>
 
 <h2 id="terms">Terms</h2>
 
-          <h1 id="lookup">Lookup</h1>
+              <h1 id="lookup">Lookup</h1>
 
-          <h1 id="definitions">Definitions</h1>
+              <h1 id="definitions">Definitions</h1>
 
 <h2 id="list-global-definitions">List Global Definitions</h2>
 
@@ -730,7 +730,7 @@
 
 <p>Returns a list of all Business Units.</p>
 
-          <h1 id="question-library">Question Library</h1>
+              <h1 id="question-library">Question Library</h1>
 
 <h2 id="list-standard-questions">List Standard Questions</h2>
 
@@ -1027,9 +1027,9 @@
 
 <h2 id="show-question-options">Show Question Options</h2>
 
-          <h1 id="supply">Supply</h1>
+              <h1 id="supply">Supply</h1>
 
-          <h1 id="surveys">Surveys</h1>
+              <h1 id="surveys">Surveys</h1>
 
 <p>The Survey resource contains basic information about a survey opportunity posted by a sample buyer. More detailed information about who qualifies for the survey is contained in the <a href="#qualifications">Qualifications</a> and <a href="#quotas">Quotas</a> resources.</p>
 
@@ -1164,7 +1164,7 @@
 </tr>
 </tbody></table>
 
-<h2 class="get" id="list-exchange-surveys"><span>GET</span> List Exchange Surveys</h2>
+<h2 id="list-exchange-surveys">List Exchange Surveys</h2>
 
 <blockquote>
 <p>Definition</p>
@@ -1292,21 +1292,21 @@
 
 <h2 id="list-recently-allocated-surveys">List Recently Allocated Surveys</h2>
 
-          <h1 id="groups">Groups</h1>
+              <h1 id="groups">Groups</h1>
 
 <h2 id="list-a-survey’s-groups">List a Survey’s Groups</h2>
 
-          <h1 id="qualifications">Qualifications</h1>
+              <h1 id="qualifications">Qualifications</h1>
 
 <h2 id="show-qualifications">Show Qualifications</h2>
 
-          <h1 id="quotas">Quotas</h1>
+              <h1 id="quotas">Quotas</h1>
 
 <h2 id="show-quotas">Show Quotas</h2>
 
-          <h1 id="entry-links">Entry Links</h1>
+              <h1 id="entry-links">Entry Links</h1>
 
-<h2 class="post" id="create-a-link"><span>POST</span> Create a Link</h2>
+<h2 id="create-a-link">Create a Link</h2>
 
 <blockquote>
 <p>Definition</p>
@@ -1341,6 +1341,8 @@ https://api.samplicio.us/Supply/v1/SupplierLinks/Create/<span class="o">{</span>
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
+<span class="nv">$params</span> <span class="o">=</span> <span class="s1">'{"SupplierLinkTypeCode": "OWS,"TrackingTypeCode": "NONE"}'</span><span class="p">;</span>
+
 <span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
   <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://api.samplicio.us/Supply/v1/SupplierLinks/Create/</span><span class="si">{</span><span class="nv">SurveyNumber}/{SupplierCode}?key={APIKey</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
   <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
@@ -1350,7 +1352,7 @@ https://api.samplicio.us/Supply/v1/SupplierLinks/Create/<span class="o">{</span>
   <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
   <span class="nx">CURLOPT_HTTP_VERSION</span> <span class="o">=&gt;</span> <span class="nx">CURL_HTTP_VERSION_1_1</span><span class="p">,</span>
   <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="s2">"{\n</span><span class="se">\t\"</span><span class="s2">SupplierLinkTypeCode</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">OWS</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n\t\"</span><span class="s2">TrackingTypeCode</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">NONE</span><span class="se">\"\n</span><span class="s2">}"</span><span class="p">,</span>
+  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$params</span><span class="p">,</span>
 <span class="p">));</span>
 
 <span class="nv">$supplierLink</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
@@ -1397,6 +1399,13 @@ https://api.samplicio.us/Supply/v1/SupplierLinks/Create/<span class="o">{</span>
   <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span><span class="s1">'Content-Type'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">}</span>
 <span class="p">};</span>
 
+<span class="kd">var</span> <span class="nx">json</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"SupplierLinkTypeCode"</span><span class="p">:</span><span class="s2">"OWS"</span><span class="p">,</span>
+    <span class="s2">"TrackingTypeCode"</span><span class="p">:</span><span class="s2">"NONE"</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">params</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">json</span><span class="p">);</span>
+
 <span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">supplierLink</span><span class="p">)</span> <span class="p">{</span>
   <span class="kd">var</span> <span class="nx">chunks</span> <span class="o">=</span> <span class="p">[];</span>
 
@@ -1406,7 +1415,7 @@ https://api.samplicio.us/Supply/v1/SupplierLinks/Create/<span class="o">{</span>
 
 <span class="p">});</span>
 
-<span class="nx">request</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">"{\n\t\"SupplierLinkTypeCode\": \"OWS\",\n\t\"TrackingTypeCode\": \"NONE\"\n}"</span><span class="p">);</span>
+<span class="nx">request</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">params</span><span class="p">);</span>
 
 <span class="nx">request</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>
 </code></pre>
@@ -1441,7 +1450,7 @@ https://api.samplicio.us/Supply/v1/SupplierLinks/Create/<span class="o">{</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 class="put" id="update-a-link"><span>PUT</span> Update a Link</h2>
+<h2 id="update-a-links">Update a Links</h2>
 
 <blockquote>
 <p>Definition</p>
@@ -1475,6 +1484,8 @@ https://api.samplicio.us/Supply/v1/SupplierLinks/Create/<span class="o">{</span>
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
+<span class="nv">$params</span> <span class="o">=</span> <span class="s1">'{"SupplierLinkTypeCode": "OWS,"TrackingTypeCode": "NONE","DefaultLink": "","SuccessLink": "","FailureLink": "","OverQuotaLink": "","QualityTerminationLink": ""}'</span><span class="p">;</span>
+
 <span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
   <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://api.samplicio.us/Supply/v1/SupplierLinks/Update/</span><span class="si">{</span><span class="nv">SurveyNumber}/{SupplierCode}?key={APIKey</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
   <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
@@ -1484,7 +1495,7 @@ https://api.samplicio.us/Supply/v1/SupplierLinks/Create/<span class="o">{</span>
   <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
   <span class="nx">CURLOPT_HTTP_VERSION</span> <span class="o">=&gt;</span> <span class="nx">CURL_HTTP_VERSION_1_1</span><span class="p">,</span>
   <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"PUT"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="s2">"{\n</span><span class="se">\t\"</span><span class="s2">SupplierLinkTypeCode</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">OWS</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n\t\"</span><span class="s2">TrackingTypeCode</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">NONE</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n\t\"</span><span class="s2">DefaultLink</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"\"</span><span class="s2">,</span><span class="se">\n\t\"</span><span class="s2">SuccessLink</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"\"</span><span class="s2">,</span><span class="se">\n\t\"</span><span class="s2">FailureLink</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"\"</span><span class="s2">,</span><span class="se">\n\t\"</span><span class="s2">OverQuotaLink</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"\"</span><span class="s2">,</span><span class="se">\n\t\"</span><span class="s2">QualityTerminationLink</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"\"</span><span class="s2">}"</span><span class="p">,</span>
+  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$params</span><span class="p">,</span>
 <span class="p">));</span>
 
 <span class="nv">$updatedSupplierLink</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
@@ -1530,6 +1541,18 @@ https://api.samplicio.us/Supply/v1/SupplierLinks/Create/<span class="o">{</span>
   <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span><span class="s1">'Content-Type'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">}</span>
 <span class="p">};</span>
 
+<span class="kd">var</span> <span class="nx">json</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"SupplierLinkTypeCode"</span><span class="p">:</span><span class="s2">"OWS"</span><span class="p">,</span>
+    <span class="s2">"TrackingTypeCode"</span><span class="p">:</span><span class="s2">"NONE"</span><span class="p">,</span>
+    <span class="s2">"DefaultLink"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span>
+    <span class="s2">"SuccessLink"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span>
+    <span class="s2">"FailureLink"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span>
+    <span class="s2">"OverQuotaLink"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="s2">"QualityTerminationLink"</span><span class="p">:</span><span class="s2">""</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">params</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">json</span><span class="p">);</span>
+
 <span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">updatedSupplierLink</span><span class="p">)</span> <span class="p">{</span>
   <span class="kd">var</span> <span class="nx">chunks</span> <span class="o">=</span> <span class="p">[];</span>
 
@@ -1539,7 +1562,7 @@ https://api.samplicio.us/Supply/v1/SupplierLinks/Create/<span class="o">{</span>
 
 <span class="p">});</span>
 
-<span class="nx">request</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">"{\n\t\"SupplierLinkTypeCode\": \"OWS\",\n\t\"TrackingTypeCode\": \"NONE\",\n\t\"DefaultLink\": \"\",\n\t\"SuccessLink\": \"\",\n\t\"FailureLink\": \"\",\n\t\"OverQuotaLink\": \"\",\n\t\"QualityTerminationLink\": \"\"}"</span><span class="p">);</span>
+<span class="nx">request</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">params</span><span class="p">);</span>
 
 <span class="nx">request</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>
 </code></pre>
@@ -1576,23 +1599,22 @@ https://api.samplicio.us/Supply/v1/SupplierLinks/Create/<span class="o">{</span>
 
 <h2 id="show-a-link">Show a Link</h2>
 
-          <h1 id="statistics">Statistics</h1>
+              <h1 id="statistics">Statistics</h1>
 
 <h2 id="show-statistics">Show Statistics</h2>
 
-<h2 id="list-statistics">List Statistics</h2>
-
-          <h1 id="recruit">Recruit</h1>
+<h2 id="list-statistics">List Statistics
+              <h1 id="recruit">Recruit</h1>
 
 <h2 id="show-marketing-info">Show Marketing Info</h2>
 
-          <h1 id="recontact">Recontact</h1>
+              <h1 id="recontact">Recontact</h1>
 
 <h2 id="list-qualified-respondents">List Qualified Respondents</h2>
 
-          <h1 id="demand">Demand</h1>
+              <h1 id="demand">Demand</h1>
 
-          <h1 id="surveys">Surveys</h1>
+              <h1 id="surveys">Surveys</h1>
 
 <h2 id="create-a-survey">Create a Survey</h2>
 
@@ -1602,7 +1624,7 @@ https://api.samplicio.us/Supply/v1/SupplierLinks/Create/<span class="o">{</span>
 
 <h2 id="list-surveys-by-status">List Surveys By Status</h2>
 
-          <h1 id="qualifications">Qualifications</h1>
+              <h1 id="qualifications">Qualifications</h1>
 
 <h2 id="create-a-qualification">Create a Qualification</h2>
 
@@ -1610,7 +1632,7 @@ https://api.samplicio.us/Supply/v1/SupplierLinks/Create/<span class="o">{</span>
 
 <h2 id="list-qualifications">List Qualifications</h2>
 
-          <h1 id="quotas">Quotas</h1>
+              <h1 id="quotas">Quotas</h1>
 
 <h2 id="create-a-quota">Create a Quota</h2>
 
@@ -1618,13 +1640,13 @@ https://api.samplicio.us/Supply/v1/SupplierLinks/Create/<span class="o">{</span>
 
 <h2 id="list-quotas">List Quotas</h2>
 
-          <h1 id="exchange-templates">Exchange Templates</h1>
+              <h1 id="exchange-templates">Exchange Templates</h1>
 
 <h2 id="list-exchange-templates">List Exchange Templates</h2>
 
 <h2 id="apply-an-exchange-template">Apply an Exchange Template</h2>
 
-          <h1 id="exchange-groups">Exchange Groups</h1>
+              <h1 id="exchange-groups">Exchange Groups</h1>
 
 <h2 id="create-a-group">Create a Group</h2>
 
@@ -1640,13 +1662,13 @@ https://api.samplicio.us/Supply/v1/SupplierLinks/Create/<span class="o">{</span>
 
 <h2 id="remove-from-a-group">Remove from a Group</h2>
 
-          <h1 id="non-exchange-allocations">Non-Exchange Allocations</h1>
+              <h1 id="non-exchange-allocations">Non-Exchange Allocations</h1>
 
 <h2 id="create-an-allocation">Create an Allocation</h2>
 
 <h2 id="update-an-allocation">Update an Allocation</h2>
 
-<h2 class="delete" id="delete-an-allocation"><span>DELETE</span> Delete an Allocation</h2>
+<h2 id="delete-an-allocation">Delete an Allocation</h2>
 
 <blockquote>
 <p>Definition</p>
@@ -1719,7 +1741,7 @@ https://api.samplicio.us/Supply/v1/SupplierLinks/Create/<span class="o">{</span>
 
 <h2 id="list-allocations">List Allocations</h2>
 
-          <h1 id="non-exchange-entry-links">Non-Exchange Entry Links</h1>
+              <h1 id="non-exchange-entry-links">Non-Exchange Entry Links</h1>
 
 <h2 id="create-a-link">Create a Link</h2>
 
@@ -1727,7 +1749,7 @@ https://api.samplicio.us/Supply/v1/SupplierLinks/Create/<span class="o">{</span>
 
 <h2 id="delete-a-link">Delete a Link</h2>
 
-          <h1 id="feasibility">Feasibility</h1>
+              <h1 id="feasibility">Feasibility</h1>
 
 <h2 id="show-time-to-completion">Show Time to Completion</h2>
 
@@ -1735,34 +1757,34 @@ https://api.samplicio.us/Supply/v1/SupplierLinks/Create/<span class="o">{</span>
 
 <h2 id="show-completes-per-day">Show Completes per Day</h2>
 
-          <h1 id="recruits">Recruits</h1>
+              <h1 id="recruits">Recruits</h1>
 
 <h2 id="list-qualified-respondents">List Qualified Respondents</h2>
 
-          <h1 id="guides">Guides</h1>
+              <h1 id="guides">Guides</h1>
 
-          <h1 id="supply">Supply</h1>
+              <h1 id="supply">Supply</h1>
 
 <h2 id="market-research-panel-supplier">Market Research Panel Supplier</h2>
 
-          <h1 id="demand">Demand</h1>
+              <h1 id="demand">Demand</h1>
 
 <h2 id="diy-market-research-buyer">DIY Market Research Buyer</h2>
 
 <h2 id="enterprise-market-research-buyer">Enterprise Market Research Buyer</h2>
 
-      </div>
-      <div class="dark-box">
-          <div class="lang-selector">
-                <a href="#" data-language-name="shell">curl</a>
-                <a href="#" data-language-name="ruby">Ruby</a>
-                <a href="#" data-language-name="php">PHP</a>
-                <a href="#" data-language-name="python">Python</a>
-                <a href="#" data-language-name="csharp">C#</a>
-                <a href="#" data-language-name="javascript">Node.js</a>
           </div>
-      </div>
-    </div>
+          <div class="dark-box">
+              <div class="lang-selector">
+                    <a href="#" data-language-name="shell">curl</a>
+                    <a href="#" data-language-name="ruby">Ruby</a>
+                    <a href="#" data-language-name="php">PHP</a>
+                    <a href="#" data-language-name="python">Python</a>
+                    <a href="#" data-language-name="csharp">C#</a>
+                    <a href="#" data-language-name="javascript">Node.js</a>
+              </div>
+          </div>
+        </div>
     </div>
     <script type="text/javascript">
       document.getElementById("fouc").style.display="block";
