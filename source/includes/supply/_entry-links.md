@@ -39,6 +39,8 @@ supplierLink = http.request(request)
 <?php
 $curl = curl_init();
 
+$params = '{"SupplierLinkTypeCode": "OWS,"TrackingTypeCode": "NONE"}';
+
 curl_setopt_array($curl, array(
   CURLOPT_URL => "https://api.samplicio.us/Supply/v1/SupplierLinks/Create/{SurveyNumber}/{SupplierCode}?key={APIKey}",
   CURLOPT_RETURNTRANSFER => true,
@@ -48,7 +50,7 @@ curl_setopt_array($curl, array(
   CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => "POST",
-  CURLOPT_POSTFIELDS => "{\n\t\"SupplierLinkTypeCode\": \"OWS\",\n\t\"TrackingTypeCode\": \"NONE\"\n}",
+  CURLOPT_POSTFIELDS => $params,
 ));
 
 $supplierLink = curl_exec($curl);
@@ -101,6 +103,13 @@ var options = {
   "headers": {'Content-Type': 'application/json'}
 };
 
+var json = {
+    "SupplierLinkTypeCode":"OWS",
+    "TrackingTypeCode":"NONE"
+};
+
+var params = JSON.stringify(json);
+
 var request = https.request(options, function (supplierLink) {
   var chunks = [];
 
@@ -110,7 +119,7 @@ var request = https.request(options, function (supplierLink) {
   
 });
 
-request.write("{\n\t\"SupplierLinkTypeCode\": \"OWS\",\n\t\"TrackingTypeCode\": \"NONE\"\n}");
+request.write(params);
 
 request.end();
 ```
@@ -183,6 +192,8 @@ updatedSupplierLink = http.request(request)
 <?php
 $curl = curl_init();
 
+$params = '{"SupplierLinkTypeCode": "OWS,"TrackingTypeCode": "NONE","DefaultLink": "","SuccessLink": "","FailureLink": "","OverQuotaLink": "","QualityTerminationLink": ""}';
+
 curl_setopt_array($curl, array(
   CURLOPT_URL => "https://api.samplicio.us/Supply/v1/SupplierLinks/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}",
   CURLOPT_RETURNTRANSFER => true,
@@ -192,7 +203,7 @@ curl_setopt_array($curl, array(
   CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => "PUT",
-  CURLOPT_POSTFIELDS => "{\n\t\"SupplierLinkTypeCode\": \"OWS\",\n\t\"TrackingTypeCode\": \"NONE\",\n\t\"DefaultLink\": \"\",\n\t\"SuccessLink\": \"\",\n\t\"FailureLink\": \"\",\n\t\"OverQuotaLink\": \"\",\n\t\"QualityTerminationLink\": \"\"}",
+  CURLOPT_POSTFIELDS => $params,
 ));
 
 $updatedSupplierLink = curl_exec($curl);
@@ -244,6 +255,18 @@ var options = {
   "headers": {'Content-Type': 'application/json'}
 };
 
+var json = {
+    "SupplierLinkTypeCode":"OWS",
+    "TrackingTypeCode":"NONE",
+    "DefaultLink":"",
+    "SuccessLink":"",
+    "FailureLink":"",
+    "OverQuotaLink": "",
+    "QualityTerminationLink":""
+};
+
+var params = JSON.stringify(json);
+
 var request = https.request(options, function (updatedSupplierLink) {
   var chunks = [];
 
@@ -253,7 +276,7 @@ var request = https.request(options, function (updatedSupplierLink) {
 
 });
 
-request.write("{\n\t\"SupplierLinkTypeCode\": \"OWS\",\n\t\"TrackingTypeCode\": \"NONE\",\n\t\"DefaultLink\": \"\",\n\t\"SuccessLink\": \"\",\n\t\"FailureLink\": \"\",\n\t\"OverQuotaLink\": \"\",\n\t\"QualityTerminationLink\": \"\"}");
+request.write(params);
 
 request.end();
 ```
