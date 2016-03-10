@@ -208,19 +208,19 @@ http.use_ssl = true
 
 request = Net::HTTP::Get.new(uri.request_uri)
 
-surveys = http.request(request)  
+questionText = http.request(request)  
 ```
 
 ```php
 <?php
-$surveys = file_get_contents('https://api.samplicio.us/Lookup/v1/QuestionLibrary/QuestionById/{CountryLanguageID}/{QuestionID}?key={APIKey}');
+$questionText = file_get_contents('https://api.samplicio.us/Lookup/v1/QuestionLibrary/QuestionById/{CountryLanguageID}/{QuestionID}?key={APIKey}');
 ?>
 ```
 
 ```python
 import requests
 
-surveys = requests.get('https://api.samplicio.us/Lookup/v1/QuestionLibrary/QuestionById/{CountryLanguageID}/{QuestionID}?key={APIKey}')
+questionText = requests.get('https://api.samplicio.us/Lookup/v1/QuestionLibrary/QuestionById/{CountryLanguageID}/{QuestionID}?key={APIKey}')
 ```
 
 ```csharp
@@ -228,13 +228,13 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Lookup/v1/QuestionLibrary/QuestionById/{CountryLanguageID}/{QuestionID}?key={APIKey}");
 
-WebResponse surveys = request.GetResponse();
+WebResponse questionText = request.GetResponse();
 ```
 
 ```javascript
 const https = require('https');
 
-var surveys = https.get('https://api.samplicio.us/Lookup/v1/QuestionLibrary/QuestionById/{CountryLanguageID}/{QuestionID}?key={APIKey}');
+var questionText = https.get('https://api.samplicio.us/Lookup/v1/QuestionLibrary/QuestionById/{CountryLanguageID}/{QuestionID}?key={APIKey}');
 ```
 
 > Example Response
@@ -261,12 +261,11 @@ var surveys = https.get('https://api.samplicio.us/Lookup/v1/QuestionLibrary/Ques
     "QuestionText": "What is your age?",
     "QuestionType": "Numeric - Open-end",
     "SurveyUse": 8420
+  }
 }
 ```
 
 Returns the details of a specific Standard or Custom Qualification.
-
-<aside class="notice"></aside>
 
 ### Arguments
 
