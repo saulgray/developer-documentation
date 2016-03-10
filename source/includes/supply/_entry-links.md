@@ -1,5 +1,21 @@
 #Entry Links
 
+The Entry Links resource provides suppliers the ability to create, update, and retrieve supplier survey entry links, as well as also specify [supplier link and tracking types](#list-global-definitions). 
+
+### Supplier Link Model
+
+| Property                     | Type     | Description                                                                                                                                             |
+|------------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
+| SupplierLinkTypeCode         | string   | Entry link type.                                                                                                                                        | 
+| TrackingTypeCode             | string   | Supplier redirect URL tracking type; NONE (Default and recommended, physical redirect URL), PIXEL (pixel tracking), or S2S (server to server).          |
+| DefaultLink                  | string   | Supplier redirect used for a termination.                                                                                                               |
+| SuccessLink                  | string   | Supplier redirect used for a succesful completion.                                                                                                      |
+| FailureLink                  | string   | Supplier redirect used for a termination.                                                                                                               |
+| OverQuotaLink                | string   | Supplier redirect used for a termination.                                                                                                               |
+| LiveLink                     | string   | Live entry link                                                                                                                                         |
+| TestLink                     | string   | Test entry link                                                                                                                                         |
+| CPI                          | string   | Gross payout per complete. This value is before any applicable commissions or fees.                                                                                                                   |
+
 ##Create a Link
 
 > Definition
@@ -153,8 +169,20 @@ request.end();
   }
 }
 ```
+Creates an entry link to a survey with the option to alter the supplier tracking type. Supplier redirects can also be modified via this call. If no supplier redirects are included, the default supplier redirects will be used. 
 
-##Update a Links
+<aside class="notice">We recommend using Offerwall/Standalone link type when creating links against Offerwall surveys. "SupplierLinkTypeCode": "OWS" and "TrackingTypeCode": "NONE"</aside>
+
+### Arguments
+
+| Property                     | Type     | Required | Description                                                                                                                                  |
+|------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| SurveyNumber                 | int      | true     | Unique number associated with the survey                                                                                                     |
+| SupplierCode                 | int      | true     | Unique code associated with supplier account                                                                                                 |
+| SupplierLinkTypeCode         | string   | true     | Entry link type                                                                                                                              |
+| TrackingTypeCode             | string   | true     | Supplier redirect URL tracking type; NONE (Default and recommended, physical redirect URL), PIXEL (pixel tracking), or S2S (server to server)|
+
+##Update a Link
 
 > Definition
 
