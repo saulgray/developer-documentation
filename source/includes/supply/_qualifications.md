@@ -1,6 +1,6 @@
 #Qualifications
 
-The Qualification resource contains the questions and corresponding conditions associated with a survey. These qualifications make up the Fulcrum prescreener and define the overall survey targeting criteria for suppliers. This resource will also return any exposed custom qualifications on a survey. 
+The Qualification resource contains the questions and corresponding conditions associated with a survey. These qualifications make up the Fulcrum prescreener and define the overall survey targeting criteria for suppliers.
 
 ### Survey Qualification Model
 
