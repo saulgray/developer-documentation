@@ -332,7 +332,7 @@ request.end();
     "SuccessLink": "",
     "FailureLink": "",
     "OverQuotaLink": "",
-    "QualityTerminatio nLink": "",
+    "QualityTerminationLink": "",
     "LiveLink": "http:\/\/staging.samplicio.us\/router\/default.aspx?SID=52c795a7-15fh-454d-9ap2-3d5d803aa7af&PID=",
     "TestLink": "http:\/\/staging.samplicio.us\/router\/default.aspx?SID=a348dif7- 3491-42v0-be51-0e4fdf25582f&FIRID=MSDHQNI7&SUMSTAT=8&PID=test",
     "CPI": 100
@@ -361,19 +361,19 @@ Update an existing entry link to a study with the option to alter the supplier t
 > Definition
 
 ```plaintext
-GET  https://api.samplicio.us/Supply/v1/SurveyQualifications/BySurveyNumberForOfferwall/{SurveyNumber}?key={APIKey}
+GET  https://api.samplicio.us/Supply/v1/SupplierLinks/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}
 ```
 
 > Example Request
 
 ```shell
-curl https://api.samplicio.us/Supply/v1/SurveyQualifications/BySurveyNumberForOfferwall/{SurveyNumber}?key={APIKey}
+curl https://api.samplicio.us/Supply/v1/SupplierLinks/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}
 ```
 
 ```ruby
 require 'net/http'
 
-uri = URI('https://api.samplicio.us/Supply/v1/SurveyQualifications/BySurveyNumberForOfferwall/{SurveyNumber}?key={APIKey}')
+uri = URI('https://api.samplicio.us/Supply/v1/SupplierLinks/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}')
 
 http = Net::HTTP.new(uri.host, uri.port)
 
@@ -381,33 +381,33 @@ http.use_ssl = true
 
 request = Net::HTTP::Get.new(uri.request_uri)
 
-surveyQualifications = http.request(request)  
+supplierLinks = http.request(request)  
 ```
 
 ```php
 <?php
-$surveyQualifications = file_get_contents('https://api.samplicio.us/Supply/v1/SurveyQualifications/BySurveyNumberForOfferwall/{SurveyNumber}?key={APIKey}');
+$supplierLinks = file_get_contents('https://api.samplicio.us/Supply/v1/SupplierLinks/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}');
 ?>
 ```
 
 ```python
 import requests
 
-surveyQualifications = requests.get('https://api.samplicio.us/Supply/v1/SurveyQualifications/BySurveyNumberForOfferwall/{SurveyNumber}?key={APIKey}')
+supplierLinks = requests.get('https://api.samplicio.us/Supply/v1/SupplierLinks/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}')
 ```
 
 ```csharp
 using System.Net;
 
-WebRequest request = WebRequest.Create("https://api.samplicio.us/Supply/v1/SurveyQualifications/BySurveyNumberForOfferwall/{SurveyNumber}?key={APIKey}");
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Supply/v1/SupplierLinks/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}");
 
-WebResponse surveyQualifications = request.GetResponse();
+WebResponse supplierLinks = request.GetResponse();
 ```
 
 ```javascript
 const https = require('https');
 
-var surveyQualifications = https.get('https://api.samplicio.us/Supply/v1/SurveyQualifications/BySurveyNumberForOfferwall/{SurveyNumber}?key={APIKey}');
+var supplierLinks = https.get('https://api.samplicio.us/Supply/v1/SurveyQualifications/BySurveyNumberForOfferwall/{SurveyNumber}?key={APIKey}');
 ```
 
 > Example Response
@@ -422,42 +422,27 @@ var surveyQualifications = https.get('https://api.samplicio.us/Supply/v1/SurveyQ
   "AccountCode": "AA",
   "ApiMessages": [
     "API Message: Response initialized.",
-    "API Message: GetOfferwallQualificationsBySurveyNumber successful."
+    "API Message: GetSupplierLinkBySurveyNumberAndSupplierCode successful."
   ],
-  "ResultCount": 10,
-  "SurveyQualification": {
-    "SurveyNumber": 254256,
-    "Questions": [
-      {
-        "QuestionID": 42,
-        "LogicalOperator": "Or",
-        "PreCodes": [
-          "18",
-          "19",
-          "20",
-          "21",
-          "22",
-          "23",
-          "24",
-          "25"
-        ]
-      },
-      {
-        "QuestionID": 43,
-        "LogicalOperator": "Or",
-        "PreCodes": [
-          "1",
-          "2"
-        ]
-      }
-    ]
+  "ResultCount": 1,
+  "SupplierLink": {
+    "SupplierLinkTypeCode": "OWS",
+    "TrackingTypeCode": "NONE",
+    "DefaultLink": "http:\/\/www.anon.com\/surveys?v=federated&fs=1&uid=[%MID%]",
+    "SuccessLink": "http:\/\/www.anon.com\/surveys?v=federated&fs=2&uid=[%MID%]&COST=[%COST%]",
+    "FailureLink": "http:\/\/www.anon.com\/surveys?v=federated&fs=1&uid=[%MID%]",
+    "OverQuotaLink": "http:\/\/www.anon.com\/surveys?v=federated&fs=1&uid=[%MID%]",
+    "QualityTerminationLink": "http:\/\/www.anon.com\/surveys?v=federated&fs=1&uid=[%MID%]",
+    "LiveLink": "http:\/\/staging.samplicio.us\/router\/default.aspx?SID=52c975a7-15fb-804d-9bf2-3d5d553aa7af&PID=",
+    "TestLink": "http:\/ \/staging.samplicio.us\/router\/default.aspx?SID=a948gef7-3591-42c0-ce51-0e4jdf25582f&FIRID=MSDHONI7&SUMSTAT=1&PID=test",
+    "CPI": 100
   }
 }
 ```
 
-Returns a list of all standard and exposed custom qualifications associated with a survey. 
+Returns link details for a survey. 
 
-<aside class="notice">This API call returns data for all types of surveys not just Offerwall surveys.</aside>
+<aside class="notice"></aside>
 
 ### Arguments
 
@@ -465,5 +450,3 @@ Returns a list of all standard and exposed custom qualifications associated with
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
 | SurveyNumber                 | int      | true     | Unique number associated with the survey                                                                                                     |
 | SupplierCode                 | int      | true     | Unique code associated with supplier account                                                                                                 |
-| SupplierLinkTypeCode         | string   | true     | Entry link type                                                                                                                              |
-| TrackingTypeCode             | string   | true     | Supplier redirect URL tracking type; NONE (Default and recommended, physical redirect URL), PIXEL (pixel tracking), or S2S (server to server)|
