@@ -148,7 +148,7 @@ var surveyQuotas = https.get('https://api.samplicio.us/Supply/v1/SurveyQuotas/By
 }
 ```
 
-Returns a total and subquotas associated with a survey. 
+Returns the total quota and subquotas associated with a survey. 
 
 <aside class="notice">NumberOfRespondents is calculated real-time</aside>
 
@@ -157,5 +157,5 @@ Returns a total and subquotas associated with a survey.
 
 | Property                     | Type     | Required | Description                                                                                                                                  |
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| SurveyNumber                 | int      | true     | Survey Details: Unique number associated with the survey                                                                                     |
-| SupplierCode                 | int      | true     | Unique code associated with supplier accoun                                                                                                  |
+| SurveyNumber                 | int      | true     | Unique number associated with the survey                                                                                                     |
+| SupplierCode                 | int      | true     | Unique code associated with supplier account                                                                                                  |
