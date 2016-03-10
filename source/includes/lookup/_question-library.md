@@ -261,12 +261,11 @@ var surveys = https.get('https://api.samplicio.us/Lookup/v1/QuestionLibrary/Ques
     "QuestionText": "What is your age?",
     "QuestionType": "Numeric - Open-end",
     "SurveyUse": 8420
+  }
 }
 ```
 
 Returns the details of a specific Standard or Custom Qualification.
-
-<aside class="notice"></aside>
 
 ### Arguments
 
