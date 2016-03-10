@@ -11,10 +11,11 @@ The Entry Links resource provides suppliers the ability to create, update, and r
 | DefaultLink                  | string   | Supplier redirect used for a termination.                                                                                                               |
 | SuccessLink                  | string   | Supplier redirect used for a succesful completion.                                                                                                      |
 | FailureLink                  | string   | Supplier redirect used for a termination.                                                                                                               |
-| OverQuotaLink                | string   | Supplier redirect used for a termination.                                                                                                               |
+| OverQuotaLink                | string   | Supplier redirect used for an overquota.                                                                                                                |
+| QualityTerminationLink       | string   | Supplier redirect used for a quality (security) termination.                                                                                            |
 | LiveLink                     | string   | Live entry link                                                                                                                                         |
 | TestLink                     | string   | Test entry link                                                                                                                                         |
-| CPI                          | string   | Gross payout per complete. This value is before any applicable commissions or fees.                                                                                                                   |
+| CPI                          | string   | Gross payout per complete. This value is before any applicable commissions or fees.                                                                     |
 
 ##Create a Link
 
@@ -321,7 +322,7 @@ request.end();
   "AccountCode": "AA",
   "ApiMessages": [
     "API Message: Response initialized.",
-    "API Message: UpdateSupplierLinkF romModel successful."
+    "API Message: UpdateSupplierLinkFromModel successful."
   ],
   "ResultCount": 1,
   "SupplierLink": {
@@ -339,4 +340,130 @@ request.end();
 }
 ```
 
+Update an existing entry link to a study with the option to alter the supplier tracking type. 
+
+<aside class="notice"></aside>
+
+### Arguments
+
+| Property                     | Type     | Description                                                                                                                                             |
+|------------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
+| SupplierLinkTypeCode         | string   | Entry link type.                                                                                                                                        | 
+| TrackingTypeCode             | string   | Supplier redirect URL tracking type; NONE (Default and recommended, physical redirect URL), PIXEL (pixel tracking), or S2S (server to server).          |
+| DefaultLink                  | string   | Supplier redirect used for a termination.                                                                                                               |
+| SuccessLink                  | string   | Supplier redirect used for a succesful completion.                                                                                                      |
+| FailureLink                  | string   | Supplier redirect used for a termination.                                                                                                               |
+| OverQuotaLink                | string   | Supplier redirect used for an overquota.                                                                                                                |
+| QualityTerminationLink       | string   | Supplier redirect used for a quality (security) termination.                                                                                            |
+
 ##Show a Link
+
+> Definition
+
+```plaintext
+GET  https://api.samplicio.us/Supply/v1/SurveyQualifications/BySurveyNumberForOfferwall/{SurveyNumber}?key={APIKey}
+```
+
+> Example Request
+
+```shell
+curl https://api.samplicio.us/Supply/v1/SurveyQualifications/BySurveyNumberForOfferwall/{SurveyNumber}?key={APIKey}
+```
+
+```ruby
+require 'net/http'
+
+uri = URI('https://api.samplicio.us/Supply/v1/SurveyQualifications/BySurveyNumberForOfferwall/{SurveyNumber}?key={APIKey}')
+
+http = Net::HTTP.new(uri.host, uri.port)
+
+http.use_ssl = true
+
+request = Net::HTTP::Get.new(uri.request_uri)
+
+surveyQualifications = http.request(request)  
+```
+
+```php
+<?php
+$surveyQualifications = file_get_contents('https://api.samplicio.us/Supply/v1/SurveyQualifications/BySurveyNumberForOfferwall/{SurveyNumber}?key={APIKey}');
+?>
+```
+
+```python
+import requests
+
+surveyQualifications = requests.get('https://api.samplicio.us/Supply/v1/SurveyQualifications/BySurveyNumberForOfferwall/{SurveyNumber}?key={APIKey}')
+```
+
+```csharp
+using System.Net;
+
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Supply/v1/SurveyQualifications/BySurveyNumberForOfferwall/{SurveyNumber}?key={APIKey}");
+
+WebResponse surveyQualifications = request.GetResponse();
+```
+
+```javascript
+const https = require('https');
+
+var surveyQualifications = https.get('https://api.samplicio.us/Supply/v1/SurveyQualifications/BySurveyNumberForOfferwall/{SurveyNumber}?key={APIKey}');
+```
+
+> Example Response
+
+```json 
+{
+  "ApiResult": 0,
+  "ApiResultCode": 0,
+  "ApiAccount": "Anon",
+  "AccountType": 2,
+  "ApiAccountStatus": 1,
+  "AccountCode": "AA",
+  "ApiMessages": [
+    "API Message: Response initialized.",
+    "API Message: GetOfferwallQualificationsBySurveyNumber successful."
+  ],
+  "ResultCount": 10,
+  "SurveyQualification": {
+    "SurveyNumber": 254256,
+    "Questions": [
+      {
+        "QuestionID": 42,
+        "LogicalOperator": "Or",
+        "PreCodes": [
+          "18",
+          "19",
+          "20",
+          "21",
+          "22",
+          "23",
+          "24",
+          "25"
+        ]
+      },
+      {
+        "QuestionID": 43,
+        "LogicalOperator": "Or",
+        "PreCodes": [
+          "1",
+          "2"
+        ]
+      }
+    ]
+  }
+}
+```
+
+Returns a list of all standard and exposed custom qualifications associated with a survey. 
+
+<aside class="notice">This API call returns data for all types of surveys not just Offerwall surveys.</aside>
+
+### Arguments
+
+| Property                     | Type     | Required | Description                                                                                                                                  |
+|------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| SurveyNumber                 | int      | true     | Unique number associated with the survey                                                                                                     |
+| SupplierCode                 | int      | true     | Unique code associated with supplier account                                                                                                 |
+| SupplierLinkTypeCode         | string   | true     | Entry link type                                                                                                                              |
+| TrackingTypeCode             | string   | true     | Supplier redirect URL tracking type; NONE (Default and recommended, physical redirect URL), PIXEL (pixel tracking), or S2S (server to server)|
