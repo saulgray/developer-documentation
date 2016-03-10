@@ -1,19 +1,19 @@
 #Qualifications
 
-The Qualifications resource contains the questions and associated conditions on a survey. These qualifications make up the Fulcrum prescreener and define the overall survey targeting criteria for suppliers. Quotas are built off of qualifications. This resource will also return any exposed custom qualifications on a survey. 
+The Qualification resource contains the questions and corresponding conditions associated with a survey. These qualifications make up the Fulcrum prescreener and define the overall survey targeting criteria for suppliers. This resource will also return any exposed custom qualifications on a survey. 
 
 ### Survey Qualification Model
 
 | Property                     | Type     | Description                                                                                                                                             |
 |------------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
 | SurveyNumber                 | int      | Unique number associated with the survey.                                                                                                               | 
-| Questions                    | array    | Contains an array of elements described below.                                                                                                          |
+| Questions                    | array    | Contains an array of Question models.                                                                                                                   |
 
 ### Questions Model
 
 | Property                     | Type     | Description                                                                                                                                             |
 |------------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
-| QuestionID                   | int      | Survey question identifier.                                                                                                                             |
+| QuestionID                   | int      | Unique number associated with the question.                                                                                                               |
 | LogicalOperator              | string   | Defines the logical operation applied to the conditions.                                                                                                |
 | PreCodes                     | array    | Qualification answer option precodes.                                                                                                                   |
 
@@ -22,19 +22,19 @@ The Qualifications resource contains the questions and associated conditions on 
 > Definition
 
 ```plaintext
-GET  https://api.samplicio.us/Supply/v1/SurveyQualifications/BySurveyNumberForOfferwall{SurveyNumber}?key={APIKey}
+GET  https://api.samplicio.us/Supply/v1/SurveyQualifications/BySurveyNumberForOfferwall/{SurveyNumber}?key={APIKey}
 ```
 
 > Example Request
 
 ```shell
-curl https://api.samplicio.us/Supply/v1/SurveyQualifications/BySurveyNumberForOfferwall{SurveyNumber}?key={APIKey}
+curl https://api.samplicio.us/Supply/v1/SurveyQualifications/BySurveyNumberForOfferwall/{SurveyNumber}?key={APIKey}
 ```
 
 ```ruby
 require 'net/http'
 
-uri = URI('https://api.samplicio.us/Supply/v1/SurveyQualifications/BySurveyNumberForOfferwall{SurveyNumber}?key={APIKey}')
+uri = URI('https://api.samplicio.us/Supply/v1/SurveyQualifications/BySurveyNumberForOfferwall/{SurveyNumber}?key={APIKey}')
 
 http = Net::HTTP.new(uri.host, uri.port)
 
@@ -47,20 +47,20 @@ surveyQualifications = http.request(request)
 
 ```php
 <?php
-$surveyQualifications = file_get_contents('https://api.samplicio.us/Supply/v1/SurveyQualifications/BySurveyNumberForOfferwall{SurveyNumber}?key={APIKey}');
+$surveyQualifications = file_get_contents('https://api.samplicio.us/Supply/v1/SurveyQualifications/BySurveyNumberForOfferwall/{SurveyNumber}?key={APIKey}');
 ?>
 ```
 
 ```python
 import requests
 
-surveyQualifications = requests.get('https://api.samplicio.us/Supply/v1/SurveyQualifications/BySurveyNumberForOfferwall{SurveyNumber}?key={APIKey}')
+surveyQualifications = requests.get('https://api.samplicio.us/Supply/v1/SurveyQualifications/BySurveyNumberForOfferwall/{SurveyNumber}?key={APIKey}')
 ```
 
 ```csharp
 using System.Net;
 
-WebRequest request = WebRequest.Create("https://api.samplicio.us/Supply/v1/SurveyQualifications/BySurveyNumberForOfferwall{SurveyNumber}?key={APIKey}");
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Supply/v1/SurveyQualifications/BySurveyNumberForOfferwall/{SurveyNumber}?key={APIKey}");
 
 WebResponse surveyQualifications = request.GetResponse();
 ```
@@ -68,7 +68,7 @@ WebResponse surveyQualifications = request.GetResponse();
 ```javascript
 const https = require('https');
 
-var surveyQualifications = https.get('https://api.samplicio.us/Supply/v1/SurveyQualifications/BySurveyNumberForOfferwall{SurveyNumber}?key={APIKey}');
+var surveyQualifications = https.get('https://api.samplicio.us/Supply/v1/SurveyQualifications/BySurveyNumberForOfferwall/{SurveyNumber}?key={APIKey}');
 ```
 
 > Example Response
@@ -125,4 +125,4 @@ Returns a list of all standard and exposed custom qualifications associated with
 
 | Property                     | Type     | Required | Description                                                                                                                                  |
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| SurveyNumber                 | int      | true     | Unique number associated with the survey                                                                                     |
+| SurveyNumber                 | int      | true     | Unique number associated with the survey.                                                                                                    |
