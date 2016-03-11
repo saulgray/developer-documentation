@@ -401,7 +401,7 @@
 
             }).append($("<a/>", {
 
-                "text": self.text()
+                "text": self.text().replace(/GET/,'<span class="http-method">GET</span>')
 
             }));
 
