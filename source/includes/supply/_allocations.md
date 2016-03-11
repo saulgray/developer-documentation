@@ -70,34 +70,10 @@ var surveys = https.get('https://api.samplicio.us/Supply/v1/Surveys/SupplierAllo
 	"ResultCount": 3,
 	"SupplierAllocationSurveys": [
 		{
-			"SurveyName": "Hobbies Survey",
-			"SurveyNumber": 143479,
-			"SurveySID": "7CA6ED12-3108-44BA-8C36-9257CFA9B0F2",
-			"AccountName": "Federated Sample",
-			"CountryLanguageID": 9,
-			"LengthOfInterview": 15,
-			"BidIncidence": 100,
-			"Conversion": 47,
-			"FieldBeginDate": "/Date(1456380000000-0600)/",
-			"FieldEndDate": "/Date(1457672400000-0600)/",
-			"IndustryID": 22,
-			"StudyTypeID": 1,
-			"Priority": 11,
-			"SurveyGroup": null,
-			"SurveyGroupID": null,
-			"SurveyGroupExists": 1,
-			"BidLengthOfInterview": 10,
-			"TerminationLengthOfInterview": 1,
-			"SurveyQuotaCalcTypeID": 1,
-			"IsTrueSample": false,
-			"SurveyMobileConversion": 49,
-			"SampleTypeID": 100
-		},
-		{
 			"SurveyName": "IT Developers Survey",
 			"SurveyNumber": 143479,
 			"SurveySID": "4C2B4533-0EA1-364A-212B-345B38C6AF57",
-			"AccountName": "Example Account Name",
+			"AccountName": "Sample Company",
 			"CountryLanguageID": 9,
 			"LengthOfInterview": 2,
 			"BidIncidence": 8,
@@ -116,30 +92,6 @@ var surveys = https.get('https://api.samplicio.us/Supply/v1/Surveys/SupplierAllo
 			"IsTrueSample": false,
 			"SurveyMobileConversion": 0,
 			"SampleTypeID": null
-		},
-		{
-			"SurveyName": "B2B survey",
-			"SurveyNumber": 285390,
-			"SurveySID": "F6605B8D-02C1-4D1A-85BD-AB5B73AAD4C4",
-			"AccountName": "Federated Sample",
-			"CountryLanguageID": 9,
-			"LengthOfInterview": 9,
-			"BidIncidence": 10,
-			"Conversion": 34,
-			"FieldBeginDate": "/Date(1456552800000-0600)/",
-			"FieldEndDate": "/Date(1457845200000-0600)/",
-			"IndustryID": 30,
-			"StudyTypeID": 1,
-			"Priority": 11,
-			"SurveyGroup": null,
-			"SurveyGroupID": null,
-			"SurveyGroupExists": 1,
-			"BidLengthOfInterview": 10,
-			"TerminationLengthOfInterview": 2,
-			"SurveyQuotaCalcTypeID": 1,
-			"IsTrueSample": false,
-			"SurveyMobileConversion": 33,
-			"SampleTypeID": 101
 		}
 	]
 }
@@ -150,9 +102,7 @@ Returns a list of all live survey opportunities available through the Exchange a
 
 | Property                     | Type     | Required | Description                                                                     |
 |------------------------------|----------|----------|---------------------------------------------------------------------------------|
-|SupplierCode                  | int      | true     | Unique code associated with a supplier account                                  |
-|SurveyNumber                  | int      | true     | Unique number associated with the survey                                        |
-
+|SupplierCode                  | int      | true     | Unique code associated with a supplier account.                                 |
 
 ## Show an Allocated Survey
 > Definition
