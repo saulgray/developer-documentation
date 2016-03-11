@@ -65,7 +65,7 @@ var standardQs = https.get('https://api.samplicio.us/Lookup/v1/QuestionLibrary/A
     "API Message: Response initialized.",
     "API Message: GetAllQuestions successful."
   ],
-  "ResultCount": 3,
+  "ResultCount": 1,
   "Questions": [
     {
       "IsCoreDemographic": true,
@@ -76,9 +76,7 @@ var standardQs = https.get('https://api.samplicio.us/Lookup/v1/QuestionLibrary/A
       "QuestionText": "What is your age?",
       "QuestionType": "Numeric - Open-end",
       "SurveyUse": 8162
-    },
-    {...},
-    {...}
+    }
   ]
 }    
 ```
@@ -156,7 +154,7 @@ var customQs = https.get('https://api.samplicio.us/QuestionLibrary/AllCustomQues
     "API Message: Response initialized.",
     "API Message: GetAllQuestions successful."
   ],
-  "ResultCount": 3,
+  "ResultCount": 1,
   "Questions": [
     {
       "__type": "PublicQuestionModel",
@@ -169,9 +167,7 @@ var customQs = https.get('https://api.samplicio.us/QuestionLibrary/AllCustomQues
       "QuestionType": "Single Punch",
       "SurveyUse": 2,
       "AccountID": 1
-    },
-    {...},
-    {...}
+    }
   ]
 }    
 ```
