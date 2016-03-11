@@ -359,9 +359,9 @@ var questionOptions = https.get('https://api.samplicio.us/Lookup/v1/QuestionLibr
 }
 ```
 
-Returns the answer options and associated precodes for a specific QuestionID and Country-language pair.
+Returns the answer options and associated precodes for a specific QuestionID and Country-Language pair.
 
-<aside class="notice">You'll want to have all QuestionIDs and Country-language pairs to map each question and translation properly.</aside>
+<aside class="notice">If you have your own question library, you should create a map between Fulcrum Standard qualifications and those that match in your own library.</aside>
 
 ### Arguments
 
