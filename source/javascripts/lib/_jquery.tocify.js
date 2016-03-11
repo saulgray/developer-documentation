@@ -401,7 +401,7 @@
 
             }).append($("<a/>", {
 
-                "text": self.text().replace(/GET/, <span class="http-get">GET</span>)
+                "text": self.text().replace(/GET/, function createSpan(httpReqEl){return httpReqEl.createElement("span");})
 
             }));
 
