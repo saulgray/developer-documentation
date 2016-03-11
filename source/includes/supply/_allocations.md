@@ -274,8 +274,8 @@ Returns any allocation(s) given to you for a particular survey.
 
 | Property                     | Type     | Required | Description                                                                     |
 |------------------------------|----------|----------|---------------------------------------------------------------------------------|
-|SupplierCode                  | int      | true     | Unique code associated with a supplier account                                  |
-|SurveyNumber                  | int      | true     | Unique number associated with the survey                                        |
+|SupplierCode                  | int      | true     | Unique code associated with a supplier account.                                 |
+|SurveyNumber                  | int      | true     | Unique number associated with the survey.                                       |
 
 
 ## List Recently Allocated Surveys
