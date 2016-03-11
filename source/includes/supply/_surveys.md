@@ -141,5 +141,3 @@ Returns a list of all live survey opportunities available through the Exchange f
 | Property                     | Type     | Required | Description                                                                                                                                  |
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
 | SupplierCode                 | int      | true     | Unique code associated with a supplier account.                                                                                              |
-
-[![Run in Postman](https://run.pstmn.io/button.png)](https://www.getpostman.com/run-collection/bb68be2cda20d9bc87b6)
