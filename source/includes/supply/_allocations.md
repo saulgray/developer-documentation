@@ -4,19 +4,19 @@
 > Definition
 
 ```plaintext
-GET  http://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/All/{SupplierCode}?key={APIKey}
+GET  https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/All/{SupplierCode}?key={APIKey}
 ```
 
 > Example Request
 
 ```shell
-curl http://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/All/{SupplierCode}?key={APIKey}
+curl https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/All/{SupplierCode}?key={APIKey}
 ```
 
 ```ruby
 require 'net/http'
 
-uri = URI('http://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/All/{SupplierCode}?key={APIKey}')
+uri = URI('https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/All/{SupplierCode}?key={APIKey}')
 
 http = Net::HTTP.new(uri.host, uri.port)
 
@@ -29,20 +29,20 @@ surveys = http.request(request)
 
 ```php
 <?php
-$surveys = file_get_contents('http://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/All/{SupplierCode}?key={APIKey}');
+$surveys = file_get_contents('https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/All/{SupplierCode}?key={APIKey}');
 ?>
 ```
 
 ```python
 import requests
 
-surveys = requests.get('http://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/All/{SupplierCode}?key={APIKey}')
+surveys = requests.get('https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/All/{SupplierCode}?key={APIKey}')
 ```
 
 ```csharp
 using System.Net;
 
-WebRequest request = WebRequest.Create("http://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/All/{SupplierCode}?key={APIKey}");
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/All/{SupplierCode}?key={APIKey}");
 
 WebResponse surveys = request.GetResponse();
 ```
@@ -50,7 +50,7 @@ WebResponse surveys = request.GetResponse();
 ```javascript
 const https = require('https');
 
-var surveys = https.get('http://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/All/{SupplierCode}?key={APIKey}');
+var surveys = https.get('https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/All/{SupplierCode}?key={APIKey}');
 ```
 
 > Example Response
