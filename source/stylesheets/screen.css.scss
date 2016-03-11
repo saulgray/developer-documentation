@@ -166,24 +166,24 @@ html, body {
       &:hover {
         color: $nav-active-text;
       }
-      // HTTP tags in TOC
-      &>span.http-get {
+    }
+    // HTTP tags in TOC
+      a > span.http-get {
           @extend %code-font;
           color:$post;
         }
-      &>span.http-put {
+      a > span.http-put {
          @extend %code-font;
           color:$put;
       }
-      &>span.http-get {
+      a > span.http-get {
           @extend %code-font;
           color:$get;
       }
-      &>span.http-delete {
+      a > span.http-delete {
           @extend %code-font;
           color:$delete;
       }
-    }
   }
 
 
