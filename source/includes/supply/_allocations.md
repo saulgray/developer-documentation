@@ -155,6 +155,177 @@ Returns a list of all live survey opportunities available through the Exchange a
 
 
 ## Show an Allocated Survey
+> Definition
+
+```plaintext
+GET  https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}
+```
+
+> Example Request
+
+```shell
+curl https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}
+```
+
+```ruby
+require 'net/http'
+
+uri = URI('https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}')
+
+http = Net::HTTP.new(uri.host, uri.port)
+
+http.use_ssl = true
+
+request = Net::HTTP::Get.new(uri.request_uri)
+
+allocations = http.request(request)  
+```
+
+```php
+<?php
+$allocations = file_get_contents('https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}');
+?>
+```
+
+```python
+import requests
+
+allocations = requests.get('https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}')
+```
+
+```csharp
+using System.Net;
+
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}");
+
+WebResponse allocations = request.GetResponse();
+```
+
+```javascript
+const https = require('https');
+
+var allocations = https.get('https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}');
+```
+
+> Example Response
+
+```json
+{
+
+	"ApiResult": 0,
+
+	"ApiResultCode": 0,
+
+	"ApiAccount": "Anon",
+
+	"AccountType": 2,
+
+	"ApiAccountStatus": 1,
+
+	"AccountCode": "AA",
+
+	"ApiMessages": [
+
+		"API Message: Response initialized.",
+
+		"API Message: GetSupplierAllocationsBySurveyNumber successful."
+
+	],
+
+	"ResultCount": 1,
+
+	"SupplierAllocationSurvey": {
+
+		"SurveyName": "Pet Owners Survey",
+
+		"SurveyNumber": 66381,
+
+		"SurveySID": "03B4B292-0EA1-212B-02C1-345B38C6AF57",
+
+		"AccountName": "Example Account",
+
+		"CountryLanguageID": 9,
+
+		"LengthOfInterview": 16,
+
+		"BidIncidence": 20,
+
+		"Conversion": 13,
+
+		"FieldBeginDate": "/Date(1400562000000-0500)/",
+
+		"FieldEndDate": "/Date(1401854400000-0500)/",
+
+		"IndustryID": 18,
+
+		"StudyTypeID": 1,
+
+		"Priority": 1,
+
+		"SupplierAllocations": [],
+
+		"OfferwallTotalRemaining": 47,
+
+		"OfferwallAllocations": [
+
+			{
+
+				"SupplierCode": "1010",
+
+				"SupplierName": "Example Supplier",
+
+				"OfferwallCompletes": 403,
+
+				"AllocationRemaining": 47,
+
+				"HedgeRemaining": 0,
+
+				"TargetModel": {
+
+					"SupplierLinkType": 18,
+
+					"LiveSupplierLink": "http://staging.samplicio.us/router/default.aspx?SID=da944fcc-0dcf-c7f8-3ff4-6e2bda943ff4&PID=",
+
+					"SupplierLinkSID": "da944fcc-0dcf-c7f8-3ff4-6e2bda943ff4",
+
+					"TargetCCPI": 3
+
+				}
+
+			}
+
+		],
+
+		"SurveyGroup": null,
+
+		"SurveyGroupID": null,
+
+		"SurveyGroupExists": 1,
+
+		"BidLengthOfInterview": 15,
+
+		"TerminationLengthOfInterview": 3,
+
+		"SurveyQuotaCalcTypeID": 1,
+
+		"IsTrueSample": false,
+
+		"SurveyMobileConversion": 0,
+
+		"SampleTypeID": null
+
+	}
+
+}
+```
+Returns any allocation(s) given to you for a particular survey.
+
+### Arguments
+
+| Property                     | Type     | Required | Description                                                                     |
+|------------------------------|----------|----------|---------------------------------------------------------------------------------|
+|SupplierCode                  | int      | true     | Unique code associated with a supplier account                                  |
+|SurveyNumber                  | int      | true     | Unique number associated with the survey                                        |
 
 
 ## List Recently Allocated Surveys
