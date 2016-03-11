@@ -13,9 +13,9 @@ The Qualification resource contains the questions and corresponding conditions a
 
 | Property                     | Type     | Description                                                                                                                                             |
 |------------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
-| QuestionID                   | int      | Unique number associated with the question.                                                                                                               |
+| QuestionID                   | int      | Unique number associated with the question.                                                                                                             |
 | LogicalOperator              | string   | Defines the logical operation applied to the conditions.                                                                                                |
-| PreCodes                     | array    | Qualification answer option precodes.                                                                                                                   |
+| PreCodes                     | array    | Qualification answer option identifier.                                                                                                                 |
 
 ##Show Qualifications
 
