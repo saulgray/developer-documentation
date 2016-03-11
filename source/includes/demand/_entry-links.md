@@ -199,7 +199,7 @@ request.end();
 }
 ```
 
-Creates target entry links for suppliers already allocated to a Fulcrum survey. 
+Creates target links for suppliers already allocated to a Fulcrum survey. 
 
 <aside class="notice">Ensure that the supplier has already been allocated to the survey by first making the [SupplierAllocations/Create](#create-an-allocation) call. Always default to Targeted/Standalone link type (SupplierLinkTypeCode TS) when creating target links unless specifically requested by the supplier </aside>
 
@@ -343,7 +343,7 @@ request.write(params);
 request.end();
 ```
 
-Updates target entry links for suppliers already allocated to a Fulcrum survey. 
+Updates existing supplier target entry links. 
 
 <aside class="notice">Always default to Targeted/Standalone link type (SupplierLinkTypeCode TS) when creating target links unless specifically requested by the supplier </aside>
 
@@ -356,6 +356,9 @@ Updates target entry links for suppliers already allocated to a Fulcrum survey.
 | SupplierCode                 | int      | true     | Unique code associated with supplier account.                                                                                                |
 | SupplierLinkTypeCode         | int      | true     | Defines the type of buyer-supplier engagment and the respondent's path in Fulcrum.                                                           |
 | TrackingTypeCode             | int      | true     | Defines how Fulcrum should communicate back to the supplier's system at the end of a session. The options are:                               |
+|                              |          |          | NONE (Default and recommended, physically redirects the respondent back to the supplier system)                                              |
+|                              |          |          | PIXEL (pixel tracking)                                                                                                                       |
+|                              |          |          | S2S (server to server postback)                                                                                                              |
 | DefaultLink                  | string   | true     | Tracking code or link used if none of the below apply.                                                                                       |
 | SuccessLink                  | string   | true     | Tracking code or link used after a completion.                                                                                               |
 | FailureLink                  | string   | true     | Tracking code or link used after a termination.                                                                                              |
@@ -363,3 +366,92 @@ Updates target entry links for suppliers already allocated to a Fulcrum survey.
 | QualityTerminationLink       | string   | true     | Tracking code or link used after a quality (security) termination.                                                                           |
 
 ##Delete a Link
+
+> Definition
+
+```plaintext
+DELETE  http://api.samplicio.us/Demand/v1/SupplierAllocations/Targets/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}
+```
+
+> Example Request
+
+```shell
+curl -X DELETE http://api.samplicio.us/Demand/v1/SupplierAllocations/Targets/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}
+```
+
+```ruby
+require 'net/http'
+
+uri = URI('http://api.samplicio.us/Demand/v1/SupplierAllocations/Targets/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}')
+
+http = Net::HTTP.new(uri.host, uri.port)
+
+http.use_ssl = true
+
+request = Net::HTTP::Delete.new(uri.request_uri)
+
+http.request(request)
+```
+
+```php
+<?php
+
+$curl = curl_init();
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL => "http://api.samplicio.us/Demand/v1/SupplierAllocations/Targets/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => "",
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => "DELETE",
+  CURLOPT_POSTFIELDS => "",
+));
+
+curl_exec($curl);
+curl_close($curl);
+?>
+```
+
+```python
+import requests
+
+requests.delete('http://api.samplicio.us/Demand/v1/SupplierAllocations/Targets/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}')
+```
+
+```csharp
+using System.Net; 
+
+WebRequest request = WebRequest.Create("http://api.samplicio.us/Demand/v1/SupplierAllocations/Targets/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}");
+
+request.Method = "DELETE";
+
+request.GetResponse();
+```
+
+```javascript
+const https = require('https');
+
+var options = {
+  "method": "DELETE",
+  "hostname": "stg-api.samplicio.us",
+  "port": 443,
+  "path": "/Demand/v1/SupplierAllocations/Targets/Delete/66900/196?key=YOUR_API_KEY_HERE",
+  "headers": {}
+};
+
+var request = https.request(options);
+
+request.end();
+```
+
+Deletes target entry links for a supplier allocated to a Fulcrum survey 
+
+
+### Arguments
+
+| Property                     | Type     | Required | Description                                                                                                                                  |
+|------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| SurveyNumber                 | int      | true     | Unique number associated with the survey.                                                                                                    |
+| SupplierCode                 | int      | true     | Unique code associated with supplier account.                                                                                                |
