@@ -24,19 +24,19 @@ http.use_ssl = true
 
 request = Net::HTTP::Get.new(uri.request_uri)
 
-Allocations = http.request(request)  
+allocations = http.request(request)  
 ```
 
 ```php
 <?php
-$Allocations = file_get_contents('https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/All/{SupplierCode}?key={APIKey}');
+$allocations = file_get_contents('https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/All/{SupplierCode}?key={APIKey}');
 ?>
 ```
 
 ```python
 import requests
 
-Allocations = requests.get('https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/All/{SupplierCode}?key={APIKey}')
+allocations = requests.get('https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/All/{SupplierCode}?key={APIKey}')
 ```
 
 ```csharp
@@ -44,13 +44,13 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/All/{SupplierCode}?key={APIKey}");
 
-WebResponse Allocations = request.GetResponse();
+WebResponse allocations = request.GetResponse();
 ```
 
 ```javascript
 const https = require('https');
 
-var Allocations = https.get('https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/All/{SupplierCode}?key={APIKey}');
+var allocations = https.get('https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/All/{SupplierCode}?key={APIKey}');
 ```
 
 > Example Response
