@@ -99,7 +99,7 @@ var surveys = https.get('https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall
     "API Message: Response initialized.",
     "API Message: GetAllOfferwallSurveys successful."
   ],
-  "ResultCount": 3,
+  "ResultCount": 1,
   "Surveys": [
     {
       "SurveyName": "Asthma Sufferers",
@@ -126,9 +126,7 @@ var surveys = https.get('https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall
       "IsTrueSample": false,
       "SurveyMobileConversion": 0,
       "SampleTypeID": null
-    },
-    {...},
-    {...}
+    }
   ]
 }
 ```
