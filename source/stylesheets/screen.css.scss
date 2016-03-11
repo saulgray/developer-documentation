@@ -168,19 +168,19 @@ html, body {
       }
     }
     // HTTP tags in TOC
-      a > span.http-get {
+      .http-get {
           @extend %code-font;
           color:$post;
         }
-      a > span.http-put {
+      .http-put {
          @extend %code-font;
           color:$put;
       }
-      a > span.http-get {
+      .http-get {
           @extend %code-font;
           color:$get;
       }
-      a > span.http-delete {
+      .http-delete {
           @extend %code-font;
           color:$delete;
       }
