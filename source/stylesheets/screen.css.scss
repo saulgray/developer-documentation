@@ -179,7 +179,7 @@ html, body {
   }
 
   // HTTP tags in TOC
-      .http-get {
+      .http-post {
           @extend %code-font;
           color:$post;
         }
@@ -195,7 +195,7 @@ html, body {
           @extend %code-font;
           color:$delete;
       }
-      
+
   // The Table of Contents is composed of multiple nested
   // unordered lists.  These styles remove the default
   // styling of an unordered list because it is ugly.
