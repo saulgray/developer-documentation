@@ -25,19 +25,19 @@ http.use_ssl = true
 
 request = Net::HTTP::Get.new(uri.request_uri)
 
-qualifiedRespondents = http.request(request)  
+qualifiedRespondent = http.request(request)  
 ```
 
 ```php
 <?php
-$qualifiedRespondents = file_get_contents('https://api.samplicio.us/Supply/v1/SurveyQualifiedRespondents/BySurveyNumberSupplierCode/{SurveyNumber}/{SupplierCode}?key={APIKey}');
+$qualifiedRespondent = file_get_contents('https://api.samplicio.us/Supply/v1/SurveyQualifiedRespondents/BySurveyNumberSupplierCode/{SurveyNumber}/{SupplierCode}?key={APIKey}');
 ?>
 ```
 
 ```python
 import requests
 
-qualifiedRespondents = requests.get('https://api.samplicio.us/Supply/v1/SurveyQualifiedRespondents/BySurveyNumberSupplierCode/{SurveyNumber}/{SupplierCode}?key={APIKey}')
+qualifiedRespondent = requests.get('https://api.samplicio.us/Supply/v1/SurveyQualifiedRespondents/BySurveyNumberSupplierCode/{SurveyNumber}/{SupplierCode}?key={APIKey}')
 ```
 
 ```csharp
@@ -45,13 +45,13 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Supply/v1/SurveyQualifiedRespondents/BySurveyNumberSupplierCode/{SurveyNumber}/{SupplierCode}?key={APIKey}");
 
-WebResponse qualifiedRespondents = request.GetResponse();
+WebResponse qualifiedRespondent = request.GetResponse();
 ```
 
 ```javascript
 const https = require('https');
 
-var qualifiedRespondents = https.get('https://api.samplicio.us/Supply/v1/SurveyQualifiedRespondents/BySurveyNumberSupplierCode/{SurveyNumber}/{SupplierCode}?key={APIKey}');
+var qualifiedRespondent = https.get('https://api.samplicio.us/Supply/v1/SurveyQualifiedRespondents/BySurveyNumberSupplierCode/{SurveyNumber}/{SupplierCode}?key={APIKey}');
 ```
 
 > Example Response
@@ -85,9 +85,7 @@ var qualifiedRespondents = https.get('https://api.samplicio.us/Supply/v1/SurveyQ
     {
       "PID": "1110001",
       "IsActive": true
-    }
-  ]
-}
+    },
 
 ```
 
