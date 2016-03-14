@@ -391,6 +391,17 @@
             // actually add the hash value to the element's id
             // self.attr("id", "link-" + hashValue);
 
+            // Adds span element to anchors in TOC list in order to add CSS styling            
+            function addSpan(anchorText) {
+              return anchorText
+                .replace(/GET/, '<span class="http-get">GET</span>')
+                .replace(/POST/, '<span class="http-post">POST</span>')
+                .replace(/PUT/, '<span class="http-put">PUT</span>')
+                .replace(/DELETE/, '<span class="http-delete">DELETE</span>');
+            }
+            // add span element via addSpan function
+            var newHtml = '<a>' + addSpan(self.text()) + '</a>';
+
             // Appends a list item HTML element to the last unordered list HTML element found within the HTML element calling the plugin
             item = $("<li/>", {
 
@@ -398,12 +409,7 @@
                 "class": itemClassName,
 
                 "data-unique": hashValue
-
-            }).append($("<a/>", {
-
-                "text": self.text()
-
-            }));
+            }).append(newHtml);
 
             // Adds an HTML anchor tag before the currently traversed HTML element
             self.before($("<div/>", {
