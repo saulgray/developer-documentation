@@ -177,8 +177,24 @@ html, body {
     white-space: nowrap;
     text-overflow: ellipsis;
   }
-  
-  
+
+  // HTTP tags in TOC
+      .http-post {
+          @extend %code-font;
+          color:$post;
+        }
+      .http-put {
+         @extend %code-font;
+          color:$put;
+      }
+      .http-get {
+          @extend %code-font;
+          color:$get;
+      }
+      .http-delete {
+          @extend %code-font;
+          color:$delete;
+      }
 
   // The Table of Contents is composed of multiple nested
   // unordered lists.  These styles remove the default
@@ -217,6 +233,7 @@ html, body {
     &>li:last-child {
       box-shadow: none; // otherwise it'll overflow out of the subheader
     }
+    
   }
 
   .toc-footer {
@@ -405,6 +422,28 @@ html, body {
     border-top: 1px solid #ccc;
     padding-top: 1.2em;
     padding-bottom: 1.2em;
+  }
+  
+  // HTTP tags in front of headers
+  .post>span {
+      @extend %code-font;
+      font-size: 24px;
+      color:$post;
+  }
+  .put>span {
+     @extend %code-font;
+      font-size: 24px;
+      color:$put;
+  }
+  .get>span {
+      @extend %code-font;
+      font-size: 24px;
+      color:$get;
+  }
+  .delete>span {
+      @extend %code-font;
+      font-size: 24px;
+      color:$delete;
   }
 
   // h2s right after h1s should bump right up
