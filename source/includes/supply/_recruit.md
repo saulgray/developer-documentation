@@ -70,15 +70,15 @@ var marketingInfo = https.get('https://api.samplicio.us/Supply/v1/Surveys/Market
   ],
   "ResultCount": 1,
   "MarketingInformation": {
-    "MarketingHeadline": "",
-    "MarketingText": "",
-    "MarketingImageLargeUrl": "",
-    "MarketingImageSmallUrl": ""
+    "MarketingHeadline": "All the headlines",
+    "MarketingText": "Come one, come all!",
+    "MarketingImageLargeUrl": "www.images.google.com",
+    "MarketingImageSmallUrl": "www.images.google.com"
   }
 }
 ```
 
-Returns marketing information for a specific survey when study type is either “Recruit – Panel” or “Community Build”. 
+Returns marketing information for a specific survey when study type is either â€œRecruit â€“ Panelâ€ or â€œCommunity Buildâ€. 
 
 
 
