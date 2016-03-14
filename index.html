@@ -1121,7 +1121,7 @@
 </tr>
 </tbody></table>
 
-<h2 id="list-exchange-surveys">List Exchange Surveys</h2>
+<h2 class="get" id="list-exchange-surveys"><span>GET</span> List Exchange Surveys</h2>
 
 <blockquote>
 <p>Definition</p>
@@ -1726,7 +1726,7 @@
 </tr>
 </tbody></table>
 
-<h2 id="create-a-link">Create a Link</h2>
+<h2 class="post" id="create-a-link"><span>POST</span> Create a Link</h2>
 
 <blockquote>
 <p>Definition</p>
@@ -1928,7 +1928,7 @@ https://api.samplicio.us/Supply/v1/SupplierLinks/Create/<span class="o">{</span>
 </tr>
 </tbody></table>
 
-<h2 id="update-a-link">Update a Link</h2>
+<h2 class="put" id="update-a-link"><span>PUT</span> Update a Link</h2>
 
 <blockquote>
 <p>Definition</p>
@@ -2214,7 +2214,7 @@ https://api.samplicio.us/Supply/v1/SupplierLinks/Create/<span class="o">{</span>
 
 <p>Returns link details for a survey. </p>
 
-arguments&quot;>Arguments</h3>
+<h3 id="arguments">Arguments</h3>
 
 <table><thead>
 <tr>
@@ -2461,6 +2461,111 @@ arguments&quot;>Arguments</h3>
 
 <h2 id="list-qualified-respondents">List Qualified Respondents</h2>
 
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET  https://api.samplicio.us/Supply/v1/SurveyQualifiedRespondents/BySurveyNumberSupplierCode/{SurveyNumber}/{SupplierCode}?key={APIKey}
+</code></pre>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl https://api.samplicio.us/Supply/v1/SurveyQualifiedRespondents/BySurveyNumberSupplierCode/<span class="o">{</span>SurveyNumber<span class="o">}</span>/<span class="o">{</span>SupplierCode<span class="o">}</span>?key<span class="o">={</span>APIKey<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
+
+<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/SurveyQualifiedRespondents/BySurveyNumberSupplierCode/{SurveyNumber}/{SupplierCode}?key={APIKey}'</span><span class="p">)</span>
+
+<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">uri</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
+
+<span class="n">http</span><span class="p">.</span><span class="nf">use_ssl</span> <span class="o">=</span> <span class="kp">true</span>
+
+<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">request_uri</span><span class="p">)</span>
+
+<span class="n">qualifiedRespondents</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>  
+</code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$qualifiedRespondents</span> <span class="o">=</span> <span class="nb">file_get_contents</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/SurveyQualifiedRespondents/BySurveyNumberSupplierCode/{SurveyNumber}/{SupplierCode}?key={APIKey}'</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">qualifiedRespondents</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://api.samplicio.us/Supply/v1/SurveyQualifiedRespondents/BySurveyNumberSupplierCode/{SurveyNumber}/{SupplierCode}?key={APIKey}'</span><span class="p">)</span>
+</code></pre>
+<pre class="highlight csharp"><code><span class="k">using</span> <span class="nn">System.Net</span><span class="p">;</span>
+
+<span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Supply/v1/SurveyQualifiedRespondents/BySurveyNumberSupplierCode/{SurveyNumber}/{SupplierCode}?key={APIKey}"</span><span class="p">);</span>
+
+<span class="n">WebResponse</span> <span class="n">qualifiedRespondents</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">GetResponse</span><span class="p">();</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'https'</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">qualifiedRespondents</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/SurveyQualifiedRespondents/BySurveyNumberSupplierCode/{SurveyNumber}/{SupplierCode}?key={APIKey}'</span><span class="p">);</span>
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"ApiResult"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiResultCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiAccount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Anon"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"AccountType"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiAccountStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"AccountCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AA"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiMessages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"API Message: Response initialized."</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"API Message: SurveyQualifiedRespondentsBySurveyNumberSupplierCode successful."</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"ResultCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"SurveyQualifiedRespondents"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"PID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1111110"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"PID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1111101"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"PID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1111001"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"PID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1110001"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+
+<p>Returns the list of PIDs by supplier for a specific Fulcrum survey.</p>
+
+<h3 id="arguments">Arguments</h3>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>SurveyNumber</td>
+<td>int</td>
+<td>true</td>
+<td>Unique number associated with the survey.</td>
+</tr>
+<tr>
+<td>SupplierCode</td>
+<td>int</td>
+<td>true</td>
+<td>Unique code associated with the supplier performing the call.</td>
+</tr>
+</tbody></table>
+
               <h1 id="demand">Demand</h1>
 
               <h1 id="surveys">Surveys</h1>
@@ -2517,7 +2622,7 @@ arguments&quot;>Arguments</h3>
 
 <h2 id="update-an-allocation">Update an Allocation</h2>
 
-<h2 id="delete-an-allocation">Delete an Allocation</h2>
+<h2 class="delete" id="delete-an-allocation"><span>DELETE</span> an Allocation</h2>
 
 <blockquote>
 <p>Definition</p>
