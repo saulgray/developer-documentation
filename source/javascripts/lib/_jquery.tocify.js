@@ -400,7 +400,7 @@
                 .replace(/DELETE/, '<span class="http-delete">DELETE</span>');
             }
             // add span element via addSpan function
-            var newHtml = '<a>' + addSpan(self.text()) + '</a>';
+            var newAnchorWithSpanAdded = '<a>' + addSpan(self.text()) + '</a>';
 
             // Appends a list item HTML element to the last unordered list HTML element found within the HTML element calling the plugin
             item = $("<li/>", {
@@ -409,7 +409,7 @@
                 "class": itemClassName,
 
                 "data-unique": hashValue
-            }).append(newHtml);
+            }).append(newAnchorWithSpanAdded);
 
             // Adds an HTML anchor tag before the currently traversed HTML element
             self.before($("<div/>", {
