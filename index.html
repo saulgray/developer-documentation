@@ -20,7 +20,7 @@
           setupLanguages(["shell","ruby","php","python","csharp","javascript"]);
         });
       </script>
-    <style>
+    <style type="text/css">
     .js #fouc { display: none; }
     </style>
     <script type="text/javascript">
@@ -36,41 +36,41 @@
       </span>
     </a>
     <div id="fouc">
-        <div class="tocify-wrapper">
-          <img src="images/lucid-fulcrum-type-[color].png" />
-            <div class="lang-selector">
-                  <a href="#" data-language-name="shell">curl</a>
-                  <a href="#" data-language-name="ruby">Ruby</a>
-                  <a href="#" data-language-name="php">PHP</a>
-                  <a href="#" data-language-name="python">Python</a>
-                  <a href="#" data-language-name="csharp">C#</a>
-                  <a href="#" data-language-name="javascript">Node.js</a>
-            </div>
-            <div class="search">
-              <input type="text" class="search" id="input-search" placeholder="Search">
-            </div>
-            <ul class="search-results"></ul>
-          <div id="toc">
-          </div>
-            <ul class="toc-footer">
-                <li><a href='https://luc.id/fulcrum/'>Get access to Fulcrum APIs</a></li>
-            </ul>
+    <div class="tocify-wrapper">
+      <img src="images/lucid-fulcrum-type-[color].png" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="shell">curl</a>
+              <a href="#" data-language-name="ruby">Ruby</a>
+              <a href="#" data-language-name="php">PHP</a>
+              <a href="#" data-language-name="python">Python</a>
+              <a href="#" data-language-name="csharp">C#</a>
+              <a href="#" data-language-name="javascript">Node.js</a>
         </div>
-        <div class="page-wrapper">
-          <div class="dark-box"></div>
-          <div class="content">
-            
-              <h1 id="introduction">Introduction</h1>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc">
+      </div>
+        <ul class="toc-footer">
+            <li><a href='https://luc.id/fulcrum/'>Get access to Fulcrum APIs</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        
+          <h1 id="introduction">Introduction</h1>
 
 <p>Lucid brings efficiency and automation to online sampling with Fulcrum, today’s most powerful, open, and customizable online sampling platform.</p>
 
 <p>The API is based on REST (REpresentational State Transfer) principles, which makes it very easy to write and test applications. Both JSON and XML data formats are supported.</p>
 
-              <h1 id="guides">Guides</h1>
+          <h1 id="guides">Guides</h1>
 
-              <h1 id="authentication">Authentication</h1>
+          <h1 id="authentication">Authentication</h1>
 
-              <h1 id="resources">Resources</h1>
+          <h1 id="resources">Resources</h1>
 
 <p>To begin testing the Fulcrum API, first download a REST Client extension for your browser. Whether you are testing the Supply or Demand API, you will need a REST Client in order to make POST, PUT,     and DELETE calls. All GET calls can be made directly through your browser.</p>
 
@@ -81,9 +81,9 @@
 <li>Opera Simple REST Client: <a href="https://addons.opera.com/en/extensions/details/simple-rest-client/?display=en">https://addons.opera.com/en/extensions/details/simple-rest-client/?display=en</a></li>
 </ul>
 
-              <h1 id="environments">Environments</h1>
+          <h1 id="environments">Environments</h1>
 
-              <h1 id="interacting-with-the-api">Interacting with the API</h1>
+          <h1 id="interacting-with-the-api">Interacting with the API</h1>
 
 <h2 id="making-an-api-call">Making an API Call</h2>
 
@@ -109,7 +109,7 @@
 
 <p><code class="prettyprint">GET  http://stg-api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/xml/22789?key=5175285E-D74B-46A8-AE2C-EF95B3A5175B</code></p>
 
-              <h1 id="http-status-codes">HTTP Status Codes</h1>
+          <h1 id="http-status-codes">HTTP Status Codes</h1>
 
 <p>Fulcrum uses conventional HTTP response codes to indicate the success or falure of an API request. In general, codes in the <code class="prettyprint">2xx</code> range indicate success, codes in the <code class="prettyprint">4xx</code> range indicate an error caused by the information provided (i.e., a required parameter was omitted, a method was not found, etc.), and codes in the <code class="prettyprint">5xx</code> range indicate an error with Fulcrum&rsquo;s servers (these are rare). </p>
 
@@ -192,24 +192,24 @@
 </tr>
 </tbody></table>
 
-              <h1 id="changelog">Changelog</h1>
+          <h1 id="changelog">Changelog</h1>
 
-              <h1 id="glossary">Glossary</h1>
+          <h1 id="glossary">Glossary</h1>
 
 <h2 id="identifiers">Identifiers</h2>
 
 <h2 id="terms">Terms</h2>
 
-              <h1 id="lookup">Lookup</h1>
+          <h1 id="lookup">Lookup</h1>
 
-              <h1 id="definitions">Definitions</h1>
+          <h1 id="definitions">Definitions</h1>
 
 <h2 id="list-global-definitions">List Global Definitions</h2>
 
 <blockquote>
 <p>Definition</p>
 </blockquote>
-<pre class="highlight plaintext"><code>GET  http://api.samplicio.us/Lookup/v1/BasicLookups/BundledLookups/{Bundle}?key={APIKey}
+<pre class="highlight plaintext"><code>GET  http://api.samplicio.us/Lookup/v1/BasicLookups/BundledLookups/CountryLanguages,Industries,SampleTypes,StudyTypes,SupplierLinkTypes,SurveyStatuses?key={APIKey}
 </code></pre>
 
 <blockquote>
@@ -274,7 +274,7 @@
       </span><span class="nt">"IsActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chinese Simplified - China"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"SortOrder"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nt">"AllIndustries"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
@@ -283,9 +283,9 @@
       </span><span class="nt">"IsActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Automotive"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"SortOrder"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"AllProposalTypes"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+  </span><span class="s2">"AllProposalTypes"</span><span class="err">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
   </span><span class="nt">"AllQuestionClassifications"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
   </span><span class="nt">"AllSampleTypes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
@@ -294,7 +294,7 @@
       </span><span class="nt">"IsActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Consumer"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"SortOrder"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nt">"AllStudyTypes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
@@ -303,7 +303,7 @@
       </span><span class="nt">"IsActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Adhoc"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"SortOrder"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nt">"AllSupplierLinkTypes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
@@ -312,7 +312,7 @@
       </span><span class="nt">"IsActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Targeted / Standalone"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"SortOrder"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nt">"AllSupplierPreferenceTypes"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
   </span><span class="nt">"AllSupplierRequestStatuses"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
@@ -325,7 +325,7 @@
       </span><span class="nt">"IsActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pending"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"SortOrder"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nt">"AllThirdPartyServices"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -347,83 +347,189 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>Bundle</td>
+<td>Countries</td>
 <td>string</td>
 <td>false</td>
-<td>A string of lookup options delimited by a comma.</td>
-</tr>
-</tbody></table>
-
-<h3 id="options">Options</h3>
-
-<table><thead>
-<tr>
-<th>Option</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Countries</td>
 <td>Array of all countries available.</td>
 </tr>
 <tr>
+<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</td>
+<td>&mdash;&mdash;&mdash;-</td>
+<td>&mdash;&mdash;&mdash;-</td>
+<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-</td>
+</tr>
+<tr>
 <td>CountryLanguages</td>
+<td>string</td>
+<td>false</td>
 <td>Array of all Country-Language pairs by ID.</td>
 </tr>
 <tr>
+<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</td>
+<td>&mdash;&mdash;&mdash;-</td>
+<td>&mdash;&mdash;&mdash;-</td>
+<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-</td>
+</tr>
+<tr>
 <td>Industries</td>
+<td>string</td>
+<td>false</td>
 <td>Array of all options for industry type.</td>
 </tr>
 <tr>
+<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</td>
+<td>&mdash;&mdash;&mdash;-</td>
+<td>&mdash;&mdash;&mdash;-</td>
+<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-</td>
+</tr>
+<tr>
 <td>SampleTypes</td>
+<td>string</td>
+<td>false</td>
 <td>Array of all types of sample that buyers can field on the platform.</td>
 </tr>
 <tr>
+<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</td>
+<td>&mdash;&mdash;&mdash;-</td>
+<td>&mdash;&mdash;&mdash;-</td>
+<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-</td>
+</tr>
+<tr>
 <td>StudyTypes</td>
+<td>string</td>
+<td>false</td>
 <td>Array of all types of studies buyers can field on the platform.</td>
 </tr>
 <tr>
+<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</td>
+<td>&mdash;&mdash;&mdash;-</td>
+<td>&mdash;&mdash;&mdash;-</td>
+<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-</td>
+</tr>
+<tr>
 <td>SupplierLinkTypes</td>
+<td>string</td>
+<td>false</td>
 <td>Array of all link types suppliers can use to send sample.</td>
 </tr>
 <tr>
+<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</td>
+<td>&mdash;&mdash;&mdash;-</td>
+<td>&mdash;&mdash;&mdash;-</td>
+<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-</td>
+</tr>
+<tr>
 <td>SurveyStatuses</td>
+<td>string</td>
+<td>false</td>
 <td>Array of all possible survey statuses on the platform.</td>
 </tr>
 <tr>
+<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</td>
+<td>&mdash;&mdash;&mdash;-</td>
+<td>&mdash;&mdash;&mdash;-</td>
+<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-</td>
+</tr>
+<tr>
 <td>BidProbabilities</td>
+<td>string</td>
+<td>false</td>
 <td>Array of all probabilities of a bid being awarded (Low, Med, High).</td>
 </tr>
 <tr>
+<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</td>
+<td>&mdash;&mdash;&mdash;-</td>
+<td>&mdash;&mdash;&mdash;-</td>
+<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-</td>
+</tr>
+<tr>
 <td>BidStatuses</td>
+<td>string</td>
+<td>false</td>
 <td>Array of all possible statuses for a bid.</td>
 </tr>
 <tr>
+<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</td>
+<td>&mdash;&mdash;&mdash;-</td>
+<td>&mdash;&mdash;&mdash;-</td>
+<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-</td>
+</tr>
+<tr>
 <td>ProposalTypes</td>
+<td>string</td>
+<td>false</td>
 <td>Array of all possible proposal types.</td>
 </tr>
 <tr>
+<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</td>
+<td>&mdash;&mdash;&mdash;-</td>
+<td>&mdash;&mdash;&mdash;-</td>
+<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-</td>
+</tr>
+<tr>
 <td>CategoryLockOutDurations</td>
+<td>string</td>
+<td>false</td>
 <td>Array of all possible lockout times.</td>
 </tr>
 <tr>
+<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</td>
+<td>&mdash;&mdash;&mdash;-</td>
+<td>&mdash;&mdash;&mdash;-</td>
+<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-</td>
+</tr>
+<tr>
 <td>QuestionClassifications</td>
+<td>string</td>
+<td>false</td>
 <td>Array of all question categories on the platform.</td>
 </tr>
 <tr>
+<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</td>
+<td>&mdash;&mdash;&mdash;-</td>
+<td>&mdash;&mdash;&mdash;-</td>
+<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-</td>
+</tr>
+<tr>
 <td>SupplierPreferenceTypes</td>
+<td>string</td>
+<td>false</td>
 <td>Array of all possible preferences a supplier can communicate.</td>
 </tr>
 <tr>
+<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</td>
+<td>&mdash;&mdash;&mdash;-</td>
+<td>&mdash;&mdash;&mdash;-</td>
+<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-</td>
+</tr>
+<tr>
 <td>SupplierRequestStatuses</td>
+<td>string</td>
+<td>false</td>
 <td>Array of all tracking methods a supplier can use to track a respondent&rsquo;s status.</td>
 </tr>
 <tr>
+<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</td>
+<td>&mdash;&mdash;&mdash;-</td>
+<td>&mdash;&mdash;&mdash;-</td>
+<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-</td>
+</tr>
+<tr>
 <td>SurveyPlatforms</td>
+<td>string</td>
+<td>false</td>
 <td>Array of survey platforms users may be sending to or from.</td>
 </tr>
 <tr>
+<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</td>
+<td>&mdash;&mdash;&mdash;-</td>
+<td>&mdash;&mdash;&mdash;-</td>
+<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-</td>
+</tr>
+<tr>
 <td>ThirdPartyServices</td>
+<td>string</td>
+<td>false</td>
 <td>Array of all Third Party Services available on the platform.</td>
 </tr>
 </tbody></table>
@@ -486,7 +592,7 @@
     </span><span class="s2">"API Message: Response initialized."</span><span class="p">,</span><span class="w">
     </span><span class="s2">"API Message: GetAllSuppliersGroupedByAccount successful."</span><span class="w">
   </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"ResultCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ResultCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
   </span><span class="nt">"AccountsWithSuppliers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"AccountName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sample Company"</span><span class="p">,</span><span class="w">
@@ -508,10 +614,46 @@
           </span><span class="nt">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1010"</span><span class="w">
         </span><span class="p">},</span><span class="w">
       </span><span class="p">]</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"AccountName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sample Company"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Suppliers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Supplier 5"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1010"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Supplier 6"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1010"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Supplier 7"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1010"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Supplier 8"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1010"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"AccountName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sample Company"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Suppliers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Supplier 9"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1010"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Supplier 10"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1010"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Supplier 11"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1010"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
 
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
 </span></code></pre>
 
 <p>Returns a list of all available suppliers.</p>
@@ -588,7 +730,7 @@
 
 <p>Returns a list of all Business Units.</p>
 
-              <h1 id="question-library">Question Library</h1>
+          <h1 id="question-library">Question Library</h1>
 
 <h2 id="list-standard-questions">List Standard Questions</h2>
 
@@ -648,7 +790,7 @@
     </span><span class="s2">"API Message: Response initialized."</span><span class="p">,</span><span class="w">
     </span><span class="s2">"API Message: GetAllQuestions successful."</span><span class="w">
   </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"ResultCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ResultCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
   </span><span class="nt">"Questions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"IsCoreDemographic"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -659,7 +801,9 @@
       </span><span class="nt">"QuestionText"</span><span class="p">:</span><span class="w"> </span><span class="s2">"What is your age?"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"QuestionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Numeric - Open-end"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"SurveyUse"</span><span class="p">:</span><span class="w"> </span><span class="mi">8162</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="err">...</span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="err">...</span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">    
 </span></code></pre>
@@ -742,7 +886,7 @@
     </span><span class="s2">"API Message: Response initialized."</span><span class="p">,</span><span class="w">
     </span><span class="s2">"API Message: GetAllQuestions successful."</span><span class="w">
   </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"ResultCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ResultCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
   </span><span class="nt">"Questions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"__type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PublicQuestionModel"</span><span class="p">,</span><span class="w">
@@ -755,7 +899,9 @@
       </span><span class="nt">"QuestionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Single Punch"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"SurveyUse"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
       </span><span class="nt">"AccountID"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="err">...</span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="err">...</span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">    
 </span></code></pre>
@@ -803,25 +949,25 @@
 
 <span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">request_uri</span><span class="p">)</span>
 
-<span class="n">questionText</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>  
+<span class="n">surveys</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>  
 </code></pre>
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$questionText</span> <span class="o">=</span> <span class="nb">file_get_contents</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Lookup/v1/QuestionLibrary/QuestionById/{CountryLanguageID}/{QuestionID}?key={APIKey}'</span><span class="p">);</span>
+<span class="nv">$surveys</span> <span class="o">=</span> <span class="nb">file_get_contents</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Lookup/v1/QuestionLibrary/QuestionById/{CountryLanguageID}/{QuestionID}?key={APIKey}'</span><span class="p">);</span>
 <span class="cp">?&gt;</span>
 </code></pre>
 <pre class="highlight python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">questionText</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://api.samplicio.us/Lookup/v1/QuestionLibrary/QuestionById/{CountryLanguageID}/{QuestionID}?key={APIKey}'</span><span class="p">)</span>
+<span class="n">surveys</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://api.samplicio.us/Lookup/v1/QuestionLibrary/QuestionById/{CountryLanguageID}/{QuestionID}?key={APIKey}'</span><span class="p">)</span>
 </code></pre>
 <pre class="highlight csharp"><code><span class="k">using</span> <span class="nn">System.Net</span><span class="p">;</span>
 
 <span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Lookup/v1/QuestionLibrary/QuestionById/{CountryLanguageID}/{QuestionID}?key={APIKey}"</span><span class="p">);</span>
 
-<span class="n">WebResponse</span> <span class="n">questionText</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">GetResponse</span><span class="p">();</span>
+<span class="n">WebResponse</span> <span class="n">surveys</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">GetResponse</span><span class="p">();</span>
 </code></pre>
 <pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'https'</span><span class="p">);</span>
 
-<span class="kd">var</span> <span class="nx">questionText</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Lookup/v1/QuestionLibrary/QuestionById/{CountryLanguageID}/{QuestionID}?key={APIKey}'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">surveys</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Lookup/v1/QuestionLibrary/QuestionById/{CountryLanguageID}/{QuestionID}?key={APIKey}'</span><span class="p">);</span>
 </code></pre>
 
 <blockquote>
@@ -848,13 +994,12 @@
     </span><span class="nt">"QuestionText"</span><span class="p">:</span><span class="w"> </span><span class="s2">"What is your age?"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"QuestionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Numeric - Open-end"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"SurveyUse"</span><span class="p">:</span><span class="w"> </span><span class="mi">8420</span><span class="w">
-  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
 <p>Returns the details of a specific Standard or Custom Qualification.</p>
 
-<aside class="notice">Each question or qualification in Fulcrum has a unique QuestionID, which is valid across country-language pairs.</aside>
+<aside class="notice"></aside>
 
 <h3 id="arguments">Arguments</h3>
 
@@ -882,111 +1027,9 @@
 
 <h2 id="show-question-options">Show Question Options</h2>
 
-<blockquote>
-<p>Definition</p>
-</blockquote>
-<pre class="highlight plaintext"><code>GET  https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllQuestionOptions/{CountryLanguageID}/{QuestionID}?key={APIKey}
-</code></pre>
+          <h1 id="supply">Supply</h1>
 
-<blockquote>
-<p>Example Request</p>
-</blockquote>
-<pre class="highlight shell"><code>curl https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllQuestionOptions/<span class="o">{</span>CountryLanguageID<span class="o">}</span>/<span class="o">{</span>QuestionID<span class="o">}</span>?key<span class="o">={</span>APIKey<span class="o">}</span>
-</code></pre>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
-
-<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllQuestionOptions/{CountryLanguageID}/{QuestionID}?key={APIKey}'</span><span class="p">)</span>
-
-<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">uri</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
-
-<span class="n">http</span><span class="p">.</span><span class="nf">use_ssl</span> <span class="o">=</span> <span class="kp">true</span>
-
-<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">request_uri</span><span class="p">)</span>
-
-<span class="n">questionOptions</span><span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>  
-</code></pre>
-<pre class="highlight php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$questionOptions</span> <span class="o">=</span> <span class="nb">file_get_contents</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllQuestionOptions/{CountryLanguageID}/{QuestionID}?key={APIKey}'</span><span class="p">);</span>
-<span class="cp">?&gt;</span>
-</code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">requests</span>
-
-<span class="n">questionOptions</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllQuestionOptions/{CountryLanguageID}/{QuestionID}?key={APIKey}'</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight csharp"><code><span class="k">using</span> <span class="nn">System.Net</span><span class="p">;</span>
-
-<span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllQuestionOptions/{CountryLanguageID}/{QuestionID}?key={APIKey}"</span><span class="p">);</span>
-
-<span class="n">WebResponse</span> <span class="n">questionOptions</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">GetResponse</span><span class="p">();</span>
-</code></pre>
-<pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'https'</span><span class="p">);</span>
-
-<span class="kd">var</span> <span class="nx">questionOptions</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllQuestionOptions/{CountryLanguageID}/{QuestionID}?key={APIKey}'</span><span class="p">);</span>
-</code></pre>
-
-<blockquote>
-<p>Example Response</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"ApiResult"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"ApiResultCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"ApiAccount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Anon"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"AccountType"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"ApiAccountStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"AccountCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AA"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"ApiMessages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="s2">"API Message: Response initialized."</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"API Message: GetAllQuestionOptions successful."</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"ResultCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"QuestionOptions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"OptionText"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Male"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"ParentItemText"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Precode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"QuestionID"</span><span class="p">:</span><span class="w"> </span><span class="mi">43</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"OptionText"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Female"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"ParentItemText"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Precode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"QuestionID"</span><span class="p">:</span><span class="w"> </span><span class="mi">43</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>Returns the answer options and associated precodes for a specific QuestionID and Country-Language pair.</p>
-
-<aside class="notice">If you have your own question library, you should create a map between Fulcrum Standard qualifications and those that match in your own library.</aside>
-
-<h3 id="arguments">Arguments</h3>
-
-<table><thead>
-<tr>
-<th>Property</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>CountryLanguageID</td>
-<td>int</td>
-<td>true</td>
-<td>Unique id associated with the country-language pair the question text applies to.</td>
-</tr>
-<tr>
-<td>QuestionId</td>
-<td>int</td>
-<td>true</td>
-<td>Unique id associated with the question the question text applies to.</td>
-</tr>
-</tbody></table>
-
-              <h1 id="supply">Supply</h1>
-
-              <h1 id="surveys">Surveys</h1>
+          <h1 id="surveys">Surveys</h1>
 
 <p>The Survey resource contains basic information about a survey opportunity posted by a sample buyer. More detailed information about who qualifies for the survey is contained in the <a href="#qualifications">Qualifications</a> and <a href="#quotas">Quotas</a> resources.</p>
 
@@ -1121,7 +1164,7 @@
 </tr>
 </tbody></table>
 
-<h2 id="list-exchange-surveys">List Exchange Surveys</h2>
+<h2 class="get" id="list-exchange-surveys"><span>GET</span> List Exchange Surveys</h2>
 
 <blockquote>
 <p>Definition</p>
@@ -1179,7 +1222,7 @@
     </span><span class="s2">"API Message: Response initialized."</span><span class="p">,</span><span class="w">
     </span><span class="s2">"API Message: GetAllOfferwallSurveys successful."</span><span class="w">
   </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"ResultCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ResultCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
   </span><span class="nt">"Surveys"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"SurveyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Asthma Sufferers"</span><span class="p">,</span><span class="w">
@@ -1206,7 +1249,9 @@
       </span><span class="nt">"IsTrueSample"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"SurveyMobileConversion"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="nt">"SampleTypeID"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="err">...</span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="err">...</span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -1233,500 +1278,35 @@
 </tr>
 </tbody></table>
 
-              <h1 id="groups">Groups</h1>
+<p><a href="https://www.getpostman.com/run-collection/bb68be2cda20d9bc87b6"><img alt="Run in Postman" src="https://run.pstmn.io/button.png" /></a></p>
+
+<h1 id="allocations">Allocations</h1>
+
+<h2 id="list-allocated-surveys">List Allocated Surveys</h2>
+
+<p>Windows is cranky.</p>
+
+<h2 id="show-an-allocated-survey">Show an Allocated Survey</h2>
+
+<p>Windows is cranky.</p>
+
+<h2 id="list-recently-allocated-surveys">List Recently Allocated Surveys</h2>
+
+          <h1 id="groups">Groups</h1>
 
 <h2 id="list-a-survey’s-groups">List a Survey’s Groups</h2>
 
-              <h1 id="qualifications">Qualifications</h1>
-
-<p>The Qualification resource contains the questions and corresponding conditions associated with a survey. These qualifications make up the Fulcrum prescreener and define the overall survey targeting criteria for suppliers.</p>
-
-<h3 id="survey-qualification-model">Survey Qualification Model</h3>
-
-<table><thead>
-<tr>
-<th>Property</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>SurveyNumber</td>
-<td>int</td>
-<td>Unique number associated with the survey.</td>
-</tr>
-<tr>
-<td>Questions</td>
-<td>array</td>
-<td>Contains an array of Question models.</td>
-</tr>
-</tbody></table>
-
-<h3 id="questions-model">Questions Model</h3>
-
-<table><thead>
-<tr>
-<th>Property</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>QuestionID</td>
-<td>int</td>
-<td>Unique number associated with the question.</td>
-</tr>
-<tr>
-<td>LogicalOperator</td>
-<td>string</td>
-<td>Defines the logical operation applied to the conditions.</td>
-</tr>
-<tr>
-<td>PreCodes</td>
-<td>array</td>
-<td>Qualification answer option identifier.</td>
-</tr>
-</tbody></table>
+          <h1 id="qualifications">Qualifications</h1>
 
 <h2 id="show-qualifications">Show Qualifications</h2>
 
-<blockquote>
-<p>Definition</p>
-</blockquote>
-<pre class="highlight plaintext"><code>GET  https://api.samplicio.us/Supply/v1/SurveyQualifications/BySurveyNumberForOfferwall/{SurveyNumber}?key={APIKey}
-</code></pre>
-
-<blockquote>
-<p>Example Request</p>
-</blockquote>
-<pre class="highlight shell"><code>curl https://api.samplicio.us/Supply/v1/SurveyQualifications/BySurveyNumberForOfferwall/<span class="o">{</span>SurveyNumber<span class="o">}</span>?key<span class="o">={</span>APIKey<span class="o">}</span>
-</code></pre>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
-
-<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/SurveyQualifications/BySurveyNumberForOfferwall/{SurveyNumber}?key={APIKey}'</span><span class="p">)</span>
-
-<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">uri</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
-
-<span class="n">http</span><span class="p">.</span><span class="nf">use_ssl</span> <span class="o">=</span> <span class="kp">true</span>
-
-<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">request_uri</span><span class="p">)</span>
-
-<span class="n">surveyQualifications</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>  
-</code></pre>
-<pre class="highlight php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$surveyQualifications</span> <span class="o">=</span> <span class="nb">file_get_contents</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/SurveyQualifications/BySurveyNumberForOfferwall/{SurveyNumber}?key={APIKey}'</span><span class="p">);</span>
-<span class="cp">?&gt;</span>
-</code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">requests</span>
-
-<span class="n">surveyQualifications</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://api.samplicio.us/Supply/v1/SurveyQualifications/BySurveyNumberForOfferwall/{SurveyNumber}?key={APIKey}'</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight csharp"><code><span class="k">using</span> <span class="nn">System.Net</span><span class="p">;</span>
-
-<span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Supply/v1/SurveyQualifications/BySurveyNumberForOfferwall/{SurveyNumber}?key={APIKey}"</span><span class="p">);</span>
-
-<span class="n">WebResponse</span> <span class="n">surveyQualifications</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">GetResponse</span><span class="p">();</span>
-</code></pre>
-<pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'https'</span><span class="p">);</span>
-
-<span class="kd">var</span> <span class="nx">surveyQualifications</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/SurveyQualifications/BySurveyNumberForOfferwall/{SurveyNumber}?key={APIKey}'</span><span class="p">);</span>
-</code></pre>
-
-<blockquote>
-<p>Example Response</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"ApiResult"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"ApiResultCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"ApiAccount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Anon"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"AccountType"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"ApiAccountStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"AccountCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AA"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"ApiMessages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="s2">"API Message: Response initialized."</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"API Message: GetOfferwallQualificationsBySurveyNumber successful."</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"ResultCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"SurveyQualification"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"SurveyNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">254256</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"Questions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"QuestionID"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"LogicalOperator"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Or"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"PreCodes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-          </span><span class="s2">"18"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"19"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"20"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"21"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"22"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"23"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"24"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"25"</span><span class="w">
-        </span><span class="p">]</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"QuestionID"</span><span class="p">:</span><span class="w"> </span><span class="mi">43</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"LogicalOperator"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Or"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"PreCodes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-          </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"2"</span><span class="w">
-        </span><span class="p">]</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>Returns a list of all standard and exposed custom qualifications associated with a survey. </p>
-
-<aside class="notice">This API call returns data for all types of surveys not just Offerwall surveys.</aside>
-
-<h3 id="arguments">Arguments</h3>
-
-<table><thead>
-<tr>
-<th>Property</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>SurveyNumber</td>
-<td>int</td>
-<td>true</td>
-<td>Unique number associated with the survey.</td>
-</tr>
-</tbody></table>
-
-              <h1 id="quotas">Quotas</h1>
-
-<p>The quotas resource returns the number of completes available to you for each demographic cell in a survey. Quotas can be built on any qualification(s). For more information about quotas in Fulcrum please refer to <a href="#understanding-fulcrum-quotas">Understanding Fulcrum Quotas</a> in the Supply API guide.  </p>
-
-<h3 id="response-properties">Response Properties</h3>
-
-<table><thead>
-<tr>
-<th>Property</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>SurveyNumber</td>
-<td>int</td>
-<td>Unique number associated with the survey.</td>
-</tr>
-<tr>
-<td>SurveyQuotas</td>
-<td>array</td>
-<td>Contains an array of Survey Quotas models.</td>
-</tr>
-<tr>
-<td>SurveyStatusCode</td>
-<td>double</td>
-<td>Code associated with the current status of the survey. See <a href="#list-global-definitions">List Global Definitions</a> for a map of survey status codes.</td>
-</tr>
-<tr>
-<td>SurveyStillLive</td>
-<td>boolean</td>
-<td>A simple check to determine whether a survey is open to respondents. This can be used interchangeably with SurveyStatusCode.</td>
-</tr>
-</tbody></table>
-
-<h3 id="survey-quotas-model">Survey Quotas Model</h3>
-
-<table><thead>
-<tr>
-<th>Property</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>SurveyQuotaID</td>
-<td>int</td>
-<td>Unique number associated with the quota.</td>
-</tr>
-<tr>
-<td>SurveyQuotaType</td>
-<td>string</td>
-<td>Represents the function of the quota.</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>The <code class="prettyprint">Total</code> quota represents the maximum number of completes available on the survey and will always be present.</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><code class="prettyprint">Client</code> quotas are any subquotas on the survey. They are independent of the total quota and may be overlapping with one another.</td>
-</tr>
-<tr>
-<td>QuotaCPI</td>
-<td>double</td>
-<td>Gross payout per complete. This value is before any applicable commissions or fees.</td>
-</tr>
-<tr>
-<td>Conversion</td>
-<td>int</td>
-<td>Percentage of respondents who complete the survey after qualifying for that quota.</td>
-</tr>
-<tr>
-<td>NumberOfRespondents</td>
-<td>int</td>
-<td>Number of completes available in that quota group.</td>
-</tr>
-<tr>
-<td>Questions</td>
-<td>array</td>
-<td>Contains an array of Question models.</td>
-</tr>
-</tbody></table>
-
-<h3 id="questions-model">Questions Model</h3>
-
-<table><thead>
-<tr>
-<th>Property</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>QuestionID</td>
-<td>int</td>
-<td>Unique number associated with the question.</td>
-</tr>
-<tr>
-<td>LogicalOperator</td>
-<td>string</td>
-<td>Defines the logical operation applied to the conditions.</td>
-</tr>
-<tr>
-<td>PreCodes</td>
-<td>array</td>
-<td>Qualification answer option identifier.</td>
-</tr>
-</tbody></table>
+          <h1 id="quotas">Quotas</h1>
 
 <h2 id="show-quotas">Show Quotas</h2>
 
-<blockquote>
-<p>Definition</p>
-</blockquote>
-<pre class="highlight plaintext"><code>GET  https://api.samplicio.us/Supply/v1/SurveyQuotas/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}
-</code></pre>
+          <h1 id="entry-links">Entry Links</h1>
 
-<blockquote>
-<p>Example Request</p>
-</blockquote>
-<pre class="highlight shell"><code>curl https://api.samplicio.us/Supply/v1/SurveyQuotas/BySurveyNumber/<span class="o">{</span>SurveyNumber<span class="o">}</span>/<span class="o">{</span>SupplierCode<span class="o">}</span>?key<span class="o">={</span>APIKey<span class="o">}</span>
-</code></pre>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
-
-<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/SurveyQuotas/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}'</span><span class="p">)</span>
-
-<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">uri</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
-
-<span class="n">http</span><span class="p">.</span><span class="nf">use_ssl</span> <span class="o">=</span> <span class="kp">true</span>
-
-<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">request_uri</span><span class="p">)</span>
-
-<span class="n">surveyQuotas</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>  
-</code></pre>
-<pre class="highlight php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$surveyQuotas</span> <span class="o">=</span> <span class="nb">file_get_contents</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/SurveyQuotas/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}'</span><span class="p">);</span>
-<span class="cp">?&gt;</span>
-</code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">requests</span>
-
-<span class="n">surveyQuotas</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://api.samplicio.us/Supply/v1/SurveyQuotas/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}'</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight csharp"><code><span class="k">using</span> <span class="nn">System.Net</span><span class="p">;</span>
-
-<span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Supply/v1/SurveyQuotas/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}"</span><span class="p">);</span>
-
-<span class="n">WebResponse</span> <span class="n">surveyQuotas</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">GetResponse</span><span class="p">();</span>
-</code></pre>
-<pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'https'</span><span class="p">);</span>
-
-<span class="kd">var</span> <span class="nx">surveyQuotas</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/SurveyQuotas/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}'</span><span class="p">);</span>
-</code></pre>
-
-<blockquote>
-<p>Example Response</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"ApiResult"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"ApiResultCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"ApiAccount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Anon"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"AccountType"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"ApiAccountStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"AccountCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AA"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"ApiMessages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="s2">"API Message: Response initialized."</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"API Message: GetSurveyQuotasBySurveyNumberAndSupplierCode successful."</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"ResultCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"SurveyNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">254256</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"SurveyQuotas"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"SurveyQuotaID"</span><span class="p">:</span><span class="w"> </span><span class="mi">1564722</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"SurveyQuotaType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Total"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"QuotaCPI"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Conversion"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"NumberOfRespondents"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Questions"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"SurveyQuotaID"</span><span class="p">:</span><span class="w"> </span><span class="mi">1781601</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"SurveyQuotaType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Client"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"QuotaCPI"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Conversion"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"NumberOfRespondents"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Questions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"QuestionID"</span><span class="p">:</span><span class="w"> </span><span class="mi">43</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"LogicalOperator"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OR"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"PreCodes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="s2">"1"</span><span class="w">
-          </span><span class="p">]</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">]</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"SurveyQuotaID"</span><span class="p">:</span><span class="w"> </span><span class="mi">1781602</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"SurveyQuotaType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Client"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"QuotaCPI"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Conversion"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"NumberOfRespondents"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Questions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"QuestionID"</span><span class="p">:</span><span class="w"> </span><span class="mi">43</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"LogicalOperator"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OR"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"PreCodes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="s2">"2"</span><span class="w">
-          </span><span class="p">]</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">]</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"SurveyStatusCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"SurveyStillLive"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>Returns the total quota and client quotas associated with a survey. </p>
-
-<aside class="notice">NumberOfRespondents is calculated real-time</aside>
-
-<h3 id="arguments">Arguments</h3>
-
-<table><thead>
-<tr>
-<th>Property</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>SurveyNumber</td>
-<td>int</td>
-<td>true</td>
-<td>Unique number associated with the survey.</td>
-</tr>
-<tr>
-<td>SupplierCode</td>
-<td>int</td>
-<td>true</td>
-<td>Unique code associated with supplier account.</td>
-</tr>
-</tbody></table>
-
-              <h1 id="entry-links">Entry Links</h1>
-
-<p>The Entry Links resource enables suppliers to create, update, and retrieve supplier survey entry links as well as specify <a href="#list-global-definitions">supplier link and tracking types</a>. </p>
-
-<h3 id="supplier-link-model">Supplier Link Model</h3>
-
-<table><thead>
-<tr>
-<th>Property</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>SupplierLinkTypeCode</td>
-<td>string</td>
-<td>Defines the type of buyer-supplier engagment and the respondent&rsquo;s path in Fulcrum.</td>
-</tr>
-<tr>
-<td>TrackingTypeCode</td>
-<td>string</td>
-<td>Defines how Fulcrum should communicate back to the supplier&rsquo;s system at the end of a session. The options are:</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>NONE (Default and recommended, physically redirects the respondent back to the supplier system)</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>PIXEL (pixel tracking)</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>S2S (server to server postback)</td>
-</tr>
-<tr>
-<td>DefaultLink</td>
-<td>string</td>
-<td>Tracking code or link used if none of the below apply.</td>
-</tr>
-<tr>
-<td>SuccessLink</td>
-<td>string</td>
-<td>Tracking code or link used after a completion.</td>
-</tr>
-<tr>
-<td>FailureLink</td>
-<td>string</td>
-<td>Tracking code or link used after a termination.</td>
-</tr>
-<tr>
-<td>OverQuotaLink</td>
-<td>string</td>
-<td>Tracking code or link used after an overquota.</td>
-</tr>
-<tr>
-<td>QualityTerminationLink</td>
-<td>string</td>
-<td>Tracking code or link used after a quality (security) termination.</td>
-</tr>
-<tr>
-<td>LiveLink</td>
-<td>string</td>
-<td>Live supplier-specific respondent entry link generated by Fulcrum.</td>
-</tr>
-<tr>
-<td>TestLink</td>
-<td>string</td>
-<td>Test supplier-specific respondent entry link generated by Fulcrum.</td>
-</tr>
-<tr>
-<td>CPI</td>
-<td>string</td>
-<td>Gross payout per complete. This value is before any applicable commissions or fees.</td>
-</tr>
-</tbody></table>
-
-<h2 id="create-a-link">Create a Link</h2>
+<h2 class="post" id="create-a-link"><span>POST</span> Create a Link</h2>
 
 <blockquote>
 <p>Definition</p>
@@ -1761,8 +1341,6 @@ https://api.samplicio.us/Supply/v1/SupplierLinks/Create/<span class="o">{</span>
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
-<span class="nv">$params</span> <span class="o">=</span> <span class="s1">'{"SupplierLinkTypeCode": "OWS,"TrackingTypeCode": "NONE"}'</span><span class="p">;</span>
-
 <span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
   <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://api.samplicio.us/Supply/v1/SupplierLinks/Create/</span><span class="si">{</span><span class="nv">SurveyNumber}/{SupplierCode}?key={APIKey</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
   <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
@@ -1772,7 +1350,7 @@ https://api.samplicio.us/Supply/v1/SupplierLinks/Create/<span class="o">{</span>
   <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
   <span class="nx">CURLOPT_HTTP_VERSION</span> <span class="o">=&gt;</span> <span class="nx">CURL_HTTP_VERSION_1_1</span><span class="p">,</span>
   <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$params</span><span class="p">,</span>
+  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="s2">"{\n</span><span class="se">\t\"</span><span class="s2">SupplierLinkTypeCode</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">OWS</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n\t\"</span><span class="s2">TrackingTypeCode</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">NONE</span><span class="se">\"\n</span><span class="s2">}"</span><span class="p">,</span>
 <span class="p">));</span>
 
 <span class="nv">$supplierLink</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
@@ -1819,13 +1397,6 @@ https://api.samplicio.us/Supply/v1/SupplierLinks/Create/<span class="o">{</span>
   <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span><span class="s1">'Content-Type'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="kd">var</span> <span class="nx">json</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"SupplierLinkTypeCode"</span><span class="p">:</span><span class="s2">"OWS"</span><span class="p">,</span>
-    <span class="s2">"TrackingTypeCode"</span><span class="p">:</span><span class="s2">"NONE"</span>
-<span class="p">};</span>
-
-<span class="kd">var</span> <span class="nx">params</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">json</span><span class="p">);</span>
-
 <span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">supplierLink</span><span class="p">)</span> <span class="p">{</span>
   <span class="kd">var</span> <span class="nx">chunks</span> <span class="o">=</span> <span class="p">[];</span>
 
@@ -1835,7 +1406,7 @@ https://api.samplicio.us/Supply/v1/SupplierLinks/Create/<span class="o">{</span>
 
 <span class="p">});</span>
 
-<span class="nx">request</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">params</span><span class="p">);</span>
+<span class="nx">request</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">"{\n\t\"SupplierLinkTypeCode\": \"OWS\",\n\t\"TrackingTypeCode\": \"NONE\"\n}"</span><span class="p">);</span>
 
 <span class="nx">request</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>
 </code></pre>
@@ -1870,65 +1441,7 @@ https://api.samplicio.us/Supply/v1/SupplierLinks/Create/<span class="o">{</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>Creates a supplier-specific respondent entry link for a survey. If no supplier redirects are included, the default supplier redirects will be used. </p>
-
-<aside class="notice">We recommend using Offerwall/Standalone link type (OWS) when creating links for Offerwall surveys.</aside>
-
-<h3 id="arguments">Arguments</h3>
-
-<table><thead>
-<tr>
-<th>Property</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>SurveyNumber</td>
-<td>int</td>
-<td>true</td>
-<td>Unique number associated with the survey.</td>
-</tr>
-<tr>
-<td>SupplierCode</td>
-<td>int</td>
-<td>true</td>
-<td>Unique code associated with supplier account.</td>
-</tr>
-<tr>
-<td>SupplierLinkTypeCode</td>
-<td>string</td>
-<td>true</td>
-<td>Defines the type of buyer-supplier engagment and the respondent&rsquo;s path in Fulcrum.</td>
-</tr>
-<tr>
-<td>TrackingTypeCode</td>
-<td>string</td>
-<td>true</td>
-<td>Defines how Fulcrum should communicate back to the supplier&rsquo;s system at the end of a session. The options are:</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td>NONE (Default and recommended, physically redirects the respondent back to the supplier system)</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td>PIXEL (pixel tracking)</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td>S2S (server to server postback)</td>
-</tr>
-</tbody></table>
-
-<h2 id="update-a-link">Update a Link</h2>
+<h2 class="put" id="update-a-link"><span>PUT</span> Update a Link</h2>
 
 <blockquote>
 <p>Definition</p>
@@ -1957,12 +1470,10 @@ https://api.samplicio.us/Supply/v1/SupplierLinks/Create/<span class="o">{</span>
 
 <span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="p">{</span><span class="no">SupplierLinkTypeCode</span><span class="ss">:"OWS"</span><span class="p">,</span><span class="no">TrackingTypeCode</span><span class="ss">:"NONE"</span><span class="p">,</span><span class="no">DefaultLink</span><span class="ss">:""</span><span class="p">,</span><span class="no">SuccessLink</span><span class="ss">:""</span><span class="p">,</span><span class="no">FailureLink</span><span class="ss">:""</span><span class="p">,</span><span class="no">OverQuotaLink</span><span class="ss">:""</span><span class="p">,</span><span class="no">QualityTerminationLink</span><span class="ss">:""</span><span class="p">}.</span><span class="nf">to_json</span>
 
-<span class="n">supplierLink</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+<span class="n">updatedSupplierLink</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
 </code></pre>
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
-
-<span class="nv">$params</span> <span class="o">=</span> <span class="s1">'{"SupplierLinkTypeCode": "OWS,"TrackingTypeCode": "NONE","DefaultLink": "","SuccessLink": "","FailureLink": "","OverQuotaLink": "","QualityTerminationLink": ""}'</span><span class="p">;</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
   <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://api.samplicio.us/Supply/v1/SupplierLinks/Update/</span><span class="si">{</span><span class="nv">SurveyNumber}/{SupplierCode}?key={APIKey</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
@@ -1973,10 +1484,10 @@ https://api.samplicio.us/Supply/v1/SupplierLinks/Create/<span class="o">{</span>
   <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
   <span class="nx">CURLOPT_HTTP_VERSION</span> <span class="o">=&gt;</span> <span class="nx">CURL_HTTP_VERSION_1_1</span><span class="p">,</span>
   <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"PUT"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$params</span><span class="p">,</span>
+  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="s2">"{\n</span><span class="se">\t\"</span><span class="s2">SupplierLinkTypeCode</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">OWS</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n\t\"</span><span class="s2">TrackingTypeCode</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">NONE</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n\t\"</span><span class="s2">DefaultLink</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"\"</span><span class="s2">,</span><span class="se">\n\t\"</span><span class="s2">SuccessLink</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"\"</span><span class="s2">,</span><span class="se">\n\t\"</span><span class="s2">FailureLink</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"\"</span><span class="s2">,</span><span class="se">\n\t\"</span><span class="s2">OverQuotaLink</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"\"</span><span class="s2">,</span><span class="se">\n\t\"</span><span class="s2">QualityTerminationLink</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"\"</span><span class="s2">}"</span><span class="p">,</span>
 <span class="p">));</span>
 
-<span class="nv">$supplierLink</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+<span class="nv">$updatedSupplierLink</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
 
 <span class="nb">curl_close</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
 <span class="cp">?&gt;</span>
@@ -1988,7 +1499,7 @@ https://api.samplicio.us/Supply/v1/SupplierLinks/Create/<span class="o">{</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Content-type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span> <span class="s">'Accept'</span><span class="p">:</span> <span class="s">'text/plain'</span><span class="p">}</span>
 
-<span class="n">supplierLink</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="n">updatedSupplierLink</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
 </code></pre>
 <pre class="highlight csharp"><code><span class="k">using</span> <span class="nn">System.IO</span><span class="p">;</span>
 <span class="k">using</span> <span class="nn">System.Net</span><span class="p">;</span>
@@ -2007,7 +1518,7 @@ https://api.samplicio.us/Supply/v1/SupplierLinks/Create/<span class="o">{</span>
             <span class="n">streamWriter</span><span class="p">.</span><span class="nf">Close</span><span class="p">();</span>
         <span class="p">}</span>
 
-<span class="n">WebResponse</span> <span class="n">supplierLink</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">GetResponse</span><span class="p">();</span>
+<span class="n">WebResponse</span> <span class="n">updatedSupplierLink</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">GetResponse</span><span class="p">();</span>
 </code></pre>
 <pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'https'</span><span class="p">);</span>
 
@@ -2019,28 +1530,16 @@ https://api.samplicio.us/Supply/v1/SupplierLinks/Create/<span class="o">{</span>
   <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span><span class="s1">'Content-Type'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="kd">var</span> <span class="nx">json</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"SupplierLinkTypeCode"</span><span class="p">:</span><span class="s2">"OWS"</span><span class="p">,</span>
-    <span class="s2">"TrackingTypeCode"</span><span class="p">:</span><span class="s2">"NONE"</span><span class="p">,</span>
-    <span class="s2">"DefaultLink"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span>
-    <span class="s2">"SuccessLink"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span>
-    <span class="s2">"FailureLink"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span>
-    <span class="s2">"OverQuotaLink"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
-    <span class="s2">"QualityTerminationLink"</span><span class="p">:</span><span class="s2">""</span>
-<span class="p">};</span>
-
-<span class="kd">var</span> <span class="nx">params</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">json</span><span class="p">);</span>
-
-<span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">supplierLink</span><span class="p">)</span> <span class="p">{</span>
+<span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">updatedSupplierLink</span><span class="p">)</span> <span class="p">{</span>
   <span class="kd">var</span> <span class="nx">chunks</span> <span class="o">=</span> <span class="p">[];</span>
 
-  <span class="nx">supplierLink</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">"data"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">chunk</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">updatedSupplierLink</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">"data"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">chunk</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">chunks</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">chunk</span><span class="p">);</span>
   <span class="p">});</span>
 
 <span class="p">});</span>
 
-<span class="nx">request</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">params</span><span class="p">);</span>
+<span class="nx">request</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">"{\n\t\"SupplierLinkTypeCode\": \"OWS\",\n\t\"TrackingTypeCode\": \"NONE\",\n\t\"DefaultLink\": \"\",\n\t\"SuccessLink\": \"\",\n\t\"FailureLink\": \"\",\n\t\"OverQuotaLink\": \"\",\n\t\"QualityTerminationLink\": \"\"}"</span><span class="p">);</span>
 
 <span class="nx">request</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>
 </code></pre>
@@ -2057,7 +1556,7 @@ https://api.samplicio.us/Supply/v1/SupplierLinks/Create/<span class="o">{</span>
   </span><span class="nt">"AccountCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AA"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"ApiMessages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="s2">"API Message: Response initialized."</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"API Message: UpdateSupplierLinkFromModel successful."</span><span class="w">
+    </span><span class="s2">"API Message: UpdateSupplierLinkF romModel successful."</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nt">"ResultCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
   </span><span class="nt">"SupplierLink"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -2067,7 +1566,7 @@ https://api.samplicio.us/Supply/v1/SupplierLinks/Create/<span class="o">{</span>
     </span><span class="nt">"SuccessLink"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="nt">"FailureLink"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="nt">"OverQuotaLink"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"QualityTerminationLink"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"QualityTerminatio nLink"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="nt">"LiveLink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http:\/\/staging.samplicio.us\/router\/default.aspx?SID=52c795a7-15fh-454d-9ap2-3d5d803aa7af&amp;PID="</span><span class="p">,</span><span class="w">
     </span><span class="nt">"TestLink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http:\/\/staging.samplicio.us\/router\/default.aspx?SID=a348dif7- 3491-42v0-be51-0e4fdf25582f&amp;FIRID=MSDHQNI7&amp;SUMSTAT=8&amp;PID=test"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"CPI"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
@@ -2075,395 +1574,24 @@ https://api.samplicio.us/Supply/v1/SupplierLinks/Create/<span class="o">{</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>Update an existing entry link for a study.</p>
-
-<h3 id="arguments">Arguments</h3>
-
-<table><thead>
-<tr>
-<th>Property</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>SupplierLinkTypeCode</td>
-<td>string</td>
-<td>Defines the type of buyer-supplier engagment and the respondent&rsquo;s path in Fulcrum.</td>
-</tr>
-<tr>
-<td>TrackingTypeCode</td>
-<td>string</td>
-<td>Defines how Fulcrum should communicate back to the supplier&rsquo;s system at the end of a session. The options are:</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>NONE (Default and recommended, physically redirects the respondent back to the supplier system)</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>PIXEL (pixel tracking)</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>S2S (server to server postback)</td>
-</tr>
-<tr>
-<td>DefaultLink</td>
-<td>string</td>
-<td>Tracking code or link used if none of the below apply.</td>
-</tr>
-<tr>
-<td>SuccessLink</td>
-<td>string</td>
-<td>Tracking code or link used after a completion.</td>
-</tr>
-<tr>
-<td>FailureLink</td>
-<td>string</td>
-<td>Tracking code or link used after a termination.</td>
-</tr>
-<tr>
-<td>OverQuotaLink</td>
-<td>string</td>
-<td>Tracking code or link used after an overquota.</td>
-</tr>
-<tr>
-<td>QualityTerminationLink</td>
-<td>string</td>
-<td>Tracking code or link used after a quality (security) termination.</td>
-</tr>
-</tbody></table>
-
 <h2 id="show-a-link">Show a Link</h2>
 
-<blockquote>
-<p>Definition</p>
-</blockquote>
-<pre class="highlight plaintext"><code>GET  https://api.samplicio.us/Supply/v1/SupplierLinks/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}
-</code></pre>
-
-<blockquote>
-<p>Example Request</p>
-</blockquote>
-<pre class="highlight shell"><code>curl https://api.samplicio.us/Supply/v1/SupplierLinks/BySurveyNumber/<span class="o">{</span>SurveyNumber<span class="o">}</span>/<span class="o">{</span>SupplierCode<span class="o">}</span>?key<span class="o">={</span>APIKey<span class="o">}</span>
-</code></pre>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
-
-<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/SupplierLinks/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}'</span><span class="p">)</span>
-
-<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">uri</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
-
-<span class="n">http</span><span class="p">.</span><span class="nf">use_ssl</span> <span class="o">=</span> <span class="kp">true</span>
-
-<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">request_uri</span><span class="p">)</span>
-
-<span class="n">supplierLinks</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>  
-</code></pre>
-<pre class="highlight php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$supplierLinks</span> <span class="o">=</span> <span class="nb">file_get_contents</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/SupplierLinks/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}'</span><span class="p">);</span>
-<span class="cp">?&gt;</span>
-</code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">requests</span>
-
-<span class="n">supplierLinks</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://api.samplicio.us/Supply/v1/SupplierLinks/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}'</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight csharp"><code><span class="k">using</span> <span class="nn">System.Net</span><span class="p">;</span>
-
-<span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Supply/v1/SupplierLinks/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}"</span><span class="p">);</span>
-
-<span class="n">WebResponse</span> <span class="n">supplierLinks</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">GetResponse</span><span class="p">();</span>
-</code></pre>
-<pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'https'</span><span class="p">);</span>
-
-<span class="kd">var</span> <span class="nx">supplierLinks</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/SurveyQualifications/BySurveyNumberForOfferwall/{SurveyNumber}?key={APIKey}'</span><span class="p">);</span>
-</code></pre>
-
-<blockquote>
-<p>Example Response</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"ApiResult"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"ApiResultCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"ApiAccount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Anon"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"AccountType"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"ApiAccountStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"AccountCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AA"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"ApiMessages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="s2">"API Message: Response initialized."</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"API Message: GetSupplierLinkBySurveyNumberAndSupplierCode successful."</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"ResultCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"SupplierLink"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"SupplierLinkTypeCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OWS"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"TrackingTypeCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NONE"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"DefaultLink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http:\/\/www.anon.com\/surveys?v=1&amp;fs=1&amp;uid=[%MID%]"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"SuccessLink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http:\/\/www.anon.com\/surveys?v=1&amp;fs=2&amp;uid=[%MID%]&amp;COST=[%COST%]"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"FailureLink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http:\/\/www.anon.com\/surveys?v=1&amp;fs=1&amp;uid=[%MID%]"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"OverQuotaLink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http:\/\/www.anon.com\/surveys?v=1&amp;fs=1&amp;uid=[%MID%]"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"QualityTerminationLink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http:\/\/www.anon.com\/surveys?v=1&amp;fs=1&amp;uid=[%MID%]"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"LiveLink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http:\/\/staging.samplicio.us\/router\/default.aspx?SID=52c975a7-15fb-804d-9bd2-3d5d553aa7af&amp;PID="</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"TestLink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http:\/ \/staging.samplicio.us\/router\/default.aspx?SID=a948gef7-3591-42c0-ce51-0e4xdf25582f&amp;FIRID=MSDHONI7&amp;SUMSTAT=1&amp;PID=test"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"CPI"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>Returns link details for a survey. </p>
-
-arguments&quot;>Arguments</h3>
-
-<table><thead>
-<tr>
-<th>Property</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>SurveyNumber</td>
-<td>int</td>
-<td>true</td>
-<td>Unique number associated with the survey.</td>
-</tr>
-<tr>
-<td>SupplierCode</td>
-<td>int</td>
-<td>true</td>
-<td>Unique code associated with supplier account.</td>
-</tr>
-</tbody></table>
-
-              <h1 id="statistics">Statistics</h1>
+          <h1 id="statistics">Statistics</h1>
 
 <h2 id="show-statistics">Show Statistics</h2>
 
-<blockquote>
-<p>Definition </p>
-</blockquote>
-<pre class="highlight plaintext"><code>GET  https://api.samplicio.us/Supply/v1/SurveyStatistics/All/{SupplierCode}/{Scope}/{Timespan}?key={APIKey}
-</code></pre>
-
-<blockquote>
-<p>Example Request</p>
-</blockquote>
-<pre class="highlight shell"><code>curl https://api.samplicio.us/Supply/v1/SurveyStatistics/All/<span class="o">{</span>SupplierCode<span class="o">}</span>/<span class="o">{</span>Scope<span class="o">}</span>/<span class="o">{</span>Timespan<span class="o">}</span>?key<span class="o">={</span>APIKey<span class="o">}</span>
-</code></pre>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
-
-<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/SurveyStatistics/All/{SupplierCode}/{Scope}/{Timespan}?key={APIKey}'</span><span class="p">)</span>
-
-<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">uri</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
-
-<span class="n">http</span><span class="p">.</span><span class="nf">use_ssl</span> <span class="o">=</span> <span class="kp">true</span>
-
-<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">request_uri</span><span class="p">)</span>
-
-<span class="no">StatisticsBySurvey</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span> 
-</code></pre>
-<pre class="highlight php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$StatisticsBySurvey</span> <span class="o">=</span> <span class="nb">file_get_contents</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/SurveyStatistics/BySurveyNumber/{SurveyNumber}/{SupplierCode}/{Scope}/{Timespan}?key={APIKey}'</span><span class="p">);</span>
-<span class="cp">?&gt;</span>
-</code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">requests</span>
-
-<span class="n">StatisticsBySurvey</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://api.samplicio.us/Supply/v1/SurveyStatistics/BySurveyNumber/{SurveyNumber}/{SupplierCode}/{Scope}/{Timespan}?key={APIKey}'</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight csharp"><code><span class="k">using</span> <span class="nn">System.Net</span><span class="p">;</span>
-
-<span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Supply/v1/SurveyStatistics/BySurveyNumber/{SurveyNumber}/{SupplierCode}/{Scope}/{Timespan}?key={APIKey}"</span><span class="p">);</span>
-
-<span class="n">WebResponse</span> <span class="n">StatisticsBySurvey</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">GetResponse</span><span class="p">();</span>
-</code></pre>
-<pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'https'</span><span class="p">);</span>
-
-<span class="kd">var</span> <span class="nx">StatisticsBySurvey</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/SurveyStatistics/BySurveyNumber/{SurveyNumber}/{SupplierCode}/{Scope}/{Timespan}?key={APIKey}'</span><span class="p">);</span>
-</code></pre>
-
-<blockquote>
-<p>Example Response</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"ApiResult"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"ApiResultCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"ApiAccount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Anon"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"AccountType"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"ApiAccountStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"AccountCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AA"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"ApiMessages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="s2">"API Message: Response initialized."</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"API Message: GetGlobalTrailingStatisticsBySurveyNumber successful."</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"ResultCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"SurveyStatistics"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"EffectiveEPC"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.73</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"LengthOfInterview"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"SystemConversion"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.28</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>Returns conversion information (as a percentage) for a specific study, based on the Scope and Timespan, for live surveys only. System Conversion is defined as the number of entrants into Fulcrum, over the total number of completes achieved on the study.   </p>
-
-<aside class="notice">The &ldquo;Global&rdquo; scope can only be used with &ldquo;Trailing&rdquo; to gauge the conversion, length of interview, and EPC of all surveys on the platform over the last 12 hours. Global and Supplier Trailing methods must have received at least one (1) entrant in the last 12 hours to display on this call.</aside>
-
-<h3 id="arguments">Arguments</h3>
-
-<table><thead>
-<tr>
-<th>Property</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Survey Number</td>
-<td>int.</td>
-<td>true</td>
-<td>Unique ID associated with the study.</td>
-</tr>
-<tr>
-<td>SupplierCode</td>
-<td>string</td>
-<td>true</td>
-<td>Your unique supplier code.</td>
-</tr>
-<tr>
-<td>Scope</td>
-<td>string</td>
-<td>true</td>
-<td>Either &ldquo;Global&rdquo; or &ldquo;Supplier&rdquo;.</td>
-</tr>
-<tr>
-<td>Timespan</td>
-<td>string</td>
-<td>true</td>
-<td>Either &ldquo;Trailing&rdquo; or &ldquo;Lifetime&rdquo;. Trailing returns the last 12 hours.</td>
-</tr>
-</tbody></table>
-
-<h2 id="list-statistics">List Statistics</h2>
-
-<blockquote>
-<p>Definition </p>
-</blockquote>
-<pre class="highlight plaintext"><code>GET  https://api.samplicio.us/Supply/v1/SurveyStatistics/All/{SupplierCode}/{Scope}/{Timespan}?key={APIKey}
-</code></pre>
-
-<blockquote>
-<p>Example Request</p>
-</blockquote>
-<pre class="highlight shell"><code>curl https://api.samplicio.us/Supply/v1/SurveyStatistics/All/<span class="o">{</span>SupplierCode<span class="o">}</span>/<span class="o">{</span>Scope<span class="o">}</span>/<span class="o">{</span>Timespan<span class="o">}</span>?key<span class="o">={</span>APIKey<span class="o">}</span>
-</code></pre>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
-
-<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/SurveyStatistics/All/{SupplierCode}/{Scope}/{Timespan}?key={APIKey}'</span><span class="p">)</span>
-
-<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">uri</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
-
-<span class="n">http</span><span class="p">.</span><span class="nf">use_ssl</span> <span class="o">=</span> <span class="kp">true</span>
-
-<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">request_uri</span><span class="p">)</span>
-
-<span class="no">StatisticsAll</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span> 
-</code></pre>
-<pre class="highlight php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$StatisticsAll</span> <span class="o">=</span> <span class="nb">file_get_contents</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/SurveyStatistics/All/{SupplierCode}/{Scope}/{Timespan}?key={APIKey}'</span><span class="p">);</span>
-<span class="cp">?&gt;</span>
-</code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">requests</span>
-
-<span class="n">StatisticsAll</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://api.samplicio.us/Supply/v1/SurveyStatistics/All/{SupplierCode}/{Scope}/{Timespan}?key={APIKey}'</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight csharp"><code><span class="k">using</span> <span class="nn">System.Net</span><span class="p">;</span>
-
-<span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Supply/v1/SurveyStatistics/All/{SupplierCode}/{Scope}/{Timespan}?key={APIKey}"</span><span class="p">);</span>
-
-<span class="n">WebResponse</span> <span class="n">StatisticsAll</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">GetResponse</span><span class="p">();</span>
-</code></pre>
-<pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'https'</span><span class="p">);</span>
-
-<span class="kd">var</span> <span class="nx">StatisticsAll</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/SurveyStatistics/All/{SupplierCode}/{Scope}/{Timespan}?key={APIKey}'</span><span class="p">);</span>
-</code></pre>
-
-<blockquote>
-<p>Example Response</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"ApiResult"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"ApiResultCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"ApiAccount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Anon"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"AccountType"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"ApiAccountStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"AccountCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AA"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"ApiMessages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="s2">"API Message: Response initialized."</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"API Message: GetAllGlobalTrailingStatistics successful."</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"ResultCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"SurveyStatistics"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"SurveyNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">999</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"SystemConversion"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.42</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"SurveyNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">999</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"SystemConversion"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.07</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">    
-</span></code></pre>
-
-<p>Returns conversion information (as a percentage) based on the Scope and Timespan, for live surveys only. System Conversion is defined as the number of entrants into Fulcrum, over the total number of completes achieved on the study.   </p>
-
-<aside class="notice">The &ldquo;Global&rdquo; scope can only be used with &ldquo;Trailing&rdquo; to gauge the conversion of all surveys on the platform over the last 12 hours. Global and Supplier Trailing methods must have received at least one (1) entrant in the last 12 hours to display on this call.</aside>
-
-<h3 id="arguments">Arguments</h3>
-
-<table><thead>
-<tr>
-<th>Property</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Scope</td>
-<td>string</td>
-<td>true</td>
-<td>Either &ldquo;Global&rdquo; or &ldquo;Supplier&rdquo;.</td>
-</tr>
-<tr>
-<td>Timespan</td>
-<td>string</td>
-<td>true</td>
-<td>Either &ldquo;Trailing&rdquo; or &ldquo;Lifetime&rdquo;. Trailing returns the last 12 hours.</td>
-</tr>
-<tr>
-<td>SupplierCode</td>
-<td>string</td>
-<td>true</td>
-<td>Your unique supplier code.</td>
-</tr>
-</tbody></table>
-
-              <h1 id="recruit">Recruit</h1>
+<h2 id="list-statistics">List Statistics
+          <h1 id="recruit">Recruit</h1>
 
 <h2 id="show-marketing-info">Show Marketing Info</h2>
 
-              <h1 id="recontact">Recontact</h1>
+          <h1 id="recontact">Recontact</h1>
 
 <h2 id="list-qualified-respondents">List Qualified Respondents</h2>
 
-              <h1 id="demand">Demand</h1>
+          <h1 id="demand">Demand</h1>
 
-              <h1 id="surveys">Surveys</h1>
+          <h1 id="surveys">Surveys</h1>
 
 <h2 id="create-a-survey">Create a Survey</h2>
 
@@ -2473,7 +1601,7 @@ arguments&quot;>Arguments</h3>
 
 <h2 id="list-surveys-by-status">List Surveys By Status</h2>
 
-              <h1 id="qualifications">Qualifications</h1>
+          <h1 id="qualifications">Qualifications</h1>
 
 <h2 id="create-a-qualification">Create a Qualification</h2>
 
@@ -2481,7 +1609,7 @@ arguments&quot;>Arguments</h3>
 
 <h2 id="list-qualifications">List Qualifications</h2>
 
-              <h1 id="quotas">Quotas</h1>
+          <h1 id="quotas">Quotas</h1>
 
 <h2 id="create-a-quota">Create a Quota</h2>
 
@@ -2489,13 +1617,13 @@ arguments&quot;>Arguments</h3>
 
 <h2 id="list-quotas">List Quotas</h2>
 
-              <h1 id="exchange-templates">Exchange Templates</h1>
+          <h1 id="exchange-templates">Exchange Templates</h1>
 
 <h2 id="list-exchange-templates">List Exchange Templates</h2>
 
 <h2 id="apply-an-exchange-template">Apply an Exchange Template</h2>
 
-              <h1 id="exchange-groups">Exchange Groups</h1>
+          <h1 id="exchange-groups">Exchange Groups</h1>
 
 <h2 id="create-a-group">Create a Group</h2>
 
@@ -2511,13 +1639,13 @@ arguments&quot;>Arguments</h3>
 
 <h2 id="remove-from-a-group">Remove from a Group</h2>
 
-              <h1 id="non-exchange-allocations">Non-Exchange Allocations</h1>
+          <h1 id="non-exchange-allocations">Non-Exchange Allocations</h1>
 
 <h2 id="create-an-allocation">Create an Allocation</h2>
 
 <h2 id="update-an-allocation">Update an Allocation</h2>
 
-<h2 id="delete-an-allocation">Delete an Allocation</h2>
+<h2 class="delete" id="delete-an-allocation"><span>DELETE</span> an Allocation</h2>
 
 <blockquote>
 <p>Definition</p>
@@ -2590,7 +1718,7 @@ arguments&quot;>Arguments</h3>
 
 <h2 id="list-allocations">List Allocations</h2>
 
-              <h1 id="non-exchange-entry-links">Non-Exchange Entry Links</h1>
+          <h1 id="non-exchange-entry-links">Non-Exchange Entry Links</h1>
 
 <h2 id="create-a-link">Create a Link</h2>
 
@@ -2598,7 +1726,7 @@ arguments&quot;>Arguments</h3>
 
 <h2 id="delete-a-link">Delete a Link</h2>
 
-              <h1 id="feasibility">Feasibility</h1>
+          <h1 id="feasibility">Feasibility</h1>
 
 <h2 id="show-time-to-completion">Show Time to Completion</h2>
 
@@ -2606,34 +1734,34 @@ arguments&quot;>Arguments</h3>
 
 <h2 id="show-completes-per-day">Show Completes per Day</h2>
 
-              <h1 id="recruits">Recruits</h1>
+          <h1 id="recruits">Recruits</h1>
 
 <h2 id="list-qualified-respondents">List Qualified Respondents</h2>
 
-              <h1 id="guides">Guides</h1>
+          <h1 id="guides">Guides</h1>
 
-              <h1 id="supply">Supply</h1>
+          <h1 id="supply">Supply</h1>
 
 <h2 id="market-research-panel-supplier">Market Research Panel Supplier</h2>
 
-              <h1 id="demand">Demand</h1>
+          <h1 id="demand">Demand</h1>
 
 <h2 id="diy-market-research-buyer">DIY Market Research Buyer</h2>
 
 <h2 id="enterprise-market-research-buyer">Enterprise Market Research Buyer</h2>
 
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="shell">curl</a>
+                <a href="#" data-language-name="ruby">Ruby</a>
+                <a href="#" data-language-name="php">PHP</a>
+                <a href="#" data-language-name="python">Python</a>
+                <a href="#" data-language-name="csharp">C#</a>
+                <a href="#" data-language-name="javascript">Node.js</a>
           </div>
-          <div class="dark-box">
-              <div class="lang-selector">
-                    <a href="#" data-language-name="shell">curl</a>
-                    <a href="#" data-language-name="ruby">Ruby</a>
-                    <a href="#" data-language-name="php">PHP</a>
-                    <a href="#" data-language-name="python">Python</a>
-                    <a href="#" data-language-name="csharp">C#</a>
-                    <a href="#" data-language-name="javascript">Node.js</a>
-              </div>
-          </div>
-        </div>
+      </div>
+    </div>
     </div>
     <script type="text/javascript">
       document.getElementById("fouc").style.display="block";
