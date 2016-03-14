@@ -176,7 +176,7 @@ var allocations = https.get('https://api.samplicio.us/Supply/v1/Surveys/Supplier
     "SurveyName": "Pet Owner Survey",
     "SurveyNumber": 17381,
     "SurveySID": "03B4B292-0EA1-212B-02C1-345B38C6AF57",
-    "AccountName": "Example Company",
+    "AccountName": "Sample Company",
     "CountryLanguageID": 9,
     "LengthOfInterview": 16,
     "BidIncidence": 20,
@@ -191,7 +191,7 @@ var allocations = https.get('https://api.samplicio.us/Supply/v1/Surveys/Supplier
     "OfferwallAllocations": [
       {
         "SupplierCode": "0050",
-        "SupplierName": "InboxDollars",
+        "SupplierName": "Supply Company",
         "OfferwallCompletes": 403,
         "AllocationRemaining": 47,
         "HedgeRemaining": 0,
