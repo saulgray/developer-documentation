@@ -167,7 +167,18 @@ html, body {
         color: $nav-active-text;
       }
     }
-    // HTTP tags in TOC
+  }
+
+
+  .tocify-item>a, .toc-footer li {
+    padding: 0 $nav-padding 0 $nav-padding;
+    display: block;
+    overflow-x: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  // HTTP tags in TOC
       .http-get {
           @extend %code-font;
           color:$post;
@@ -184,19 +195,7 @@ html, body {
           @extend %code-font;
           color:$delete;
       }
-  }
-
-
-  .tocify-item>a, .toc-footer li {
-    padding: 0 $nav-padding 0 $nav-padding;
-    display: block;
-    overflow-x: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-  }
-  
-  
-
+      
   // The Table of Contents is composed of multiple nested
   // unordered lists.  These styles remove the default
   // styling of an unordered list because it is ugly.
