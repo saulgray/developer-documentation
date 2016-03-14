@@ -226,3 +226,106 @@ Returns any allocation(s) given to you for a particular survey.
 
 
 ## List Recently Allocated Surveys
+> Definition
+
+```plaintext
+GET  https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/ByDate/{Date}/{SupplierCode}?key={APIKey}
+```
+
+> Example Request
+
+```shell
+curl https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/ByDate/{Date}/{SupplierCode}?key={APIKey}
+```
+
+```ruby
+require 'net/http'
+
+uri = URI('https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/ByDate/{Date}/{SupplierCode}?key={APIKey}')
+
+http = Net::HTTP.new(uri.host, uri.port)
+
+http.use_ssl = true
+
+request = Net::HTTP::Get.new(uri.request_uri)
+
+allocations = http.request(request)  
+```
+
+```php
+<?php
+$allocations = file_get_contents('https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/ByDate/{Date}/{SupplierCode}?key={APIKey}');
+?>
+```
+
+```python
+import requests
+
+allocations = requests.get('https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/ByDate/{Date}/{SupplierCode}?key={APIKey}')
+```
+
+```csharp
+using System.Net;
+
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/ByDate/{Date}/{SupplierCode}?key={APIKey}");
+
+WebResponse allocations = request.GetResponse();
+```
+
+```javascript
+const https = require('https');
+
+var allocations = https.get('https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/ByDate/{Date}/{SupplierCode}?key={APIKey}');
+```
+
+> Example Response
+
+```json
+{
+  "ApiResult": 0,
+  "ApiResultCode": 0,
+  "ApiAccount": "Anon",
+  "AccountType": 2,
+  "ApiAccountStatus": 1,
+  "AccountCode": "AA",
+  "ApiMessages": [
+    "API Message: Response initialized.",
+    "API Message: GetSupplierAllocationsByDate successful."
+  ],
+  "ResultCount": 1,
+  "SupplierAllocationSurveys": [
+		{
+			"SurveyName": "IT Developers Survey",
+			"SurveyNumber": 143479,
+			"SurveySID": "4C2B4533-0EA1-364A-212B-345B38C6AF57",
+			"AccountName": "Sample Company",
+			"CountryLanguageID": 9,
+			"LengthOfInterview": 2,
+			"BidIncidence": 8,
+			"Conversion": 1,
+			"FieldBeginDate": "/Date(1431666000000-0500)/",
+			"FieldEndDate": "/Date(1432353600000-0500)/",
+			"IndustryID": 30,
+			"StudyTypeID": 1,
+			"Priority": 2,
+			"SurveyGroup": null,
+			"SurveyGroupID": null,
+			"SurveyGroupExists": 0,
+			"BidLengthOfInterview": 15,
+			"TerminationLengthOfInterview": 5,
+			"SurveyQuotaCalcTypeID": 1,
+			"IsTrueSample": false,
+			"SurveyMobileConversion": 0,
+			"SampleTypeID": null
+		}
+	]
+}
+```
+Returns a list of allocations for which the TotalQuota has changed since a specified date.
+
+### Arguments
+
+| Property                     | Type     | Required | Description                                                                     |
+|------------------------------|----------|----------|---------------------------------------------------------------------------------|
+|Date                          | string   | true     | Must follow the format YYYY-MM-DD                                               |
+|SupplierCode                  | string   | true     | Unique code associated with a supplier account.                                 |
