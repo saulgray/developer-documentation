@@ -99,7 +99,7 @@ var surveys = https.get('https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall
     "API Message: Response initialized.",
     "API Message: GetAllOfferwallSurveys successful."
   ],
-  "ResultCount": 3,
+  "ResultCount": 1,
   "Surveys": [
     {
       "SurveyName": "Asthma Sufferers",
@@ -126,9 +126,7 @@ var surveys = https.get('https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall
       "IsTrueSample": false,
       "SurveyMobileConversion": 0,
       "SampleTypeID": null
-    },
-    {...},
-    {...}
+    }
   ]
 }
 ```
@@ -144,14 +142,3 @@ Returns a list of all live survey opportunities available through the Exchange f
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
 | SupplierCode                 | int      | true     | Unique code associated with a supplier account.                                                                                              |
 
-[![Run in Postman](https://run.pstmn.io/button.png)](https://www.getpostman.com/run-collection/bb68be2cda20d9bc87b6)
-
-#Allocations
-
-##List Allocated Surveys
-Windows is cranky.
-
-##Show an Allocated Survey
-Windows is cranky.
-
-##List Recently Allocated Surveys
