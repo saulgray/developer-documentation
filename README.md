@@ -130,12 +130,333 @@ const https = require('https');
 var surveys = https.get('https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}');
 ```
 
-
 ##### POST
+
+curl
+```curl
+curl -H "Content-Type: application/json" \
+-X POST --data '{"SupplierLinkTypeCode": "OWS", "TrackingTypeCode": "NONE"}' \
+https://api.samplicio.us/Supply/v1/SupplierLinks/Create/{SurveyNumber}/{SupplierCode}?key={APIKey}
+```
+
+Ruby
+```ruby
+require 'net/http'
+require 'json'
+
+uri = URI('https://api.samplicio.us/Supply/v1/SupplierLinks/Create/{SurveyNumber}/{SupplierCode}?key={APIKey}')
+
+http = Net::HTTP.new(uri.host, uri.port)
+
+http.use_ssl = true
+
+fullUriPath = uri.path + '?' + uri.query
+
+request = Net::HTTP::Post.new(fullUriPath, initheader = {'Content-Type' =>'application/json'})
+
+request.body = {SupplierLinkTypeCode:"OWS",TrackingTypeCode:"NONE"}.to_json
+
+supplierLink = http.request(request)
+
+```
+
+PHP
+```php
+<?php
+$curl = curl_init();
+
+$params = '{"SupplierLinkTypeCode": "OWS,"TrackingTypeCode": "NONE"}';
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL => "https://api.samplicio.us/Supply/v1/SupplierLinks/Create/{SurveyNumber}/{SupplierCode}?key={APIKey}",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => "",
+  CURLOPT_HTTPHEADER => array('Content-Type: application/json'),
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => "POST",
+  CURLOPT_POSTFIELDS => $params,
+));
+
+$supplierLink = curl_exec($curl);
+
+curl_close($curl);
+?>
+```
+
+Python
+```python
+import requests, json
+
+url = 'https://api.samplicio.us/Supply/v1/SupplierLinks/Create/{SurveyNumber}/{SupplierCode}?key={APIKey}'
+params = {'SupplierLinkTypeCode':'OWS','TrackingTypeCode':'NONE'}
+data = json.dumps(params)
+headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
+
+supplierLink = requests.post(url, data=data, headers=headers)
+```
+
+C#
+```csharp
+using System.IO;
+using System.Net;
+
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Supply/v1/SupplierLinks/Create/{SurveyNumber}/{SupplierCode}?key={APIKey}");
+
+string params = "{\"SupplierLinkTypeCode\":\"OWS\","+"\"TrackingTypeCode\":\"NONE\"}";
+
+request.Method = "POST";
+request.ContentType = "application/json";
+
+using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
+{
+streamWriter.Write(params);
+streamWriter.Flush();
+streamWriter.Close();
+}
+
+WebResponse supplierLink = request.GetResponse();
+```
+
+Node.js
+```javascript
+const https = require('https');
+
+var options = {
+  "method": "POST",
+  "hostname": "api.samplicio.us",
+  "port": 443,
+  "path": "/Supply/v1/SupplierLinks/Create/{SurveyNumber}/{SupplierCode}?key={APIKey}",
+  "headers": {'Content-Type': 'application/json'}
+};
+
+var json = {
+    "SupplierLinkTypeCode":"OWS",
+    "TrackingTypeCode":"NONE"
+};
+
+var params = JSON.stringify(json);
+
+var request = https.request(options, function (supplierLink) {
+  var chunks = [];
+
+  supplierLink.on("data", function (chunk) {
+    chunks.push(chunk);
+  });
+
+});
+
+request.write(params);
+
+request.end();
+```
 
 ##### PUT
 
+curl
+```curl
+curl -H "Content-Type: application/json" \
+-X PUT  --data '{"SupplierLinkTypeCode": "OWS", "TrackingTypeCode": "NONE", "DefaultLink":"","SuccessLink":"","FailureLink":"","OverQuotaLink":"","QualityTerminationLink":""}' \ https://api.samplicio.us/Supply/v1/SupplierLinks/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}
+```
+
+Ruby
+```ruby
+require 'net/http'
+require 'json'
+
+uri = URI('https://api.samplicio.us/Supply/v1/SupplierLinks/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}')
+
+http = Net::HTTP.new(uri.host, uri.port)
+
+http.use_ssl = true
+
+fullUriPath = uri.path + '?' + uri.query
+
+request = Net::HTTP::Post.new(fullUriPath, initheader = {'Content-Type' =>'application/json'})
+
+request.body = {SupplierLinkTypeCode:"OWS",TrackingTypeCode:"NONE",DefaultLink:"",SuccessLink:"",FailureLink:"",OverQuotaLink:"",QualityTerminationLink:""}.to_json
+
+supplierLink = http.request(request)
+
+```
+
+PHP
+```php
+<?php
+$curl = curl_init();
+
+$params = '{"SupplierLinkTypeCode": "OWS,"TrackingTypeCode": "NONE","DefaultLink": "","SuccessLink": "","FailureLink": "","OverQuotaLink": "","QualityTerminationLink": ""}';
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL => "https://api.samplicio.us/Supply/v1/SupplierLinks/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => "",
+  CURLOPT_HTTPHEADER => array('Content-Type: application/json'),
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => "PUT",
+  CURLOPT_POSTFIELDS => $params,
+));
+
+$supplierLink = curl_exec($curl);
+
+curl_close($curl);
+?>
+```
+
+Python
+```python
+import requests, json
+
+url = 'https://api.samplicio.us/Supply/v1/SupplierLinks/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}'
+params = {'SupplierLinkTypeCode':'OWS','TrackingTypeCode':'NONE','DefaultLink':'','SuccessLink':'','FailureLink':'','OverQuotaLink':'','QualityTerminationLink':''}
+data = json.dumps(params)
+headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
+
+supplierLink = requests.put(url, data=data, headers=headers)
+
+```
+
+C#
+```csharp
+using System.IO;
+using System.Net;
+
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Supply/v1/SupplierLinks/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}");
+
+string params = "{\"SupplierLinkTypeCode\":\"OWS\","+"\"TrackingTypeCode\":\"NONE\","+"\"DefaultLink\":\"\","+"\"SuccessLink\":\"\","+"\"FailureLink\":\"\","+"\"OverQuotaLink\":\"\","+"\"QualityTerminationLink\":\"\"}";
+
+request.Method = "PUT";
+request.ContentType = "application/json";
+
+using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
+        {
+            streamWriter.Write(params);
+            streamWriter.Flush();
+            streamWriter.Close();
+        }
+
+WebResponse supplierLink = request.GetResponse();
+```
+
+Node.js
+```javascript
+const https = require('https');
+
+var options = {
+  "method": "PUT",
+  "hostname": "api.samplicio.us",
+  "port": 443,
+  "path": "/Supply/v1/SupplierLinks/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}",
+  "headers": {'Content-Type': 'application/json'}
+};
+
+var json = {
+    "SupplierLinkTypeCode":"OWS",
+    "TrackingTypeCode":"NONE",
+    "DefaultLink":"",
+    "SuccessLink":"",
+    "FailureLink":"",
+    "OverQuotaLink": "",
+    "QualityTerminationLink":""
+};
+
+var params = JSON.stringify(json);
+
+var request = https.request(options, function (supplierLink) {
+  var chunks = [];
+
+  supplierLink.on("data", function (chunk) {
+    chunks.push(chunk);
+  });
+
+});
+
+request.write(params);
+
+request.end();
+```
+
 ##### DELETE
+
+curl
+```curl
+curl -X DELETE http://api.samplicio.us/Demand/v1/SupplierAllocations/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}
+```
+
+Ruby
+```ruby
+require 'net/http'
+
+uri = URI('http://api.samplicio.us/Demand/v1/SupplierAllocations/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}')
+
+http = Net::HTTP.new(uri.host, uri.port)
+
+http.use_ssl = true
+
+request = Net::HTTP::Delete.new(uri.request_uri)
+
+http.request(request)
+```
+
+PHP
+```php
+<?php
+
+$curl = curl_init();
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL => "http://api.samplicio.us/Demand/v1/SupplierAllocations/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => "",
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => "DELETE",
+  CURLOPT_POSTFIELDS => "",
+));
+
+curl_exec($curl);
+curl_close($curl);
+?>
+```
+
+Python
+```python
+import requests
+
+requests.delete('http://api.samplicio.us/Demand/v1/SupplierAllocations/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}')
+```
+
+C#
+```csharp
+using System.Net; 
+
+WebRequest request = WebRequest.Create("http://api.samplicio.us/Demand/v1/SupplierAllocations/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}");
+
+request.Method = "DELETE";
+
+request.GetResponse();
+```
+
+Node.js
+```javascript
+const https = require('https');
+
+var options = {
+  "method": "DELETE",
+  "hostname": "stg-api.samplicio.us",
+  "port": 443,
+  "path": "/Demand/v1/SupplierAllocations/Delete/66900/196?key=YOUR_API_KEY_HERE",
+  "headers": {}
+};
+
+var request = https.request(options);
+
+request.end();
+```
 
 
 ### Guides
