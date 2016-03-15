@@ -5,6 +5,13 @@
 <p align="center">Propogating our developer-first approach to solving problems requiring people.</p>
 <p align="center"><a href="http://lucidhq.github.io/developer-documentation/" target="_blank">Production Site</a></p>
 
+Table of Contents
+-----------
+ 1. [Process Guide](#process-guide)
+ 2. [Style Guide](#style-guide)
+ 3. [Building and Deploying Locally](#building-and-deploying-locally)
+ 4. [Building and Deploying to Production](#building-and-deploying-to-production)
+
 Process Guide
 -----------
 ### To contribute:
@@ -17,9 +24,8 @@ Process Guide
  3. Make changes. `Commit` early and often. `Push` to Github at least daily.
  4. When your objective is complete, submit a pull request to merge your branch with `develop`. If you are contributing documentation, tag with `under review` to prevent premature merging.
  5. If your PR is for a feature, bug, or task, a team member will review the code style and ensure the solution conforms to best practices. If your PR is for documentation, the designated editor will review your work to ensure that it conforms with the style guide and presents a unified voice. In either case, the reviewer will add line notes for changes.
- 6. After any necessary changes are made, the reviewer will merge.
+ 6. After all necessary changes are made, the reviewer will merge.
  7. The submitter is responsible for deleting their branch upon completion.
-
 
 Style Guide
 ------------
@@ -68,7 +74,7 @@ Style Guide
 ### Guides
 Documentation coming soon!
 
-Building and Running (Local)
+Building and Deploying Locally
 ---------------------------------
 
 ### Prerequisites
@@ -121,7 +127,7 @@ availalable at the output of `boot2docker ip` instead of `localhost:4567`.*
 
 Now that the project is all set up your machine, you'll probably want to learn more about [editing Slate markdown](https://github.com/tripit/slate/wiki/Markdown-Syntax), or [how to publish your docs](https://github.com/tripit/slate/wiki/Deploying-Slate).
 
-Building and Deploying (Production)
+Building and Deploying to Production
 ---------------------------------
 **DANGER ZONE:** Do not deploy to the production server unless you were given specific instructions to do so and know what you are doing.
 
