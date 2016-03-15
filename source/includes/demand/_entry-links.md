@@ -1,22 +1,22 @@
 #Non-Exchange Entry Links
 
-The Non-Exchange Entry Link resource allows the buyer to create, update, and delete supplier links on non-exchange allocations.
+The Non-Exchange Entry Link resource allows the buyer to create, update, and delete supplier links (targets) on non-exchange allocations.
 
 ### Supplier Allocation Model
 
 | Property                     | Type     | Description                                                                                                                                             |
 |------------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
 | SupplierCode                 | int      | Unique code associated with supplier account.                                                                                                           |
-| AllocationPercentage         | double   | Percentage of total completes allocated to supplier                                                                                                           |
+| AllocationPercentage         | double   | Percentage of total completes allocated to supplier.                                                                                                    |
 | TCPI                         | double   | Over-the-counter cost per supplier complete.                                                                                                            |
 | HedgeAccess                  | string   | “true” or “false” – Indicates if hedge access is enabled for the supplier.                                                                              |
 | BlockRouterTraffic           | string   | “true” or “false” – Indicates if router traffic is enabled for the supplier.                                                                            |
 | SupplierSurveyID             | int      | Survey supplier ID (SSID).                                                                                                                              |
-| Prescreens                   | int      | Number of prescreens achieved by the supplier.                                                                                                          |
+| Prescreens                   | int      | Number of prescreens achieved by the supplier. A prescreen is a respondent who enters the client survey.                                                |
 | Completes                    | int      | Number of completes achieved by the supplier.                                                                                                           |
 | AllocationRemaining          | int      | Number of completes allocated only to the supplier.                                                                                                     |
-| HedgeRemaining               | int      | Number of unallocated completes available to any suppliers.                                                                                             |
-| TotalRemaining               | int      | Total number of completes available to the supplier (aggregate of allocation and hedge remaining properties).                                                                                                                                                        |
+| HedgeRemaining               | int      | Number of unallocated completes available to any suppliers with access to hedge.                                                                                             |
+| TotalRemaining               | int      | Total number of completes available to the supplier (aggregate of allocation and hedge remaining properties).                                           |
 | Target                       | array    | Contains array of elements described below.                                                                                                             |
 
 ### Target Model
@@ -25,6 +25,9 @@ The Non-Exchange Entry Link resource allows the buyer to create, update, and del
 |------------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
 | SupplierLinkTypeCode         | string   | Defines the type of buyer-supplier engagment and the respondent's path in Fulcrum.                                                                      |
 | TrackingTypeCode             | string   | Defines how Fulcrum should communicate back to the supplier's system at the end of a session.                                                           |
+|                              |          | NONE (Default and recommended, physically redirects the respondent back to the supplier system)                                                         |
+|                              |          | PIXEL (pixel tracking)                                                                                                                                  |
+|                              |          | S2S (server to server postback)                                                                                                                        |
 | DefaultLink                  | string   | Tracking code or link used if none of the below apply.                                                                                                  |
 | SuccessLink                  | string   | Tracking code or link used after a completion.                                                                                                          |
 | FailureLink                  | string   | Tracking code or link used after a termination.                                                                                                         |
@@ -199,7 +202,7 @@ request.end();
 }
 ```
 
-Creates target links for suppliers already allocated to a Fulcrum survey. 
+Creates target links for suppliers with an alloacation for a Fulcrum survey. 
 
 <aside class="notice">Ensure that the supplier has already been allocated to the survey by first making the [SupplierAllocations/Create](#create-an-allocation) call. Always default to Targeted/Standalone link type (SupplierLinkTypeCode TS) when creating target links unless specifically requested by the supplier </aside>
 
@@ -343,7 +346,7 @@ request.write(params);
 request.end();
 ```
 
-Updates existing supplier target entry links. 
+Updates existing supplier target links. 
 
 <aside class="notice">Always default to Targeted/Standalone link type (SupplierLinkTypeCode TS) when creating target links unless specifically requested by the supplier </aside>
 
@@ -354,7 +357,7 @@ Updates existing supplier target entry links.
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
 | SurveyNumber                 | int      | true     | Unique number associated with the survey.                                                                                                    |
 | SupplierCode                 | int      | true     | Unique code associated with supplier account.                                                                                                |
-| SupplierLinkTypeCode         | int      | true     | Defines the type of buyer-supplier engagment and the respondent's path in Fulcrum.                                                           |
+| SupplierLinkTypeCode         | string   | true     | Defines the type of buyer-supplier engagment and the respondent's path in Fulcrum.                                                           |
 | TrackingTypeCode             | int      | true     | Defines how Fulcrum should communicate back to the supplier's system at the end of a session. The options are:                               |
 |                              |          |          | NONE (Default and recommended, physically redirects the respondent back to the supplier system)                                              |
 |                              |          |          | PIXEL (pixel tracking)                                                                                                                       |
@@ -437,7 +440,7 @@ var options = {
   "method": "DELETE",
   "hostname": "stg-api.samplicio.us",
   "port": 443,
-  "path": "/Demand/v1/SupplierAllocations/Targets/Delete/66900/196?key=YOUR_API_KEY_HERE",
+  "path": "/Demand/v1/SupplierAllocations/Targets/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}",
   "headers": {}
 };
 
@@ -446,7 +449,7 @@ var request = https.request(options);
 request.end();
 ```
 
-Deletes target entry links for a supplier allocated to a Fulcrum survey 
+Deletes target links for a supplier allocated to a Fulcrum survey 
 
 
 ### Arguments
