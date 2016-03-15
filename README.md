@@ -2,11 +2,11 @@
   <img src="readme/logo.png" alt="Lucid" width="175">
 </p>
 <h1 align="center">Developer Documentation</h1>
-<p align="center">Propogating our developer-first approach to solving problems that need people.</p>
+<p align="center">Propogating our developer-first approach to solving problems requiring people.</p>
+<a align="center" src="http://lucidhq.github.io/developer-documentation/">Production Site</a>
 
 Process Guide
 -----------
- **Github Pages URL:** http://lucidhq.github.io/developer-documentation/
  **To contribute:**
  1. `Pull` the latest `develop` branch.
  2. Branch off of `develop` for your task. Use the following syntax for branches:
@@ -121,7 +121,7 @@ availalable at the output of `boot2docker ip` instead of `localhost:4567`.*
 
 Now that the project is all set up your machine, you'll probably want to learn more about [editing Slate markdown](https://github.com/tripit/slate/wiki/Markdown-Syntax), or [how to publish your docs](https://github.com/tripit/slate/wiki/Deploying-Slate).
 
-Building and Deploying (Public Remote)
+Building and Deploying (Production)
 ---------------------------------
 **DANGER ZONE:** Do not deploy to the production server unless you were given specific instructions to do so and know what you are doing.
 
