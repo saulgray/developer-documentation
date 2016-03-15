@@ -138,7 +138,7 @@ Building and Deploying to Production
 Contributors
 --------------------
 
-This documentation was built by the Fulcrum Tech Ops team.
+This project was built by the Fulcrum Tech Ops team.
 
 Thanks to the following people who have submitted major pull requests:
 
