@@ -7,7 +7,7 @@
 
 Process Guide
 -----------
- ### To contribute:
+### To contribute:
  1. `Pull` the latest `develop` branch.
  2. Branch off of `develop`. Use the following syntax for branches:
  	- feature/{feature name}
