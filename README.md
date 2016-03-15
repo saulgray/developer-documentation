@@ -1,51 +1,108 @@
-Slate
-========
+<p align="center">
+  <img src="https://luc.id/wp-content/uploads/2015/09/Lucid-footer-2x.png" alt="Lucid" width="150">
+</p>
+<h1 align="center">Developer Documentation</h1>
+<p align="center">Propogating our developer-first approach to solving problems that need people.</p>
 
-[![Build Status](https://travis-ci.org/tripit/slate.svg?branch=master)](https://travis-ci.org/tripit/slate) [![Dependency Status](https://gemnasium.com/tripit/slate.png)](https://gemnasium.com/tripit/slate)
+Process Guide
+-----------
+ - **Github Pages URL:** http://lucidhq.github.io/developer-documentation/
+ - **To contribute:**
+     1. `Pull` the latest `develop` branch.
+     2. Branch off of `develop` for your task. Use the following syntax for branches:
+     	- feature/{feature name}
+     	- bug/{bug name}
+     	- resource/{documentation content}
+     	- task/{task name}
+     3. Make changes related to your specific feature, bug, resource, or task. `Commit` early and often. `Push` to Github at least daily.
+     4. When your objective is complete, submit a pull request to merge your branch with `develop`. Tag with `under review` to prevent premature merging.
+     5. A team member will review your work to ensure that it conforms with the style guideline and presents a unified voice. The reviewer will add line notes for changes.
+     6. After any necessary changes are made, the reviewer will merge.
+     7. The submitter is responsible for deleting their branch upon completion.
 
-Slate helps you create beautiful API documentation. Think of it as an intelligent, responsive documentation template for your API.
 
-<img src="https://dl.dropboxusercontent.com/u/95847291/github%20images/slate/slate_screenshot_new.png" width=700 alt="Screenshot of Example Documentation created with Slate">
-
-*The example above was created with Slate. Check it out at [tripit.github.io/slate](http://tripit.github.io/slate).*
-
-Features
+Style Guide
 ------------
+### General
+ - For code values referenced anywhere in the center section use code highlighting. The markdown syntax is simply to wrap the code word back ticks (i.e. `true`). 
+ - Data types:
+ 	- String
+ 	- Integer
+ 	- Float
+ 	- Double
+ 	- Serialized Datetime
+ 	- Boolean
+ 	- Array
 
-* **Clean, intuitive design** — with Slate, the description of your API is on the left side of your documentation, and all the code examples are on the right side. Inspired by [Stripe's](https://stripe.com/docs/api) and [Paypal's](https://developer.paypal.com/webapps/developer/docs/api/) API docs. Slate is responsive, so it looks great on tablets, phones, and even print.
+### Resources
 
-* **Everything on a single page** — gone are the days where your users had to search through a million pages to find what they wanted. Slate puts the entire documentation on a single page. We haven't sacrificed linkability, though. As you scroll, your browser's hash will update to the nearest header, so linking to a particular point in the documentation is still natural and easy.
+[[https://github.com/lucidhq/developer-documentation/readme/model.png|alt=resource_diagram]]
 
-* **Slate is just Markdown** — when you write docs with Slate, you're just writing Markdown, which makes it simple to edit and understand. Everything is written in Markdown — even the code samples are just Markdown code blocks!
+1. **Resource title:** Predefined in nav structure. If you are adding a new resource, reference the object in simple terms.
+2. **Resource description:** 1 to 2 sentences describing the functionality of the endpoint in plain, non-industry specific language.
+3. **Model name(s):** Defined in old documentation or relayed by dev. Insert a space between words for readability (i.e. `SurveyQuotas Model` -> `Survey Quotas Model`).
+4. **Model properties:**
+	- **Property:** Exact property as shown on the response including casing.
+	- **Type:** All lowercase standard type naming conventions.
+	- **Description:** 1-2 sentence description. Use terse statements (Do not start with words such as “This”, “Returns”, etc). End with a period. Avoid using the exact same words as the property.
 
-* **Write code samples in multiple languages** — if your API has bindings in multiple programming languages, you easily put in tabs to switch between them. In your document, you'll distinguish different languages by specifying the language name at the top of each code block, just like with Github Flavored Markdown!
+### Endpoints
 
-* **Out-of-the-box syntax highlighting** for [almost 60 languages](http://rouge.jayferd.us/demo), no configuration required.
+[[https://github.com/lucidhq/developer-documentation/readme/endpoint.png|alt=enpoint_diagram]]
 
-* **Automatic, smoothly scrolling table of contents** on the far left of the page. As you scroll, it displays your current position in the document. It's fast, too. We're using Slate at TripIt to build documentation for our new API, where our table of contents has over 180 entries. We've made sure that the performance remains excellent, even for larger documents.
+1. **Endpoint title:** Predefined in nav structure. If you are adding a new endpoint, use the following syntax:
+	- `List x` - For a `GET` call that returns a list of unrelated objects.
+	- `Show x` - For a `GET` call that returns a specific object.
+	- `Create x` - For `POST` calls.
+	- `Update x` - For `PUT` calls.
+	- `Delete X` - For `DELTE` calls.
+2. **Endpoint description:** 1 to 2 sentences describing the functionality of the endpoint in plain, non-industry specific language.
+3. **Asides:** Use asides in the form of notice, warning, and error for things like quirks, sometimes inaccurate properties, and deprecated respectively. These should also be complete sentences with links to any calls they reference. Because this is a custom html within the markdown, you must use html links here.
+4. **Arguments:**
+	- **Property:** Exact property as shown on the response (if applicable) including casing.
+	- **Type:** All lowercase standard type naming conventions.
+	- **Required:** The options are `true` or `false`.
+	- **Description:** 1-2 sentence description. Use terse statements (Do not start with words such as “This”, “Returns”, etc). End with a period. Avoid using the exact same words as the property.
 
-* **Let your users update your documentation for you** — by default, your Slate-generated documentation is hosted in a public Github repository. Not only does this mean you get free hosting for your docs with Github Pages, but it also makes it's simple for other developers to make pull requests to your docs if they find typos or other problems. Of course, if you don't want to, you're welcome to not use Github and host your docs elsewhere!
+### Guides
+Documentation coming soon!
 
-Getting starting with Slate is super easy! Simply fork this repository, and then follow the instructions below. Or, if you'd like to check out what Slate is capable of, take a look at the [sample docs](http://tripit.github.io/slate).
-
-<!--As an example, you can check out the [TripIt API docs](http://tripit.github.io/api), which we create with Slate. You can also view the source of the [markdown file used to generate it](http://github.com/tripit/api/blob/master/source/index.md).-->
-
-Getting Started with Slate
-------------------------------
+Building and Running (Local)
+---------------------------------
 
 ### Prerequisites
 
 You're going to need:
 
- - **Linux or OS X** — Windows may work, but is unsupported.
+ - **Linux or OS X** — Windows may work, but is unsupported by Slate.
  - **Ruby, version 1.9.3 or newer**
  - **Bundler** — If Ruby is already installed, but the `bundle` command doesn't work, just run `gem install bundler` in a terminal.
 
+### Setting up Prerequisites on Windows
+(Certified not to rust, dust, bust, or bite the baby within the first 30ms or your money back, guaranteed.)
+ 
+ 1. **[Install Ruby](http://rubyinstaller.org/downloads)** — Be sure to check "Add Ruby executables to your PATH".
+ 2. **Test the Ruby installation** — Run `ruby -v` and `irb -v` in Command Prompt. If the version number is returned, Ruby has been successfully installed.
+ 3. **[Install Development Kit](http://rubyinstaller.org/downloads)**
+	1. Download and run
+	2. Set the autoextractor path to C:/Program Files/devkit
+	4. Open Command Prompt (run cmd)
+	5. cd to C:/Program Files/devkit
+	6. Run the following commands:
+		* `ruby dk.rb init`
+		* `ruby dk.rb install`
+ 4. **Install other dependencies** with the following commands:
+	* `gem install middleman-gh-pages`
+	* `gem install bundler`
+ 5. **[Install Git for Windows](https://git-for-windows.github.io/)** — Use default settings except select the following non-defaults:
+ 	* Use Git for the Windows Command Prompt
+ 	* Checkout as-is, commit Unix-style line endings
+ 6. Set your Git email — To ensure your pushes are properly tied to your Github account, run `git config --global user.email "{Your GitHub email}"`
+
 ### Getting Set Up
 
- 1. Fork this repository on Github.
- 2. Clone *your forked repository* (not our original one) to your hard drive with `git clone https://github.com/YOURUSERNAME/slate.git`
- 3. `cd slate`
+ 1. Clone the repository to your hard drive with `git clone {url}`
+ 3. `cd developer documentation`
  4. Install all dependencies: `bundle install`
  5. Start the test server: `bundle exec middleman server`
 
@@ -61,70 +118,33 @@ You can now see the docs at <http://localhost:4567>. Whoa! That was fast!
 *Note: if you're using the Docker setup on OSX, the docs will be
 availalable at the output of `boot2docker ip` instead of `localhost:4567`.*
 
-Now that Slate is all set up your machine, you'll probably want to learn more about [editing Slate markdown](https://github.com/tripit/slate/wiki/Markdown-Syntax), or [how to publish your docs](https://github.com/tripit/slate/wiki/Deploying-Slate).
+Now that the project is all set up your machine, you'll probably want to learn more about [editing Slate markdown](https://github.com/tripit/slate/wiki/Markdown-Syntax), or [how to publish your docs](https://github.com/tripit/slate/wiki/Deploying-Slate).
 
-Examples of Slate in the Wild
+Building and Deploying (Public Remote)
 ---------------------------------
+**DANGER ZONE:** Do not deploy to the production server unless you were given specific instructions to do so and know what you are doing.
 
-* [Travis-CI's API docs](http://docs.travis-ci.com/api/)
-* [Mozilla's localForage docs](http://mozilla.github.io/localForage/)
-* [Mozilla Recroom](http://mozilla.github.io/recroom/)
-* [Drcaban's Build a Quine tutorial](http://drcabana.github.io/build-a-quine/#introduction)
-* [PricePlow API docs](https://www.priceplow.com/api/documentation)
-* [Emerging Threats API docs](http://apidocs.emergingthreats.net/)
-* [Appium docs](http://appium.io/slate/en/master)
-* [Golazon Developer](http://developer.golazon.com)
-* [Dwolla API docs](https://docs.dwolla.com/)
-* [RozpisyZapasu API docs](http://www.rozpisyzapasu.cz/dev/api/)
-* [Codestar Framework Docs](http://codestarframework.com/documentation/)
-* [Buddycloud API](http://buddycloud.com/api)
-* [Crafty Clicks API](https://craftyclicks.co.uk/api/)
-* [Paracel API Reference](http://paracel.io/docs/api_reference.html)
-* [Switch Payments Documentation](http://switchpayments.com/docs/) & [API](http://switchpayments.com/developers/)
-* [Coinbase API Reference](https://developers.coinbase.com/api)
-* [Whispir.io API](https://whispir.github.io/api)
-* [NASA API](https://data.nasa.gov/developer/external/planetary/)
-* [CardPay API](https://developers.cardpay.com/)
-* [IBM Cloudant](https://docs.cloudant.com/api.html)
-* [Bitrix basis components](http://bbc.bitrix.expert/)
-* [viagogo API Documentation](http://developer.viagogo.net/)
-* [Fidor Bank API Documentation](http://docs.fidor.de/)
-* [Market Prophit API Documentation](http://developer.marketprophit.com/)
-* [OAuth.io API Documentation](http://docs.oauth.io/)
-* [Aircall for Developers](http://developer.aircall.io/)
-* [SupportKit API Docs](http://docs.supportkit.io/)
-* [SocialRadar's LocationKit Docs](https://docs.locationkit.io/)
-* [SafetyCulture API Documentation](https://developer.safetyculture.io/)
-* [hosting.de API Documentation](https://www.hosting.de/docs/api/)
-* [BlockCypher's API Documentation](http://dev.blockcypher.com)
-* [InterServer API Documentation](https://my.interserver.net/apidoc/)
-* [ActionHeroJS's API Documentation](http://www.actionherojs.com/docs)
-
-(Feel free to add your site to this list in a pull request!)
-
-Need Help? Found a bug?
---------------------
-
-Just [submit a issue](https://github.com/tripit/slate/issues) to the Slate Github if you need any help. And, of course, feel free to submit pull requests with bug fixes or changes.
-
+ 1. `git checkout master`
+ 2. `git pull origin master`
+ 3. `rake publish`
 
 Contributors
 --------------------
 
-Slate was built by [Robert Lord](https://lord.io) while at [TripIt](http://tripit.com).
+This documentation was built by the Fulcrum Tech Ops team.
 
 Thanks to the following people who have submitted major pull requests:
 
-- [@chrissrogers](https://github.com/chrissrogers)
-- [@bootstraponline](https://github.com/bootstraponline)
-- [@realityking](https://github.com/realityking)
-
-Also, thanks to [Sauce Labs](http://saucelabs.com) for helping sponsor the project.
+- [@AmbyrShae](https://github.com/AmbyrShae)
+- [@jurraca](https://github.com/jurraca)
+- [@Gulkinator](https://github.com/Gulkinator)
+- [@nikheintzen](https://github.com/nikheintzen)
+- [@brenankeller](https://github.com/brenankeller)
 
 Special Thanks
 --------------------
-- [Middleman](https://github.com/middleman/middleman)
-- [jquery.tocify.js](https://github.com/gfranko/jquery.tocify.js)
-- [middleman-syntax](https://github.com/middleman/middleman-syntax)
-- [middleman-gh-pages](https://github.com/neo/middleman-gh-pages)
-- [Font Awesome](http://fortawesome.github.io/Font-Awesome/)
+- [Charlemagne3](https://github.com/Charlemagne3)
+- [csampson](https://github.com/csampson)
+- [mshwery](https://github.com/mshwery)
+- [dvillega](https://github.com/dvillega)
+- [Slate](https://github.com/tripit/slate)
