@@ -5,19 +5,19 @@
 > Definition
 
 ```plaintext
-GET  http://api.samplicio.us/Supply/v1/Surveys/SurveyGroups/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}
+GET  https://api.samplicio.us/Supply/v1/Surveys/SurveyGroups/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}
 ```
 
 > Example Request
 
 ```shell
-curl http://api.samplicio.us/Supply/v1/Surveys/SurveyGroups/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}
+curl https://api.samplicio.us/Supply/v1/Surveys/SurveyGroups/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}
 ```
 
 ```ruby
 require 'net/http'
 
-uri = URI('http://api.samplicio.us/Supply/v1/Surveys/SurveyGroups/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}')
+uri = URI('https://api.samplicio.us/Supply/v1/Surveys/SurveyGroups/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}')
 
 http = Net::HTTP.new(uri.host, uri.port)
 
@@ -25,33 +25,33 @@ http.use_ssl = true
 
 request = Net::HTTP::Get.new(uri.request_uri)
 
-allocations = http.request(request)  
+groups = http.request(request)  
 ```
 
 ```php
 <?php
-$allocations = file_get_contents('http://api.samplicio.us/Supply/v1/Surveys/SurveyGroups/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}');
+$groups = file_get_contents('https://api.samplicio.us/Supply/v1/Surveys/SurveyGroups/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}');
 ?>
 ```
 
 ```python
 import requests
 
-allocations = requests.get('http://api.samplicio.us/Supply/v1/Surveys/SurveyGroups/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}')
+groups = requests.get('https://api.samplicio.us/Supply/v1/Surveys/SurveyGroups/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}')
 ```
 
 ```csharp
 using System.Net;
 
-WebRequest request = WebRequest.Create("http://api.samplicio.us/Supply/v1/Surveys/SurveyGroups/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}");
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Supply/v1/Surveys/SurveyGroups/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}");
 
-WebResponse allocations = request.GetResponse();
+WebResponse groups = request.GetResponse();
 ```
 
 ```javascript
 const https = require('https');
 
-var allocations = https.get('http://api.samplicio.us/Supply/v1/Surveys/SurveyGroups/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}');
+var groups = https.get('https://api.samplicio.us/Supply/v1/Surveys/SurveyGroups/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}');
 ```
 
 > Example Response
