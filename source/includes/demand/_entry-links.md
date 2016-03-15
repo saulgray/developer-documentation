@@ -15,7 +15,7 @@ The Non-Exchange Entry Link resource allows the buyer to create, update, and del
 | Prescreens                   | int      | Number of prescreens achieved by the supplier. A prescreen is a respondent who enters the client survey.                                                |
 | Completes                    | int      | Number of completes achieved by the supplier.                                                                                                           |
 | AllocationRemaining          | int      | Number of completes allocated only to the supplier.                                                                                                     |
-| HedgeRemaining               | int      | Number of unallocated completes available to any suppliers with access to hedge.                                                                                             |
+| HedgeRemaining               | int      | Number of unallocated completes available to any suppliers with access to hedge.                                                                        |
 | TotalRemaining               | int      | Total number of completes available to the supplier (aggregate of allocation and hedge remaining properties).                                           |
 | Target                       | array    | Contains array of elements described below.                                                                                                             |
 
@@ -27,7 +27,7 @@ The Non-Exchange Entry Link resource allows the buyer to create, update, and del
 | TrackingTypeCode             | string   | Defines how Fulcrum should communicate back to the supplier's system at the end of a session.                                                           |
 |                              |          | NONE (Default and recommended, physically redirects the respondent back to the supplier system)                                                         |
 |                              |          | PIXEL (pixel tracking)                                                                                                                                  |
-|                              |          | S2S (server to server postback)                                                                                                                        |
+|                              |          | S2S (server to server postback)                                                                                                                         |
 | DefaultLink                  | string   | Tracking code or link used if none of the below apply.                                                                                                  |
 | SuccessLink                  | string   | Tracking code or link used after a completion.                                                                                                          |
 | FailureLink                  | string   | Tracking code or link used after a termination.                                                                                                         |
