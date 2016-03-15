@@ -3,11 +3,11 @@
 </p>
 <h1 align="center">Developer Documentation</h1>
 <p align="center">Propogating our developer-first approach to solving problems requiring people.</p>
-<p align="center"><a href="http://lucidhq.github.io/developer-documentation/">Production Site</a></p>
+<p align="center"><a href="http://lucidhq.github.io/developer-documentation/" target="_blank">Production Site</a></p>
 
 Process Guide
 -----------
- **To contribute:**
+ ### To contribute:
  1. `Pull` the latest `develop` branch.
  2. Branch off of `develop`. Use the following syntax for branches:
  	- feature/{feature name}
@@ -100,7 +100,7 @@ You're going to need:
  	* Checkout as-is, commit Unix-style line endings
  6. Set your Git email — To ensure your pushes are properly tied to your Github account, run `git config --global user.email "{Your GitHub email}"`
 
-### Running the Project Locally
+### Running the Project
 
  1. Clone the repository to your hard drive with `git clone {url}`
  3. `cd developer documentation`
