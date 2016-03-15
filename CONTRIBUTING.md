@@ -1,5 +1,7 @@
 Contributing
 -----------
+Thanks for your interst in contributing to our documentation project. To ensure a smooth and consistent experience for our readers and contributers, please follow the procedure set out below:
+
  1. `Pull` the latest `develop` branch.
  2. Branch off of `develop`. Use the following syntax for branches:
  	- feature/{feature name}
