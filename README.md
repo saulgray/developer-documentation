@@ -28,6 +28,7 @@ Style Guide
  	- Serialized Datetime
  	- Boolean
  	- Array
+ - Always use SSL (HTTPS).
 
 ### Resources
 
@@ -45,7 +46,6 @@ Style Guide
 
 ![Endpoint Diagram](/readme/endpoint.png)
 
-
 1. **Endpoint title:** Predefined in nav structure. If you are adding a new endpoint, use the following syntax:
 	- `List x` - For a `GET` call that returns a list of unrelated objects.
 	- `Show x` - For a `GET` call that returns a specific object.
@@ -59,6 +59,84 @@ Style Guide
 	- **Type:** All lowercase standard type naming conventions.
 	- **Required:** The options are `true` or `false`.
 	- **Description:** 1-2 sentence description. Use terse statements (Do not start with words such as “This”, “Returns”, etc). End with a period. Avoid using the exact same words as the property.
+
+![Code Snippet Diagram](/readme/code.png)
+
+1. **Definition:** {verb}{space}{url} Keep capitalization from old documentation.
+2. **Example Request:** Pull the code snippet from the library that matches the verb. Update with the endpoint’s url and the variable name. Variable names should use camel case.
+3. **Example Responses:** Execute the call in staging. Replace the following fields:
+	- **Api Account:** Always replace the ApiAccount with “Anon”.
+	- **AccountCode:** Always replace with "AA".
+	- **Survey Number:** You can keep the staging survey number as long it is not from a client account.
+	- **SID:** Change a couple digits/letters. Maintain case.
+	- **3rd party company name (not the caller):* Sample Company
+	- **Supplier code:** 1010
+	- **Arrays:** Return an array of only 1 example. Delete all other objects in the array. Make sure to maintain valid JSON format.
+	- **Result Count:** Update the result count keeping in mind that some endpoints calculate `result count` differently. Determine how the endpoint you are working with calculates the `result count` before updating this field. In most cases, this should be 1; however, some endpoints count the number of child elements in an array object.
+
+After modifying the JSON, be sure to run it through a [JSON validator](http://jsonlint.com/), but do not change the formatting.
+
+#### Example Code Snippets
+
+##### GET
+
+curl
+```curl
+curl https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}
+```
+
+Ruby
+```ruby
+require 'net/http'
+
+uri = URI('https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}')
+
+http = Net::HTTP.new(uri.host, uri.port)
+
+http.use_ssl = true
+
+request = Net::HTTP::Get.new(uri.request_uri)
+
+surveys = http.request(request)  
+```
+
+PHP
+```php
+<?php
+$surveys = file_get_contents('https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}');
+?>
+```
+
+Python
+```python
+import requests
+
+surveys = requests.get('https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}')
+```
+
+C#
+```csharp
+using System.Net;
+
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}");
+
+WebResponse surveys = request.GetResponse();
+```
+
+Node.js
+```javascript
+const https = require('https');
+
+var surveys = https.get('https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}');
+```
+
+
+##### POST
+
+##### PUT
+
+##### DELETE
+
 
 ### Guides
 Documentation coming soon!
