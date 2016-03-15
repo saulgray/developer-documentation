@@ -3,20 +3,20 @@
 </p>
 <h1 align="center">Developer Documentation</h1>
 <p align="center">Propogating our developer-first approach to solving problems requiring people.</p>
-<a href="http://lucidhq.github.io/developer-documentation/" align="center">Production Site</a>
+<p align="center"><a href="http://lucidhq.github.io/developer-documentation/">Production Site</a></p>
 
 Process Guide
 -----------
  **To contribute:**
  1. `Pull` the latest `develop` branch.
- 2. Branch off of `develop` for your task. Use the following syntax for branches:
+ 2. Branch off of `develop`. Use the following syntax for branches:
  	- feature/{feature name}
  	- bug/{bug name}
  	- resource/{documentation content}
  	- task/{task name}
- 3. Make changes related to your specific feature, bug, resource, or task. `Commit` early and often. `Push` to Github at least daily.
- 4. When your objective is complete, submit a pull request to merge your branch with `develop`. Tag with `under review` to prevent premature merging.
- 5. A team member will review your work to ensure that it conforms with the style guideline and presents a unified voice. The reviewer will add line notes for changes.
+ 3. Make changes. `Commit` early and often. `Push` to Github at least daily.
+ 4. When your objective is complete, submit a pull request to merge your branch with `develop`. If you are contributing documentation, tag with `under review` to prevent premature merging.
+ 5. If your PR is for a feature, bug, or task, a team member will review the code style and ensure the solution conforms to best practices. If your PR is for documentation, the designated editor will review your work to ensure that it conforms with the style guide and presents a unified voice. In either case, the reviewer will add line notes for changes.
  6. After any necessary changes are made, the reviewer will merge.
  7. The submitter is responsible for deleting their branch upon completion.
 
@@ -24,7 +24,7 @@ Process Guide
 Style Guide
 ------------
 ### General
- - For code values referenced anywhere in the center section use code highlighting. The markdown syntax is simply to wrap the code word back ticks (i.e. `true`). 
+ - For code-like values referenced anywhere in the center section use code highlighting. The markdown syntax is simply to wrap the code word back ticks (i.e. `true`). 
  - Data types:
  	- String
  	- Integer
@@ -40,7 +40,7 @@ Style Guide
 
 1. **Resource title:** Predefined in nav structure. If you are adding a new resource, reference the object in simple terms.
 2. **Resource description:** 1 to 2 sentences describing the functionality of the endpoint in plain, non-industry specific language.
-3. **Model name(s):** Defined in old documentation or relayed by dev. Insert a space between words for readability (i.e. `SurveyQuotas Model` -> `Survey Quotas Model`).
+3. **Model name(s):** Defined in old documentation or relayed by dev. Insert a space between words for readability (i.e. `SurveyQuotas Model` → `Survey Quotas Model`).
 4. **Model properties:**
 	- **Property:** Exact property as shown on the response including casing.
 	- **Type:** All lowercase standard type naming conventions.
