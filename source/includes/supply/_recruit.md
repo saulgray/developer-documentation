@@ -72,8 +72,8 @@ var marketingInfo = https.get('https://api.samplicio.us/Supply/v1/Surveys/Market
   "MarketingInformation": {
     "MarketingHeadline": "All the headlines",
     "MarketingText": "Come one, come all!",
-    "MarketingImageLargeUrl": "www.images.google.com",
-    "MarketingImageSmallUrl": "www.images.google.com"
+    "MarketingImageLargeUrl": "images.google.com/image_large.jpg",
+    "MarketingImageSmallUrl": "images.google.com/image_small.jpg"
   }
 }
 ```
