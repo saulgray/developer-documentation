@@ -1,24 +1,24 @@
 <p align="center">
-  <img src="https://luc.id/wp-content/uploads/2015/09/Lucid-footer-2x.png" alt="Lucid" width="150">
+  <img src="readme/logo.png" alt="Lucid" width="175">
 </p>
 <h1 align="center">Developer Documentation</h1>
 <p align="center">Propogating our developer-first approach to solving problems that need people.</p>
 
 Process Guide
 -----------
- - **Github Pages URL:** http://lucidhq.github.io/developer-documentation/
- - **To contribute:**
-     1. `Pull` the latest `develop` branch.
-     2. Branch off of `develop` for your task. Use the following syntax for branches:
-     	- feature/{feature name}
-     	- bug/{bug name}
-     	- resource/{documentation content}
-     	- task/{task name}
-     3. Make changes related to your specific feature, bug, resource, or task. `Commit` early and often. `Push` to Github at least daily.
-     4. When your objective is complete, submit a pull request to merge your branch with `develop`. Tag with `under review` to prevent premature merging.
-     5. A team member will review your work to ensure that it conforms with the style guideline and presents a unified voice. The reviewer will add line notes for changes.
-     6. After any necessary changes are made, the reviewer will merge.
-     7. The submitter is responsible for deleting their branch upon completion.
+ **Github Pages URL:** http://lucidhq.github.io/developer-documentation/
+ **To contribute:**
+ 1. `Pull` the latest `develop` branch.
+ 2. Branch off of `develop` for your task. Use the following syntax for branches:
+ 	- feature/{feature name}
+ 	- bug/{bug name}
+ 	- resource/{documentation content}
+ 	- task/{task name}
+ 3. Make changes related to your specific feature, bug, resource, or task. `Commit` early and often. `Push` to Github at least daily.
+ 4. When your objective is complete, submit a pull request to merge your branch with `develop`. Tag with `under review` to prevent premature merging.
+ 5. A team member will review your work to ensure that it conforms with the style guideline and presents a unified voice. The reviewer will add line notes for changes.
+ 6. After any necessary changes are made, the reviewer will merge.
+ 7. The submitter is responsible for deleting their branch upon completion.
 
 
 Style Guide
@@ -36,7 +36,7 @@ Style Guide
 
 ### Resources
 
-[[https://github.com/lucidhq/developer-documentation/readme/model.png|alt=resource_diagram]]
+![Model Diagram](/readme/model.png)
 
 1. **Resource title:** Predefined in nav structure. If you are adding a new resource, reference the object in simple terms.
 2. **Resource description:** 1 to 2 sentences describing the functionality of the endpoint in plain, non-industry specific language.
@@ -48,7 +48,8 @@ Style Guide
 
 ### Endpoints
 
-[[https://github.com/lucidhq/developer-documentation/readme/endpoint.png|alt=enpoint_diagram]]
+![Endpoint Diagram](/readme/endpoint.png)
+
 
 1. **Endpoint title:** Predefined in nav structure. If you are adding a new endpoint, use the following syntax:
 	- `List x` - For a `GET` call that returns a list of unrelated objects.
@@ -99,7 +100,7 @@ You're going to need:
  	* Checkout as-is, commit Unix-style line endings
  6. Set your Git email — To ensure your pushes are properly tied to your Github account, run `git config --global user.email "{Your GitHub email}"`
 
-### Getting Set Up
+### Running the Project Locally
 
  1. Clone the repository to your hard drive with `git clone {url}`
  3. `cd developer documentation`
