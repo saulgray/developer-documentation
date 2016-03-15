@@ -3,7 +3,7 @@
 </p>
 <h1 align="center">Developer Documentation</h1>
 <p align="center">Propogating our developer-first approach to solving problems requiring people.</p>
-<a align="center" src="http://lucidhq.github.io/developer-documentation/">Production Site</a>
+<a href="http://lucidhq.github.io/developer-documentation/" align="center">Production Site</a>
 
 Process Guide
 -----------
