@@ -218,8 +218,6 @@ Creates an empty supplier group and specifies the allocation and name upon creat
 
 ##Update a Group
 
-##Show Quotas
-
 > Definition
 
 ```plaintext
@@ -324,8 +322,398 @@ Updates a supplier group with the specified values.
 
 ##Delete a Group
 
+> Definition
+
+```plaintext
+DELETE  https://api.samplicio.us/Demand/v1/SupplierGroups/Delete/{SurveyNumber}/{SupplierGroupID}?key={APIKey}
+```
+
+> Example Request
+
+```shell
+curl https://api.samplicio.us/Demand/v1/SupplierGroups/Delete/{SurveyNumber}/{SupplierGroupID}?key={APIKey}
+```
+
+```ruby
+require 'net/http'
+
+uri = URI('https://api.samplicio.us/Demand/v1/SupplierGroups/Delete/{SurveyNumber}/{SupplierGroupID}?key={APIKey}')
+
+http = Net::HTTP.new(uri.host, uri.port)
+
+http.use_ssl = true
+
+request = Net::HTTP::Get.new(uri.request_uri)
+
+deleteGroup = http.request(request)  
+```
+
+```php
+<?php
+$deleteGroup = file_get_contents('https://api.samplicio.us/Demand/v1/SupplierGroups/Delete/{SurveyNumber}/{SupplierGroupID}?key={APIKey}');
+?>
+```
+
+```python
+import requests
+
+deleteGroup = requests.get('https://api.samplicio.us/Demand/v1/SupplierGroups/Delete/{SurveyNumber}/{SupplierGroupID}?key={APIKey}')
+```
+
+```csharp
+using System.Net;
+
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SupplierGroups/Delete/{SurveyNumber}/{SupplierGroupID}?key={APIKey}");
+
+WebResponse deleteGroup = request.GetResponse();
+```
+
+```javascript
+const https = require('https');
+
+var deleteGroup = https.get('https://api.samplicio.us/Demand/v1/SupplierGroups/Delete/{SurveyNumber}/{SupplierGroupID}?key={APIKey}');
+```
+
+Deletes the specified supplier group.
+
+
+### Arguments
+
+| Property                     | Type     | Required | Description                                                                                                                                  |
+|------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| SurveyNumber                 | int      | true     | Unique number associated with the survey.                                                                                                    |
+| SupplierGroupID              | int      | true     | Unique ID for Supplier Group.                                                                                                                |
+
+
 ##Add to a Group
+
+> Definition
+
+```plaintext
+POST  https://api.samplicio.us/Demand/v1/SupplierGroups/AddSuppliersToGroup/{SurveyNumber}/{SupplierGroupID}?key={APIKey}
+```
+
+> Example Request
+
+```shell
+curl https://api.samplicio.us/Demand/v1/SupplierGroups/AddSuppliersToGroup/{SurveyNumber}/{SupplierGroupID}?key={APIKey}
+```
+
+```ruby
+require 'net/http'
+
+uri = URI('https://api.samplicio.us/Demand/v1/SupplierGroups/AddSuppliersToGroup/{SurveyNumber}/{SupplierGroupID}?key={APIKey}
+
+http = Net::HTTP.new(uri.host, uri.port)
+
+http.use_ssl = true
+
+request = Net::HTTP::Get.new(uri.request_uri)
+
+addSuppliers = http.request(request)  
+```
+
+```php
+<?php
+$addSuppliers = file_get_contents('https://api.samplicio.us/Demand/v1/SupplierGroups/AddSuppliersToGroup/{SurveyNumber}/{SupplierGroupID}?key={APIKey}');
+?>
+```
+
+```python
+import requests
+
+addSuppliers = requests.get('https://api.samplicio.us/Demand/v1/SupplierGroups/AddSuppliersToGroup/{SurveyNumber}/{SupplierGroupID}?key={APIKey}')
+```
+
+```csharp
+using System.Net;
+
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SupplierGroups/AddSuppliersToGroup/{SurveyNumber}/{SupplierGroupID}?key={APIKey}");
+
+WebResponse addSuppliers = request.GetResponse();
+```
+
+```javascript
+const https = require('https');
+
+var addSuppliers = https.get('https://api.samplicio.us/Demand/v1/SupplierGroups/AddSuppliersToGroup/{SurveyNumber}/{SupplierGroupID}?key={APIKey}');
+```
+```json
+{
+  {"SupplierCode": "0001"},
+  {"SupplierCode": "0100"},
+}
+
+```
+
+
+
+> Example Response
+
+```json
+{
+  "ApiResult": 0,
+  "ApiResultCode": 0,
+  "ApiAccount": "Anon",
+  "AccountType": 2,
+  "ApiAccountStatus": 1,
+  "AccountCode": "AA",
+  "ApiMessages": [
+    "API Message: Response initialized.",
+    "API Message: AddSupplierGroupSuppliersToSupplierGroup successful."
+  ],
+  "ResultCount": 1,
+  "SupplierGroup": {
+    "ID": 201967,
+    "Name": "Top Supplier Group",
+    "Completes": 0,
+    "Screens": 0,
+    "AllocationPercentage": 0.1,
+    "CPI": null,
+    "IsHedgeAccess": true,
+    "Suppliers": [
+      {
+        "SupplierCode": "0001",
+        "Completes": 0,
+        "Screens": 0
+      },
+      {
+        "SupplierCode": "0100",
+        "Completes": 0,
+        "Screens": 0
+      }
+    ]
+  }
+}
+
+```
+
+Adds suppliers to the specified supplier group.
+
+
+### Arguments
+
+| Property                     | Type     | Required | Description                                                                                                                                  |
+|------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| SurveyNumber                 | int      | true     | Unique number associated with the survey.                                                                                                    |
+| SupplierGroupID              | int      | true     | Unique ID for Supplier Group.                                                                                                                |
+
 
 ##Show a Group
 
+> Definition
+
+```plaintext
+GET  https://api.samplicio.us/Demand/v1/SupplierGroups/BySurveyNumber/{SurveyNumber}?key={APIKey}
+```
+
+> Example Request
+
+```shell
+curl https://api.samplicio.us/Demand/v1/SupplierGroups/BySurveyNumber/{SurveyNumber}?key={APIKey}
+```
+
+```ruby
+require 'net/http'
+
+uri = URI('https://api.samplicio.us/Demand/v1/SupplierGroups/BySurveyNumber/{SurveyNumber}?key={APIKey}
+
+http = Net::HTTP.new(uri.host, uri.port)
+
+http.use_ssl = true
+
+request = Net::HTTP::Get.new(uri.request_uri)
+
+listGroups = http.request(request)  
+```
+
+```php
+<?php
+$listGroups = file_get_contents('https://api.samplicio.us/Demand/v1/SupplierGroups/BySurveyNumber/{SurveyNumber}?key={APIKey}');
+?>
+```
+
+```python
+import requests
+
+listGroups = requests.get('https://api.samplicio.us/Demand/v1/SupplierGroups/BySurveyNumber/{SurveyNumber}?key={APIKey}')
+```
+
+```csharp
+using System.Net;
+
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SupplierGroups/BySurveyNumber/{SurveyNumber}?key={APIKey}");
+
+WebResponse listGroups = request.GetResponse();
+```
+
+```javascript
+const https = require('https');
+
+var listGroups = https.get('https://api.samplicio.us/Demand/v1/SupplierGroups/BySurveyNumber/{SurveyNumber}?key={APIKey}');
+```
+> Example Response
+
+```
+{
+  "ApiResult": 0,
+  "ApiResultCode": 0,
+  "ApiAccount": "Anon",
+  "AccountType": 2,
+  "ApiAccountStatus": 1,
+  "AccountCode": "AA",
+  "ApiMessages": [
+    "API Message: Response initialized.",
+    "API Message: GetAllWithSuppliersBySurveyNumber successful."
+  ],
+  "ResultCount": 2,
+  "SupplierGroups": [
+    {
+      "ID": 001100,
+      "Name": "Top Supplier Group",
+      "Completes": 0,
+      "Screens": 0,
+      "AllocationPercentage": 0.1,
+      "CPI": null,
+      "IsHedgeAccess": true,
+      "Suppliers": [
+        {
+          "SupplierCode": "0001",
+          "Completes": 0,
+          "Screens": 0
+        }
+      ]
+    },
+    {
+      "ID": 001001,
+      "Name": "The Gremlins",
+      "Completes": 0,
+      "Screens": 0,
+      "AllocationPercentage": 0.15,
+      "CPI": null,
+      "IsHedgeAccess": true,
+      "Suppliers": [
+      {
+          "SupplierCode": "0010",
+          "Completes": 0,
+          "Screens": 0
+        }
+      ]
+    }
+  ]
+}
+```
+
+Returns the supplier groups for the survey specified.
+
+
+### Arguments
+
+| Property                     | Type     | Required | Description                                                                                                                                  |
+|------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| SurveyNumber                 | int      | true     | Unique number associated with the survey.                                                                                                    |
+
+
+
 ##Remove from a Group
+
+> Definition
+
+```plaintext
+PUT  https://api.samplicio.us/Demand/v1/SupplierGroups/RemoveSuppliersFromGroup/{SurveyNumber}?key={APIKey}
+```
+
+> Example Request
+
+```shell
+curl https://api.samplicio.us/Demand/v1/SupplierGroups/RemoveSuppliersFromGroup/{SurveyNumber}?key={APIKey}
+```
+
+```ruby
+require 'net/http'
+
+uri = URI('https://api.samplicio.us/Demand/v1/SupplierGroups/RemoveSuppliersFromGroup/{SurveyNumber}?key={APIKey}
+
+http = Net::HTTP.new(uri.host, uri.port)
+
+http.use_ssl = true
+
+request = Net::HTTP::Get.new(uri.request_uri)
+
+removeSuppliers = http.request(request)  
+```
+
+```php
+<?php
+$removeSuppliers = file_get_contents('https://api.samplicio.us/Demand/v1/SupplierGroups/RemoveSuppliersFromGroup/{SurveyNumber}?key={APIKey}');
+?>
+```
+
+```python
+import requests
+
+removeSuppliers = requests.get('https://api.samplicio.us/Demand/v1/SupplierGroups/RemoveSuppliersFromGroup/{SurveyNumber}?key={APIKey}')
+```
+
+```csharp
+using System.Net;
+
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SupplierGroups/RemoveSuppliersFromGroup/{SurveyNumber}?key={APIKey}");
+
+WebResponse removeSuppliers = request.GetResponse();
+```
+
+```javascript
+const https = require('https');
+
+var removeSuppliers = https.get('https://api.samplicio.us/Demand/v1/SupplierGroups/RemoveSuppliersFromGroup/{SurveyNumber}?key={APIKey}');
+```
+
+```json
+{
+  {"SupplierCode": "0001"},
+  
+}
+
+```
+
+>Example Response
+
+```json
+
+{
+  "ApiResult": 0,
+  "ApiResultCode": 0,
+  "ApiAccount": "Anon",
+  "AccountType": 2,
+  "ApiAccountStatus": 1,
+  "AccountCode": "AA",
+  "ApiMessages": [
+    "API Message: Response initialized.",
+    "API Message: RemoveSupplierGroupSuppliersFromSupplierGroups successful."
+  ],
+  "ResultCount": 0,
+  "SupplierGroup": {
+    "ID": null,
+    "Name": null,
+    "Completes": null,
+    "Screens": null,
+    "AllocationPercentage": null,
+    "CPI": null,
+    "IsHedgeAccess": null,
+    "Suppliers": null
+  }
+}
+
+
+Removes specified suppliers from their supplier group.
+
+
+### Arguments
+
+| Property                     | Type     | Required | Description                                                                                                                                  |
+|------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| SurveyNumber                 | int      | true     | Unique number associated with the survey.                                                                                                    |
+| SupplierGroupID              | int      | true     | Unique ID for Supplier Group.                                                                                                                |
+
+
