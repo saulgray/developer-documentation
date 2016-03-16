@@ -704,7 +704,7 @@ var removeSuppliers = https.get('https://api.samplicio.us/Demand/v1/SupplierGrou
     "Suppliers": null
   }
 }
-
+```
 
 Removes specified suppliers from their supplier group.
 
