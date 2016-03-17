@@ -2,7 +2,7 @@
   <img src="readme/logo.png" alt="Lucid" width="175">
 </p>
 <h1 align="center">Developer Documentation</h1>
-<p align="center">Propogating our developer-first approach to solving problems requiring people.</p>
+<p align="center">Propagating our developer-first approach to solving problems requiring people.</p>
 <p align="center"><a href="http://lucidhq.github.io/developer-documentation/" target="_blank">Production Site</a></p>
 
 Table of Contents
