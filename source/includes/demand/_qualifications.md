@@ -6,7 +6,7 @@
 > Definition
 
 ```plaintext
-POST  https://api.samplicio.us/Supply/v1/SupplierLinks/Create/{SurveyNumber}/{SupplierCode}?key={APIKey}
+POST  https://api.samplicio.us/Demand/v1/SurveyQualifications/Create/{SurveyNumber}?key={APIKey}
 ```
 
 > Example Request
