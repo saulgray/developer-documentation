@@ -57,43 +57,43 @@ var allocations = https.get('https://api.samplicio.us/Supply/v1/Surveys/Supplier
 
 ```json 
 {
-	"ApiResult": 0,
-	"ApiResultCode": 0,
-	"ApiAccount": "Anon",
-	"AccountType": 2,
-	"ApiAccountStatus": 1,
-	"AccountCode": "AA",
-	"ApiMessages": [
-		"API Message: Response initialized.",
-		"API Message: GetSupplierAllocationsAll successful."
-	],
-	"ResultCount": 3,
-	"SupplierAllocationSurveys": [
-		{
-			"SurveyName": "IT Developers Survey",
-			"SurveyNumber": 143479,
-			"SurveySID": "4C2B4533-0EA1-364A-212B-345B38C6AF57",
-			"AccountName": "Sample Company",
-			"CountryLanguageID": 9,
-			"LengthOfInterview": 2,
-			"BidIncidence": 8,
-			"Conversion": 1,
-			"FieldBeginDate": "/Date(1431666000000-0500)/",
-			"FieldEndDate": "/Date(1432353600000-0500)/",
-			"IndustryID": 30,
-			"StudyTypeID": 1,
-			"Priority": 2,
-			"SurveyGroup": null,
-			"SurveyGroupID": null,
-			"SurveyGroupExists": 0,
-			"BidLengthOfInterview": 15,
-			"TerminationLengthOfInterview": 5,
-			"SurveyQuotaCalcTypeID": 1,
-			"IsTrueSample": false,
-			"SurveyMobileConversion": 0,
-			"SampleTypeID": null
-		}
-	]
+  "ApiResult": 0,
+  "ApiResultCode": 0,
+  "ApiAccount": "Anon",
+  "AccountType": 2,
+  "ApiAccountStatus": 1,
+  "AccountCode": "AA",
+  "ApiMessages": [
+    "API Message: Response initialized.",
+    "API Message: GetSupplierAllocationsAll successful."
+  ],
+  "ResultCount": 1,
+  "SupplierAllocationSurveys": [
+    {
+      "SurveyName": "IT Developers Survey",
+      "SurveyNumber": 143479,
+      "SurveySID": "4C2B4533-0EA1-364A-212B-345B38C6AF57",
+      "AccountName": "Sample Company",
+      "CountryLanguageID": 9,
+      "LengthOfInterview": 2,
+      "BidIncidence": 8,
+      "Conversion": 1,
+      "FieldBeginDate": "/Date(1429160400000-0500)/",
+      "FieldEndDate": "/Date(1429848000000-0500)/",
+      "IndustryID": 3,
+      "StudyTypeID": 1,
+      "Priority": 2,
+      "SurveyGroup": null,
+      "SurveyGroupID": null,
+      "SurveyGroupExists": 0,
+      "BidLengthOfInterview": 15,
+      "TerminationLengthOfInterview": 5,
+      "SurveyQuotaCalcTypeID": 1,
+      "IsTrueSample": false,
+      "SurveyMobileConversion": 0,
+      "SampleTypeID": null
+    }
+  ]
 }
 ```
 Returns a list of all live survey opportunities available through the Exchange and/or directly allocated to you for which you have an allocation or entry link.
@@ -176,7 +176,7 @@ var allocations = https.get('https://api.samplicio.us/Supply/v1/Surveys/Supplier
     "SurveyName": "Pet Owner Survey",
     "SurveyNumber": 17381,
     "SurveySID": "03B4B292-0EA1-212B-02C1-345B38C6AF57",
-    "AccountName": "Example Company",
+    "AccountName": "Sample Company",
     "CountryLanguageID": 9,
     "LengthOfInterview": 16,
     "BidIncidence": 20,
@@ -191,7 +191,7 @@ var allocations = https.get('https://api.samplicio.us/Supply/v1/Surveys/Supplier
     "OfferwallAllocations": [
       {
         "SupplierCode": "0050",
-        "SupplierName": "InboxDollars",
+        "SupplierName": "Supply Company",
         "OfferwallCompletes": 403,
         "AllocationRemaining": 47,
         "HedgeRemaining": 0,
