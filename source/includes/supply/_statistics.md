@@ -1,6 +1,6 @@
-#Statistics
+##Statistics
 
-##Show Statistics
+###Show Statistics
 
 > Definition 
 
@@ -78,7 +78,7 @@ Returns conversion information (as a percentage) for a specific study, based on 
 
 <aside class="notice">The "Global" scope can only be used with "Trailing" to gauge the conversion, length of interview, and EPC of all surveys on the platform over the last 12 hours. Global and Supplier Trailing methods must have received at least one (1) entrant in the last 12 hours to display on this call.</aside>
 
-### Arguments
+#### Arguments
 
 | Property                     | Type     | Required | Description                                                                                                                                  |
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
@@ -87,7 +87,7 @@ Returns conversion information (as a percentage) for a specific study, based on 
 | Scope                        | string   | true     | Either "Global" or "Supplier".                                                             |
 | Timespan                     | string   | true     | Either "Trailing" or "Lifetime". Trailing returns the last 12 hours.                                                            |
 
-##List Statistics
+###List Statistics
 
 > Definition 
 
@@ -170,7 +170,7 @@ Returns conversion information (as a percentage) based on the Scope and Timespan
 
 <aside class="notice">The "Global" scope can only be used with "Trailing" to gauge the conversion of all surveys on the platform over the last 12 hours. Global and Supplier Trailing methods must have received at least one (1) entrant in the last 12 hours to display on this call.</aside>
 
-### Arguments
+#### Arguments
 
 | Property                     | Type     | Required | Description                                                                                                                                  |
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|

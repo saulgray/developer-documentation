@@ -1,8 +1,8 @@
-# Surveys
+## Surveys
 
 The Survey resource contains basic information about a survey opportunity posted by a sample buyer. More detailed information about who qualifies for the survey is contained in the [Qualifications](#qualifications) and [Quotas](#quotas) resources.
 
-### Surveys Model
+#### Surveys Model
 
 | Property                     | Type     | Description                                                                                                                                             |
 |------------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -136,7 +136,7 @@ Returns a list of all live survey opportunities available through the Exchange f
 <aside class="notice">After <a href="#create-a-link">creating an entry link</a> you can <a href="#list-allocated-surveys">list allocated surveys</a> or <a href="#show-an-allocated-survey">show an allocated survey</a> to access these opportunities.</aside>
 
 
-### Arguments
+#### Arguments
 
 | Property                     | Type     | Required | Description                                                                                                                                  |
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
