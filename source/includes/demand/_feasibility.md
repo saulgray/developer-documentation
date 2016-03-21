@@ -1,7 +1,7 @@
-#Feasibility
+##Feasibility
 
-##Show Time to Completion
+###Show Time to Completion
 
-##Show Price
+###Show Price
 
-##Show Completes per Day
+###Show Completes per Day
