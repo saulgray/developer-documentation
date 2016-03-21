@@ -1,8 +1,8 @@
-#Quotas
+##Quotas
 
 The quotas resource returns the number of completes available to you for each demographic cell in a survey. Quotas can be built on any qualification(s). For more information about quotas in Fulcrum please refer to [Understanding Fulcrum Quotas](#understanding-fulcrum-quotas) in the Supply API guide.  
 
-### Response Properties
+#### Response Properties
 
 | Property                     | Type     | Description                                                                                                                                             |
 |------------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -12,7 +12,7 @@ The quotas resource returns the number of completes available to you for each de
 | SurveyStillLive              | boolean  | A simple check to determine whether a survey is open to respondents. This can be used interchangeably with SurveyStatusCode.                            |
  
 
-### Survey Quotas Model
+#### Survey Quotas Model
 
 | Property                     | Type     | Description                                                                                                                                             |
 |------------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -25,7 +25,7 @@ The quotas resource returns the number of completes available to you for each de
 | NumberOfRespondents          | int      | Number of completes available in that quota group.                                                                                                      | 
 | Questions                    | array    | Contains an array of Question models.                                                                                                                   |
 
-### Questions Model
+#### Questions Model
 
 | Property                     | Type     | Description                                                                                                                                             |
 |------------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -33,7 +33,7 @@ The quotas resource returns the number of completes available to you for each de
 | LogicalOperator              | string   | Defines the logical operation applied to the conditions.                                                                                                |
 | PreCodes                     | array    | Qualification answer option identifier.                                                                                                                   |
 
-##Show Quotas
+###Show Quotas
 
 > Definition
 
@@ -155,7 +155,7 @@ Returns the total quota and client quotas associated with a survey.
 <aside class="notice">NumberOfRespondents is calculated real-time</aside>
 
 
-### Arguments
+#### Arguments
 
 | Property                     | Type     | Required | Description                                                                                                                                  |
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|

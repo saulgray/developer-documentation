@@ -1,8 +1,8 @@
-#Entry Links
+##Entry Links
 
 The Entry Links resource enables suppliers to create, update, and retrieve supplier survey entry links as well as specify [supplier link and tracking types](#list-global-definitions). 
 
-### Supplier Link Model
+#### Supplier Link Model
 
 | Property                     | Type     | Description                                                                                                                                             |
 |------------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -177,7 +177,7 @@ Creates a supplier-specific respondent entry link for a survey. If no supplier r
 
 <aside class="notice">We recommend using Offerwall/Standalone link type (OWS) when creating links for Offerwall surveys.</aside>
 
-### Arguments
+#### Arguments
 
 | Property                     | Type     | Required | Description                                                                                                                                  |
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
@@ -348,7 +348,7 @@ request.end();
 
 Update an existing entry link for a study.
 
-### Arguments
+#### Arguments
 
 | Property                     | Type     | Description                                                                                                                                             |
 |------------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -363,7 +363,7 @@ Update an existing entry link for a study.
 | OverQuotaLink                | string   | Tracking code or link used after an overquota.                                                                                                          |
 | QualityTerminationLink       | string   | Tracking code or link used after a quality (security) termination.                                                                                      |
 
-##Show a Link
+###Show a Link
 
 > Definition
 
@@ -449,7 +449,7 @@ var supplierLinks = https.get('https://api.samplicio.us/Supply/v1/SurveyQualific
 
 Returns link details for a survey. 
 
-### Arguments
+#### Arguments
 
 | Property                     | Type     | Required | Description                                                                                                                                  |
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|

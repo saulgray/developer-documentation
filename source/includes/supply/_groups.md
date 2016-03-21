@@ -1,3 +1,3 @@
-#Groups
+##Groups
 
-##List a Survey’s Groups
+###List a Survey’s Groups
