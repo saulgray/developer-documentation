@@ -60,6 +60,15 @@
             // The element's used to generate the table of contents.  The order is very important since it will determine the table of content's nesting structure
             selectors: "h1, h2, h3",
 
+            headerLevels: {
+                'h1' : 1,
+                'h2' : 2,
+                'h3' : 3,
+                'h4' : 4,
+                'h5' : 5,
+                'h6' : 6
+            },
+
             // **showAndHide**: Accepts a boolean: true or false
             // Used to determine if elements should be shown and hidden
             showAndHide: true,
@@ -486,22 +495,32 @@
                 // Finds the previous header DOM element
                 previousHeader = $(self.options.selectors).eq(index - 1),
 
-                currentTagName = +$(this).prop("tagName").charAt(1),
+                currentTagName = $(this).prop("tagName").toLowerCase(),
 
-                previousTagName = +previousHeader.prop("tagName").charAt(1),
+                currentTagNum = +$(this).prop("tagName").charAt(1),
+
+                previousTagName = previousHeader.prop("tagName").toLowerCase(),
+
+                previousTagNum = +previousHeader.prop("tagName").charAt(1),
+
+                h = self.options.headerLevels,
+
+                levelOne = h[currentTagName] === h[previousTagName],
+
+                same = currentTagNum === previousTagNum,
 
                 lastSubheader;
 
             // If the current header DOM element is smaller than the previous header DOM element or the first subheader
-            if(currentTagName < previousTagName) {
+            if(currentTagNum < previousTagNum) {
 
                 // Selects the last unordered list HTML found within the HTML element calling the plugin
-                self.element.find(subheaderClass + "[data-tag=" + currentTagName + "]").last().append(self._nestElements($(this), index));
+                self.element.find(headerClass).last().append(self._nestElements($(this), index));
 
             }
 
             // If the current header DOM element is the same type of header(eg. h4) as the previous header DOM element
-            else if(currentTagName === previousTagName) {
+            else if( same || currentTagNum === 2 ) {
 
                 ul.find(itemClass).last().after(self._nestElements($(this), index));
 
@@ -517,7 +536,7 @@
 
                     "class": subheaderClassName,
 
-                    "data-tag": currentTagName
+                    "data-tag": currentTagNum
 
                 })).next(subheaderClass).
 
