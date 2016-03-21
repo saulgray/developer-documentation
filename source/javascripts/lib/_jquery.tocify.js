@@ -60,6 +60,8 @@
             // The element's used to generate the table of contents.  The order is very important since it will determine the table of content's nesting structure
             selectors: "h1, h2, h3",
 
+            // **headerLevels**: Accepts an Object: 
+            // This determines the hierarchy of headers necessary for determining nesting properties.
             headerLevels: {
                 'h1' : 1,
                 'h2' : 2,
@@ -494,38 +496,39 @@
 
                 // Finds the previous header DOM element
                 previousHeader = $(self.options.selectors).eq(index - 1),
+                previousTagName = previousHeader.prop("tagName").toLowerCase(),
+                previousTagNum = +previousTagName.charAt(1),
 
                 currentTagName = $(this).prop("tagName").toLowerCase(),
+                currentTagNum = +currentTagName.charAt(1),
 
-                currentTagNum = +$(this).prop("tagName").charAt(1),
+                headers = self.options.headerLevels,
+                sameLevelHeader = headers[currentTagName] === headers[previousTagName],
 
-                previousTagName = previousHeader.prop("tagName").toLowerCase(),
-
-                previousTagNum = +previousHeader.prop("tagName").charAt(1),
-
-                h = self.options.headerLevels,
-
-                levelOne = h[currentTagName] === h[previousTagName],
-
-                same = currentTagNum === previousTagNum,
+                largerHeader = currentTagNum < previousTagNum,
 
                 lastSubheader;
 
-            // If the current header DOM element is smaller than the previous header DOM element or the first subheader
-            if(currentTagNum < previousTagNum) {
-
+             /**
+             * If the currentTagNum is smaller than the previousTagNum, 
+             * then current header is greater. Append it to previous header. 
+             * Jumps out of nesting. Example, h2 > h3 so 2 < 3.
+             */
+            if(largerHeader) {
                 // Selects the last unordered list HTML found within the HTML element calling the plugin
                 self.element.find(headerClass).last().append(self._nestElements($(this), index));
-
             }
-
-            // If the current header DOM element is the same type of header(eg. h4) as the previous header DOM element
-            else if( same || currentTagNum === 2 ) {
-
+           /**
+             * If the current header DOM element is the same type of header(eg. h4) as the previous header DOM element
+             * or if the headers are on the same level in headerLevels
+             * then apend the current directly after the previous. No nesting occurs.
+             */
+            else if(sameLevelHeader) {
                 ul.find(itemClass).last().after(self._nestElements($(this), index));
-
             }
-
+            /**
+             * Else, nest lower order header into its respective higher order header parent
+             */
             else {
 
                 // Selects the last unordered list HTML found within the HTML element calling the plugin
@@ -543,7 +546,6 @@
                 // Appends a list item HTML element to the last unordered list HTML element found within the HTML element calling the plugin
                 append(self._nestElements($(this), index));
             }
-
         },
 
        // _setEventHandlers
