@@ -4,7 +4,7 @@
 
 ###Update an Allocation
 
-<h2 class="delete" id="delete-an-allocation"><span>DELETE</span> an Allocation</h2>
+<h3 class="delete" id="delete-an-allocation"><span>DELETE</span> an Allocation</h3>
 > Definition
 
 ```plaintext
