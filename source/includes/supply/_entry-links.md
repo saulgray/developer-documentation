@@ -216,7 +216,7 @@ http.use_ssl = true
 
 fullUriPath = uri.path + '?' + uri.query
 
-request = Net::HTTP::Post.new(fullUriPath, initheader = {'Content-Type' =>'application/json'})
+request = Net::HTTP::Put.new(fullUriPath, initheader = {'Content-Type' =>'application/json'})
 
 request.body = {SupplierLinkTypeCode:"OWS",TrackingTypeCode:"NONE",DefaultLink:"",SuccessLink:"",FailureLink:"",OverQuotaLink:"",QualityTerminationLink:""}.to_json
 
