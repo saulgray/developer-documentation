@@ -372,14 +372,21 @@
         //      Helps create the table of contents list by appending nested list items
         _nestElements: function(self, index) {
 
-            var arr, item, hashValue;
+            var arr, 
+                item, 
+                hashValue,
+                currentHeader,
+                currentTagNum;
 
+            currentHeader = self.eq(0);
+            currentTagNum = +currentHeader.prop("tagName").charAt(1);
+        
             arr = $.grep(this.items, function (item) {
 
                 return item === self.text();
 
             });
-
+            
             // If there is already a duplicate TOC item
             if(arr.length) {
 
@@ -410,17 +417,32 @@
                 .replace(/PUT/, '<span class="http-put">PUT</span>')
                 .replace(/DELETE/, '<span class="http-delete">DELETE</span>');
             }
+
             // add span element via addSpan function
             var newAnchorWithSpanAdded = '<a>' + addSpan(self.text()) + '</a>';
 
-            // Appends a list item HTML element to the last unordered list HTML element found within the HTML element calling the plugin
-            item = $("<li/>", {
+            // if currentTagNum is 1 then it is derived from an h1 header
+            if(currentTagNum === 1){
+                // Appends a list item HTML element to the last unordered list HTML element found within the HTML element calling the plugin
+                    item = $("<li/>", {
 
-                // Sets a common class name to the list item
-                "class": itemClassName,
+                        // Sets a common class name to the list item
+                        "class": itemClassName + " main-header",
 
-                "data-unique": hashValue
-            }).append(newAnchorWithSpanAdded);
+                        "data-unique": hashValue
+                    }).append(newAnchorWithSpanAdded);
+            }
+            
+            else{
+                // Appends a list item HTML element to the last unordered list HTML element found within the HTML element calling the plugin
+                    item = $("<li/>", {
+
+                        // Sets a common class name to the list item
+                        "class": itemClassName,
+
+                        "data-unique": hashValue
+                    }).append(newAnchorWithSpanAdded);
+            }
 
             // Adds an HTML anchor tag before the currently traversed HTML element
             self.before($("<div/>", {
