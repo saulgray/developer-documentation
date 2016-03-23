@@ -11,7 +11,7 @@ The Non-Exchange Entry Link resource allows the buyer to create, update, and del
 | TCPI                         | double   | Over-the-counter cost per supplier complete.                                                                                                            |
 | HedgeAccess                  | string   | “true” or “false” – Indicates if hedge access is enabled for the supplier.                                                                              |
 | BlockRouterTraffic           | string   | “true” or “false” – Indicates if router traffic is enabled for the supplier.                                                                            |
-| SupplierSurveyID             | int      | Survey supplier ID (SSID).                                                                                                                              |
+| SupplierSurveyID             | int      | 36 digit hex GUID that identifies a supplier.                                                                                                                              |
 | Prescreens                   | int      | Number of prescreens achieved by the supplier. A prescreen is a respondent who enters the client survey.                                                |
 | Completes                    | int      | Number of completes achieved by the supplier.                                                                                                           |
 | AllocationRemaining          | int      | Number of completes allocated only to the supplier.                                                                                                     |
