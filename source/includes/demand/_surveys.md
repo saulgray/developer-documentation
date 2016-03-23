@@ -805,13 +805,13 @@ Update an existing Fulcrum survey.
 | IsVerifyCallBack             | boolean  | true     |"true" enables Verify CallBack security which requires the correct [%RSFN%] variable to be included on the "complete" client callback for verification. |
 | UniquePID                    | boolean  | true     |"true" enables PID deduplication on a survey preventing a repsondent with the same PID from entering more than once. Recommended on all surveys.        |
 | UniqueIPAddress              | boolean  | true     |"true" enables IP deduplication on a survey preventing a repsondent with the same IP address from entering more than once. Recommended on all surveys.  |
-| IsRelevantID                 | boolean  | true     |"true" enables RelevantID security. RelevantID is a third-party security feature. There is an additional cost for RelevantID.                           |
+| IsRelevantID                 | boolean  | true     |"true" enables RelevantID security. RelevantID is a third-party security feature. There is an additional cost associated    .                           |
 | IsDedupe                     | boolean  | true     |"true" enables Relevant ID dedupe security. Should always be enabled when using RelevantID                                                              |
 | IsGeoIP                      | boolean  | true     |"true" enables RelevantID GeoIP security to determine respondent geogrphical location. Should always be enabled when using RelevantID                   |
 | IsFraudProfile               | boolean  | true     |"true" enables RelevantID Fraud Profile security. Should always be enabled when using RelevantID                                                        |
 | FraudProfileThreshold        | int      | true     |Set's the RelevantID Fraud Profile Threshold between 0-100. The lower the number the more aggressive the security. We recommend 11.                     |
 | IsTrueSample                 | boolean  | true     |"true" enables TrueSample security. TrueSample is a third-party security feature. There is an additional cost associated.                               |
-| QuotaCalculationTypeID       | int      | true     |Sets the quota calculation method. Either 1 for ”Completes” (quotas determined by completes) or 2=”Prescreens” (quotas determined when leaving Fulcrum) |
+| QuotaCalculationTypeID       | int      | true     |Sets the quota calculation method. Either 1 for ”Completes” (quotas counted using completes) or 2=”Prescreens” (quotas counted when leaving Fulcrum for the survey) |
 | SurveyPlatformID             | int      | true     |Sets the external platform ID. We recommend setting to 2 for "undefined" in most situations                                                             |
 | BidLengthOfInterview         | int      | true     |Estimated time for a respondent to complete the survey excluding the Fulcrum prescreener in minutes as provided by the buyer.                           |
 | BusinessUnitID               | int      | true     |Sets the account [business unit](#list-business-units).                                                                                                 |
@@ -1006,7 +1006,7 @@ var surveyQuotas = https.get('https://api.samplicio.us/Demand/v1/Surveys/BySurve
       "AccountID": 1,
       "SurveyStatusCode": "01",
       "SurveyPriority": 11,
-      "SurveyNumber": 94863,
+      "SurveyNumber": 12345,
       "SurveyName": "Example API Survey",
       "CountryLanguageID": 9,
       "IndustryID": 30,
@@ -1037,10 +1037,10 @@ var surveyQuotas = https.get('https://api.samplicio.us/Demand/v1/Surveys/BySurve
 }
 ```
 
-Returns an index of all surveys by status. 
+Returns an index of all surveys by status such as Pending, Live, and Completed. 
 
 ### Arguments
 
 | Property                     | Type     | Required | Description                                                                                                                                     |
 |------------------------------|----------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------|
-| SurveyStatus                 | int      | true     | Code associated with the current status of the survey. See [List Global Definitions](#list-global-definitions) for a map of survey status codes.|
+| SurveyStatus                 | int      | true     | Code associated with the current status of the survey. See [List Global Definitions](#list-global-definitions) for a map, of survey status codes.|
