@@ -176,7 +176,7 @@ request.end();
   ],
   "ResultCount": 1,
   "SupplierAllocation": {
-    "SupplierCode": "5405",
+    "SupplierCode": "1010",
     "AllocationPercentage": 0,
     "TCPI": 5,
     "HedgeAccess": true,
