@@ -6,7 +6,7 @@ The Non-Exchange Entry Link resource allows the buyer to create, update, and del
 
 | Property                     | Type     | Description                                                                                                                                             |
 |------------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SupplierCode                 | int      | Unique code associated with supplier account.                                                                                                           |
+| SupplierCode                 | int      | Unique code associated with a supplier account.                                                                                                           |
 | AllocationPercentage         | double   | Percentage of total completes allocated to supplier.                                                                                                    |
 | TCPI                         | double   | Over-the-counter cost per supplier complete.                                                                                                            |
 | HedgeAccess                  | string   | “true” or “false” – Indicates if hedge access is enabled for the supplier.                                                                              |
@@ -212,7 +212,7 @@ Creates target links for suppliers with an alloacation for a Fulcrum survey.
 | Property                     | Type     | Required | Description                                                                                                                                  |
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
 | SurveyNumber                 | int      | true     | Unique number associated with the survey.                                                                                                    |
-| SupplierCode                 | int      | true     | Unique code associated with supplier account.                                                                                                |
+| SupplierCode                 | int      | true     | Unique code associated with a supplier account.                                                                                                |
 | SupplierLinkTypeCode         | int      | true     | Defines the type of buyer-supplier engagment and the respondent's path in Fulcrum.                                                           |
 | TrackingTypeCode             | int      | true     | Defines how Fulcrum should communicate back to the supplier's system at the end of a session. The options are:                               |
 |                              |          |          | NONE (Default and recommended, physically redirects the respondent back to the supplier system)                                              |
@@ -356,7 +356,7 @@ Updates existing supplier target links.
 | Property                     | Type     | Required | Description                                                                                                                                  |
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
 | SurveyNumber                 | int      | true     | Unique number associated with the survey.                                                                                                    |
-| SupplierCode                 | int      | true     | Unique code associated with supplier account.                                                                                                |
+| SupplierCode                 | int      | true     | Unique code associated with a supplier account.                                                                                                |
 | SupplierLinkTypeCode         | string   | true     | Defines the type of buyer-supplier engagment and the respondent's path in Fulcrum.                                                           |
 | TrackingTypeCode             | int      | true     | Defines how Fulcrum should communicate back to the supplier's system at the end of a session. The options are:                               |
 |                              |          |          | NONE (Default and recommended, physically redirects the respondent back to the supplier system)                                              |
@@ -457,4 +457,4 @@ Deletes target links for a supplier allocated to a Fulcrum survey
 | Property                     | Type     | Required | Description                                                                                                                                  |
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
 | SurveyNumber                 | int      | true     | Unique number associated with the survey.                                                                                                    |
-| SupplierCode                 | int      | true     | Unique code associated with supplier account.                                                                                                |
+| SupplierCode                 | int      | true     | Unique code associated with a supplier account.                                                                                                |
