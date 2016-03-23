@@ -1,9 +1,6 @@
-<<<<<<< HEAD
-=======
 #Qualifications
 
 ##Create a Qualification
-<h2 class="post" id="create-a-qualification"><span>POST</span> Create a Qualification</h2>
 
 > Definition
 
@@ -310,7 +307,6 @@ Creates qualifications for an existing Fulcrum survey.
 | SurveyNumber                 | int      | true     | Unique number associated with the survey.                                                                                                    |
 
 ##Update a Qualification
-<h2 class="put" id="update-a-link"><span>PUT</span> Update a Qualification</h2>
 
 > Definition
 
@@ -617,5 +613,235 @@ Updates existing qualifications for a Fulcrum survey.
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
 | SurveyNumber                 | int      | true     | Unique number associated with the survey.                                                                                                    |
 
-##List Qualifications
->>>>>>> parent of 89b55c6... adds content for Show Qualifcation endpoint
+
+##Show Qualifications
+
+> Definition
+
+```plaintext
+GET  https://api.samplicio.us/Demand/v1/SurveyQualifications/BySurveyNumber/{SurveyNumber}?key={APIKey}
+```
+
+> Example Request
+
+```shell
+curl https://api.samplicio.us/Demand/v1/SurveyQualifications/BySurveyNumber/{SurveyNumber}?key={APIKey}
+```
+
+```ruby
+require 'net/http'
+
+uri = URI('https://api.samplicio.us/Demand/v1/SurveyQualifications/BySurveyNumber/{SurveyNumber}?key={APIKey}')
+
+http = Net::HTTP.new(uri.host, uri.port)
+
+http.use_ssl = true
+
+request = Net::HTTP::Get.new(uri.request_uri)
+
+surveyQualifications = http.request(request)  
+```
+
+```php
+<?php
+$surveyQualifications = file_get_contents('https://api.samplicio.us/Demand/v1/SurveyQualifications/BySurveyNumber/{SurveyNumber}?key={APIKey}');
+?>
+```
+
+```python
+import requests
+
+surveyQualifications = requests.get('https://api.samplicio.us/Demand/v1/SurveyQualifications/BySurveyNumber/{SurveyNumber}?key={APIKey}')
+```
+
+```csharp
+using System.Net;
+
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SurveyQualifications/BySurveyNumber/{SurveyNumber}?key={APIKey}");
+
+WebResponse surveyQualifications = request.GetResponse();
+```
+
+```javascript
+const https = require('https');
+
+var surveyQualifications = https.get('https://api.samplicio.us/Demand/v1/SurveyQualifications/BySurveyNumber/{SurveyNumber}?key={APIKey}');
+```
+
+> Example Response
+
+```json 
+{
+  "ApiResult": 0,
+  "ApiResultCode": 0,
+  "ApiAccount": "Anon",
+  "AccountType": 1,
+  "ApiAccountStatus": 1,
+  "AccountCode": "AA",
+  "ApiMessages": [
+    "API Message: Response initialized.",
+    "API Message: GetSurveyQualificationsBySurveyNumber successful."
+  ],
+  "ResultCount": 8,
+  "Qualifications": [
+    {
+      "Name": "AGE",
+      "QuestionID": 42,
+      "LogicalOperator": "OR",
+      "NumberOfRequiredConditions": 1,
+      "IsActive": true,
+      "Order": 1,
+      "PreCodes": [
+        "18",
+        "19",
+        "20",
+        "21",
+        "22",
+        "23",
+        "24"
+      ]
+    },
+    {
+      "Name": "GENDER",
+      "QuestionID": 43,
+      "LogicalOperator": "OR",
+      "NumberOfRequiredConditions": 1,
+      "IsActive": true,
+      "Order": 2,
+      "PreCodes": [
+        "1",
+        "2"
+      ]
+    },
+    {
+      "Name": "ZIP",
+      "QuestionID": 45,
+      "LogicalOperator": "OR",
+      "NumberOfRequiredConditions": 1,
+      "IsActive": true,
+      "Order": 3,
+      "PreCodes": [
+        "02940"
+      ]
+    },
+    {
+      "Name": "HISPANIC",
+      "QuestionID": 47,
+      "LogicalOperator": "OR",
+      "NumberOfRequiredConditions": 1,
+      "IsActive": true,
+      "Order": 6,
+      "PreCodes": [
+        "1",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ]
+    },
+    {
+      "Name": "STATE",
+      "QuestionID": 96,
+      "LogicalOperator": "OR",
+      "NumberOfRequiredConditions": 1,
+      "IsActive": true,
+      "Order": 4,
+      "PreCodes": [
+        "40"
+      ]
+    },
+    {
+      "Name": "ETHNICITY",
+      "QuestionID": 113,
+      "LogicalOperator": "OR",
+      "NumberOfRequiredConditions": 1,
+      "IsActive": true,
+      "Order": 5,
+      "PreCodes": [
+        "1",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ]
+    },
+    {
+      "Name": "STANDARD_AUTO_BRANDS",
+      "QuestionID": 649,
+      "LogicalOperator": "OR",
+      "NumberOfRequiredConditions": 1,
+      "IsActive": false,
+      "Order": 8,
+      "PreCodes": [
+        "9"
+      ]
+    },
+    {
+      "Name": "STANDARD_HHI_US",
+      "QuestionID": 14785,
+      "LogicalOperator": "OR",
+      "NumberOfRequiredConditions": 1,
+      "IsActive": true,
+      "Order": 7,
+      "PreCodes": [
+        "1",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "2",
+        "20",
+        "21",
+        "22",
+        "23",
+        "24",
+        "25",
+        "26",
+        "27",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ]
+    }
+  ]
+}
+```
+
+Returns all qualifications associated with an existing Fulcrum survey.
+
+### Arguments
+
+| Property                     | Type     | Required | Description                                                                                                                                  |
+|------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| SurveyNumber                 | int      | true     | Unique number associated with the survey.                                                                                                    |
