@@ -449,7 +449,7 @@ var request = https.request(options);
 request.end();
 ```
 
-Deletes target links for a supplier allocated to a Fulcrum survey 
+Deletes target links for a supplier allocated to a Fulcrum survey. 
 
 
 ### Arguments
