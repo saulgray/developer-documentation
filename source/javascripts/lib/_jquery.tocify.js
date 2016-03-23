@@ -372,11 +372,7 @@
         //      Helps create the table of contents list by appending nested list items
         _nestElements: function(self, index) {
 
-            var arr, 
-                item, 
-                hashValue,
-                currentHeader,
-                currentTagNum;
+            var arr, item, hashValue, currentHeader, currentTagNum;
 
             currentHeader = self.eq(0);
             currentTagNum = +currentHeader.prop("tagName").charAt(1);
