@@ -201,10 +201,9 @@ request.end();
   }
 }
 ```
+<aside class="notice">Ensure that the supplier has already been allocated to the survey by first making the [SupplierAllocations/Create](#create-an-allocation) call. Always default to Targeted/Standalone link type (SupplierLinkTypeCode TS) when creating target links unless specifically requested by the supplier </aside>
 
 Creates target links for suppliers with an alloacation for a Fulcrum survey. 
-
-<aside class="notice">Ensure that the supplier has already been allocated to the survey by first making the [SupplierAllocations/Create](#create-an-allocation) call. Always default to Targeted/Standalone link type (SupplierLinkTypeCode TS) when creating target links unless specifically requested by the supplier </aside>
 
 
 ### Arguments
@@ -346,10 +345,9 @@ request.write(params);
 request.end();
 ```
 
-Updates existing supplier target links. 
-
 <aside class="notice">Always default to Targeted/Standalone link type (SupplierLinkTypeCode TS) when creating target links unless specifically requested by the supplier </aside>
 
+Updates existing supplier target links. 
 
 ### Arguments
 
