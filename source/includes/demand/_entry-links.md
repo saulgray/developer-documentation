@@ -250,7 +250,7 @@ request = Net::HTTP::Post.new(fullUriPath, initheader = {'Content-Type' =>'appli
 
 request.body = {SupplierLinkTypeCode:"TS",TrackingTypeCode:"NONE",DefaultLink:"",SuccessLink:"",FailureLink:"",OverQuotaLink:"",QualityTerminationLink:""}.to_json
 
-updateSupplierLink = http.request(request)
+SupplierLink = http.request(request)
 ```
 
 ```php
@@ -271,7 +271,7 @@ curl_setopt_array($curl, array(
   CURLOPT_POSTFIELDS => $params,
 ));
 
-$updateSupplierLink = curl_exec($curl);
+$SupplierLink = curl_exec($curl);
 
 curl_close($curl);
 ?>
@@ -285,7 +285,7 @@ params = {'SupplierLinkTypeCode':'TS','TrackingTypeCode':'NONE','DefaultLink':''
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
-updateSupplierLink = requests.put(url, data=data, headers=headers)
+SupplierLink = requests.put(url, data=data, headers=headers)
 ```
 
 ```csharp
@@ -306,7 +306,7 @@ using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
             streamWriter.Close();
         }
 
-WebResponse updateSupplierLink = request.GetResponse();
+WebResponse SupplierLink = request.GetResponse();
 ```
 
 ```javascript
@@ -335,7 +335,7 @@ var params = JSON.stringify(json);
 var request = https.request(options, function (updatedSupplierLink) {
   var chunks = [];
 
-  updateSupplierLink.on("data", function (chunk) {
+  SupplierLink.on("data", function (chunk) {
     chunks.push(chunk);
   });
 
