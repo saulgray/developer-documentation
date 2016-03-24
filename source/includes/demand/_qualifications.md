@@ -1,7 +1,7 @@
-#Qualifications
+##Qualifications
 
-##Create a Qualification
+###Create a Qualification
 
-##Update a Qualification
+###Update a Qualification
 
-##List Qualifications
+###List Qualifications
