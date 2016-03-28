@@ -1,9 +1,9 @@
-#Surveys
+##Surveys
 
-##Create a Survey
+### POST Create a Survey
 
-##Update a Survey
+### PUT Update a Survey
 
-##Show a Survey
+### GET Show a Survey
 
-##List Surveys By Status
+### GET List Surveys By Status
