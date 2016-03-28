@@ -85,7 +85,7 @@ var qualifiedRespondents = https.get('https://api.samplicio.us/Demand/v1/SurveyQ
 
 Returns a list of qualified respondents for a specified recontact study and supplier by PID.
 
-### Arguments
+#### Arguments
 
 | Property                     | Type     | Required | Description                                                                                                                                  |
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
@@ -93,7 +93,7 @@ Returns a list of qualified respondents for a specified recontact study and supp
 | SupplierCode                 | int      | true     | Unique code associated with a supplier account.                                                                                              |
 
 
-## Update Qualified Respondents
+### PUT Update Qualified Respondents
 
 >Definition
 
@@ -242,7 +242,7 @@ request.end();
 
 Updates the list of PIDs that qualify for a recontact survey. 
 
-### Arguments
+#### Arguments
 
 | Property                     | Type     | Required | Description                                                                                                                                  |
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
