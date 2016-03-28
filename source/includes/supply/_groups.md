@@ -1,6 +1,6 @@
 ##Groups
 
-###List a Survey’s Groups
+### GET List a Survey’s Groups
 
 > Definition
 
