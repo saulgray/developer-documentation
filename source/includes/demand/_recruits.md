@@ -25,19 +25,19 @@ http.use_ssl = true
 
 request = Net::HTTP::Get.new(uri.request_uri)
 
-listPIDs = http.request(request)  
+qualifiedRespondents = http.request(request)  
 ```
 
 ```php
 <?php
-$listPIDs = file_get_contents('https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/BySurveyNumberSupplierCode/{SurveyNumber}/{SupplierCode}?key={APIKey}');
+$qualifiedRespondents = file_get_contents('https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/BySurveyNumberSupplierCode/{SurveyNumber}/{SupplierCode}?key={APIKey}');
 ?>
 ```
 
 ```python
 import requests
 
-listPIDs = requests.get('https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/BySurveyNumberSupplierCode/{SurveyNumber}/{SupplierCode}?key={APIKey}')
+qualifiedRespondents = requests.get('https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/BySurveyNumberSupplierCode/{SurveyNumber}/{SupplierCode}?key={APIKey}')
 ```
 
 ```csharp
@@ -45,13 +45,13 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/BySurveyNumberSupplierCode/{SurveyNumber}/{SupplierCode}?key={APIKey}");
 
-WebResponse listPIDs = request.GetResponse();
+WebResponse qualifiedRespondents = request.GetResponse();
 ```
 
 ```javascript
 const https = require('https');
 
-var listPIDs = https.get('https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/BySurveyNumberSupplierCode/{SurveyNumber}/{SupplierCode}?key={APIKey}');
+var qualifiedRespondents = https.get('https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/BySurveyNumberSupplierCode/{SurveyNumber}/{SupplierCode}?key={APIKey}');
 ```
 
 > Example Response
@@ -83,9 +83,7 @@ var listPIDs = https.get('https://api.samplicio.us/Demand/v1/SurveyQualifiedResp
 
 ```
 
-Returns a list of qualified respondents for a specified recontact study and supplier, by PID.
-
-
+Returns a list of qualified respondents for a specified recontact study and supplier by PID.
 
 ### Arguments
 
@@ -125,7 +123,7 @@ request = Net::HTTP::Put.new(fullUriPath, initheader = {'Content-Type' =>'applic
 
 request.body = {PID:"0001110", IsActive:true}.to_json
 
-updatePIDs = http.request(request)
+qualifiedRespondents = http.request(request)
 ```
 
 ```php
@@ -146,7 +144,7 @@ curl_setopt_array($curl, array(
   CURLOPT_POSTFIELDS => $params,
 ));
 
-$updatePIDs = curl_exec($curl);
+$qualifiedRespondents = curl_exec($curl);
 
 curl_close($curl);
 ?>
@@ -160,7 +158,7 @@ params = {'PID': '0001110', 'IsActive': true}
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
-updatePIDs = requests.put(url, data=data, headers=headers)
+qualifiedRespondents = requests.put(url, data=data, headers=headers)
 ```
 
 ```csharp
@@ -181,7 +179,7 @@ streamWriter.Flush();
 streamWriter.Close();
 }
 
-WebResponse updatePIDs = request.GetResponse();
+WebResponse qualifiedRespondents = request.GetResponse();
 ```
 
 ```javascript
@@ -206,10 +204,10 @@ var json = {
 
 var params = JSON.stringify(json);
 
-var request = https.request(options, function (updatePIDs) {
+var request = https.request(options, function (qualifiedRespondents) {
   var chunks = [];
 
-  updatePIDs.on("data", function (chunk) {
+  qualifiedRespondents.on("data", function (chunk) {
     chunks.push(chunk);
   });
 
@@ -236,13 +234,13 @@ request.end();
   "ResultCount": 1,
   "SurveyQualifiedRespondents": [
     {
-      "PID": "Test1",
+      "PID": "1234",
       "IsActive": true
     },
   ]
 }
 
-Add and updates a list of PIDs for a Fulcrum recontact survey. 
+Updates the list of PIDs that qualify for a recontact survey. 
 
 ### Arguments
 
@@ -250,9 +248,5 @@ Add and updates a list of PIDs for a Fulcrum recontact survey.
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
 | SurveyNumber                 | int      | true     | Unique number associated with the survey.                                                                                                    |
 | SupplierCode                 | int      | true     | Unique code associated with a supplier account.                                                                                              |
-| IsActive                     | boolean  | true     | Is the variable active?                                                                                                    |
-| PID                          | int      | true     | Unique panelist identifier, provided by the supplier.                                                                                        |
-
-
-
-
+| IsActive                     | boolean  | true     | Should the respondent still qualify?                                                                                                         |
+| PID                          | int      | true     | Persistent panelist identifier used by the supplier.                                                                                         |
