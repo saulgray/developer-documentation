@@ -43,7 +43,7 @@ includes:
   - demand/allocations
   - demand/entry-links
   - demand/feasibility
-  - demand/recruits
+  - demand/recontact
   - guides/introduction
   - guides/supply
   - guides/demand
