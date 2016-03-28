@@ -1,23 +1,23 @@
-#Qualifications
+##Qualifications
 
 The Qualification resource contains the questions and corresponding conditions associated with a survey. These qualifications make up the Fulcrum prescreener and define the overall survey targeting criteria for suppliers.
 
-### Survey Qualification Model
+#### Survey Qualification Model
 
 | Property                     | Type     | Description                                                                                                                                             |
 |------------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
 | SurveyNumber                 | int      | Unique number associated with the survey.                                                                                                               | 
 | Questions                    | array    | Contains an array of Question models.                                                                                                                   |
 
-### Questions Model
+#### Questions Model
 
 | Property                     | Type     | Description                                                                                                                                             |
 |------------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
-| QuestionID                   | int      | Unique number associated with the question.                                                                                                               |
+| QuestionID                   | int      | Unique number associated with the question.                                                                                                             |
 | LogicalOperator              | string   | Defines the logical operation applied to the conditions.                                                                                                |
-| PreCodes                     | array    | Qualification answer option precodes.                                                                                                                   |
+| PreCodes                     | array    | Qualification answer option identifier.                                                                                                                 |
 
-##Show Qualifications
+### GET Show Qualifications
 
 > Definition
 
@@ -121,7 +121,7 @@ Returns a list of all standard and exposed custom qualifications associated with
 <aside class="notice">This API call returns data for all types of surveys not just Offerwall surveys.</aside>
 
 
-### Arguments
+#### Arguments
 
 | Property                     | Type     | Required | Description                                                                                                                                  |
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|

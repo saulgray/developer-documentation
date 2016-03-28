@@ -1,6 +1,6 @@
-#Question Library
+##Question Library
 
-##List Standard Questions
+### GET List Standard Questions
 
 > Definition 
 
@@ -83,13 +83,13 @@ var standardQs = https.get('https://api.samplicio.us/Lookup/v1/QuestionLibrary/A
 
 Returns a list of all Standard Questions and question texts for the specified country-language pair.
 
-### Arguments
+#### Arguments
 
 | Property                     | Type     | Required | Description                                                                                                                                  |
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
 | CountryLanguageID            | int      | true     | Unique id associated with the country-language pair the question text applies to.                                                            |
 
-##List Custom Questions
+### GET List Custom Questions
 
 > Definition 
 
@@ -174,13 +174,13 @@ var customQs = https.get('https://api.samplicio.us/QuestionLibrary/AllCustomQues
 
 Returns a list of custom questions associated with and created by your account for the specified country-language pair.
 
-### Arguments
+#### Arguments
 
 | Property                     | Type     | Required | Description                                                                                                                                  |
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
 | CountryLanguageID            | int      | true     | Unique id associated with the country-language pair the question text applies to.                                                            |
 
-## Show Question Text
+### GET Show Question Text
 
 > Definition
 
@@ -266,14 +266,14 @@ Returns the details of a specific Standard or Custom Qualification.
 
 <aside class="notice">Each question or qualification in Fulcrum has a unique QuestionID, which is valid across country-language pairs.</aside>
 
-### Arguments
+#### Arguments
 
  Property                     | Type     | Required | Description                                                                                                                                  |
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
 | CountryLanguageID            | int      | true     | Unique id associated with the country-language pair the question text applies to.                                                            |
 | QuestionID                   | int      | true     | Unique id associated with the question the question text applies to.                                                            |
 
-##Show Question Options
+### GET Show Question Options
 
 > Definition
 
@@ -359,11 +359,11 @@ var questionOptions = https.get('https://api.samplicio.us/Lookup/v1/QuestionLibr
 }
 ```
 
-Returns the answer options and associated precodes for a specific QuestionID and Country-language pair.
+Returns the answer options and associated precodes for a specific QuestionID and Country-Language pair.
 
-<aside class="notice">You'll want to have all QuestionIDs and Country-language pairs to map each question and translation properly.</aside>
+<aside class="notice">If you have your own question library, you should create a map between Fulcrum Standard qualifications and those that match in your own library.</aside>
 
-### Arguments
+#### Arguments
 
   Property                     | Type     | Required | Description                                                                                                                                  |
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|

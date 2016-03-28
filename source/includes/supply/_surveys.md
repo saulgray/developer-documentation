@@ -1,8 +1,8 @@
-# Surveys
+## Surveys
 
 The Survey resource contains basic information about a survey opportunity posted by a sample buyer. More detailed information about who qualifies for the survey is contained in the [Qualifications](#qualifications) and [Quotas](#quotas) resources.
 
-### Surveys Model
+#### Surveys Model
 
 | Property                     | Type     | Description                                                                                                                                             |
 |------------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -31,7 +31,7 @@ The Survey resource contains basic information about a survey opportunity posted
 | SurveyQuotaCalcTypeID        | int      | Indicates whether quotas are calculated based on completes or prescreens (1=Completes, 2=Prescreens).                                                   |
 | SampleTypeID                 | int      | The type of sample the survey is open to (i.e. consumer, business-to-business, etc).                                                                    |
 
-##List Exchange Surveys
+### GET List Exchange Surverys
 
 > Definition
 
@@ -136,20 +136,9 @@ Returns a list of all live survey opportunities available through the Exchange f
 <aside class="notice">After <a href="#create-a-link">creating an entry link</a> you can <a href="#list-allocated-surveys">list allocated surveys</a> or <a href="#show-an-allocated-survey">show an allocated survey</a> to access these opportunities.</aside>
 
 
-### Arguments
+#### Arguments
 
 | Property                     | Type     | Required | Description                                                                                                                                  |
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
 | SupplierCode                 | int      | true     | Unique code associated with a supplier account.                                                                                              |
 
-[![Run in Postman](https://run.pstmn.io/button.png)](https://www.getpostman.com/run-collection/bb68be2cda20d9bc87b6)
-
-#Allocations
-
-##List Allocated Surveys
-Windows is cranky.
-
-##Show an Allocated Survey
-Windows is cranky.
-
-##List Recently Allocated Surveys

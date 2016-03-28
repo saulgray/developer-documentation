@@ -1,7 +1,7 @@
-#Quotas
+##Quotas
 
-##Create a Quota
+### POST Create a Quota
 
-##Update a Quota
+### PUT Update a Quota
 
-##List Quotas
+### GET List Quotas
