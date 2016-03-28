@@ -79,8 +79,7 @@ var qualifiedRespondents = https.get('https://api.samplicio.us/Demand/v1/SurveyQ
       "IsActive": true
     },
   ]
-};
-
+}
 ```
 
 Returns a list of qualified respondents for a specified recontact study and supplier by PID.
