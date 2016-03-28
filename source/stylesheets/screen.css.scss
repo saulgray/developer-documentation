@@ -70,23 +70,7 @@ html, body {
   font-size: $nav-item-text;
 
 // This sections bolds the main topics in the nav bar
-#tocify-header0 {
-    font-weight: bold;
-    padding-top: 15px;
-}
-#tocify-header9 {
-    font-weight: bold;
-    padding-top: 15px;
-}
-#tocify-header12 {
-    font-weight: bold;
-    padding-top: 15px;
-}
-#tocify-header22 {
-    font-weight: bold;
-    padding-top: 15px;
-}
-#tocify-header32 {
+.main-header {
     font-weight: bold;
     padding-top: 15px;
 }
@@ -399,7 +383,7 @@ html, body {
     clear:both;
   }
 
-  h1 {
+  h1, h2 {
     @extend %header-font;
     font-size: 32px;
     padding-top: 0.5em;
@@ -414,7 +398,7 @@ html, body {
     margin-top: 0;
   }
 
-  h2 {
+  h3 {
     @extend %header-font;
     font-size: 22px;
     margin-top: 4em;
@@ -425,22 +409,22 @@ html, body {
   }
   
   // HTTP tags in front of headers
-  .post>span {
+  .post {
       @extend %code-font;
       font-size: 24px;
       color:$post;
   }
-  .put>span {
+  .put {
      @extend %code-font;
       font-size: 24px;
       color:$put;
   }
-  .get>span {
+  .get {
       @extend %code-font;
       font-size: 24px;
       color:$get;
   }
-  .delete>span {
+  .delete {
       @extend %code-font;
       font-size: 24px;
       color:$delete;
@@ -448,27 +432,23 @@ html, body {
 
   // h2s right after h1s should bump right up
   // against the h1s.
-  h1 + h2, h1 + div + h2 {
+  h2 + h3, h2 + div + h3 {
     margin-top: $h1-margin-bottom * -1;
     border-top: none;
   }
   
-  h3 {
+  h4 {
     @extend %header-font;
     font-size: 18px;
     margin-top: 2.5em;
     margin-bottom: 0.8em;
   }
 
-  h4, h5, h6 {
+  h5, h6 {
     @extend %header-font;
     font-size: 14px;
     margin-top: 2.5em;
     margin-bottom: 0.8em;
-  }
-
-  h4, h5, h6 {
-    font-size: 10px;
   }
 
   hr {

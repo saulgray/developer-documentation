@@ -1,6 +1,6 @@
-#Groups
+##Groups
 
-##List a Survey’s Groups
+### GET List a Survey’s Groups
 
 > Definition
 
@@ -79,9 +79,10 @@ var groups = https.get('https://api.samplicio.us/Supply/v1/Surveys/SurveyGroups/
 ```
 Returns information on the survey group used by the specified survey.
 
-### Arguments
+#### Arguments
 
 | Property                     | Type     | Required | Description                                                                     |
 |------------------------------|----------|----------|---------------------------------------------------------------------------------|
 |SurveyNumber                  | int      | true     | Unique number associated with the survey.                                       |
 |SupplierCode                  | string   | true     | Unique code associated with a supplier account.                                 |
+>>>>>>> f5506159ac41025dc9249c3b395899624ee89fa7
