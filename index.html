@@ -354,8 +354,7 @@
 </tr>
 </tbody></table>
 
-<h4 id="options">Options</h4>
-
+<h4 id="options">Options
 <table><thead>
 <tr>
 <th>Option</th>
@@ -1730,7 +1729,7 @@
 
 <aside class="notice">NumberOfRespondents is calculated real-time</aside>
 
-<h4 id="arguments">Arguments</h4>
+arguments&quot;>Arguments</h4>
 
 <table><thead>
 <tr>
@@ -2531,7 +2530,7 @@ https://api.samplicio.us/Supply/v1/SupplierLinks/Create/<span class="o">{</span>
 
 <aside class="notice">The &ldquo;Global&rdquo; scope can only be used with &ldquo;Trailing&rdquo; to gauge the conversion of all surveys on the platform over the last 12 hours. Global and Supplier Trailing methods must have received at least one (1) entrant in the last 12 hours to display on this call.</aside>
 
-<h4 id="arguments">Arguments</h4>
+arguments&quot;>Arguments</h4>
 
 <table><thead>
 <tr>
@@ -2814,9 +2813,8 @@ https://api.samplicio.us/Supply/v1/SupplierLinks/Create/<span class="o">{</span>
 
 <h3 id="post-add-to-a-group">POST Add to a Group</h3>
 
-<h3 id="get-show-a-group">GET Show a Group</h3>
-
-<h3 id="put-remove-from-a-group">PUT Remove from a Group</h3>
+<h3 id="get-show-a-group">GET Show a Group
+put-remove-from-a-group&quot;>PUT Remove from a Group</h3>
 
               <h2 id="non-exchange-allocations">Non-Exchange Allocations</h2>
 
@@ -3535,7 +3533,7 @@ https://api.samplicio.us/Demand/v1/SupplierAllocations/Targets/Create/<span clas
 
 <p>Deletes target links for a supplier allocated to a Fulcrum survey. </p>
 
-<h4 id="arguments">Arguments</h4>
+arguments&quot;>Arguments</h4>
 
 <table><thead>
 <tr>
@@ -3644,7 +3642,7 @@ https://api.samplicio.us/Demand/v1/SupplierAllocations/Targets/Create/<span clas
 
 <p>Returns a list of qualified respondents for a specified recontact study and supplier by PID.</p>
 
-<h3 id="arguments">Arguments</h3>
+<h4 id="arguments">Arguments</h4>
 
 <table><thead>
 <tr>
@@ -3668,13 +3666,13 @@ https://api.samplicio.us/Demand/v1/SupplierAllocations/Targets/Create/<span clas
 </tr>
 </tbody></table>
 
-<h2 id="update-qualified-respondents">Update Qualified Respondents</h2>
+<h3 id="put-update-qualified-respondents">PUT Update Qualified Respondents</h3>
 
 <blockquote>
 <p>Definition</p>
 </blockquote>
-
-<p>PUT  https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}</p>
+<pre class="highlight plaintext"><code>PUT  https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}
+</code></pre>
 
 <blockquote>
 <p>Example Request</p>
@@ -3788,30 +3786,30 @@ https://api.samplicio.us/Demand/v1/SupplierAllocations/Targets/Create/<span clas
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-
-<p>{
-  &ldquo;ApiResult&rdquo;: 0,
-  &ldquo;ApiResultCode&rdquo;: 0,
-  &ldquo;ApiAccount&rdquo;: &ldquo;Anon&rdquo;,
-  &ldquo;AccountType&rdquo;: 2,
-  &ldquo;ApiAccountStatus&rdquo;: 1,
-  &ldquo;AccountCode&rdquo;: &ldquo;AA&rdquo;,
-  &ldquo;ApiMessages&rdquo;: [
-    &ldquo;API Message: Response initialized.&rdquo;,
-    &ldquo;API Message: UpdateSurveyQualifiedRespondentsBySurveyNumberSupplierCode successful.&rdquo;
-  ],
-  &ldquo;ResultCount&rdquo;: 1,
-  &ldquo;SurveyQualifiedRespondents&rdquo;: [
-    {
-      &ldquo;PID&rdquo;: &ldquo;1234&rdquo;,
-      &ldquo;IsActive&rdquo;: true
-    },
-  ]
-}</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"ApiResult"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiResultCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiAccount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Anon"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"AccountType"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiAccountStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"AccountCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AA"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiMessages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"API Message: Response initialized."</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"API Message: UpdateSurveyQualifiedRespondentsBySurveyNumberSupplierCode successful."</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"ResultCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"SurveyQualifiedRespondents"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"PID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <p>Updates the list of PIDs that qualify for a recontact survey. </p>
 
-<h3 id="arguments">Arguments</h3>
+<h4 id="arguments">Arguments</h4>
 
 <table><thead>
 <tr>
