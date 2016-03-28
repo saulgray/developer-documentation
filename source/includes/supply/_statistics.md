@@ -1,6 +1,6 @@
 ##Statistics
 
-###Show Statistics
+### GET Show Statistics
 
 > Definition 
 
@@ -87,7 +87,7 @@ Returns conversion information (as a percentage) for a specific study, based on 
 | Scope                        | string   | true     | Either "Global" or "Supplier".                                                             |
 | Timespan                     | string   | true     | Either "Trailing" or "Lifetime". Trailing returns the last 12 hours.                                                            |
 
-###List Statistics
+### GET List Statistics
 
 > Definition 
 

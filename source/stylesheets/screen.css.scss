@@ -409,22 +409,22 @@ html, body {
   }
   
   // HTTP tags in front of headers
-  .post>span {
+  .post {
       @extend %code-font;
       font-size: 24px;
       color:$post;
   }
-  .put>span {
+  .put {
      @extend %code-font;
       font-size: 24px;
       color:$put;
   }
-  .get>span {
+  .get {
       @extend %code-font;
       font-size: 24px;
       color:$get;
   }
-  .delete>span {
+  .delete {
       @extend %code-font;
       font-size: 24px;
       color:$delete;
