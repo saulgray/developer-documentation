@@ -363,7 +363,7 @@ Update an existing entry link for a study.
 | OverQuotaLink                | string   | Tracking code or link used after an overquota.                                                                                                          |
 | QualityTerminationLink       | string   | Tracking code or link used after a quality (security) termination.                                                                                      |
 
-## GET Show a Link
+### GET Show a Link
 
 > Definition
 
