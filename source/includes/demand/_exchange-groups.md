@@ -6,7 +6,7 @@
 
 ### PUT Update a Group
 
-### DELETE a Group
+### DELETE Delete a Group
 
 ### POST Add to a Group
 
