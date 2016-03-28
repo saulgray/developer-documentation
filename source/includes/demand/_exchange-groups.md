@@ -8,8 +8,8 @@
 
 ### DELETE a Group
 
-###Add to a Group
+### POST Add to a Group
 
 ### GET Show a Group
 
-###Remove from a Group
+### PUT Remove from a Group
