@@ -97,7 +97,9 @@ Returns a list of qualified respondents for a specified recontact study and supp
 
 >Definition
 
+```plaintext
 PUT  https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}
+```
 
 >Example Request
 
@@ -220,6 +222,7 @@ request.end();
 
 >Example Response
 
+```json
 {
   "ApiResult": 0,
   "ApiResultCode": 0,
@@ -239,6 +242,7 @@ request.end();
     },
   ]
 }
+```
 
 Updates the list of PIDs that qualify for a recontact survey. 
 
