@@ -4,4 +4,4 @@
 
 ### PUT Update a Link
 
-### DELETE a Link
+### DELETE Delete a Link

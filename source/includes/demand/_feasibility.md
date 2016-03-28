@@ -1,6 +1,6 @@
 ##Feasibility
 
-### GET GET Show Time to Completion
+### GET Show Time to Completion
 
 ### GET Show Price
 
