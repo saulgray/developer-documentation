@@ -4,7 +4,7 @@
 
 ### PUT Update an Allocation
 
-### DELETE an Allocation
+### DELETE Delete an Allocation
 > Definition
 
 ```plaintext
