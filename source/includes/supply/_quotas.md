@@ -33,7 +33,7 @@ The quotas resource returns the number of completes available to you for each de
 | LogicalOperator              | string   | Defines the logical operation applied to the conditions.                                                                                                |
 | PreCodes                     | array    | Qualification answer option identifier.                                                                                                                   |
 
-###Show Quotas
+### GET Show Quotas
 
 > Definition
 

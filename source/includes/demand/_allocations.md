@@ -1,10 +1,10 @@
 ##Non-Exchange Allocations
 
-###Create an Allocation
+### POST Create an Allocation
 
-###Update an Allocation
+### PUT Update an Allocation
 
-<h3 class="delete" id="delete-an-allocation"><span>DELETE</span> an Allocation</h3>
+### DELETE an Allocation
 > Definition
 
 ```plaintext
@@ -84,4 +84,4 @@ var request = https.request(options);
 request.end();
 ```
 
-###List Allocations
+### GET List Allocations

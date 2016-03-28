@@ -1,6 +1,6 @@
 ##Recontact
 
-###List Qualified Respondents
+### GET List Qualified Respondents
 
 > Definition
 
