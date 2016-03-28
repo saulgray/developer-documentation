@@ -1,6 +1,6 @@
 ##Recruit
 
-###Show Marketing Info
+### GET Show Marketing Info
 
 > Definition
 

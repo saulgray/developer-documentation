@@ -17,7 +17,7 @@ The Qualification resource contains the questions and corresponding conditions a
 | LogicalOperator              | string   | Defines the logical operation applied to the conditions.                                                                                                |
 | PreCodes                     | array    | Qualification answer option identifier.                                                                                                                 |
 
-###Show Qualifications
+### GET Show Qualifications
 
 > Definition
 

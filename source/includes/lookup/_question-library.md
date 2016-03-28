@@ -1,6 +1,6 @@
 ##Question Library
 
-###List Standard Questions
+### GET List Standard Questions
 
 > Definition 
 
@@ -89,7 +89,7 @@ Returns a list of all Standard Questions and question texts for the specified co
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
 | CountryLanguageID            | int      | true     | Unique id associated with the country-language pair the question text applies to.                                                            |
 
-###List Custom Questions
+### GET List Custom Questions
 
 > Definition 
 
@@ -180,7 +180,7 @@ Returns a list of custom questions associated with and created by your account f
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
 | CountryLanguageID            | int      | true     | Unique id associated with the country-language pair the question text applies to.                                                            |
 
-### Show Question Text
+### GET Show Question Text
 
 > Definition
 
@@ -273,7 +273,7 @@ Returns the details of a specific Standard or Custom Qualification.
 | CountryLanguageID            | int      | true     | Unique id associated with the country-language pair the question text applies to.                                                            |
 | QuestionID                   | int      | true     | Unique id associated with the question the question text applies to.                                                            |
 
-###Show Question Options
+### GET Show Question Options
 
 > Definition
 

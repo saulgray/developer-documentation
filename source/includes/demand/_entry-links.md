@@ -1,7 +1,7 @@
 ##Non-Exchange Entry Links
 
-###Create a Link
+### POST Create a Link
 
-###Update a Link
+### PUT Update a Link
 
-###Delete a Link
+### DELETE a Link
