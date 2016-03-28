@@ -2,4 +2,4 @@
 
 ### GET List Exchange Templates
 
-###Apply an Exchange Template
+### Apply an Exchange Template
