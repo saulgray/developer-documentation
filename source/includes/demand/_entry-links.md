@@ -2,7 +2,7 @@
 
 The Non-Exchange Entry Link resource allows the buyer to create, update, and delete supplier links (targets) on non-exchange allocations.
 
-### Supplier Allocation Model
+#### Supplier Allocation Model
 
 | Property                     | Type     | Description                                                                                                                                             |
 |------------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -19,7 +19,7 @@ The Non-Exchange Entry Link resource allows the buyer to create, update, and del
 | TotalRemaining               | int      | Total number of completes available to the supplier (aggregate of allocation and hedge remaining properties).                                           |
 | Target                       | array    | Contains array of elements described below.                                                                                                             |
 
-### Target Model
+#### Target Model
 
 | Property                     | Type     | Description                                                                                                                                             |
 |------------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -206,7 +206,7 @@ Creates target links for suppliers with an alloacation for a Fulcrum survey.
 
 <aside class="notice">Ensure that the supplier has already been allocated to the survey by first making the [SupplierAllocations/Create](#create-an-allocation) call. Always default to Targeted/Standalone link type (SupplierLinkTypeCode TS) when creating target links unless specifically requested by the supplier </aside>
 
-### Arguments
+#### Arguments
 
 | Property                     | Type     | Required | Description                                                                                                                                  |
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
@@ -349,7 +349,7 @@ Updates existing supplier target links.
 
 <aside class="notice">Always default to Targeted/Standalone link type (SupplierLinkTypeCode TS) when creating target links unless specifically requested by the supplier </aside>
 
-### Arguments
+#### Arguments
 
 | Property                     | Type     | Required | Description                                                                                                                                  |
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
@@ -450,7 +450,7 @@ request.end();
 Deletes target links for a supplier allocated to a Fulcrum survey. 
 
 
-### Arguments
+#### Arguments
 
 | Property                     | Type     | Required | Description                                                                                                                                  |
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
