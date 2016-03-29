@@ -8,7 +8,7 @@ The quotas resource returns the number of completes available to you for each de
 |------------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
 | SurveyNumber                 | int      | Unique number associated with the survey.                                                                                                               |
 | SurveyQuotas                 | array    | Contains an array of Survey Quotas models.                                                                                                              |
-| SurveyStatusCode             | double   | Code associated with the current status of the survey. See [List Global Definitions](#list-global-definitions) for a map of survey status codes.        |
+| SurveyStatusCode             | double   | Code associated with the current status of the survey. See [List Global Definitions](#get-list-global-definitions) for a map of survey status codes.        |
 | SurveyStillLive              | boolean  | A simple check to determine whether a survey is open to respondents. This can be used interchangeably with SurveyStatusCode.                            |
  
 
@@ -152,7 +152,7 @@ var surveyQuotas = https.get('https://api.samplicio.us/Supply/v1/SurveyQuotas/By
 
 Returns the total quota and client quotas associated with a survey. 
 
-<aside class="notice">NumberOfRespondents is calculated real-time</aside>
+<aside class="notice">The NumberOfRespondents property is calculated in real-time. The cache logic does not apply to this property.</aside>
 
 
 #### Arguments
