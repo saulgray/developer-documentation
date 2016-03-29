@@ -1082,7 +1082,7 @@
 <tr>
 <td>SurveyGroupID</td>
 <td>int</td>
-<td>Deprecated: Will return <code class="prettyprint">null</code>. If SurveyGroupExists is <code class="prettyprint">true</code>, then <a href="#list-a-survey’s-groups">list the survey&rsquo;s groups</a>.</td>
+<td>Deprecated: Will return <code class="prettyprint">null</code>. If SurveyGroupExists is <code class="prettyprint">true</code>, then <a href="#get-list-a-survey’s-groups">list the survey&rsquo;s groups</a>.</td>
 </tr>
 <tr>
 <td>SurveyGroupExists</td>
@@ -1213,7 +1213,7 @@
 
 <p>Returns a list of all live survey opportunities available through the Exchange for which you have an allocation or entry link.</p>
 
-<aside class="notice">After <a href="#create-a-link">creating an entry link</a> you can <a href="#list-allocated-surveys">list allocated surveys</a> or <a href="#show-an-allocated-survey">show an allocated survey</a> to access these opportunities.</aside>
+<aside class="notice">After <a href="#post-create-a-link">creating an entry link</a> you can <a href="#get-list-allocated-surveys">list allocated surveys</a> or <a href="#get-show-an-allocated-survey">show an allocated survey</a> to access these opportunities.</aside>
 
 <h4 id="arguments">Arguments</h4>
 
@@ -1870,7 +1870,7 @@
 <tr>
 <td>SurveyStatusCode</td>
 <td>double</td>
-<td>Code associated with the current status of the survey. See <a href="#list-global-definitions">List Global Definitions</a> for a map of survey status codes.</td>
+<td>Code associated with the current status of the survey. See <a href="#get-list-global-definitions">List Global Definitions</a> for a map of survey status codes.</td>
 </tr>
 <tr>
 <td>SurveyStillLive</td>
@@ -2065,7 +2065,7 @@
 
 <p>Returns the total quota and client quotas associated with a survey. </p>
 
-<aside class="notice">NumberOfRespondents is calculated real-time</aside>
+<aside class="notice">The NumberOfRespondents property is calculated in real-time. The cache logic does not apply to this property.</aside>
 
 <h4 id="arguments">Arguments</h4>
 
@@ -2093,7 +2093,7 @@
 
               <h2 id="entry-links">Entry Links</h2>
 
-<p>The Entry Links resource enables suppliers to create, update, and retrieve supplier survey entry links as well as specify <a href="#list-global-definitions">supplier link and tracking types</a>. </p>
+<p>The Entry Links resource enables suppliers to create, update, and retrieve supplier survey entry links as well as specify <a href="#get-list-global-definitions">supplier link and tracking types</a>. </p>
 
 <h4 id="supplier-link-model">Supplier Link Model</h4>
 
