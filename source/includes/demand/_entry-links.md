@@ -204,7 +204,7 @@ request.end();
 
 Creates target links for suppliers with an alloacation for a Fulcrum survey. 
 
-<aside class="notice">Ensure that the supplier has already been allocated to the survey by first making the <a href="#create-an-allocation">Create an Allocation</a> call. Always default to Targeted/Standalone link type (SupplierLinkTypeCode TS) when creating target links unless specifically requested by the supplier </aside>
+<aside class="notice">Ensure that the supplier has already been allocated to the survey by first making the <a href="#post-create-a-qualification">Create an Allocation</a> call. Always default to Targeted/Standalone link type (SupplierLinkTypeCode TS) when creating target links unless specifically requested by the supplier </aside>
 
 #### Arguments
 
