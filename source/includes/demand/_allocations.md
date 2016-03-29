@@ -98,7 +98,7 @@ var options = {
   "method": "POST",
   "hostname": "api.samplicio.us",
   "port": 443,
-  "path": "/Demand/v1/SupplierAllocations/Targets/Create/{SurveyNumber}/{SupplierCode}?key={APIKey}",
+  "path": "/Demand/v1/SupplierAllocations/Create/{SurveyNumber}/{SupplierCode}?key={APIKey}",
   "headers": {'Content-Type': 'application/json'}
 };
 
