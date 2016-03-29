@@ -1082,7 +1082,7 @@
 <tr>
 <td>SurveyGroupID</td>
 <td>int</td>
-<td>Deprecated: Will return <code class="prettyprint">null</code>. If SurveyGroupExists is <code class="prettyprint">true</code>, then <a href="#get-list-a-survey’s-groups">list the survey&rsquo;s groups</a>.</td>
+<td>Deprecated: Will return <code class="prettyprint">null</code>. If SurveyGroupExists is <code class="prettyprint">true</code>, then <a href="#list-a-survey’s-groups">list the survey&rsquo;s groups</a>.</td>
 </tr>
 <tr>
 <td>SurveyGroupExists</td>
@@ -1213,7 +1213,7 @@
 
 <p>Returns a list of all live survey opportunities available through the Exchange for which you have an allocation or entry link.</p>
 
-<aside class="notice">After <a href="#post-create-a-link">creating an entry link</a> you can <a href="#get-list-allocated-surveys">list allocated surveys</a> or <a href="#get-show-an-allocated-survey">show an allocated survey</a> to access these opportunities.</aside>
+<aside class="notice">After <a href="#create-a-link">creating an entry link</a> you can <a href="#list-allocated-surveys">list allocated surveys</a> or <a href="#show-an-allocated-survey">show an allocated survey</a> to access these opportunities.</aside>
 
 <h4 id="arguments">Arguments</h4>
 
@@ -1228,359 +1228,6 @@
 <tr>
 <td>SupplierCode</td>
 <td>int</td>
-<td>true</td>
-<td>Unique code associated with a supplier account.</td>
-</tr>
-</tbody></table>
-
-              <h2 id="allocations">Allocations</h2>
-
-<h3 id="get-list-allocated-surveys">GET List Allocated Surveys</h3>
-
-<blockquote>
-<p>Definition</p>
-</blockquote>
-<pre class="highlight plaintext"><code>GET  https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/All/{SupplierCode}?key={APIKey}
-</code></pre>
-
-<blockquote>
-<p>Example Request</p>
-</blockquote>
-<pre class="highlight shell"><code>curl https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/All/<span class="o">{</span>SupplierCode<span class="o">}</span>?key<span class="o">={</span>APIKey<span class="o">}</span>
-</code></pre>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
-
-<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/All/{SupplierCode}?key={APIKey}'</span><span class="p">)</span>
-
-<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">uri</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
-
-<span class="n">http</span><span class="p">.</span><span class="nf">use_ssl</span> <span class="o">=</span> <span class="kp">true</span>
-
-<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">request_uri</span><span class="p">)</span>
-
-<span class="n">allocations</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>  
-</code></pre>
-<pre class="highlight php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$allocations</span> <span class="o">=</span> <span class="nb">file_get_contents</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/All/{SupplierCode}?key={APIKey}'</span><span class="p">);</span>
-<span class="cp">?&gt;</span>
-</code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">requests</span>
-
-<span class="n">allocations</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/All/{SupplierCode}?key={APIKey}'</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight csharp"><code><span class="k">using</span> <span class="nn">System.Net</span><span class="p">;</span>
-
-<span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/All/{SupplierCode}?key={APIKey}"</span><span class="p">);</span>
-
-<span class="n">WebResponse</span> <span class="n">allocations</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">GetResponse</span><span class="p">();</span>
-</code></pre>
-<pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'https'</span><span class="p">);</span>
-
-<span class="kd">var</span> <span class="nx">allocations</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/All/{SupplierCode}?key={APIKey}'</span><span class="p">);</span>
-</code></pre>
-
-<blockquote>
-<p>Example Response</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"ApiResult"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"ApiResultCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"ApiAccount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Anon"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"AccountType"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"ApiAccountStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"AccountCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AA"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"ApiMessages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="s2">"API Message: Response initialized."</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"API Message: GetSupplierAllocationsAll successful."</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"ResultCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"SupplierAllocationSurveys"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"SurveyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IT Developers Survey"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"SurveyNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">143479</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"SurveySID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4C2B4533-0EA1-364A-212B-345B38C6AF57"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"AccountName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sample Company"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"CountryLanguageID"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"LengthOfInterview"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"BidIncidence"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Conversion"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"FieldBeginDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(1429160400000-0500)/"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"FieldEndDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(1429848000000-0500)/"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"IndustryID"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"StudyTypeID"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Priority"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"SurveyGroup"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"SurveyGroupID"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"SurveyGroupExists"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"BidLengthOfInterview"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"TerminationLengthOfInterview"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"SurveyQuotaCalcTypeID"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"IsTrueSample"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"SurveyMobileConversion"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"SampleTypeID"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>Returns a list of all live survey opportunities available through the Exchange and/or directly allocated to you for which you have an allocation or entry link.</p>
-
-<h4 id="arguments">Arguments</h4>
-
-<table><thead>
-<tr>
-<th>Property</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>SupplierCode</td>
-<td>int</td>
-<td>true</td>
-<td>Unique code associated with a supplier account.</td>
-</tr>
-</tbody></table>
-
-<h3 id="get-show-an-allocated-survey">GET Show an Allocated Survey</h3>
-
-<blockquote>
-<p>Definition</p>
-</blockquote>
-<pre class="highlight plaintext"><code>GET  https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}
-</code></pre>
-
-<blockquote>
-<p>Example Request</p>
-</blockquote>
-<pre class="highlight shell"><code>curl https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/BySurveyNumber/<span class="o">{</span>SurveyNumber<span class="o">}</span>/<span class="o">{</span>SupplierCode<span class="o">}</span>?key<span class="o">={</span>APIKey<span class="o">}</span>
-</code></pre>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
-
-<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}'</span><span class="p">)</span>
-
-<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">uri</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
-
-<span class="n">http</span><span class="p">.</span><span class="nf">use_ssl</span> <span class="o">=</span> <span class="kp">true</span>
-
-<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">request_uri</span><span class="p">)</span>
-
-<span class="n">allocations</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>  
-</code></pre>
-<pre class="highlight php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$allocations</span> <span class="o">=</span> <span class="nb">file_get_contents</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}'</span><span class="p">);</span>
-<span class="cp">?&gt;</span>
-</code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">requests</span>
-
-<span class="n">allocations</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}'</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight csharp"><code><span class="k">using</span> <span class="nn">System.Net</span><span class="p">;</span>
-
-<span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}"</span><span class="p">);</span>
-
-<span class="n">WebResponse</span> <span class="n">allocations</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">GetResponse</span><span class="p">();</span>
-</code></pre>
-<pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'https'</span><span class="p">);</span>
-
-<span class="kd">var</span> <span class="nx">allocations</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}'</span><span class="p">);</span>
-</code></pre>
-
-<blockquote>
-<p>Example Response</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"ApiResult"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"ApiResultCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"ApiAccount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Anon"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"AccountType"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"ApiAccountStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"AccountCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AA"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"ApiMessages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="s2">"API Message: Response initialized."</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"API Message: GetSupplierAllocationsBySurveyNumber successful."</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"ResultCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"SupplierAllocationSurvey"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"SurveyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pet Owner Survey"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"SurveyNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">17381</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"SurveySID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"03B4B292-0EA1-212B-02C1-345B38C6AF57"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"AccountName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sample Company"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"CountryLanguageID"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"LengthOfInterview"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"BidIncidence"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"Conversion"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"FieldBeginDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(1400562000000-0500)/"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"FieldEndDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(1401854400000-0500)/"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"IndustryID"</span><span class="p">:</span><span class="w"> </span><span class="mi">18</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"StudyTypeID"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"Priority"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"SupplierAllocations"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-    </span><span class="nt">"OfferwallTotalRemaining"</span><span class="p">:</span><span class="w"> </span><span class="mi">47</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"OfferwallAllocations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"SupplierCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0050"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"SupplierName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Supply Company"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"OfferwallCompletes"</span><span class="p">:</span><span class="w"> </span><span class="mi">403</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"AllocationRemaining"</span><span class="p">:</span><span class="w"> </span><span class="mi">47</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"HedgeRemaining"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"TargetModel"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"SupplierLinkType"</span><span class="p">:</span><span class="w"> </span><span class="mi">18</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"LiveSupplierLink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://staging.samplicio.us/router/default.aspx?SID=da94c7f8-0dcf-4fcc-80d4-6e2beafc3ff4&amp;PID="</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"SupplierLinkSID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"da94c7f8-0dcf-4fcc-80d4-6e2beafc3ff4"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"TargetCCPI"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nt">"SurveyGroup"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"SurveyGroupID"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"SurveyGroupExists"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"BidLengthOfInterview"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"TerminationLengthOfInterview"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"SurveyQuotaCalcTypeID"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"IsTrueSample"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"SurveyMobileConversion"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"SampleTypeID"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>Returns any allocation(s) given to you for a particular survey.</p>
-
-<h4 id="arguments">Arguments</h4>
-
-<table><thead>
-<tr>
-<th>Property</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>SupplierCode</td>
-<td>int</td>
-<td>true</td>
-<td>Unique code associated with a supplier account.</td>
-</tr>
-<tr>
-<td>SurveyNumber</td>
-<td>int</td>
-<td>true</td>
-<td>Unique number associated with the survey.</td>
-</tr>
-</tbody></table>
-
-<h3 id="get-list-recently-allocated-surveys">GET List Recently Allocated Surveys</h3>
-
-<blockquote>
-<p>Definition</p>
-</blockquote>
-<pre class="highlight plaintext"><code>GET  https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/ByDate/{Date}/{SupplierCode}?key={APIKey}
-</code></pre>
-
-<blockquote>
-<p>Example Request</p>
-</blockquote>
-<pre class="highlight shell"><code>curl https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/ByDate/<span class="o">{</span>Date<span class="o">}</span>/<span class="o">{</span>SupplierCode<span class="o">}</span>?key<span class="o">={</span>APIKey<span class="o">}</span>
-</code></pre>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
-
-<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/ByDate/{Date}/{SupplierCode}?key={APIKey}'</span><span class="p">)</span>
-
-<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">uri</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
-
-<span class="n">http</span><span class="p">.</span><span class="nf">use_ssl</span> <span class="o">=</span> <span class="kp">true</span>
-
-<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">request_uri</span><span class="p">)</span>
-
-<span class="n">allocations</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>  
-</code></pre>
-<pre class="highlight php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$allocations</span> <span class="o">=</span> <span class="nb">file_get_contents</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/ByDate/{Date}/{SupplierCode}?key={APIKey}'</span><span class="p">);</span>
-<span class="cp">?&gt;</span>
-</code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">requests</span>
-
-<span class="n">allocations</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/ByDate/{Date}/{SupplierCode}?key={APIKey}'</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight csharp"><code><span class="k">using</span> <span class="nn">System.Net</span><span class="p">;</span>
-
-<span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/ByDate/{Date}/{SupplierCode}?key={APIKey}"</span><span class="p">);</span>
-
-<span class="n">WebResponse</span> <span class="n">allocations</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">GetResponse</span><span class="p">();</span>
-</code></pre>
-<pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'https'</span><span class="p">);</span>
-
-<span class="kd">var</span> <span class="nx">allocations</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/ByDate/{Date}/{SupplierCode}?key={APIKey}'</span><span class="p">);</span>
-</code></pre>
-
-<blockquote>
-<p>Example Response</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"ApiResult"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"ApiResultCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"ApiAccount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Anon"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"AccountType"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"ApiAccountStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"AccountCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AA"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"ApiMessages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="s2">"API Message: Response initialized."</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"API Message: GetSupplierAllocationsByDate successful."</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"ResultCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"SupplierAllocationSurveys"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"SurveyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IT Developers Survey"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"SurveyNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">143479</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"SurveySID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4C2B4533-0EA1-364A-212B-345B38C6AF57"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"AccountName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sample Company"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"CountryLanguageID"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"LengthOfInterview"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"BidIncidence"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"Conversion"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"FieldBeginDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(1431666000000-0500)/"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"FieldEndDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(1432353600000-0500)/"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"IndustryID"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"StudyTypeID"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"Priority"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"SurveyGroup"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"SurveyGroupID"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"SurveyGroupExists"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"BidLengthOfInterview"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"TerminationLengthOfInterview"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"SurveyQuotaCalcTypeID"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"IsTrueSample"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"SurveyMobileConversion"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"SampleTypeID"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>Returns a list of allocations for which the TotalQuota has changed since a specified date.</p>
-
-<h4 id="arguments">Arguments</h4>
-
-<table><thead>
-<tr>
-<th>Property</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Date</td>
-<td>string</td>
-<td>true</td>
-<td>Must follow the format YYYY-MM-DD</td>
-</tr>
-<tr>
-<td>SupplierCode</td>
-<td>string</td>
 <td>true</td>
 <td>Unique code associated with a supplier account.</td>
 </tr>
@@ -1681,6 +1328,22 @@
 <td>Unique code associated with a supplier account.</td>
 </tr>
 </tbody></table>
+
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>f5506159ac41025dc9249c3b395899624ee89fa7</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
 
               <h2 id="qualifications">Qualifications</h2>
 
@@ -1870,7 +1533,7 @@
 <tr>
 <td>SurveyStatusCode</td>
 <td>double</td>
-<td>Code associated with the current status of the survey. See <a href="#get-list-global-definitions">List Global Definitions</a> for a map of survey status codes.</td>
+<td>Code associated with the current status of the survey. See <a href="#list-global-definitions">List Global Definitions</a> for a map of survey status codes.</td>
 </tr>
 <tr>
 <td>SurveyStillLive</td>
@@ -2065,7 +1728,7 @@
 
 <p>Returns the total quota and client quotas associated with a survey. </p>
 
-<aside class="notice">The NumberOfRespondents property is calculated in real-time. The cache logic does not apply to this property.</aside>
+<aside class="notice">NumberOfRespondents is calculated real-time</aside>
 
 <h4 id="arguments">Arguments</h4>
 
@@ -2093,7 +1756,7 @@
 
               <h2 id="entry-links">Entry Links</h2>
 
-<p>The Entry Links resource enables suppliers to create, update, and retrieve supplier survey entry links as well as specify <a href="#get-list-global-definitions">supplier link and tracking types</a>. </p>
+<p>The Entry Links resource enables suppliers to create, update, and retrieve supplier survey entry links as well as specify <a href="#list-global-definitions">supplier link and tracking types</a>. </p>
 
 <h4 id="supplier-link-model">Supplier Link Model</h4>
 
@@ -3265,12 +2928,12 @@ https://api.samplicio.us/Supply/v1/SupplierLinks/Create/<span class="o">{</span>
 <tr>
 <td>HedgeAccess</td>
 <td>string</td>
-<td>Indicates if hedge access is enabled for the supplier (<code class="prettyprint">true</code>, <code class="prettyprint">false</code>).</td>
+<td>“true” or “false” – Indicates if hedge access is enabled for the supplier.</td>
 </tr>
 <tr>
 <td>BlockRouterTraffic</td>
 <td>string</td>
-<td>Indicates if router traffic is enabled for the supplier (<code class="prettyprint">true</code>, <code class="prettyprint">false</code>).</td>
+<td>“true” or “false” – Indicates if router traffic is enabled for the supplier.</td>
 </tr>
 <tr>
 <td>SupplierSurveyID</td>
@@ -3538,7 +3201,7 @@ https://api.samplicio.us/Demand/v1/SupplierAllocations/Targets/Create/<span clas
 
 <p>Creates target links for suppliers with an alloacation for a Fulcrum survey. </p>
 
-<aside class="notice">Ensure that the supplier has already been allocated to the survey by first making the <a href="#post-create-a-qualification">Create an Allocation</a> call. Always default to Targeted/Standalone link type (SupplierLinkTypeCode TS) when creating target links unless specifically requested by the supplier </aside>
+<aside class="notice">Ensure that the supplier has already been allocated to the survey by first making the [SupplierAllocations/Create](#create-an-allocation) call. Always default to Targeted/Standalone link type (SupplierLinkTypeCode TS) when creating target links unless specifically requested by the supplier </aside>
 
 <h4 id="arguments">Arguments</h4>
 
@@ -3975,12 +3638,13 @@ https://api.samplicio.us/Demand/v1/SupplierAllocations/Targets/Create/<span clas
       </span><span class="nt">"IsActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
     </span><span class="p">},</span><span class="w">
   </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="err">;</span><span class="w">
+
 </span></code></pre>
 
 <p>Returns a list of qualified respondents for a specified recontact study and supplier by PID.</p>
 
-<h4 id="arguments">Arguments</h4>
+<h3 id="arguments">Arguments</h3>
 
 <table><thead>
 <tr>
@@ -4004,13 +3668,13 @@ https://api.samplicio.us/Demand/v1/SupplierAllocations/Targets/Create/<span clas
 </tr>
 </tbody></table>
 
-<h3 id="put-update-qualified-respondents">PUT Update Qualified Respondents</h3>
+<h2 id="update-qualified-respondents">Update Qualified Respondents</h2>
 
 <blockquote>
 <p>Definition</p>
 </blockquote>
-<pre class="highlight plaintext"><code>PUT  https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}
-</code></pre>
+
+<p>PUT  https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}</p>
 
 <blockquote>
 <p>Example Request</p>
@@ -4124,30 +3788,30 @@ https://api.samplicio.us/Demand/v1/SupplierAllocations/Targets/Create/<span clas
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"ApiResult"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"ApiResultCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"ApiAccount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Anon"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"AccountType"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"ApiAccountStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"AccountCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AA"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"ApiMessages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="s2">"API Message: Response initialized."</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"API Message: UpdateSurveyQualifiedRespondentsBySurveyNumberSupplierCode successful."</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"ResultCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"SurveyQualifiedRespondents"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"PID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"IsActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
+
+<p>{
+  &ldquo;ApiResult&rdquo;: 0,
+  &ldquo;ApiResultCode&rdquo;: 0,
+  &ldquo;ApiAccount&rdquo;: &ldquo;Anon&rdquo;,
+  &ldquo;AccountType&rdquo;: 2,
+  &ldquo;ApiAccountStatus&rdquo;: 1,
+  &ldquo;AccountCode&rdquo;: &ldquo;AA&rdquo;,
+  &ldquo;ApiMessages&rdquo;: [
+    &ldquo;API Message: Response initialized.&rdquo;,
+    &ldquo;API Message: UpdateSurveyQualifiedRespondentsBySurveyNumberSupplierCode successful.&rdquo;
+  ],
+  &ldquo;ResultCount&rdquo;: 1,
+  &ldquo;SurveyQualifiedRespondents&rdquo;: [
+    {
+      &ldquo;PID&rdquo;: &ldquo;1234&rdquo;,
+      &ldquo;IsActive&rdquo;: true
+    },
+  ]
+}</p>
 
 <p>Updates the list of PIDs that qualify for a recontact survey. </p>
 
-<h4 id="arguments">Arguments</h4>
+<h3 id="arguments">Arguments</h3>
 
 <table><thead>
 <tr>
