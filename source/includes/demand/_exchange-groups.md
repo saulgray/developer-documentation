@@ -1,15 +1,15 @@
-#Exchange Groups
+##Exchange Groups
 
-##Create a Group
+### POST Create a Group
 
-##Create an Empty Group
+### POST Create an Empty Group
 
-##Update a Group
+### PUT Update a Group
 
-##Delete a Group
+### DELETE Delete a Group
 
-##Add to a Group
+### POST Add to a Group
 
-##Show a Group
+### GET Show a Group
 
-##Remove from a Group
+### PUT Remove from a Group

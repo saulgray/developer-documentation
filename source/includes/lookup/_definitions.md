@@ -1,6 +1,6 @@
-# Definitions
+## Definitions
 
-##List Global Definitions
+### GET List Global Definitions
 
 > Definition
 
@@ -139,13 +139,13 @@ Returns a list of available global system definitions. Arguments can be passed i
 
 <aside class="notice">Only some of these should be checked regularly for updates and modifications, namely CountryLanguages, Industries, and SupplierLinkTypes.</aside>
 
-### Arguments
+#### Arguments
 
 | Property                     | Type     | Required | Description                                                                                                                                  |
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
 | Bundle                       | string   | false    | A string of lookup options delimited by a comma.  
 
-### Options
+#### Options
 
 | Option                       | Description                                                                         |
 |------------------------------|-------------------------------------------------------------------------------------|
@@ -168,7 +168,7 @@ Returns a list of available global system definitions. Arguments can be passed i
 
 
 
-##List Suppliers
+### GET List Suppliers
 
 > Definition
 
@@ -263,7 +263,7 @@ var suppliers = https.get('https://api.samplicio.us/Core/v1/Suppliers/AllWithAcc
 
 Returns a list of all available suppliers.
 
-##List Business Units
+### GET List Business Units
 
 > Definition 
 

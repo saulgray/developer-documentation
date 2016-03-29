@@ -1,8 +1,8 @@
-#Surveys
+##Surveys
 
 The Surveys resource allows the buyer to create new surveys, update existing surveys, and retrieve survey details in Fulcrum.
 
-### Survey Model
+#### Survey Model
 
 | Property                     | Type     | Description                                                                                                                                             |
 |------------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -16,10 +16,10 @@ The Surveys resource allows the buyer to create new surveys, update existing sur
 | StudyTypeID                  | int      | Indicates the survey’s format and purpose (i.e. adhoc, recruit, etc).                                                                                   |
 | ClientCPI                    | double   | Revenue per complete used to calculate internal margin or savings.                                                                                      |
 | QuotaCPI                     | double   | Gross payout per complete. This value is before any applicable commissions or fees.                                                                     |
-| ClientSurveyLiveURL          | string   | Link to client survey. We don't recommend exceeding 2000 characters.                                                                                   |
+| ClientSurveyLiveURL          | string   | Link to client survey. We don't recommend exceeding 2000 characters.                                                                                    |
 | TestRedirectURL              | string   | Link to client survey for testing purposes. All studies should include a working test link.                                                             |
-| IsActive                     | string   | Indicates if a survey is active or inactive.                                                                                                             |
-| Quota                        | int      | Total number of completes needed.                                                                                                                        |
+| IsActive                     | string   | Indicates if a survey is active or inactive.                                                                                                            |
+| Quota                        | int      | Total number of completes needed.                                                                                                                       |
 | FulcrumExchangeAllocation    | double   | Percentage of total completes allocated only to the Exchange. Must be between 0 and 100%.                                                               |
 | FulcrumExchangeHedgeAccess   | boolean  | "true" gives the Exchange access to any unallocated completes.                                                                                          |
 | IsVerifyCallBack             | boolean  | "true" enables Verify CallBack security which requires the correct [%RSFN%] variable to be included on the "complete" client callback for verification. |
@@ -27,17 +27,17 @@ The Surveys resource allows the buyer to create new surveys, update existing sur
 | UniqueIPAddress              | boolean  | "true" enables IP deduplication on a survey preventing a repsondent with the same IP address from entering more than once. Recommended on all surveys.  |
 | IsRelevantID                 | boolean  | "true" enables RelevantID security. RelevantID is a third-party security feature. There is an additional cost for RelevantID.                           |
 | IsDedupe                     | boolean  | "true" enables Relevant ID dedupe security. Should always be enabled when using RelevantID                                                              |
-| IsGeoIP                      | boolean  | "true" enables RelevantID GeoIP security to determine respondent geogrphical location. Should always be enabled when using RelevantID.                   |
-| IsFraudProfile               | boolean  | "true" enables RelevantID Fraud Profile security. Should always be enabled when using RelevantID.                                                        |
+| IsGeoIP                      | boolean  | "true" enables RelevantID GeoIP security to determine respondent geogrphical location. Should always be enabled when using RelevantID.                  |
+| IsFraudProfile               | boolean  | "true" enables RelevantID Fraud Profile security. Should always be enabled when using RelevantID.                                                       |
 | FraudProfileThreshold        | int      | Sets the RelevantID Fraud Profile Threshold between 0-100. The lower the number the more aggressive the security. We recommend 11.                      |
 | IsTrueSample                 | boolean  | "true" enables TrueSample security. TrueSample is a third-party security feature. There is an additional cost associated.                               |
-| QuotaCalculationTypeID       | int      | Sets the quota calculation method. Either 1 for ”Completes” (quotas determined by completes) or 2=”Prescreens” (quotas determined when leaving Fulcrum). |
-| SurveyPlatformID             | int      | Sets the external platform ID. We recommend setting to 2 for "undefined" in most situations.                                                             |
+| QuotaCalculationTypeID       | int      | Sets the quota calculation method. Either 1 for ”Completes” (quotas determined by completes) or 2=”Prescreens” (quotas determined when leaving Fulcrum).|
+| SurveyPlatformID             | int      | Sets the external platform ID. We recommend setting to 2 for "undefined" in most situations.                                                            |
 | BidLengthOfInterview         | int      | Estimated time for a respondent to complete the survey excluding the Fulcrum prescreener in minutes as provided by the buyer.                           |
 | BusinessUnitID               | int      | Sets the account [business unit](#list-business-units).                                                                                                 |
 | SampleTypeID                 | int      | Sets the type of sample the survey is open to (i.e. consumer, business-to-business, etc). (SampleTypes)[#definitions]                                   |
 
-##Create a Survey
+### POST Create a Survey
 
 > Definition
 
@@ -392,7 +392,7 @@ Creates a Fulcrum survey.
 
 <aside class="notice">Fulcrum automatically adds 7 qualifications to US studies when a survey is created (Age, Gender, Zip, STATE, Ethnicity, Hispanic, Standard HHI). These qualifications can be edited or removed if desired using the (SurveyQualifications/Update)[#update-a-qualification] call.</aside>
 
-### Arguments
+#### Arguments
 
 | Property                     | Type     | Required | Description                                                                                                                                            |
 |------------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -426,7 +426,7 @@ Creates a Fulcrum survey.
 | BusinessUnitID               | int      | true     |Sets the account [business unit](#list-business-units).                                                                                                 |
 | SampleTypeID                 | int      | false    |Sets the type of sample the survey is open to (i.e. consumer, business-to-business, etc). (SampleTypes)[#definitions].                                 |
 
-##Update a Survey
+### PUT Update a Survey
 
 > Definition
 
@@ -782,7 +782,7 @@ Update an existing Fulcrum survey.
 <aside class="notice">All parameters returned via the Surveys/Create call (with the exception of SampleTypeID) must be included in the Surveys/Update call even if they’re not being specifically adjusted.</aside>
 
 
-### Arguments
+#### Arguments
 
 | Property                     | Type     | Required | Description                                                                                                                                            |
 |------------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -817,7 +817,7 @@ Update an existing Fulcrum survey.
 | BusinessUnitID               | int      | true     |Sets the account [business unit](#list-business-units).                                                                                                 |
 | SampleTypeID                 | int      | false    |Sets the type of sample the survey is open to (i.e. consumer, business-to-business, etc). (SampleTypes)[#definitions].                                   |
 
-##Show a Survey
+### GET Show a Survey
 
 > Definition
 
@@ -926,13 +926,13 @@ Returns the details of a specific Fulcrum survey.
 <aside class="notice">NumberOfRespondents is calculated real-time.</aside>
 
 
-### Arguments
+#### Arguments
 
 | Property                     | Type     | Required | Description                                                                                                                                  |
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
 | SurveyNumber                 | int      | true     | Unique number associated with the survey.                                                                                                    |
 
-##List Surveys By Status
+### GET List Surveys By Status
 
 > Definition
 
@@ -1038,8 +1038,8 @@ var surveyQuotas = https.get('https://api.samplicio.us/Demand/v1/Surveys/BySurve
 
 Returns an index of all surveys by status such as Pending, Live, and Completed. 
 
-### Arguments
+#### Arguments
 
-| Property                     | Type     | Required | Description                                                                                                                                     |
-|------------------------------|----------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------|
+| Property                     | Type     | Required | Description                                                                                                                                      |
+|------------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------|
 | SurveyStatus                 | int      | true     | Code associated with the current status of the survey. See [List Global Definitions](#list-global-definitions) for a map, of survey status codes.|

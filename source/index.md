@@ -27,6 +27,7 @@ includes:
   - lookup/question-library
   - supply/introduction
   - supply/surveys
+  - supply/allocations
   - supply/groups
   - supply/qualifications
   - supply/quotas
@@ -43,7 +44,7 @@ includes:
   - demand/allocations
   - demand/entry-links
   - demand/feasibility
-  - demand/recruits
+  - demand/recontact
   - guides/introduction
   - guides/supply
   - guides/demand
