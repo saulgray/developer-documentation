@@ -88,8 +88,6 @@
 
               <h2 id="environments">Environments</h2>
 
-<p>Fulcrum has two environments—production and sandbox. The sandbox environment is used during development and for testing. There are no live respondents in this environment (although you may enter as a respondent), and it is not possible to incur any charges as a result of calls in the sandbox. It is important to note that lookup libraries in the sandbox are different from those in production. Production should only be used once an application has been thoroughly tested in staging. Developers are financially responsible for any transactions made on the system regardless of whether it was the result of a bug.</p>
-
 <blockquote>
 <p>Sandbox Endpoint</p>
 </blockquote>
@@ -102,27 +100,29 @@
 <pre class="highlight plaintext"><code>https://api.samplicio.us/
 </code></pre>
 
-              <h2 id="authentication">Authentication</h2>
+<p>Fulcrum has two environments—production and sandbox. The sandbox environment is used during development and for testing. There are no live respondents in this environment (although you may enter as a respondent), and it is not possible to incur any charges as a result of calls in the sandbox. It is important to note that lookup libraries in the sandbox are different from those in production. Production should only be used once an application has been thoroughly tested in staging. Developers are financially responsible for any transactions made on the system regardless of whether it was the result of a bug.</p>
 
-<p>The Fulcrum API uses simple key-based authentication over SSL. Every call should have a <code class="prettyprint">key</code> variable appended to the query string. Ensure that the key you are passing is the correct key for the environment.</p>
+              <h2 id="authentication">Authentication</h2>
 <pre class="highlight plaintext"><code>GET  http://stg-api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/22789?key=5175285E-D74B-46A8-AE2C-EF95B3A5175B
 </code></pre>
 
-              <h2 id="request-format">Request format</h2>
+<p>The Fulcrum API uses simple key-based authentication over SSL. Every call should have a <code class="prettyprint">key</code> variable appended to the query string. Ensure that the key you are passing is the correct key for the environment.</p>
 
-<p>The Fulcrum API accepts JSON requests by default; however, developers who prefer XML can use that format as well. To send XML payloads, simply append <code class="prettyprint">/xml/</code> to the pathimmediately before any parameters. </p>
+              <h2 id="request-format">Request format</h2>
 
 <blockquote>
 <p>JSON URL</p>
 </blockquote>
-
-<p><code class="prettyprint">GET  http://stg-api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/22789?key=5175285E-D74B-46A8-AE2C-EF95B3A5175B</code></p>
+<pre class="highlight plaintext"><code>GET  http://stg-api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/22789?key=5175285E-D74B-46A8-AE2C-EF95B3A5175B
+</code></pre>
 
 <blockquote>
 <p>XML URL</p>
 </blockquote>
+<pre class="highlight plaintext"><code>GET  http://stg-api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/xml/22789?key=5175285E-D74B-46A8-AE2C-EF95B3A5175B
+</code></pre>
 
-<p><code class="prettyprint">GET  http://stg-api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/xml/22789?key=5175285E-D74B-46A8-AE2C-EF95B3A5175B</code></p>
+<p>The Fulcrum API accepts JSON requests by default; however, developers who prefer XML can use that format as well. To send XML payloads, simply append <code class="prettyprint">/xml/</code> to the pathimmediately before any parameters. </p>
 
               <h2 id="http-status-codes">HTTP Status Codes</h2>
 
