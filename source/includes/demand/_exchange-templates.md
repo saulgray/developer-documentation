@@ -10,7 +10,7 @@ The Exchange Templates resource returns all Exchange templates associated with a
 | AccountID                    | int      | Unique account identifier.                                                                                                                              |
 | Name                         | string   | Exchange Template Name.                                                                                                                                 |
 | ExchangeAllocationPercentage | int      | Percentage of total completes allocated only to the Exchange. Must be between 0 and 100%.                                                               |
-| ExchangeIsHedgeAccess        | boolean  | "true" gives the Exchange access to any unallocated completes.                                                                                          |
+| ExchangeIsHedgeAccess        | boolean  | "true" gives the Exchange access to any unallocated completes. "true" is recommended when using the Exchange.                                           |
 | IsGlobalTemplate             | boolean  | Should always return "false" indicating the template is only available to the buyers account.                                                           |
 
 ##List Exchange Templates
@@ -81,7 +81,7 @@ var exchangeTemplate = https.get('https://api.samplicio.us/Demand/v1/ExchangeTem
     "API Message: Response initialized.",
     "API Message: GetAllExchangeTemplates successful."
   ],
-  "ResultCount": 1,
+  "ResultCount": 2,
   "ExchangeTemplates": [
   {
       "ID": 1,
@@ -91,6 +91,15 @@ var exchangeTemplate = https.get('https://api.samplicio.us/Demand/v1/ExchangeTem
       "ExchangeIsHedgeAccess": true,
       "IsGlobalTemplate": true
     },
+    {
+      "ID": 2,
+      "AccountID": 1,
+      "Name": "ExchangeTemplate2",
+      "ExchangeAllocationPercentage": 0.4,
+      "ExchangeIsHedgeAccess": true,
+      "IsGlobalTemplate": false
+    }
+  ]
 }
 ```
 
@@ -106,21 +115,21 @@ Returns all Exchange templates associated with an existing account.
 |------------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ID                           | int      | ID associated with the Exchange Template.                                                                                                               | 
 | Name                         | string   | Exchange Template Name.                                                                                                                                 |
-| SupplierGroupDisplayTypeID   | int      |                                                                                                                                                         |
+| SupplierGroupDisplayTypeID   | int      | Indicates if the group is the "blocked" group or not. 1 = unblocked. 2 = blocked.                                                                       |
 | Completes                    | int      | Number of completes gained by the group.                                                                                                                |
 | Screens                      | int      | Number of prescreens gained by the group.                                                                                                               |
 | AllocationPercentage         | int      | Percentage of total completes allocated only to the Exchange group. Must be between 0 and 100%.                                                         |
 | IsHedgeAccess                | boolean  | "true" gives the Exchange group access to any unallocated completes.                                                                                    |
 | CPI                          | int      | Will typically return "null" as CPI can't be set via an Exchange Template.                                                                              |
-| Suppliers                    | array    | Contains array of elements described below                                                                                                              |
+| Suppliers                    | array    | Contains array of elements described below.                                                                                                             |
 
 ### Suppliers Model
 
 | Property                     | Type     | Description                                                                                                                                             |
 |------------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SupplierID                   | int      | ID associated with the supplier account                                                                                                                 | 
+| SupplierID                   | int      | ID associated with the supplier account.                                                                                                                | 
 | Completes                    | int      | Number of completes gained by the supplier.                                                                                                             |
-| Screens                      | string   | Number of prescreens gained by the supplier                                                                                                             |
+| Screens                      | string   | Number of prescreens gained by the supplier.                                                                                                            |
 
 > Definition
 
@@ -132,7 +141,7 @@ POST  https://api.samplicio.us/Demand/v1/ExchangeTemplates/ApplyToSurvey/{Survey
 
 ```shell
 curl -H "Content-Type: application/json" \
--X POST --data '{"SupplierLinkTypeCode": "OWS", "TrackingTypeCode": "NONE"}' \
+-X POST \
 https://api.samplicio.us/Demand/v1/ExchangeTemplates/ApplyToSurvey/{SurveyNumber}/{ExchangeTemplateID}?key={APIKey}
 ```
 
@@ -150,16 +159,12 @@ fullUriPath = uri.path + '?' + uri.query
 
 request = Net::HTTP::Post.new(fullUriPath, initheader = {'Content-Type' =>'application/json'})
 
-request.body = {SupplierLinkTypeCode:"OWS",TrackingTypeCode:"NONE"}.to_json
-
 exchangeTemplate = http.request(request)
 ```
 
 ```php
 <?php
 $curl = curl_init();
-
-$params = '{"SupplierLinkTypeCode": "OWS,"TrackingTypeCode": "NONE"}';
 
 curl_setopt_array($curl, array(
   CURLOPT_URL => "https://api.samplicio.us/Demand/v1/ExchangeTemplates/ApplyToSurvey/{SurveyNumber}/{ExchangeTemplateID}?key={APIKey}",
@@ -170,7 +175,6 @@ curl_setopt_array($curl, array(
   CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => "POST",
-  CURLOPT_POSTFIELDS => $params,
 ));
 
 $exchangeTemplate = curl_exec($curl);
@@ -184,11 +188,9 @@ curl_close($curl);
 import requests, json
 
 url = 'https://api.samplicio.us/Demand/v1/ExchangeTemplates/ApplyToSurvey/{SurveyNumber}/{ExchangeTemplateID}?key={APIKey}'
-params = {'SupplierLinkTypeCode':'OWS','TrackingTypeCode':'NONE'}
-data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
-exchangeTemplate = requests.post(url, data=data, headers=headers)
+exchangeTemplate = requests.post(url, headers=headers)
 ```
 
 ```csharp
@@ -196,15 +198,11 @@ using System.IO;
 using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/ExchangeTemplates/ApplyToSurvey/{SurveyNumber}/{ExchangeTemplateID}?key={APIKey}");
-
-string params = "{\"SupplierLinkTypeCode\":\"OWS\","+"\"TrackingTypeCode\":\"NONE\"}";
     
 request.Method = "POST";
-request.ContentType = "application/json";
 
 using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
 {
-streamWriter.Write(params);
 streamWriter.Flush();
 streamWriter.Close();
 }
@@ -223,13 +221,6 @@ var options = {
   "headers": {'Content-Type': 'application/json'}
 };
 
-var json = {
-    "SupplierLinkTypeCode":"OWS",
-    "TrackingTypeCode":"NONE"
-};
-
-var params = JSON.stringify(json);
-
 var request = https.request(options, function (exchangeTemplate) {
   var chunks = [];
 
@@ -238,8 +229,6 @@ var request = https.request(options, function (exchangeTemplate) {
   });
   
 });
-
-request.write(params);
 
 request.end();
 ```
@@ -271,22 +260,22 @@ request.end();
       "CPI": null,
       "Suppliers": [
         {
-          "SupplierID": 66,
+          "SupplierID": 1
           "Completes": 0,
           "Screens": 0
         },
         {
-          "SupplierID": 67,
+          "SupplierID": 2,
           "Completes": 0,
           "Screens": 0
         },
         {
-          "SupplierID": 257,
+          "SupplierID": 3,
           "Completes": 0,
           "Screens": 0
         },
         {
-          "SupplierID": 729,
+          "SupplierID": 4,
           "Completes": 0,
           "Screens": 0
         }
