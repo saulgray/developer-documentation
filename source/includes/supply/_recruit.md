@@ -1,6 +1,6 @@
-#Recruit
+##Recruit
 
-##Show Marketing Info
+### GET Show Marketing Info
 
 > Definition
 
@@ -82,7 +82,7 @@ Returns marketing information for a specific survey when study type is either â€
 
 
 
-### Arguments
+#### Arguments
 
 | Property                     | Type     | Required | Description                                                                                                                                  |
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
