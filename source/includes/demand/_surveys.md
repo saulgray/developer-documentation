@@ -1001,8 +1001,7 @@ var surveyQuotas = https.get('https://api.samplicio.us/Demand/v1/Surveys/BySurve
     "API Message: GetSurveysBySurveyStatus successful."
   ],
   "ResultCount": 1,
-  "Surveys": [
-    {
+  "Surveys": {
       "AccountID": 1,
       "SurveyStatusCode": "01",
       "SurveyPriority": 11,
