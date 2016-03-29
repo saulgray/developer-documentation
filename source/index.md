@@ -20,7 +20,6 @@ includes:
   - introduction/authentication
   - introduction/request-format
   - introduction/status-codes
-  - introduction/changelog
   - lookup/introduction
   - lookup/definitions
   - lookup/question-library
@@ -46,6 +45,7 @@ includes:
   - guides/introduction
   - guides/supply
   - guides/demand
+  - changelog/changelog
   
 search: true
 ---
