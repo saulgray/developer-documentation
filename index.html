@@ -103,7 +103,7 @@
 <p>Fulcrum has two environments—production and sandbox. The sandbox environment is used during development and for testing. There are no live respondents in this environment (although you may enter as a respondent), and it is not possible to incur any charges as a result of calls in the sandbox. It is important to note that lookup libraries in the sandbox are different from those in production. Production should only be used once an application has been thoroughly tested in staging. Developers are financially responsible for any transactions made on the system regardless of whether it was the result of a bug.</p>
 
               <h2 id="authentication">Authentication</h2>
-<pre class="highlight plaintext"><code>GET  http://stg-api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/22789?key=5175285E-D74B-46A8-AE2C-EF95B3A5175B
+<pre class="highlight plaintext"><code>GET  https://stg-api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/22789?key=5175285E-D74B-46A8-AE2C-EF95B3A5175B
 </code></pre>
 
 <p>The Fulcrum API uses simple key-based authentication over SSL. Every call should have a <code class="prettyprint">key</code> variable appended to the query string. Ensure that the key you are passing is the correct key for the environment.</p>
@@ -111,15 +111,15 @@
               <h2 id="request-format">Request format</h2>
 
 <blockquote>
-<p>JSON URL</p>
+<p>JSON URI</p>
 </blockquote>
-<pre class="highlight plaintext"><code>GET  http://stg-api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/22789?key=5175285E-D74B-46A8-AE2C-EF95B3A5175B
+<pre class="highlight plaintext"><code>GET  https://stg-api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/22789?key=5175285E-D74B-46A8-AE2C-EF95B3A5175B
 </code></pre>
 
 <blockquote>
-<p>XML URL</p>
+<p>XML URI</p>
 </blockquote>
-<pre class="highlight plaintext"><code>GET  http://stg-api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/xml/22789?key=5175285E-D74B-46A8-AE2C-EF95B3A5175B
+<pre class="highlight plaintext"><code>GET  https://stg-api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/xml/22789?key=5175285E-D74B-46A8-AE2C-EF95B3A5175B
 </code></pre>
 
 <p>The Fulcrum API accepts JSON requests by default; however, developers who prefer XML can use that format as well. To send XML payloads, simply append <code class="prettyprint">/xml/</code> to the pathimmediately before any parameters. </p>
@@ -206,14 +206,6 @@
 <td>This error response is given when the server is acting as a gateway and cannot get a response in time.</td>
 </tr>
 </tbody></table>
-
-              <h2 id="changelog">Changelog</h2>
-
-              <h2 id="glossary">Glossary</h2>
-
-<h3 id="identifiers">Identifiers</h3>
-
-<h3 id="terms">Terms</h3>
 
               <h1 id="lookup">Lookup</h1>
 
@@ -3873,6 +3865,28 @@ https://api.samplicio.us/Demand/v1/SupplierAllocations/Targets/Create/<span clas
 <h3 id="diy-market-research-buyer">DIY Market Research Buyer</h3>
 
 <h3 id="enterprise-market-research-buyer">Enterprise Market Research Buyer</h3>
+
+              <h1 id="changelog">Changelog</h1>
+
+<h2 id="10-22-2015">10-22-2015</h2>
+
+<h3 id="demand-api-business-units">Demand API - Business Units</h3>
+
+<p>If BusinessUnitID is passed in as NULL on Survey Create, it will default to the BusinessUnitID of the API user of the account. BusinessUnitID will be required on Survey Update.</p>
+
+<h3 id="deprecated-methods">Deprecated Methods</h3>
+
+<p>The following deprecated methods were removed from the Lookup and Supply APIs:</p>
+
+<ul>
+<li>Lookup/v1/QuestionLibrary/AllBidQuestions</li>
+<li>Lookup/v1/QuestionLibrary/AllBidQuestionOptions</li>
+<li>Lookup/v1/QuestionLibrary/BidQuestionById</li>
+<li>Supply/v1/SupplierLinks/CreateOfferwall</li>
+<li>Supply/v1/SupplierLinks/CreateOfferwallWithSupplierCode</li>
+<li>Supply/v1/SupplierLinks/CreateOfferwallWithTrackingUrlTypeCode</li>
+<li>Supply/v1/SupplierLinks/UpdateRedirectUrlBySupplierLinkSid</li>
+</ul>
 
           </div>
           <div class="dark-box">
