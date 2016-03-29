@@ -21,7 +21,6 @@ includes:
   - introduction/request-format
   - introduction/status-codes
   - introduction/changelog
-  - introduction/glossary
   - lookup/introduction
   - lookup/definitions
   - lookup/question-library
