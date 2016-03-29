@@ -15,7 +15,7 @@ toc_footers:
 includes:
   - introduction/introduction
   - introduction/fiddling
-  - introduction/guides
+  - introduction/common-workflows
   - introduction/environments
   - introduction/authentication
   - introduction/interacting
