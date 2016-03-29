@@ -84,35 +84,43 @@
 
               <h2 id="common-workflows">Common Workflows</h2>
 
-<p>Guides for common workflows can be found in the <a href="#guides">Guides section</a>. These guides cover high-level approaches to common integrations such as panel integrations or DIY sample aquisition applications. The guides should not be considered all inclusive, and your approach should be tailored to your application by referencing the full API documentation included below. For enterprise contracts, API consultation is available free of charge (<a href="support@luc.id">support@luc.id</a>).</p>
+<p>Guides for common workflows can be found in the <a href="#guides">Guides section</a>. These guides cover high-level approaches to common integrations such as panel integrations or DIY sample aquisition applications. The guides should not be considered all inclusive, and your approach should be tailored to your application by referencing the full API documentation included below. For enterprise contracts, API consultation is available free of charge (<a href="mailto:support@luc.id">support@luc.id</a>).</p>
 
               <h2 id="environments">Environments</h2>
 
+<p>Fulcrum has two environments—production and sandbox. The sandbox environment is used during development and for testing. There are no live respondents in this environment (although you may enter as a respondent), and it is not possible to incur any charges as a result of calls in the sandbox. It is important to note that lookup libraries in the sandbox are different from those in production. Production should only be used once an application has been thoroughly tested in staging. Developers are financially responsible for any transactions made on the system regardless of whether it was the result of a bug.</p>
+
+<blockquote>
+<p>Sandbox Endpoint</p>
+</blockquote>
+<pre class="highlight plaintext"><code>https://stg-api.samplicio.us/
+</code></pre>
+
+<blockquote>
+<p>Production Endpoint</p>
+</blockquote>
+<pre class="highlight plaintext"><code>https://api.samplicio.us/
+</code></pre>
+
               <h2 id="authentication">Authentication</h2>
 
-              <h2 id="interacting-with-the-api">Interacting with the API</h2>
+<p>The Fulcrum API uses simple key-based authentication over SSL. Every call should have a <code class="prettyprint">key</code> variable appended to the query string. Ensure that the key you are passing is the correct key for the environment.</p>
+<pre class="highlight plaintext"><code>GET  http://stg-api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/22789?key=5175285E-D74B-46A8-AE2C-EF95B3A5175B
+</code></pre>
 
-<h3 id="making-an-api-call">Making an API Call</h3>
+              <h2 id="request-format">Request format</h2>
 
-<p>All Example Call pages on this site contain a base Staging URL. This URL can be used along with the <a href="http://developer.fulcrumexchange.com/?p=327">Generic Staging API Key</a> to make test calls to the Fulcrum API; any parameters listed in [brackets] should also be replaced. For example, appending the Fulcrum SurveyNumber and the Generic Staging API Key to the GET call below will allow you to make a call directly in your browser’s address bar.</p>
+<p>The Fulcrum API accepts JSON requests by default; however, developers who prefer XML can use that format as well. To send XML payloads, simply append <code class="prettyprint">/xml/</code> to the pathimmediately before any parameters. </p>
 
-<h4 id="base-url">Base URL</h4>
-
-<p><code class="prettyprint">GET  http://stg-api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/[SurveyNumber]?key=[APIKey]</code></p>
-
-<h4 id="example-url">Example URL</h4>
-
-<p><code class="prettyprint">GET  http://stg-api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/22789?key=5175285E-D74B-46A8-AE2C-EF95B3A5175B</code></p>
-
-<h3 id="json-versus-xml">JSON versus XML</h3>
-
-<p>The Fulcrum API requires by default that all requests and responses be written in JSON, but developers who prefer XML can use that language, as well. To turn any JSON call into an XML call, simply append “/xml” to any Request URL immediately before appending any request parameters or the API key.</p>
-
-<h4 id="json-url">JSON URL</h4>
+<blockquote>
+<p>JSON URL</p>
+</blockquote>
 
 <p><code class="prettyprint">GET  http://stg-api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/22789?key=5175285E-D74B-46A8-AE2C-EF95B3A5175B</code></p>
 
-<h4 id="xml-url">XML URL</h4>
+<blockquote>
+<p>XML URL</p>
+</blockquote>
 
 <p><code class="prettyprint">GET  http://stg-api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/xml/22789?key=5175285E-D74B-46A8-AE2C-EF95B3A5175B</code></p>
 
