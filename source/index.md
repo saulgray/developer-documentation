@@ -18,7 +18,7 @@ includes:
   - introduction/common-workflows
   - introduction/environments
   - introduction/authentication
-  - introduction/interacting
+  - introduction/request-format
   - introduction/status-codes
   - introduction/changelog
   - introduction/glossary
