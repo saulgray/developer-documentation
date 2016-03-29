@@ -1,6 +1,6 @@
 ## Allocations
 
-### List Allocated Surveys
+### GET List Allocated Surveys
 > Definition
 
 ```plaintext
@@ -104,7 +104,7 @@ Returns a list of all live survey opportunities available through the Exchange a
 |------------------------------|----------|----------|---------------------------------------------------------------------------------|
 |SupplierCode                  | int      | true     | Unique code associated with a supplier account.                                 |
 
-### Show an Allocated Survey
+### GET Show an Allocated Survey
 > Definition
 
 ```plaintext
@@ -225,7 +225,7 @@ Returns any allocation(s) given to you for a particular survey.
 |SurveyNumber                  | int      | true     | Unique number associated with the survey.                                       |
 
 
-### List Recently Allocated Surveys
+### GET List Recently Allocated Surveys
 > Definition
 
 ```plaintext
