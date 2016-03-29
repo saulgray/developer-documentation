@@ -88,7 +88,7 @@ streamWriter.Flush();
 streamWriter.Close();
 }
 
-WebResponse supplierLink = request.GetResponse();
+WebResponse supplierAllocation = request.GetResponse();
 ```
 
 ```javascript
