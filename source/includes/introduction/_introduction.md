@@ -6,6 +6,6 @@ The Fulcrum API provides a simple way to connect to millions of people and get a
 
 Built on RESTful principles, the API uses HTTP methods and verbs. Both JSON and XML requests are supported. JSON is returned by all responses.
 
-To make the API as explorable as possible, each account has production and staging API keys and endpoints. Just use the appropriate key and endpoint to perform a live or test call. Requests made with staging credentials never hit the Exchange and incur no cost. 
+To make the API as explorable as possible, each account has production and sandbox API keys and endpoints. Just use the appropriate key and endpoint to perform a live or test call. Requests made with sandbox credentials never hit the Exchange and incur no cost. 
 
 We do not currently rate limit calls because we believe that would only serve to limit your innovation. Please be practical when determining call frequencies. 
