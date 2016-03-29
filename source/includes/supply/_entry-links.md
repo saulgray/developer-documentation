@@ -1,6 +1,6 @@
 ##Entry Links
 
-The Entry Links resource enables suppliers to create, update, and retrieve supplier survey entry links as well as specify [supplier link and tracking types](#list-global-definitions). 
+The Entry Links resource enables suppliers to create, update, and retrieve supplier survey entry links as well as specify [supplier link and tracking types](#get-list-global-definitions). 
 
 #### Supplier Link Model
 
