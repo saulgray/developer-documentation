@@ -85,4 +85,3 @@ Returns information on the survey group used by the specified survey.
 |------------------------------|----------|----------|---------------------------------------------------------------------------------|
 |SurveyNumber                  | int      | true     | Unique number associated with the survey.                                       |
 |SupplierCode                  | string   | true     | Unique code associated with a supplier account.                                 |
->>>>>>> f5506159ac41025dc9249c3b395899624ee89fa7
