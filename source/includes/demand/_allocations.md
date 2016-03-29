@@ -11,7 +11,7 @@ POST  https://api.samplicio.us/Demand/v1/SupplierAllocations/Create/{SurveyNumbe
 
 ```shell
 curl -H "Content-Type: application/json" \
--X POST --data '{"SupplierCode": "5411", "AllocationPercentage": 0.1, "TCPI": 2, "HedgeAccess": true, "BlockRouterTraffic": false,}' \
+-X POST --data '{"SupplierCode": "1010", "AllocationPercentage": 0.1, "TCPI": 2, "HedgeAccess": true, "BlockRouterTraffic": false,}' \
 https://api.samplicio.us/Demand/v1/SupplierAllocations/Create/{SurveyNumber}?key={APIKey}
 ```
 
@@ -29,7 +29,7 @@ fullUriPath = uri.path + '?' + uri.query
 
 request = Net::HTTP::Post.new(fullUriPath, initheader = {'Content-Type' =>'application/json'})
 
-request.body = {SupplierCode: "5411", AllocationPercentage: 0.1, TCPI: 2, HedgeAccess: true, BlockRouterTraffic: false}.to_json
+request.body = {SupplierCode: "1010", AllocationPercentage: 0.1, TCPI: 2, HedgeAccess: true, BlockRouterTraffic: false}.to_json
 
 supplierAllocation = http.request(request)
 ```
@@ -38,7 +38,7 @@ supplierAllocation = http.request(request)
 <?php
 $curl = curl_init();
 
-$params = '{"SupplierCode": "5411", "AllocationPercentage": 0.1, "TCPI": 2, "HedgeAccess": true, "BlockRouterTraffic": false}';
+$params = '{"SupplierCode": "1010", "AllocationPercentage": 0.1, "TCPI": 2, "HedgeAccess": true, "BlockRouterTraffic": false}';
 
 curl_setopt_array($curl, array(
   CURLOPT_URL => "https://api.samplicio.us/Demand/v1/SupplierAllocations/Create/{SurveyNumber}?key={APIKey}",
@@ -63,7 +63,7 @@ curl_close($curl);
 import requests, json
 
 url = 'https://api.samplicio.us/Demand/v1/SupplierAllocations/Create/{SurveyNumber}?key={APIKey}'
-params = {'SupplierCode': '5411', 'AllocationPercentage': 0.1, 'TCPI': 2, 'HedgeAccess': true, 'BlockRouterTraffic': false}
+params = {'SupplierCode': '1010', 'AllocationPercentage': 0.1, 'TCPI': 2, 'HedgeAccess': true, 'BlockRouterTraffic': false}
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
@@ -76,7 +76,7 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SupplierAllocations/Create/{SurveyNumber}?key={APIKey}");
 
-string params = "{\"SupplierCode\": \"5411\", \"AllocationPercentage\": 0.1, \"TCPI\": 2, \"HedgeAccess\": true, \"BlockRouterTraffic\": false,}";
+string params = "{\"SupplierCode\": \"1010\", \"AllocationPercentage\": 0.1, \"TCPI\": 2, \"HedgeAccess\": true, \"BlockRouterTraffic\": false,}";
     
 request.Method = "POST";
 request.ContentType = "application/json";
@@ -103,7 +103,7 @@ var options = {
 };
 
 var json = {
-  "SupplierCode": "5411",
+  "SupplierCode": "1010",
 	"AllocationPercentage": 0.1,
 	"TCPI": 2,
 	"HedgeAccess": true,
@@ -132,7 +132,7 @@ request.end();
 {
     "ApiResult": 0,
     "ApiResultCode": 0,
-    "ApiAccount": "Federated Sample",
+    "ApiAccount": "Anon",
     "AccountType": 1,
     "ApiAccountStatus": 1,
     "AccountCode": "FED",
@@ -142,7 +142,7 @@ request.end();
     ],
     "ResultCount": 1,
     "SupplierAllocation": {
-        "SupplierCode": "5411",
+        "SupplierCode": "1010",
         "AllocationPercentage": 0.1,
         "TCPI": 2,
         "HedgeAccess": true,
