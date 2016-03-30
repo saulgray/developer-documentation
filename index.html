@@ -64,50 +64,65 @@
 
 <p>Lucid brings efficiency and automation to online sampling with Fulcrum, today’s most powerful, open, and customizable online sampling platform.</p>
 
-<p>The API is based on REST (REpresentational State Transfer) principles, which makes it very easy to write and test applications. Both JSON and XML data formats are supported.</p>
+<p>The Fulcrum API provides a simple way to connect to millions of people and get answers in real time. By specifying a set of demographic qualifications and quotas, buyers can target a wide or very specific population on a topic of your choosing. As a supplier, the Fulcrum API gives you fine grain control over your yield and business relationships on the platform. </p>
 
-              <h2 id="guides">Guides</h2>
+<p>Built on RESTful principles, the API uses HTTP methods and verbs. Both JSON and XML requests are supported. JSON is returned by all responses.</p>
 
-              <h2 id="authentication">Authentication</h2>
+<p>To make the API as explorable as possible, each account has production and sandbox API keys and endpoints. Just use the appropriate key and endpoint to perform a live or test call. Requests made with sandbox credentials never hit the Exchange and incur no cost. </p>
 
-              <h2 id="resources">Resources</h2>
+<p>We do not currently rate limit calls because we believe that would only serve to limit your innovation. Please be practical when determining call frequencies. </p>
 
-<p>To begin testing the Fulcrum API, first download a REST Client extension for your browser. Whether you are testing the Supply or Demand API, you will need a REST Client in order to make POST, PUT, and DELETE calls. All GET calls can be made directly through your browser.</p>
+              <h2 id="fiddling">Fiddling</h2>
 
-<ul>
-<li>Chrome Simple REST Client: <a href="https://chrome.google.com/webstore/detail/simple-rest-client/fhjcajmcbmldlhcimfajhfbgofnpcjmb">https://chrome.google.com/webstore/detail/simple-rest-client/fhjcajmcbmldlhcimfajhfbgofnpcjmb</a></li>
-<li>Chrome Postman REST Client: <a href="https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm?hl=en">https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm?hl=en</a></li>
-<li>Firefox RESTClient: <a href="https://addons.mozilla.org/en-US/firefox/addon/restclient/">https://addons.mozilla.org/en-US/firefox/addon/restclient/</a></li>
-<li>Opera Simple REST Client: <a href="https://addons.opera.com/en/extensions/details/simple-rest-client/?display=en">https://addons.opera.com/en/extensions/details/simple-rest-client/?display=en</a></li>
-</ul>
+<p><img alt="postman" src="images/postman.png" /></p>
+
+<p>The entire Fulcrum API collection can be easily imported into Postman, by clicking the button below:</p>
+
+<p><a href="https://app.getpostman.com/run-collection/aca6db324b878ba8fd78#?env%5BStaging%5D=W3sia2V5IjoidXJsIiwidmFsdWUiOiJodHRwOi8vc3RnLWFwaS5zYW1wbGljaW8udXMiLCJ0eXBlIjoidGV4dCIsIm5hbWUiOiJ1cmwiLCJlbmFibGVkIjp0cnVlfSx7ImtleSI6ImtleSIsInZhbHVlIjoiIiwidHlwZSI6InRleHQiLCJuYW1lIjoia2V5IiwiZW5hYmxlZCI6dHJ1ZX0seyJrZXkiOiJDb3VudHJ5TGFuZ3VhZ2VJRCIsInZhbHVlIjoiIiwidHlwZSI6InRleHQiLCJuYW1lIjoiQ291bnRyeUxhbmd1YWdlSUQiLCJlbmFibGVkIjp0cnVlfSx7ImtleSI6IlN1cHBsaWVyQ29kZSIsInZhbHVlIjoiIiwidHlwZSI6InRleHQiLCJuYW1lIjoiU3VwcGxpZXJDb2RlIiwiZW5hYmxlZCI6dHJ1ZX0seyJrZXkiOiJTdXJ2ZXlOdW1iZXIiLCJ2YWx1ZSI6IiIsInR5cGUiOiJ0ZXh0IiwibmFtZSI6IlN1cnZleU51bWJlciIsImVuYWJsZWQiOnRydWV9LHsia2V5IjoiUXVlc3Rpb25JRCIsInZhbHVlIjoiIiwidHlwZSI6InRleHQiLCJuYW1lIjoiUXVlc3Rpb25JRCIsImVuYWJsZWQiOnRydWV9LHsia2V5IjoiZGF0ZSIsInZhbHVlIjoiMjAxNi0wMS0wMSIsInR5cGUiOiJ0ZXh0IiwibmFtZSI6ImRhdGUiLCJlbmFibGVkIjp0cnVlfV0=" target="_blank"><img src="https://run.pstmn.io/button.svg" alt="Run in Postman"></a></p>
+
+<p>Postman is a free application that allows you to execute test calls in an intuitive interface. When making test calls, you should use the sandbox environment.</p>
+
+              <h2 id="common-workflows">Common Workflows</h2>
+
+<p>Guides for common workflows can be found in the <a href="#guides">Guides section</a>. These guides cover high-level approaches to common integrations such as panel integrations or DIY sample aquisition applications. The guides should not be considered all inclusive, and your approach should be tailored to your application by referencing the full API documentation included below. For enterprise contracts, API consultation is available free of charge (<a href="mailto:support@luc.id">support@luc.id</a>).</p>
 
               <h2 id="environments">Environments</h2>
 
-              <h2 id="interacting-with-the-api">Interacting with the API</h2>
+<blockquote>
+<p>Sandbox Endpoint</p>
+</blockquote>
+<pre class="highlight plaintext"><code>https://stg-api.samplicio.us/
+</code></pre>
 
-<h3 id="making-an-api-call">Making an API Call</h3>
+<blockquote>
+<p>Production Endpoint</p>
+</blockquote>
+<pre class="highlight plaintext"><code>https://api.samplicio.us/
+</code></pre>
 
-<p>All Example Call pages on this site contain a base Staging URL. This URL can be used along with the <a href="http://developer.fulcrumexchange.com/?p=327">Generic Staging API Key</a> to make test calls to the Fulcrum API; any parameters listed in [brackets] should also be replaced. For example, appending the Fulcrum SurveyNumber and the Generic Staging API Key to the GET call below will allow you to make a call directly in your browser’s address bar.</p>
+<p>Fulcrum has two environments—production and sandbox. The sandbox environment is used during development and for testing. There are no live respondents in this environment (although you may enter as a respondent), and it is not possible to incur any charges as a result of calls in the sandbox. It is important to note that lookup libraries in the sandbox are different from those in production. Production should only be used once an application has been thoroughly tested in staging. Developers are financially responsible for any transactions made on the system regardless of whether it was the result of a bug.</p>
 
-<h4 id="base-url">Base URL</h4>
+              <h2 id="authentication">Authentication</h2>
+<pre class="highlight plaintext"><code>GET  https://stg-api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/22789?key=5175285E-D74B-46A8-AE2C-EF95B3A5175B
+</code></pre>
 
-<p><code class="prettyprint">GET  http://stg-api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/[SurveyNumber]?key=[APIKey]</code></p>
+<p>The Fulcrum API uses simple key-based authentication over SSL. Every call should have a <code class="prettyprint">key</code> variable appended to the query string. Ensure that the key you are passing is the correct key for the environment.</p>
 
-<h4 id="example-url">Example URL</h4>
+              <h2 id="request-format">Request format</h2>
 
-<p><code class="prettyprint">GET  http://stg-api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/22789?key=5175285E-D74B-46A8-AE2C-EF95B3A5175B</code></p>
+<blockquote>
+<p>JSON URI</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET  https://stg-api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/22789?key=5175285E-D74B-46A8-AE2C-EF95B3A5175B
+</code></pre>
 
-<h3 id="json-versus-xml">JSON versus XML</h3>
+<blockquote>
+<p>XML URI</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET  https://stg-api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/xml/22789?key=5175285E-D74B-46A8-AE2C-EF95B3A5175B
+</code></pre>
 
-<p>The Fulcrum API requires by default that all requests and responses be written in JSON, but developers who prefer XML can use that language, as well. To turn any JSON call into an XML call, simply append “/xml” to any Request URL immediately before appending any request parameters or the API key.</p>
-
-<h4 id="json-url">JSON URL</h4>
-
-<p><code class="prettyprint">GET  http://stg-api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/22789?key=5175285E-D74B-46A8-AE2C-EF95B3A5175B</code></p>
-
-<h4 id="xml-url">XML URL</h4>
-
-<p><code class="prettyprint">GET  http://stg-api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/xml/22789?key=5175285E-D74B-46A8-AE2C-EF95B3A5175B</code></p>
+<p>The Fulcrum API accepts JSON requests by default; however, developers who prefer XML can use that format as well. To send XML payloads, simply append <code class="prettyprint">/xml/</code> to the pathimmediately before any parameters. </p>
 
               <h2 id="http-status-codes">HTTP Status Codes</h2>
 
@@ -191,14 +206,6 @@
 <td>This error response is given when the server is acting as a gateway and cannot get a response in time.</td>
 </tr>
 </tbody></table>
-
-              <h2 id="changelog">Changelog</h2>
-
-              <h2 id="glossary">Glossary</h2>
-
-<h3 id="identifiers">Identifiers</h3>
-
-<h3 id="terms">Terms</h3>
 
               <h1 id="lookup">Lookup</h1>
 
@@ -5647,6 +5654,28 @@ https://api.samplicio.us/Demand/v1/SupplierAllocations/Targets/Create/<span clas
 <h3 id="diy-market-research-buyer">DIY Market Research Buyer</h3>
 
 <h3 id="enterprise-market-research-buyer">Enterprise Market Research Buyer</h3>
+
+              <h1 id="changelog">Changelog</h1>
+
+<h2 id="10-22-2015">10-22-2015</h2>
+
+<h4 id="demand-api-business-units">Demand API - Business Units</h4>
+
+<p>If BusinessUnitID is passed in as NULL on Survey Create, it will default to the BusinessUnitID of the API user of the account. BusinessUnitID will be required on Survey Update.</p>
+
+<h4 id="deprecated-methods">Deprecated Methods</h4>
+
+<p>The following deprecated methods were removed from the Lookup and Supply APIs:</p>
+
+<ul>
+<li>Lookup/v1/QuestionLibrary/AllBidQuestions</li>
+<li>Lookup/v1/QuestionLibrary/AllBidQuestionOptions</li>
+<li>Lookup/v1/QuestionLibrary/BidQuestionById</li>
+<li>Supply/v1/SupplierLinks/CreateOfferwall</li>
+<li>Supply/v1/SupplierLinks/CreateOfferwallWithSupplierCode</li>
+<li>Supply/v1/SupplierLinks/CreateOfferwallWithTrackingUrlTypeCode</li>
+<li>Supply/v1/SupplierLinks/UpdateRedirectUrlBySupplierLinkSid</li>
+</ul>
 
           </div>
           <div class="dark-box">
