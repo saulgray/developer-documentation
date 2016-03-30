@@ -260,7 +260,7 @@ request.end();
       "CPI": null,
       "Suppliers": [
         {
-          "SupplierID": 1
+          "SupplierID": 1,
           "Completes": 0,
           "Screens": 0
         },
