@@ -64,65 +64,50 @@
 
 <p>Lucid brings efficiency and automation to online sampling with Fulcrum, today’s most powerful, open, and customizable online sampling platform.</p>
 
-<p>The Fulcrum API provides a simple way to connect to millions of people and get answers in real time. By specifying a set of demographic qualifications and quotas, buyers can target a wide or very specific population on a topic of your choosing. As a supplier, the Fulcrum API gives you fine grain control over your yield and business relationships on the platform. </p>
+<p>The API is based on REST (REpresentational State Transfer) principles, which makes it very easy to write and test applications. Both JSON and XML data formats are supported.</p>
 
-<p>Built on RESTful principles, the API uses HTTP methods and verbs. Both JSON and XML requests are supported. JSON is returned by all responses.</p>
+              <h2 id="guides">Guides</h2>
 
-<p>To make the API as explorable as possible, each account has production and sandbox API keys and endpoints. Just use the appropriate key and endpoint to perform a live or test call. Requests made with sandbox credentials never hit the Exchange and incur no cost. </p>
+              <h2 id="authentication">Authentication</h2>
 
-<p>We do not currently rate limit calls because we believe that would only serve to limit your innovation. Please be practical when determining call frequencies. </p>
+              <h2 id="resources">Resources</h2>
 
-              <h2 id="fiddling">Fiddling</h2>
+<p>To begin testing the Fulcrum API, first download a REST Client extension for your browser. Whether you are testing the Supply or Demand API, you will need a REST Client in order to make POST, PUT, and DELETE calls. All GET calls can be made directly through your browser.</p>
 
-<p><img alt="postman" src="images/postman.png" /></p>
-
-<p>The entire Fulcrum API collection can be easily imported into Postman, by clicking the button below:</p>
-
-<p><a href="https://app.getpostman.com/run-collection/aca6db324b878ba8fd78#?env%5BStaging%5D=W3sia2V5IjoidXJsIiwidmFsdWUiOiJodHRwOi8vc3RnLWFwaS5zYW1wbGljaW8udXMiLCJ0eXBlIjoidGV4dCIsIm5hbWUiOiJ1cmwiLCJlbmFibGVkIjp0cnVlfSx7ImtleSI6ImtleSIsInZhbHVlIjoiIiwidHlwZSI6InRleHQiLCJuYW1lIjoia2V5IiwiZW5hYmxlZCI6dHJ1ZX0seyJrZXkiOiJDb3VudHJ5TGFuZ3VhZ2VJRCIsInZhbHVlIjoiIiwidHlwZSI6InRleHQiLCJuYW1lIjoiQ291bnRyeUxhbmd1YWdlSUQiLCJlbmFibGVkIjp0cnVlfSx7ImtleSI6IlN1cHBsaWVyQ29kZSIsInZhbHVlIjoiIiwidHlwZSI6InRleHQiLCJuYW1lIjoiU3VwcGxpZXJDb2RlIiwiZW5hYmxlZCI6dHJ1ZX0seyJrZXkiOiJTdXJ2ZXlOdW1iZXIiLCJ2YWx1ZSI6IiIsInR5cGUiOiJ0ZXh0IiwibmFtZSI6IlN1cnZleU51bWJlciIsImVuYWJsZWQiOnRydWV9LHsia2V5IjoiUXVlc3Rpb25JRCIsInZhbHVlIjoiIiwidHlwZSI6InRleHQiLCJuYW1lIjoiUXVlc3Rpb25JRCIsImVuYWJsZWQiOnRydWV9LHsia2V5IjoiZGF0ZSIsInZhbHVlIjoiMjAxNi0wMS0wMSIsInR5cGUiOiJ0ZXh0IiwibmFtZSI6ImRhdGUiLCJlbmFibGVkIjp0cnVlfV0="><img alt="Run in Postman" src="https://run.pstmn.io/button.svg" /></a></p>
-
-<p>Postman is a free application that allows you to execute test calls in an intuitive interface. When making test calls, you should use the sandbox environment.</p>
-
-              <h2 id="common-workflows">Common Workflows</h2>
-
-<p>Guides for common workflows can be found in the <a href="#guides">Guides section</a>. These guides cover high-level approaches to common integrations such as panel integrations or DIY sample aquisition applications. The guides should not be considered all inclusive, and your approach should be tailored to your application by referencing the full API documentation included below. For enterprise contracts, API consultation is available free of charge (<a href="mailto:support@luc.id">support@luc.id</a>).</p>
+<ul>
+<li>Chrome Simple REST Client: <a href="https://chrome.google.com/webstore/detail/simple-rest-client/fhjcajmcbmldlhcimfajhfbgofnpcjmb">https://chrome.google.com/webstore/detail/simple-rest-client/fhjcajmcbmldlhcimfajhfbgofnpcjmb</a></li>
+<li>Chrome Postman REST Client: <a href="https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm?hl=en">https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm?hl=en</a></li>
+<li>Firefox RESTClient: <a href="https://addons.mozilla.org/en-US/firefox/addon/restclient/">https://addons.mozilla.org/en-US/firefox/addon/restclient/</a></li>
+<li>Opera Simple REST Client: <a href="https://addons.opera.com/en/extensions/details/simple-rest-client/?display=en">https://addons.opera.com/en/extensions/details/simple-rest-client/?display=en</a></li>
+</ul>
 
               <h2 id="environments">Environments</h2>
 
-<blockquote>
-<p>Sandbox Endpoint</p>
-</blockquote>
-<pre class="highlight plaintext"><code>https://stg-api.samplicio.us/
-</code></pre>
+              <h2 id="interacting-with-the-api">Interacting with the API</h2>
 
-<blockquote>
-<p>Production Endpoint</p>
-</blockquote>
-<pre class="highlight plaintext"><code>https://api.samplicio.us/
-</code></pre>
+<h3 id="making-an-api-call">Making an API Call</h3>
 
-<p>Fulcrum has two environments—production and sandbox. The sandbox environment is used during development and for testing. There are no live respondents in this environment (although you may enter as a respondent), and it is not possible to incur any charges as a result of calls in the sandbox. It is important to note that lookup libraries in the sandbox are different from those in production. Production should only be used once an application has been thoroughly tested in staging. Developers are financially responsible for any transactions made on the system regardless of whether it was the result of a bug.</p>
+<p>All Example Call pages on this site contain a base Staging URL. This URL can be used along with the <a href="http://developer.fulcrumexchange.com/?p=327">Generic Staging API Key</a> to make test calls to the Fulcrum API; any parameters listed in [brackets] should also be replaced. For example, appending the Fulcrum SurveyNumber and the Generic Staging API Key to the GET call below will allow you to make a call directly in your browser’s address bar.</p>
 
-              <h2 id="authentication">Authentication</h2>
-<pre class="highlight plaintext"><code>GET  https://stg-api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/22789?key=5175285E-D74B-46A8-AE2C-EF95B3A5175B
-</code></pre>
+<h4 id="base-url">Base URL</h4>
 
-<p>The Fulcrum API uses simple key-based authentication over SSL. Every call should have a <code class="prettyprint">key</code> variable appended to the query string. Ensure that the key you are passing is the correct key for the environment.</p>
+<p><code class="prettyprint">GET  http://stg-api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/[SurveyNumber]?key=[APIKey]</code></p>
 
-              <h2 id="request-format">Request format</h2>
+<h4 id="example-url">Example URL</h4>
 
-<blockquote>
-<p>JSON URI</p>
-</blockquote>
-<pre class="highlight plaintext"><code>GET  https://stg-api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/22789?key=5175285E-D74B-46A8-AE2C-EF95B3A5175B
-</code></pre>
+<p><code class="prettyprint">GET  http://stg-api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/22789?key=5175285E-D74B-46A8-AE2C-EF95B3A5175B</code></p>
 
-<blockquote>
-<p>XML URI</p>
-</blockquote>
-<pre class="highlight plaintext"><code>GET  https://stg-api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/xml/22789?key=5175285E-D74B-46A8-AE2C-EF95B3A5175B
-</code></pre>
+<h3 id="json-versus-xml">JSON versus XML</h3>
 
-<p>The Fulcrum API accepts JSON requests by default; however, developers who prefer XML can use that format as well. To send XML payloads, simply append <code class="prettyprint">/xml/</code> to the pathimmediately before any parameters. </p>
+<p>The Fulcrum API requires by default that all requests and responses be written in JSON, but developers who prefer XML can use that language, as well. To turn any JSON call into an XML call, simply append “/xml” to any Request URL immediately before appending any request parameters or the API key.</p>
+
+<h4 id="json-url">JSON URL</h4>
+
+<p><code class="prettyprint">GET  http://stg-api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/22789?key=5175285E-D74B-46A8-AE2C-EF95B3A5175B</code></p>
+
+<h4 id="xml-url">XML URL</h4>
+
+<p><code class="prettyprint">GET  http://stg-api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/xml/22789?key=5175285E-D74B-46A8-AE2C-EF95B3A5175B</code></p>
 
               <h2 id="http-status-codes">HTTP Status Codes</h2>
 
@@ -206,6 +191,14 @@
 <td>This error response is given when the server is acting as a gateway and cannot get a response in time.</td>
 </tr>
 </tbody></table>
+
+              <h2 id="changelog">Changelog</h2>
+
+              <h2 id="glossary">Glossary</h2>
+
+<h3 id="identifiers">Identifiers</h3>
+
+<h3 id="terms">Terms</h3>
 
               <h1 id="lookup">Lookup</h1>
 
@@ -1089,7 +1082,7 @@
 <tr>
 <td>SurveyGroupID</td>
 <td>int</td>
-<td>Deprecated: Will return <code class="prettyprint">null</code>. If SurveyGroupExists is <code class="prettyprint">true</code>, then <a href="#list-a-survey’s-groups">list the survey&rsquo;s groups</a>.</td>
+<td>Deprecated: Will return <code class="prettyprint">null</code>. If SurveyGroupExists is <code class="prettyprint">true</code>, then <a href="#get-list-a-survey’s-groups">list the survey&rsquo;s groups</a>.</td>
 </tr>
 <tr>
 <td>SurveyGroupExists</td>
@@ -1220,7 +1213,7 @@
 
 <p>Returns a list of all live survey opportunities available through the Exchange for which you have an allocation or entry link.</p>
 
-<aside class="notice">After <a href="#create-a-link">creating an entry link</a> you can <a href="#list-allocated-surveys">list allocated surveys</a> or <a href="#show-an-allocated-survey">show an allocated survey</a> to access these opportunities.</aside>
+<aside class="notice">After <a href="#post-create-a-link">creating an entry link</a> you can <a href="#get-list-allocated-surveys">list allocated surveys</a> or <a href="#get-show-an-allocated-survey">show an allocated survey</a> to access these opportunities.</aside>
 
 <h4 id="arguments">Arguments</h4>
 
@@ -1235,6 +1228,359 @@
 <tr>
 <td>SupplierCode</td>
 <td>int</td>
+<td>true</td>
+<td>Unique code associated with a supplier account.</td>
+</tr>
+</tbody></table>
+
+              <h2 id="allocations">Allocations</h2>
+
+<h3 id="get-list-allocated-surveys">GET List Allocated Surveys</h3>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET  https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/All/{SupplierCode}?key={APIKey}
+</code></pre>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/All/<span class="o">{</span>SupplierCode<span class="o">}</span>?key<span class="o">={</span>APIKey<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
+
+<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/All/{SupplierCode}?key={APIKey}'</span><span class="p">)</span>
+
+<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">uri</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
+
+<span class="n">http</span><span class="p">.</span><span class="nf">use_ssl</span> <span class="o">=</span> <span class="kp">true</span>
+
+<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">request_uri</span><span class="p">)</span>
+
+<span class="n">allocations</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>  
+</code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$allocations</span> <span class="o">=</span> <span class="nb">file_get_contents</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/All/{SupplierCode}?key={APIKey}'</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">allocations</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/All/{SupplierCode}?key={APIKey}'</span><span class="p">)</span>
+</code></pre>
+<pre class="highlight csharp"><code><span class="k">using</span> <span class="nn">System.Net</span><span class="p">;</span>
+
+<span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/All/{SupplierCode}?key={APIKey}"</span><span class="p">);</span>
+
+<span class="n">WebResponse</span> <span class="n">allocations</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">GetResponse</span><span class="p">();</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'https'</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">allocations</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/All/{SupplierCode}?key={APIKey}'</span><span class="p">);</span>
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"ApiResult"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiResultCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiAccount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Anon"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"AccountType"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiAccountStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"AccountCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AA"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiMessages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"API Message: Response initialized."</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"API Message: GetSupplierAllocationsAll successful."</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"ResultCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"SupplierAllocationSurveys"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"SurveyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IT Developers Survey"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"SurveyNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">143479</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"SurveySID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4C2B4533-0EA1-364A-212B-345B38C6AF57"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"AccountName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sample Company"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CountryLanguageID"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"LengthOfInterview"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"BidIncidence"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Conversion"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"FieldBeginDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(1429160400000-0500)/"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"FieldEndDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(1429848000000-0500)/"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IndustryID"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"StudyTypeID"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Priority"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"SurveyGroup"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"SurveyGroupID"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"SurveyGroupExists"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"BidLengthOfInterview"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"TerminationLengthOfInterview"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"SurveyQuotaCalcTypeID"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsTrueSample"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"SurveyMobileConversion"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"SampleTypeID"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Returns a list of all live survey opportunities available through the Exchange and/or directly allocated to you for which you have an allocation or entry link.</p>
+
+<h4 id="arguments">Arguments</h4>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>SupplierCode</td>
+<td>int</td>
+<td>true</td>
+<td>Unique code associated with a supplier account.</td>
+</tr>
+</tbody></table>
+
+<h3 id="get-show-an-allocated-survey">GET Show an Allocated Survey</h3>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET  https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}
+</code></pre>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/BySurveyNumber/<span class="o">{</span>SurveyNumber<span class="o">}</span>/<span class="o">{</span>SupplierCode<span class="o">}</span>?key<span class="o">={</span>APIKey<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
+
+<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}'</span><span class="p">)</span>
+
+<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">uri</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
+
+<span class="n">http</span><span class="p">.</span><span class="nf">use_ssl</span> <span class="o">=</span> <span class="kp">true</span>
+
+<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">request_uri</span><span class="p">)</span>
+
+<span class="n">allocations</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>  
+</code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$allocations</span> <span class="o">=</span> <span class="nb">file_get_contents</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}'</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">allocations</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}'</span><span class="p">)</span>
+</code></pre>
+<pre class="highlight csharp"><code><span class="k">using</span> <span class="nn">System.Net</span><span class="p">;</span>
+
+<span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}"</span><span class="p">);</span>
+
+<span class="n">WebResponse</span> <span class="n">allocations</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">GetResponse</span><span class="p">();</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'https'</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">allocations</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}'</span><span class="p">);</span>
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"ApiResult"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiResultCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiAccount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Anon"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"AccountType"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiAccountStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"AccountCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AA"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiMessages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"API Message: Response initialized."</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"API Message: GetSupplierAllocationsBySurveyNumber successful."</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"ResultCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"SupplierAllocationSurvey"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"SurveyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pet Owner Survey"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SurveyNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">17381</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SurveySID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"03B4B292-0EA1-212B-02C1-345B38C6AF57"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"AccountName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sample Company"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CountryLanguageID"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"LengthOfInterview"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"BidIncidence"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Conversion"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"FieldBeginDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(1400562000000-0500)/"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"FieldEndDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(1401854400000-0500)/"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IndustryID"</span><span class="p">:</span><span class="w"> </span><span class="mi">18</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"StudyTypeID"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Priority"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SupplierAllocations"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nt">"OfferwallTotalRemaining"</span><span class="p">:</span><span class="w"> </span><span class="mi">47</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"OfferwallAllocations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"SupplierCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0050"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"SupplierName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Supply Company"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"OfferwallCompletes"</span><span class="p">:</span><span class="w"> </span><span class="mi">403</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"AllocationRemaining"</span><span class="p">:</span><span class="w"> </span><span class="mi">47</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"HedgeRemaining"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"TargetModel"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"SupplierLinkType"</span><span class="p">:</span><span class="w"> </span><span class="mi">18</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"LiveSupplierLink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://staging.samplicio.us/router/default.aspx?SID=da94c7f8-0dcf-4fcc-80d4-6e2beafc3ff4&amp;PID="</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"SupplierLinkSID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"da94c7f8-0dcf-4fcc-80d4-6e2beafc3ff4"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"TargetCCPI"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"SurveyGroup"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SurveyGroupID"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SurveyGroupExists"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"BidLengthOfInterview"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"TerminationLengthOfInterview"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SurveyQuotaCalcTypeID"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsTrueSample"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SurveyMobileConversion"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SampleTypeID"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Returns any allocation(s) given to you for a particular survey.</p>
+
+<h4 id="arguments">Arguments</h4>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>SupplierCode</td>
+<td>int</td>
+<td>true</td>
+<td>Unique code associated with a supplier account.</td>
+</tr>
+<tr>
+<td>SurveyNumber</td>
+<td>int</td>
+<td>true</td>
+<td>Unique number associated with the survey.</td>
+</tr>
+</tbody></table>
+
+<h3 id="get-list-recently-allocated-surveys">GET List Recently Allocated Surveys</h3>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET  https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/ByDate/{Date}/{SupplierCode}?key={APIKey}
+</code></pre>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/ByDate/<span class="o">{</span>Date<span class="o">}</span>/<span class="o">{</span>SupplierCode<span class="o">}</span>?key<span class="o">={</span>APIKey<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
+
+<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/ByDate/{Date}/{SupplierCode}?key={APIKey}'</span><span class="p">)</span>
+
+<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">uri</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
+
+<span class="n">http</span><span class="p">.</span><span class="nf">use_ssl</span> <span class="o">=</span> <span class="kp">true</span>
+
+<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">request_uri</span><span class="p">)</span>
+
+<span class="n">allocations</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>  
+</code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$allocations</span> <span class="o">=</span> <span class="nb">file_get_contents</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/ByDate/{Date}/{SupplierCode}?key={APIKey}'</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">allocations</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/ByDate/{Date}/{SupplierCode}?key={APIKey}'</span><span class="p">)</span>
+</code></pre>
+<pre class="highlight csharp"><code><span class="k">using</span> <span class="nn">System.Net</span><span class="p">;</span>
+
+<span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/ByDate/{Date}/{SupplierCode}?key={APIKey}"</span><span class="p">);</span>
+
+<span class="n">WebResponse</span> <span class="n">allocations</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">GetResponse</span><span class="p">();</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'https'</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">allocations</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/ByDate/{Date}/{SupplierCode}?key={APIKey}'</span><span class="p">);</span>
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"ApiResult"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiResultCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiAccount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Anon"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"AccountType"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiAccountStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"AccountCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AA"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiMessages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"API Message: Response initialized."</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"API Message: GetSupplierAllocationsByDate successful."</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"ResultCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"SupplierAllocationSurveys"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"SurveyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IT Developers Survey"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"SurveyNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">143479</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"SurveySID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4C2B4533-0EA1-364A-212B-345B38C6AF57"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"AccountName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sample Company"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CountryLanguageID"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"LengthOfInterview"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BidIncidence"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Conversion"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"FieldBeginDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(1431666000000-0500)/"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"FieldEndDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Date(1432353600000-0500)/"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IndustryID"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"StudyTypeID"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Priority"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"SurveyGroup"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"SurveyGroupID"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"SurveyGroupExists"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"BidLengthOfInterview"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"TerminationLengthOfInterview"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"SurveyQuotaCalcTypeID"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsTrueSample"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"SurveyMobileConversion"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"SampleTypeID"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Returns a list of allocations for which the TotalQuota has changed since a specified date.</p>
+
+<h4 id="arguments">Arguments</h4>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Date</td>
+<td>string</td>
+<td>true</td>
+<td>Must follow the format YYYY-MM-DD</td>
+</tr>
+<tr>
+<td>SupplierCode</td>
+<td>string</td>
 <td>true</td>
 <td>Unique code associated with a supplier account.</td>
 </tr>
@@ -1335,22 +1681,6 @@
 <td>Unique code associated with a supplier account.</td>
 </tr>
 </tbody></table>
-
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>f5506159ac41025dc9249c3b395899624ee89fa7</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
 
               <h2 id="qualifications">Qualifications</h2>
 
@@ -1540,7 +1870,7 @@
 <tr>
 <td>SurveyStatusCode</td>
 <td>double</td>
-<td>Code associated with the current status of the survey. See <a href="#list-global-definitions">List Global Definitions</a> for a map of survey status codes.</td>
+<td>Code associated with the current status of the survey. See <a href="#get-list-global-definitions">List Global Definitions</a> for a map of survey status codes.</td>
 </tr>
 <tr>
 <td>SurveyStillLive</td>
@@ -1735,7 +2065,7 @@
 
 <p>Returns the total quota and client quotas associated with a survey. </p>
 
-<aside class="notice">NumberOfRespondents is calculated real-time</aside>
+<aside class="notice">The NumberOfRespondents property is calculated in real-time. The cache logic does not apply to this property.</aside>
 
 <h4 id="arguments">Arguments</h4>
 
@@ -1763,7 +2093,7 @@
 
               <h2 id="entry-links">Entry Links</h2>
 
-<p>The Entry Links resource enables suppliers to create, update, and retrieve supplier survey entry links as well as specify <a href="#list-global-definitions">supplier link and tracking types</a>. </p>
+<p>The Entry Links resource enables suppliers to create, update, and retrieve supplier survey entry links as well as specify <a href="#get-list-global-definitions">supplier link and tracking types</a>. </p>
 
 <h4 id="supplier-link-model">Supplier Link Model</h4>
 
@@ -2779,13 +3109,1466 @@ https://api.samplicio.us/Supply/v1/SupplierLinks/Create/<span class="o">{</span>
 
               <h2 id="surveys">Surveys</h2>
 
+<p>The Surveys resource allows the buyer to create new surveys, update existing surveys, and retrieve survey details in Fulcrum.</p>
+
+<h4 id="survey-model">Survey Model</h4>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>AccountID</td>
+<td>int</td>
+<td>Unique account identifier.</td>
+</tr>
+<tr>
+<td>SurveyStatusCode</td>
+<td>int</td>
+<td>Code associated with the current status of the survey. See <a href="#list-global-definitions">List Global Definitions</a> for a map of survey status codes.</td>
+</tr>
+<tr>
+<td>SurveyPriority</td>
+<td>int</td>
+<td>Survey priority from 1-11 (1 being the highest). Priority only applies to routed sample.</td>
+</tr>
+<tr>
+<td>SurveyNumber</td>
+<td>int</td>
+<td>Unique number associated with the survey.</td>
+</tr>
+<tr>
+<td>SurveyName</td>
+<td>string</td>
+<td>External name of the survey. This name may be exposed to respondents. This value is not unique across surveys.</td>
+</tr>
+<tr>
+<td>CountryLanguageID</td>
+<td>int</td>
+<td>Unique id associated with a country-language pair.</td>
+</tr>
+<tr>
+<td>IndustryID</td>
+<td>int</td>
+<td>Industry associated with the survey’s topic.</td>
+</tr>
+<tr>
+<td>StudyTypeID</td>
+<td>int</td>
+<td>Indicates the survey’s format and purpose (i.e. adhoc, recruit, etc).</td>
+</tr>
+<tr>
+<td>ClientCPI</td>
+<td>double</td>
+<td>Revenue per complete used to calculate internal margin or savings.</td>
+</tr>
+<tr>
+<td>QuotaCPI</td>
+<td>double</td>
+<td>Gross payout per complete. This value is before any applicable commissions or fees.</td>
+</tr>
+<tr>
+<td>ClientSurveyLiveURL</td>
+<td>string</td>
+<td>Link to client survey. We don&rsquo;t recommend exceeding 2000 characters.</td>
+</tr>
+<tr>
+<td>TestRedirectURL</td>
+<td>string</td>
+<td>Link to client survey for testing purposes. All studies should include a working test link.</td>
+</tr>
+<tr>
+<td>IsActive</td>
+<td>string</td>
+<td>Indicates if a survey is active or inactive.</td>
+</tr>
+<tr>
+<td>Quota</td>
+<td>int</td>
+<td>Total number of completes needed.</td>
+</tr>
+<tr>
+<td>FulcrumExchangeAllocation</td>
+<td>double</td>
+<td>Percentage of total completes allocated only to the Exchange. Must be between 0 and 100%.</td>
+</tr>
+<tr>
+<td>FulcrumExchangeHedgeAccess</td>
+<td>boolean</td>
+<td>&ldquo;true&rdquo; gives the Exchange access to any unallocated completes.</td>
+</tr>
+<tr>
+<td>IsVerifyCallBack</td>
+<td>boolean</td>
+<td>&ldquo;true&rdquo; enables Verify CallBack security which requires the correct [%RSFN%] variable to be included on the &ldquo;complete&rdquo; client callback for verification.</td>
+</tr>
+<tr>
+<td>UniquePID</td>
+<td>boolean</td>
+<td>&ldquo;true&rdquo; enables PID deduplication on a survey preventing a repsondent with the same PID from entering more than once. Recommended on all surveys.</td>
+</tr>
+<tr>
+<td>UniqueIPAddress</td>
+<td>boolean</td>
+<td>&ldquo;true&rdquo; enables IP deduplication on a survey preventing a repsondent with the same IP address from entering more than once. Recommended on all surveys.</td>
+</tr>
+<tr>
+<td>IsRelevantID</td>
+<td>boolean</td>
+<td>&ldquo;true&rdquo; enables RelevantID security. RelevantID is a third-party security feature. There is an additional cost for RelevantID.</td>
+</tr>
+<tr>
+<td>IsDedupe</td>
+<td>boolean</td>
+<td>&ldquo;true&rdquo; enables Relevant ID dedupe security. Should always be enabled when using RelevantID</td>
+</tr>
+<tr>
+<td>IsGeoIP</td>
+<td>boolean</td>
+<td>&ldquo;true&rdquo; enables RelevantID GeoIP security to determine respondent geogrphical location. Should always be enabled when using RelevantID.</td>
+</tr>
+<tr>
+<td>IsFraudProfile</td>
+<td>boolean</td>
+<td>&ldquo;true&rdquo; enables RelevantID Fraud Profile security. Should always be enabled when using RelevantID.</td>
+</tr>
+<tr>
+<td>FraudProfileThreshold</td>
+<td>int</td>
+<td>Sets the RelevantID Fraud Profile Threshold between 0-100. The lower the number the more aggressive the security. We recommend 11.</td>
+</tr>
+<tr>
+<td>IsTrueSample</td>
+<td>boolean</td>
+<td>&ldquo;true&rdquo; enables TrueSample security. TrueSample is a third-party security feature. There is an additional cost associated.</td>
+</tr>
+<tr>
+<td>QuotaCalculationTypeID</td>
+<td>int</td>
+<td>Sets the quota calculation method. Either 1 for ”Completes” (quotas determined by completes) or 2=”Prescreens” (quotas determined when leaving Fulcrum).</td>
+</tr>
+<tr>
+<td>SurveyPlatformID</td>
+<td>int</td>
+<td>Sets the external platform ID. We recommend setting to 2 for &ldquo;undefined&rdquo; in most situations.</td>
+</tr>
+<tr>
+<td>BidLengthOfInterview</td>
+<td>int</td>
+<td>Estimated time for a respondent to complete the survey excluding the Fulcrum prescreener in minutes as provided by the buyer.</td>
+</tr>
+<tr>
+<td>BusinessUnitID</td>
+<td>int</td>
+<td>Sets the account <a href="#list-business-units">business unit</a>.</td>
+</tr>
+<tr>
+<td>SampleTypeID</td>
+<td>int</td>
+<td>Sets the type of sample the survey is open to (i.e. consumer, business-to-business, etc). (SampleTypes)[#definitions]</td>
+</tr>
+</tbody></table>
+
 <h3 id="post-create-a-survey">POST Create a Survey</h3>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>POST  https://api.samplicio.us/Demand/v1/Surveys/Create?key={APIKey}
+</code></pre>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+-X POST --data <span class="s1">'{
+    "AccountID": 1,
+    "SurveyStatusCode": "01",
+    "SurveyPriority": 11,
+    "SurveyName": "Example API Survey",
+    "CountryLanguageID": 9,
+    "IndustryID": 30,
+    "StudyTypeID": 1,
+    "ClientCPI": 1,
+    "QuotaCPI": 2,
+    "ClientSurveyLiveURL": "http://www.surveyURL.com?rid=[%RID%]",
+    "TestRedirectURL": "http://www.surveyURL.com?rid=[%RID%]",
+    "IsActive": true,
+    "Quota": 1000,
+    "FulcrumExchangeAllocation": 0,
+    "FulcrumExchangeHedgeAccess": true,
+    "IsVerifyCallBack": true,
+    "UniquePID": true,
+    "UniqueIPAddress": true,
+    "IsRelevantID": false,
+    "IsDedupe": false,
+    "IsGeoIP": false,
+    "IsFraudProfile": false,
+    "FraudProfileThreshold": 0,
+    "IsTrueSample": false,
+    "QuotaCalculationTypeID": 1,
+    "SurveyPlatformID": 2,
+    "BidLengthOfInterview": 10,
+    "BusinessUnitID": 9,
+    "SampleTypeID": 100
+ }'</span> <span class="se">\</span>
+https://api.samplicio.us/Demand/v1/Surveys/Create?key<span class="o">={</span>APIKey<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
+<span class="nb">require</span> <span class="s1">'json'</span>
+
+<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Demand/v1/Surveys/Create?key={APIKey}'</span><span class="p">)</span>
+
+<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">uri</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
+
+<span class="n">http</span><span class="p">.</span><span class="nf">use_ssl</span> <span class="o">=</span> <span class="kp">true</span>
+
+<span class="n">fullUriPath</span> <span class="o">=</span> <span class="n">uri</span><span class="p">.</span><span class="nf">path</span> <span class="o">+</span> <span class="s1">'?'</span> <span class="o">+</span> <span class="n">uri</span><span class="p">.</span><span class="nf">query</span>
+
+<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Post</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">fullUriPath</span><span class="p">,</span> <span class="n">initheader</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'Content-Type'</span> <span class="o">=&gt;</span><span class="s1">'application/json'</span><span class="p">})</span>
+
+<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"AccountID"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"SurveyStatusCode"</span><span class="p">:</span> <span class="s2">"01"</span><span class="p">,</span>
+    <span class="s2">"SurveyPriority"</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span>
+    <span class="s2">"SurveyName"</span><span class="p">:</span> <span class="s2">"Example API Survey"</span><span class="p">,</span>
+    <span class="s2">"CountryLanguageID"</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
+    <span class="s2">"IndustryID"</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
+    <span class="s2">"StudyTypeID"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"ClientCPI"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"QuotaCPI"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">"ClientSurveyLiveURL"</span><span class="p">:</span> <span class="s2">"http://www.surveyURL.com?rid=[%RID%]"</span><span class="p">,</span>
+    <span class="s2">"TestRedirectURL"</span><span class="p">:</span> <span class="s2">"http://www.surveyURL.com?rid=[%RID%]"</span><span class="p">,</span>
+    <span class="s2">"IsActive"</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span>
+    <span class="s2">"Quota"</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
+    <span class="s2">"FulcrumExchangeAllocation"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"FulcrumExchangeHedgeAccess"</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span>
+    <span class="s2">"IsVerifyCallBack"</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span>
+    <span class="s2">"UniquePID"</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span>
+    <span class="s2">"UniqueIPAddress"</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span>
+    <span class="s2">"IsRelevantID"</span><span class="p">:</span> <span class="kp">false</span><span class="p">,</span>
+    <span class="s2">"IsDedupe"</span><span class="p">:</span> <span class="kp">false</span><span class="p">,</span>
+    <span class="s2">"IsGeoIP"</span><span class="p">:</span> <span class="kp">false</span><span class="p">,</span>
+    <span class="s2">"IsFraudProfile"</span><span class="p">:</span> <span class="kp">false</span><span class="p">,</span>
+    <span class="s2">"FraudProfileThreshold"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"IsTrueSample"</span><span class="p">:</span> <span class="kp">false</span><span class="p">,</span>
+    <span class="s2">"QuotaCalculationTypeID"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"SurveyPlatformID"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">"BidLengthOfInterview"</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="s2">"BusinessUnitID"</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
+    <span class="s2">"SampleTypeID"</span><span class="p">:</span> <span class="mi">100</span>
+ <span class="p">}.</span><span class="nf">to_json</span>
+
+<span class="n">survey</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+</code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+
+<span class="nv">$params</span> <span class="o">=</span> <span class="s1">'{
+    "AccountID": 1,
+    "SurveyStatusCode": "01",
+    "SurveyPriority": 11,
+    "SurveyName": "Example API Survey",
+    "CountryLanguageID": 9,
+    "IndustryID": 30,
+    "StudyTypeID": 1,
+    "ClientCPI": 1,
+    "QuotaCPI": 2,
+    "ClientSurveyLiveURL": "http://www.surveyURL.com?rid=[%RID%]",
+    "TestRedirectURL": "http://www.surveyURL.com?rid=[%RID%]",
+    "IsActive": true,
+    "Quota": 1000,
+    "FulcrumExchangeAllocation": 0,
+    "FulcrumExchangeHedgeAccess": true,
+    "IsVerifyCallBack": true,
+    "UniquePID": true,
+    "UniqueIPAddress": true,
+    "IsRelevantID": false,
+    "IsDedupe": false,
+    "IsGeoIP": false,
+    "IsFraudProfile": false,
+    "FraudProfileThreshold": 0,
+    "IsTrueSample": false,
+    "QuotaCalculationTypeID": 1,
+    "SurveyPlatformID": 2,
+    "BidLengthOfInterview": 10,
+    "BusinessUnitID": 9,
+    "SampleTypeID": 100
+ }'</span><span class="p">;</span>
+
+<span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://api.samplicio.us/Demand/v1/Surveys/Create?key=</span><span class="si">{</span><span class="nv">APIKey</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">CURLOPT_ENCODING</span> <span class="o">=&gt;</span> <span class="s2">""</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">'Content-Type: application/json'</span><span class="p">),</span>
+  <span class="nx">CURLOPT_MAXREDIRS</span> <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">,</span>
+  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTP_VERSION</span> <span class="o">=&gt;</span> <span class="nx">CURL_HTTP_VERSION_1_1</span><span class="p">,</span>
+  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
+  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$params</span><span class="p">,</span>
+<span class="p">));</span>
+
+<span class="nv">$survey</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+
+<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
+
+</code></pre>
+<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">requests</span><span class="o">,</span> <span class="nn">json</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.samplicio.us/Demand/v1/Surveys/Create?key={APIKey}'</span>
+<span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">"AccountID"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s">"SurveyStatusCode"</span><span class="p">:</span> <span class="s">"01"</span><span class="p">,</span>
+    <span class="s">"SurveyPriority"</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span>
+    <span class="s">"SurveyName"</span><span class="p">:</span> <span class="s">"Example API Survey"</span><span class="p">,</span>
+    <span class="s">"CountryLanguageID"</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
+    <span class="s">"IndustryID"</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
+    <span class="s">"StudyTypeID"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s">"ClientCPI"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s">"QuotaCPI"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s">"ClientSurveyLiveURL"</span><span class="p">:</span> <span class="s">"http://www.surveyURL.com?rid=[</span><span class="si">%</span><span class="s">RID</span><span class="si">%</span><span class="s">]"</span><span class="p">,</span>
+    <span class="s">"TestRedirectURL"</span><span class="p">:</span> <span class="s">"http://www.surveyURL.com?rid=[</span><span class="si">%</span><span class="s">RID</span><span class="si">%</span><span class="s">]"</span><span class="p">,</span>
+    <span class="s">"IsActive"</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s">"Quota"</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
+    <span class="s">"FulcrumExchangeAllocation"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s">"FulcrumExchangeHedgeAccess"</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s">"IsVerifyCallBack"</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s">"UniquePID"</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s">"UniqueIPAddress"</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s">"IsRelevantID"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s">"IsDedupe"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s">"IsGeoIP"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s">"IsFraudProfile"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s">"FraudProfileThreshold"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s">"IsTrueSample"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s">"QuotaCalculationTypeID"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s">"SurveyPlatformID"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s">"BidLengthOfInterview"</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="s">"BusinessUnitID"</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
+    <span class="s">"SampleTypeID"</span><span class="p">:</span> <span class="mi">100</span>
+ <span class="p">}</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Content-type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span> <span class="s">'Accept'</span><span class="p">:</span> <span class="s">'text/plain'</span><span class="p">}</span>
+
+<span class="n">survey</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+</code></pre>
+<pre class="highlight csharp"><code><span class="k">using</span> <span class="nn">System.IO</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Net</span><span class="p">;</span>
+
+<span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Demand/v1/Surveys/Create?key={APIKey}"</span><span class="p">);</span>
+
+<span class="kt">string</span> <span class="k">params</span> <span class="p">=</span> <span class="s">"{
+</span>   <span class="err">\</span><span class="s">"AccountID\": 1,
+</span>    <span class="err">\</span><span class="s">"SurveyStatusCode\": \"01\",
+</span>    <span class="err">\</span><span class="s">"SurveyPriority\": 11,
+</span>    <span class="err">\</span><span class="s">"SurveyName\": \"Example API Survey\",
+</span>    <span class="err">\</span><span class="s">"CountryLanguageID\": 9,
+</span>    <span class="err">\</span><span class="s">"IndustryID\": 30,
+</span>    <span class="err">\</span><span class="s">"StudyTypeID\": 1,
+</span>    <span class="err">\</span><span class="s">"ClientCPI\": 1,
+</span>    <span class="err">\</span><span class="s">"QuotaCPI\": 2,
+</span>    <span class="err">\</span><span class="s">"ClientSurveyLiveURL\": \"http://www.surveyURL.com?rid=[%RID%]\",
+</span>    <span class="err">\</span><span class="s">"TestRedirectURL\": \"http://www.surveyURL.com?rid=[%RID%]\",
+</span>    <span class="err">\</span><span class="s">"IsActive\": true,
+</span>    <span class="err">\</span><span class="s">"Quota\": 1000,
+</span>    <span class="err">\</span><span class="s">"FulcrumExchangeAllocation\": 0,
+</span>    <span class="err">\</span><span class="s">"FulcrumExchangeHedgeAccess\": true,
+</span>    <span class="err">\</span><span class="s">"IsVerifyCallBack\": true,
+</span>    <span class="err">\</span><span class="s">"UniquePID\": true,
+</span>    <span class="err">\</span><span class="s">"UniqueIPAddress\": true,
+</span>    <span class="err">\</span><span class="s">"IsRelevantID\": false,
+</span>    <span class="err">\</span><span class="s">"IsDedupe\": false,
+</span>    <span class="err">\</span><span class="s">"IsGeoIP\": false,
+</span>    <span class="err">\</span><span class="s">"IsFraudProfile\": false,
+</span>    <span class="err">\</span><span class="s">"FraudProfileThreshold\": 0,
+</span>    <span class="err">\</span><span class="s">"IsTrueSample\": false,
+</span>    <span class="err">\</span><span class="s">"QuotaCalculationTypeID\": 1,
+</span>    <span class="err">\</span><span class="s">"SurveyPlatformID\": 2,
+</span>    <span class="err">\</span><span class="s">"BidLengthOfInterview\": 10,
+</span>    <span class="err">\</span><span class="s">"BusinessUnitID\": 9,
+</span>    <span class="err">\</span><span class="s">"SampleTypeID\": 100
+</span> <span class="p">}</span><span class="s">";
+</span>
+<span class="n">request</span><span class="p">.</span><span class="n">Method</span> <span class="p">=</span> <span class="s">"POST"</span><span class="p">;</span>
+<span class="n">request</span><span class="p">.</span><span class="n">ContentType</span> <span class="p">=</span> <span class="s">"application/json"</span><span class="p">;</span>
+
+<span class="k">using</span><span class="p">(</span><span class="n">StreamWriter</span> <span class="n">streamWriter</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">StreamWriter</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="nf">GetRequestStream</span><span class="p">()))</span>
+<span class="p">{</span>
+<span class="n">streamWriter</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="k">params</span><span class="p">);</span>
+<span class="n">streamWriter</span><span class="p">.</span><span class="nf">Flush</span><span class="p">();</span>
+<span class="n">streamWriter</span><span class="p">.</span><span class="nf">Close</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="n">WebResponse</span> <span class="n">survey</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">GetResponse</span><span class="p">();</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'https'</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"POST"</span><span class="p">,</span>
+  <span class="s2">"hostname"</span><span class="p">:</span> <span class="s2">"api.samplicio.us"</span><span class="p">,</span>
+  <span class="s2">"port"</span><span class="p">:</span> <span class="mi">443</span><span class="p">,</span>
+  <span class="s2">"path"</span><span class="p">:</span> <span class="s2">"/Demand/v1/Surveys/Create?key={APIKey}"</span><span class="p">,</span>
+  <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span><span class="s1">'Content-Type'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">json</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"AccountID"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"SurveyStatusCode"</span><span class="p">:</span> <span class="s2">"01"</span><span class="p">,</span>
+    <span class="s2">"SurveyPriority"</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span>
+    <span class="s2">"SurveyName"</span><span class="p">:</span> <span class="s2">"Example API Survey"</span><span class="p">,</span>
+    <span class="s2">"CountryLanguageID"</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
+    <span class="s2">"IndustryID"</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
+    <span class="s2">"StudyTypeID"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"ClientCPI"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"QuotaCPI"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">"ClientSurveyLiveURL"</span><span class="p">:</span> <span class="s2">"http://www.surveyURL.com?rid=[%RID%]"</span><span class="p">,</span>
+    <span class="s2">"TestRedirectURL"</span><span class="p">:</span> <span class="s2">"http://www.surveyURL.com?rid=[%RID%]"</span><span class="p">,</span>
+    <span class="s2">"IsActive"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">"Quota"</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
+    <span class="s2">"FulcrumExchangeAllocation"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"FulcrumExchangeHedgeAccess"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">"IsVerifyCallBack"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">"UniquePID"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">"UniqueIPAddress"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">"IsRelevantID"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="s2">"IsDedupe"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="s2">"IsGeoIP"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="s2">"IsFraudProfile"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="s2">"FraudProfileThreshold"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"IsTrueSample"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="s2">"QuotaCalculationTypeID"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"SurveyPlatformID"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">"BidLengthOfInterview"</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="s2">"BusinessUnitID"</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
+    <span class="s2">"SampleTypeID"</span><span class="p">:</span> <span class="mi">100</span>
+ <span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">params</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">json</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">survey</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">chunks</span> <span class="o">=</span> <span class="p">[];</span>
+
+  <span class="nx">survey</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">"data"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">chunk</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">chunks</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">chunk</span><span class="p">);</span>
+  <span class="p">});</span>
+
+<span class="p">});</span>
+
+<span class="nx">request</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">params</span><span class="p">);</span>
+
+<span class="nx">request</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"ApiResult"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiResultCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiAccount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Anon"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"AccountType"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiAccountStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"AccountCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AA"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiMessages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"API Message: Response initialized."</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"API Message: CreateSurveyFromModel successful."</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"ResultCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Survey"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"AccountID"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SurveyStatusCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SurveyPriority"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SurveyNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">12345</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SurveyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example API Survey"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CountryLanguageID"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IndustryID"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"StudyTypeID"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ClientCPI"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"QuotaCPI"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ClientSurveyLiveURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.surveyURL.com?rid=[%RID%]"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"TestRedirectURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.surveyURL.com?rid=[%RID%]"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Quota"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"FulcrumExchangeAllocation"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"FulcrumExchangeHedgeAccess"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsVerifyCallBack"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"UniquePID"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"UniqueIPAddress"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsRelevantID"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsDedupe"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsGeoIP"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsFraudProfile"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"FraudProfileThreshold"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsTrueSample"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"QuotaCalculationTypeID"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SurveyPlatformID"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"BidLengthOfInterview"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"BusinessUnitID"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SampleTypeID"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Creates a Fulcrum survey.   </p>
+
+<aside class="notice">Fulcrum automatically adds 7 qualifications to US studies when a survey is created (Age, Gender, Zip, STATE, Ethnicity, Hispanic, Standard HHI). These qualifications can be edited or removed if desired using the (SurveyQualifications/Update)[#update-a-qualification] call.</aside>
+
+<h4 id="arguments">Arguments</h4>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>AccountID</td>
+<td>int</td>
+<td>true</td>
+<td>Unique account identifier.</td>
+</tr>
+<tr>
+<td>SurveyStatusCode</td>
+<td>int</td>
+<td>false</td>
+<td>Code associated with the current status of the survey. See <a href="#list-global-definitions">List Global Definitions</a> for a map of survey status codes.</td>
+</tr>
+<tr>
+<td>SurveyPriority</td>
+<td>int</td>
+<td>false</td>
+<td>Survey priority from 1-11 (1 being the highest). Priority only applies to routed sample.</td>
+</tr>
+<tr>
+<td>SurveyName</td>
+<td>string</td>
+<td>true</td>
+<td>External name of the survey. This name may be exposed to respondents. This value is not unique across surveys.</td>
+</tr>
+<tr>
+<td>CountryLanguageID</td>
+<td>int</td>
+<td>true</td>
+<td>Unique id associated with a country-language pair.</td>
+</tr>
+<tr>
+<td>IndustryID</td>
+<td>int</td>
+<td>false</td>
+<td>Industry associated with the survey’s topic.</td>
+</tr>
+<tr>
+<td>StudyTypeID</td>
+<td>int</td>
+<td>false</td>
+<td>Indicates the survey’s format and purpose (i.e. adhoc, recruit, etc).</td>
+</tr>
+<tr>
+<td>ClientCPI</td>
+<td>double</td>
+<td>false</td>
+<td>Revenue per complete used to calculate internal margin or savings.</td>
+</tr>
+<tr>
+<td>QuotaCPI</td>
+<td>double</td>
+<td>false</td>
+<td>Gross payout per complete. This value is before any applicable commissions or fees.</td>
+</tr>
+<tr>
+<td>ClientSurveyLiveURL</td>
+<td>string</td>
+<td>true</td>
+<td>Link to client survey. Max URL length for Fulcrum is 2000 characters.</td>
+</tr>
+<tr>
+<td>TestRedirectURL</td>
+<td>string</td>
+<td>true</td>
+<td>Link to client survey for testing purposes. All studies should include a working test link.</td>
+</tr>
+<tr>
+<td>IsActive</td>
+<td>string</td>
+<td>false</td>
+<td>Indicates if a survey is active or inactive. Inactive is effectively the same as delete. We recommend keeping any surveys that have prescreens or completes in active status.</td>
+</tr>
+<tr>
+<td>Quota</td>
+<td>int</td>
+<td>false</td>
+<td>Total number of completes needed.</td>
+</tr>
+<tr>
+<td>FulcrumExchangeAllocation</td>
+<td>double</td>
+<td>false</td>
+<td>Percentage of total completes allocated only to the Exchange. Must be between 0 and 100%.</td>
+</tr>
+<tr>
+<td>FulcrumExchangeHedgeAccess</td>
+<td>boolean</td>
+<td>false</td>
+<td>&ldquo;true&rdquo; gives the Exchange access to any unallocated completes.</td>
+</tr>
+<tr>
+<td>IsVerifyCallBack</td>
+<td>boolean</td>
+<td>false</td>
+<td>&ldquo;true&rdquo; enables Verify CallBack security which requires the correct [%RSFN%] variable to be included on the &ldquo;complete&rdquo; client callback for verification.</td>
+</tr>
+<tr>
+<td>UniquePID</td>
+<td>boolean</td>
+<td>false</td>
+<td>&ldquo;true&rdquo; enables PID deduplication on a survey preventing a repsondent with the same PID from entering more than once. Recommended on all surveys.</td>
+</tr>
+<tr>
+<td>UniqueIPAddress</td>
+<td>boolean</td>
+<td>false</td>
+<td>&ldquo;true&rdquo; enables IP deduplication on a survey preventing a repsondent with the same IP address from entering more than once. Recommended on all surveys.</td>
+</tr>
+<tr>
+<td>IsRelevantID</td>
+<td>boolean</td>
+<td>false</td>
+<td>&ldquo;true&rdquo; enables RelevantID security. RelevantID is a third-party security feature. There is an additional cost for RelevantID.</td>
+</tr>
+<tr>
+<td>IsDedupe</td>
+<td>boolean</td>
+<td>false</td>
+<td>&ldquo;true&rdquo; enables Relevant ID dedupe security. Should always be enabled when using RelevantID.</td>
+</tr>
+<tr>
+<td>IsGeoIP</td>
+<td>boolean</td>
+<td>false</td>
+<td>&ldquo;true&rdquo; enables RelevantID GeoIP security to determine respondent geogrphical location. Should always be enabled when using RelevantID.</td>
+</tr>
+<tr>
+<td>IsFraudProfile</td>
+<td>boolean</td>
+<td>false</td>
+<td>&ldquo;true&rdquo; enables RelevantID Fraud Profile security. Should always be enabled when using RelevantID.</td>
+</tr>
+<tr>
+<td>FraudProfileThreshold</td>
+<td>int</td>
+<td>false</td>
+<td>Set&rsquo;s the RelevantID Fraud Profile Threshold between 0-100. The lower the number the more aggressive the security. We recommend 11.</td>
+</tr>
+<tr>
+<td>IsTrueSample</td>
+<td>boolean</td>
+<td>false</td>
+<td>&ldquo;true&rdquo; enables TrueSample security. TrueSample is a third-party security feature. There is an additional cost associated.</td>
+</tr>
+<tr>
+<td>QuotaCalculationTypeID</td>
+<td>int</td>
+<td>false</td>
+<td>Sets the quota calculation method. Either 1 for ”Completes” (quotas determined by completes) or 2=”Prescreens” (quotas determined when leaving Fulcrum).</td>
+</tr>
+<tr>
+<td>SurveyPlatformID</td>
+<td>int</td>
+<td>false</td>
+<td>Sets the external platform ID. We recommend setting to 2 for &ldquo;undefined&rdquo; in most situations.</td>
+</tr>
+<tr>
+<td>BidLengthOfInterview</td>
+<td>int</td>
+<td>false</td>
+<td>Estimated time for a respondent to complete the survey excluding the Fulcrum prescreener in minutes as provided by the buyer.</td>
+</tr>
+<tr>
+<td>BusinessUnitID</td>
+<td>int</td>
+<td>true</td>
+<td>Sets the account <a href="#list-business-units">business unit</a>.</td>
+</tr>
+<tr>
+<td>SampleTypeID</td>
+<td>int</td>
+<td>false</td>
+<td>Sets the type of sample the survey is open to (i.e. consumer, business-to-business, etc). (SampleTypes)[#definitions].</td>
+</tr>
+</tbody></table>
 
 <h3 id="put-update-a-survey">PUT Update a Survey</h3>
 
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>PUT  https://api.samplicio.us/Demand/v1/Surveys/Update/{SurveyNumber}?key={APIKey}
+</code></pre>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+-X PUT --data <span class="s1">'{
+    "AccountID": 1,
+    "SurveyStatusCode": "01",
+    "SurveyPriority": 11,
+    "SurveyName": "Example API Survey",
+    "CountryLanguageID": 9,
+    "IndustryID": 30,
+    "StudyTypeID": 1,
+    "ClientCPI": 1,
+    "QuotaCPI": 2,
+    "ClientSurveyLiveURL": "http://www.surveyURL.com?rid=[%RID%]",
+    "TestRedirectURL": "http://www.surveyURL.com?rid=[%RID%]",
+    "IsActive": true,
+    "Quota": 100,
+    "FulcrumExchangeAllocation": 0,
+    "FulcrumExchangeHedgeAccess": true,
+    "IsVerifyCallBack": true,
+    "UniquePID": true,
+    "UniqueIPAddress": true,
+    "IsRelevantID": false,
+    "IsDedupe": false,
+    "IsGeoIP": false,
+    "IsFraudProfile": false,
+    "FraudProfileThreshold": 0,
+    "IsTrueSample": false,
+    "QuotaCalculationTypeID": 1,
+    "SurveyPlatformID": 2,
+    "BidLengthOfInterview": 10,
+    "BusinessUnitID": 9,
+    "SampleTypeID": 100
+ }'</span> <span class="se">\</span>
+https://api.samplicio.us/Demand/v1/Surveys/Update/<span class="o">{</span>SurveyNumber<span class="o">}</span>?key<span class="o">={</span>APIKey<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
+<span class="nb">require</span> <span class="s1">'json'</span>
+
+<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Demand/v1/Surveys/Update/{SurveyNumber}?key={APIKey}'</span><span class="p">)</span>
+
+<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">uri</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
+
+<span class="n">http</span><span class="p">.</span><span class="nf">use_ssl</span> <span class="o">=</span> <span class="kp">true</span>
+
+<span class="n">fullUriPath</span> <span class="o">=</span> <span class="n">uri</span><span class="p">.</span><span class="nf">path</span> <span class="o">+</span> <span class="s1">'?'</span> <span class="o">+</span> <span class="n">uri</span><span class="p">.</span><span class="nf">query</span>
+
+<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Put</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">fullUriPath</span><span class="p">,</span> <span class="n">initheader</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'Content-Type'</span> <span class="o">=&gt;</span><span class="s1">'application/json'</span><span class="p">})</span>
+
+<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"AccountID"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"SurveyStatusCode"</span><span class="p">:</span> <span class="s2">"01"</span><span class="p">,</span>
+    <span class="s2">"SurveyPriority"</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span>
+    <span class="s2">"SurveyName"</span><span class="p">:</span> <span class="s2">"Example API Survey"</span><span class="p">,</span>
+    <span class="s2">"CountryLanguageID"</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
+    <span class="s2">"IndustryID"</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
+    <span class="s2">"StudyTypeID"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"ClientCPI"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"QuotaCPI"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">"ClientSurveyLiveURL"</span><span class="p">:</span> <span class="s2">"http://www.surveyURL.com?rid=[%RID%]"</span><span class="p">,</span>
+    <span class="s2">"TestRedirectURL"</span><span class="p">:</span> <span class="s2">"http://www.surveyURL.com?rid=[%RID%]"</span><span class="p">,</span>
+    <span class="s2">"IsActive"</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span>
+    <span class="s2">"Quota"</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="s2">"FulcrumExchangeAllocation"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"FulcrumExchangeHedgeAccess"</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span>
+    <span class="s2">"IsVerifyCallBack"</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span>
+    <span class="s2">"UniquePID"</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span>
+    <span class="s2">"UniqueIPAddress"</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span>
+    <span class="s2">"IsRelevantID"</span><span class="p">:</span> <span class="kp">false</span><span class="p">,</span>
+    <span class="s2">"IsDedupe"</span><span class="p">:</span> <span class="kp">false</span><span class="p">,</span>
+    <span class="s2">"IsGeoIP"</span><span class="p">:</span> <span class="kp">false</span><span class="p">,</span>
+    <span class="s2">"IsFraudProfile"</span><span class="p">:</span> <span class="kp">false</span><span class="p">,</span>
+    <span class="s2">"FraudProfileThreshold"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"IsTrueSample"</span><span class="p">:</span> <span class="kp">false</span><span class="p">,</span>
+    <span class="s2">"QuotaCalculationTypeID"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"SurveyPlatformID"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">"BidLengthOfInterview"</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="s2">"BusinessUnitID"</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
+    <span class="s2">"SampleTypeID"</span><span class="p">:</span> <span class="mi">100</span>
+ <span class="p">}.</span><span class="nf">to_json</span>
+
+<span class="n">survey</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+</code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+
+<span class="nv">$params</span> <span class="o">=</span> <span class="s1">'{
+    "AccountID": 1,
+    "SurveyStatusCode": "01",
+    "SurveyPriority": 11,
+    "SurveyName": "Example API Survey",
+    "CountryLanguageID": 9,
+    "IndustryID": 30,
+    "StudyTypeID": 1,
+    "ClientCPI": 1,
+    "QuotaCPI": 2,
+    "ClientSurveyLiveURL": "http://www.surveyURL.com?rid=[%RID%]",
+    "TestRedirectURL": "http://www.surveyURL.com?rid=[%RID%]",
+    "IsActive": true,
+    "Quota": 100,
+    "FulcrumExchangeAllocation": 0,
+    "FulcrumExchangeHedgeAccess": true,
+    "IsVerifyCallBack": true,
+    "UniquePID": true,
+    "UniqueIPAddress": true,
+    "IsRelevantID": false,
+    "IsDedupe": false,
+    "IsGeoIP": false,
+    "IsFraudProfile": false,
+    "FraudProfileThreshold": 0,
+    "IsTrueSample": false,
+    "QuotaCalculationTypeID": 1,
+    "SurveyPlatformID": 2,
+    "BidLengthOfInterview": 10,
+    "BusinessUnitID": 9,
+    "SampleTypeID": 100
+ }'</span><span class="p">;</span>
+
+<span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://api.samplicio.us/Demand/v1/Surveys/Update/</span><span class="si">{</span><span class="nv">SurveyNumber}?key={APIKey</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">CURLOPT_ENCODING</span> <span class="o">=&gt;</span> <span class="s2">""</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">'Content-Type: application/json'</span><span class="p">),</span>
+  <span class="nx">CURLOPT_MAXREDIRS</span> <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">,</span>
+  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTP_VERSION</span> <span class="o">=&gt;</span> <span class="nx">CURL_HTTP_VERSION_1_1</span><span class="p">,</span>
+  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"PUT"</span><span class="p">,</span>
+  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$params</span><span class="p">,</span>
+<span class="p">));</span>
+
+<span class="nv">$survey</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+
+<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
+
+</code></pre>
+<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">requests</span><span class="o">,</span> <span class="nn">json</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.samplicio.us/Demand/v1/Surveys/Update/{SurveyNumber}?key={APIKey}'</span>
+<span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">"AccountID"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s">"SurveyStatusCode"</span><span class="p">:</span> <span class="s">"01"</span><span class="p">,</span>
+    <span class="s">"SurveyPriority"</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span>
+    <span class="s">"SurveyName"</span><span class="p">:</span> <span class="s">"Example API Survey"</span><span class="p">,</span>
+    <span class="s">"CountryLanguageID"</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
+    <span class="s">"IndustryID"</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
+    <span class="s">"StudyTypeID"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s">"ClientCPI"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s">"QuotaCPI"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s">"ClientSurveyLiveURL"</span><span class="p">:</span> <span class="s">"http://www.surveyURL.com?rid=[</span><span class="si">%</span><span class="s">RID</span><span class="si">%</span><span class="s">]"</span><span class="p">,</span>
+    <span class="s">"TestRedirectURL"</span><span class="p">:</span> <span class="s">"http://www.surveyURL.com?rid=[</span><span class="si">%</span><span class="s">RID</span><span class="si">%</span><span class="s">]"</span><span class="p">,</span>
+    <span class="s">"IsActive"</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s">"Quota"</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="s">"FulcrumExchangeAllocation"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s">"FulcrumExchangeHedgeAccess"</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s">"IsVerifyCallBack"</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s">"UniquePID"</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s">"UniqueIPAddress"</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s">"IsRelevantID"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s">"IsDedupe"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s">"IsGeoIP"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s">"IsFraudProfile"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s">"FraudProfileThreshold"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s">"IsTrueSample"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s">"QuotaCalculationTypeID"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s">"SurveyPlatformID"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s">"BidLengthOfInterview"</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="s">"BusinessUnitID"</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
+    <span class="s">"SampleTypeID"</span><span class="p">:</span> <span class="mi">100</span>
+ <span class="p">}</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Content-type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span> <span class="s">'Accept'</span><span class="p">:</span> <span class="s">'text/plain'</span><span class="p">}</span>
+
+<span class="n">survey</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+</code></pre>
+<pre class="highlight csharp"><code><span class="k">using</span> <span class="nn">System.IO</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Net</span><span class="p">;</span>
+
+<span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Demand/v1/Surveys/Update/{SurveyNumber}?key={APIKey}"</span><span class="p">);</span>
+
+<span class="kt">string</span> <span class="k">params</span> <span class="p">=</span> <span class="s">"{
+</span>   <span class="err">\</span><span class="s">"AccountID\": 1,
+</span>    <span class="err">\</span><span class="s">"SurveyStatusCode\": \"01\",
+</span>    <span class="err">\</span><span class="s">"SurveyPriority\": 11,
+</span>    <span class="err">\</span><span class="s">"SurveyName\": \"Example API Survey\",
+</span>    <span class="err">\</span><span class="s">"CountryLanguageID\": 9,
+</span>    <span class="err">\</span><span class="s">"IndustryID\": 30,
+</span>    <span class="err">\</span><span class="s">"StudyTypeID\": 1,
+</span>    <span class="err">\</span><span class="s">"ClientCPI\": 1,
+</span>    <span class="err">\</span><span class="s">"QuotaCPI\": 2,
+</span>    <span class="err">\</span><span class="s">"ClientSurveyLiveURL\": \"http://www.surveyURL.com?rid=[%RID%]\",
+</span>    <span class="err">\</span><span class="s">"TestRedirectURL\": \"http://www.surveyURL.com?rid=[%RID%]\",
+</span>    <span class="err">\</span><span class="s">"IsActive\": true,
+</span>    <span class="err">\</span><span class="s">"Quota\": 100,
+</span>    <span class="err">\</span><span class="s">"FulcrumExchangeAllocation\": 0,
+</span>    <span class="err">\</span><span class="s">"FulcrumExchangeHedgeAccess\": true,
+</span>    <span class="err">\</span><span class="s">"IsVerifyCallBack\": true,
+</span>    <span class="err">\</span><span class="s">"UniquePID\": true,
+</span>    <span class="err">\</span><span class="s">"UniqueIPAddress\": true,
+</span>    <span class="err">\</span><span class="s">"IsRelevantID\": false,
+</span>    <span class="err">\</span><span class="s">"IsDedupe\": false,
+</span>    <span class="err">\</span><span class="s">"IsGeoIP\": false,
+</span>    <span class="err">\</span><span class="s">"IsFraudProfile\": false,
+</span>    <span class="err">\</span><span class="s">"FraudProfileThreshold\": 0,
+</span>    <span class="err">\</span><span class="s">"IsTrueSample\": false,
+</span>    <span class="err">\</span><span class="s">"QuotaCalculationTypeID\": 1,
+</span>    <span class="err">\</span><span class="s">"SurveyPlatformID\": 2,
+</span>    <span class="err">\</span><span class="s">"BidLengthOfInterview\": 10,
+</span>    <span class="err">\</span><span class="s">"BusinessUnitID\": 9,
+</span>    <span class="err">\</span><span class="s">"SampleTypeID\": 100
+</span> <span class="p">}</span><span class="s">";
+</span>
+<span class="n">request</span><span class="p">.</span><span class="n">Method</span> <span class="p">=</span> <span class="s">"PUT"</span><span class="p">;</span>
+<span class="n">request</span><span class="p">.</span><span class="n">ContentType</span> <span class="p">=</span> <span class="s">"application/json"</span><span class="p">;</span>
+
+<span class="k">using</span><span class="p">(</span><span class="n">StreamWriter</span> <span class="n">streamWriter</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">StreamWriter</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="nf">GetRequestStream</span><span class="p">()))</span>
+<span class="p">{</span>
+<span class="n">streamWriter</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="k">params</span><span class="p">);</span>
+<span class="n">streamWriter</span><span class="p">.</span><span class="nf">Flush</span><span class="p">();</span>
+<span class="n">streamWriter</span><span class="p">.</span><span class="nf">Close</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="n">WebResponse</span> <span class="n">survey</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">GetResponse</span><span class="p">();</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'https'</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"PUT"</span><span class="p">,</span>
+  <span class="s2">"hostname"</span><span class="p">:</span> <span class="s2">"api.samplicio.us"</span><span class="p">,</span>
+  <span class="s2">"port"</span><span class="p">:</span> <span class="mi">443</span><span class="p">,</span>
+  <span class="s2">"path"</span><span class="p">:</span> <span class="s2">"/Demand/v1/Surveys/Update?key={APIKey}"</span><span class="p">,</span>
+  <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span><span class="s1">'Content-Type'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">json</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"AccountID"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"SurveyStatusCode"</span><span class="p">:</span> <span class="s2">"01"</span><span class="p">,</span>
+    <span class="s2">"SurveyPriority"</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span>
+    <span class="s2">"SurveyName"</span><span class="p">:</span> <span class="s2">"Example API Survey"</span><span class="p">,</span>
+    <span class="s2">"CountryLanguageID"</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
+    <span class="s2">"IndustryID"</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
+    <span class="s2">"StudyTypeID"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"ClientCPI"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"QuotaCPI"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">"ClientSurveyLiveURL"</span><span class="p">:</span> <span class="s2">"http://www.surveyURL.com?rid=[%RID%]"</span><span class="p">,</span>
+    <span class="s2">"TestRedirectURL"</span><span class="p">:</span> <span class="s2">"http://www.surveyURL.com?rid=[%RID%]"</span><span class="p">,</span>
+    <span class="s2">"IsActive"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">"Quota"</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="s2">"FulcrumExchangeAllocation"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"FulcrumExchangeHedgeAccess"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">"IsVerifyCallBack"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">"UniquePID"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">"UniqueIPAddress"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">"IsRelevantID"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="s2">"IsDedupe"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="s2">"IsGeoIP"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="s2">"IsFraudProfile"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="s2">"FraudProfileThreshold"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"IsTrueSample"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="s2">"QuotaCalculationTypeID"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"SurveyPlatformID"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">"BidLengthOfInterview"</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="s2">"BusinessUnitID"</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
+    <span class="s2">"SampleTypeID"</span><span class="p">:</span> <span class="mi">100</span>
+ <span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">params</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">json</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">survey</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">chunks</span> <span class="o">=</span> <span class="p">[];</span>
+
+  <span class="nx">survey</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">"data"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">chunk</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">chunks</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">chunk</span><span class="p">);</span>
+  <span class="p">});</span>
+
+<span class="p">});</span>
+
+<span class="nx">request</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">params</span><span class="p">);</span>
+
+<span class="nx">request</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"ApiResult"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiResultCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiAccount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Anon"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"AccountType"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiAccountStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"AccountCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AA"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiMessages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"API Message: Response initialized."</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"API Message: UpdateSurveyFromModel successful."</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"ResultCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Survey"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"AccountID"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SurveyStatusCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SurveyPriority"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SurveyNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">12345</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SurveyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example API Survey"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CountryLanguageID"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IndustryID"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"StudyTypeID"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ClientCPI"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"QuotaCPI"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ClientSurveyLiveURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.surveyURL.com?rid=[%RID%]"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"TestRedirectURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.surveyURL.com?rid=[%RID%]"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Quota"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"FulcrumExchangeAllocation"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"FulcrumExchangeHedgeAccess"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsVerifyCallBack"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"UniquePID"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"UniqueIPAddress"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsRelevantID"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsDedupe"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsGeoIP"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsFraudProfile"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"FraudProfileThreshold"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsTrueSample"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"QuotaCalculationTypeID"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SurveyPlatformID"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"BidLengthOfInterview"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"BusinessUnitID"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SampleTypeID"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Update an existing Fulcrum survey. </p>
+
+<aside class="notice">All parameters returned via the Surveys/Create call (with the exception of SampleTypeID) must be included in the Surveys/Update call even if they’re not being specifically adjusted.</aside>
+
+<h4 id="arguments">Arguments</h4>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>AccountID</td>
+<td>int</td>
+<td>true</td>
+<td>Unique account identifier.</td>
+</tr>
+<tr>
+<td>SurveyStatusCode</td>
+<td>int</td>
+<td>true</td>
+<td>Code associated with the current status of the survey. See <a href="#list-global-definitions">List Global Definitions</a> for a map of survey status codes.</td>
+</tr>
+<tr>
+<td>SurveyPriority</td>
+<td>int</td>
+<td>true</td>
+<td>Survey priority from 1-11 (1 being the highest). Priority only applies to routed sample.</td>
+</tr>
+<tr>
+<td>SurveyName</td>
+<td>string</td>
+<td>true</td>
+<td>External name of the survey. This name may be exposed to respondents. This value is not unique across surveys.</td>
+</tr>
+<tr>
+<td>SurveyNumber</td>
+<td>int</td>
+<td>true</td>
+<td>Unique number associated with the survey.</td>
+</tr>
+<tr>
+<td>CountryLanguageID</td>
+<td>int</td>
+<td>true</td>
+<td>Unique id associated with a country-language pair.</td>
+</tr>
+<tr>
+<td>IndustryID</td>
+<td>int</td>
+<td>true</td>
+<td>Industry associated with the survey’s topic.</td>
+</tr>
+<tr>
+<td>StudyTypeID</td>
+<td>int</td>
+<td>true</td>
+<td>Indicates the survey’s format and purpose (i.e. adhoc, recruit, etc).</td>
+</tr>
+<tr>
+<td>ClientCPI</td>
+<td>double</td>
+<td>true</td>
+<td>Revenue per complete used to calculate internal margin or savings.</td>
+</tr>
+<tr>
+<td>QuotaCPI</td>
+<td>double</td>
+<td>true</td>
+<td>Gross payout per complete. This value is before any applicable commissions or fees.</td>
+</tr>
+<tr>
+<td>ClientSurveyLiveURL</td>
+<td>string</td>
+<td>true</td>
+<td>Link to client survey. Max URL length for Fulcrum is 2000 characters.</td>
+</tr>
+<tr>
+<td>TestRedirectURL</td>
+<td>string</td>
+<td>true</td>
+<td>Link to client survey for testing purposes. All studies should include a working test link.</td>
+</tr>
+<tr>
+<td>IsActive</td>
+<td>string</td>
+<td>true</td>
+<td>Indicates if a survey is active or inactive.</td>
+</tr>
+<tr>
+<td>Quota</td>
+<td>int</td>
+<td>true</td>
+<td>Total number of completes needed.</td>
+</tr>
+<tr>
+<td>FulcrumExchangeAllocation</td>
+<td>double</td>
+<td>true</td>
+<td>Percentage of total completes allocated only to the Exchange. Must be between 0 and 100%.</td>
+</tr>
+<tr>
+<td>FulcrumExchangeHedgeAccess</td>
+<td>boolean</td>
+<td>true</td>
+<td>&ldquo;true&rdquo; gives the Exchange access to any unallocated completes.</td>
+</tr>
+<tr>
+<td>IsVerifyCallBack</td>
+<td>boolean</td>
+<td>true</td>
+<td>&ldquo;true&rdquo; enables Verify CallBack security which requires the correct [%RSFN%] variable to be included on the &ldquo;complete&rdquo; client callback for verification.</td>
+</tr>
+<tr>
+<td>UniquePID</td>
+<td>boolean</td>
+<td>true</td>
+<td>&ldquo;true&rdquo; enables PID deduplication on a survey preventing a repsondent with the same PID from entering more than once. Recommended on all surveys.</td>
+</tr>
+<tr>
+<td>UniqueIPAddress</td>
+<td>boolean</td>
+<td>true</td>
+<td>&ldquo;true&rdquo; enables IP deduplication on a survey preventing a repsondent with the same IP address from entering more than once. Recommended on all surveys.</td>
+</tr>
+<tr>
+<td>IsRelevantID</td>
+<td>boolean</td>
+<td>true</td>
+<td>&ldquo;true&rdquo; enables RelevantID security. RelevantID is a third-party security feature. There is an additional cost associated.</td>
+</tr>
+<tr>
+<td>IsDedupe</td>
+<td>boolean</td>
+<td>true</td>
+<td>&ldquo;true&rdquo; enables Relevant ID dedupe security. Should always be enabled when using RelevantID.</td>
+</tr>
+<tr>
+<td>IsGeoIP</td>
+<td>boolean</td>
+<td>true</td>
+<td>&ldquo;true&rdquo; enables RelevantID GeoIP security to determine respondent geogrphical location. Should always be enabled when using RelevantID.</td>
+</tr>
+<tr>
+<td>IsFraudProfile</td>
+<td>boolean</td>
+<td>true</td>
+<td>&ldquo;true&rdquo; enables RelevantID Fraud Profile security. Should always be enabled when using RelevantID.</td>
+</tr>
+<tr>
+<td>FraudProfileThreshold</td>
+<td>int</td>
+<td>true</td>
+<td>Set&rsquo;s the RelevantID Fraud Profile Threshold between 0-100. The lower the number the more aggressive the security. We recommend 11.</td>
+</tr>
+<tr>
+<td>IsTrueSample</td>
+<td>boolean</td>
+<td>true</td>
+<td>&ldquo;true&rdquo; enables TrueSample security. TrueSample is a third-party security feature. There is an additional cost associated.</td>
+</tr>
+<tr>
+<td>QuotaCalculationTypeID</td>
+<td>int</td>
+<td>true</td>
+<td>Sets the quota calculation method. Either 1 for ”Completes” (quotas counted using completes) or 2=”Prescreens” (quotas counted when leaving Fulcrum for the survey).</td>
+</tr>
+<tr>
+<td>SurveyPlatformID</td>
+<td>int</td>
+<td>true</td>
+<td>Sets the external platform ID. We recommend setting to 2 for &ldquo;undefined&rdquo; in most situations.</td>
+</tr>
+<tr>
+<td>BidLengthOfInterview</td>
+<td>int</td>
+<td>true</td>
+<td>Estimated time for a respondent to complete the survey excluding the Fulcrum prescreener in minutes as provided by the buyer.</td>
+</tr>
+<tr>
+<td>BusinessUnitID</td>
+<td>int</td>
+<td>true</td>
+<td>Sets the account <a href="#list-business-units">business unit</a>.</td>
+</tr>
+<tr>
+<td>SampleTypeID</td>
+<td>int</td>
+<td>false</td>
+<td>Sets the type of sample the survey is open to (i.e. consumer, business-to-business, etc). (SampleTypes)[#definitions].</td>
+</tr>
+</tbody></table>
+
 <h3 id="get-show-a-survey">GET Show a Survey</h3>
 
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET  https://api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/{SurveyNumber}?key={APIKey}
+</code></pre>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl https://api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/<span class="o">{</span>SurveyNumber<span class="o">}</span>?key<span class="o">={</span>APIKey<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
+
+<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/{SurveyNumber}?key={APIKey}'</span><span class="p">)</span>
+
+<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">uri</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
+
+<span class="n">http</span><span class="p">.</span><span class="nf">use_ssl</span> <span class="o">=</span> <span class="kp">true</span>
+
+<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">request_uri</span><span class="p">)</span>
+
+<span class="n">survey</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>  
+</code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$survey</span> <span class="o">=</span> <span class="nb">file_get_contents</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/{SurveyNumber}?key={APIKey}'</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">survey</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/{SurveyNumber}?key={APIKey}'</span><span class="p">)</span>
+</code></pre>
+<pre class="highlight csharp"><code><span class="k">using</span> <span class="nn">System.Net</span><span class="p">;</span>
+
+<span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/{SurveyNumber}?key={APIKey}"</span><span class="p">);</span>
+
+<span class="n">WebResponse</span> <span class="n">survey</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">GetResponse</span><span class="p">();</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'https'</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">survey</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/{SurveyNumber}?key={APIKey}'</span><span class="p">);</span>
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"ApiResult"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiResultCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiAccount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Anon"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"AccountType"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiAccountStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"AccountCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AA"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiMessages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"API Message: Response initialized."</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"API Message: GetSurveyBySurveyNumber successful."</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"ResultCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Survey"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"AccountID"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SurveyStatusCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SurveyPriority"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SurveyNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">12345</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SurveyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example API Survey"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CountryLanguageID"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IndustryID"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"StudyTypeID"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ClientCPI"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"QuotaCPI"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ClientSurveyLiveURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.surveyURL.com?rid=[%RID%]"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"TestRedirectURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.surveyURL.com?rid=[%RID%]"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Quota"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"FulcrumExchangeAllocation"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"FulcrumExchangeHedgeAccess"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsVerifyCallBack"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"UniquePID"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"UniqueIPAddress"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsRelevantID"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsDedupe"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsGeoIP"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsFraudProfile"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"FraudProfileThreshold"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsTrueSample"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"QuotaCalculationTypeID"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SurveyPlatformID"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"BidLengthOfInterview"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"BusinessUnitID"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SampleTypeID"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Returns the details of a specific Fulcrum survey. </p>
+
+<aside class="notice">NumberOfRespondents is calculated real-time.</aside>
+
+<h4 id="arguments">Arguments</h4>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>SurveyNumber</td>
+<td>int</td>
+<td>true</td>
+<td>Unique number associated with the survey.</td>
+</tr>
+</tbody></table>
+
 <h3 id="get-list-surveys-by-status">GET List Surveys By Status</h3>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET  https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyNStatus}?key={APIKey}
+</code></pre>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/<span class="o">{</span>SurveyNStatus<span class="o">}</span>?key<span class="o">={</span>APIKey<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
+
+<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyNStatus}?key={APIKey}'</span><span class="p">)</span>
+
+<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">uri</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
+
+<span class="n">http</span><span class="p">.</span><span class="nf">use_ssl</span> <span class="o">=</span> <span class="kp">true</span>
+
+<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">request_uri</span><span class="p">)</span>
+
+<span class="n">surveyQuotas</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>  
+</code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$surveyQuotas</span> <span class="o">=</span> <span class="nb">file_get_contents</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyNStatus}?key={APIKey}'</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">surveyQuotas</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyNStatus}?key={APIKey}'</span><span class="p">)</span>
+</code></pre>
+<pre class="highlight csharp"><code><span class="k">using</span> <span class="nn">System.Net</span><span class="p">;</span>
+
+<span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyNStatus}?key={APIKey}"</span><span class="p">);</span>
+
+<span class="n">WebResponse</span> <span class="n">surveyQuotas</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">GetResponse</span><span class="p">();</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'https'</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">surveyQuotas</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyNStatus}?key={APIKey}'</span><span class="p">);</span>
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"ApiResult"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiResultCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiAccount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Anon"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"AccountType"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiAccountStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"AccountCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AA"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiMessages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"API Message: Response initialized."</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"API Message: GetSurveysBySurveyStatus successful."</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"ResultCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Surveys"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"AccountID"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"SurveyStatusCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"SurveyPriority"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"SurveyNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">12345</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"SurveyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example API Survey"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CountryLanguageID"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IndustryID"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"StudyTypeID"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ClientCPI"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"QuotaCPI"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ClientSurveyLiveURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.surveyURL.com?rid=[%RID%]"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"TestRedirectURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.surveyURL.com?rid=[%RID%]"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Quota"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"FulcrumExchangeAllocation"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"FulcrumExchangeHedgeAccess"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsVerifyCallBack"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"UniquePID"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"UniqueIPAddress"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsRelevantID"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsDedupe"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsGeoIP"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsFraudProfile"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"FraudProfileThreshold"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsTrueSample"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"QuotaCalculationTypeID"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"SurveyPlatformID"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"BidLengthOfInterview"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"BusinessUnitID"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"SampleTypeID"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Returns an index of all surveys by status such as Pending, Live, and Completed. </p>
+
+<h4 id="arguments">Arguments</h4>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>SurveyStatus</td>
+<td>int</td>
+<td>true</td>
+<td>Code associated with the current status of the survey. See <a href="#list-global-definitions">List Global Definitions</a> for a map, of survey status codes.</td>
+</tr>
+</tbody></table>
 
               <h2 id="qualifications">Qualifications</h2>
 
@@ -2935,12 +4718,12 @@ https://api.samplicio.us/Supply/v1/SupplierLinks/Create/<span class="o">{</span>
 <tr>
 <td>HedgeAccess</td>
 <td>string</td>
-<td>“true” or “false” – Indicates if hedge access is enabled for the supplier.</td>
+<td>Indicates if hedge access is enabled for the supplier (<code class="prettyprint">true</code>, <code class="prettyprint">false</code>).</td>
 </tr>
 <tr>
 <td>BlockRouterTraffic</td>
 <td>string</td>
-<td>“true” or “false” – Indicates if router traffic is enabled for the supplier.</td>
+<td>Indicates if router traffic is enabled for the supplier (<code class="prettyprint">true</code>, <code class="prettyprint">false</code>).</td>
 </tr>
 <tr>
 <td>SupplierSurveyID</td>
@@ -3208,7 +4991,7 @@ https://api.samplicio.us/Demand/v1/SupplierAllocations/Targets/Create/<span clas
 
 <p>Creates target links for suppliers with an alloacation for a Fulcrum survey. </p>
 
-<aside class="notice">Ensure that the supplier has already been allocated to the survey by first making the [SupplierAllocations/Create](#create-an-allocation) call. Always default to Targeted/Standalone link type (SupplierLinkTypeCode TS) when creating target links unless specifically requested by the supplier </aside>
+<aside class="notice">Ensure that the supplier has already been allocated to the survey by first making the <a href="#post-create-a-qualification">Create an Allocation</a> call. Always default to Targeted/Standalone link type (SupplierLinkTypeCode TS) when creating target links unless specifically requested by the supplier </aside>
 
 <h4 id="arguments">Arguments</h4>
 
@@ -3645,13 +5428,12 @@ https://api.samplicio.us/Demand/v1/SupplierAllocations/Targets/Create/<span clas
       </span><span class="nt">"IsActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
     </span><span class="p">},</span><span class="w">
   </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="err">;</span><span class="w">
-
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
 
 <p>Returns a list of qualified respondents for a specified recontact study and supplier by PID.</p>
 
-<h3 id="arguments">Arguments</h3>
+<h4 id="arguments">Arguments</h4>
 
 <table><thead>
 <tr>
@@ -3675,13 +5457,13 @@ https://api.samplicio.us/Demand/v1/SupplierAllocations/Targets/Create/<span clas
 </tr>
 </tbody></table>
 
-<h2 id="update-qualified-respondents">Update Qualified Respondents</h2>
+<h3 id="put-update-qualified-respondents">PUT Update Qualified Respondents</h3>
 
 <blockquote>
 <p>Definition</p>
 </blockquote>
-
-<p>PUT  https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}</p>
+<pre class="highlight plaintext"><code>PUT  https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}
+</code></pre>
 
 <blockquote>
 <p>Example Request</p>
@@ -3795,30 +5577,30 @@ https://api.samplicio.us/Demand/v1/SupplierAllocations/Targets/Create/<span clas
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-
-<p>{
-  &ldquo;ApiResult&rdquo;: 0,
-  &ldquo;ApiResultCode&rdquo;: 0,
-  &ldquo;ApiAccount&rdquo;: &ldquo;Anon&rdquo;,
-  &ldquo;AccountType&rdquo;: 2,
-  &ldquo;ApiAccountStatus&rdquo;: 1,
-  &ldquo;AccountCode&rdquo;: &ldquo;AA&rdquo;,
-  &ldquo;ApiMessages&rdquo;: [
-    &ldquo;API Message: Response initialized.&rdquo;,
-    &ldquo;API Message: UpdateSurveyQualifiedRespondentsBySurveyNumberSupplierCode successful.&rdquo;
-  ],
-  &ldquo;ResultCount&rdquo;: 1,
-  &ldquo;SurveyQualifiedRespondents&rdquo;: [
-    {
-      &ldquo;PID&rdquo;: &ldquo;1234&rdquo;,
-      &ldquo;IsActive&rdquo;: true
-    },
-  ]
-}</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"ApiResult"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiResultCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiAccount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Anon"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"AccountType"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiAccountStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"AccountCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AA"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiMessages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"API Message: Response initialized."</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"API Message: UpdateSurveyQualifiedRespondentsBySurveyNumberSupplierCode successful."</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"ResultCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"SurveyQualifiedRespondents"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"PID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <p>Updates the list of PIDs that qualify for a recontact survey. </p>
 
-<h3 id="arguments">Arguments</h3>
+<h4 id="arguments">Arguments</h4>
 
 <table><thead>
 <tr>
@@ -3865,28 +5647,6 @@ https://api.samplicio.us/Demand/v1/SupplierAllocations/Targets/Create/<span clas
 <h3 id="diy-market-research-buyer">DIY Market Research Buyer</h3>
 
 <h3 id="enterprise-market-research-buyer">Enterprise Market Research Buyer</h3>
-
-              <h1 id="changelog">Changelog</h1>
-
-<h2 id="10-22-2015">10-22-2015</h2>
-
-<h4 id="demand-api-business-units">Demand API - Business Units</h4>
-
-<p>If BusinessUnitID is passed in as NULL on Survey Create, it will default to the BusinessUnitID of the API user of the account. BusinessUnitID will be required on Survey Update.</p>
-
-<h4 id="deprecated-methods">Deprecated Methods</h4>
-
-<p>The following deprecated methods were removed from the Lookup and Supply APIs:</p>
-
-<ul>
-<li>Lookup/v1/QuestionLibrary/AllBidQuestions</li>
-<li>Lookup/v1/QuestionLibrary/AllBidQuestionOptions</li>
-<li>Lookup/v1/QuestionLibrary/BidQuestionById</li>
-<li>Supply/v1/SupplierLinks/CreateOfferwall</li>
-<li>Supply/v1/SupplierLinks/CreateOfferwallWithSupplierCode</li>
-<li>Supply/v1/SupplierLinks/CreateOfferwallWithTrackingUrlTypeCode</li>
-<li>Supply/v1/SupplierLinks/UpdateRedirectUrlBySupplierLinkSid</li>
-</ul>
 
           </div>
           <div class="dark-box">
