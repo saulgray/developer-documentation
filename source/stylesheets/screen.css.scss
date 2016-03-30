@@ -614,14 +614,9 @@ html, body {
     box-sizing: border-box;
     border-radius: 3px;
     box-shadow: 0px 1px 2px #10223C inset;
-    
-    /* For Firefox */
-    @-moz-document url-prefix(){
-     white-space: pre-wrap;
-     word-break: break-all;
-    }
 
-    /* For Chrome and IE */
+    /* Removes scrolling from code blocks */
+    white-space: pre-wrap;
     word-wrap: break-word;
 
     @extend %right-col;
