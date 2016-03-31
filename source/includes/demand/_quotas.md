@@ -34,7 +34,7 @@ request = Net::HTTP::Post.new(fullUriPath, initheader = {'Content-Type' =>'appli
 
 request.body = {SupplierLinkTypeCode:"OWS",TrackingTypeCode:"NONE"}.to_json
 
-createQuotas = http.request(request)
+quotas = http.request(request)
 ```
 
 ```php
@@ -55,7 +55,7 @@ curl_setopt_array($curl, array(
   CURLOPT_POSTFIELDS => $params,
 ));
 
-$createQuotas = curl_exec($curl);
+$quotas = curl_exec($curl);
 
 curl_close($curl);
 ?>
@@ -69,7 +69,7 @@ params = {'Name': 'Quota Name', 'Quota': 50, 'IsActive': true, 'Conditions':[{'Q
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
-createQuotas = requests.post(url, data=data, headers=headers)
+quotas = requests.post(url, data=data, headers=headers)
 ```
 
 ```csharp
@@ -90,7 +90,7 @@ streamWriter.Flush();
 streamWriter.Close();
 }
 
-WebResponse createQuotas = request.GetResponse();
+WebResponse quotas = request.GetResponse();
 ```
 
 ```javascript
@@ -122,10 +122,10 @@ var json = {
 
 var params = JSON.stringify(json);
 
-var request = https.request(options, function (supplierLink) {
+var request = https.request(options, function (quotas) {
   var chunks = [];
 
-  createQuotas.on("data", function (chunk) {
+  quotas.on("data", function (chunk) {
     chunks.push(chunk);
   });
 
@@ -200,6 +200,12 @@ Creates Quota based on specified questionIDs.
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
 | SurveyNumber                 | int      | true     | Unique number associated with the survey.                                                                                                    |
 | Name                         | string   | true     | Name associated with the quota.                                                                                                    |
+| FieldTarget                  | int      | true     | Field Target associated with the quota.                                                                                                    |
+| Quota                        | int      | true     | Quota number for the specified quota.                                                                                                    |
+| IsActive                     | boolean  | true     | Should the quota be enforced on this project?                                                                                                    |
+| SurveyQuotaType              | string   | false    | Indicates quota type (Client or Total).                                                                                                    |
+| Conditions                   | array    | false    | Indicates conditions associated with quota (by questionID and precodes).                                                                     |
+
 
 ```
 
@@ -235,7 +241,7 @@ request = Net::HTTP::Put.new(fullUriPath, initheader = {'Content-Type' =>'applic
 
 request.body = {Name: "Quota Name", Quota: 50, IsActive:true, Conditions:[{QuestionID:42, Precodes: [18, 19, 20, 21, 22] }]}.to_json
 
-updateQuotas = http.request(request)
+quotas = http.request(request)
 ```
 
 ```php
@@ -256,7 +262,7 @@ curl_setopt_array($curl, array(
   CURLOPT_POSTFIELDS => $params,
 ));
 
-$updateQuotas = curl_exec($curl);
+$quotas = curl_exec($curl);
 
 curl_close($curl);
 ?>
@@ -291,7 +297,7 @@ streamWriter.Flush();
 streamWriter.Close();
 }
 
-WebResponse updateQuotas = request.GetResponse();
+WebResponse quotas = request.GetResponse();
 ```
 
 ```javascript
@@ -324,10 +330,10 @@ var json = {
 
 var params = JSON.stringify(json);
 
-var request = https.request(options, function (supplierLink) {
+var request = https.request(options, function (quotas) {
   var chunks = [];
 
-  updateQuotas.on("data", function (chunk) {
+  quotas.on("data", function (chunk) {
     chunks.push(chunk);
   });
 
@@ -400,9 +406,9 @@ Updates a quota with the specified params
 | SurveyQuotaID                | int      | true     | Unique ID associated with the quota.                                                                                                    |
 | FieldTarget                  | int      | true     | Field Target associated with the quota.                                                                                                    |
 | Quota                        | int      | true     | Quota number for the specified quota.                                                                                                    |
-| IsActive                     | boolean  | true     | Is the quota active on this project?                                                                                                    |
+| IsActive                     | boolean  | true     | Should the quota be enforced on this project?                                                                                                    |
 | SurveyQuotaType              | string   | false    | Indicates quota type (Client or Total).                                                                                                    |
-| Conditions                   | array    | false    | Indicates conditions associated with quota (by questionID and precodes).                                                                                                    |
+| Conditions                   | array    | false    | Indicates conditions associated with quota (by questionID and precodes).                                                                     |
 
 
 
@@ -431,19 +437,19 @@ http.use_ssl = true
 
 request = Net::HTTP::Get.new(uri.request_uri)
 
-listQuotas = http.request(request)  
+quotas = http.request(request)  
 ```
 
 ```php
 <?php
-$listQuotas = file_get_contents('http://api.samplicio.us/Demand/v1/SurveyQuotas/BySurveyNumber/{SurveyNumber}}?key={APIKey}');
+$quotas = file_get_contents('http://api.samplicio.us/Demand/v1/SurveyQuotas/BySurveyNumber/{SurveyNumber}}?key={APIKey}');
 ?>
 ```
 
 ```python
 import requests
 
-listQuotas = requests.get('http://api.samplicio.us/Demand/v1/SurveyQuotas/BySurveyNumber/{SurveyNumber}}?key={APIKey}')
+quotas = requests.get('http://api.samplicio.us/Demand/v1/SurveyQuotas/BySurveyNumber/{SurveyNumber}}?key={APIKey}')
 ```
 
 ```csharp
@@ -451,13 +457,13 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("http://api.samplicio.us/Demand/v1/SurveyQuotas/BySurveyNumber/{SurveyNumber}}?key={APIKey}");
 
-WebResponse listQuotas = request.GetResponse();
+WebResponse quotas = request.GetResponse();
 ```
 
 ```javascript
 const https = require('https');
 
-var listQuotas = https.get('http://api.samplicio.us/Demand/v1/SurveyQuotas/BySurveyNumber/{SurveyNumber}}?key={APIKey}');
+var quotas = https.get('http://api.samplicio.us/Demand/v1/SurveyQuotas/BySurveyNumber/{SurveyNumber}}?key={APIKey}');
 ```
 
 > Example Response
