@@ -8,4 +8,4 @@ Built on RESTful principles, the API uses HTTP methods and verbs. Both JSON and 
 
 To make the API as explorable as possible, each account has production and sandbox API keys and endpoints. Just use the appropriate key and endpoint to perform a live or test call. Requests made with sandbox credentials never hit the Exchange and incur no cost. 
 
-We do not currently rate limit calls because we believe that would only serve to limit your innovation. Please be practical when determining call frequencies. 
+We do not currently rate limit calls because we believe that would only limit your potential to innovate. Please be practical and considerate when determining call frequencies. 
