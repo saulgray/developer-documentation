@@ -28,14 +28,14 @@ http.use_ssl = true
 
 request = Net::HTTP::Post.new(FullUriPath, initheader = {'Content-Type' => 'application/json'})
 
-createGroup = http.request(request)  
+group = http.request(request)  
 ```
 
 ```php
 <?php
 $curl = curl_init();
 
-$params = '{"SurveyNumber": 001100, "Name":"Top Supplier Group", "AllocationPercentage": 0.10, "IsHedgeAccess": true, "Suppliers": [{"SupplierCode":"0001"}],}';
+$params = '{"SurveyNumber": 101100, "Name":"Top Supplier Group", "AllocationPercentage": 0.10, "IsHedgeAccess": true, "Suppliers": [{"SupplierCode":"0001"}],}';
 
 curl_setopt_array($curl, array(
   CURLOPT_URL => "https://api.samplicio.us/Demand/v1/SupplierGroups/CreateWithSuppliers/{SurveyNumber}?key={APIKey}",
@@ -49,7 +49,7 @@ curl_setopt_array($curl, array(
   CURLOPT_POSTFIELDS => $params,
 ));
 
-$createGroup = curl_exec($curl);
+$group = curl_exec($curl);
 
 curl_close($curl);
 ?>
@@ -59,10 +59,10 @@ curl_close($curl);
 import requests
 
 url = 'https://api.samplicio.us/Demand/v1/SupplierGroups/CreateWithSuppliers/{SurveyNumber}?key={APIKey}'
-params = {'SurveyNumber': 001100, 'Name':'Top Supplier Group', 'AllocationPercentage': 0.10, 'IsHedgeAccess': true, 'Suppliers': [{'SupplierCode':'0001'}],}
+params = {'SurveyNumber': 101100, 'Name':'Top Supplier Group', 'AllocationPercentage': 0.10, 'IsHedgeAccess': true, 'Suppliers': [{'SupplierCode':'1010'}],}
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
-createGroup = requests.post(url, data=data, headers=headers)
+group = requests.post(url, data=data, headers=headers)
 
 ```
 
@@ -71,16 +71,16 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SupplierGroups/CreateWithSuppliers/{SurveyNumber}?key={APIKey}");
 
-WebResponse createGroup = request.GetResponse();
+WebResponse group = request.GetResponse();
 
 using System.IO;
 using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SupplierGroups/CreateWithSuppliers/{SurveyNumber}?key={APIKey}");
 
-string params = "{\"SurveyNumber\": 001100, \"Name\":\"Top Supplier Group\", \"AllocationPercentage\": 0.10, \"IsHedgeAccess\": true, \"Suppliers\": [{\"SupplierCode
+string params = "{\"SurveyNumber\": 101100, \"Name\":\"Top Supplier Group\", \"AllocationPercentage\": 0.10, \"IsHedgeAccess\": true, \"Suppliers\": [{\"SupplierCode
 
-\":\"0001\"}]}";
+\":\"1010\"}]}";
 
 request.Method = "POST";
 request.ContentType = "application/json";
@@ -92,14 +92,14 @@ streamWriter.Flush();
 streamWriter.Close();
 }
 
-WebResponse createGroup = request.GetResponse();
+WebResponse group = request.GetResponse();
 
 ```
 
 ```javascript
 const https = require('https');
 
-var createGroup = https.get('https://api.samplicio.us/Demand/v1/SupplierGroups/CreateWithSuppliers/{SurveyNumber}?key={APIKey}');
+var group = https.get('https://api.samplicio.us/Demand/v1/SupplierGroups/CreateWithSuppliers/{SurveyNumber}?key={APIKey}');
 
 const https = require('https');
 
@@ -111,13 +111,13 @@ var options = {
   "headers": {'Content-Type': 'application/json'}
 };
 
-var json = {"SurveyNumber": 001100, 
+var json = {"SurveyNumber": 101100, 
   "Name":"Top Supplier Group", 
   "AllocationPercentage": 0.10, 
   "IsHedgeAccess": true, 
   "Suppliers": [
   {
-  "SupplierCode":"0001"
+  "SupplierCode":"1010"
   }
        ],
       }
@@ -127,7 +127,7 @@ var params = JSON.stringify(json);
 var request = https.request(options, function (createGroup) {
   var chunks = [];
 
-  supplierLink.on("data", function (chunk) {
+  group.on("data", function (chunk) {
     chunks.push(chunk);
   });
 
@@ -140,12 +140,12 @@ request.end();
 
 ```json 
  {
-    "SurveyNumber": 001100,
+    "SurveyNumber": 101100,
     "Name":"Top Supplier Group",
     "AllocationPercentage": 0.10,
     "IsHedgeAccess": true,
     "Suppliers": [
-       {"SupplierCode":"0001"},
+       {"SupplierCode":"1010"},
      ]
 }
 ```
@@ -175,7 +175,7 @@ request.end();
     "IsHedgeAccess": true,
     "Suppliers": [
       {
-        "SupplierCode": "0001",
+        "SupplierCode": "1010",
         "Completes": 0,
         "Screens": 0
       }
@@ -184,7 +184,7 @@ request.end();
 }
 ```
 
-Creates a group and specifies the suppliers and allocation for that group upon creation.
+Creates a group with specific suppliers and allocation for that group.
 
 
 ### Arguments
@@ -223,7 +223,7 @@ POST  https://api.samplicio.us/Demand/v1/SupplierGroups/Create/{SurveyNumber}?ke
 
 ```shell
 curl -H "Content-Type: application/json" \
--X POST --data '{"SurveyNumber": 001100,"Name":"Top Supplier Group", "AllocationPercentage": 0.10,"IsHedgeAccess": true}' \
+-X POST --data '{"SurveyNumber": 101100,"Name":"Top Supplier Group", "AllocationPercentage": 0.10,"IsHedgeAccess": true}' \
 curl https://api.samplicio.us/Demand/v1/SupplierGroups/Create/{SurveyNumber}?key={APIKey}
 ```
 
@@ -241,16 +241,16 @@ fullUriPath = uri.path + '?' + uri.query
 
 request = Net::HTTP::Post.new(fullUriPath, initheader = {'Content-Type' =>'application/json'})
 
-request.body = {SurveyNumber: 001100, Name:"Top Supplier Group", AllocationPercentage: 0.10, IsHedgeAccess: true}.to_json
+request.body = {SurveyNumber: 101100, Name:"Top Supplier Group", AllocationPercentage: 0.10, IsHedgeAccess: true}.to_json
 
-createGroupEmpty = http.request(request)
+group = http.request(request)
 ```
 
 ```php
 <?php
 $curl = curl_init();
 
-$params = '{"SurveyNumber": 001100,"Name":"Top Supplier Group", "AllocationPercentage": 0.10,"IsHedgeAccess": true}';
+$params = '{"SurveyNumber": 101100,"Name":"Top Supplier Group", "AllocationPercentage": 0.10,"IsHedgeAccess": true}';
 
 curl_setopt_array($curl, array(
   CURLOPT_URL => "https://api.samplicio.us/Demand/v1/SupplierGroups/Create/{SurveyNumber}?key={APIKey}",
@@ -264,7 +264,7 @@ curl_setopt_array($curl, array(
   CURLOPT_POSTFIELDS => $params,
 ));
 
-$createGroupEmpty = curl_exec($curl);
+$group = curl_exec($curl);
 
 curl_close($curl);
 ?>
@@ -274,11 +274,11 @@ curl_close($curl);
 import requests, json
 
 url = 'https://api.samplicio.us/Demand/v1/SupplierGroups/Create/{SurveyNumber}?key={APIKey}'
-params = {'SurveyNumber': 001100,'Name':'Top Supplier Group', 'AllocationPercentage': 0.10,'IsHedgeAccess': true}
+params = {'SurveyNumber': 101100,'Name':'Top Supplier Group', 'AllocationPercentage': 0.10,'IsHedgeAccess': true}
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
-createGroupEmpty = requests.post(url, data=data, headers=headers)
+group = requests.post(url, data=data, headers=headers)
 ```
 
 ```csharp
@@ -288,7 +288,7 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SupplierGroups/Create/{SurveyNumber}?key={APIKey}");
 
-string params = "{\"SurveyNumber\": 001100, \"Name\":\"Top Supplier Group\", \"AllocationPercentage\": 0.10, \"IsHedgeAccess\": true}]}";
+string params = "{\"SurveyNumber\": 101100, \"Name\":\"Top Supplier Group\", \"AllocationPercentage\": 0.10, \"IsHedgeAccess\": true}]}";
 
 request.Method = "POST";
 request.ContentType = "application/json";
@@ -300,13 +300,13 @@ streamWriter.Flush();
 streamWriter.Close();
 }
 
-WebResponse createGroupEmpty = request.GetResponse();
+WebResponse group = request.GetResponse();
 ```
 
 ```javascript
 const https = require('https');
 
-var createGroupEmpty = https.get('https://api.samplicio.us/Demand/v1/SupplierGroups/Create/{SurveyNumber}?key={APIKey}');
+var group = https.get('https://api.samplicio.us/Demand/v1/SupplierGroups/Create/{SurveyNumber}?key={APIKey}');
 
 const https = require('https');
 
@@ -318,7 +318,7 @@ var options = {
   "headers": {'Content-Type': 'application/json'}
 };
 
-var json = {"SurveyNumber": 001100, 
+var json = {"SurveyNumber": 101100, 
   "Name":"Top Supplier Group", 
   "AllocationPercentage": 0.10, 
   "IsHedgeAccess": true, 
@@ -326,10 +326,10 @@ var json = {"SurveyNumber": 001100,
 
 var params = JSON.stringify(json);
 
-var request = https.request(options, function (createGroupEmpty) {
+var request = https.request(options, function (group) {
   var chunks = [];
 
-  createGroupEmpty.on("data", function (chunk) {
+  group.on("data", function (chunk) {
     chunks.push(chunk);
   });
 
@@ -342,7 +342,7 @@ request.end();
 
 ```json 
  {
-    "SurveyNumber": 001100,
+    "SurveyNumber": 101100,
     "Name":"Top Supplier Group",
     "AllocationPercentage": 0.10,
     "IsHedgeAccess": true,
@@ -377,7 +377,7 @@ request.end();
 }
 ```
 
-Creates an empty supplier group and specifies the allocation and name upon creation.
+Creates an empty supplier group with a specific allocation and name.
 
 
 ### Arguments
@@ -431,16 +431,16 @@ fullUriPath = uri.path + '?' + uri.query
 
 request = Net::HTTP::Post.new(fullUriPath, initheader = {'Content-Type' =>'application/json'})
 
-request.body = {SurveyNumber: 001100, Name:"Top Supplier Group",AllocationPercentage: 0.10, IsHedgeAccess: true}.to_json
+request.body = {SurveyNumber: 101100, Name:"Top Supplier Group",AllocationPercentage: 0.10, IsHedgeAccess: true}.to_json
 
-updateGroup = http.request(request)
+group = http.request(request)
 ```
 
 ```php
 <?php
 $curl = curl_init();
 
-$params = '{"SurveyNumber": 001100,"Name":"Top Supplier Group", "AllocationPercentage": 0.10,"IsHedgeAccess": true}';
+$params = '{"SurveyNumber": 101100,"Name":"Top Supplier Group", "AllocationPercentage": 0.10,"IsHedgeAccess": true}';
 
 curl_setopt_array($curl, array(
   CURLOPT_URL => "https://api.samplicio.us/Demand/v1/SupplierGroups/Update/{SurveyNumber}?key={APIKey}",
@@ -454,7 +454,7 @@ curl_setopt_array($curl, array(
   CURLOPT_POSTFIELDS => $params,
 ));
 
-$updateGroup = curl_exec($curl);
+$group = curl_exec($curl);
 
 curl_close($curl);
 ?>
@@ -464,11 +464,11 @@ curl_close($curl);
 import requests, json
 
 url = 'https://api.samplicio.us/Demand/v1/SupplierGroups/Update/{SurveyNumber}?key={APIKey}'
-params = {'SurveyNumber': 001100,'Name':'Top Supplier Group', 'AllocationPercentage': 0.10,'IsHedgeAccess': true}
+params = {'SurveyNumber': 101100,'Name':'Top Supplier Group', 'AllocationPercentage': 0.10,'IsHedgeAccess': true}
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
-updateGroup = requests.post(url, data=data, headers=headers)
+group = requests.post(url, data=data, headers=headers)
 ```
 
 ```csharp
@@ -478,7 +478,7 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SupplierGroups/Update/{SurveyNumber}?key={APIKey}");
 
-string params = "{\"SurveyNumber\": 001100, \"Name\":\"Top Supplier Group\", \"AllocationPercentage\": 0.10, \"IsHedgeAccess\": true}]}";
+string params = "{\"SurveyNumber\": 101100, \"Name\":\"Top Supplier Group\", \"AllocationPercentage\": 0.10, \"IsHedgeAccess\": true}]}";
 
 request.Method = "POST";
 request.ContentType = "application/json";
@@ -490,7 +490,7 @@ streamWriter.Flush();
 streamWriter.Close();
 }
 
-WebResponse updateGroup = request.GetResponse();
+WebResponse group = request.GetResponse();
 ```
 
 ```javascript
@@ -508,7 +508,7 @@ var options = {
   "headers": {'Content-Type': 'application/json'}
 };
 
-var json = {"SurveyNumber": 001100, 
+var json = {"SurveyNumber": 101100, 
   "Name":"Top Supplier Group", 
   "AllocationPercentage": 0.10, 
   "IsHedgeAccess": true, 
@@ -516,10 +516,10 @@ var json = {"SurveyNumber": 001100,
 
 var params = JSON.stringify(json);
 
-var request = https.request(options, function (createGroupEmpty) {
+var request = https.request(options, function (group) {
   var chunks = [];
 
-  updateGroup.on("data", function (chunk) {
+  group.on("data", function (chunk) {
     chunks.push(chunk);
   });
 
@@ -532,7 +532,7 @@ request.end();
 
 ```json 
  {
-    "SurveyNumber": 001100,
+    "SurveyNumber": 101100,
     "Name":"Top Supplier Group",
     "AllocationPercentage": 0.10,
     "IsHedgeAccess": true,
@@ -617,7 +617,7 @@ http.use_ssl = true
 
 request = Net::HTTP::Get.new(uri.request_uri)
 
-deleteGroup = http.request(request)  
+group = http.request(request)  
 ```
 
 ```php
@@ -724,16 +724,16 @@ fullUriPath = uri.path + '?' + uri.query
 
 request = Net::HTTP::Post.new(fullUriPath, initheader = {'Content-Type' =>'application/json'})
 
-request.body = {SupplierCode: 0010}.to_json
+request.body = {SupplierCode: 1010}.to_json
 
-addToGroup = http.request(request)
+group = http.request(request)
 ```
 
 ```php
 <?php
 $curl = curl_init();
 
-$params = '{"SupplierCode": 0010}';
+$params = '{"SupplierCode": 1010}';
 
 curl_setopt_array($curl, array(
   CURLOPT_URL => "https://api.samplicio.us/Demand/v1/SupplierGroups/AddSuppliersToGroup/{SurveyNumber}/{SupplierGroupID}?key={APIKey}",
@@ -747,7 +747,7 @@ curl_setopt_array($curl, array(
   CURLOPT_POSTFIELDS => $params,
 ));
 
-$updateGroup = curl_exec($curl);
+$group = curl_exec($curl);
 
 curl_close($curl);
 ?>
@@ -757,11 +757,11 @@ curl_close($curl);
 import requests, json
 
 url = 'https://api.samplicio.us/Demand/v1/SupplierGroups/AddSuppliersToGroup/{SurveyNumber}/{SupplierGroupID}?key={APIKey}'
-params = {'SupplierCode': 0010}
+params = {'SupplierCode': 1010}
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
-addToGroup = requests.post(url, data=data, headers=headers)
+group = requests.post(url, data=data, headers=headers)
 ```
 
 ```csharp
@@ -771,7 +771,7 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SupplierGroups/Update/{SurveyNumber}?key={APIKey}");
 
-string params = "{\"SupplierCode\": 0010}]}";
+string params = "{\"SupplierCode\": 1010}]}";
 
 request.Method = "POST";
 request.ContentType = "application/json";
@@ -783,7 +783,7 @@ streamWriter.Flush();
 streamWriter.Close();
 }
 
-WebResponse addToGroup = request.GetResponse();
+WebResponse group = request.GetResponse();
 ```
 
 ```javascript
@@ -801,14 +801,14 @@ var options = {
   "headers": {'Content-Type': 'application/json'}
 };
 
-var json = {"SupplierCode": 0010}
+var json = {"SupplierCode": 1010}
 
 var params = JSON.stringify(json);
 
 var request = https.request(options, function (createGroupEmpty) {
   var chunks = [];
 
-  addToGroup.on("data", function (chunk) {
+  group.on("data", function (chunk) {
     chunks.push(chunk);
   });
 
@@ -846,7 +846,7 @@ request.end();
     "IsHedgeAccess": true,
     "Suppliers": [
       {
-        "SupplierCode": "0010",
+        "SupplierCode": "1010",
         "Completes": 0,
         "Screens": 0
       },
@@ -900,19 +900,19 @@ http.use_ssl = true
 
 request = Net::HTTP::Get.new(uri.request_uri)
 
-listGroups = http.request(request)  
+group = http.request(request)  
 ```
 
 ```php
 <?php
-$listGroups = file_get_contents('https://api.samplicio.us/Demand/v1/SupplierGroups/BySurveyNumber/{SurveyNumber}?key={APIKey}');
+$group = file_get_contents('https://api.samplicio.us/Demand/v1/SupplierGroups/BySurveyNumber/{SurveyNumber}?key={APIKey}');
 ?>
 ```
 
 ```python
 import requests
 
-listGroups = requests.get('https://api.samplicio.us/Demand/v1/SupplierGroups/BySurveyNumber/{SurveyNumber}?key={APIKey}')
+group = requests.get('https://api.samplicio.us/Demand/v1/SupplierGroups/BySurveyNumber/{SurveyNumber}?key={APIKey}')
 ```
 
 ```csharp
@@ -920,13 +920,13 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SupplierGroups/BySurveyNumber/{SurveyNumber}?key={APIKey}");
 
-WebResponse listGroups = request.GetResponse();
+WebResponse group = request.GetResponse();
 ```
 
 ```javascript
 const https = require('https');
 
-var listGroups = https.get('https://api.samplicio.us/Demand/v1/SupplierGroups/BySurveyNumber/{SurveyNumber}?key={APIKey}');
+var group = https.get('https://api.samplicio.us/Demand/v1/SupplierGroups/BySurveyNumber/{SurveyNumber}?key={APIKey}');
 ```
 > Example Response
 
@@ -954,7 +954,7 @@ var listGroups = https.get('https://api.samplicio.us/Demand/v1/SupplierGroups/By
       "IsHedgeAccess": true,
       "Suppliers": [
         {
-          "SupplierCode": "0001",
+          "SupplierCode": "1010",
           "Completes": 0,
           "Screens": 0
         }
@@ -970,7 +970,7 @@ var listGroups = https.get('https://api.samplicio.us/Demand/v1/SupplierGroups/By
       "IsHedgeAccess": true,
       "Suppliers": [
       {
-          "SupplierCode": "0010",
+          "SupplierCode": "1010",
           "Completes": 0,
           "Screens": 0
         }
@@ -1009,7 +1009,7 @@ PUT  https://api.samplicio.us/Demand/v1/SupplierGroups/RemoveSuppliersFromGroup/
 
 ```shell
 curl -H "Content-Type: application/json" \
--X PUT  --data '{"SupplierCode": "0001"}' \ https://api.samplicio.us/Demand/v1/SupplierGroups/RemoveSuppliersFromGroup/{SurveyNumber}?key={APIKey}
+-X PUT  --data '{"SupplierCode": "1010"}' \ https://api.samplicio.us/Demand/v1/SupplierGroups/RemoveSuppliersFromGroup/{SurveyNumber}?key={APIKey}
 ```
 
 ```ruby
@@ -1027,9 +1027,9 @@ fullUriPath = uri.path + '?' + uri.query
 
 request = Net::HTTP::Put.new(fullUriPath, initheader = {'Content-Type' =>'application/json'})
 
-request.body = {SupplierCode: 0010}.to_json
+request.body = {SupplierCode: '1010'}.to_json
 
-removeFromGroup = http.request(request)
+group = http.request(request)
 
 
 
@@ -1037,12 +1037,12 @@ removeFromGroup = http.request(request)
 
 ```php
 <?php
-$removeSuppliers = file_get_contents('https://api.samplicio.us/Demand/v1/SupplierGroups/RemoveSuppliersFromGroup/{SurveyNumber}?key={APIKey}');
+$group = file_get_contents('https://api.samplicio.us/Demand/v1/SupplierGroups/RemoveSuppliersFromGroup/{SurveyNumber}?key={APIKey}');
 ?>
 
 $curl = curl_init();
 
-$params = '{"SupplierLinkTypeCode": "OWS,"TrackingTypeCode": "NONE","DefaultLink": "","SuccessLink": "","FailureLink": "","OverQuotaLink": "","QualityTerminationLink": ""}';
+$params = '{"SupplierLinkTypeCode": "OWS","TrackingTypeCode": "NONE","DefaultLink": "","SuccessLink": "","FailureLink": "","OverQuotaLink": "","QualityTerminationLink": ""}';
 
 curl_setopt_array($curl, array(
   CURLOPT_URL => "https://api.samplicio.us/Demand/v1/SupplierGroups/RemoveSuppliersFromGroup/{SurveyNumber}?key={APIKey}",
@@ -1056,7 +1056,7 @@ curl_setopt_array($curl, array(
   CURLOPT_POSTFIELDS => $params,
 ));
 
-$removeFromGroup = curl_exec($curl);
+$group = curl_exec($curl);
 
 curl_close($curl);
 ?>
@@ -1066,16 +1066,16 @@ curl_close($curl);
 ```python
 import requests
 
-removeSuppliers = requests.get('https://api.samplicio.us/Demand/v1/SupplierGroups/RemoveSuppliersFromGroup/{SurveyNumber}?key={APIKey}')
+group = requests.get('https://api.samplicio.us/Demand/v1/SupplierGroups/RemoveSuppliersFromGroup/{SurveyNumber}?key={APIKey}')
 
 import requests, json
 
 url = 'https://api.samplicio.us/Supply/v1/SupplierLinks/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}'
-params = {'SupplierCode': 0010}
+params = {'SupplierCode': '1010'}
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
-supplierLink = requests.put(url, data=data, headers=headers)
+group = requests.put(url, data=data, headers=headers)
 ```
 
 ```csharp
@@ -1083,7 +1083,7 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SupplierGroups/RemoveSuppliersFromGroup/{SurveyNumber}?key={APIKey}");
 
-WebResponse removeSuppliers = request.GetResponse();
+WebResponse group = request.GetResponse();
 
 
 using System.IO;
@@ -1091,7 +1091,7 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SupplierGroups/RemoveSuppliersFromGroup/{SurveyNumber}?key={APIKey}");
 
-string params = "{\"SupplierCode\": 0010}";
+string params = "{\"SupplierCode\": 1010}";
 
 request.Method = "PUT";
 request.ContentType = "application/json";
@@ -1103,7 +1103,7 @@ using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
             streamWriter.Close();
         }
 
-WebResponse removeFromGroup = request.GetResponse();
+WebResponse group = request.GetResponse();
 ```
 
 ```javascript
@@ -1118,15 +1118,15 @@ var options = {
 };
 
 var json = {
-    "SupplierCode": 0010,
+    "SupplierCode": "1010",
 };
 
 var params = JSON.stringify(json);
 
-var request = https.request(options, function (supplierLink) {
+var request = https.request(options, function (group) {
   var chunks = [];
 
-  supplierLink.on("data", function (chunk) {
+  group.on("data", function (chunk) {
     chunks.push(chunk);
   });
 
@@ -1139,7 +1139,7 @@ request.end();
 
 ```json
 {
-  {"SupplierCode": "0001"},
+  {"SupplierCode": "1010"},
   
 }
 
