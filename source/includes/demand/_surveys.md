@@ -390,7 +390,7 @@ request.end();
 
 Creates a Fulcrum survey.   
 
-<aside class="notice">Fulcrum automatically adds 7 qualifications to US studies when a survey is created (Age, Gender, Zip, STATE, Ethnicity, Hispanic, Standard HHI). These qualifications can be edited or removed if desired using the (SurveyQualifications/Update)[#put-update-a-qualification] call.</aside>
+<aside class="notice">Fulcrum automatically adds 7 qualifications to US studies when a survey is created (Age, Gender, Zip, STATE, Ethnicity, Hispanic, Standard HHI). These qualifications can be edited or removed if desired using the [SurveyQualifications/Update](#put-update-a-qualification) call.</aside>
 
 #### Arguments
 
