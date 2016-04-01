@@ -7,7 +7,7 @@ The Surveys resource allows the buyer to create new surveys, update existing sur
 | Property                     | Type     | Description                                                                                                                                             |
 |------------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
 | AccountID                    | int      | Unique account identifier.                                                                                                                              |
-| SurveyStatusCode             | int      | Code associated with the current status of the survey. See [List Global Definitions](#list-global-definitions) for a map of survey status codes.        |
+| SurveyStatusCode             | int      | Code associated with the current status of the survey. See [List Global Definitions](#get-list-global-definitions) for a map of survey status codes.        |
 | SurveyPriority               | int      | Survey priority from 1-11 (1 being the highest). Priority only applies to routed sample.                                                                |
 | SurveyNumber                 | int      | Unique number associated with the survey.                                                                                                               |
 | SurveyName                   | string   | External name of the survey. This name may be exposed to respondents. This value is not unique across surveys.                                          |
@@ -390,14 +390,14 @@ request.end();
 
 Creates a Fulcrum survey.   
 
-<aside class="notice">Fulcrum automatically adds 7 qualifications to US studies when a survey is created (Age, Gender, Zip, STATE, Ethnicity, Hispanic, Standard HHI). These qualifications can be edited or removed if desired using the (SurveyQualifications/Update)[#update-a-qualification] call.</aside>
+<aside class="notice">Fulcrum automatically adds 7 qualifications to US studies when a survey is created (Age, Gender, Zip, STATE, Ethnicity, Hispanic, Standard HHI). These qualifications can be edited or removed if desired using the [SurveyQualifications/Update](#put-update-a-qualification) call.</aside>
 
 #### Arguments
 
 | Property                     | Type     | Required | Description                                                                                                                                            |
 |------------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
 | AccountID                    | int      | true     |Unique account identifier.                                                                                                                              |
-| SurveyStatusCode             | int      | false    |Code associated with the current status of the survey. See [List Global Definitions](#list-global-definitions) for a map of survey status codes.        |
+| SurveyStatusCode             | int      | false    |Code associated with the current status of the survey. See [List Global Definitions](#get-list-global-definitions) for a map of survey status codes.        |
 | SurveyPriority               | int      | false    |Survey priority from 1-11 (1 being the highest). Priority only applies to routed sample.                                                                |
 | SurveyName                   | string   | true     |External name of the survey. This name may be exposed to respondents. This value is not unique across surveys.                                          |
 | CountryLanguageID            | int      | true     |Unique id associated with a country-language pair.                                                                                                      |
@@ -787,7 +787,7 @@ Update an existing Fulcrum survey.
 | Property                     | Type     | Required | Description                                                                                                                                            |
 |------------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
 | AccountID                    | int      | true     |Unique account identifier.                                                                                                                              |
-| SurveyStatusCode             | int      | true     |Code associated with the current status of the survey. See [List Global Definitions](#list-global-definitions) for a map of survey status codes.        |
+| SurveyStatusCode             | int      | true     |Code associated with the current status of the survey. See [List Global Definitions](#get-list-global-definitions) for a map of survey status codes.        |
 | SurveyPriority               | int      | true     |Survey priority from 1-11 (1 being the highest). Priority only applies to routed sample.                                                                |
 | SurveyName                   | string   | true     |External name of the survey. This name may be exposed to respondents. This value is not unique across surveys.                                          |
 | SurveyNumber                 | int      | true     |Unique number associated with the survey.                                                                                                               |
@@ -1042,4 +1042,4 @@ Returns an index of all surveys by status such as Pending, Live, and Completed.
 
 | Property                     | Type     | Required | Description                                                                                                                                      |
 |------------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------|
-| SurveyStatus                 | int      | true     | Code associated with the current status of the survey. See [List Global Definitions](#list-global-definitions) for a map, of survey status codes.|
+| SurveyStatus                 | int      | true     | Code associated with the current status of the survey. See [List Global Definitions](#get-list-global-definitions) for a map, of survey status codes.|
