@@ -7,7 +7,7 @@ The Surveys resource allows the buyer to create new surveys, update existing sur
 | Property                     | Type     | Description                                                                                                                                             |
 |------------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
 | AccountID                    | int      | Unique account identifier.                                                                                                                              |
-| SurveyStatusCode             | int      | Code associated with the current status of the survey. See [List Global Definitions](#list-global-definitions) for a map of survey status codes.        |
+| SurveyStatusCode             | int      | Code associated with the current status of the survey. See [List Global Definitions](#get-list-global-definitions) for a map of survey status codes.        |
 | SurveyPriority               | int      | Survey priority from 1-11 (1 being the highest). Priority only applies to routed sample.                                                                |
 | SurveyNumber                 | int      | Unique number associated with the survey.                                                                                                               |
 | SurveyName                   | string   | External name of the survey. This name may be exposed to respondents. This value is not unique across surveys.                                          |
