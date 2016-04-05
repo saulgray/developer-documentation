@@ -135,7 +135,7 @@ request.end();
     "ApiAccount": "Anon",
     "AccountType": 1,
     "ApiAccountStatus": 1,
-    "AccountCode": "ANO",
+    "AccountCode": "AA",
     "ApiMessages": [
         "API Message: Response initialized.",
         "API Message: CreateSupplierAllocationFromModel successful."
@@ -306,7 +306,7 @@ request.end();
   "ApiAccount": "Anon",
   "AccountType": 1,
   "ApiAccountStatus": 1,
-  "AccountCode": "ANO",
+  "AccountCode": "AA",
   "ApiMessages": [
     "API Message: Response initialized.",
     "API Message: UpdateSupplierAllocationFromModel successful."
