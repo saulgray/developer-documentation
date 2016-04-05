@@ -164,7 +164,7 @@ var options = {
   "method": "POST",
   "hostname": "api.samplicio.us",
   "port": 443,
-  "path": "/Demand/v1/SurveyQualifications/Create/{SurveyNumber}?key={APIKey}"",
+  "path": "/Demand/v1/SurveyQualifications/Create/{SurveyNumber}?key={APIKey}",
   "headers": {'Content-Type': 'application/json'}
 };
 
