@@ -1,6 +1,6 @@
-# Allocations
+## Allocations
 
-## List Allocated Surveys
+### GET List Allocated Surveys
 > Definition
 
 ```plaintext
@@ -98,13 +98,13 @@ var allocations = https.get('https://api.samplicio.us/Supply/v1/Surveys/Supplier
 ```
 Returns a list of all live survey opportunities available through the Exchange and/or directly allocated to you for which you have an allocation or entry link.
 
-### Arguments
+#### Arguments
 
 | Property                     | Type     | Required | Description                                                                     |
 |------------------------------|----------|----------|---------------------------------------------------------------------------------|
 |SupplierCode                  | int      | true     | Unique code associated with a supplier account.                                 |
 
-## Show an Allocated Survey
+### GET Show an Allocated Survey
 > Definition
 
 ```plaintext
@@ -217,7 +217,7 @@ var allocations = https.get('https://api.samplicio.us/Supply/v1/Surveys/Supplier
 ```
 Returns any allocation(s) given to you for a particular survey.
 
-### Arguments
+#### Arguments
 
 | Property                     | Type     | Required | Description                                                                     |
 |------------------------------|----------|----------|---------------------------------------------------------------------------------|
@@ -225,7 +225,7 @@ Returns any allocation(s) given to you for a particular survey.
 |SurveyNumber                  | int      | true     | Unique number associated with the survey.                                       |
 
 
-## List Recently Allocated Surveys
+### GET List Recently Allocated Surveys
 > Definition
 
 ```plaintext
@@ -323,7 +323,7 @@ var allocations = https.get('https://api.samplicio.us/Supply/v1/Surveys/Supplier
 ```
 Returns a list of allocations for which the TotalQuota has changed since a specified date.
 
-### Arguments
+#### Arguments
 
 | Property                     | Type     | Required | Description                                                                     |
 |------------------------------|----------|----------|---------------------------------------------------------------------------------|
