@@ -1,8 +1,8 @@
-#Exchange Templates
+##Exchange Templates
 
 The Exchange Templates resource returns all Exchange templates associated with an existing account as well as apply an existing Exchange template to a survey. An Exchange Template must first be created in the Fulcrum UI. An Exchange Template allows a buyer to quickly add an commonly used Exchange supplier blend. 
 
-### Exchange Templates Model
+#### Exchange Templates Model
 
 | Property                     | Type     | Description                                                                                                                                             |
 |------------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -13,7 +13,7 @@ The Exchange Templates resource returns all Exchange templates associated with a
 | ExchangeIsHedgeAccess        | boolean  | "true" gives the Exchange access to any unallocated completes. "true" is recommended when using the Exchange.                                           |
 | IsGlobalTemplate             | boolean  | Should always return "false" indicating the template is only available to the buyers account.                                                           |
 
-##List Exchange Templates
+### GET List Exchange Templates
 
 > Definition
 
@@ -105,11 +105,11 @@ var exchangeTemplate = https.get('https://api.samplicio.us/Demand/v1/ExchangeTem
 
 Returns all Exchange templates associated with an existing account. 
 
-### Arguments
+#### Arguments
 
-##Apply an Exchange Template
+### POST Apply an Exchange Template
 
-### Supplier Groups Model
+#### Supplier Groups Model
 
 | Property                     | Type     | Description                                                                                                                                             |
 |------------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -123,7 +123,7 @@ Returns all Exchange templates associated with an existing account.
 | CPI                          | int      | Will typically return "null" as CPI can't be set via an Exchange Template.                                                                              |
 | Suppliers                    | array    | Contains array of elements described below.                                                                                                             |
 
-### Suppliers Model
+#### Suppliers Model
 
 | Property                     | Type     | Description                                                                                                                                             |
 |------------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -286,7 +286,7 @@ request.end();
 ```
 Applies the specified Fulcrum Exchange Template to an existing survey.
 
-### Arguments
+#### Arguments
 
 | Property                     | Type     | Required | Description                                                                                                                                  |
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
