@@ -4648,7 +4648,7 @@ https://api.samplicio.us/Demand/v1/Surveys/Update/<span class="o">{</span>Survey
     "PreCodes": [
         "1"
     ],
-    "Order": 7
+    "Order": 2
 }'</span> <span class="se">\</span>
 http://api.samplicio.us/Demand/v1/SurveyQualifications/Create/<span class="o">{</span>SurveyNumber<span class="o">}</span>?key<span class="o">={</span>APIKey<span class="o">}</span>
 </code></pre>
@@ -4674,7 +4674,7 @@ http://api.samplicio.us/Demand/v1/SurveyQualifications/Create/<span class="o">{<
     <span class="s2">"PreCodes"</span><span class="p">:</span> <span class="p">[</span>
         <span class="s2">"1"</span>
     <span class="p">],</span>
-    <span class="s2">"Order"</span><span class="p">:</span> <span class="mi">7</span>
+    <span class="s2">"Order"</span><span class="p">:</span> <span class="mi">2</span>
 <span class="p">}.</span><span class="nf">to_json</span>
 
 <span class="n">surveyQualifications</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
@@ -4691,7 +4691,7 @@ http://api.samplicio.us/Demand/v1/SurveyQualifications/Create/<span class="o">{<
     "PreCodes": [
         "1"
     ],
-    "Order": 7
+    "Order": 2
 }'</span><span class="p">;</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
@@ -4724,7 +4724,7 @@ http://api.samplicio.us/Demand/v1/SurveyQualifications/Create/<span class="o">{<
     <span class="s">"PreCodes"</span><span class="p">:</span> <span class="p">[</span>
         <span class="s">"1"</span>
     <span class="p">],</span>
-    <span class="s">"Order"</span><span class="p">:</span> <span class="mi">7</span>
+    <span class="s">"Order"</span><span class="p">:</span> <span class="mi">2</span>
 <span class="p">}</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Content-type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span> <span class="s">'Accept'</span><span class="p">:</span> <span class="s">'text/plain'</span><span class="p">}</span>
@@ -4745,7 +4745,7 @@ http://api.samplicio.us/Demand/v1/SurveyQualifications/Create/<span class="o">{<
 </span>    <span class="err">\</span><span class="s">"PreCodes\": [
 </span>        <span class="err">\</span><span class="s">"1\"
 </span>    <span class="p">],</span>
-    <span class="err">\</span><span class="s">"Order\": 7
+    <span class="err">\</span><span class="s">"Order\": 2
 </span><span class="p">}</span><span class="s">";
 </span>
 <span class="n">request</span><span class="p">.</span><span class="n">Method</span> <span class="p">=</span> <span class="s">"POST"</span><span class="p">;</span>
@@ -4779,7 +4779,7 @@ http://api.samplicio.us/Demand/v1/SurveyQualifications/Create/<span class="o">{<
     <span class="s2">"PreCodes"</span><span class="p">:</span> <span class="p">[</span>
         <span class="s2">"1"</span>
     <span class="p">],</span>
-    <span class="s2">"Order"</span><span class="p">:</span> <span class="mi">7</span>
+    <span class="s2">"Order"</span><span class="p">:</span> <span class="mi">2</span>
 <span class="p">};</span>
 
 <span class="kd">var</span> <span class="nx">params</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">json</span><span class="p">);</span>
@@ -4812,7 +4812,7 @@ http://api.samplicio.us/Demand/v1/SurveyQualifications/Create/<span class="o">{<
     </span><span class="s2">"API Message: Response initialized."</span><span class="p">,</span><span class="w">
     </span><span class="s2">"API Message: CreateSurveyQualificationFromModel successful."</span><span class="w">
   </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"ResultCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ResultCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
   </span><span class="nt">"Qualifications"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AGE"</span><span class="p">,</span><span class="w">
@@ -4833,16 +4833,15 @@ http://api.samplicio.us/Demand/v1/SurveyQualifications/Create/<span class="o">{<
       </span><span class="p">]</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GENDER"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"QuestionID"</span><span class="p">:</span><span class="w"> </span><span class="mi">43</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"STANDARD_RELATIONSHIP"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"QuestionID"</span><span class="p">:</span><span class="w"> </span><span class="mi">632</span><span class="p">,</span><span class="w">
       </span><span class="nt">"LogicalOperator"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OR"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"NumberOfRequiredConditions"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"NumberOfRequiredConditions"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
       </span><span class="nt">"IsActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Order"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
       </span><span class="nt">"PreCodes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"2"</span><span class="w">
-      </span><span class="p">]</span><span class="w">
+        </span><span class="s2">"1"</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"Order"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -4850,7 +4849,7 @@ http://api.samplicio.us/Demand/v1/SurveyQualifications/Create/<span class="o">{<
 
 <p>Creates qualification and conditions for an existing Fulcrum survey..   </p>
 
-<aside class="notice">Fulcrum automatically adds 7 qualifications to US studies when a survey is created (Age, Gender, Zip, STATE, Ethnicity, Hispanic, Standard HHI). These qualifications can be edited or removed if desired using the (SurveyQualifications/Update)[#update-a-qualification] call.</aside>
+<aside class="notice">Fulcrum automatically adds 7 qualifications to US studies when a survey is created (Age, Gender, Zip, STATE, Ethnicity, Hispanic, Standard HHI). These qualifications can be edited or removed through the <a href="#update-a-qualification">update call</a>.</aside>
 
 <h4 id="arguments">Arguments</h4>
 
@@ -4924,7 +4923,7 @@ http://api.samplicio.us/Demand/v1/SurveyQualifications/Create/<span class="o">{<
     "PreCodes": [
         "2"
     ],
-    "Order": 7
+    "Order": 2
 }'</span> <span class="se">\</span>
 https://api.samplicio.us/Demand/v1/SurveyQualifications/Update/<span class="o">{</span>SurveyNumber<span class="o">}</span>?key<span class="o">={</span>APIKey<span class="o">}</span>
 </code></pre>
@@ -4950,7 +4949,7 @@ https://api.samplicio.us/Demand/v1/SurveyQualifications/Update/<span class="o">{
     <span class="s2">"PreCodes"</span><span class="p">:</span> <span class="p">[</span>
         <span class="s2">"2"</span>
     <span class="p">],</span>
-    <span class="s2">"Order"</span><span class="p">:</span> <span class="mi">7</span>
+    <span class="s2">"Order"</span><span class="p">:</span> <span class="mi">2</span>
 <span class="p">}.</span><span class="nf">to_json</span>
 
 <span class="n">surveyQualifications</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
@@ -4967,7 +4966,7 @@ https://api.samplicio.us/Demand/v1/SurveyQualifications/Update/<span class="o">{
     "PreCodes": [
         "2"
     ],
-    "Order": 7
+    "Order": 1
 }'</span><span class="p">;</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
@@ -5000,7 +4999,7 @@ https://api.samplicio.us/Demand/v1/SurveyQualifications/Update/<span class="o">{
     <span class="s">"PreCodes"</span><span class="p">:</span> <span class="p">[</span>
         <span class="s">"2"</span>
     <span class="p">],</span>
-    <span class="s">"Order"</span><span class="p">:</span> <span class="mi">7</span>
+    <span class="s">"Order"</span><span class="p">:</span> <span class="mi">2</span>
 <span class="p">}</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Content-type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span> <span class="s">'Accept'</span><span class="p">:</span> <span class="s">'text/plain'</span><span class="p">}</span>
@@ -5055,7 +5054,7 @@ https://api.samplicio.us/Demand/v1/SurveyQualifications/Update/<span class="o">{
     <span class="s2">"PreCodes"</span><span class="p">:</span> <span class="p">[</span>
         <span class="s2">"2"</span>
     <span class="p">],</span>
-    <span class="s2">"Order"</span><span class="p">:</span> <span class="mi">7</span>
+    <span class="s2">"Order"</span><span class="p">:</span> <span class="mi">2</span>
 <span class="p">};</span>
 
 <span class="kd">var</span> <span class="nx">params</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">json</span><span class="p">);</span>
@@ -5088,7 +5087,7 @@ https://api.samplicio.us/Demand/v1/SurveyQualifications/Update/<span class="o">{
     </span><span class="s2">"API Message: Response initialized."</span><span class="p">,</span><span class="w">
     </span><span class="s2">"API Message: UpdateSurveyQualificationFromModel successful."</span><span class="w">
   </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"ResultCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ResultCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
   </span><span class="nt">"Qualifications"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AGE"</span><span class="p">,</span><span class="w">
@@ -5109,16 +5108,15 @@ https://api.samplicio.us/Demand/v1/SurveyQualifications/Update/<span class="o">{
       </span><span class="p">]</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GENDER"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"QuestionID"</span><span class="p">:</span><span class="w"> </span><span class="mi">43</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"STANDARD_RELATIONSHIP"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"QuestionID"</span><span class="p">:</span><span class="w"> </span><span class="mi">632</span><span class="p">,</span><span class="w">
       </span><span class="nt">"LogicalOperator"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OR"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"NumberOfRequiredConditions"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"NumberOfRequiredConditions"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
       </span><span class="nt">"IsActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Order"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
       </span><span class="nt">"PreCodes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"2"</span><span class="w">
-      </span><span class="p">]</span><span class="w">
+        </span><span class="s2">"1"</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"Order"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -5235,7 +5233,7 @@ https://api.samplicio.us/Demand/v1/SurveyQualifications/Update/<span class="o">{
     </span><span class="s2">"API Message: Response initialized."</span><span class="p">,</span><span class="w">
     </span><span class="s2">"API Message: GetSurveyQualificationsBySurveyNumber successful."</span><span class="w">
   </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"ResultCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ResultCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
   </span><span class="nt">"Qualifications"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AGE"</span><span class="p">,</span><span class="w">
@@ -5256,16 +5254,15 @@ https://api.samplicio.us/Demand/v1/SurveyQualifications/Update/<span class="o">{
       </span><span class="p">]</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GENDER"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"QuestionID"</span><span class="p">:</span><span class="w"> </span><span class="mi">43</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"STANDARD_RELATIONSHIP"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"QuestionID"</span><span class="p">:</span><span class="w"> </span><span class="mi">632</span><span class="p">,</span><span class="w">
       </span><span class="nt">"LogicalOperator"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OR"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"NumberOfRequiredConditions"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"NumberOfRequiredConditions"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
       </span><span class="nt">"IsActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Order"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
       </span><span class="nt">"PreCodes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"2"</span><span class="w">
-      </span><span class="p">]</span><span class="w">
+        </span><span class="s2">"1"</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"Order"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
