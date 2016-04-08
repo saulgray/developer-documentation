@@ -6608,9 +6608,7 @@ https://api.samplicio.us/Demand/v1/SupplierGroups/CreateWithSuppliers/<span clas
 
 <span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Demand/v1/SupplierGroups/CreateWithSuppliers/{SurveyNumber}?key={APIKey}"</span><span class="p">);</span>
 
-<span class="kt">string</span> <span class="k">params</span> <span class="p">=</span> <span class="s">"{\"SurveyNumber\": 101100, \"Name\":\"Top Supplier Group\", \"AllocationPercentage\": 0.10, \"IsHedgeAccess\": true, \"Suppliers\": [{\"SupplierCode
-</span>
-<span class="err">\</span><span class="s">":\"1010\"}]}"</span><span class="p">;</span>
+<span class="kt">string</span> <span class="k">params</span> <span class="p">=</span> <span class="s">"{\"SurveyNumber\": 101100, \"Name\":\"Top Supplier Group\", \"AllocationPercentage\": 0.10, \"IsHedgeAccess\": true, \"Suppliers\": [{\"SupplierCode\":\"1010\"}]}"</span><span class="p">;</span>
 
 <span class="n">request</span><span class="p">.</span><span class="n">Method</span> <span class="p">=</span> <span class="s">"POST"</span><span class="p">;</span>
 <span class="n">request</span><span class="p">.</span><span class="n">ContentType</span> <span class="p">=</span> <span class="s">"application/json"</span><span class="p">;</span>
