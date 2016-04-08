@@ -1080,14 +1080,6 @@ request.write(params);
 request.end();
 ```
 
-```json
-{
-  {"SupplierCode": "1010"}
-  
-}
-
-```
-
 >Example Response
 
 ```json
