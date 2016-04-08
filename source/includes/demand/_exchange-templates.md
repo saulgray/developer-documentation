@@ -105,31 +105,31 @@ var exchangeTemplate = https.get('https://api.samplicio.us/Demand/v1/ExchangeTem
 
 Returns all Exchange templates associated with an existing account. 
 
-#### Arguments
-
 ### POST Apply an Exchange Template
 
 #### Supplier Groups Model
 
-| Property                     | Type     | Description                                                                                                                                             |
-|------------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ID                           | int      | ID associated with the Exchange Template.                                                                                                               | 
-| Name                         | string   | Exchange Template Name.                                                                                                                                 |
-| SupplierGroupDisplayTypeID   | int      | Indicates if the group is the "blocked" group or not. 1 = unblocked. 2 = blocked.                                                                       |
-| Completes                    | int      | Number of completes gained by the group.                                                                                                                |
-| Screens                      | int      | Number of prescreens gained by the group.                                                                                                               |
-| AllocationPercentage         | int      | Percentage of total completes allocated only to the Exchange group. Must be between 0 and 100%.                                                         |
-| IsHedgeAccess                | boolean  | "true" gives the Exchange group access to any unallocated completes.                                                                                    |
-| CPI                          | int      | Will typically return "null" as CPI can't be set via an Exchange Template.                                                                              |
-| Suppliers                    | array    | Contains array of elements described below.                                                                                                             |
+| Property                   | Type    | Description                                                                                     |
+|----------------------------|---------|-------------------------------------------------------------------------------------------------|
+| ID                         | int     | ID associated with the Exchange Template.                                                       |
+| Name                       | string  | Exchange Template Name.                                                                         |
+| SupplierGroupDisplayTypeID | int     | Indicates if the group is the "blocked" group or not. 1 = unblocked. 2 = blocked.               |
+| Completes                  | int     | Number of completes gained by the group.                                                        |
+| Screens                    | int     | Number of prescreens gained by the group.                                                       |
+| AllocationPercentage       | int     | Percentage of total completes allocated only to the Exchange group. Must be between 0 and 100%. |
+| IsHedgeAccess              | boolean | "true" gives the Exchange group access to any unallocated completes.                            |
+| CPI                        | int     | Will typically return "null" as CPI can't be set via an Exchange Template.                      |
+| Suppliers                  | array   | Contains array of elements described below.                                                     |
+
 
 #### Suppliers Model
 
-| Property                     | Type     | Description                                                                                                                                             |
-|------------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SupplierID                   | int      | ID associated with the supplier account.                                                                                                                | 
-| Completes                    | int      | Number of completes gained by the supplier.                                                                                                             |
-| Screens                      | string   | Number of prescreens gained by the supplier.                                                                                                            |
+| Property   | Type   | Description                                  |
+|------------|--------|----------------------------------------------|
+| SupplierID | int    | ID associated with the supplier account.     |
+| Completes  | int    | Number of completes gained by the supplier.  |
+| Screens    | string | Number of prescreens gained by the supplier. |
+
 
 > Definition
 
@@ -288,7 +288,7 @@ Applies the specified Fulcrum Exchange Template to an existing survey.
 
 #### Arguments
 
-| Property                     | Type     | Required | Description                                                                                                                                  |
-|------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| SurveyNumber                 | int      | true     | Unique number associated with the survey.                                                                                                    |
-| ID                           | int      | true     | ID associated with the Exchange Template.                                                                                                    |
+| Property     | Type | Required | Description                               |
+|--------------|------|----------|-------------------------------------------|
+| SurveyNumber | int  | true     | Unique number associated with the survey. |
+| ID           | int  | true     | ID associated with the Exchange Template. |
