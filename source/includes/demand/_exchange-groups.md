@@ -181,8 +181,8 @@ Creates a group with specific suppliers and allocation for that group.
 | Property             | Type    | Required | Description                                        |
 |----------------------|---------|----------|----------------------------------------------------|
 | SurveyNumber         | int     | true     | Unique number associated with the survey.          |
-| Name                 | string  | false    | Supplier Group name.                               |
-| AllocationPercentage | int     | false    | Group reserved allocation, expressed as a decimal. |
+| Name                 | string  | true     | Supplier Group name.                               |
+| AllocationPercentage | int     | tue      | Group reserved allocation, expressed as a decimal. |
 | IsHedgeAccess        | boolean | true     | Access to unallocated completes on the Exchange.   |
 | Suppliers            | array   | true     | An array of all supplier codes (strings).          |
 
@@ -352,9 +352,9 @@ Creates an empty supplier group with a specific allocation and name.
 | Property             | Type    | Required | Description                                        |
 |----------------------|---------|----------|----------------------------------------------------|
 | SurveyNumber         | int     | true     | Unique number associated with the survey.          |
-| Name                 | string  | false    | Supplier Group name.                               |
-| AllocationPercentage | int     | false    | Group reserved allocation, expressed as a decimal. |
-| IsHedgeAccess        | boolean | true     | Access to unallocated completes on the Exchange.   |
+| Name                 | string  | true     | Supplier Group name.                               |
+| AllocationPercentage | int     | true     | Group reserved allocation, expressed as a decimal. |
+| IsHedgeAccess        | boolean | false    | Access to unallocated completes on the Exchange.   |
 | SupplierGroupCPI     | double  | false    | The payout per complete for those suppliers.       |
 
 
@@ -524,10 +524,10 @@ Updates a supplier group with the specified values.
 |----------------------|---------|----------|----------------------------------------------------|
 | ID                   | int     | true     | Unique ID associated with the group.               |
 | SurveyNumber         | int     | true     | Unique number associated with the survey.          |
-| Name                 | string  | false    | Supplier Group name.                               |
-| AllocationPercentage | int     | false    | Group reserved allocation, expressed as a decimal. |
-| IsHedgeAccess        | boolean | false    | Access to unallocated completes on the Exchange.   |
-| SupplierGroupCPI     | double  | true     | The payout per complete for those suppliers.       |
+| Name                 | string  | true     | Supplier Group name.                               |
+| AllocationPercentage | int     | true     | Group reserved allocation, expressed as a decimal. |
+| IsHedgeAccess        | boolean | true     | Access to unallocated completes on the Exchange.   |
+| SupplierGroupCPI     | double  | false    | The payout per complete for those suppliers.       |
 
 
 
