@@ -1,6 +1,6 @@
-#Exchange Groups
+##Exchange Groups
 
-##Create a Group
+### POST Create a Group
 
 > Definition
 
@@ -177,7 +177,7 @@ request.end();
 Creates a group with specific suppliers and allocation for that group.
 
 
-### Arguments
+#### Arguments
 | Property             | Type    | Required | Description                                        |
 |----------------------|---------|----------|----------------------------------------------------|
 | SurveyNumber         | int     | true     | Unique number associated with the survey.          |
@@ -187,7 +187,7 @@ Creates a group with specific suppliers and allocation for that group.
 | Suppliers            | array   | true     | An array of all supplier codes (strings).          |
 
 
-##Create an Empty Group
+### POST Create an Empty Group
 
 > Definition
 
@@ -347,7 +347,7 @@ request.end();
 Creates an empty supplier group with a specific allocation and name.
 
 
-### Arguments
+#### Arguments
 
 | Property             | Type    | Required | Description                                        |
 |----------------------|---------|----------|----------------------------------------------------|
@@ -358,7 +358,7 @@ Creates an empty supplier group with a specific allocation and name.
 | SupplierGroupCPI     | double  | false    | The payout per complete for those suppliers.       |
 
 
-##Update a Group
+### PUT Update a Group
 
 > Definition
 
@@ -518,7 +518,7 @@ request.end();
 Updates a supplier group with the specified values.
 
 
-### Arguments
+#### Arguments
 
 | Property             | Type    | Required | Description                                        |
 |----------------------|---------|----------|----------------------------------------------------|
@@ -531,7 +531,7 @@ Updates a supplier group with the specified values.
 
 
 
-##Delete a Group
+### DELETE Delete a Group
 
 > Definition
 
@@ -616,14 +616,14 @@ request.end();
 Deletes the specified supplier group.
 
 
-### Arguments
+#### Arguments
 
 | Property        | Type | Required | Description                               |
 |-----------------|------|----------|-------------------------------------------|
 | SurveyNumber    | int  | true     | Unique number associated with the survey. |
 | SupplierGroupID | int  | true     | Unique ID for Supplier Group.             |
 
-##Add to a Group
+### POST Add to a Group
 
 > Definition
 
@@ -789,14 +789,14 @@ request.end();
 Adds suppliers to the specified supplier group.
 
 
-### Arguments
+#### Arguments
 
 | Property        | Type | Required | Description                               |
 |-----------------|------|----------|-------------------------------------------|
 | SurveyNumber    | int  | true     | Unique number associated with the survey. |
 | SupplierGroupID | int  | true     | Unique ID for Supplier Group.             |
 
-##Show a Group
+### GET Show a Group
 
 > Definition
 
@@ -904,13 +904,13 @@ var group = https.get('https://api.samplicio.us/Demand/v1/SupplierGroups/BySurve
 Returns the supplier groups for the survey specified.
 
 
-### Arguments
+#### Arguments
 
 | Property     | Type | Required | Description                               |
 |--------------|------|----------|-------------------------------------------|
 | SurveyNumber | int  | true     | Unique number associated with the survey. |
 
-##Remove from a Group
+### PUT Remove from a Group
 
 > Definition
 
@@ -1082,7 +1082,7 @@ request.end();
 Removes specified suppliers from their supplier group.
 
 
-### Arguments
+#### Arguments
 
 | Property        | Type | Required | Description                               |
 |-----------------|------|----------|-------------------------------------------|
