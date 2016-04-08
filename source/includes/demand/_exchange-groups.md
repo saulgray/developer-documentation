@@ -140,18 +140,6 @@ request.write(params);
 request.end();
 ```
 
-```json 
- {
-    "SurveyNumber": 101100,
-    "Name":"Top Supplier Group",
-    "AllocationPercentage": 0.10,
-    "IsHedgeAccess": true,
-    "Suppliers": [
-       {"SupplierCode":"1010"}
-     ]
-}
-```
-
 > Example Response
 
 ```json 
@@ -328,15 +316,6 @@ request.write(params);
 request.end();
 ```
 
-```json 
- {
-    "SurveyNumber": 101100,
-    "Name":"Top Supplier Group",
-    "AllocationPercentage": 0.10,
-    "IsHedgeAccess": true
-} 
-```
-
 > Example Response
 
 ```json 
@@ -506,15 +485,6 @@ var request = https.request(options, function (group) {
 request.write(params);
 
 request.end();
-```
-
-```json 
- {
-    "SurveyNumber": 101100,
-    "Name":"Top Supplier Group",
-    "AllocationPercentage": 0.10,
-    "IsHedgeAccess": true,
-} 
 ```
 
 > Example Response
