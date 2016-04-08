@@ -1,7 +1,6 @@
-#Quotas
+##Quotas
 
-##Create a Quota
-
+### POST Create a Quota
 
 > Definition
 
@@ -527,3 +526,4 @@ Returns the list of quotas associate with the specified survey.
 | Property                     | Type     | Required | Description                                                                                                                                  |
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
 | SurveyNumber                 | int      | true     | Unique number associated with the survey.                                                                                                    |
+
