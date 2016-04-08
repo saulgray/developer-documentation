@@ -67,7 +67,7 @@ params = {'SupplierCode': '1010', 'AllocationPercentage': 0.1, 'TCPI': 2, 'Hedge
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
-supplierLink = requests.post(url, data=data, headers=headers)
+supplierAllocation = requests.post(url, data=data, headers=headers)
 ```
 
 ```csharp
