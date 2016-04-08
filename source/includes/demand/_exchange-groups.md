@@ -1139,7 +1139,7 @@ request.end();
 
 ```json
 {
-  {"SupplierCode": "1010"},
+  {"SupplierCode": "1010"}
   
 }
 
