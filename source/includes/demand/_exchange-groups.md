@@ -12,7 +12,7 @@ POST  https://api.samplicio.us/Demand/v1/SupplierGroups/CreateWithSuppliers/{Sur
 
 ```shell
 curl -H "Content-Type: application/json" \
--X POST --data '' \
+-X POST --data '{"SurveyNumber": 101100,"Name":"Top Supplier Group", "AllocationPercentage": 0.10,"IsHedgeAccess": true, "Suppliers": [{"SupplierCode":"0001"}]}' \
 https://api.samplicio.us/Demand/v1/SupplierGroups/CreateWithSuppliers/{SurveyNumber}?key={APIKey}
 ```
 
@@ -28,6 +28,8 @@ http.use_ssl = true
 
 request = Net::HTTP::Post.new(FullUriPath, initheader = {'Content-Type' => 'application/json'})
 
+request.body = {SurveyNumber: 101100, Name:"Top Supplier Group", AllocationPercentage: 0.10, IsHedgeAccess: true, "Suppliers": [{"SupplierCode":"0001"}]}.to_json
+
 group = http.request(request)  
 ```
 
@@ -35,7 +37,7 @@ group = http.request(request)
 <?php
 $curl = curl_init();
 
-$params = '{"SurveyNumber": 101100, "Name":"Top Supplier Group", "AllocationPercentage": 0.10, "IsHedgeAccess": true, "Suppliers": [{"SupplierCode":"0001"}],}';
+$params = '{"SurveyNumber": 101100, "Name":"Top Supplier Group", "AllocationPercentage": 0.10, "IsHedgeAccess": true, "Suppliers": [{"SupplierCode":"0001"}]}';
 
 curl_setopt_array($curl, array(
   CURLOPT_URL => "https://api.samplicio.us/Demand/v1/SupplierGroups/CreateWithSuppliers/{SurveyNumber}?key={APIKey}",
@@ -59,7 +61,7 @@ curl_close($curl);
 import requests
 
 url = 'https://api.samplicio.us/Demand/v1/SupplierGroups/CreateWithSuppliers/{SurveyNumber}?key={APIKey}'
-params = {'SurveyNumber': 101100, 'Name':'Top Supplier Group', 'AllocationPercentage': 0.10, 'IsHedgeAccess': true, 'Suppliers': [{'SupplierCode':'1010'}],}
+params = {'SurveyNumber': 101100, 'Name':'Top Supplier Group', 'AllocationPercentage': 0.10, 'IsHedgeAccess': true, 'Suppliers': [{'SupplierCode':'1010'}]}
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 group = requests.post(url, data=data, headers=headers)
@@ -116,11 +118,11 @@ var json = {"SurveyNumber": 101100,
   "AllocationPercentage": 0.10, 
   "IsHedgeAccess": true, 
   "Suppliers": [
-  {
-  "SupplierCode":"1010"
-  }
-       ],
-      }
+    {
+    "SupplierCode":"1010"
+    }
+  ]
+}
 
 var params = JSON.stringify(json);
 
@@ -145,7 +147,7 @@ request.end();
     "AllocationPercentage": 0.10,
     "IsHedgeAccess": true,
     "Suppliers": [
-       {"SupplierCode":"1010"},
+       {"SupplierCode":"1010"}
      ]
 }
 ```
@@ -188,28 +190,14 @@ Creates a group with specific suppliers and allocation for that group.
 
 
 ### Arguments
+| Property             | Type    | Required | Description                                        |
+|----------------------|---------|----------|----------------------------------------------------|
+| SurveyNumber         | int     | true     | Unique number associated with the survey.          |
+| Name                 | string  | false    | Supplier Group name.                               |
+| AllocationPercentage | int     | false    | Group reserved allocation, expressed as a decimal. |
+| IsHedgeAccess        | boolean | true     | Access to unallocated completes on the Exchange.   |
+| Suppliers            | array   | true     | An array of all supplier codes (strings).          |
 
-| Property                     | Type     | Required | Description                                                                                                      
-
-                            |
-|------------------------------|----------|----------|-----------------------------------------------------------------------------------------------------------------
-
------------------------------|
-| SurveyNumber                 | int      | true     | Unique number associated with the survey.                                                                        
-
-                            |
-| SupplierCode                 | int      | true     | Unique code associated with supplier account.                                                                    
-
-                            |
-| Name                         | string   | false    | Supplier Group name.                                                                                             
-
-                            |
-| AllocationPercentage         | int      | false    | Group reserved allocation, expressed as a decimal.                                                               
-
-                            |
-| IsHedgeAccess                | boolean  | true     | Access to unallocated completes on the Exchange.                                                                 
-
-                            |
 
 ##Create an Empty Group
 
@@ -345,7 +333,7 @@ request.end();
     "SurveyNumber": 101100,
     "Name":"Top Supplier Group",
     "AllocationPercentage": 0.10,
-    "IsHedgeAccess": true,
+    "IsHedgeAccess": true
 } 
 ```
 
@@ -382,24 +370,14 @@ Creates an empty supplier group with a specific allocation and name.
 
 ### Arguments
 
-| Property                     | Type     | Required | Description                                                                                                      
+| Property             | Type    | Required | Description                                        |
+|----------------------|---------|----------|----------------------------------------------------|
+| SurveyNumber         | int     | true     | Unique number associated with the survey.          |
+| Name                 | string  | false    | Supplier Group name.                               |
+| AllocationPercentage | int     | false    | Group reserved allocation, expressed as a decimal. |
+| IsHedgeAccess        | boolean | true     | Access to unallocated completes on the Exchange.   |
+| SupplierGroupCPI     | double  | false    | The payout per complete for those suppliers.       |
 
-                            |
-|------------------------------|----------|----------|-----------------------------------------------------------------------------------------------------------------
-
------------------------------|
-| SurveyNumber                 | int      | true     | Unique number associated with the survey.                                                                        
-
-                            |
-| Name                         | string   | false    | Supplier Group name.                                                                                             
-
-                            |
-| AllocationPercentage         | int      | false    | Group reserved allocation, expressed as a decimal.                                                               
-
-                            |
-| IsHedgeAccess                | boolean  | true     | Access to unallocated completes on the Exchange.                                                                 
-
-                            |
 
 ##Update a Group
 
@@ -572,24 +550,15 @@ Updates a supplier group with the specified values.
 
 ### Arguments
 
-| Property                     | Type     | Required | Description                                                                                                      
+| Property             | Type    | Required | Description                                        |
+|----------------------|---------|----------|----------------------------------------------------|
+| ID                   | int     | true     | Unique ID associated with the group.               |
+| SurveyNumber         | int     | true     | Unique number associated with the survey.          |
+| Name                 | string  | false    | Supplier Group name.                               |
+| AllocationPercentage | int     | false    | Group reserved allocation, expressed as a decimal. |
+| IsHedgeAccess        | boolean | false    | Access to unallocated completes on the Exchange.   |
+| SupplierGroupCPI     | double  | true     | The payout per complete for those suppliers.       |
 
-                            |
-|------------------------------|----------|----------|-----------------------------------------------------------------------------------------------------------------
-
------------------------------|
-| SurveyNumber                 | int      | true     | Unique number associated with the survey.                                                                        
-
-                            |
-| Name                         | string   | false    | Supplier Group name.                                                                                             
-
-                            |
-| AllocationPercentage         | int      | false    | Group reserved allocation, expressed as a decimal.                                                               
-
-                            |
-| IsHedgeAccess                | boolean  | false    | Access to unallocated completes on the Exchange.                                                                 
-
-                            |
 
 
 ##Delete a Group
@@ -679,19 +648,10 @@ Deletes the specified supplier group.
 
 ### Arguments
 
-| Property                     | Type     | Required | Description                                                                                                      
-
-                            |
-|------------------------------|----------|----------|-----------------------------------------------------------------------------------------------------------------
-
------------------------------|
-| SurveyNumber                 | int      | true     | Unique number associated with the survey.                                                                        
-
-                            |
-| SupplierGroupID              | int      | true     | Unique ID for Supplier Group.                                                                                    
-
-                            |
-
+| Property        | Type | Required | Description                               |
+|-----------------|------|----------|-------------------------------------------|
+| SurveyNumber    | int  | true     | Unique number associated with the survey. |
+| SupplierGroupID | int  | true     | Unique ID for Supplier Group.             |
 
 ##Add to a Group
 
@@ -861,19 +821,10 @@ Adds suppliers to the specified supplier group.
 
 ### Arguments
 
-| Property                     | Type     | Required | Description                                                                                                      
-
-                            |
-|------------------------------|----------|----------|-----------------------------------------------------------------------------------------------------------------
-
------------------------------|
-| SurveyNumber                 | int      | true     | Unique number associated with the survey.                                                                        
-
-                            |
-| SupplierGroupID              | int      | true     | Unique ID for Supplier Group.                                                                                    
-
-                            |
-
+| Property        | Type | Required | Description                               |
+|-----------------|------|----------|-------------------------------------------|
+| SurveyNumber    | int  | true     | Unique number associated with the survey. |
+| SupplierGroupID | int  | true     | Unique ID for Supplier Group.             |
 
 ##Show a Group
 
@@ -985,17 +936,9 @@ Returns the supplier groups for the survey specified.
 
 ### Arguments
 
-| Property                     | Type     | Required | Description                                                                                                      
-
-                            |
-|------------------------------|----------|----------|-----------------------------------------------------------------------------------------------------------------
-
------------------------------|
-| SurveyNumber                 | int      | true     | Unique number associated with the survey.                                                                        
-
-                            |
-
-
+| Property     | Type | Required | Description                               |
+|--------------|------|----------|-------------------------------------------|
+| SurveyNumber | int  | true     | Unique number associated with the survey. |
 
 ##Remove from a Group
 
@@ -1179,17 +1122,7 @@ Removes specified suppliers from their supplier group.
 
 ### Arguments
 
-| Property                     | Type     | Required | Description                                                                                                      
-
-                            |
-|------------------------------|----------|----------|-----------------------------------------------------------------------------------------------------------------
-
------------------------------|
-| SurveyNumber                 | int      | true     | Unique number associated with the survey.                                                                        
-
-                            |
-| SupplierGroupID              | int      | true     | Unique ID for Supplier Group.                                                                                    
-
-                            |
-
-
+| Property        | Type | Required | Description                               |
+|-----------------|------|----------|-------------------------------------------|
+| SurveyNumber    | int  | true     | Unique number associated with the survey. |
+| SupplierGroupID | int  | true     | Unique ID for Supplier Group.             |
