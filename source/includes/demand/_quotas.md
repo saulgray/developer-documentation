@@ -186,29 +186,22 @@ request.end();
       ]
     }
   ]
-};
+}
 ```
 
 Creates Quota based on specified questionIDs. 
 
-
-
 ### Arguments
 
-| Property                     | Type     | Required | Description                                                                                                                                  |
-|------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| SurveyNumber                 | int      | true     | Unique number associated with the survey.                                                                                                    |
-| Name                         | string   | true     | Name associated with the quota.                                                                                                    |
-| FieldTarget                  | int      | true     | Field Target associated with the quota.                                                                                                    |
-| Quota                        | int      | true     | Quota number for the specified quota.                                                                                                    |
-| IsActive                     | boolean  | true     | Should the quota be enforced on this project?                                                                                                    |
-| SurveyQuotaType              | string   | false    | Indicates quota type (Client or Total).                                                                                                    |
-| Conditions                   | array    | false    | Indicates conditions associated with quota (by questionID and precodes).                                                                     |
-
-
-```
-
-
+| Property        | Type    | Required | Description                                                              |
+|-----------------|---------|----------|--------------------------------------------------------------------------|
+| SurveyNumber    | int     | true     | Unique number associated with the survey.                                |
+| Name            | string  | true     | Name associated with the quota.                                          |
+| FieldTarget     | int     | true     | Field Target associated with the quota.                                  |
+| Quota           | int     | true     | Quota number for the specified quota.                                    |
+| IsActive        | boolean | true     | Should the quota be enforced on this project?                            |
+| SurveyQuotaType | string  | false    | Indicates quota type (Client or Total).                                  |
+| Conditions      | array   | false    | Indicates conditions associated with quota (by questionID and precodes). |
 
 ##Update a Quota
 
@@ -344,7 +337,7 @@ request.end();
 ```
 
 >Example Response
-
+```
 {
   "ApiResult": 0,
   "ApiResultCode": 0,
@@ -400,17 +393,15 @@ Updates a quota's size, conditions, and other parameters.
 
 ### Arguments
 
-| Property                     | Type     | Required | Description                                                                                                                                  |
-|------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| SurveyNumber                 | int      | true     | Unique number associated with the survey.                                                                                                    |
-| SurveyQuotaID                | int      | true     | Unique ID associated with the quota.                                                                                                    |
-| FieldTarget                  | int      | true     | Field Target associated with the quota.                                                                                                    |
-| Quota                        | int      | true     | Quota number for the specified quota.                                                                                                    |
-| IsActive                     | boolean  | true     | Should the quota be enforced on this project?                                                                                                    |
-| SurveyQuotaType              | string   | false    | Indicates quota type (Client or Total).                                                                                                    |
-| Conditions                   | array    | false    | Indicates conditions associated with quota (by questionID and precodes).                                                                     |
-
-
+| Property        | Type    | Required | Description                                                              |
+|-----------------|---------|----------|--------------------------------------------------------------------------|
+| SurveyNumber    | int     | true     | Unique number associated with the survey.                                |
+| SurveyQuotaID   | int     | true     | Unique ID associated with the quota.                                     |
+| FieldTarget     | int     | true     | Field Target associated with the quota.                                  |
+| Quota           | int     | true     | Quota number for the specified quota.                                    |
+| IsActive        | boolean | true     | Should the quota be enforced on this project?                            |
+| SurveyQuotaType | string  | false    | Indicates quota type (Client or Total).                                  |
+| Conditions      | array   | false    | Indicates conditions associated with quota (by questionID and precodes). |
 
 ##List Quotas
 
@@ -520,11 +511,8 @@ var quotas = https.get('http://api.samplicio.us/Demand/v1/SurveyQuotas/BySurveyN
 
 Returns the list of quotas associated with the specified survey.
 
-
-
 ### Arguments
 
-| Property                     | Type     | Required | Description                                                                                                                                  |
-|------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| SurveyNumber                 | int      | true     | Unique number associated with the survey.                                                                                                    |
-
+| Property     | Type | Required | Description                               |
+|--------------|------|----------|-------------------------------------------|
+| SurveyNumber | int  | true     | Unique number associated with the survey. |
