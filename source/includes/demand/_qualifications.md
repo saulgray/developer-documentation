@@ -1,7 +1,7 @@
-#Qualifications
+##Qualifications
 
-##Create a Qualification
+### POST Create a Qualification
 
-##Update a Qualification
+### PUT Update a Qualification
 
-##List Qualifications
+### GET List Qualifications

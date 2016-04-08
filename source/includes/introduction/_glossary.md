@@ -1,5 +1,5 @@
-# Glossary
+## Glossary
 
-## Identifiers
+### Identifiers
 
-## Terms
+### Terms

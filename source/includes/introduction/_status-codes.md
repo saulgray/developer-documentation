@@ -1,4 +1,4 @@
-# HTTP Status Codes
+## HTTP Status Codes
 
 Fulcrum uses conventional HTTP response codes to indicate the success or falure of an API request. In general, codes in the `2xx` range indicate success, codes in the `4xx` range indicate an error caused by the information provided (i.e., a required parameter was omitted, a method was not found, etc.), and codes in the `5xx` range indicate an error with Fulcrum's servers (these are rare). 
 

@@ -1,6 +1,6 @@
-#Recontact
+##Recontact
 
-##List Qualified Respondents
+### GET List Qualified Respondents
 
 > Definition
 
@@ -95,7 +95,7 @@ Returns the list of PIDs by supplier for a specific Fulcrum survey.
 
 
 
-### Arguments
+#### Arguments
 
 | Property                     | Type     | Required | Description                                                                                                                                  |
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
