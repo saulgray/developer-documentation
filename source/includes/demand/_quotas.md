@@ -191,7 +191,7 @@ request.end();
 
 Creates Quota based on specified questionIDs. 
 
-### Arguments
+#### Arguments
 
 | Property        | Type    | Required | Description                                                              |
 |-----------------|---------|----------|--------------------------------------------------------------------------|
@@ -203,11 +203,13 @@ Creates Quota based on specified questionIDs.
 | SurveyQuotaType | string  | false    | Indicates quota type (Client or Total).                                  |
 | Conditions      | array   | false    | Indicates conditions associated with quota (by questionID and precodes). |
 
-##Update a Quota
+### PUT Update a Quota
 
 >Definition
 
+```plaintext
 PUT  https://api.samplicio.us/Demand/v1/SurveyQuotas/Update/{SurveyNumber}?key={APIKey}
+```
 
 >Example Request
 
@@ -391,7 +393,7 @@ request.end();
 
 Updates a quota's size, conditions, and other parameters.
 
-### Arguments
+#### Arguments
 
 | Property        | Type    | Required | Description                                                              |
 |-----------------|---------|----------|--------------------------------------------------------------------------|
@@ -403,7 +405,7 @@ Updates a quota's size, conditions, and other parameters.
 | SurveyQuotaType | string  | false    | Indicates quota type (Client or Total).                                  |
 | Conditions      | array   | false    | Indicates conditions associated with quota (by questionID and precodes). |
 
-##List Quotas
+### GET List Quotas
 
 > Definition
 
@@ -511,7 +513,7 @@ var quotas = https.get('http://api.samplicio.us/Demand/v1/SurveyQuotas/BySurveyN
 
 Returns the list of quotas associated with the specified survey.
 
-### Arguments
+#### Arguments
 
 | Property     | Type | Required | Description                               |
 |--------------|------|----------|-------------------------------------------|
