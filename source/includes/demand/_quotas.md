@@ -507,8 +507,7 @@ var quotas = https.get('http://api.samplicio.us/Demand/v1/SurveyQuotas/BySurveyN
           ]
         }
       ]
-    };
-
+    }
 ```
 
 Returns the list of quotas associated with the specified survey.
