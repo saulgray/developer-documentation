@@ -394,8 +394,9 @@ request.end();
     }
   ]
 };
+```
 
-Updates a quota with the specified params
+Updates a quota's size, conditions, and other parameters.
 
 ### Arguments
 
@@ -517,7 +518,7 @@ var quotas = https.get('http://api.samplicio.us/Demand/v1/SurveyQuotas/BySurveyN
 
 ```
 
-Returns the list of quotas associate with the specified survey.
+Returns the list of quotas associated with the specified survey.
 
 
 
