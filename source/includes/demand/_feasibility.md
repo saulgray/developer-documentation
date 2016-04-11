@@ -12,10 +12,7 @@ POST https://api.samplicio.us/Demand/v1/Feasibility/Time?key={APIkey}
 
 ```shell
 curl -H "Content-Type: application/json" \
--X POST --data '{CountryLanguageID: 9, LengthOfInterview: 5, Incidence: 100,  "Price": 4.5, Quotas: [{CompletesPerDay: [1000], Conditions: [{QuestionID: 42, PreCodes: ["18", "19", "20", "21", "22", "23", "24",
- "25", "26", "27", "28", "29"]}, {QuestionID: 43, PreCodes: ["1"] } ] }, {CompletesPerDay: [1000], Conditions: [{QuestionID: 42, PreCodes: ["18", "19", "20", "21", "22", "23", "24",
- "25", "26", "27", "28", "29"]}, {QuestionID: 43, PreCodes: ["2"] } ] }] }}' \
-
+-X POST --data '{CountryLanguageID: 9, LengthOfInterview: 5, Incidence: 100,  "Price": 4.5, Quotas: [{CompletesPerDay: [1000], Conditions: [{QuestionID: 42, PreCodes: ["18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29"]}, {QuestionID: 43, PreCodes: ["1"] } ] }, {CompletesPerDay: [1000], Conditions: [{QuestionID: 42, PreCodes: ["18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29"]}, {QuestionID: 43, PreCodes: ["2"] } ] }] }}' \
 https://api.samplicio.us/Demand/v1/Feasibility/Time?key={APIkey}
 ```
 
@@ -205,19 +202,19 @@ request.end();
   ]
 }
 
-Returns a value for "Days", which is the estimated time in days to achieve the total number of completes specified, given the inputs.
+Returns the estimated time in days to achieve the total number of completes specified, given the project specifications.
 
 #### Arguments
 
-| Property                     | Type     | Required | Description                                                                                                                                  |
-|------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| CountryLanguageID            | int      | true     | Unique number associated with a specific Country-Language pair.                                                                              |
-| LengthofInterview            | int      | true     | Expected Length of Interview, in minutes.                                                                                              |
-| Incidence                    | int      | true     | Expected incidence rate for the study.                                                                                         |
-| Price                        | int      | true     | Price per complete offered.                                                                                                 |
-| Quotas                       | array    | true     | List of quotas (can be an empty array).                                                                                       |
-| QuestionID                   | int      | false    | Unique ID associated with a question.                                                                                     |
-| PreCodes                     | int      | false    | Precode associated with an answer for a specific questionID.                                                                                     |
+| Property          | Type  | Required | Description                                                     |
+|-------------------|-------|----------|-----------------------------------------------------------------|
+| CountryLanguageID | int   | true     | Unique number associated with a specific Country-Language pair. |
+| LengthofInterview | int   | true     | Expected Length of Interview, in minutes.                       |
+| Incidence         | int   | true     | Expected incidence rate for the study.                          |
+| Price             | int   | true     | Price per complete offered.                                     |
+| Quotas            | array | true     | List of quotas (can be an empty array).                         |
+| QuestionID        | int   | false    | Unique ID associated with a question.                           |
+| PreCodes          | int   | false    | Precode associated with an answer for a specific questionID.    |
 
 
 
@@ -233,9 +230,7 @@ POST https://api.samplicio.us/Demand/v1/Feasibility/Price?key={APIkey}
 
 ```shell
 curl -H "Content-Type: application/json" \
--X POST --data '{"CountryLanguageID": 9, "LengthOfInterview": 5, "Incidence": 100, "Quotas": [{"CompletesPerDay": [1000, 1500], "Conditions": [{"QuestionID": 42, "PreCodes": ["18", "19", "20", "21", "22", "23", "24",
- "25", "26", "27", "28", "29"]}, {"QuestionID": 43, "PreCodes": ["1"] } ] }, ] }' \
-
+-X POST --data '{"CountryLanguageID": 9, "LengthOfInterview": 5, "Incidence": 100, "Quotas": [{"CompletesPerDay": [1000, 1500], "Conditions": [{"QuestionID": 42, "PreCodes": ["18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29"]}, {"QuestionID": 43, "PreCodes": ["1"] } ] }, ] }' \
 https://api.samplicio.us/Demand/v1/Feasibility/Price?key={APIkey}
 ```
 
@@ -416,15 +411,16 @@ Returns a tiered model of price per complete, given the inputs for Number of Res
 
 #### Arguments
 
-| Property                     | Type     | Required | Description                                                                                                                                  |
-|------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| CountryLanguageID            | int      | true     | Unique number associated with a specific Country-Language pair.                                                                              |
-| LengthofInterview            | int      | true     | Expected Length of Interview, in minutes.                                                                                              |
-| Incidence                    | int      | true     | Expected incidence rate for the study.                                                                                         |
-| Price                        | int      | false    | Price per complete offered.                                                                                                 |
-| Quotas                       | array    | true     | List of quotas (can be an empty array).                                                                                       |
-| QuestionID                   | int      | false    | Unique ID associated with a question.                                                                                     |
-| PreCodes                     | int      | false    | Precode associated with an answer for a specific questionID.                                                                                     |
+| Property          | Type  | Required | Description                                                     |
+|-------------------|-------|----------|-----------------------------------------------------------------|
+| CountryLanguageID | int   | true     | Unique number associated with a specific Country-Language pair. |
+| LengthofInterview | int   | true     | Expected Length of Interview, in minutes.                       |
+| Incidence         | int   | true     | Expected incidence rate for the study.                          |
+| Price             | int   | false    | Price per complete offered.                                     |
+| Quotas            | array | true     | List of quotas (can be an empty array).                         |
+| QuestionID        | int   | false    | Unique ID associated with a question.                           |
+| PreCodes          | int   | false    | Precode associated with an answer for a specific questionID.    |
+
 
 
 
@@ -441,9 +437,7 @@ POST https://api.samplicio.us/Demand/v1/Feasibility/NumberOfRespondents?key={API
 
 ```shell
 curl -H "Content-Type: application/json" \
--X POST --data '{"CountryLanguageID": 9, "LengthOfInterview": 5, "Incidence": 100, "Price": 5, "Quotas": [{"CompletesPerDay": [1000, 1500], "Conditions": [{"QuestionID": 42, "PreCodes": ["18", "19", "20", "21", "22", "23", "24",
- "25", "26", "27", "28", "29"]}, {"QuestionID": 43, "PreCodes": ["1"] } ] }, ] }' \
-
+-X POST --data '{"CountryLanguageID": 9, "LengthOfInterview": 5, "Incidence": 100, "Price": 5, "Quotas": [{"CompletesPerDay": [1000, 1500], "Conditions": [{"QuestionID": 42, "PreCodes": ["18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29"]}, {"QuestionID": 43, "PreCodes": ["1"] } ] }, ] }' \
 https://api.samplicio.us/Demand/v1/Feasibility/NumberOfRespondents?key={APIkey}
 ```
 
@@ -606,12 +600,12 @@ Returns the number of completes achievable given the parameters submitted, based
 
 #### Arguments
 
-| Property                     | Type     | Required | Description                                                                                                                                  |
-|------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| CountryLanguageID            | int      | true     | Unique number associated with a specific Country-Language pair.                                                                              |
-| LengthofInterview            | int      | true     | Expected Length of Interview, in minutes.                                                                                              |
-| Incidence                    | int      | true     | Expected incidence rate for the study.                                                                                         |
-| Price                        | int      | true     | Price per complete offered.                                                                                                 |
-| Quotas                       | array    | true     | List of quotas (can be an empty array).                                                                                       |
-| QuestionID                   | int      | false    | Unique ID associated with a question.                                                                                     |
-| PreCodes                     | int      | false    | Precode associated with an answer for a specific questionID.                                                                                     |
+| Property          | Type  | Required | Description                                                     |
+|-------------------|-------|----------|-----------------------------------------------------------------|
+| CountryLanguageID | int   | true     | Unique number associated with a specific Country-Language pair. |
+| LengthofInterview | int   | true     | Expected Length of Interview, in minutes.                       |
+| Incidence         | int   | true     | Expected incidence rate for the study.                          |
+| Price             | int   | true     | Price per complete offered.                                     |
+| Quotas            | array | true     | List of quotas (can be an empty array).                         |
+| QuestionID        | int   | false    | Unique ID associated with a question.                           |
+| PreCodes          | int   | false    | Precode associated with an answer for a specific questionID.    |
