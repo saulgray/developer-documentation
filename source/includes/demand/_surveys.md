@@ -390,7 +390,7 @@ request.end();
 
 Creates a Fulcrum survey.   
 
-<aside class="notice">Fulcrum automatically adds 7 qualifications to US studies when a survey is created (Age, Gender, Zip, STATE, Ethnicity, Hispanic, Standard HHI). These qualifications can be edited or removed if desired using the [SurveyQualifications/Update](#put-update-a-qualification) call.</aside>
+<aside class="notice">Fulcrum automatically adds 7 qualifications to US studies when a survey is created (Age, Gender, Zip, STATE, Ethnicity, Hispanic, Standard HHI). These qualifications can be edited or removed if desired by <a href="#put-update-a-qualification">updating the qualification</a></aside>
 
 #### Arguments
 
@@ -779,9 +779,6 @@ request.end();
 
 Update an existing Fulcrum survey. 
 
-<aside class="notice">All parameters returned via the Surveys/Create call (with the exception of SampleTypeID) must be included in the Surveys/Update call even if they’re not being specifically adjusted.</aside>
-
-
 #### Arguments
 
 | Property                     | Type     | Required | Description                                                                                                                                            |
@@ -923,7 +920,7 @@ var survey = https.get('https://api.samplicio.us/Demand/v1/Surveys/BySurveyNumbe
 
 Returns the details of a specific Fulcrum survey. 
 
-<aside class="notice">NumberOfRespondents is calculated real-time.</aside>
+<aside class="notice">NumberOfRespondents is not cached.</aside>
 
 
 #### Arguments
