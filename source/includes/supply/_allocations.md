@@ -96,13 +96,14 @@ var allocations = https.get('https://api.samplicio.us/Supply/v1/Surveys/Supplier
   ]
 }
 ```
-Returns a list of all live survey opportunities available through the Exchange and/or directly allocated to you for which you have an allocation or entry link.
+Returns a list of all live survey opportunities for which you have an allocation or entry link.
 
 #### Arguments
 
-| Property                     | Type     | Required | Description                                                                     |
-|------------------------------|----------|----------|---------------------------------------------------------------------------------|
-|SupplierCode                  | int      | true     | Unique code associated with a supplier account.                                 |
+| Property     | Type | Required | Description                                     |
+|--------------|------|----------|-------------------------------------------------|
+| SupplierCode | int  | true     | Unique code associated with a supplier account. |
+
 
 ### GET Show an Allocated Survey
 > Definition
@@ -219,10 +220,11 @@ Returns any allocation(s) given to you for a particular survey.
 
 #### Arguments
 
-| Property                     | Type     | Required | Description                                                                     |
-|------------------------------|----------|----------|---------------------------------------------------------------------------------|
-|SupplierCode                  | int      | true     | Unique code associated with a supplier account.                                 |
-|SurveyNumber                  | int      | true     | Unique number associated with the survey.                                       |
+| Property     | Type | Required | Description                                     |
+|--------------|------|----------|-------------------------------------------------|
+| SupplierCode | int  | true     | Unique code associated with a supplier account. |
+| SurveyNumber | int  | true     | Unique number associated with the survey.       |
+
 
 
 ### GET List Recently Allocated Surveys
@@ -325,7 +327,7 @@ Returns a list of allocations for which the TotalQuota has changed since a speci
 
 #### Arguments
 
-| Property                     | Type     | Required | Description                                                                     |
-|------------------------------|----------|----------|---------------------------------------------------------------------------------|
-|Date                          | string   | true     | Must follow the format YYYY-MM-DD                                               |
-|SupplierCode                  | string   | true     | Unique code associated with a supplier account.                                 |
+| Property     | Type   | Required | Description                                     |
+|--------------|--------|----------|-------------------------------------------------|
+| Date         | string | true     | Must follow the format YYYY-MM-DD               |
+| SupplierCode | string | true     | Unique code associated with a supplier account. |
