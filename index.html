@@ -82,10 +82,6 @@
 
 <p>Postman is a free application that allows you to execute test calls in an intuitive interface. When making test calls, you should use the sandbox environment.</p>
 
-              <h2 id="common-workflows">Common Workflows</h2>
-
-<p>Guides for common workflows can be found in the <a href="#guides">Guides section</a>. These guides cover high-level approaches to common integrations such as panel integrations or DIY sample aquisition applications. The guides should not be considered all inclusive, and your approach should be tailored to your application by referencing the full API documentation included below. For enterprise contracts, API consultation is available free of charge (<a href="mailto:support@luc.id">support@luc.id</a>).</p>
-
               <h2 id="environments">Environments</h2>
 
 <blockquote>
@@ -1330,7 +1326,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>Returns a list of all live survey opportunities available through the Exchange and/or directly allocated to you for which you have an allocation or entry link.</p>
+<p>Returns a list of all live survey opportunities for which you have an allocation or entry link.</p>
 
 <h4 id="arguments">Arguments</h4>
 
@@ -1831,7 +1827,7 @@
 
 <p>Returns a list of all standard and exposed custom qualifications associated with a survey. </p>
 
-<aside class="notice">This API call returns data for all types of surveys not just Offerwall surveys.</aside>
+<aside class="notice">This API call returns data for all types of surveys (not just Offerwall surveys).</aside>
 
 <h4 id="arguments">Arguments</h4>
 
@@ -1853,7 +1849,7 @@
 
               <h2 id="quotas">Quotas</h2>
 
-<p>The quotas resource returns the number of completes available to you for each demographic cell in a survey. Quotas can be built on any qualification(s). For more information about quotas in Fulcrum please refer to <a href="#understanding-fulcrum-quotas">Understanding Fulcrum Quotas</a> in the Supply API guide.  </p>
+<p>The quotas resource returns the number of completes available to you for each demographic cell in a survey. Quotas can be built on any qualification(s).</p>
 
 <h4 id="response-properties">Response Properties</h4>
 
@@ -2072,7 +2068,7 @@
 
 <p>Returns the total quota and client quotas associated with a survey. </p>
 
-<aside class="notice">The NumberOfRespondents property is calculated in real-time. The cache logic does not apply to this property.</aside>
+<aside class="notice">The NumberOfRespondents property is calculated in real-time. The cache rules do not apply to this property.</aside>
 
 <h4 id="arguments">Arguments</h4>
 
@@ -2535,20 +2531,24 @@ https://api.samplicio.us/Supply/v1/SupplierLinks/Create/<span class="o">{</span>
 <tr>
 <th>Property</th>
 <th>Type</th>
+<th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>SupplierLinkTypeCode</td>
 <td>string</td>
+<td>True</td>
 <td>Defines the type of buyer-supplier engagment and the respondent&rsquo;s path in Fulcrum.</td>
 </tr>
 <tr>
 <td>TrackingTypeCode</td>
 <td>string</td>
+<td>True</td>
 <td>Defines how Fulcrum should communicate back to the supplier&rsquo;s system at the end of a session. The options are:</td>
 </tr>
 <tr>
+<td></td>
 <td></td>
 <td></td>
 <td>NONE (Default and recommended, physically redirects the respondent back to the supplier system)</td>
@@ -2556,9 +2556,11 @@ https://api.samplicio.us/Supply/v1/SupplierLinks/Create/<span class="o">{</span>
 <tr>
 <td></td>
 <td></td>
+<td></td>
 <td>PIXEL (pixel tracking)</td>
 </tr>
 <tr>
+<td></td>
 <td></td>
 <td></td>
 <td>S2S (server to server postback)</td>
@@ -2566,26 +2568,31 @@ https://api.samplicio.us/Supply/v1/SupplierLinks/Create/<span class="o">{</span>
 <tr>
 <td>DefaultLink</td>
 <td>string</td>
+<td>True</td>
 <td>Tracking code or link used if none of the below apply.</td>
 </tr>
 <tr>
 <td>SuccessLink</td>
 <td>string</td>
+<td>True</td>
 <td>Tracking code or link used after a completion.</td>
 </tr>
 <tr>
 <td>FailureLink</td>
 <td>string</td>
+<td>True</td>
 <td>Tracking code or link used after a termination.</td>
 </tr>
 <tr>
 <td>OverQuotaLink</td>
 <td>string</td>
+<td>True</td>
 <td>Tracking code or link used after an overquota.</td>
 </tr>
 <tr>
 <td>QualityTerminationLink</td>
 <td>string</td>
+<td>True</td>
 <td>Tracking code or link used after a quality (security) termination.</td>
 </tr>
 </tbody></table>
@@ -2692,6 +2699,8 @@ https://api.samplicio.us/Supply/v1/SupplierLinks/Create/<span class="o">{</span>
 
               <h2 id="statistics">Statistics</h2>
 
+<p>System Conversion is defined as the number of entrants into Fulcrum, over the total number of completes achieved on the study.</p>
+
 <h3 id="get-show-statistics">GET Show Statistics</h3>
 
 <blockquote>
@@ -2759,9 +2768,9 @@ https://api.samplicio.us/Supply/v1/SupplierLinks/Create/<span class="o">{</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>Returns conversion information (as a percentage) for a specific study, based on the Scope and Timespan, for live surveys only. System Conversion is defined as the number of entrants into Fulcrum, over the total number of completes achieved on the study.   </p>
+<p>Returns conversion information (as a percentage) for a live study based on the <code class="prettyprint">Scope</code> and <code class="prettyprint">Timespan</code>.    </p>
 
-<aside class="notice">The &ldquo;Global&rdquo; scope can only be used with &ldquo;Trailing&rdquo; to gauge the conversion, length of interview, and EPC of all surveys on the platform over the last 12 hours. Global and Supplier Trailing methods must have received at least one (1) entrant in the last 12 hours to display on this call.</aside>
+<aside class="notice">The &ldquo;Global&rdquo; scope can only be used with a &ldquo;Trailing&rdquo; timespan.</aside>
 
 <h4 id="arguments">Arguments</h4>
 
@@ -2795,7 +2804,7 @@ https://api.samplicio.us/Supply/v1/SupplierLinks/Create/<span class="o">{</span>
 <td>Timespan</td>
 <td>string</td>
 <td>true</td>
-<td>Either &ldquo;Trailing&rdquo; or &ldquo;Lifetime&rdquo;. Trailing returns the last 12 hours.</td>
+<td>Either &ldquo;Trailing&rdquo; or &ldquo;Lifetime&rdquo;. Trailing returns data from the last 12 hours.</td>
 </tr>
 </tbody></table>
 
@@ -2873,7 +2882,7 @@ https://api.samplicio.us/Supply/v1/SupplierLinks/Create/<span class="o">{</span>
 
 <p>Returns conversion information (as a percentage) based on the Scope and Timespan, for live surveys only. System Conversion is defined as the number of entrants into Fulcrum, over the total number of completes achieved on the study.   </p>
 
-<aside class="notice">The &ldquo;Global&rdquo; scope can only be used with &ldquo;Trailing&rdquo; to gauge the conversion of all surveys on the platform over the last 12 hours. Global and Supplier Trailing methods must have received at least one (1) entrant in the last 12 hours to display on this call.</aside>
+<aside class="notice">The &ldquo;Global&rdquo; scope can only be used with a &ldquo;Trailing&rdquo; timespan.</aside>
 
 <h4 id="arguments">Arguments</h4>
 
@@ -2975,7 +2984,7 @@ https://api.samplicio.us/Supply/v1/SupplierLinks/Create/<span class="o">{</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>Returns marketing information for a specific survey when study type is either “Recruit – Panel” or “Community Build”. </p>
+<p>Returns marketing information for a specific survey when study type is either <code class="prettyprint">Recruit – Panel</code> or <code class="prettyprint">Community Build</code>. </p>
 
 <table><thead>
 <tr>
@@ -3082,7 +3091,7 @@ https://api.samplicio.us/Supply/v1/SupplierLinks/Create/<span class="o">{</span>
 
 </span></code></pre>
 
-<p>Returns the list of PIDs by supplier for a specific Fulcrum survey.</p>
+<p>Returns the list of PIDs by supplier for a specific Fulcrum survey when study type is <code class="prettyprint">Recontact</code>.</p>
 
 <h4 id="arguments">Arguments</h4>
 
@@ -3618,7 +3627,7 @@ https://api.samplicio.us/Demand/v1/Surveys/Create?key<span class="o">={</span>AP
 
 <p>Creates a Fulcrum survey.   </p>
 
-<aside class="notice">Fulcrum automatically adds 7 qualifications to US studies when a survey is created (Age, Gender, Zip, STATE, Ethnicity, Hispanic, Standard HHI). These qualifications can be edited or removed if desired using the [SurveyQualifications/Update](#put-update-a-qualification) call.</aside>
+<aside class="notice">Fulcrum automatically adds 7 qualifications to US studies when a survey is created (Age, Gender, Zip, STATE, Ethnicity, Hispanic, Standard HHI). These qualifications can be edited or removed if desired by <a href="#put-update-a-qualification">updating the qualification</a></aside>
 
 <h4 id="arguments">Arguments</h4>
 
@@ -4149,8 +4158,6 @@ https://api.samplicio.us/Demand/v1/Surveys/Update/<span class="o">{</span>Survey
 
 <p>Update an existing Fulcrum survey. </p>
 
-<aside class="notice">All parameters returned via the Surveys/Create call (with the exception of SampleTypeID) must be included in the Surveys/Update call even if they’re not being specifically adjusted.</aside>
-
 <h4 id="arguments">Arguments</h4>
 
 <table><thead>
@@ -4439,7 +4446,7 @@ https://api.samplicio.us/Demand/v1/Surveys/Update/<span class="o">{</span>Survey
 
 <p>Returns the details of a specific Fulcrum survey. </p>
 
-<aside class="notice">NumberOfRespondents is calculated real-time.</aside>
+<aside class="notice">NumberOfRespondents is not cached.</aside>
 
 <h4 id="arguments">Arguments</h4>
 
@@ -4938,9 +4945,7 @@ http://api.samplicio.us/Demand/v1/SurveyQualifications/Create/<span class="o">{<
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>Creates qualification and conditions for an existing Fulcrum survey..   </p>
-
-<aside class="notice">Fulcrum automatically adds 7 qualifications to US studies when a survey is created (Age, Gender, Zip, STATE, Ethnicity, Hispanic, Standard HHI). These qualifications can be edited or removed if desired using the (SurveyQualifications/Update)[#update-a-qualification] call.</aside>
+<p>Creates qualification and conditions for an existing Fulcrum survey.</p>
 
 <h4 id="arguments">Arguments</h4>
 
@@ -8474,7 +8479,7 @@ https://api.samplicio.us/Demand/v1/SupplierAllocations/Targets/Create/<span clas
 
 <p>Creates target links for suppliers with an alloacation for a Fulcrum survey. </p>
 
-<aside class="notice">Ensure that the supplier has already been allocated to the survey by first making the <a href="#post-create-a-qualification">Create an Allocation</a> call. Always default to Targeted/Standalone link type (SupplierLinkTypeCode TS) when creating target links unless specifically requested by the supplier </aside>
+<aside class="notice">The supplier must already have an allocation for the survey (<a href="#post-create-a-qualification">Create an Allocation</a>). Always default to the Targeted/Standalone supplier link type (`TS`) when creating target links unless specifically requested by the supplier </aside>
 
 <h4 id="arguments">Arguments</h4>
 
@@ -8649,7 +8654,7 @@ https://api.samplicio.us/Demand/v1/SupplierAllocations/Targets/Create/<span clas
 
 <p>Updates existing supplier target links. </p>
 
-<aside class="notice">Always default to Targeted/Standalone link type (SupplierLinkTypeCode TS) when creating target links unless specifically requested by the supplier </aside>
+<aside class="notice">Always default to Targeted/Standalone supplier link type (`TS`) when creating target links unless specifically requested by the supplier </aside>
 
 <h4 id="arguments">Arguments</h4>
 
@@ -9118,18 +9123,6 @@ https://api.samplicio.us/Demand/v1/SupplierAllocations/Targets/Create/<span clas
 <td>Persistent panelist identifier used by the supplier.</td>
 </tr>
 </tbody></table>
-
-              <h1 id="guides">Guides</h1>
-
-              <h2 id="supply">Supply</h2>
-
-<h3 id="market-research-panel-supplier">Market Research Panel Supplier</h3>
-
-              <h2 id="demand">Demand</h2>
-
-<h3 id="diy-market-research-buyer">DIY Market Research Buyer</h3>
-
-<h3 id="enterprise-market-research-buyer">Enterprise Market Research Buyer</h3>
 
               <h1 id="changelog">Changelog</h1>
 
