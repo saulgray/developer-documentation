@@ -14,19 +14,18 @@ toc_footers:
 
 includes:
   - introduction/introduction
-  - introduction/guides
-  - introduction/authentication
-  - introduction/resources
+  - introduction/fiddling
+  - introduction/common-workflows
   - introduction/environments
-  - introduction/interacting
+  - introduction/authentication
+  - introduction/request-format
   - introduction/status-codes
-  - introduction/changelog
-  - introduction/glossary
   - lookup/introduction
   - lookup/definitions
   - lookup/question-library
   - supply/introduction
   - supply/surveys
+  - supply/allocations
   - supply/groups
   - supply/qualifications
   - supply/quotas
@@ -43,10 +42,11 @@ includes:
   - demand/allocations
   - demand/entry-links
   - demand/feasibility
-  - demand/recruits
+  - demand/recontact
   - guides/introduction
   - guides/supply
   - guides/demand
+  - changelog/changelog
   
 search: true
 ---
