@@ -1,6 +1,6 @@
 ##Quotas
 
-The quotas resource returns the number of completes available to you for each demographic cell in a survey. Quotas can be built on any qualification(s). For more information about quotas in Fulcrum please refer to [Understanding Fulcrum Quotas](#understanding-fulcrum-quotas) in the Supply API guide.  
+The quotas resource returns the number of completes available to you for each demographic cell in a survey. Quotas can be built on any qualification(s).
 
 #### Response Properties
 
