@@ -78,7 +78,7 @@ var marketingInfo = https.get('https://api.samplicio.us/Supply/v1/Surveys/Market
 }
 ```
 
-Returns marketing information for a specific survey when study type is either “Recruit – Panel” or “Community Build”. 
+Returns marketing information for a specific survey when study type is either `Recruit – Panel` or `Community Build`. 
 
 
 
