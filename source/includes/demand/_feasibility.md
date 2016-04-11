@@ -132,6 +132,7 @@ request.end();
 
 > Example Response
 
+```json
 {
   "ApiResult": 0,
   "ApiResultCode": 0,
@@ -201,6 +202,7 @@ request.end();
     }
   ]
 }
+```
 
 Returns the estimated time in days to achieve the total number of completes specified, given the project specifications.
 
@@ -346,6 +348,7 @@ request.end();
 
 > Example Response
 
+```json
 {
   "ApiResult": 0,
   "ApiResultCode": 0,
@@ -406,6 +409,7 @@ request.end();
     }
   ]
 }
+```
 
 Returns a tiered model of price per complete, given the inputs for Number of Respondents per day and qualifications. PercentPrice(N) value is the price at which N percent of the total number of completes can be achieved.
 
@@ -552,6 +556,7 @@ request.end();
 
 > Example Response
 
+```json
 {
   "ApiResult": 0,
   "ApiResultCode": 0,
@@ -595,6 +600,7 @@ request.end();
     }
   ]
 }
+```
 
 Returns the number of completes achievable given the parameters submitted, based on the Exchange's historical performance. 
 
