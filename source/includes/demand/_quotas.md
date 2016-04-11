@@ -338,7 +338,8 @@ request.write(params);
 request.end();
 ```
 
->Example Response
+> Example Response
+
 ```
 {
   "ApiResult": 0,
@@ -388,7 +389,7 @@ request.end();
       ]
     }
   ]
-};
+}
 ```
 
 Updates a quota's size, conditions, and other parameters.
