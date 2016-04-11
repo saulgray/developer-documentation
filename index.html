@@ -339,7 +339,7 @@
 
 </span></code></pre>
 
-<p>Returns a list of available global system definitions. Arguments can be passed individually or in aggregate, with arguments separated by a comma. One argument must be provided at minimum.  </p>
+<p>Returns a list of global system definitions. Arguments can be passed individually or in aggregate, with arguments separated by a comma. One argument must be provided at minimum.  </p>
 
 <aside class="notice">Only some of these should be checked regularly for updates and modifications, namely CountryLanguages, Industries, and SupplierLinkTypes.</aside>
 
@@ -371,7 +371,7 @@
 </thead><tbody>
 <tr>
 <td>Countries</td>
-<td>Array of all countries available.</td>
+<td>Array of all countries.</td>
 </tr>
 <tr>
 <td>CountryLanguages</td>
@@ -431,7 +431,7 @@
 </tr>
 <tr>
 <td>ThirdPartyServices</td>
-<td>Array of all Third Party Services available on the platform.</td>
+<td>Array of all Third Party Services on the platform.</td>
 </tr>
 </tbody></table>
 
@@ -521,7 +521,7 @@
 
 </span></code></pre>
 
-<p>Returns a list of all available suppliers.</p>
+<p>Returns a list of all suppliers.</p>
 
 <h3 id="get-list-business-units">GET List Business Units</h3>
 
@@ -671,7 +671,7 @@
 </span><span class="p">}</span><span class="w">    
 </span></code></pre>
 
-<p>Returns a list of all Standard Questions and question texts for the specified country-language pair.</p>
+<p>Returns a list of all Fulcrum Standard questions and question texts for the specified country-language pair.</p>
 
 <h4 id="arguments">Arguments</h4>
 
@@ -859,7 +859,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>Returns the details of a specific Standard or Custom Qualification.</p>
+<p>Returns the details of a specific Fulcrum Standard or custom qualification.</p>
 
 <aside class="notice">Each question or qualification in Fulcrum has a unique QuestionID, which is valid across country-language pairs.</aside>
 
@@ -963,7 +963,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>Returns the answer options and associated precodes for a specific QuestionID and Country-Language pair.</p>
+<p>Returns the answer options and associated precodes for a specific QuestionID and country-language pair.</p>
 
 <aside class="notice">If you have your own question library, you should create a map between Fulcrum Standard qualifications and those that match in your own library.</aside>
 
@@ -1218,7 +1218,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>Returns a list of all live survey opportunities available through the Exchange for which you have an allocation or entry link.</p>
+<p>Returns a list of all live survey opportunities available through the Exchange for which you do not have an allocation or entry link.</p>
 
 <aside class="notice">After <a href="#post-create-a-link">creating an entry link</a> you can <a href="#get-list-allocated-surveys">list allocated surveys</a> or <a href="#get-show-an-allocated-survey">show an allocated survey</a> to access these opportunities.</aside>
 
@@ -2977,8 +2977,6 @@ https://api.samplicio.us/Supply/v1/SupplierLinks/Create/<span class="o">{</span>
 
 <p>Returns marketing information for a specific survey when study type is either “Recruit – Panel” or “Community Build”. </p>
 
-<h4 id="arguments">Arguments</h4>
-
 <table><thead>
 <tr>
 <th>Property</th>
@@ -3000,8 +2998,6 @@ https://api.samplicio.us/Supply/v1/SupplierLinks/Create/<span class="o">{</span>
 <td>Unique code associated with the supplier performing the call.</td>
 </tr>
 </tbody></table>
-<pre class="highlight plaintext"><code>
-</code></pre>
 
               <h2 id="recontact">Recontact</h2>
 
@@ -5925,59 +5921,58 @@ https://api.samplicio.us/Demand/v1/SurveyQuotas/Create/<span class="o">{</span>S
 </code></pre>
 
 <blockquote>
-<p>Example Response
-&ldquo;`
-{
-  &quot;ApiResult&rdquo;: 0,
-  &ldquo;ApiResultCode&rdquo;: 0,
-  &ldquo;ApiAccount&rdquo;: &ldquo;Anon&rdquo;,
-  &ldquo;AccountType&rdquo;: 2,
-  &ldquo;ApiAccountStatus&rdquo;: 1,
-  &ldquo;AccountCode&rdquo;: &ldquo;AA&rdquo;,
-  &ldquo;ApiMessages&rdquo;: [
-    &ldquo;API Message: Response initialized.&rdquo;,
-    &ldquo;API Message: CreateSurveyQuotaFromModel successful.&rdquo;
-  ],
-  &ldquo;ResultCount&rdquo;: 2,
-  &ldquo;Quotas&rdquo;: [
-    {
-      &ldquo;SurveyQuotaID&rdquo;: 0001100,
-      &ldquo;Name&rdquo;: &ldquo;Total&rdquo;,
-      &ldquo;SurveyQuotaType&rdquo;: &ldquo;Total&rdquo;,
-      &ldquo;FieldTarget&rdquo;: 100,
-      &ldquo;Quota&rdquo;: 100,
-      &ldquo;Prescreens&rdquo;: 0,
-      &ldquo;Completes&rdquo;: 0,
-      &ldquo;IsActive&rdquo;: true,
-      &ldquo;Conditions&rdquo;: null
-    },
-    {
-      &ldquo;SurveyQuotaID&rdquo;: 1000110,
-      &ldquo;Name&rdquo;: &ldquo;Quota Name&rdquo;,
-      &ldquo;SurveyQuotaType&rdquo;: &ldquo;Client&rdquo;,
-      &ldquo;FieldTarget&rdquo;: 50,
-      &ldquo;Quota&rdquo;: 50,
-      &ldquo;Prescreens&rdquo;: 0,
-      &ldquo;Completes&rdquo;: 0,
-      &ldquo;IsActive&rdquo;: true,
-      &ldquo;Conditions&rdquo;: [
-        {
-          &ldquo;QuestionID&rdquo;: 42,
-          &ldquo;PreCodes&rdquo;: [
-            &ldquo;18&rdquo;,
-            &ldquo;19&rdquo;,
-            &ldquo;20&rdquo;,
-            &ldquo;21&rdquo;,
-            &ldquo;22&rdquo;,
-          ]
-        },</p>
+<p>Example Response</p>
 </blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"ApiResult"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiResultCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiAccount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Anon"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"AccountType"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiAccountStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"AccountCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AA"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiMessages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"API Message: Response initialized."</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"API Message: CreateSurveyQuotaFromModel successful."</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"ResultCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Quotas"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"SurveyQuotaID"</span><span class="p">:</span><span class="w"> </span><span class="mi">0001100</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Total"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"SurveyQuotaType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Total"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"FieldTarget"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Quota"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Prescreens"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Completes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Conditions"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"SurveyQuotaID"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000110</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Quota Name"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"SurveyQuotaType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Client"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"FieldTarget"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Quota"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Prescreens"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Completes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Conditions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"QuestionID"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"PreCodes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"18"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"19"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"20"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"21"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"22"</span><span class="p">,</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
 
-<p>]
-    }
-  ]
-};
-&ldquo;`</p>
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <p>Updates a quota&rsquo;s size, conditions, and other parameters.</p>
 
@@ -6195,6 +6190,88 @@ https://api.samplicio.us/Demand/v1/SurveyQuotas/Create/<span class="o">{</span>S
 </tr>
 </tbody></table>
 
+<h4 id="supplier-groups-model">Supplier Groups Model</h4>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>int</td>
+<td>ID associated with the Exchange Template.</td>
+</tr>
+<tr>
+<td>Name</td>
+<td>string</td>
+<td>Exchange Template Name.</td>
+</tr>
+<tr>
+<td>SupplierGroupDisplayTypeID</td>
+<td>int</td>
+<td>Indicates if the group is the &ldquo;blocked&rdquo; group or not. 1 = unblocked. 2 = blocked.</td>
+</tr>
+<tr>
+<td>Completes</td>
+<td>int</td>
+<td>Number of completes gained by the group.</td>
+</tr>
+<tr>
+<td>Screens</td>
+<td>int</td>
+<td>Number of prescreens gained by the group.</td>
+</tr>
+<tr>
+<td>AllocationPercentage</td>
+<td>int</td>
+<td>Percentage of total completes allocated only to the Exchange group. Must be between 0 and 100%.</td>
+</tr>
+<tr>
+<td>IsHedgeAccess</td>
+<td>boolean</td>
+<td>&ldquo;true&rdquo; gives the Exchange group access to any unallocated completes.</td>
+</tr>
+<tr>
+<td>CPI</td>
+<td>int</td>
+<td>Will typically return &ldquo;null&rdquo; as CPI can&rsquo;t be set via an Exchange Template.</td>
+</tr>
+<tr>
+<td>Suppliers</td>
+<td>array</td>
+<td>Contains array of elements described below.</td>
+</tr>
+</tbody></table>
+
+<h4 id="suppliers-model">Suppliers Model</h4>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>SupplierID</td>
+<td>int</td>
+<td>ID associated with the supplier account.</td>
+</tr>
+<tr>
+<td>Completes</td>
+<td>int</td>
+<td>Number of completes gained by the supplier.</td>
+</tr>
+<tr>
+<td>Screens</td>
+<td>string</td>
+<td>Number of prescreens gained by the supplier.</td>
+</tr>
+</tbody></table>
+
 <h3 id="get-list-exchange-templates">GET List Exchange Templates</h3>
 
 <blockquote>
@@ -6277,91 +6354,7 @@ https://api.samplicio.us/Demand/v1/SurveyQuotas/Create/<span class="o">{</span>S
 
 <p>Returns all Exchange templates associated with an existing account. </p>
 
-<h4 id="arguments">Arguments</h4>
-
 <h3 id="post-apply-an-exchange-template">POST Apply an Exchange Template</h3>
-
-<h4 id="supplier-groups-model">Supplier Groups Model</h4>
-
-<table><thead>
-<tr>
-<th>Property</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
-<td>int</td>
-<td>ID associated with the Exchange Template.</td>
-</tr>
-<tr>
-<td>Name</td>
-<td>string</td>
-<td>Exchange Template Name.</td>
-</tr>
-<tr>
-<td>SupplierGroupDisplayTypeID</td>
-<td>int</td>
-<td>Indicates if the group is the &ldquo;blocked&rdquo; group or not. 1 = unblocked. 2 = blocked.</td>
-</tr>
-<tr>
-<td>Completes</td>
-<td>int</td>
-<td>Number of completes gained by the group.</td>
-</tr>
-<tr>
-<td>Screens</td>
-<td>int</td>
-<td>Number of prescreens gained by the group.</td>
-</tr>
-<tr>
-<td>AllocationPercentage</td>
-<td>int</td>
-<td>Percentage of total completes allocated only to the Exchange group. Must be between 0 and 100%.</td>
-</tr>
-<tr>
-<td>IsHedgeAccess</td>
-<td>boolean</td>
-<td>&ldquo;true&rdquo; gives the Exchange group access to any unallocated completes.</td>
-</tr>
-<tr>
-<td>CPI</td>
-<td>int</td>
-<td>Will typically return &ldquo;null&rdquo; as CPI can&rsquo;t be set via an Exchange Template.</td>
-</tr>
-<tr>
-<td>Suppliers</td>
-<td>array</td>
-<td>Contains array of elements described below.</td>
-</tr>
-</tbody></table>
-
-<h4 id="suppliers-model">Suppliers Model</h4>
-
-<table><thead>
-<tr>
-<th>Property</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>SupplierID</td>
-<td>int</td>
-<td>ID associated with the supplier account.</td>
-</tr>
-<tr>
-<td>Completes</td>
-<td>int</td>
-<td>Number of completes gained by the supplier.</td>
-</tr>
-<tr>
-<td>Screens</td>
-<td>string</td>
-<td>Number of prescreens gained by the supplier.</td>
-</tr>
-</tbody></table>
 
 <blockquote>
 <p>Definition</p>
