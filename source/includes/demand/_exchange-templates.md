@@ -4,14 +4,36 @@ The Exchange Templates resource returns all Exchange templates associated with a
 
 #### Exchange Templates Model
 
-| Property                     | Type     | Description                                                                                                                                             |
-|------------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ID                           | int      | ID associated with the Exchange Template.                                                                                                               | 
-| AccountID                    | int      | Unique account identifier.                                                                                                                              |
-| Name                         | string   | Exchange Template Name.                                                                                                                                 |
-| ExchangeAllocationPercentage | int      | Percentage of total completes allocated only to the Exchange. Must be between 0 and 100%.                                                               |
-| ExchangeIsHedgeAccess        | boolean  | "true" gives the Exchange access to any unallocated completes. "true" is recommended when using the Exchange.                                           |
-| IsGlobalTemplate             | boolean  | Should always return "false" indicating the template is only available to the buyers account.                                                           |
+| Property                     | Type    | Description                                                                                                   |
+|------------------------------|---------|---------------------------------------------------------------------------------------------------------------|
+| ID                           | int     | ID associated with the Exchange Template.                                                                     |
+| AccountID                    | int     | Unique account identifier.                                                                                    |
+| Name                         | string  | Exchange Template Name.                                                                                       |
+| ExchangeAllocationPercentage | int     | Percentage of total completes allocated only to the Exchange. Must be between 0 and 100%.                     |
+| ExchangeIsHedgeAccess        | boolean | "true" gives the Exchange access to any unallocated completes. "true" is recommended when using the Exchange. |
+| IsGlobalTemplate             | boolean | Should always return "false" indicating the template is only available to the buyers account.                 |
+
+#### Supplier Groups Model
+
+| Property                   | Type    | Description                                                                                     |
+|----------------------------|---------|-------------------------------------------------------------------------------------------------|
+| ID                         | int     | ID associated with the Exchange Template.                                                       |
+| Name                       | string  | Exchange Template Name.                                                                         |
+| SupplierGroupDisplayTypeID | int     | Indicates if the group is the "blocked" group or not. 1 = unblocked. 2 = blocked.               |
+| Completes                  | int     | Number of completes gained by the group.                                                        |
+| Screens                    | int     | Number of prescreens gained by the group.                                                       |
+| AllocationPercentage       | int     | Percentage of total completes allocated only to the Exchange group. Must be between 0 and 100%. |
+| IsHedgeAccess              | boolean | "true" gives the Exchange group access to any unallocated completes.                            |
+| CPI                        | int     | Will typically return "null" as CPI can't be set via an Exchange Template.                      |
+| Suppliers                  | array   | Contains array of elements described below.                                                     |
+
+#### Suppliers Model
+
+| Property   | Type   | Description                                  |
+|------------|--------|----------------------------------------------|
+| SupplierID | int    | ID associated with the supplier account.     |
+| Completes  | int    | Number of completes gained by the supplier.  |
+| Screens    | string | Number of prescreens gained by the supplier. |
 
 ### GET List Exchange Templates
 
@@ -106,30 +128,6 @@ var exchangeTemplate = https.get('https://api.samplicio.us/Demand/v1/ExchangeTem
 Returns all Exchange templates associated with an existing account. 
 
 ### POST Apply an Exchange Template
-
-#### Supplier Groups Model
-
-| Property                   | Type    | Description                                                                                     |
-|----------------------------|---------|-------------------------------------------------------------------------------------------------|
-| ID                         | int     | ID associated with the Exchange Template.                                                       |
-| Name                       | string  | Exchange Template Name.                                                                         |
-| SupplierGroupDisplayTypeID | int     | Indicates if the group is the "blocked" group or not. 1 = unblocked. 2 = blocked.               |
-| Completes                  | int     | Number of completes gained by the group.                                                        |
-| Screens                    | int     | Number of prescreens gained by the group.                                                       |
-| AllocationPercentage       | int     | Percentage of total completes allocated only to the Exchange group. Must be between 0 and 100%. |
-| IsHedgeAccess              | boolean | "true" gives the Exchange group access to any unallocated completes.                            |
-| CPI                        | int     | Will typically return "null" as CPI can't be set via an Exchange Template.                      |
-| Suppliers                  | array   | Contains array of elements described below.                                                     |
-
-
-#### Suppliers Model
-
-| Property   | Type   | Description                                  |
-|------------|--------|----------------------------------------------|
-| SupplierID | int    | ID associated with the supplier account.     |
-| Completes  | int    | Number of completes gained by the supplier.  |
-| Screens    | string | Number of prescreens gained by the supplier. |
-
 
 > Definition
 
