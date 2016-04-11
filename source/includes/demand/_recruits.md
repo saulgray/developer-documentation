@@ -1,3 +1,0 @@
-#Recruits
-
-##List Qualified Respondents

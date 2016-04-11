@@ -1,6 +1,6 @@
-#Question Library
+##Question Library
 
-##List Standard Questions
+### GET List Standard Questions
 
 > Definition 
 
@@ -65,7 +65,7 @@ var standardQs = https.get('https://api.samplicio.us/Lookup/v1/QuestionLibrary/A
     "API Message: Response initialized.",
     "API Message: GetAllQuestions successful."
   ],
-  "ResultCount": 3,
+  "ResultCount": 1,
   "Questions": [
     {
       "IsCoreDemographic": true,
@@ -76,22 +76,20 @@ var standardQs = https.get('https://api.samplicio.us/Lookup/v1/QuestionLibrary/A
       "QuestionText": "What is your age?",
       "QuestionType": "Numeric - Open-end",
       "SurveyUse": 8162
-    },
-    {...},
-    {...}
+    }
   ]
 }    
 ```
 
-Returns a list of all Standard Questions and question texts for the specified country-language pair.
+Returns a list of all Fulcrum Standard questions and question texts for the specified country-language pair.
 
-### Arguments
+#### Arguments
 
 | Property                     | Type     | Required | Description                                                                                                                                  |
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
 | CountryLanguageID            | int      | true     | Unique id associated with the country-language pair the question text applies to.                                                            |
 
-##List Custom Questions
+### GET List Custom Questions
 
 > Definition 
 
@@ -156,7 +154,7 @@ var customQs = https.get('https://api.samplicio.us/QuestionLibrary/AllCustomQues
     "API Message: Response initialized.",
     "API Message: GetAllQuestions successful."
   ],
-  "ResultCount": 3,
+  "ResultCount": 1,
   "Questions": [
     {
       "__type": "PublicQuestionModel",
@@ -169,22 +167,21 @@ var customQs = https.get('https://api.samplicio.us/QuestionLibrary/AllCustomQues
       "QuestionType": "Single Punch",
       "SurveyUse": 2,
       "AccountID": 1
-    },
-    {...},
-    {...}
+    }
   ]
 }    
 ```
 
 Returns a list of custom questions associated with and created by your account for the specified country-language pair.
 
-### Arguments
+#### Arguments
 
 | Property                     | Type     | Required | Description                                                                                                                                  |
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
 | CountryLanguageID            | int      | true     | Unique id associated with the country-language pair the question text applies to.                                                            |
 
-## Show Question Text
+### GET Show Question Text
+
 > Definition
 
 ```plaintext
@@ -265,13 +262,110 @@ var questionText = https.get('https://api.samplicio.us/Lookup/v1/QuestionLibrary
 }
 ```
 
-Returns the details of a specific Standard or Custom Qualification.
+Returns the details of a specific Fulcrum Standard or custom qualification.
 
-### Arguments
+<aside class="notice">Each question or qualification in Fulcrum has a unique QuestionID, which is valid across country-language pairs.</aside>
+
+#### Arguments
 
  Property                     | Type     | Required | Description                                                                                                                                  |
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
 | CountryLanguageID            | int      | true     | Unique id associated with the country-language pair the question text applies to.                                                            |
 | QuestionID                   | int      | true     | Unique id associated with the question the question text applies to.                                                            |
 
-##Show Question Options
+### GET Show Question Options
+
+> Definition
+
+```plaintext
+GET  https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllQuestionOptions/{CountryLanguageID}/{QuestionID}?key={APIKey}
+```
+
+> Example Request
+
+```shell
+curl https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllQuestionOptions/{CountryLanguageID}/{QuestionID}?key={APIKey}
+```
+
+```ruby
+require 'net/http'
+
+uri = URI('https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllQuestionOptions/{CountryLanguageID}/{QuestionID}?key={APIKey}')
+
+http = Net::HTTP.new(uri.host, uri.port)
+
+http.use_ssl = true
+
+request = Net::HTTP::Get.new(uri.request_uri)
+
+questionOptions= http.request(request)  
+```
+
+```php
+<?php
+$questionOptions = file_get_contents('https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllQuestionOptions/{CountryLanguageID}/{QuestionID}?key={APIKey}');
+?>
+```
+
+```python
+import requests
+
+questionOptions = requests.get('https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllQuestionOptions/{CountryLanguageID}/{QuestionID}?key={APIKey}')
+```
+
+```csharp
+using System.Net;
+
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllQuestionOptions/{CountryLanguageID}/{QuestionID}?key={APIKey}");
+
+WebResponse questionOptions = request.GetResponse();
+```
+
+```javascript
+const https = require('https');
+
+var questionOptions = https.get('https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllQuestionOptions/{CountryLanguageID}/{QuestionID}?key={APIKey}');
+```
+
+> Example Response
+
+```json 
+{
+  "ApiResult": 0,
+  "ApiResultCode": 0,
+  "ApiAccount": "Anon",
+  "AccountType": 2,
+  "ApiAccountStatus": 1,
+  "AccountCode": "AA",
+  "ApiMessages": [
+    "API Message: Response initialized.",
+    "API Message: GetAllQuestionOptions successful."
+  ],
+  "ResultCount": 1,
+  "QuestionOptions": [
+    {
+      "OptionText": "Male",
+      "ParentItemText": null,
+      "Precode": "1",
+      "QuestionID": 43
+    },
+    {
+      "OptionText": "Female",
+      "ParentItemText": null,
+      "Precode": "2",
+      "QuestionID": 43
+    }
+  ]
+}
+```
+
+Returns the answer options and associated precodes for a specific QuestionID and country-language pair.
+
+<aside class="notice">If you have your own question library, you should create a map between Fulcrum Standard qualifications and those that match in your own library.</aside>
+
+#### Arguments
+
+  Property                     | Type     | Required | Description                                                                                                                                  |
+|------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| CountryLanguageID            | int      | true     | Unique id associated with the country-language pair the question text applies to.     
+| QuestionId                   | int      | true     | Unique id associated with the question the question text applies to.    

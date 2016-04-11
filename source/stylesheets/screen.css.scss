@@ -70,23 +70,7 @@ html, body {
   font-size: $nav-item-text;
 
 // This sections bolds the main topics in the nav bar
-#tocify-header0 {
-    font-weight: bold;
-    padding-top: 15px;
-}
-#tocify-header9 {
-    font-weight: bold;
-    padding-top: 15px;
-}
-#tocify-header12 {
-    font-weight: bold;
-    padding-top: 15px;
-}
-#tocify-header22 {
-    font-weight: bold;
-    padding-top: 15px;
-}
-#tocify-header32 {
+.main-header {
     font-weight: bold;
     padding-top: 15px;
 }
@@ -177,8 +161,24 @@ html, body {
     white-space: nowrap;
     text-overflow: ellipsis;
   }
-  
-  
+
+  // HTTP tags in TOC
+      .http-post {
+          @extend %code-font;
+          color:$post;
+        }
+      .http-put {
+         @extend %code-font;
+          color:$put;
+      }
+      .http-get {
+          @extend %code-font;
+          color:$get;
+      }
+      .http-delete {
+          @extend %code-font;
+          color:$delete;
+      }
 
   // The Table of Contents is composed of multiple nested
   // unordered lists.  These styles remove the default
@@ -217,6 +217,7 @@ html, body {
     &>li:last-child {
       box-shadow: none; // otherwise it'll overflow out of the subheader
     }
+    
   }
 
   .toc-footer {
@@ -382,7 +383,7 @@ html, body {
     clear:both;
   }
 
-  h1 {
+  h1, h2 {
     @extend %header-font;
     font-size: 32px;
     padding-top: 0.5em;
@@ -397,7 +398,7 @@ html, body {
     margin-top: 0;
   }
 
-  h2 {
+  h3 {
     @extend %header-font;
     font-size: 22px;
     margin-top: 4em;
@@ -406,30 +407,48 @@ html, body {
     padding-top: 1.2em;
     padding-bottom: 1.2em;
   }
+  
+  // HTTP tags in front of headers
+  .post {
+      @extend %code-font;
+      font-size: 24px;
+      color:$post;
+  }
+  .put {
+     @extend %code-font;
+      font-size: 24px;
+      color:$put;
+  }
+  .get {
+      @extend %code-font;
+      font-size: 24px;
+      color:$get;
+  }
+  .delete {
+      @extend %code-font;
+      font-size: 24px;
+      color:$delete;
+  }
 
   // h2s right after h1s should bump right up
   // against the h1s.
-  h1 + h2, h1 + div + h2 {
+  h2 + h3, h2 + div + h3 {
     margin-top: $h1-margin-bottom * -1;
     border-top: none;
   }
   
-  h3 {
+  h4 {
     @extend %header-font;
     font-size: 18px;
     margin-top: 2.5em;
     margin-bottom: 0.8em;
   }
 
-  h4, h5, h6 {
+  h5, h6 {
     @extend %header-font;
     font-size: 14px;
     margin-top: 2.5em;
     margin-bottom: 0.8em;
-  }
-
-  h4, h5, h6 {
-    font-size: 10px;
   }
 
   hr {
@@ -595,14 +614,9 @@ html, body {
     box-sizing: border-box;
     border-radius: 3px;
     box-shadow: 0px 1px 2px #10223C inset;
-    
-    /* For Firefox */
-    @-moz-document url-prefix(){
-     white-space: pre-wrap;
-     word-break: break-all;
-    }
 
-    /* For Chrome and IE */
+    /* Removes scrolling from code blocks */
+    white-space: pre-wrap;
     word-wrap: break-word;
 
     @extend %right-col;
