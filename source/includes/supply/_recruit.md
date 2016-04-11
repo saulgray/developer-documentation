@@ -82,12 +82,9 @@ Returns marketing information for a specific survey when study type is either â€
 
 
 
-#### Arguments
+| Property     | Type | Required | Description                                                   |
+|--------------|------|----------|---------------------------------------------------------------|
+| SurveyNumber | int  | true     | Unique number associated with the survey.                     |
+| SupplierCode | int  | true     | Unique code associated with the supplier performing the call. |
 
-| Property                     | Type     | Required | Description                                                                                                                                  |
-|------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| SurveyNumber                 | int      | true     | Unique number associated with the survey.                                                                                                    |
-| SupplierCode                 | int      | true     | Unique code associated with the supplier performing the call.                                                                                                    |
-
-```
 
