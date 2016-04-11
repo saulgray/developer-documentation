@@ -131,7 +131,7 @@ var surveys = https.get('https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall
 }
 ```
 
-Returns a list of all live survey opportunities available through the Exchange for which you have an allocation or entry link.
+Returns a list of all live survey opportunities available through the Exchange for which you do not have an allocation or entry link.
 
 <aside class="notice">After <a href="#post-create-a-link">creating an entry link</a> you can <a href="#get-list-allocated-surveys">list allocated surveys</a> or <a href="#get-show-an-allocated-survey">show an allocated survey</a> to access these opportunities.</aside>
 
