@@ -81,7 +81,7 @@ var standardQs = https.get('https://api.samplicio.us/Lookup/v1/QuestionLibrary/A
 }    
 ```
 
-Returns a list of all Standard Questions and question texts for the specified country-language pair.
+Returns a list of all Fulcrum Standard questions and question texts for the specified country-language pair.
 
 #### Arguments
 
@@ -262,7 +262,7 @@ var questionText = https.get('https://api.samplicio.us/Lookup/v1/QuestionLibrary
 }
 ```
 
-Returns the details of a specific Standard or Custom Qualification.
+Returns the details of a specific Fulcrum Standard or custom qualification.
 
 <aside class="notice">Each question or qualification in Fulcrum has a unique QuestionID, which is valid across country-language pairs.</aside>
 
@@ -359,7 +359,7 @@ var questionOptions = https.get('https://api.samplicio.us/Lookup/v1/QuestionLibr
 }
 ```
 
-Returns the answer options and associated precodes for a specific QuestionID and Country-Language pair.
+Returns the answer options and associated precodes for a specific QuestionID and country-language pair.
 
 <aside class="notice">If you have your own question library, you should create a map between Fulcrum Standard qualifications and those that match in your own library.</aside>
 
