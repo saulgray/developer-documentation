@@ -4,18 +4,20 @@ The Qualification resource contains the questions and corresponding conditions a
 
 #### Survey Qualification Model
 
-| Property                     | Type     | Description                                                                                                                                             |
-|------------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SurveyNumber                 | int      | Unique number associated with the survey.                                                                                                               | 
-| Questions                    | array    | Contains an array of Question models.                                                                                                                   |
+| Property     | Type  | Description                               |
+|--------------|-------|-------------------------------------------|
+| SurveyNumber | int   | Unique number associated with the survey. |
+| Questions    | array | Contains an array of Question models.     |
+
 
 #### Questions Model
 
-| Property                     | Type     | Description                                                                                                                                             |
-|------------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
-| QuestionID                   | int      | Unique number associated with the question.                                                                                                             |
-| LogicalOperator              | string   | Defines the logical operation applied to the conditions.                                                                                                |
-| PreCodes                     | array    | Qualification answer option identifier.                                                                                                                 |
+| Property        | Type   | Description                                              |
+|-----------------|--------|----------------------------------------------------------|
+| QuestionID      | int    | Unique number associated with the question.              |
+| LogicalOperator | string | Defines the logical operation applied to the conditions. |
+| PreCodes        | array  | Qualification answer option identifier.                  |
+
 
 ### GET Show Qualifications
 
@@ -118,11 +120,11 @@ var surveyQualifications = https.get('https://api.samplicio.us/Supply/v1/SurveyQ
 
 Returns a list of all standard and exposed custom qualifications associated with a survey. 
 
-<aside class="notice">This API call returns data for all types of surveys not just Offerwall surveys.</aside>
+<aside class="notice">This API call returns data for all types of surveys (not just Offerwall surveys).</aside>
 
 
 #### Arguments
 
-| Property                     | Type     | Required | Description                                                                                                                                  |
-|------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| SurveyNumber                 | int      | true     | Unique number associated with the survey.                                                                                                    |
+| Property     | Type | Required | Description                               |
+|--------------|------|----------|-------------------------------------------|
+| SurveyNumber | int  | true     | Unique number associated with the survey. |
