@@ -91,7 +91,7 @@ var qualifiedRespondents = https.get('https://api.samplicio.us/Supply/v1/SurveyQ
 
 ```
 
-Returns the list of PIDs by supplier for a specific Fulcrum survey.
+Returns the list of PIDs by supplier for a specific Fulcrum survey when study type is `Recontact`.
 
 
 
