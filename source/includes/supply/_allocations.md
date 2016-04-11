@@ -198,7 +198,7 @@ var allocations = https.get('https://api.samplicio.us/Supply/v1/Surveys/Supplier
         "HedgeRemaining": 0,
         "TargetModel": {
           "SupplierLinkType": 18,
-          "LiveSupplierLink": "http://staging.samplicio.us/router/default.aspx?SID=da94c7f8-0dcf-4fcc-80d4-6e2beafc3ff4&PID=",
+          "LiveSupplierLink": "http://samplicio.us/router/default.aspx?SID=da94c7f8-0dcf-4fcc-80d4-6e2beafc3ff4&PID=",
           "SupplierLinkSID": "da94c7f8-0dcf-4fcc-80d4-6e2beafc3ff4",
           "TargetCCPI": 3
         }
