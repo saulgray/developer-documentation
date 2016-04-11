@@ -1,6 +1,6 @@
-#Feasibility
+##Feasibility
 
-##Show Time to Completion
+### GET Show Time to Completion
 
 > Definition 
 
@@ -221,7 +221,7 @@ Returns a value for "Days", which is the estimated time in days to achieve the t
 
 
 
-##Show Price
+### GET Show Price
 
 > Definition 
 
@@ -428,7 +428,7 @@ Returns a tiered model of price per complete, given the inputs for Number of Res
 
 
 
-##Show Completes per Day
+### GET Show Completes per Day
 
 > Definition 
 

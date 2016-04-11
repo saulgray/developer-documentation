@@ -1,6 +1,6 @@
-# Definitions
+## Definitions
 
-##List Global Definitions
+### GET List Global Definitions
 
 > Definition
 
@@ -135,21 +135,21 @@ var globalDefinitions = https.get('https://api.samplicio.us/Lookup/v1/BasicLooku
 
 ```
 
-Returns a list of available global system definitions. Arguments can be passed individually or in aggregate, with arguments separated by a comma. One argument must be provided at minimum.  
+Returns a list of global system definitions. Arguments can be passed individually or in aggregate, with arguments separated by a comma. One argument must be provided at minimum.  
 
 <aside class="notice">Only some of these should be checked regularly for updates and modifications, namely CountryLanguages, Industries, and SupplierLinkTypes.</aside>
 
-### Arguments
+#### Arguments
 
 | Property                     | Type     | Required | Description                                                                                                                                  |
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
 | Bundle                       | string   | false    | A string of lookup options delimited by a comma.  
 
-### Options
+#### Options
 
 | Option                       | Description                                                                         |
 |------------------------------|-------------------------------------------------------------------------------------|
-| Countries 	                 | Array of all countries available.      
+| Countries 	                 | Array of all countries.      
 | CountryLanguages             | Array of all Country-Language pairs by ID.      
 | Industries	                 | Array of all options for industry type.      
 | SampleTypes	                 | Array of all types of sample that buyers can field on the platform.      
@@ -164,11 +164,11 @@ Returns a list of available global system definitions. Arguments can be passed i
 | SupplierPreferenceTypes      | Array of all possible preferences a supplier can communicate. 
 | SupplierRequestStatuses      | Array of all tracking methods a supplier can use to track a respondent's status. 
 | SurveyPlatforms	             | Array of survey platforms users may be sending to or from. 
-| ThirdPartyServices	         | Array of all Third Party Services available on the platform. 
+| ThirdPartyServices	         | Array of all Third Party Services on the platform. 
 
 
 
-##List Suppliers
+### GET List Suppliers
 
 > Definition
 
@@ -261,9 +261,9 @@ var suppliers = https.get('https://api.samplicio.us/Core/v1/Suppliers/AllWithAcc
 
 ```
 
-Returns a list of all available suppliers.
+Returns a list of all suppliers.
 
-##List Business Units
+### GET List Business Units
 
 > Definition 
 

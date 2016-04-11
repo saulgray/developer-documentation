@@ -1,8 +1,8 @@
-# Surveys
+## Surveys
 
 The Survey resource contains basic information about a survey opportunity posted by a sample buyer. More detailed information about who qualifies for the survey is contained in the [Qualifications](#qualifications) and [Quotas](#quotas) resources.
 
-### Surveys Model
+#### Surveys Model
 
 | Property                     | Type     | Description                                                                                                                                             |
 |------------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -22,7 +22,7 @@ The Survey resource contains basic information about a survey opportunity posted
 | TotalRemaining               | int      | Number of completes still available.                                                                                                                    |
 | CompletionPercentage         | int      | Percentage of the survey that has filled in terms of completes.                                                                                         |
 | SurveyGroup                  | string   | Deprecated: Will return `null`. Instead use the SurveyGroupExists property.                                                                             |
-| SurveyGroupID                | int      | Deprecated: Will return `null`. If SurveyGroupExists is `true`, then [list the survey's groups](#list-a-survey’s-groups).                               |
+| SurveyGroupID                | int      | Deprecated: Will return `null`. If SurveyGroupExists is `true`, then [list the survey's groups](#get-list-a-survey’s-groups).                               |
 | SurveyGroupExists            | int      | Indicates whether there is a survey group(s) associated with the survey. (0=`false`, 1=`true`)                                                          |
 | BidLengthOfInterview         | int      | Estimated time for a respondent to complete the survey excluding the Fulcrum prescreener in minutes as provided by the buyer.                           |
 | TerminationLengthOfInterview | int      | Median time for a respondent to be termed in minutes.                                                                                                   |
@@ -31,7 +31,7 @@ The Survey resource contains basic information about a survey opportunity posted
 | SurveyQuotaCalcTypeID        | int      | Indicates whether quotas are calculated based on completes or prescreens (1=Completes, 2=Prescreens).                                                   |
 | SampleTypeID                 | int      | The type of sample the survey is open to (i.e. consumer, business-to-business, etc).                                                                    |
 
-<h2 class="get" id="list-exchange-surveys"><span>GET</span> List Exchange Surveys</h2>
+### GET List Exchange Surveys
 
 > Definition
 
@@ -131,12 +131,12 @@ var surveys = https.get('https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall
 }
 ```
 
-Returns a list of all live survey opportunities available through the Exchange for which you have an allocation or entry link.
+Returns a list of all live survey opportunities available through the Exchange for which you do not have an allocation or entry link.
 
-<aside class="notice">After <a href="#create-a-link">creating an entry link</a> you can <a href="#list-allocated-surveys">list allocated surveys</a> or <a href="#show-an-allocated-survey">show an allocated survey</a> to access these opportunities.</aside>
+<aside class="notice">After <a href="#post-create-a-link">creating an entry link</a> you can <a href="#get-list-allocated-surveys">list allocated surveys</a> or <a href="#get-show-an-allocated-survey">show an allocated survey</a> to access these opportunities.</aside>
 
 
-### Arguments
+#### Arguments
 
 | Property                     | Type     | Required | Description                                                                                                                                  |
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|

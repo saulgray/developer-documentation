@@ -1,6 +1,6 @@
-#Recruit
+##Recruit
 
-##Show Marketing Info
+### GET Show Marketing Info
 
 > Definition
 
@@ -78,16 +78,13 @@ var marketingInfo = https.get('https://api.samplicio.us/Supply/v1/Surveys/Market
 }
 ```
 
-Returns marketing information for a specific survey when study type is either “Recruit – Panel” or “Community Build”. 
+Returns marketing information for a specific survey when study type is either `Recruit – Panel` or `Community Build`. 
 
 
 
-### Arguments
+| Property     | Type | Required | Description                                                   |
+|--------------|------|----------|---------------------------------------------------------------|
+| SurveyNumber | int  | true     | Unique number associated with the survey.                     |
+| SupplierCode | int  | true     | Unique code associated with the supplier performing the call. |
 
-| Property                     | Type     | Required | Description                                                                                                                                  |
-|------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| SurveyNumber                 | int      | true     | Unique number associated with the survey.                                                                                                    |
-| SupplierCode                 | int      | true     | Unique code associated with the supplier performing the call.                                                                                                    |
-
-```
 
