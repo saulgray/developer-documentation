@@ -1,6 +1,8 @@
-#Statistics
+##Statistics
 
-##Show Statistics
+System Conversion is defined as the number of entrants into Fulcrum, over the total number of completes achieved on the study.
+
+### GET Show Statistics
 
 > Definition 
 
@@ -74,20 +76,20 @@ var StatisticsBySurvey = https.get('https://api.samplicio.us/Supply/v1/SurveySta
 }
 ```
 
-Returns conversion information (as a percentage) for a specific study, based on the Scope and Timespan, for live surveys only. System Conversion is defined as the number of entrants into Fulcrum, over the total number of completes achieved on the study.   
+Returns conversion information (as a percentage) for a live study based on the `Scope` and `Timespan`.    
 
-<aside class="notice">The "Global" scope can only be used with "Trailing" to gauge the conversion, length of interview, and EPC of all surveys on the platform over the last 12 hours. Global and Supplier Trailing methods must have received at least one (1) entrant in the last 12 hours to display on this call.</aside>
+<aside class="notice">The "Global" scope can only be used with a "Trailing" timespan.</aside>
 
-### Arguments
+#### Arguments
 
 | Property                     | Type     | Required | Description                                                                                                                                  |
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
 | Survey Number                | int.     | true     | Unique ID associated with the study.                                                        |
 | SupplierCode                 | string   | true     | Your unique supplier code.                                                        |
 | Scope                        | string   | true     | Either "Global" or "Supplier".                                                             |
-| Timespan                     | string   | true     | Either "Trailing" or "Lifetime". Trailing returns the last 12 hours.                                                            |
+| Timespan                     | string   | true     | Either "Trailing" or "Lifetime". Trailing returns data from the last 12 hours.                                                            |
 
-##List Statistics
+### GET List Statistics
 
 > Definition 
 
@@ -168,9 +170,9 @@ var StatisticsAll = https.get('https://api.samplicio.us/Supply/v1/SurveyStatisti
 
 Returns conversion information (as a percentage) based on the Scope and Timespan, for live surveys only. System Conversion is defined as the number of entrants into Fulcrum, over the total number of completes achieved on the study.   
 
-<aside class="notice">The "Global" scope can only be used with "Trailing" to gauge the conversion of all surveys on the platform over the last 12 hours. Global and Supplier Trailing methods must have received at least one (1) entrant in the last 12 hours to display on this call.</aside>
+<aside class="notice">The "Global" scope can only be used with a "Trailing" timespan.</aside>
 
-### Arguments
+#### Arguments
 
 | Property                     | Type     | Required | Description                                                                                                                                  |
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
