@@ -92,6 +92,7 @@ response = requests.post(url, data=data, headers=headers, auth=HTTPBasicAuth('{u
 ```
 
 ```csharp
+using System;
 using System.IO;
 using System.Net;
 
@@ -101,7 +102,7 @@ String username = "{username}";
 String password = "{password}";
 String encoded = System.Convert.ToBase64String(System.Text.Encoding.GetEncoding("ISO-8859-1").GetBytes(username + ":" + password));
 
-string parameters = "{\"group\": {\"description\": \"Test group\",\"name\": \"Test group 123\",\"surveys\": [123,48452]}}";
+string parameters = "{\"description\": \"Test group\",\"name\": \"Test group 123\",\"surveys\": [123,48452]}";
 	
 request.Method = "POST";
 request.ContentType = "application/json";
@@ -118,30 +119,30 @@ WebResponse response = request.GetResponse();
 ```
 
 ```javascript
-const https = require('https');
+const https = require('http');
 
 var options = {
   "method": "POST",
   "hostname": "labs.lucidhq.com",
   "port": 5000,
+  "username": {username},
+  "password": {password},
   "path": "/api/v1.0/groups",
   "headers": {'Content-Type': 'application/json'}
 };
 
 var json = {
-  "group": {
-    "description": "Test group",
-    "name": "Test group 123",
-    "surveys": [
-         123,
-         48452
-     ]
-  }
+  "description": "Test group",
+  "name": "Test group 123",
+  "surveys": [
+   123,
+   48452
+  ]
 };
 
 var params = JSON.stringify(json);
 
-var request = https.request(options, function (response) {
+var request = http.request(options, function (response) {
   var chunks = [];
 
   response.on("data", function (chunk) {
