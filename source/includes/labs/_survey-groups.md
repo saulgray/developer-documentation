@@ -130,28 +130,35 @@ WebResponse response = request.GetResponse();
 ```
 
 ```javascript
-const https = require('http');
+const http = require('http');
 
-var options = {
-  "method": "POST",
-  "hostname": "labs.lucidhq.com",
-  "port": 5000,
-  "username": {username},
-  "password": {password},
-  "path": "/api/v1.0/groups",
-  "headers": {'Content-Type': 'application/json'}
-};
+var username = "{username}";
+var password = "{password}";
 
 var json = {
-  "description": "MegaCorp Tracker",
-  "name": "Project 999",
-  "surveys": [
-   123,
-   48452
-  ]
+  description: "MegaCorp Tracker",
+  name: "Project 999",
+  surveys: [
+       123,
+       48452
+   ]
+}
+var body = JSON.stringify(json);
+
+var options = {
+  "protocol": "http:",
+  "method": "POST",
+  "hostname": "ubkkb6789cee.brenan.koding.io",
+  "port": 5000,
+  "path": "/api/v1.0/groups",
+  "headers": {
+    'Content-Type': 'application/json',
+    "Content-Length": Buffer.byteLength(body)
+  },
+  "auth": username + ":" + password
 };
 
-var params = JSON.stringify(json);
+console.log(body);
 
 var request = http.request(options, function (response) {
   var chunks = [];
@@ -162,7 +169,7 @@ var request = http.request(options, function (response) {
   
 });
 
-request.write(params);
+request.write(body);
 
 request.end();
 ```
