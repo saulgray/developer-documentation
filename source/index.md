@@ -42,6 +42,8 @@ includes:
   - demand/entry-links
   - demand/feasibility
   - demand/recontact
+  - labs/introduction
+  - labs/survey-groups
   - changelog/changelog
   
 search: true
