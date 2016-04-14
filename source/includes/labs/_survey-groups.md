@@ -1,4 +1,4 @@
-# Survey Groups
+## Survey Groups
 
 Survey Groups enable buyers to establish relationships between surveys that serve as the basis for deduplication across projects.
 
@@ -178,13 +178,14 @@ request.end();
 
 ```json 
 {
+  "group": {
     "SID": "8C04896B-3C11-4312-9433-02AA752C99FB",
     "description": "MegaCorp Tracker",
     "name": "Project 999",
     "surveys": [
-         123,
-         48452
-     ]
+      123,
+      48452
+    ]
   }
 }
 ```
