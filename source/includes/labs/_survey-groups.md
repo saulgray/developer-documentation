@@ -190,7 +190,7 @@ request.end();
 }
 ```
 
-Adds surveys to an existing survey group.
+Creates a new group and adds listed surveys to the group.
 
 #### Arguments
 
@@ -373,7 +373,7 @@ request.end();
 }
 ```
 
-Creates a new group and adds listed surveys to the group.
+Adds surveys to an existing survey group.
 
 #### Arguments
 
