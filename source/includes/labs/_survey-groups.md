@@ -177,7 +177,6 @@ Creates a survey group, enabling Fulcrum's cross-survey deduplication features.
 
 | Property    | Type   | Required | Description                                     |
 |-------------|--------|----------|-------------------------------------------------|
-| SID         | string | true     | Unique identifier of a survey group.            |
 | description | string | true     | A brief description only visible to you.        |
 | name        | string | true     | A name describing the group.                    |
 | surveys     | array  | true     | List of survey numbers to include in the group. |
