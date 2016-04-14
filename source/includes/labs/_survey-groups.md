@@ -2,6 +2,8 @@
 
 Survey Groups enable buyers to establish relationships between surveys that serve as the basis for deduplication across projects.
 
+#### Survey Group Model
+
 | Property    | Type   | Description                                     |
 |-------------|--------|-------------------------------------------------|
 | SID         | string | Unique identifier of a survey group.            |
@@ -373,7 +375,7 @@ request.end();
 }
 ```
 
-Creates a new group and adds listed surveys to the group.
+Adds surveys to an existing survey group.
 
 #### Arguments
 
