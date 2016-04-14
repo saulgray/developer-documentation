@@ -1,3 +1,14 @@
+# Survey Groups
+
+Survey Groups enable buyers to establish relationships between surveys that serve as the basis for deduplication across projects.
+
+| Property    | Type   | Description                                     |
+|-------------|--------|-------------------------------------------------|
+| SID         | string | Unique identifier of a survey group.            |
+| description | string | A brief description only visible to you.        |
+| name        | string | A name describing the group.                    |
+| surveys     | array  | List of survey numbers to include in the group. |
+
 ### POST Create a Survey Group
 
 > Definition
@@ -171,7 +182,7 @@ request.end();
 }
 ```
 
-Creates a survey group, enabling Fulcrum's cross-survey deduplication features.   
+Creates a new group and adds listed surveys to the group.
 
 #### Arguments
 
