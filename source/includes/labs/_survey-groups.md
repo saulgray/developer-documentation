@@ -89,8 +89,8 @@ import requests, json
 
 url = 'http://labs.lucidhq.com:5000/api/v1.0/groups'
 params = {
-  "description": "Test group",
-  "name": "Test group 123",
+  "description": "MegaCorp Tracker",
+  "name": "Project 999",
   "surveys": [
        123,
        48452
@@ -113,7 +113,7 @@ String username = "{username}";
 String password = "{password}";
 String encoded = System.Convert.ToBase64String(System.Text.Encoding.GetEncoding("ISO-8859-1").GetBytes(username + ":" + password));
 
-string parameters = "{\"description\": \"Test group\",\"name\": \"Test group 123\",\"surveys\": [123,48452]}";
+string parameters = "{\"description\": \"MegaCorp Tracker\",\"name\": \"Project 999\",\"surveys\": [123,48452]}";
 	
 request.Method = "POST";
 request.ContentType = "application/json";
@@ -143,8 +143,8 @@ var options = {
 };
 
 var json = {
-  "description": "Test group",
-  "name": "Test group 123",
+  "description": "MegaCorp Tracker",
+  "name": "Project 999",
   "surveys": [
    123,
    48452
