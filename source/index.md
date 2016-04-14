@@ -44,6 +44,12 @@ includes:
   - demand/recontact
   - labs/introduction
   - labs/survey-groups
+<<<<<<< HEAD
+=======
+  - guides/introduction
+  - guides/supply
+  - guides/demand
+>>>>>>> develop
   - changelog/changelog
   
 search: true
