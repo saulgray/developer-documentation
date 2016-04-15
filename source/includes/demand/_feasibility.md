@@ -1,6 +1,6 @@
 ##Feasibility
 
-### GET Show Time to Completion
+### POST Show Time to Completion
 
 > Definition 
 
@@ -220,7 +220,7 @@ Returns the estimated time in days to achieve the total number of completes spec
 
 
 
-### GET Show Price
+### POST Show Price
 
 > Definition 
 
@@ -428,7 +428,7 @@ Returns a tiered model of price per complete, given the inputs for Number of Res
 
 
 
-### GET Show Completes per Day
+### POST Show Completes per Day
 
 > Definition 
 
