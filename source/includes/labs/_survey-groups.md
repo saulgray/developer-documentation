@@ -22,10 +22,7 @@ POST  http://labs.lucidhq.com:5000/api/v1.0/groups
 > Example Request
 
 ```shell
-curl -u {username}:{password} \
--H "Content-Type: application/json" \
--X POST --data '{"description": "MegaCorp Tracker", "name": "Project 999", "surveys": [123,48452]}' \
-http://labs.lucidhq.com:5000/api/v1.0/groups
+curl -u {username}:{password} -H "Content-Type: application/json" -X POST --data '{"description": "MegaCorp Tracker", "name": "Project 999", "surveys": [123,48452]}' http://labs.lucidhq.com:5000/api/v1.0/groups
 ```
 
 ```ruby
@@ -213,10 +210,7 @@ POST  http://labs.lucidhq.com:5000/api/v1.0/groups/{SID}/append
 > Example Request
 
 ```shell
-curl -u {username}:{password} \
--H "Content-Type: application/json" \
--X POST --data '{"surveys": [554784,982545]}' \
-http://labs.lucidhq.com:5000/api/v1.0/groups/{SID}/append
+curl -u {username}:{password} -H "Content-Type: application/json" -X POST --data '{"surveys": [554784,982545]}' http://labs.lucidhq.com:5000/api/v1.0/groups/{SID}/append
 ```
 
 ```ruby
