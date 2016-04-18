@@ -62,7 +62,7 @@ curl_close($curl);
 import requests, json
 
 url = 'https://api.samplicio.us/Demand/v1/SurveyQuotas/Create/{SurveyNumber}?key={APIKey}'
-params = {'Name': 'Quota Name', 'Quota': 50, 'IsActive': true, 'Conditions':[{'QuestionID':42, 'Precodes': ['18','19','20','21','22'] }]}
+params = {'Name': 'Quota Name', 'Quota': 50, 'IsActive': True, 'Conditions':[{'QuestionID':42, 'Precodes': ['18','19','20','21','22'] }]}
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
@@ -105,7 +105,8 @@ var json = {
   "Name": "Quota Name",
   "Quota": 50,
   "IsActive": true,
-  "Conditions": [
+  "Conditions": 
+  [
     {
       "QuestionID": 42,
       "PreCodes": [
@@ -115,7 +116,10 @@ var json = {
         "21",
         "22",
       ]
-    };
+    }
+  ]
+};
+
 
 var params = JSON.stringify(json);
 
@@ -217,7 +221,6 @@ curl -H "Content-Type: application/json" -X PUT  --data '{"Name": "Quota Name", 
 
 ```ruby
 require 'net/http'
-require 'net/http'
 require 'json'
 
 uri = URI('https://api.samplicio.us/Demand/v1/SurveyQuotas/Update/{SurveyNumber}?key={APIKey}')
@@ -249,7 +252,7 @@ curl_setopt_array($curl, array(
   CURLOPT_MAXREDIRS => 10,
   CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-  CURLOPT_CUSTOMREQUEST => "POST",
+  CURLOPT_CUSTOMREQUEST => "PUT",
   CURLOPT_POSTFIELDS => $params,
 ));
 
@@ -263,7 +266,7 @@ curl_close($curl);
 import requests, json
 
 url = 'https://api.samplicio.us/Demand/v1/SurveyQuotas/Update/{SurveyNumber}?key={APIKey}'
-params = {'Name': 'Quota Name', 'Quota': 50, 'IsActive': true, 'Conditions':[{'QuestionID':42, 'Precodes': ['18','19','20','21','22'] }]}
+params = {'Name': 'Quota Name', 'Quota': 50, 'IsActive': True, 'Conditions':[{'QuestionID':42, 'Precodes': ['18','19','20','21','22'] }]}
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
