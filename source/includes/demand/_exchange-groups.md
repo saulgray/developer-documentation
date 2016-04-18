@@ -357,13 +357,13 @@ Creates an empty supplier group with a specific allocation and name.
 > Definition
 
 ```plaintext
-POST  https://api.samplicio.us/Demand/v1/SupplierGroups/Update/{SurveyNumber}?key={APIKey}
+PUT  https://api.samplicio.us/Demand/v1/SupplierGroups/Update/{SurveyNumber}?key={APIKey}
 ```
 
 > Example Request
 
 ```shell
-curl -H "Content-Type: application/json" -X POST --data '{"SurveyNumber": 001100,"Name":"Top Supplier Group", "AllocationPercentage": 0.10,"IsHedgeAccess": true}' https://api.samplicio.us/Demand/v1/SupplierGroups/Update/{SurveyNumber}?key={APIKey}
+curl -H "Content-Type: application/json" -X PUT --data '{"ID": 1234, "SurveyNumber": 001100,"Name":"Top Supplier Group", "AllocationPercentage": 0.10,"IsHedgeAccess": true}' https://api.samplicio.us/Demand/v1/SupplierGroups/Update/{SurveyNumber}?key={APIKey}
 ```
 
 ```ruby
@@ -378,9 +378,9 @@ http.use_ssl = true
 
 fullUriPath = uri.path + '?' + uri.query
 
-request = Net::HTTP::Post.new(fullUriPath, initheader = {'Content-Type' =>'application/json'})
+request = Net::HTTP::Put.new(fullUriPath, initheader = {'Content-Type' =>'application/json'})
 
-request.body = {SurveyNumber: 101100, Name:"Top Supplier Group",AllocationPercentage: 0.10, IsHedgeAccess: true}.to_json
+request.body = {ID: 1234, SurveyNumber: 101100, Name:"Top Supplier Group",AllocationPercentage: 0.10, IsHedgeAccess: true}.to_json
 
 group = http.request(request)
 ```
@@ -389,7 +389,7 @@ group = http.request(request)
 <?php
 $curl = curl_init();
 
-$params = '{"SurveyNumber": 101100,"Name":"Top Supplier Group", "AllocationPercentage": 0.10,"IsHedgeAccess": true}';
+$params = '{"ID": 1234,"SurveyNumber": 101100,"Name":"Top Supplier Group", "AllocationPercentage": 0.10,"IsHedgeAccess": true}';
 
 curl_setopt_array($curl, array(
   CURLOPT_URL => "https://api.samplicio.us/Demand/v1/SupplierGroups/Update/{SurveyNumber}?key={APIKey}",
@@ -399,7 +399,7 @@ curl_setopt_array($curl, array(
   CURLOPT_MAXREDIRS => 10,
   CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-  CURLOPT_CUSTOMREQUEST => "POST",
+  CURLOPT_CUSTOMREQUEST => "PUT",
   CURLOPT_POSTFIELDS => $params,
 ));
 
@@ -413,11 +413,11 @@ curl_close($curl);
 import requests, json
 
 url = 'https://api.samplicio.us/Demand/v1/SupplierGroups/Update/{SurveyNumber}?key={APIKey}'
-params = {'SurveyNumber': 101100,'Name':'Top Supplier Group', 'AllocationPercentage': 0.10,'IsHedgeAccess': true}
+params = {'ID': 1234,'SurveyNumber': 101100,'Name':'Top Supplier Group', 'AllocationPercentage': 0.10,'IsHedgeAccess': true}
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
-group = requests.post(url, data=data, headers=headers)
+group = requests.put(url, data=data, headers=headers)
 ```
 
 ```csharp
@@ -427,9 +427,9 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SupplierGroups/Update/{SurveyNumber}?key={APIKey}");
 
-string params = "{\"SurveyNumber\": 101100, \"Name\":\"Top Supplier Group\", \"AllocationPercentage\": 0.10, \"IsHedgeAccess\": true}]}";
+string params = "{\"ID\": 1234,\"SurveyNumber\": 101100, \"Name\":\"Top Supplier Group\", \"AllocationPercentage\": 0.10, \"IsHedgeAccess\": true}]}";
 
-request.Method = "POST";
+request.Method = "PUT";
 request.ContentType = "application/json";
 
 using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
@@ -445,19 +445,16 @@ WebResponse group = request.GetResponse();
 ```javascript
 const https = require('https');
 
-var updateGroup = https.get('https://api.samplicio.us/Demand/v1/SupplierGroups/Update/{SurveyNumber}?key={APIKey}');
-
-const https = require('https');
-
 var options = {
-  "method": "POST",
+  "method": "PUT",
   "hostname": "api.samplicio.us",
   "port": 443,
   "path": "/Demand/v1/SupplierGroups/Create/{SurveyNumber}?key={APIKey}",
   "headers": {'Content-Type': 'application/json'}
 };
 
-var json = {"SurveyNumber": 101100, 
+var json = {"ID": 1234, 
+  "SurveyNumber": 101100, 
   "Name":"Top Supplier Group", 
   "AllocationPercentage": 0.10, 
   "IsHedgeAccess": true, 
@@ -546,7 +543,7 @@ http = Net::HTTP.new(uri.host, uri.port)
 
 http.use_ssl = true
 
-request = Net::HTTP::Get.new(uri.request_uri)
+request = Net::HTTP::Delete.new(uri.request_uri)
 
 group = http.request(request)  
 ```
@@ -803,7 +800,7 @@ curl https://api.samplicio.us/Demand/v1/SupplierGroups/BySurveyNumber/{SurveyNum
 ```ruby
 require 'net/http'
 
-uri = URI('https://api.samplicio.us/Demand/v1/SupplierGroups/BySurveyNumber/{SurveyNumber}?key={APIKey}
+uri = URI('https://api.samplicio.us/Demand/v1/SupplierGroups/BySurveyNumber/{SurveyNumber}?key={APIKey}')
 
 http = Net::HTTP.new(uri.host, uri.port)
 
@@ -939,8 +936,6 @@ group = http.request(request)
 
 ```php
 <?php
-$group = file_get_contents('https://api.samplicio.us/Demand/v1/SupplierGroups/RemoveSuppliersFromGroup/{SurveyNumber}?key={APIKey}');
-?>
 
 $curl = curl_init();
 
@@ -966,10 +961,6 @@ curl_close($curl);
 ```
 
 ```python
-import requests
-
-group = requests.get('https://api.samplicio.us/Demand/v1/SupplierGroups/RemoveSuppliersFromGroup/{SurveyNumber}?key={APIKey}')
-
 import requests, json
 
 url = 'https://api.samplicio.us/Supply/v1/SupplierLinks/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}'
@@ -981,13 +972,6 @@ group = requests.put(url, data=data, headers=headers)
 ```
 
 ```csharp
-using System.Net;
-
-WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SupplierGroups/RemoveSuppliersFromGroup/{SurveyNumber}?key={APIKey}");
-
-WebResponse group = request.GetResponse();
-
-
 using System.IO;
 using System.Net;
 
