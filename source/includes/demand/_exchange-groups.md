@@ -59,7 +59,7 @@ curl_close($curl);
 import requests
 
 url = 'https://api.samplicio.us/Demand/v1/SupplierGroups/CreateWithSuppliers/{SurveyNumber}?key={APIKey}'
-params = {'SurveyNumber': 101100, 'Name':'Top Supplier Group', 'AllocationPercentage': 0.10, 'IsHedgeAccess': true, 'Suppliers': [{'SupplierCode':'1010'}]}
+params = {'SurveyNumber': 101100, 'Name':'Top Supplier Group', 'AllocationPercentage': 0.10, 'IsHedgeAccess': True, 'Suppliers': [{'SupplierCode':'1010'}]}
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 group = requests.post(url, data=data, headers=headers)
@@ -67,12 +67,6 @@ group = requests.post(url, data=data, headers=headers)
 ```
 
 ```csharp
-using System.Net;
-
-WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SupplierGroups/CreateWithSuppliers/{SurveyNumber}?key={APIKey}");
-
-WebResponse group = request.GetResponse();
-
 using System.IO;
 using System.Net;
 
@@ -95,10 +89,6 @@ WebResponse group = request.GetResponse();
 ```
 
 ```javascript
-const https = require('https');
-
-var group = https.get('https://api.samplicio.us/Demand/v1/SupplierGroups/CreateWithSuppliers/{SurveyNumber}?key={APIKey}');
-
 const https = require('https');
 
 var options = {
@@ -125,7 +115,7 @@ var params = JSON.stringify(json);
 var request = https.request(options, function (createGroup) {
   var chunks = [];
 
-  group.on("data", function (chunk) {
+  createGroup.on("data", function (chunk) {
     chunks.push(chunk);
   });
 
@@ -244,7 +234,7 @@ curl_close($curl);
 import requests, json
 
 url = 'https://api.samplicio.us/Demand/v1/SupplierGroups/Create/{SurveyNumber}?key={APIKey}'
-params = {'SurveyNumber': 101100,'Name':'Top Supplier Group', 'AllocationPercentage': 0.10,'IsHedgeAccess': true}
+params = {'SurveyNumber': 101100,'Name':'Top Supplier Group', 'AllocationPercentage': 0.10,'IsHedgeAccess': True}
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
@@ -274,10 +264,6 @@ WebResponse group = request.GetResponse();
 ```
 
 ```javascript
-const https = require('https');
-
-var group = https.get('https://api.samplicio.us/Demand/v1/SupplierGroups/Create/{SurveyNumber}?key={APIKey}');
-
 const https = require('https');
 
 var options = {
@@ -413,7 +399,7 @@ curl_close($curl);
 import requests, json
 
 url = 'https://api.samplicio.us/Demand/v1/SupplierGroups/Update/{SurveyNumber}?key={APIKey}'
-params = {'ID': 1234,'SurveyNumber': 101100,'Name':'Top Supplier Group', 'AllocationPercentage': 0.10,'IsHedgeAccess': true}
+params = {'ID': 1234,'SurveyNumber': 101100,'Name':'Top Supplier Group', 'AllocationPercentage': 0.10,'IsHedgeAccess': True}
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
@@ -706,10 +692,6 @@ WebResponse group = request.GetResponse();
 ```javascript
 const https = require('https');
 
-var updateGroup = https.get('https://api.samplicio.us/Demand/v1/SupplierGroups/Update/{SurveyNumber}?key={APIKey}');
-
-const https = require('https');
-
 var options = {
   "method": "POST",
   "hostname": "api.samplicio.us",
@@ -725,7 +707,7 @@ var params = JSON.stringify(json);
 var request = https.request(options, function (createGroupEmpty) {
   var chunks = [];
 
-  group.on("data", function (chunk) {
+  createGroupEmpty.on("data", function (chunk) {
     chunks.push(chunk);
   });
 
