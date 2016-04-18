@@ -157,7 +157,7 @@ curl_close($curl);
 import requests, json
 
 url = 'https://api.samplicio.us/Demand/v1/SupplierAllocations/Create/{SurveyNumber}?key={APIKey}'
-params = {'SupplierCode': '1010', 'AllocationPercentage': 0.1, 'TCPI': 2, 'HedgeAccess': true, 'BlockRouterTraffic': false}
+params = {'SupplierCode': '1010', 'AllocationPercentage': 0.1, 'TCPI': 2, 'HedgeAccess': True, 'BlockRouterTraffic': False}
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
@@ -327,7 +327,7 @@ curl_close($curl);
 import requests, json
 
 url = 'https://api.samplicio.us/Demand/v1/SupplierAllocations/Update/{SurveyNumber}?key={APIKey}'
-params = {'SupplierCode': '1010', 'AllocationPercentage': 0.1, 'TCPI': 2, 'HedgeAccess': true, 'BlockRouterTraffic': false}
+params = {'SupplierCode': '1010', 'AllocationPercentage': 0.1, 'TCPI': 2, 'HedgeAccess': True, 'BlockRouterTraffic': False}
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 

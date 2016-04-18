@@ -153,7 +153,7 @@ curl_close($curl);
 import requests, json
 
 url = 'https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}'
-params = {'PID': '0001110', 'IsActive': true}
+params = {'PID': '0001110', 'IsActive': True}
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
