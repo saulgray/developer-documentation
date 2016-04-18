@@ -106,9 +106,7 @@ POST  https://api.samplicio.us/Demand/v1/SupplierAllocations/Create/{SurveyNumbe
 > Example Request
 
 ```shell
-curl -H "Content-Type: application/json" \
--X POST --data '{"SupplierCode": "1010", "AllocationPercentage": 0.1, "TCPI": 2, "HedgeAccess": true, "BlockRouterTraffic": false,}' \
-https://api.samplicio.us/Demand/v1/SupplierAllocations/Create/{SurveyNumber}?key={APIKey}
+curl -H "Content-Type: application/json" -X POST --data '{"SupplierCode": "1010", "AllocationPercentage": 0.1, "TCPI": 2, "HedgeAccess": true, "BlockRouterTraffic": false,}' https://api.samplicio.us/Demand/v1/SupplierAllocations/Create/{SurveyNumber}?key={APIKey}
 ```
 
 ```ruby
@@ -278,9 +276,7 @@ PUT  https://api.samplicio.us/Demand/v1/SupplierAllocations/Update/{SurveyNumber
 > Example Request
 
 ```shell
-curl -H "Content-Type: application/json" \
--X PUT --data '{"SupplierCode": "1010", "AllocationPercentage": 0.1, "TCPI": 2, "HedgeAccess": true, "BlockRouterTraffic": false,}' \
-https://api.samplicio.us/Demand/v1/SupplierAllocations/Update/{SurveyNumber}?key={APIKey}
+curl -H "Content-Type: application/json" -X PUT --data '{"SupplierCode": "1010", "AllocationPercentage": 0.1, "TCPI": 2, "HedgeAccess": true, "BlockRouterTraffic": false,}' https://api.samplicio.us/Demand/v1/SupplierAllocations/Update/{SurveyNumber}?key={APIKey}
 ```
 
 ```ruby

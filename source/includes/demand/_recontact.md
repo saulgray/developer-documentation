@@ -103,8 +103,7 @@ PUT  https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/Update/{Surve
 >Example Request
 
 ```shell
-curl -H "Content-Type: application/json" \
--X PUT  --data '{"PID": "0001110", "IsActive": true}' \ 
+curl -H "Content-Type: application/json" -X PUT  --data '{"PID": "0001110", "IsActive": true}' https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}
 ```
 
 ```ruby
