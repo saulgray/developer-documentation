@@ -337,7 +337,7 @@ request.end();
 
 > Example Response
 
-```
+```json
 {
   "ApiResult": 0,
   "ApiResultCode": 0,
