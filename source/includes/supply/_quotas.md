@@ -159,8 +159,8 @@ Returns the total quota and client quotas associated with a survey.
 
 #### Arguments
 
-| Property     | Type | Required | Description                                   |
-|--------------|------|----------|-----------------------------------------------|
-| SurveyNumber | int  | true     | Unique number associated with the survey.     |
-| SupplierCode | int  | true     | Unique code associated with supplier account. |
+| Property     | Type   | Required | Description                                   |
+|--------------|--------|----------|-----------------------------------------------|
+| SurveyNumber | int    | true     | Unique number associated with the survey.     |
+| SupplierCode | string | true     | Unique code associated with supplier account. |
 

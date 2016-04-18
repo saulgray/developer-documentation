@@ -22,7 +22,7 @@ The Survey resource contains basic information about a survey opportunity posted
 | TotalRemaining               | int      | Number of completes still available.                                                                                                                    |
 | CompletionPercentage         | int      | Percentage of the survey that has filled in terms of completes.                                                                                         |
 | SurveyGroup                  | string   | Deprecated: Will return `null`. Instead use the SurveyGroupExists property.                                                                             |
-| SurveyGroupID                | int      | Deprecated: Will return `null`. If SurveyGroupExists is `true`, then [list the survey's groups](#get-list-a-survey’s-groups).                               |
+| SurveyGroupID                | int      | Deprecated: Will return `null`. If SurveyGroupExists is `true`, then [list the survey's groups](#get-list-a-survey’s-groups).                           |
 | SurveyGroupExists            | int      | Indicates whether there is a survey group(s) associated with the survey. (0=`false`, 1=`true`)                                                          |
 | BidLengthOfInterview         | int      | Estimated time for a respondent to complete the survey excluding the Fulcrum prescreener in minutes as provided by the buyer.                           |
 | TerminationLengthOfInterview | int      | Median time for a respondent to be termed in minutes.                                                                                                   |
@@ -140,5 +140,5 @@ Returns a list of all live survey opportunities available through the Exchange f
 
 | Property                     | Type     | Required | Description                                                                                                                                  |
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| SupplierCode                 | int      | true     | Unique code associated with a supplier account.                                                                                              |
+| SupplierCode                 | string   | true     | Unique code associated with a supplier account.                                                                                              |
 

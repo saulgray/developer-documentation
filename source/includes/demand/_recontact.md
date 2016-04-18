@@ -89,7 +89,7 @@ Returns a list of qualified respondents for a specified recontact study and supp
 | Property                     | Type     | Required | Description                                                                                                                                  |
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
 | SurveyNumber                 | int      | true     | Unique number associated with the survey.                                                                                                    |
-| SupplierCode                 | int      | true     | Unique code associated with a supplier account.                                                                                              |
+| SupplierCode                 | string   | true     | Unique code associated with a supplier account.                                                                                              |
 
 
 ### PUT Update Qualified Respondents
@@ -249,6 +249,6 @@ Updates the list of PIDs that qualify for a recontact survey.
 | Property                     | Type     | Required | Description                                                                                                                                  |
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
 | SurveyNumber                 | int      | true     | Unique number associated with the survey.                                                                                                    |
-| SupplierCode                 | int      | true     | Unique code associated with a supplier account.                                                                                              |
+| SupplierCode                 | string   | true     | Unique code associated with a supplier account.                                                                                              |
 | IsActive                     | boolean  | true     | Should the respondent still qualify?                                                                                                         |
 | PID                          | int      | true     | Persistent panelist identifier used by the supplier.                                                                                         |

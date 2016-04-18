@@ -259,7 +259,7 @@ Creates supplier allocations for an existing Fulcrum survey.
 | Property             | Type    | Required | Description                                              |
 |----------------------|---------|----------|----------------------------------------------------------|
 | SurveyNumber         | int     | true     | Unique number associated with the survey.                |
-| SupplierCode         | int     | true     | Unique code associated with a supplier account.          |
+| SupplierCode         | string  | true     | Unique code associated with a supplier account.          |
 | AllocationPercentage | double  | false    | Percentage of total completes allocated to supplier.     |
 | TCPI                 | double  | true     | Over-the-counter cost per supplier complete.             |
 | HedgeAccess          | boolean | false    | Indicates if hedge access is enabled for the supplier.   |
@@ -429,7 +429,7 @@ Creates supplier allocations for an existing Fulcrum survey.
 | Property             | Type    | Required | Description                                              |
 |----------------------|---------|----------|----------------------------------------------------------|
 | SurveyNumber         | int     | true     | Unique number associated with the survey.                |
-| SupplierCode         | int     | true     | Unique code associated with a supplier account.          |
+| SupplierCode         | string  | true     | Unique code associated with a supplier account.          |
 | AllocationPercentage | double  | false    | Percentage of total completes allocated to supplier.     |
 | TCPI                 | double  | true     | Over-the-counter cost per supplier complete.             |
 | HedgeAccess          | boolean | false    | Indicates if hedge access is enabled for the supplier.   |
@@ -519,7 +519,7 @@ request.end();
 Deletes a supplier allocation for an existing Fulcrum survey.
 
 #### Arguments
-| Property     | Type | Required | Description                                     |
-|--------------|------|----------|-------------------------------------------------|
-| SurveyNumber | int  | true     | Unique number associated with the survey.       |
-| SupplierCode | int  | true     | Unique code associated with a supplier account. |
+| Property     | Type   | Required | Description                                     |
+|--------------|--------|----------|-------------------------------------------------|
+| SurveyNumber | int    | true     | Unique number associated with the survey.       |
+| SupplierCode | string | true     | Unique code associated with a supplier account. |
