@@ -11,9 +11,7 @@ POST  https://api.samplicio.us/Demand/v1/SupplierGroups/CreateWithSuppliers/{Sur
 > Example Request
 
 ```shell
-curl -H "Content-Type: application/json" \
--X POST --data '{"SurveyNumber": 101100,"Name":"Top Supplier Group", "AllocationPercentage": 0.10,"IsHedgeAccess": true, "Suppliers": [{"SupplierCode":"0001"}]}' \
-https://api.samplicio.us/Demand/v1/SupplierGroups/CreateWithSuppliers/{SurveyNumber}?key={APIKey}
+curl -H "Content-Type: application/json" -X POST --data '{"SurveyNumber": 101100,"Name":"Top Supplier Group", "AllocationPercentage": 0.10,"IsHedgeAccess": true, "Suppliers": [{"SupplierCode":"0001"}]}' https://api.samplicio.us/Demand/v1/SupplierGroups/CreateWithSuppliers/{SurveyNumber}?key={APIKey}
 ```
 
 ```ruby
@@ -196,9 +194,7 @@ POST  https://api.samplicio.us/Demand/v1/SupplierGroups/Create/{SurveyNumber}?ke
 > Example Request
 
 ```shell
-curl -H "Content-Type: application/json" \
--X POST --data '{"SurveyNumber": 101100,"Name":"Top Supplier Group", "AllocationPercentage": 0.10,"IsHedgeAccess": true}' \
-curl https://api.samplicio.us/Demand/v1/SupplierGroups/Create/{SurveyNumber}?key={APIKey}
+curl -H "Content-Type: application/json" -X POST --data '{"SurveyNumber": 101100,"Name":"Top Supplier Group", "AllocationPercentage": 0.10,"IsHedgeAccess": true}' https://api.samplicio.us/Demand/v1/SupplierGroups/Create/{SurveyNumber}?key={APIKey}
 ```
 
 ```ruby
@@ -367,9 +363,7 @@ POST  https://api.samplicio.us/Demand/v1/SupplierGroups/Update/{SurveyNumber}?ke
 > Example Request
 
 ```shell
-curl -H "Content-Type: application/json" \
--X POST --data '{"SurveyNumber": 001100,"Name":"Top Supplier Group", "AllocationPercentage": 0.10,"IsHedgeAccess": true}' \
-curl https://api.samplicio.us/Demand/v1/SupplierGroups/Update/{SurveyNumber}?key={APIKey}
+curl -H "Content-Type: application/json" -X POST --data '{"SurveyNumber": 001100,"Name":"Top Supplier Group", "AllocationPercentage": 0.10,"IsHedgeAccess": true}' https://api.samplicio.us/Demand/v1/SupplierGroups/Update/{SurveyNumber}?key={APIKey}
 ```
 
 ```ruby
@@ -633,9 +627,7 @@ POST  https://api.samplicio.us/Demand/v1/SupplierGroups/AddSuppliersToGroup/{Sur
 > Example Request
 
 ```shell
-curl -H "Content-Type: application/json" \
--X POST --data '{"SupplierCode":"0010"}' \
-curl https://api.samplicio.us/Demand/v1/SupplierGroups/AddSuppliersToGroup/{SurveyNumber}/{SupplierGroupID}?key={APIKey}
+curl -H "Content-Type: application/json" -X POST --data '{"SupplierCode":"0010"}' https://api.samplicio.us/Demand/v1/SupplierGroups/AddSuppliersToGroup/{SurveyNumber}/{SupplierGroupID}?key={APIKey}
 ```
 
 ```ruby
@@ -919,8 +911,7 @@ PUT  https://api.samplicio.us/Demand/v1/SupplierGroups/RemoveSuppliersFromGroup/
 > Example Request
 
 ```shell
-curl -H "Content-Type: application/json" \
--X PUT  --data '{"SupplierCode": "1010"}' \ https://api.samplicio.us/Demand/v1/SupplierGroups/RemoveSuppliersFromGroup/{SurveyNumber}?key={APIKey}
+curl -H "Content-Type: application/json" -X PUT  --data '{"SupplierCode": "1010"}' https://api.samplicio.us/Demand/v1/SupplierGroups/RemoveSuppliersFromGroup/{SurveyNumber}?key={APIKey}
 ```
 
 ```ruby

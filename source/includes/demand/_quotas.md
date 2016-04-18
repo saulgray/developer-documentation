@@ -11,9 +11,7 @@ POST https://api.samplicio.us/Demand/v1/SurveyQuotas/Create/{SurveyNumber}?key={
 > Example Request
 
 ```shell
-curl -H "Content-Type: application/json" \
--X POST --data '{"Name": "Quota Name", "Quota": 50, "IsActive":true, "Conditions":[{"QuestionID":42, "Precodes": ["18","19","20","21","22"] }]}' \
-https://api.samplicio.us/Demand/v1/SurveyQuotas/Create/{SurveyNumber}?key={APIKey}
+curl -H "Content-Type: application/json" -X POST --data '{"Name": "Quota Name", "Quota": 50, "IsActive":true, "Conditions":[{"QuestionID":42, "Precodes": ["18","19","20","21","22"] }]}' https://api.samplicio.us/Demand/v1/SurveyQuotas/Create/{SurveyNumber}?key={APIKey}
 ```
 
 ```ruby
@@ -214,8 +212,7 @@ PUT  https://api.samplicio.us/Demand/v1/SurveyQuotas/Update/{SurveyNumber}?key={
 >Example Request
 
 ```shell
-curl -H "Content-Type: application/json" \
--X PUT  --data '{"Name": "Quota Name", "Quota": 50, "IsActive":true, "Conditions":[{"QuestionID":42, "Precodes": ["18","19","20","21","22"] }]}' \ 
+curl -H "Content-Type: application/json" -X PUT  --data '{"Name": "Quota Name", "Quota": 50, "IsActive":true, "Conditions":[{"QuestionID":42, "Precodes": ["18","19","20","21","22"] }]}' https://api.samplicio.us/Demand/v1/SurveyQuotas/Update/{SurveyNumber}?key={APIKey}
 ```
 
 ```ruby
@@ -411,19 +408,19 @@ Updates a quota's size, conditions, and other parameters.
 > Definition
 
 ```plaintext
-GET  http://api.samplicio.us/Demand/v1/SurveyQuotas/BySurveyNumber/{SurveyNumber}}?key={APIKey}
+GET  https://api.samplicio.us/Demand/v1/SurveyQuotas/BySurveyNumber/{SurveyNumber}}?key={APIKey}
 ```
 
 > Example Request
 
 ```shell
-curl http://api.samplicio.us/Demand/v1/SurveyQuotas/BySurveyNumber/{SurveyNumber}}?key={APIKey}
+curl https://api.samplicio.us/Demand/v1/SurveyQuotas/BySurveyNumber/{SurveyNumber}}?key={APIKey}
 ```
 
 ```ruby
 require 'net/http'
 
-uri = URI('http://api.samplicio.us/Demand/v1/SurveyQuotas/BySurveyNumber/{SurveyNumber}}?key={APIKey}')
+uri = URI('https://api.samplicio.us/Demand/v1/SurveyQuotas/BySurveyNumber/{SurveyNumber}}?key={APIKey}')
 
 http = Net::HTTP.new(uri.host, uri.port)
 
@@ -436,20 +433,20 @@ quotas = http.request(request)
 
 ```php
 <?php
-$quotas = file_get_contents('http://api.samplicio.us/Demand/v1/SurveyQuotas/BySurveyNumber/{SurveyNumber}}?key={APIKey}');
+$quotas = file_get_contents('https://api.samplicio.us/Demand/v1/SurveyQuotas/BySurveyNumber/{SurveyNumber}}?key={APIKey}');
 ?>
 ```
 
 ```python
 import requests
 
-quotas = requests.get('http://api.samplicio.us/Demand/v1/SurveyQuotas/BySurveyNumber/{SurveyNumber}}?key={APIKey}')
+quotas = requests.get('https://api.samplicio.us/Demand/v1/SurveyQuotas/BySurveyNumber/{SurveyNumber}}?key={APIKey}')
 ```
 
 ```csharp
 using System.Net;
 
-WebRequest request = WebRequest.Create("http://api.samplicio.us/Demand/v1/SurveyQuotas/BySurveyNumber/{SurveyNumber}}?key={APIKey}");
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SurveyQuotas/BySurveyNumber/{SurveyNumber}}?key={APIKey}");
 
 WebResponse quotas = request.GetResponse();
 ```
@@ -457,7 +454,7 @@ WebResponse quotas = request.GetResponse();
 ```javascript
 const https = require('https');
 
-var quotas = https.get('http://api.samplicio.us/Demand/v1/SurveyQuotas/BySurveyNumber/{SurveyNumber}}?key={APIKey}');
+var quotas = https.get('https://api.samplicio.us/Demand/v1/SurveyQuotas/BySurveyNumber/{SurveyNumber}}?key={APIKey}');
 ```
 
 > Example Response
