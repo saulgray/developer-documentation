@@ -108,7 +108,6 @@ curl -H "Content-Type: application/json" -X PUT  --data '{"PID": "0001110", "IsA
 
 ```ruby
 require 'net/http'
-require 'net/http'
 require 'json'
 
 uri = URI('https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}')
@@ -140,7 +139,7 @@ curl_setopt_array($curl, array(
   CURLOPT_MAXREDIRS => 10,
   CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-  CURLOPT_CUSTOMREQUEST => "POST",
+  CURLOPT_CUSTOMREQUEST => "PUT",
   CURLOPT_POSTFIELDS => $params,
 ));
 
