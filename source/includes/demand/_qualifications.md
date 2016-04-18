@@ -372,15 +372,15 @@ fullUriPath = uri.path + '?' + uri.query
 request = Net::HTTP::Put.new(fullUriPath, initheader = {'Content-Type' =>'application/json'})
 
 request.body = {
-	"Name": "STANDARD_RELATIONSHIP",
-	"QuestionID": 632,
-	"LogicalOperator": "OR",
-	"NumberOfRequiredConditions": 1,
-	"IsActive": true,
-	"PreCodes": [
+	Name: "STANDARD_RELATIONSHIP",
+	QuestionID: 632,
+	LogicalOperator: "OR",
+	NumberOfRequiredConditions: 1,
+	IsActive: true,
+	PreCodes: [
 		"2"
 	],
-	"Order": 7
+	Order: 7
 }.to_json
 
 surveyQualifications = http.request(request)
@@ -455,7 +455,7 @@ string params = "{
 	\"NumberOfRequiredConditions\": 1,
 	\"IsActive\": true,
 	\"PreCodes\": [
-		"2"
+		\"2\"
 	],
 	\"Order\": 7
 }";
@@ -501,7 +501,7 @@ var params = JSON.stringify(json);
 var request = https.request(options, function (surveyQualifications) {
   var chunks = [];
 
-  qualification.on("data", function (chunk) {
+  surveyQualifications.on("data", function (chunk) {
     chunks.push(chunk);
   });
   
