@@ -4946,15 +4946,15 @@
 <span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Put</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">fullUriPath</span><span class="p">,</span> <span class="n">initheader</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'Content-Type'</span> <span class="o">=&gt;</span><span class="s1">'application/json'</span><span class="p">})</span>
 
 <span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"Name"</span><span class="p">:</span> <span class="s2">"STANDARD_RELATIONSHIP"</span><span class="p">,</span>
-    <span class="s2">"QuestionID"</span><span class="p">:</span> <span class="mi">632</span><span class="p">,</span>
-    <span class="s2">"LogicalOperator"</span><span class="p">:</span> <span class="s2">"OR"</span><span class="p">,</span>
-    <span class="s2">"NumberOfRequiredConditions"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">"IsActive"</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span>
-    <span class="s2">"PreCodes"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="no">Name</span><span class="p">:</span> <span class="s2">"STANDARD_RELATIONSHIP"</span><span class="p">,</span>
+    <span class="no">QuestionID</span><span class="p">:</span> <span class="mi">632</span><span class="p">,</span>
+    <span class="no">LogicalOperator</span><span class="p">:</span> <span class="s2">"OR"</span><span class="p">,</span>
+    <span class="no">NumberOfRequiredConditions</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="no">IsActive</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span>
+    <span class="no">PreCodes</span><span class="p">:</span> <span class="p">[</span>
         <span class="s2">"2"</span>
     <span class="p">],</span>
-    <span class="s2">"Order"</span><span class="p">:</span> <span class="mi">7</span>
+    <span class="no">Order</span><span class="p">:</span> <span class="mi">7</span>
 <span class="p">}.</span><span class="nf">to_json</span>
 
 <span class="n">surveyQualifications</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
@@ -5023,8 +5023,8 @@
 </span>    <span class="err">\</span><span class="s">"NumberOfRequiredConditions\": 1,
 </span>    <span class="err">\</span><span class="s">"IsActive\": true,
 </span>    <span class="err">\</span><span class="s">"PreCodes\": [
-</span>        <span class="s">"2"</span>
-    <span class="p">],</span>
+</span>        <span class="err">\</span><span class="s">"2\"
+</span>    <span class="p">],</span>
     <span class="err">\</span><span class="s">"Order\": 7
 </span><span class="p">}</span><span class="s">";
 </span>
@@ -5067,7 +5067,7 @@
 <span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">surveyQualifications</span><span class="p">)</span> <span class="p">{</span>
   <span class="kd">var</span> <span class="nx">chunks</span> <span class="o">=</span> <span class="p">[];</span>
 
-  <span class="nx">qualification</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">"data"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">chunk</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">surveyQualifications</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">"data"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">chunk</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">chunks</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">chunk</span><span class="p">);</span>
   <span class="p">});</span>
 
@@ -6835,13 +6835,13 @@
 <blockquote>
 <p>Definition</p>
 </blockquote>
-<pre class="highlight plaintext"><code>POST  https://api.samplicio.us/Demand/v1/SupplierGroups/Update/{SurveyNumber}?key={APIKey}
+<pre class="highlight plaintext"><code>PUT  https://api.samplicio.us/Demand/v1/SupplierGroups/Update/{SurveyNumber}?key={APIKey}
 </code></pre>
 
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell"><code>curl -H <span class="s2">"Content-Type: application/json"</span> -X POST --data <span class="s1">'{"SurveyNumber": 001100,"Name":"Top Supplier Group", "AllocationPercentage": 0.10,"IsHedgeAccess": true}'</span> https://api.samplicio.us/Demand/v1/SupplierGroups/Update/<span class="o">{</span>SurveyNumber<span class="o">}</span>?key<span class="o">={</span>APIKey<span class="o">}</span>
+<pre class="highlight shell"><code>curl -H <span class="s2">"Content-Type: application/json"</span> -X PUT --data <span class="s1">'{"ID": 1234, "SurveyNumber": 001100,"Name":"Top Supplier Group", "AllocationPercentage": 0.10,"IsHedgeAccess": true}'</span> https://api.samplicio.us/Demand/v1/SupplierGroups/Update/<span class="o">{</span>SurveyNumber<span class="o">}</span>?key<span class="o">={</span>APIKey<span class="o">}</span>
 </code></pre>
 <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
 <span class="nb">require</span> <span class="s1">'json'</span>
@@ -6854,16 +6854,16 @@
 
 <span class="n">fullUriPath</span> <span class="o">=</span> <span class="n">uri</span><span class="p">.</span><span class="nf">path</span> <span class="o">+</span> <span class="s1">'?'</span> <span class="o">+</span> <span class="n">uri</span><span class="p">.</span><span class="nf">query</span>
 
-<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Post</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">fullUriPath</span><span class="p">,</span> <span class="n">initheader</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'Content-Type'</span> <span class="o">=&gt;</span><span class="s1">'application/json'</span><span class="p">})</span>
+<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Put</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">fullUriPath</span><span class="p">,</span> <span class="n">initheader</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'Content-Type'</span> <span class="o">=&gt;</span><span class="s1">'application/json'</span><span class="p">})</span>
 
-<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="p">{</span><span class="no">SurveyNumber</span><span class="p">:</span> <span class="mi">101100</span><span class="p">,</span> <span class="no">Name</span><span class="ss">:"Top Supplier Group"</span><span class="p">,</span><span class="no">AllocationPercentage</span><span class="p">:</span> <span class="mi">0</span><span class="o">.</span><span class="mi">10</span><span class="p">,</span> <span class="no">IsHedgeAccess</span><span class="p">:</span> <span class="kp">true</span><span class="p">}.</span><span class="nf">to_json</span>
+<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="p">{</span><span class="no">ID</span><span class="p">:</span> <span class="mi">1234</span><span class="p">,</span> <span class="no">SurveyNumber</span><span class="p">:</span> <span class="mi">101100</span><span class="p">,</span> <span class="no">Name</span><span class="ss">:"Top Supplier Group"</span><span class="p">,</span><span class="no">AllocationPercentage</span><span class="p">:</span> <span class="mi">0</span><span class="o">.</span><span class="mi">10</span><span class="p">,</span> <span class="no">IsHedgeAccess</span><span class="p">:</span> <span class="kp">true</span><span class="p">}.</span><span class="nf">to_json</span>
 
 <span class="n">group</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
 </code></pre>
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
-<span class="nv">$params</span> <span class="o">=</span> <span class="s1">'{"SurveyNumber": 101100,"Name":"Top Supplier Group", "AllocationPercentage": 0.10,"IsHedgeAccess": true}'</span><span class="p">;</span>
+<span class="nv">$params</span> <span class="o">=</span> <span class="s1">'{"ID": 1234,"SurveyNumber": 101100,"Name":"Top Supplier Group", "AllocationPercentage": 0.10,"IsHedgeAccess": true}'</span><span class="p">;</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
   <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://api.samplicio.us/Demand/v1/SupplierGroups/Update/</span><span class="si">{</span><span class="nv">SurveyNumber}?key={APIKey</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
@@ -6873,7 +6873,7 @@
   <span class="nx">CURLOPT_MAXREDIRS</span> <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">,</span>
   <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
   <span class="nx">CURLOPT_HTTP_VERSION</span> <span class="o">=&gt;</span> <span class="nx">CURL_HTTP_VERSION_1_1</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
+  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"PUT"</span><span class="p">,</span>
   <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$params</span><span class="p">,</span>
 <span class="p">));</span>
 
@@ -6885,11 +6885,11 @@
 <pre class="highlight python"><code><span class="kn">import</span> <span class="nn">requests</span><span class="o">,</span> <span class="nn">json</span>
 
 <span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.samplicio.us/Demand/v1/SupplierGroups/Update/{SurveyNumber}?key={APIKey}'</span>
-<span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s">'SurveyNumber'</span><span class="p">:</span> <span class="mi">101100</span><span class="p">,</span><span class="s">'Name'</span><span class="p">:</span><span class="s">'Top Supplier Group'</span><span class="p">,</span> <span class="s">'AllocationPercentage'</span><span class="p">:</span> <span class="mf">0.10</span><span class="p">,</span><span class="s">'IsHedgeAccess'</span><span class="p">:</span> <span class="n">true</span><span class="p">}</span>
+<span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s">'ID'</span><span class="p">:</span> <span class="mi">1234</span><span class="p">,</span><span class="s">'SurveyNumber'</span><span class="p">:</span> <span class="mi">101100</span><span class="p">,</span><span class="s">'Name'</span><span class="p">:</span><span class="s">'Top Supplier Group'</span><span class="p">,</span> <span class="s">'AllocationPercentage'</span><span class="p">:</span> <span class="mf">0.10</span><span class="p">,</span><span class="s">'IsHedgeAccess'</span><span class="p">:</span> <span class="n">true</span><span class="p">}</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Content-type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span> <span class="s">'Accept'</span><span class="p">:</span> <span class="s">'text/plain'</span><span class="p">}</span>
 
-<span class="n">group</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="n">group</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
 </code></pre>
 <pre class="highlight csharp"><code>
 <span class="k">using</span> <span class="nn">System.IO</span><span class="p">;</span>
@@ -6897,9 +6897,9 @@
 
 <span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Demand/v1/SupplierGroups/Update/{SurveyNumber}?key={APIKey}"</span><span class="p">);</span>
 
-<span class="kt">string</span> <span class="k">params</span> <span class="p">=</span> <span class="s">"{\"SurveyNumber\": 101100, \"Name\":\"Top Supplier Group\", \"AllocationPercentage\": 0.10, \"IsHedgeAccess\": true}]}"</span><span class="p">;</span>
+<span class="kt">string</span> <span class="k">params</span> <span class="p">=</span> <span class="s">"{\"ID\": 1234,\"SurveyNumber\": 101100, \"Name\":\"Top Supplier Group\", \"AllocationPercentage\": 0.10, \"IsHedgeAccess\": true}]}"</span><span class="p">;</span>
 
-<span class="n">request</span><span class="p">.</span><span class="n">Method</span> <span class="p">=</span> <span class="s">"POST"</span><span class="p">;</span>
+<span class="n">request</span><span class="p">.</span><span class="n">Method</span> <span class="p">=</span> <span class="s">"PUT"</span><span class="p">;</span>
 <span class="n">request</span><span class="p">.</span><span class="n">ContentType</span> <span class="p">=</span> <span class="s">"application/json"</span><span class="p">;</span>
 
 <span class="k">using</span><span class="p">(</span><span class="n">StreamWriter</span> <span class="n">streamWriter</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">StreamWriter</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="nf">GetRequestStream</span><span class="p">()))</span>
@@ -6913,19 +6913,16 @@
 </code></pre>
 <pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'https'</span><span class="p">);</span>
 
-<span class="kd">var</span> <span class="nx">updateGroup</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Demand/v1/SupplierGroups/Update/{SurveyNumber}?key={APIKey}'</span><span class="p">);</span>
-
-<span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'https'</span><span class="p">);</span>
-
 <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"POST"</span><span class="p">,</span>
+  <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"PUT"</span><span class="p">,</span>
   <span class="s2">"hostname"</span><span class="p">:</span> <span class="s2">"api.samplicio.us"</span><span class="p">,</span>
   <span class="s2">"port"</span><span class="p">:</span> <span class="mi">443</span><span class="p">,</span>
   <span class="s2">"path"</span><span class="p">:</span> <span class="s2">"/Demand/v1/SupplierGroups/Create/{SurveyNumber}?key={APIKey}"</span><span class="p">,</span>
   <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span><span class="s1">'Content-Type'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="kd">var</span> <span class="nx">json</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"SurveyNumber"</span><span class="p">:</span> <span class="mi">101100</span><span class="p">,</span> 
+<span class="kd">var</span> <span class="nx">json</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"ID"</span><span class="p">:</span> <span class="mi">1234</span><span class="p">,</span> 
+  <span class="s2">"SurveyNumber"</span><span class="p">:</span> <span class="mi">101100</span><span class="p">,</span> 
   <span class="s2">"Name"</span><span class="p">:</span><span class="s2">"Top Supplier Group"</span><span class="p">,</span> 
   <span class="s2">"AllocationPercentage"</span><span class="p">:</span> <span class="mf">0.10</span><span class="p">,</span> 
   <span class="s2">"IsHedgeAccess"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> 
@@ -7046,7 +7043,7 @@
 
 <span class="n">http</span><span class="p">.</span><span class="nf">use_ssl</span> <span class="o">=</span> <span class="kp">true</span>
 
-<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">request_uri</span><span class="p">)</span>
+<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Delete</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">request_uri</span><span class="p">)</span>
 
 <span class="n">group</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>  
 </code></pre>
@@ -7312,7 +7309,7 @@
 </code></pre>
 <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
 
-<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="err">'</span><span class="n">https</span><span class="ss">:/</span><span class="o">/</span><span class="n">api</span><span class="p">.</span><span class="nf">samplicio</span><span class="p">.</span><span class="nf">us</span><span class="o">/</span><span class="no">Demand</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="no">SupplierGroups</span><span class="o">/</span><span class="no">BySurveyNumber</span><span class="o">/</span><span class="p">{</span><span class="no">SurveyNumber</span><span class="p">}?</span><span class="n">key</span><span class="o">=</span><span class="p">{</span><span class="no">APIKey</span><span class="p">}</span>
+<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Demand/v1/SupplierGroups/BySurveyNumber/{SurveyNumber}?key={APIKey}'</span><span class="p">)</span>
 
 <span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">uri</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
 
@@ -7448,36 +7445,30 @@
 
 </code></pre>
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$group</span> <span class="o">=</span> <span class="nb">file_get_contents</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Demand/v1/SupplierGroups/RemoveSuppliersFromGroup/{SurveyNumber}?key={APIKey}'</span><span class="p">);</span>
+
+<span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+
+<span class="nv">$params</span> <span class="o">=</span> <span class="s1">'{"SupplierLinkTypeCode": "OWS","TrackingTypeCode": "NONE","DefaultLink": "","SuccessLink": "","FailureLink": "","OverQuotaLink": "","QualityTerminationLink": ""}'</span><span class="p">;</span>
+
+<span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://api.samplicio.us/Demand/v1/SupplierGroups/RemoveSuppliersFromGroup/</span><span class="si">{</span><span class="nv">SurveyNumber}?key={APIKey</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">CURLOPT_ENCODING</span> <span class="o">=&gt;</span> <span class="s2">""</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">'Content-Type: application/json'</span><span class="p">),</span>
+  <span class="nx">CURLOPT_MAXREDIRS</span> <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">,</span>
+  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTP_VERSION</span> <span class="o">=&gt;</span> <span class="nx">CURL_HTTP_VERSION_1_1</span><span class="p">,</span>
+  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"PUT"</span><span class="p">,</span>
+  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$params</span><span class="p">,</span>
+<span class="p">));</span>
+
+<span class="nv">$group</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+
+<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
 <span class="cp">?&gt;</span>
 
-$curl = curl_init();
-
-$params = '{"SupplierLinkTypeCode": "OWS","TrackingTypeCode": "NONE","DefaultLink": "","SuccessLink": "","FailureLink": "","OverQuotaLink": "","QualityTerminationLink": ""}';
-
-curl_setopt_array($curl, array(
-  CURLOPT_URL =&gt; "https://api.samplicio.us/Demand/v1/SupplierGroups/RemoveSuppliersFromGroup/{SurveyNumber}?key={APIKey}",
-  CURLOPT_RETURNTRANSFER =&gt; true,
-  CURLOPT_ENCODING =&gt; "",
-  CURLOPT_HTTPHEADER =&gt; array('Content-Type: application/json'),
-  CURLOPT_MAXREDIRS =&gt; 10,
-  CURLOPT_TIMEOUT =&gt; 30,
-  CURLOPT_HTTP_VERSION =&gt; CURL_HTTP_VERSION_1_1,
-  CURLOPT_CUSTOMREQUEST =&gt; "PUT",
-  CURLOPT_POSTFIELDS =&gt; $params,
-));
-
-$group = curl_exec($curl);
-
-curl_close($curl);
-?&gt;
-
 </code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">requests</span>
-
-<span class="n">group</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://api.samplicio.us/Demand/v1/SupplierGroups/RemoveSuppliersFromGroup/{SurveyNumber}?key={APIKey}'</span><span class="p">)</span>
-
-<span class="kn">import</span> <span class="nn">requests</span><span class="o">,</span> <span class="nn">json</span>
+<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">requests</span><span class="o">,</span> <span class="nn">json</span>
 
 <span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.samplicio.us/Supply/v1/SupplierLinks/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}'</span>
 <span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s">'SupplierCode'</span><span class="p">:</span> <span class="s">'1010'</span><span class="p">}</span>
@@ -7486,14 +7477,7 @@ curl_close($curl);
 
 <span class="n">group</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
 </code></pre>
-<pre class="highlight csharp"><code><span class="k">using</span> <span class="nn">System.Net</span><span class="p">;</span>
-
-<span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Demand/v1/SupplierGroups/RemoveSuppliersFromGroup/{SurveyNumber}?key={APIKey}"</span><span class="p">);</span>
-
-<span class="n">WebResponse</span> <span class="n">group</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">GetResponse</span><span class="p">();</span>
-
-
-<span class="k">using</span> <span class="nn">System.IO</span><span class="p">;</span>
+<pre class="highlight csharp"><code><span class="k">using</span> <span class="nn">System.IO</span><span class="p">;</span>
 <span class="k">using</span> <span class="nn">System.Net</span><span class="p">;</span>
 
 <span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Demand/v1/SupplierGroups/RemoveSuppliersFromGroup/{SurveyNumber}?key={APIKey}"</span><span class="p">);</span>
@@ -7614,7 +7598,7 @@ curl_close($curl);
 </code></pre>
 <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
 
-<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="err">'</span><span class="n">https</span><span class="ss">:/</span><span class="o">/</span><span class="n">api</span><span class="p">.</span><span class="nf">samplicio</span><span class="p">.</span><span class="nf">us</span><span class="o">/</span><span class="no">Demand</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="no">SupplierAllocations</span><span class="o">/</span><span class="no">BySurveyNumber</span><span class="o">/</span><span class="p">{</span><span class="no">SurveyNumber</span><span class="p">}?</span><span class="n">key</span><span class="o">=</span><span class="p">{</span><span class="no">APIKey</span><span class="p">}</span>
+<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Demand/v1/SupplierAllocations/BySurveyNumber/{SurveyNumber}?key={APIKey}'</span><span class="p">)</span>
 
 <span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">uri</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
 
@@ -8096,17 +8080,17 @@ curl_close($curl);
 <blockquote>
 <p>Definition</p>
 </blockquote>
-<pre class="highlight plaintext"><code>DELETE  http://api.samplicio.us/Demand/v1/SupplierAllocations/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}
+<pre class="highlight plaintext"><code>DELETE  https://api.samplicio.us/Demand/v1/SupplierAllocations/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}
 </code></pre>
 
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell"><code>curl -X DELETE http://api.samplicio.us/Demand/v1/SupplierAllocations/Delete/<span class="o">{</span>SurveyNumber<span class="o">}</span>/<span class="o">{</span>SupplierCode<span class="o">}</span>?key<span class="o">={</span>APIKey<span class="o">}</span>
+<pre class="highlight shell"><code>curl -X DELETE https://api.samplicio.us/Demand/v1/SupplierAllocations/Delete/<span class="o">{</span>SurveyNumber<span class="o">}</span>/<span class="o">{</span>SupplierCode<span class="o">}</span>?key<span class="o">={</span>APIKey<span class="o">}</span>
 </code></pre>
 <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
 
-<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'http://api.samplicio.us/Demand/v1/SupplierAllocations/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}'</span><span class="p">)</span>
+<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Demand/v1/SupplierAllocations/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}'</span><span class="p">)</span>
 
 <span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">uri</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
 
@@ -8121,7 +8105,7 @@ curl_close($curl);
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"http://api.samplicio.us/Demand/v1/SupplierAllocations/Delete/</span><span class="si">{</span><span class="nv">SurveyNumber}/{SupplierCode}?key={APIKey</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://api.samplicio.us/Demand/v1/SupplierAllocations/Delete/</span><span class="si">{</span><span class="nv">SurveyNumber}/{SupplierCode}?key={APIKey</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
   <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
   <span class="nx">CURLOPT_ENCODING</span> <span class="o">=&gt;</span> <span class="s2">""</span><span class="p">,</span>
   <span class="nx">CURLOPT_MAXREDIRS</span> <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">,</span>
@@ -8137,11 +8121,11 @@ curl_close($curl);
 </code></pre>
 <pre class="highlight python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">requests</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s">'http://api.samplicio.us/Demand/v1/SupplierAllocations/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}'</span><span class="p">)</span>
+<span class="n">requests</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s">'https://api.samplicio.us/Demand/v1/SupplierAllocations/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}'</span><span class="p">)</span>
 </code></pre>
 <pre class="highlight csharp"><code><span class="k">using</span> <span class="nn">System.Net</span><span class="p">;</span> 
 
-<span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"http://api.samplicio.us/Demand/v1/SupplierAllocations/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}"</span><span class="p">);</span>
+<span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Demand/v1/SupplierAllocations/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}"</span><span class="p">);</span>
 
 <span class="n">request</span><span class="p">.</span><span class="n">Method</span> <span class="p">=</span> <span class="s">"DELETE"</span><span class="p">;</span>
 
@@ -8570,11 +8554,11 @@ curl_close($curl);
 
 <span class="n">fullUriPath</span> <span class="o">=</span> <span class="n">uri</span><span class="p">.</span><span class="nf">path</span> <span class="o">+</span> <span class="s1">'?'</span> <span class="o">+</span> <span class="n">uri</span><span class="p">.</span><span class="nf">query</span>
 
-<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Post</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">fullUriPath</span><span class="p">,</span> <span class="n">initheader</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'Content-Type'</span> <span class="o">=&gt;</span><span class="s1">'application/json'</span><span class="p">})</span>
+<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Put</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">fullUriPath</span><span class="p">,</span> <span class="n">initheader</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'Content-Type'</span> <span class="o">=&gt;</span><span class="s1">'application/json'</span><span class="p">})</span>
 
 <span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="p">{</span><span class="no">SupplierLinkTypeCode</span><span class="ss">:"TS"</span><span class="p">,</span><span class="no">TrackingTypeCode</span><span class="ss">:"NONE"</span><span class="p">,</span><span class="no">DefaultLink</span><span class="ss">:""</span><span class="p">,</span><span class="no">SuccessLink</span><span class="ss">:""</span><span class="p">,</span><span class="no">FailureLink</span><span class="ss">:""</span><span class="p">,</span><span class="no">OverQuotaLink</span><span class="ss">:""</span><span class="p">,</span><span class="no">QualityTerminationLink</span><span class="ss">:""</span><span class="p">}.</span><span class="nf">to_json</span>
 
-<span class="no">SupplierLink</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+<span class="n">supplierLink</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
 </code></pre>
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
@@ -8593,7 +8577,7 @@ curl_close($curl);
   <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$params</span><span class="p">,</span>
 <span class="p">));</span>
 
-<span class="nv">$SupplierLink</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+<span class="nv">$supplierLink</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
 
 <span class="nb">curl_close</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
 <span class="cp">?&gt;</span>
@@ -8605,7 +8589,7 @@ curl_close($curl);
 <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Content-type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span> <span class="s">'Accept'</span><span class="p">:</span> <span class="s">'text/plain'</span><span class="p">}</span>
 
-<span class="n">SupplierLink</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="n">supplierLink</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
 </code></pre>
 <pre class="highlight csharp"><code><span class="k">using</span> <span class="nn">System.IO</span><span class="p">;</span>
 <span class="k">using</span> <span class="nn">System.Net</span><span class="p">;</span>
@@ -8624,7 +8608,7 @@ curl_close($curl);
             <span class="n">streamWriter</span><span class="p">.</span><span class="nf">Close</span><span class="p">();</span>
         <span class="p">}</span>
 
-<span class="n">WebResponse</span> <span class="n">SupplierLink</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">GetResponse</span><span class="p">();</span>
+<span class="n">WebResponse</span> <span class="n">supplierLink</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">GetResponse</span><span class="p">();</span>
 </code></pre>
 <pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'https'</span><span class="p">);</span>
 
@@ -8651,7 +8635,7 @@ curl_close($curl);
 <span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">updatedSupplierLink</span><span class="p">)</span> <span class="p">{</span>
   <span class="kd">var</span> <span class="nx">chunks</span> <span class="o">=</span> <span class="p">[];</span>
 
-  <span class="nx">SupplierLink</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">"data"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">chunk</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">updatedSupplierLink</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">"data"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">chunk</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">chunks</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">chunk</span><span class="p">);</span>
   <span class="p">});</span>
 
@@ -8755,17 +8739,17 @@ curl_close($curl);
 <blockquote>
 <p>Definition</p>
 </blockquote>
-<pre class="highlight plaintext"><code>DELETE  http://api.samplicio.us/Demand/v1/SupplierAllocations/Targets/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}
+<pre class="highlight plaintext"><code>DELETE  https://api.samplicio.us/Demand/v1/SupplierAllocations/Targets/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}
 </code></pre>
 
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell"><code>curl -X DELETE http://api.samplicio.us/Demand/v1/SupplierAllocations/Targets/Delete/<span class="o">{</span>SurveyNumber<span class="o">}</span>/<span class="o">{</span>SupplierCode<span class="o">}</span>?key<span class="o">={</span>APIKey<span class="o">}</span>
+<pre class="highlight shell"><code>curl -X DELETE https://api.samplicio.us/Demand/v1/SupplierAllocations/Targets/Delete/<span class="o">{</span>SurveyNumber<span class="o">}</span>/<span class="o">{</span>SupplierCode<span class="o">}</span>?key<span class="o">={</span>APIKey<span class="o">}</span>
 </code></pre>
 <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
 
-<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'http://api.samplicio.us/Demand/v1/SupplierAllocations/Targets/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}'</span><span class="p">)</span>
+<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Demand/v1/SupplierAllocations/Targets/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}'</span><span class="p">)</span>
 
 <span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">uri</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
 
@@ -8780,7 +8764,7 @@ curl_close($curl);
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"http://api.samplicio.us/Demand/v1/SupplierAllocations/Targets/Delete/</span><span class="si">{</span><span class="nv">SurveyNumber}/{SupplierCode}?key={APIKey</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://api.samplicio.us/Demand/v1/SupplierAllocations/Targets/Delete/</span><span class="si">{</span><span class="nv">SurveyNumber}/{SupplierCode}?key={APIKey</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
   <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
   <span class="nx">CURLOPT_ENCODING</span> <span class="o">=&gt;</span> <span class="s2">""</span><span class="p">,</span>
   <span class="nx">CURLOPT_MAXREDIRS</span> <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">,</span>
@@ -8796,11 +8780,11 @@ curl_close($curl);
 </code></pre>
 <pre class="highlight python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">requests</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s">'http://api.samplicio.us/Demand/v1/SupplierAllocations/Targets/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}'</span><span class="p">)</span>
+<span class="n">requests</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s">'https://api.samplicio.us/Demand/v1/SupplierAllocations/Targets/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}'</span><span class="p">)</span>
 </code></pre>
 <pre class="highlight csharp"><code><span class="k">using</span> <span class="nn">System.Net</span><span class="p">;</span> 
 
-<span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"http://api.samplicio.us/Demand/v1/SupplierAllocations/Targets/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}"</span><span class="p">);</span>
+<span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Demand/v1/SupplierAllocations/Targets/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}"</span><span class="p">);</span>
 
 <span class="n">request</span><span class="p">.</span><span class="n">Method</span> <span class="p">=</span> <span class="s">"DELETE"</span><span class="p">;</span>
 
@@ -9663,7 +9647,6 @@ curl_close($curl);
 <pre class="highlight shell"><code>curl -H <span class="s2">"Content-Type: application/json"</span> -X PUT  --data <span class="s1">'{"PID": "0001110", "IsActive": true}'</span> https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/Update/<span class="o">{</span>SurveyNumber<span class="o">}</span>/<span class="o">{</span>SupplierCode<span class="o">}</span>?key<span class="o">={</span>APIKey<span class="o">}</span>
 </code></pre>
 <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
-<span class="nb">require</span> <span class="s1">'net/http'</span>
 <span class="nb">require</span> <span class="s1">'json'</span>
 
 <span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}'</span><span class="p">)</span>
@@ -9693,7 +9676,7 @@ curl_close($curl);
   <span class="nx">CURLOPT_MAXREDIRS</span> <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">,</span>
   <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
   <span class="nx">CURLOPT_HTTP_VERSION</span> <span class="o">=&gt;</span> <span class="nx">CURL_HTTP_VERSION_1_1</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
+  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"PUT"</span><span class="p">,</span>
   <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$params</span><span class="p">,</span>
 <span class="p">));</span>
 
@@ -10265,13 +10248,21 @@ curl_close($curl);
 <p>The following deprecated methods were removed from the Lookup and Supply APIs:</p>
 
 <ul>
-<li>Lookup/v1/QuestionLibrary/AllBidQuestions</li>
-<li>Lookup/v1/QuestionLibrary/AllBidQuestionOptions</li>
-<li>Lookup/v1/QuestionLibrary/BidQuestionById</li>
-<li>Supply/v1/SupplierLinks/CreateOfferwall</li>
-<li>Supply/v1/SupplierLinks/CreateOfferwallWithSupplierCode</li>
-<li>Supply/v1/SupplierLinks/CreateOfferwallWithTrackingUrlTypeCode</li>
-<li>Supply/v1/SupplierLinks/UpdateRedirectUrlBySupplierLinkSid</li>
+<li>Lookup/v1/QuestionLibrary/
+
+<ul>
+<li>AllBidQuestions</li>
+<li>AllBidQuestionOptions</li>
+<li>BidQuestionById</li>
+</ul></li>
+<li>Supply/v1/SupplierLinks/
+
+<ul>
+<li>CreateOfferwall</li>
+<li>CreateOfferwallWithSupplierCode</li>
+<li>CreateOfferwallWithTrackingUrlTypeCode</li>
+<li>UpdateRedirectUrlBySupplierLinkSid</li>
+</ul></li>
 </ul>
 
           </div>
