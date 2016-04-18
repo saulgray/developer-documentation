@@ -31,9 +31,7 @@ POST  https://api.samplicio.us/Supply/v1/SupplierLinks/Create/{SurveyNumber}/{Su
 > Example Request
 
 ```shell
-curl -H "Content-Type: application/json" \
--X POST --data '{"SupplierLinkTypeCode": "OWS", "TrackingTypeCode": "NONE"}' \
-https://api.samplicio.us/Supply/v1/SupplierLinks/Create/{SurveyNumber}/{SupplierCode}?key={APIKey}
+curl -H "Content-Type: application/json" -X POST --data '{"SupplierLinkTypeCode": "OWS", "TrackingTypeCode": "NONE"}' https://api.samplicio.us/Supply/v1/SupplierLinks/Create/{SurveyNumber}/{SupplierCode}?key={APIKey}
 ```
 
 ```ruby
@@ -200,8 +198,7 @@ PUT  https://api.samplicio.us/Supply/v1/SupplierLinks/Update/{SurveyNumber}/{Sup
 > Example Request
 
 ```shell
-curl -H "Content-Type: application/json" \
--X PUT  --data '{"SupplierLinkTypeCode": "OWS", "TrackingTypeCode": "NONE", "DefaultLink":"","SuccessLink":"","FailureLink":"","OverQuotaLink":"","QualityTerminationLink":""}' \ https://api.samplicio.us/Supply/v1/SupplierLinks/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}
+curl -H "Content-Type: application/json" -X PUT  --data '{"SupplierLinkTypeCode": "OWS", "TrackingTypeCode": "NONE", "DefaultLink":"","SuccessLink":"","FailureLink":"","OverQuotaLink":"","QualityTerminationLink":""}' https://api.samplicio.us/Supply/v1/SupplierLinks/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}
 ```
 
 ```ruby

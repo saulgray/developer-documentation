@@ -26,19 +26,7 @@ POST  http://api.samplicio.us/Demand/v1/SurveyQualifications/Create/{SurveyNumbe
 > Example Request
 
 ```shell
-curl -H "Content-Type: application/json" \
--X POST --data '{
-	"Name": "STANDARD_RELATIONSHIP",
-	"QuestionID": 632,
-	"LogicalOperator": "OR",
-	"NumberOfRequiredConditions": 1,
-	"IsActive": true,
-	"PreCodes": [
-		"1"
-	],
-	"Order": 7
-}' \
-http://api.samplicio.us/Demand/v1/SurveyQualifications/Create/{SurveyNumber}?key={APIKey}
+curl -H "Content-Type: application/json" -X POST --data '{"Name": "STANDARD_RELATIONSHIP","QuestionID": 632,"LogicalOperator": "OR","NumberOfRequiredConditions": 1,"IsActive": true,"PreCodes": ["1"], "Order": 7}' http://api.samplicio.us/Demand/v1/SurveyQualifications/Create/{SurveyNumber}?key={APIKey}
 ```
 
 ```ruby
@@ -366,19 +354,7 @@ PUT  https://api.samplicio.us/Demand/v1/SurveyQualifications/Update/{SurveyNumbe
 > Example Request
 
 ```shell
-curl -H "Content-Type: application/json" \
--X PUT --data '{
-	"Name": "STANDARD_RELATIONSHIP",
-	"QuestionID": 632,
-	"LogicalOperator": "OR",
-	"NumberOfRequiredConditions": 1,
-	"IsActive": true,
-	"PreCodes": [
-		"2"
-	],
-	"Order": 7
-}' \
-https://api.samplicio.us/Demand/v1/SurveyQualifications/Update/{SurveyNumber}?key={APIKey}
+curl -H "Content-Type: application/json" -X PUT --data '{"Name": "STANDARD_RELATIONSHIP","QuestionID": 632,"LogicalOperator": "OR",NumberOfRequiredConditions": 1,"IsActive": true,"PreCodes": ["2"],"Order": 7}' https://api.samplicio.us/Demand/v1/SurveyQualifications/Update/{SurveyNumber}?key={APIKey}
 ```
 
 ```ruby

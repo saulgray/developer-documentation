@@ -138,9 +138,7 @@ POST  https://api.samplicio.us/Demand/v1/ExchangeTemplates/ApplyToSurvey/{Survey
 > Example Request
 
 ```shell
-curl -H "Content-Type: application/json" \
--X POST \
-https://api.samplicio.us/Demand/v1/ExchangeTemplates/ApplyToSurvey/{SurveyNumber}/{ExchangeTemplateID}?key={APIKey}
+curl -H "Content-Type: application/json" -X POST https://api.samplicio.us/Demand/v1/ExchangeTemplates/ApplyToSurvey/{SurveyNumber}/{ExchangeTemplateID}?key={APIKey}
 ```
 
 ```ruby

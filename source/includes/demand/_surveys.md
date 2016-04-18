@@ -48,39 +48,7 @@ POST  https://api.samplicio.us/Demand/v1/Surveys/Create?key={APIKey}
 > Example Request
 
 ```shell
-curl -H "Content-Type: application/json" \
--X POST --data '{
-    "AccountID": 1,
-    "SurveyStatusCode": "01",
-    "SurveyPriority": 11,
-    "SurveyName": "Example API Survey",
-    "CountryLanguageID": 9,
-    "IndustryID": 30,
-    "StudyTypeID": 1,
-    "ClientCPI": 1,
-    "QuotaCPI": 2,
-    "ClientSurveyLiveURL": "http://www.surveyURL.com?rid=[%RID%]",
-    "TestRedirectURL": "http://www.surveyURL.com?rid=[%RID%]",
-    "IsActive": true,
-    "Quota": 1000,
-    "FulcrumExchangeAllocation": 0,
-    "FulcrumExchangeHedgeAccess": true,
-    "IsVerifyCallBack": true,
-    "UniquePID": true,
-    "UniqueIPAddress": true,
-    "IsRelevantID": false,
-    "IsDedupe": false,
-    "IsGeoIP": false,
-    "IsFraudProfile": false,
-    "FraudProfileThreshold": 0,
-    "IsTrueSample": false,
-    "QuotaCalculationTypeID": 1,
-    "SurveyPlatformID": 2,
-    "BidLengthOfInterview": 10,
-    "BusinessUnitID": 9,
-    "SampleTypeID": 100
- }' \
-https://api.samplicio.us/Demand/v1/Surveys/Create?key={APIKey}
+curl -H "Content-Type: application/json" -X POST --data '{"AccountID": 1,"SurveyStatusCode": "01","SurveyPriority": 11,"SurveyName": "Example API Survey","CountryLanguageID": 9,"IndustryID": 30,"StudyTypeID": 1,"ClientCPI": 1,"QuotaCPI": 2,"ClientSurveyLiveURL": "http://www.surveyURL.com?rid=[%RID%]","TestRedirectURL": "http://www.surveyURL.com?rid=[%RID%]","IsActive": true,"Quota": 1000,"FulcrumExchangeAllocation": 0,"FulcrumExchangeHedgeAccess": true,"IsVerifyCallBack": true,"UniquePID": true,"UniqueIPAddress": true,"IsRelevantID": false,"IsDedupe": false,"IsGeoIP": false,"IsFraudProfile": false,"FraudProfileThreshold": 0,"IsTrueSample": false,"QuotaCalculationTypeID": 1,"SurveyPlatformID": 2,"BidLengthOfInterview": 10,"BusinessUnitID": 9,"SampleTypeID": 100}' https://api.samplicio.us/Demand/v1/Surveys/Create?key={APIKey}
 ```
 
 ```ruby
@@ -437,39 +405,7 @@ PUT  https://api.samplicio.us/Demand/v1/Surveys/Update/{SurveyNumber}?key={APIKe
 > Example Request
 
 ```shell
-curl -H "Content-Type: application/json" \
--X PUT --data '{
-    "AccountID": 1,
-    "SurveyStatusCode": "01",
-    "SurveyPriority": 11,
-    "SurveyName": "Example API Survey",
-    "CountryLanguageID": 9,
-    "IndustryID": 30,
-    "StudyTypeID": 1,
-    "ClientCPI": 1,
-    "QuotaCPI": 2,
-    "ClientSurveyLiveURL": "http://www.surveyURL.com?rid=[%RID%]",
-    "TestRedirectURL": "http://www.surveyURL.com?rid=[%RID%]",
-    "IsActive": true,
-    "Quota": 100,
-    "FulcrumExchangeAllocation": 0,
-    "FulcrumExchangeHedgeAccess": true,
-    "IsVerifyCallBack": true,
-    "UniquePID": true,
-    "UniqueIPAddress": true,
-    "IsRelevantID": false,
-    "IsDedupe": false,
-    "IsGeoIP": false,
-    "IsFraudProfile": false,
-    "FraudProfileThreshold": 0,
-    "IsTrueSample": false,
-    "QuotaCalculationTypeID": 1,
-    "SurveyPlatformID": 2,
-    "BidLengthOfInterview": 10,
-    "BusinessUnitID": 9,
-    "SampleTypeID": 100
- }' \
-https://api.samplicio.us/Demand/v1/Surveys/Update/{SurveyNumber}?key={APIKey}
+curl -H "Content-Type: application/json" -X PUT --data '{"AccountID": 1,"SurveyStatusCode": "01","SurveyPriority": 11,"SurveyName": "Example API Survey","CountryLanguageID": 9,"IndustryID": 30,"StudyTypeID": 1,"ClientCPI": 1,"QuotaCPI": 2,"ClientSurveyLiveURL": "http://www.surveyURL.com?rid=[%RID%]","TestRedirectURL": "http://www.surveyURL.com?rid=[%RID%]","IsActive": true,"Quota": 100,"FulcrumExchangeAllocation": 0,"FulcrumExchangeHedgeAccess": true,"IsVerifyCallBack": true,"UniquePID": true,"UniqueIPAddress": true,"IsRelevantID": false,"IsDedupe": false,"IsGeoIP": false,"IsFraudProfile": false,"FraudProfileThreshold": 0,"IsTrueSample": false,"QuotaCalculationTypeID": 1,"SurveyPlatformID": 2,"BidLengthOfInterview": 10,"BusinessUnitID": 9,"SampleTypeID": 100}' https://api.samplicio.us/Demand/v1/Surveys/Update/{SurveyNumber}?key={APIKey}
 ```
 
 ```ruby
