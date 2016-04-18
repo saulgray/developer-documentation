@@ -875,19 +875,19 @@ Returns the details of a specific Fulcrum survey.
 > Definition
 
 ```plaintext
-GET  https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyNStatus}?key={APIKey}
+GET  https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyStatus}?key={APIKey}
 ```
 
 > Example Request
 
 ```shell
-curl https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyNStatus}?key={APIKey}
+curl https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyStatus}?key={APIKey}
 ```
 
 ```ruby
 require 'net/http'
 
-uri = URI('https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyNStatus}?key={APIKey}')
+uri = URI('https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyStatus}?key={APIKey}')
 
 http = Net::HTTP.new(uri.host, uri.port)
 
@@ -900,20 +900,20 @@ surveyQuotas = http.request(request)
 
 ```php
 <?php
-$surveyQuotas = file_get_contents('https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyNStatus}?key={APIKey}');
+$surveyQuotas = file_get_contents('https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyStatus}?key={APIKey}');
 ?>
 ```
 
 ```python
 import requests
 
-surveyQuotas = requests.get('https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyNStatus}?key={APIKey}')
+surveyQuotas = requests.get('https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyStatus}?key={APIKey}')
 ```
 
 ```csharp
 using System.Net;
 
-WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyNStatus}?key={APIKey}");
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyStatus}?key={APIKey}");
 
 WebResponse surveyQuotas = request.GetResponse();
 ```
@@ -921,7 +921,7 @@ WebResponse surveyQuotas = request.GetResponse();
 ```javascript
 const https = require('https');
 
-var surveyQuotas = https.get('https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyNStatus}?key={APIKey}');
+var surveyQuotas = https.get('https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyStatus}?key={APIKey}');
 ```
 
 > Example Response
