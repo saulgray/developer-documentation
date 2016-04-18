@@ -16,6 +16,6 @@ The following deprecated methods were removed from the Lookup and Supply APIs:
   - BidQuestionById
  - Supply/v1/SupplierLinks/
   - CreateOfferwall
-  - CreateOfferwallWithSupplierCode
-  - CreateOfferwallWithTrackingUrlTypeCode
+   - WithSupplierCode
+   - WithTrackingUrlTypeCode
   - UpdateRedirectUrlBySupplierLinkSid
