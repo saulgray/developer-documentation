@@ -15,7 +15,6 @@ toc_footers:
 includes:
   - introduction/introduction
   - introduction/fiddling
-  - introduction/common-workflows
   - introduction/environments
   - introduction/authentication
   - introduction/request-format
@@ -45,9 +44,6 @@ includes:
   - demand/recontact
   - labs/introduction
   - labs/survey-groups
-  - guides/introduction
-  - guides/supply
-  - guides/demand
   - changelog/changelog
   
 search: true
