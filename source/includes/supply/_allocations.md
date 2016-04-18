@@ -100,9 +100,9 @@ Returns a list of all live survey opportunities for which you have an allocation
 
 #### Arguments
 
-| Property     | Type | Required | Description                                     |
-|--------------|------|----------|-------------------------------------------------|
-| SupplierCode | int  | true     | Unique code associated with a supplier account. |
+| Property     | Type   | Required | Description                                     |
+|--------------|--------|----------|-------------------------------------------------|
+| SupplierCode | string | true     | Unique code associated with a supplier account. |
 
 
 ### GET Show an Allocated Survey
@@ -220,10 +220,10 @@ Returns any allocation(s) given to you for a particular survey.
 
 #### Arguments
 
-| Property     | Type | Required | Description                                     |
-|--------------|------|----------|-------------------------------------------------|
-| SupplierCode | int  | true     | Unique code associated with a supplier account. |
-| SurveyNumber | int  | true     | Unique number associated with the survey.       |
+| Property     | Type   | Required | Description                                     |
+|--------------|--------|----------|-------------------------------------------------|
+| SupplierCode | string | true     | Unique code associated with a supplier account. |
+| SurveyNumber | int    | true     | Unique number associated with the survey.       |
 
 
 

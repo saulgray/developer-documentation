@@ -100,6 +100,6 @@ Returns the list of PIDs by supplier for a specific Fulcrum survey when study ty
 | Property                     | Type     | Required | Description                                                                                                                                  |
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
 | SurveyNumber                 | int      | true     | Unique number associated with the survey.                                                                                                    |
-| SupplierCode                 | int      | true     | Unique code associated with the supplier performing the call.               
+| SupplierCode                 | string   | true     | Unique code associated with the supplier performing the call.               
 
        

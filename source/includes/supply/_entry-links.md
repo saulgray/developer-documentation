@@ -180,7 +180,7 @@ Creates a supplier-specific respondent entry link for a survey. If no supplier r
 | Property                     | Type     | Required | Description                                                                                                                                  |
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
 | SurveyNumber                 | int      | true     | Unique number associated with the survey.                                                                                                    |
-| SupplierCode                 | int      | true     | Unique code associated with supplier account.                                                                                                |
+| SupplierCode                 | string   | true     | Unique code associated with supplier account.                                                                                                |
 | SupplierLinkTypeCode         | string   | true     | Defines the type of buyer-supplier engagment and the respondent's path in Fulcrum.                                                           |
 | TrackingTypeCode             | string   | true     | Defines how Fulcrum should communicate back to the supplier's system at the end of a session. The options are:                               |
 |                              |          |          | NONE (Default and recommended, physically redirects the respondent back to the supplier system)                                              |
@@ -452,4 +452,4 @@ Returns link details for a survey.
 | Property                     | Type     | Required | Description                                                                                                                                  |
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
 | SurveyNumber                 | int      | true     | Unique number associated with the survey.                                                                                                    |
-| SupplierCode                 | int      | true     | Unique code associated with supplier account.                                                                                                |
+| SupplierCode                 | string   | true     | Unique code associated with supplier account.                                                                                                |
