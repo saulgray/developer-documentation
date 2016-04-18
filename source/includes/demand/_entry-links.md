@@ -242,11 +242,11 @@ http.use_ssl = true
 
 fullUriPath = uri.path + '?' + uri.query
 
-request = Net::HTTP::Post.new(fullUriPath, initheader = {'Content-Type' =>'application/json'})
+request = Net::HTTP::Put.new(fullUriPath, initheader = {'Content-Type' =>'application/json'})
 
 request.body = {SupplierLinkTypeCode:"TS",TrackingTypeCode:"NONE",DefaultLink:"",SuccessLink:"",FailureLink:"",OverQuotaLink:"",QualityTerminationLink:""}.to_json
 
-SupplierLink = http.request(request)
+supplierLink = http.request(request)
 ```
 
 ```php
@@ -267,7 +267,7 @@ curl_setopt_array($curl, array(
   CURLOPT_POSTFIELDS => $params,
 ));
 
-$SupplierLink = curl_exec($curl);
+$supplierLink = curl_exec($curl);
 
 curl_close($curl);
 ?>
@@ -281,7 +281,7 @@ params = {'SupplierLinkTypeCode':'TS','TrackingTypeCode':'NONE','DefaultLink':''
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
-SupplierLink = requests.put(url, data=data, headers=headers)
+supplierLink = requests.put(url, data=data, headers=headers)
 ```
 
 ```csharp
@@ -302,7 +302,7 @@ using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
             streamWriter.Close();
         }
 
-WebResponse SupplierLink = request.GetResponse();
+WebResponse supplierLink = request.GetResponse();
 ```
 
 ```javascript
@@ -331,7 +331,7 @@ var params = JSON.stringify(json);
 var request = https.request(options, function (updatedSupplierLink) {
   var chunks = [];
 
-  SupplierLink.on("data", function (chunk) {
+  updatedSupplierLink.on("data", function (chunk) {
     chunks.push(chunk);
   });
 
@@ -368,19 +368,19 @@ Updates existing supplier target links.
 > Definition
 
 ```plaintext
-DELETE  http://api.samplicio.us/Demand/v1/SupplierAllocations/Targets/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}
+DELETE  https://api.samplicio.us/Demand/v1/SupplierAllocations/Targets/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}
 ```
 
 > Example Request
 
 ```shell
-curl -X DELETE http://api.samplicio.us/Demand/v1/SupplierAllocations/Targets/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}
+curl -X DELETE https://api.samplicio.us/Demand/v1/SupplierAllocations/Targets/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}
 ```
 
 ```ruby
 require 'net/http'
 
-uri = URI('http://api.samplicio.us/Demand/v1/SupplierAllocations/Targets/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}')
+uri = URI('https://api.samplicio.us/Demand/v1/SupplierAllocations/Targets/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}')
 
 http = Net::HTTP.new(uri.host, uri.port)
 
@@ -397,7 +397,7 @@ http.request(request)
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "http://api.samplicio.us/Demand/v1/SupplierAllocations/Targets/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}",
+  CURLOPT_URL => "https://api.samplicio.us/Demand/v1/SupplierAllocations/Targets/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
   CURLOPT_MAXREDIRS => 10,
@@ -415,13 +415,13 @@ curl_close($curl);
 ```python
 import requests
 
-requests.delete('http://api.samplicio.us/Demand/v1/SupplierAllocations/Targets/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}')
+requests.delete('https://api.samplicio.us/Demand/v1/SupplierAllocations/Targets/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}')
 ```
 
 ```csharp
 using System.Net; 
 
-WebRequest request = WebRequest.Create("http://api.samplicio.us/Demand/v1/SupplierAllocations/Targets/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}");
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SupplierAllocations/Targets/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}");
 
 request.Method = "DELETE";
 
