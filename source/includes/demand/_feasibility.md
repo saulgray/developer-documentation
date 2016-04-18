@@ -11,7 +11,7 @@ POST https://api.samplicio.us/Demand/v1/Feasibility/Time?key={APIkey}
 > Example Request
 
 ```shell
-curl -H "Content-Type: application/json" -X POST --data '{CountryLanguageID: 9, LengthOfInterview: 5, Incidence: 100,  "Price": 4.5, Quotas: [{CompletesPerDay: [1000], Conditions: [{QuestionID: 42, PreCodes: ["18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29"]}, {QuestionID: 43, PreCodes: ["1"] } ] }, {CompletesPerDay: [1000], Conditions: [{QuestionID: 42, PreCodes: ["18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29"]}, {QuestionID: 43, PreCodes: ["2"] } ] }] }}' https://api.samplicio.us/Demand/v1/Feasibility/Time?key={APIkey}
+curl -H "Content-Type: application/json" -X POST --data '{"CountryLanguageID": 9, "LengthOfInterview": 5, "Incidence": 100,  "Price": 4.5, "Quotas": [{"CompletesPerDay": [1000], "Conditions": [{"QuestionID": 42, "PreCodes": ["18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29"]}, {"QuestionID": 43, "PreCodes": ["1"] } ] }, {"CompletesPerDay": [1000], "Conditions": [{"QuestionID": 42, "PreCodes": ["18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29"]}, {"QuestionID": 43, "PreCodes": ["2"] } ] }] }}' https://api.samplicio.us/Demand/v1/Feasibility/Time?key={APIkey}
 ```
 
 ```ruby
@@ -30,7 +30,7 @@ request = Net::HTTP::Post.new(fullUriPath, initheader = {'Content-Type' =>'appli
 
 request.body = {CountryLanguageID: 9, LengthOfInterview: 5, Incidence: 100,  "Price": 4.5, Quotas: [{CompletesPerDay: [1000], Conditions: [{QuestionID: 42, PreCodes: ["18", "19", "20", "21", "22", "23", "24",
  "25", "26", "27", "28", "29"]}, {QuestionID: 43, PreCodes: ["1"] } ] }, {CompletesPerDay: [1000], Conditions: [{QuestionID: 42, PreCodes: ["18", "19", "20", "21", "22", "23", "24",
- "25", "26", "27", "28", "29"]}, {QuestionID: 43, PreCodes: ["2"] } ] }] }}.to_json
+ "25", "26", "27", "28", "29"]}, {QuestionID: 43, PreCodes: ["2"] } ] }] }.to_json
 
 time = http.request(request)
 
@@ -247,7 +247,7 @@ fullUriPath = uri.path + '?' + uri.query
 request = Net::HTTP::Post.new(fullUriPath, initheader = {'Content-Type' =>'application/json'})
 
 request.body = {CountryLanguageID: 9, LengthOfInterview: 5, Incidence: 100, Quotas: [{CompletesPerDay: [1000, 1500], Conditions: [{QuestionID: 42, PreCodes: ["18", "19", "20", "21", "22", "23", "24",
- "25", "26", "27", "28", "29"]}, {QuestionID: 43, PreCodes: ["1"] } ] }, ] }}.to_json
+ "25", "26", "27", "28", "29"]}, {QuestionID: 43, PreCodes: ["1"] } ] }, ] }.to_json
 
 price = http.request(request)
 
@@ -453,7 +453,7 @@ fullUriPath = uri.path + '?' + uri.query
 
 request = Net::HTTP::Post.new(fullUriPath, initheader = {'Content-Type' =>'application/json'})
 
-request.body = {SupplierCode: "1010", AllocationPercentage: 0.1, TCPI: 2, HedgeAccess: true, BlockRouterTraffic: false}.to_json
+request.body = {CountryLanguageID: 9, LengthOfInterview: 5, Incidence: 100, Price: 5, Quotas: [{CompletesPerDay: [1000, 1500], Conditions: [{QuestionID: 42, PreCodes: ["18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29"]}, {QuestionID: 43, PreCodes: ["1"] } ] }, ] }.to_json
 
 completes = http.request(request)
 
@@ -489,7 +489,7 @@ curl_close($curl);
 import requests, json
 
 url = 'https://api.samplicio.us/Demand/v1/Feasibility/NumberOfRespondents?key={APIkey}'
-params = {'CountryLanguageID': 9, 'LengthOfInterview': 5, 'Incidence': 100, 'Price'Quotas': [{'CompletesPerDay': [1000, 1500], 'Conditions': [{'QuestionID': 42, 'PreCodes': ["18", "19", "20", "21", "22", "23", "24",
+params = {'CountryLanguageID': 9, 'LengthOfInterview': 5, 'Incidence': 100, 'Quotas': [{'CompletesPerDay': [1000, 1500], 'Conditions': [{'QuestionID': 42, 'PreCodes': ["18", "19", "20", "21", "22", "23", "24",
  "25", "26", "27", "28", "29"]}, {'QuestionID': 43, 'PreCodes': ["1"] } ] }, ] }
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
@@ -503,7 +503,7 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/Feasibility/NumberOfRespondents?key={APIkey}");
 
-string params = "{\"CountryLanguageID\": 9, \"LengthOfInterview\": 1, \"Incidence\": 100, \"Price\": 5, \"Quotas\": [{\"Conditions\": [{\"QuestionID\": 42, \"PreCodes\": [\"18\", \"19\", \"20\", \"21\", \"22\", \"23\", \"24\", \"25\", \"26\", \"27\", \"28\", \"29\"]}, {\"QuestionID\": 43, \"PreCodes\": ["1"]}]}]}";
+string params = "{\"CountryLanguageID\": 9, \"LengthOfInterview\": 1, \"Incidence\": 100, \"Price\": 5, \"Quotas\": [{\"Conditions\": [{\"QuestionID\": 42, \"PreCodes\": [\"18\", \"19\", \"20\", \"21\", \"22\", \"23\", \"24\", \"25\", \"26\", \"27\", \"28\", \"29\"]}, {\"QuestionID\": 43, \"PreCodes\": [\"1\"]}]}]}";
     
 request.Method = "POST";
 request.ContentType = "application/json";
