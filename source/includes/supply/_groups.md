@@ -1,5 +1,16 @@
 ##Groups
 
+The Survey Groups resource will return survey group details for a particular survey number. This information can be used to track survey groups to avoid sending a respondent to a survey which is in a survey group with a survey they have already been sent to.
+
+The [Surveys/AllOfferwall](http://developer.lucidhq.com/#get-list-exchange-surveys) and [SupplierAllocations/BySurveyNumber](http://developer.lucidhq.com/#get-show-an-allocated-survey) calls return a SurveyGroupExists property which will indicate if the survey is in a survey group. The Surveys/SurveyGroups call can then be made to identify and track survey group details. You will need to continue to check the survey number and do not send the same respondent to any survey in that survey group until the original survey number sent to returns "null". 
+
+#### Survey Groups Model
+
+| Property     | Type  | Description                               |
+|--------------|-------|-------------------------------------------|
+| SurveyGroup  | string| Name associated with the survey group.    |  
+| SurveyGroupID| int   | Unique ID associated a survey group       |
+
 ### GET List a Survey’s Groups
 
 > Definition
