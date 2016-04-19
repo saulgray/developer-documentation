@@ -1,5 +1,25 @@
 ##Quotas
 
+Quotas are used to specify how many respondents of a desired demographic type are allowed to complete the survey. Quotas must be built off of qualifications. 
+
+#### Quotas Model
+
+| Property        | Type    |  Description                                                              |
+|-----------------|---------|---------------------------------------------------------------------------|
+| SurveyQuotaID   | int     | Unique ID associated with the quota.                                      |
+| Name            | string  | Name associated with the quota.                                           |
+| FieldTarget     | int     | Field Target associated with the quota.                                   |
+| Quota           | int     | Quota number for the specified quota.                                     |
+| IsActive        | boolean | Indicates if the quotas is active or inactive. Should the quota be enforced on this project?|
+| Conditions      | array   | Contains an array of elements described below                             |
+
+#### Conditions Model
+
+| Property     | Type               | Description                                                       |
+|--------------|--------------------|-------------------------------------------------------------------|
+| QuestionID   | int                | QuestionID(s) that the quota is based upon                        |  
+| PreCodes     | array of strings   | Qualification answer option precodes defined by the API Standard  |
+
 ### POST Create a Quota
 
 > Definition
