@@ -78,7 +78,7 @@
 
 <p>The entire Fulcrum API collection can be easily imported into Postman, by clicking the button below:</p>
 
-<p><a href="https://app.getpostman.com/run-collection/aca6db324b878ba8fd78#?env%5BStaging%5D=W3sia2V5IjoidXJsIiwidmFsdWUiOiJodHRwOi8vc3RnLWFwaS5zYW1wbGljaW8udXMiLCJ0eXBlIjoidGV4dCIsIm5hbWUiOiJ1cmwiLCJlbmFibGVkIjp0cnVlfSx7ImtleSI6ImtleSIsInZhbHVlIjoiIiwidHlwZSI6InRleHQiLCJuYW1lIjoia2V5IiwiZW5hYmxlZCI6dHJ1ZX0seyJrZXkiOiJDb3VudHJ5TGFuZ3VhZ2VJRCIsInZhbHVlIjoiIiwidHlwZSI6InRleHQiLCJuYW1lIjoiQ291bnRyeUxhbmd1YWdlSUQiLCJlbmFibGVkIjp0cnVlfSx7ImtleSI6IlN1cHBsaWVyQ29kZSIsInZhbHVlIjoiIiwidHlwZSI6InRleHQiLCJuYW1lIjoiU3VwcGxpZXJDb2RlIiwiZW5hYmxlZCI6dHJ1ZX0seyJrZXkiOiJTdXJ2ZXlOdW1iZXIiLCJ2YWx1ZSI6IiIsInR5cGUiOiJ0ZXh0IiwibmFtZSI6IlN1cnZleU51bWJlciIsImVuYWJsZWQiOnRydWV9LHsia2V5IjoiUXVlc3Rpb25JRCIsInZhbHVlIjoiIiwidHlwZSI6InRleHQiLCJuYW1lIjoiUXVlc3Rpb25JRCIsImVuYWJsZWQiOnRydWV9LHsia2V5IjoiZGF0ZSIsInZhbHVlIjoiMjAxNi0wMS0wMSIsInR5cGUiOiJ0ZXh0IiwibmFtZSI6ImRhdGUiLCJlbmFibGVkIjp0cnVlfV0=" target="_blank"><img src="https://run.pstmn.io/button.svg" alt="Run in Postman"></a></p>
+<p><a href="https://app.getpostman.com/run-collection/c5c0a7c1d737742e7c04" target="_blank"><img src="https://run.pstmn.io/button.svg" alt="Run in Postman"></a></p>
 
 <p>Postman is a free application that allows you to execute test calls in an intuitive interface. When making test calls, you should use the sandbox environment.</p>
 
@@ -1237,6 +1237,378 @@
 </tbody></table>
 
               <h2 id="allocations">Allocations</h2>
+
+<p>Allocations allow buyers to allocate portions of studies to specific suppliers. This resource returns the allocation you have been given for a study based on your supplier code.</p>
+
+<h4 id="supplierallocationsurveys-model">SupplierAllocationSurveys Model</h4>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>SurveyName</td>
+<td>string</td>
+<td>External name of the survey. This name may be exposed to respondents. This value is not unique across surveys.</td>
+</tr>
+<tr>
+<td>SurveyNumber</td>
+<td>int</td>
+<td>Unique number associated with the survey.</td>
+</tr>
+<tr>
+<td>SurveySID</td>
+<td>string</td>
+<td>Unique hash value (GUID) assoicated with the survey.</td>
+</tr>
+<tr>
+<td>AccountName</td>
+<td>string</td>
+<td>Name of the buyer running the survey.</td>
+</tr>
+<tr>
+<td>CountryLanguageID</td>
+<td>int</td>
+<td>Unique id associated with the country-language pair the survey is open to.</td>
+</tr>
+<tr>
+<td>LengthOfInterview</td>
+<td>int</td>
+<td>Median time for a respondent to complete the survey excluding the Fulcrum prescreener in minutes.</td>
+</tr>
+<tr>
+<td>BidIncidence</td>
+<td>double</td>
+<td>Estimated incidence rate of the survey as provided by the buyer.</td>
+</tr>
+<tr>
+<td>Conversion</td>
+<td>int</td>
+<td>Percentage of respondents who complete the survey after qualifying.</td>
+</tr>
+<tr>
+<td>FieldBeginDate</td>
+<td>datetime</td>
+<td>Target date for survey start. This field usually does not indicate a hard start time, although buyers may opt to automatically open the study.</td>
+</tr>
+<tr>
+<td>FieldEndDate</td>
+<td>datetime</td>
+<td>Target date for survey closure. This field usually does not indicate a hard closure time, although buyers may opt to automatically close the study.</td>
+</tr>
+<tr>
+<td>IndustryID</td>
+<td>int</td>
+<td>Industry associated with the survey&rsquo;s topic.</td>
+</tr>
+<tr>
+<td>StudyTypeID</td>
+<td>int</td>
+<td>Indicates the survey&rsquo;s format and purpose (i.e. adhoc, recruit, etc).</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>int</td>
+<td>Survey priority from 1-11 (1 being the highest). Priority only applies to routed sample.</td>
+</tr>
+<tr>
+<td>SurveyGroup</td>
+<td>string</td>
+<td>Deprecated: Will return <code class="prettyprint">null</code>. Instead use the SurveyGroupExists property.</td>
+</tr>
+<tr>
+<td>SurveyGroupExists</td>
+<td>int</td>
+<td>Indicates whether there is a survey group(s) associated with the survey. (0=<code class="prettyprint">false</code>, 1=<code class="prettyprint">true</code>)</td>
+</tr>
+<tr>
+<td>BidLengthOfInterview</td>
+<td>int</td>
+<td>Estimated time for a respondent to complete the survey excluding the Fulcrum prescreener in minutes as provided by the buyer.</td>
+</tr>
+<tr>
+<td>TerminationLengthOfInterview</td>
+<td>int</td>
+<td>Median time for a respondent to be termed in minutes.</td>
+</tr>
+<tr>
+<td>IsTrueSample</td>
+<td>string</td>
+<td>Indicates whether True Sample&rsquo;s Identity Validation feature is enabled for the study.</td>
+</tr>
+<tr>
+<td>SurveyMobileConversion</td>
+<td>int</td>
+<td>Percentage of mobile respondents who complete the survey after qualifying.</td>
+</tr>
+<tr>
+<td>SurveyQuotaCalcTypeID</td>
+<td>int</td>
+<td>Indicates whether quotas are calculated based on completes or prescreens (1=Completes, 2=Prescreens).</td>
+</tr>
+<tr>
+<td>SampleTypeID</td>
+<td>int</td>
+<td>The type of sample the survey is open to (i.e. consumer, business-to-business, etc).</td>
+</tr>
+</tbody></table>
+
+<h4 id="supplierallocationsurvey-model">SupplierAllocationSurvey Model</h4>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>SurveyName</td>
+<td>string</td>
+<td>External name of the survey. This name may be exposed to respondents. This value is not unique across surveys.</td>
+</tr>
+<tr>
+<td>SurveyNumber</td>
+<td>int</td>
+<td>Unique number associated with the survey.</td>
+</tr>
+<tr>
+<td>SurveySID</td>
+<td>string</td>
+<td>Unique hash value (GUID) assoicated with the survey.</td>
+</tr>
+<tr>
+<td>AccountName</td>
+<td>string</td>
+<td>Name of the buyer running the survey.</td>
+</tr>
+<tr>
+<td>CountryLanguageID</td>
+<td>int</td>
+<td>Unique id associated with the country-language pair the survey is open to.</td>
+</tr>
+<tr>
+<td>LengthOfInterview</td>
+<td>int</td>
+<td>Median time for a respondent to complete the survey excluding the Fulcrum prescreener in minutes.</td>
+</tr>
+<tr>
+<td>BidIncidence</td>
+<td>double</td>
+<td>Estimated incidence rate of the survey as provided by the buyer.</td>
+</tr>
+<tr>
+<td>Conversion</td>
+<td>int</td>
+<td>Percentage of respondents who complete the survey after qualifying.</td>
+</tr>
+<tr>
+<td>FieldBeginDate</td>
+<td>datetime</td>
+<td>Target date for survey start. This field usually does not indicate a hard start time, although buyers may opt to automatically open the study.</td>
+</tr>
+<tr>
+<td>FieldEndDate</td>
+<td>datetime</td>
+<td>Target date for survey closure. This field usually does not indicate a hard closure time, although buyers may opt to automatically close the study.</td>
+</tr>
+<tr>
+<td>IndustryID</td>
+<td>int</td>
+<td>Industry associated with the survey&rsquo;s topic.</td>
+</tr>
+<tr>
+<td>StudyTypeID</td>
+<td>int</td>
+<td>Indicates the survey&rsquo;s format and purpose (i.e. adhoc, recruit, etc).</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>int</td>
+<td>Survey priority from 1-11 (1 being the highest). Priority only applies to routed sample.</td>
+</tr>
+<tr>
+<td>SupplierAllocations</td>
+<td>array</td>
+<td>Contains an array of SupplierAllocations elements described below.</td>
+</tr>
+<tr>
+<td>OfferwallTotalRemaining</td>
+<td>int</td>
+<td>Deprecated: Use the AllocationRemaining and HedgeRemaining properties return in each respective model.</td>
+</tr>
+<tr>
+<td>OfferwallAllocations</td>
+<td>array</td>
+<td>Contains an array of OfferwallAllocations elements described below.</td>
+</tr>
+<tr>
+<td>SurveyGroup</td>
+<td>string</td>
+<td>Deprecated: Will return <code class="prettyprint">null</code>. Instead use the SurveyGroupExists property.</td>
+</tr>
+<tr>
+<td>SurveyGroupID</td>
+<td>int</td>
+<td>Deprecated: Will return <code class="prettyprint">null</code>. If SurveyGroupExists is true, then list the survey’s groups.</td>
+</tr>
+<tr>
+<td>SurveyGroupExists</td>
+<td>int</td>
+<td>Indicates whether there is a survey group(s) associated with the survey. (0=<code class="prettyprint">false</code>, 1=<code class="prettyprint">true</code>)</td>
+</tr>
+<tr>
+<td>BidLengthOfInterview</td>
+<td>int</td>
+<td>Estimated time for a respondent to complete the survey excluding the Fulcrum prescreener in minutes as provided by the buyer.</td>
+</tr>
+<tr>
+<td>TerminationLengthOfInterview</td>
+<td>int</td>
+<td>Median time for a respondent to be termed in minutes.</td>
+</tr>
+<tr>
+<td>IsTrueSample</td>
+<td>string</td>
+<td>Indicates whether True Sample&rsquo;s Identity Validation feature is enabled for the study.</td>
+</tr>
+<tr>
+<td>SurveyMobileConversion</td>
+<td>int</td>
+<td>Percentage of mobile respondents who complete the survey after qualifying.</td>
+</tr>
+<tr>
+<td>SurveyQuotaCalcTypeID</td>
+<td>int</td>
+<td>Indicates whether quotas are calculated based on completes or prescreens (1=Completes, 2=Prescreens).</td>
+</tr>
+<tr>
+<td>SampleTypeID</td>
+<td>int</td>
+<td>The type of sample the survey is open to (i.e. consumer, business-to-business, etc).</td>
+</tr>
+</tbody></table>
+
+<h4 id="supplierallocations-model">SupplierAllocations Model</h4>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>SupplierCode</td>
+<td>int</td>
+<td>Unique code associated with a supplier account.</td>
+</tr>
+<tr>
+<td>SupplierName</td>
+<td>string</td>
+<td>Name of the supplier.</td>
+</tr>
+<tr>
+<td>IsBlockRouted</td>
+<td>int</td>
+<td>Indicates if the survey accepts routed sample.</td>
+</tr>
+<tr>
+<td>AchievedCompletes</td>
+<td>int</td>
+<td>Number of completes that have been already achieved by the supplier in this survey.</td>
+</tr>
+<tr>
+<td>AllocationRemaining</td>
+<td>int</td>
+<td>Number of completes remaining as part of the allocation.</td>
+</tr>
+<tr>
+<td>HedgeRemaining</td>
+<td>int</td>
+<td>Number of unallocated completes available to any suppliers with access to hedge.</td>
+</tr>
+<tr>
+<td>TargetModel</td>
+<td>int</td>
+<td>Contains an array of TargetModel elements described below.</td>
+</tr>
+</tbody></table>
+
+<h4 id="offerwallallocations-model">OfferwallAllocations Model</h4>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>SupplierCode</td>
+<td>int</td>
+<td>Unique code associated with a supplier account.</td>
+</tr>
+<tr>
+<td>SupplierName</td>
+<td>string</td>
+<td>Name of the supplier.</td>
+</tr>
+<tr>
+<td>OfferwallCompletes</td>
+<td>int</td>
+<td>Number of completes that have been already achieved by the Exchange in this survey.</td>
+</tr>
+<tr>
+<td>AllocationRemaining</td>
+<td>int</td>
+<td>Number of completes remaining as part of the allocation.</td>
+</tr>
+<tr>
+<td>HedgeRemaining</td>
+<td>int</td>
+<td>Number of unallocated completes available to any suppliers with access to hedge.</td>
+</tr>
+<tr>
+<td>TargetModel</td>
+<td>int</td>
+<td>Contains an array of TargetModel elements described below.</td>
+</tr>
+</tbody></table>
+
+<h4 id="targetmodel-model">TargetModel Model</h4>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>SupplierLinkType</td>
+<td>int</td>
+<td>Defines the type of buyer-supplier engagment and the respondent&rsquo;s path in Fulcrum. See <a href="#get-list-global-definitions">List Global Definitions</a> for a map of supplier link types.</td>
+</tr>
+<tr>
+<td>LiveSupplierLink</td>
+<td>string</td>
+<td>Live supplier-specific respondent entry link generated by Fulcrum.</td>
+</tr>
+<tr>
+<td>SupplierLinkSID</td>
+<td>string</td>
+<td>Number of completes that have been already achieved by the Exchange in this survey.</td>
+</tr>
+<tr>
+<td>TargetCCPI</td>
+<td>double</td>
+<td>Gross payout per targeted complete.</td>
+</tr>
+</tbody></table>
 
 <h3 id="get-list-allocated-surveys">GET List Allocated Surveys</h3>
 
