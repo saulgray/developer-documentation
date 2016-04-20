@@ -202,44 +202,44 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/Surveys/Create?key={APIKey}");
 
-string params = "{
-   \"AccountID\": 1,
-    \"SurveyStatusCode\": \"01\",
-    \"SurveyPriority\": 11,
-    \"SurveyName\": \"Example API Survey\",
-    \"CountryLanguageID\": 9,
-    \"IndustryID\": 30,
-    \"StudyTypeID\": 1,
-    \"ClientCPI\": 1,
-    \"QuotaCPI\": 2,
-    \"ClientSurveyLiveURL\": \"http://www.surveyURL.com?rid=[%RID%]\",
-    \"TestRedirectURL\": \"http://www.surveyURL.com?rid=[%RID%]\",
-    \"IsActive\": true,
-    \"Quota\": 1000,
-    \"FulcrumExchangeAllocation\": 0,
-    \"FulcrumExchangeHedgeAccess\": true,
-    \"IsVerifyCallBack\": true,
-    \"UniquePID\": true,
-    \"UniqueIPAddress\": true,
-    \"IsRelevantID\": false,
-    \"IsDedupe\": false,
-    \"IsGeoIP\": false,
-    \"IsFraudProfile\": false,
-    \"FraudProfileThreshold\": 0,
-    \"IsTrueSample\": false,
-    \"QuotaCalculationTypeID\": 1,
-    \"SurveyPlatformID\": 2,
-    \"BidLengthOfInterview\": 10,
-    \"BusinessUnitID\": 9,
-    \"SampleTypeID\": 100
- }";
+string args = @"{
+                    ""AccountID"": 1,
+                    ""SurveyStatusCode"": ""01"",
+                    ""SurveyPriority"": 11,
+                    ""SurveyName"": ""Example API Survey"",
+                    ""CountryLanguageID"": 9,
+                    ""IndustryID"": 30,
+                    ""StudyTypeID"": 1,
+                    ""ClientCPI"": 1,
+                    ""QuotaCPI"": 2,
+                    ""ClientSurveyLiveURL"": ""http://www.surveyURL.com?rid=[%RID%]"",
+                    ""TestRedirectURL"": ""http://www.surveyURL.com?rid=[%RID%]"",
+                    ""IsActive"": true,
+                    ""Quota"": 1000,
+                    ""FulcrumExchangeAllocation"": 0,
+                    ""FulcrumExchangeHedgeAccess"": true,
+                    ""IsVerifyCallBack"": true,
+                    ""UniquePID"": true,
+                    ""UniqueIPAddress"": true,
+                    ""IsRelevantID"": false,
+                    ""IsDedupe"": false,
+                    ""IsGeoIP"": false,
+                    ""IsFraudProfile"": false,
+                    ""FraudProfileThreshold"": 0,
+                    ""IsTrueSample"": false,
+                    ""QuotaCalculationTypeID"": 1,
+                    ""SurveyPlatformID"": 2,
+                    ""BidLengthOfInterview"": 10,
+                    ""BusinessUnitID"": 9,
+                    ""SampleTypeID"": 100
+                }";
     
 request.Method = "POST";
 request.ContentType = "application/json";
 
 using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
 {
-streamWriter.Write(params);
+streamWriter.Write(args);
 streamWriter.Flush();
 streamWriter.Close();
 }
@@ -562,45 +562,45 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/Surveys/Update/{SurveyNumber}?key={APIKey}");
 
-string params = "{
-   \"AccountID\": 1,
-    \"SurveyStatusCode\": \"01\",
-    \"SurveyPriority\": 11,
-    \"SurveyNumber\": 12345,
-    \"SurveyName\": \"Example API Survey\",
-    \"CountryLanguageID\": 9,
-    \"IndustryID\": 30,
-    \"StudyTypeID\": 1,
-    \"ClientCPI\": 1,
-    \"QuotaCPI\": 2,
-    \"ClientSurveyLiveURL\": \"http://www.surveyURL.com?rid=[%RID%]\",
-    \"TestRedirectURL\": \"http://www.surveyURL.com?rid=[%RID%]\",
-    \"IsActive\": true,
-    \"Quota\": 100,
-    \"FulcrumExchangeAllocation\": 0,
-    \"FulcrumExchangeHedgeAccess\": true,
-    \"IsVerifyCallBack\": true,
-    \"UniquePID\": true,
-    \"UniqueIPAddress\": true,
-    \"IsRelevantID\": false,
-    \"IsDedupe\": false,
-    \"IsGeoIP\": false,
-    \"IsFraudProfile\": false,
-    \"FraudProfileThreshold\": 0,
-    \"IsTrueSample\": false,
-    \"QuotaCalculationTypeID\": 1,
-    \"SurveyPlatformID\": 2,
-    \"BidLengthOfInterview\": 10,
-    \"BusinessUnitID\": 9,
-    \"SampleTypeID\": 100
- }";
+string args = @"{
+                    ""AccountID"": 1,
+                    ""SurveyStatusCode"": ""01"",
+                    ""SurveyPriority"": 11,
+                    ""SurveyNumber"": 12345,
+                    ""SurveyName"": ""Example API Survey"",
+                    ""CountryLanguageID"": 9,
+                    ""IndustryID"": 30,
+                    ""StudyTypeID"": 1,
+                    ""ClientCPI"": 1,
+                    ""QuotaCPI"": 2,
+                    ""ClientSurveyLiveURL"": ""http://www.surveyURL.com?rid=[%RID%]"",
+                    ""TestRedirectURL"": ""http://www.surveyURL.com?rid=[%RID%]"",
+                    ""IsActive"": true,
+                    ""Quota"": 100,
+                    ""FulcrumExchangeAllocation"": 0,
+                    ""FulcrumExchangeHedgeAccess"": true,
+                    ""IsVerifyCallBack"": true,
+                    ""UniquePID"": true,
+                    ""UniqueIPAddress"": true,
+                    ""IsRelevantID"": false,
+                    ""IsDedupe"": false,
+                    ""IsGeoIP"": false,
+                    ""IsFraudProfile"": false,
+                    ""FraudProfileThreshold"": 0,
+                    ""IsTrueSample"": false,
+                    ""QuotaCalculationTypeID"": 1,
+                    ""SurveyPlatformID"": 2,
+                    ""BidLengthOfInterview"": 10,
+                    ""BusinessUnitID"": 9,
+                    ""SampleTypeID"": 100
+                }";
     
 request.Method = "PUT";
 request.ContentType = "application/json";
 
 using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
 {
-streamWriter.Write(params);
+streamWriter.Write(args);
 streamWriter.Flush();
 streamWriter.Close();
 }

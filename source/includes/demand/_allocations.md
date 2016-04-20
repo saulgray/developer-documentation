@@ -172,14 +172,20 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SupplierAllocations/Create/{SurveyNumber}?key={APIKey}");
 
-string params = "{\"SupplierCode\": \"1010\", \"AllocationPercentage\": 0.1, \"TCPI\": 2, \"HedgeAccess\": true, \"BlockRouterTraffic\": false,}";
+string args = @"{
+                   ""SupplierCode"": ""1010"",
+                   ""AllocationPercentage"": 0.1,
+                   ""TCPI"": 2,
+                   ""HedgeAccess"": true,
+                   ""BlockRouterTraffic"": false
+                 }";
     
 request.Method = "POST";
 request.ContentType = "application/json";
 
 using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
 {
-streamWriter.Write(params);
+streamWriter.Write(args);
 streamWriter.Flush();
 streamWriter.Close();
 }
@@ -342,14 +348,20 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SupplierAllocations/Update/{SurveyNumber}?key={APIKey}");
 
-string params = "{\"SupplierCode\": \"1010\", \"AllocationPercentage\": 0.1, \"TCPI\": 2, \"HedgeAccess\": true, \"BlockRouterTraffic\": false,}";
+string args = @"{
+                   ""SupplierCode"": ""1010"",
+                   ""AllocationPercentage"": 0.1,
+                   ""TCPI"": 2,
+                   ""HedgeAccess"": true,
+                   ""BlockRouterTraffic"": false
+                 }";
     
 request.Method = "PUT";
 request.ContentType = "application/json";
 
 using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
 {
-streamWriter.Write(params);
+streamWriter.Write(args);
 streamWriter.Flush();
 streamWriter.Close();
 }
