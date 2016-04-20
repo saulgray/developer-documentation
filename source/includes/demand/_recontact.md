@@ -168,14 +168,17 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}");
 
-string params = "{\"PID\": \"0001110\", \"IsActive\": true}";
+string args = @"{
+                   ""PID"": ""0001110"",
+                   ""IsActive"": true
+                }";
 
 request.Method = "PUT";
 request.ContentType = "application/json";
 
 using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
 {
-streamWriter.Write(params);
+streamWriter.Write(args);
 streamWriter.Flush();
 streamWriter.Close();
 }

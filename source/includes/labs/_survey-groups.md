@@ -112,7 +112,11 @@ String username = "{username}";
 String password = "{password}";
 String encoded = System.Convert.ToBase64String(System.Text.Encoding.GetEncoding("ISO-8859-1").GetBytes(username + ":" + password));
 
-string parameters = "{\"description\": \"MegaCorp Tracker\",\"name\": \"Project 999\",\"surveys\": [123,48452]}";
+string args = @"{
+                  ""description"": ""MegaCorp Tracker"",
+                  ""name"": ""Project 999"",
+                  ""surveys"": [123,48452]
+                }";
 	
 request.Method = "POST";
 request.ContentType = "application/json";
@@ -120,7 +124,7 @@ request.Headers.Add("Authorization", "Basic " + encoded);
 
 using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
 {
-streamWriter.Write(parameters);
+streamWriter.Write(args);
 streamWriter.Flush();
 streamWriter.Close();
 }
@@ -294,7 +298,7 @@ String username = "{username}";
 String password = "{password}";
 String encoded = System.Convert.ToBase64String(System.Text.Encoding.GetEncoding("ISO-8859-1").GetBytes(username + ":" + password));
 
-string parameters = "{\"surveys\": [554784,982545]}";
+string args = @"{""surveys"": [554784,982545]}";
 	
 request.Method = "POST";
 request.ContentType = "application/json";
@@ -302,7 +306,7 @@ request.Headers.Add("Authorization", "Basic " + encoded);
 
 using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
 {
-streamWriter.Write(parameters);
+streamWriter.Write(args);
 streamWriter.Flush();
 streamWriter.Close();
 }
