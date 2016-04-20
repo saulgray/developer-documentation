@@ -137,7 +137,9 @@ WebResponse allocations = request.GetResponse();
 ```javascript
 const https = require('https');
 
-var allocations = https.get('https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/All/{SupplierCode}?key={APIKey}');
+https.get('https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/All/{SupplierCode}?key={APIKey}', function(res){
+  var allocations = res;
+});
 ```
 
 > Example Response
@@ -242,7 +244,9 @@ WebResponse allocations = request.GetResponse();
 ```javascript
 const https = require('https');
 
-var allocations = https.get('https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}');
+https.get('https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}', function(res){
+  var allocations = res;
+});
 ```
 
 > Example Response
@@ -364,7 +368,9 @@ WebResponse allocations = request.GetResponse();
 ```javascript
 const https = require('https');
 
-var allocations = https.get('https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/ByDate/{Date}/{SupplierCode}?key={APIKey}');
+https.get('https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/ByDate/{Date}/{SupplierCode}?key={APIKey}', function(res){
+  var allocations = res;
+});
 ```
 
 > Example Response

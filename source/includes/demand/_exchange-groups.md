@@ -816,7 +816,9 @@ WebResponse group = request.GetResponse();
 ```javascript
 const https = require('https');
 
-var group = https.get('https://api.samplicio.us/Demand/v1/SupplierGroups/BySurveyNumber/{SurveyNumber}?key={APIKey}');
+https.get('https://api.samplicio.us/Demand/v1/SupplierGroups/BySurveyNumber/{SurveyNumber}?key={APIKey}', function(res){
+  var group = res;
+});
 ```
 > Example Response
 

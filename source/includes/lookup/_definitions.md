@@ -48,7 +48,9 @@ WebResponse globalDefinitions = request.GetResponse();
 ```javascript
 const https = require('https');
 
-var globalDefinitions = https.get('https://api.samplicio.us/Lookup/v1/BasicLookups/BundledLookups/CountryLanguages,Industries,SampleTypes,StudyTypes,SupplierLinkTypes,SurveyStatuses?key={APIKey}');
+https.get('https://api.samplicio.us/Lookup/v1/BasicLookups/BundledLookups/CountryLanguages,Industries,SampleTypes,StudyTypes,SupplierLinkTypes,SurveyStatuses?key={APIKey}', function(res){
+  var globalDefinitions = res;
+});
 ```
 
 > Example Response
@@ -216,7 +218,9 @@ WebResponse suppliers = request.GetResponse();
 ```javascript
 const https = require('https');
 
-var suppliers = https.get('https://api.samplicio.us/Core/v1/Suppliers/AllWithAccount?key={APIKey}');
+https.get('https://api.samplicio.us/Core/v1/Suppliers/AllWithAccount?key={APIKey}', function(res){
+  var suppliers = res;
+});
 ```
 
 > Example Response
@@ -311,7 +315,9 @@ WebResponse businessUnits = request.GetResponse();
 ```javascript
 const https = require('https');
 
-var businessUnits = https.get('https://api.samplicio.us/Core/v1/BusinessUnits/All?key={APIKey}');
+https.get('https://api.samplicio.us/Core/v1/BusinessUnits/All?key={APIKey}', function(res){
+  var businessUnits = res;
+});
 ```
 
 > Example Response
