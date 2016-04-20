@@ -51,7 +51,9 @@ WebResponse groups = request.GetResponse();
 ```javascript
 const https = require('https');
 
-var groups = https.get('https://api.samplicio.us/Supply/v1/Surveys/SurveyGroups/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}');
+https.get('https://api.samplicio.us/Supply/v1/Surveys/SurveyGroups/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}', function(res){
+  var groups = res;
+});
 ```
 
 > Example Response

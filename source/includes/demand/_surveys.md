@@ -202,44 +202,44 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/Surveys/Create?key={APIKey}");
 
-string params = "{
-   \"AccountID\": 1,
-    \"SurveyStatusCode\": \"01\",
-    \"SurveyPriority\": 11,
-    \"SurveyName\": \"Example API Survey\",
-    \"CountryLanguageID\": 9,
-    \"IndustryID\": 30,
-    \"StudyTypeID\": 1,
-    \"ClientCPI\": 1,
-    \"QuotaCPI\": 2,
-    \"ClientSurveyLiveURL\": \"http://www.surveyURL.com?rid=[%RID%]\",
-    \"TestRedirectURL\": \"http://www.surveyURL.com?rid=[%RID%]\",
-    \"IsActive\": true,
-    \"Quota\": 1000,
-    \"FulcrumExchangeAllocation\": 0,
-    \"FulcrumExchangeHedgeAccess\": true,
-    \"IsVerifyCallBack\": true,
-    \"UniquePID\": true,
-    \"UniqueIPAddress\": true,
-    \"IsRelevantID\": false,
-    \"IsDedupe\": false,
-    \"IsGeoIP\": false,
-    \"IsFraudProfile\": false,
-    \"FraudProfileThreshold\": 0,
-    \"IsTrueSample\": false,
-    \"QuotaCalculationTypeID\": 1,
-    \"SurveyPlatformID\": 2,
-    \"BidLengthOfInterview\": 10,
-    \"BusinessUnitID\": 9,
-    \"SampleTypeID\": 100
- }";
+string args = @"{
+                    ""AccountID"": 1,
+                    ""SurveyStatusCode"": ""01"",
+                    ""SurveyPriority"": 11,
+                    ""SurveyName"": ""Example API Survey"",
+                    ""CountryLanguageID"": 9,
+                    ""IndustryID"": 30,
+                    ""StudyTypeID"": 1,
+                    ""ClientCPI"": 1,
+                    ""QuotaCPI"": 2,
+                    ""ClientSurveyLiveURL"": ""http://www.surveyURL.com?rid=[%RID%]"",
+                    ""TestRedirectURL"": ""http://www.surveyURL.com?rid=[%RID%]"",
+                    ""IsActive"": true,
+                    ""Quota"": 1000,
+                    ""FulcrumExchangeAllocation"": 0,
+                    ""FulcrumExchangeHedgeAccess"": true,
+                    ""IsVerifyCallBack"": true,
+                    ""UniquePID"": true,
+                    ""UniqueIPAddress"": true,
+                    ""IsRelevantID"": false,
+                    ""IsDedupe"": false,
+                    ""IsGeoIP"": false,
+                    ""IsFraudProfile"": false,
+                    ""FraudProfileThreshold"": 0,
+                    ""IsTrueSample"": false,
+                    ""QuotaCalculationTypeID"": 1,
+                    ""SurveyPlatformID"": 2,
+                    ""BidLengthOfInterview"": 10,
+                    ""BusinessUnitID"": 9,
+                    ""SampleTypeID"": 100
+                }";
     
 request.Method = "POST";
 request.ContentType = "application/json";
 
 using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
 {
-streamWriter.Write(params);
+streamWriter.Write(args);
 streamWriter.Flush();
 streamWriter.Close();
 }
@@ -562,45 +562,45 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/Surveys/Update/{SurveyNumber}?key={APIKey}");
 
-string params = "{
-   \"AccountID\": 1,
-    \"SurveyStatusCode\": \"01\",
-    \"SurveyPriority\": 11,
-    \"SurveyNumber\": 12345,
-    \"SurveyName\": \"Example API Survey\",
-    \"CountryLanguageID\": 9,
-    \"IndustryID\": 30,
-    \"StudyTypeID\": 1,
-    \"ClientCPI\": 1,
-    \"QuotaCPI\": 2,
-    \"ClientSurveyLiveURL\": \"http://www.surveyURL.com?rid=[%RID%]\",
-    \"TestRedirectURL\": \"http://www.surveyURL.com?rid=[%RID%]\",
-    \"IsActive\": true,
-    \"Quota\": 100,
-    \"FulcrumExchangeAllocation\": 0,
-    \"FulcrumExchangeHedgeAccess\": true,
-    \"IsVerifyCallBack\": true,
-    \"UniquePID\": true,
-    \"UniqueIPAddress\": true,
-    \"IsRelevantID\": false,
-    \"IsDedupe\": false,
-    \"IsGeoIP\": false,
-    \"IsFraudProfile\": false,
-    \"FraudProfileThreshold\": 0,
-    \"IsTrueSample\": false,
-    \"QuotaCalculationTypeID\": 1,
-    \"SurveyPlatformID\": 2,
-    \"BidLengthOfInterview\": 10,
-    \"BusinessUnitID\": 9,
-    \"SampleTypeID\": 100
- }";
+string args = @"{
+                    ""AccountID"": 1,
+                    ""SurveyStatusCode"": ""01"",
+                    ""SurveyPriority"": 11,
+                    ""SurveyNumber"": 12345,
+                    ""SurveyName"": ""Example API Survey"",
+                    ""CountryLanguageID"": 9,
+                    ""IndustryID"": 30,
+                    ""StudyTypeID"": 1,
+                    ""ClientCPI"": 1,
+                    ""QuotaCPI"": 2,
+                    ""ClientSurveyLiveURL"": ""http://www.surveyURL.com?rid=[%RID%]"",
+                    ""TestRedirectURL"": ""http://www.surveyURL.com?rid=[%RID%]"",
+                    ""IsActive"": true,
+                    ""Quota"": 100,
+                    ""FulcrumExchangeAllocation"": 0,
+                    ""FulcrumExchangeHedgeAccess"": true,
+                    ""IsVerifyCallBack"": true,
+                    ""UniquePID"": true,
+                    ""UniqueIPAddress"": true,
+                    ""IsRelevantID"": false,
+                    ""IsDedupe"": false,
+                    ""IsGeoIP"": false,
+                    ""IsFraudProfile"": false,
+                    ""FraudProfileThreshold"": 0,
+                    ""IsTrueSample"": false,
+                    ""QuotaCalculationTypeID"": 1,
+                    ""SurveyPlatformID"": 2,
+                    ""BidLengthOfInterview"": 10,
+                    ""BusinessUnitID"": 9,
+                    ""SampleTypeID"": 100
+                }";
     
 request.Method = "PUT";
 request.ContentType = "application/json";
 
 using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
 {
-streamWriter.Write(params);
+streamWriter.Write(args);
 streamWriter.Flush();
 streamWriter.Close();
 }
@@ -806,7 +806,9 @@ WebResponse survey = request.GetResponse();
 ```javascript
 const https = require('https');
 
-var survey = https.get('https://api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/{SurveyNumber}?key={APIKey}');
+https.get('https://api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/{SurveyNumber}?key={APIKey}', function(res){
+  var survey = res;
+});
 ```
 
 > Example Response
@@ -875,19 +877,19 @@ Returns the details of a specific Fulcrum survey.
 > Definition
 
 ```plaintext
-GET  https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyNStatus}?key={APIKey}
+GET  https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyStatus}?key={APIKey}
 ```
 
 > Example Request
 
 ```shell
-curl https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyNStatus}?key={APIKey}
+curl https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyStatus}?key={APIKey}
 ```
 
 ```ruby
 require 'net/http'
 
-uri = URI('https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyNStatus}?key={APIKey}')
+uri = URI('https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyStatus}?key={APIKey}')
 
 http = Net::HTTP.new(uri.host, uri.port)
 
@@ -900,20 +902,20 @@ surveyQuotas = http.request(request)
 
 ```php
 <?php
-$surveyQuotas = file_get_contents('https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyNStatus}?key={APIKey}');
+$surveyQuotas = file_get_contents('https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyStatus}?key={APIKey}');
 ?>
 ```
 
 ```python
 import requests
 
-surveyQuotas = requests.get('https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyNStatus}?key={APIKey}')
+surveyQuotas = requests.get('https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyStatus}?key={APIKey}')
 ```
 
 ```csharp
 using System.Net;
 
-WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyNStatus}?key={APIKey}");
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyStatus}?key={APIKey}");
 
 WebResponse surveyQuotas = request.GetResponse();
 ```
@@ -921,7 +923,9 @@ WebResponse surveyQuotas = request.GetResponse();
 ```javascript
 const https = require('https');
 
-var surveyQuotas = https.get('https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyNStatus}?key={APIKey}');
+https.get('https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyStatus}?key={APIKey}', function(res){
+  var surveyQuotas = res;
+});
 ```
 
 > Example Response

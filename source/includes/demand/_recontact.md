@@ -51,7 +51,9 @@ WebResponse qualifiedRespondents = request.GetResponse();
 ```javascript
 const https = require('https');
 
-var qualifiedRespondents = https.get('https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/BySurveyNumberSupplierCode/{SurveyNumber}/{SupplierCode}?key={APIKey}');
+https.get('https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/BySurveyNumberSupplierCode/{SurveyNumber}/{SupplierCode}?key={APIKey}', function(res){
+  var qualifiedRespondents = res;
+});
 ```
 
 > Example Response
@@ -166,14 +168,17 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}");
 
-string params = "{\"PID\": \"0001110\", \"IsActive\": true}";
+string args = @"{
+                   ""PID"": ""0001110"",
+                   ""IsActive"": true
+                }";
 
 request.Method = "PUT";
 request.ContentType = "application/json";
 
 using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
 {
-streamWriter.Write(params);
+streamWriter.Write(args);
 streamWriter.Flush();
 streamWriter.Close();
 }
