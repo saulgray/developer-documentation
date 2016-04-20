@@ -202,7 +202,7 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/Surveys/Create?key={APIKey}");
 
-string params = "{
+string args = "{
    \"AccountID\": 1,
     \"SurveyStatusCode\": \"01\",
     \"SurveyPriority\": 11,
@@ -239,7 +239,7 @@ request.ContentType = "application/json";
 
 using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
 {
-streamWriter.Write(params);
+streamWriter.Write(args);
 streamWriter.Flush();
 streamWriter.Close();
 }
@@ -562,7 +562,7 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/Surveys/Update/{SurveyNumber}?key={APIKey}");
 
-string params = "{
+string args = "{
    \"AccountID\": 1,
     \"SurveyStatusCode\": \"01\",
     \"SurveyPriority\": 11,
@@ -600,7 +600,7 @@ request.ContentType = "application/json";
 
 using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
 {
-streamWriter.Write(params);
+streamWriter.Write(args);
 streamWriter.Flush();
 streamWriter.Close();
 }
