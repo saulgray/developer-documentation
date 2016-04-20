@@ -51,7 +51,9 @@ WebResponse marketingInfo = request.GetResponse();
 ```javascript
 const https = require('https');
 
-var marketingInfo = https.get('https://api.samplicio.us/Supply/v1/Surveys/MarketingInformation/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}');
+https.get('https://api.samplicio.us/Supply/v1/Surveys/MarketingInformation/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}', function(res){
+  var marketingInfo = res;
+});
 ```
 
 > Example Response

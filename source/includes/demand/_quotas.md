@@ -457,7 +457,9 @@ WebResponse quotas = request.GetResponse();
 ```javascript
 const https = require('https');
 
-var quotas = https.get('https://api.samplicio.us/Demand/v1/SurveyQuotas/BySurveyNumber/{SurveyNumber}}?key={APIKey}');
+https.get('https://api.samplicio.us/Demand/v1/SurveyQuotas/BySurveyNumber/{SurveyNumber}}?key={APIKey}', function(res){
+  var quotas = res;
+});
 ```
 
 > Example Response

@@ -86,7 +86,9 @@ WebResponse surveyQuotas = request.GetResponse();
 ```javascript
 const https = require('https');
 
-var surveyQuotas = https.get('https://api.samplicio.us/Supply/v1/SurveyQuotas/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}');
+https.get('https://api.samplicio.us/Supply/v1/SurveyQuotas/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}', function(res){
+  var surveyQuotas = res;
+});
 ```
 
 > Example Response

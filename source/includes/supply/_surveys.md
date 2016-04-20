@@ -82,7 +82,9 @@ WebResponse surveys = request.GetResponse();
 ```javascript
 const https = require('https');
 
-var surveys = https.get('https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}');
+https.get('https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}', function(res){
+  var surveys = res;
+});
 ```
 
 > Example Response

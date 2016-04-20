@@ -26,31 +26,33 @@ http.use_ssl = true
 
 request = Net::HTTP::Get.new(uri.request_uri)
 
-StatisticsBySurvey = http.request(request) 
+statisticsBySurvey = http.request(request) 
 ```
 
 ```php
 <?php
-$StatisticsBySurvey = file_get_contents('https://api.samplicio.us/Supply/v1/SurveyStatistics/BySurveyNumber/{SurveyNumber}/{SupplierCode}/{Scope}/{Timespan}?key={APIKey}');
+$statisticsBySurvey = file_get_contents('https://api.samplicio.us/Supply/v1/SurveyStatistics/BySurveyNumber/{SurveyNumber}/{SupplierCode}/{Scope}/{Timespan}?key={APIKey}');
 ?>
 ```
 
 ```python
 import requests
 
-StatisticsBySurvey = requests.get('https://api.samplicio.us/Supply/v1/SurveyStatistics/BySurveyNumber/{SurveyNumber}/{SupplierCode}/{Scope}/{Timespan}?key={APIKey}')
+statisticsBySurvey = requests.get('https://api.samplicio.us/Supply/v1/SurveyStatistics/BySurveyNumber/{SurveyNumber}/{SupplierCode}/{Scope}/{Timespan}?key={APIKey}')
 ```
 ```csharp
 using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Supply/v1/SurveyStatistics/BySurveyNumber/{SurveyNumber}/{SupplierCode}/{Scope}/{Timespan}?key={APIKey}");
 
-WebResponse StatisticsBySurvey = request.GetResponse();
+WebResponse statisticsBySurvey = request.GetResponse();
 ```
 ```javascript
 const https = require('https');
 
-var StatisticsBySurvey = https.get('https://api.samplicio.us/Supply/v1/SurveyStatistics/BySurveyNumber/{SurveyNumber}/{SupplierCode}/{Scope}/{Timespan}?key={APIKey}');
+https.get('https://api.samplicio.us/Supply/v1/SurveyStatistics/BySurveyNumber/{SurveyNumber}/{SupplierCode}/{Scope}/{Timespan}?key={APIKey}', function(res){
+  var statisticsBySurvey = res;
+});
 ```
 
 > Example Response
@@ -113,31 +115,33 @@ http.use_ssl = true
 
 request = Net::HTTP::Get.new(uri.request_uri)
 
-StatisticsAll = http.request(request) 
+statisticsAll = http.request(request) 
 ```
 
 ```php
 <?php
-$StatisticsAll = file_get_contents('https://api.samplicio.us/Supply/v1/SurveyStatistics/All/{SupplierCode}/{Scope}/{Timespan}?key={APIKey}');
+$statisticsAll = file_get_contents('https://api.samplicio.us/Supply/v1/SurveyStatistics/All/{SupplierCode}/{Scope}/{Timespan}?key={APIKey}');
 ?>
 ```
 
 ```python
 import requests
 
-StatisticsAll = requests.get('https://api.samplicio.us/Supply/v1/SurveyStatistics/All/{SupplierCode}/{Scope}/{Timespan}?key={APIKey}')
+statisticsAll = requests.get('https://api.samplicio.us/Supply/v1/SurveyStatistics/All/{SupplierCode}/{Scope}/{Timespan}?key={APIKey}')
 ```
 ```csharp
 using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Supply/v1/SurveyStatistics/All/{SupplierCode}/{Scope}/{Timespan}?key={APIKey}");
 
-WebResponse StatisticsAll = request.GetResponse();
+WebResponse statisticsAll = request.GetResponse();
 ```
 ```javascript
 const https = require('https');
 
-var StatisticsAll = https.get('https://api.samplicio.us/Supply/v1/SurveyStatistics/All/{SupplierCode}/{Scope}/{Timespan}?key={APIKey}');
+https.get('https://api.samplicio.us/Supply/v1/SurveyStatistics/All/{SupplierCode}/{Scope}/{Timespan}?key={APIKey}', function(res){
+  var statisticsAll = res;
+});
 ```
 
 > Example Response

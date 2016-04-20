@@ -51,7 +51,9 @@ WebResponse qualifiedRespondents = request.GetResponse();
 ```javascript
 const https = require('https');
 
-var qualifiedRespondents = https.get('https://api.samplicio.us/Supply/v1/SurveyQualifiedRespondents/BySurveyNumberSupplierCode/{SurveyNumber}/{SupplierCode}?key={APIKey}');
+https.get('https://api.samplicio.us/Supply/v1/SurveyQualifiedRespondents/BySurveyNumberSupplierCode/{SurveyNumber}/{SupplierCode}?key={APIKey}', function(res){
+  var qualifiedRespondents = res;
+});
 ```
 
 > Example Response
