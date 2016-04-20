@@ -72,7 +72,15 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SupplierGroups/CreateWithSuppliers/{SurveyNumber}?key={APIKey}");
 
-string args = "{\"SurveyNumber\": 101100, \"Name\":\"Top Supplier Group\", \"AllocationPercentage\": 0.10, \"IsHedgeAccess\": true, \"Suppliers\": [{\"SupplierCode\":\"1010\"}]}";
+string args = @"{
+                 ""SurveyNumber"": 101100,
+                 ""Name"":""Top Supplier Group"",
+                 ""AllocationPercentage"": 0.10,
+                 ""IsHedgeAccess"": true,
+                 ""Suppliers"": [{
+                                  ""SupplierCode"":""1010""
+                                }]
+                }";
 
 request.Method = "POST";
 request.ContentType = "application/json";
@@ -248,7 +256,12 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SupplierGroups/Create/{SurveyNumber}?key={APIKey}");
 
-string args = "{\"SurveyNumber\": 101100, \"Name\":\"Top Supplier Group\", \"AllocationPercentage\": 0.10, \"IsHedgeAccess\": true}]}";
+string args = @"{
+                 ""SurveyNumber"": 101100,
+                 ""Name"":""Top Supplier Group"",
+                 ""AllocationPercentage"": 0.10,
+                 ""IsHedgeAccess"": true
+                }";
 
 request.Method = "POST";
 request.ContentType = "application/json";
@@ -413,7 +426,13 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SupplierGroups/Update/{SurveyNumber}?key={APIKey}");
 
-string args = "{\"ID\": 1234,\"SurveyNumber\": 101100, \"Name\":\"Top Supplier Group\", \"AllocationPercentage\": 0.10, \"IsHedgeAccess\": true}]}";
+string args = @"{
+                 ""ID"": 1234,
+                 ""SurveyNumber"": 101100,
+                 ""Name"":""Top Supplier Group"",
+                 ""AllocationPercentage"": 0.10,
+                 ""IsHedgeAccess"": true
+                }";
 
 request.Method = "PUT";
 request.ContentType = "application/json";
@@ -674,7 +693,7 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SupplierGroups/Update/{SurveyNumber}?key={APIKey}");
 
-string args = "{\"SupplierCode\": 1010}]}";
+string args = @"{""SupplierCode"": 1010}";
 
 request.Method = "POST";
 request.ContentType = "application/json";
@@ -961,7 +980,7 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SupplierGroups/RemoveSuppliersFromGroup/{SurveyNumber}?key={APIKey}");
 
-string args = "{\"SupplierCode\": 1010}";
+string args = @"{""SupplierCode"": 1010}";
 
 request.Method = "PUT";
 request.ContentType = "application/json";

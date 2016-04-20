@@ -82,7 +82,41 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/Feasibility/Time?key={APIkey}");
 
-string args = "{\"CountryLanguageID\": 9, \"LengthOfInterview\": 5, \"Incidence\": 100, \"Quotas\": [{\"CompletesPerDay\": [1000], \"Conditions\": [{\"QuestionID\": 42, \"PreCodes\": [\"18\", \"19\", \"20\", \"21\", \"22\", \"23\", \"24\", \"25\", \"26\", \"27\", \"28\", \"29\"]}, {\"QuestionID\": 43, \"PreCodes\": [\"1\"] } ] }, {\"CompletesPerDay\": [1250], \"Conditions\": [{\"QuestionID\": 42, \"PreCodes\": [\"18\", \"19\", \"20\", \"21\", \"22\", \"23\", \"24\", \"25\", \"26\", \"27\", \"28\", \"29\"]}, {\"QuestionID\": 43, \"PreCodes\": [\"2\"] } ] }] }";
+string args = @"{
+                 ""CountryLanguageID"": 9,
+                 ""LengthOfInterview"": 5,
+                 ""Incidence"": 100,
+                 ""Quotas"": [
+                                {
+                                  ""CompletesPerDay"": [1000], 
+                                  ""Conditions"": 
+                                  [
+                                    {
+                                      ""QuestionID"": 42, 
+                                      ""PreCodes"": [""18"", ""19"", ""20"", ""21"", ""22"", ""23"", ""24"", ""25"", ""26"", ""27"", ""28"", ""29""]
+                                    }, 
+                                    {
+                                      ""QuestionID"": 43, 
+                                      ""PreCodes"": [""1""] 
+                                    } 
+                                  ]
+                                }, 
+                                {
+                                  ""CompletesPerDay"": [1250], 
+                                  ""Conditions"": 
+                                  [
+                                    {
+                                      ""QuestionID"": 42, 
+                                      ""PreCodes"": [""18"", ""19"", ""20"", ""21"", ""22"", ""23"", ""24"", ""25"", ""26"", ""27"", ""28"", ""29""]
+                                    }, 
+                                    {
+                                      ""QuestionID"": 43, 
+                                      ""PreCodes"": [""2""] 
+                                    } 
+                                  ] 
+                                }
+                              ] 
+                }";
     
 request.Method = "POST";
 request.ContentType = "application/json";
@@ -297,7 +331,26 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/Feasibility/Price?key={APIkey}");
 
-string args = "{\"CountryLanguageID\": 9, \"LengthOfInterview\": 5, \"Incidence\": 100, \"Quotas\": [{\"CompletesPerDay\": [1000, 1500], \"Conditions\": [{\"QuestionID\": 42, \"PreCodes\": [\"18\", \"19\", \"20\", \"21\", \"22\", \"23\", \"24\", \"25\", \"26\", \"27\", \"28\", \"29\"]}, {\"QuestionID\": 43, \"PreCodes\": [\"1\"] } ] }, ] }";
+string args = @"{
+                 ""CountryLanguageID"": 9,
+                 ""LengthOfInterview"": 5,
+                 ""Incidence"": 100,
+                 ""Quotas"": [
+                                {""CompletesPerDay"": [1000, 1500], 
+                                  ""Conditions"": 
+                                  [
+                                    {
+                                      ""QuestionID"": 42, 
+                                      ""PreCodes"": [""18"", ""19"", ""20"", ""21"", ""22"", ""23"", ""24"", ""25"", ""26"", ""27"", ""28"", ""29""]
+                                    }, 
+                                    {
+                                      ""QuestionID"": 43, 
+                                      ""PreCodes"": [""1""] 
+                                    } 
+                                  ]
+                                }, 
+                              ] 
+                }";
     
 request.Method = "POST";
 request.ContentType = "application/json";
@@ -503,7 +556,26 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/Feasibility/NumberOfRespondents?key={APIkey}");
 
-string args = "{\"CountryLanguageID\": 9, \"LengthOfInterview\": 1, \"Incidence\": 100, \"Price\": 5, \"Quotas\": [{\"Conditions\": [{\"QuestionID\": 42, \"PreCodes\": [\"18\", \"19\", \"20\", \"21\", \"22\", \"23\", \"24\", \"25\", \"26\", \"27\", \"28\", \"29\"]}, {\"QuestionID\": 43, \"PreCodes\": [\"1\"]}]}]}";
+string args = @"{
+                 ""CountryLanguageID"": 9,
+                 ""LengthOfInterview"": 1,
+                 ""Incidence"": 100,
+                 ""Price"": 5,
+                 ""Quotas"": [
+                                {""Conditions"": 
+                                  [
+                                    {
+                                      ""QuestionID"": 42, 
+                                      ""PreCodes"": [""18"", ""19"", ""20"", ""21"", ""22"", ""23"", ""24"", ""25"", ""26"", ""27"", ""28"", ""29""]
+                                    }, 
+                                    {
+                                      ""QuestionID"": 43, 
+                                      ""PreCodes"": [""1""] 
+                                    } 
+                                  ]
+                                }, 
+                              ] 
+                }";
     
 request.Method = "POST";
 request.ContentType = "application/json";

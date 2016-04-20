@@ -96,9 +96,9 @@ using System.Net;
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Supply/v1/SupplierLinks/Create/{SurveyNumber}/{SupplierCode}?key={APIKey}");
 
 string args = @"{
-""SupplierLinkTypeCode"":""OWS"",
-""TrackingTypeCode"":""NONE""
-}";
+                  ""SupplierLinkTypeCode"":""OWS"",
+                  ""TrackingTypeCode"":""NONE""
+                }";
     
 request.Method = "POST";
 request.ContentType = "application/json";
@@ -264,7 +264,15 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Supply/v1/SupplierLinks/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}");
 
-string args = "{\"SupplierLinkTypeCode\":\"OWS\","+"\"TrackingTypeCode\":\"NONE\","+"\"DefaultLink\":\"\","+"\"SuccessLink\":\"\","+"\"FailureLink\":\"\","+"\"OverQuotaLink\":\"\","+"\"QualityTerminationLink\":\"\"}";
+string args = @"{
+                  ""SupplierLinkTypeCode"":""OWS"",
+                  ""TrackingTypeCode"":""NONE"",
+                  ""DefaultLink"":"""",
+                  ""SuccessLink"":"""",
+                  ""FailureLink"":"""",
+                  ""OverQuotaLink"":"""",
+                  ""QualityTerminationLink"":""""
+                }";
     
 request.Method = "PUT";
 request.ContentType = "application/json";

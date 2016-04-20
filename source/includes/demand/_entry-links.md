@@ -111,7 +111,10 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SupplierAllocations/Targets/Create/{SurveyNumber}/{SupplierCode}?key={APIKey}");
 
-string args = "{\"SupplierLinkTypeCode\":\"TS\","+"\"TrackingTypeCode\":\"NONE\"}";
+string args = @"{
+                  ""SupplierLinkTypeCode"":""TS"",
+                  ""TrackingTypeCode"":""NONE""
+                }";
     
 request.Method = "POST";
 request.ContentType = "application/json";
@@ -290,7 +293,15 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SupplierAllocations/Targets/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}");
 
-string args = "{\"SupplierLinkTypeCode\":\"TS\","+"\"TrackingTypeCode\":\"NONE\","+"\"DefaultLink\":\"\","+"\"SuccessLink\":\"\","+"\"FailureLink\":\"\","+"\"OverQuotaLink\":\"\","+"\"QualityTerminationLink\":\"\"}";
+string args = @"{
+                  ""SupplierLinkTypeCode"":""TS"",
+                  ""TrackingTypeCode"":""NONE"",
+                  ""DefaultLink"":"""",
+                  ""SuccessLink"":"""",
+                  ""FailureLink"":"""",
+                  ""OverQuotaLink"":"""",
+                  ""QualityTerminationLink"":""""
+                }";
     
 request.Method = "PUT";
 request.ContentType = "application/json";
