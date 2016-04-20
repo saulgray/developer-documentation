@@ -2,7 +2,7 @@
 
 Recontacts allow buyers to collect a follow-up impression on a respondent they have already interacted with or already have knowledge of.
 
-#### Qualifications Model
+#### SurveyQualifiedRespondents Model
 
 | Property | Type   | Description                                                 |
 |----------|--------|-------------------------------------------------------------|
