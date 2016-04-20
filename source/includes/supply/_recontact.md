@@ -1,5 +1,14 @@
 ##Recontact
 
+Recontacts allow buyers to collect a follow-up impression on a respondent they have already interacted with or already have knowledge of.
+
+#### SurveyQualifiedRespondents Model
+
+| Property | Type   | Description                                                 |
+|----------|--------|-------------------------------------------------------------|
+| IsActive | int    | Indicates whether a respondent qualifies for the recontact. |
+| PID      | string | A supplier's unique respondent identifier.                  |
+
 ### GET List Qualified Respondents
 
 > Definition
