@@ -95,14 +95,17 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Supply/v1/SupplierLinks/Create/{SurveyNumber}/{SupplierCode}?key={APIKey}");
 
-string params = "{\"SupplierLinkTypeCode\":\"OWS\","+"\"TrackingTypeCode\":\"NONE\"}";
+string args = @"{
+                  ""SupplierLinkTypeCode"":""OWS"",
+                  ""TrackingTypeCode"":""NONE""
+                }";
     
 request.Method = "POST";
 request.ContentType = "application/json";
 
 using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
 {
-streamWriter.Write(params);
+streamWriter.Write(args);
 streamWriter.Flush();
 streamWriter.Close();
 }
@@ -261,14 +264,22 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Supply/v1/SupplierLinks/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}");
 
-string params = "{\"SupplierLinkTypeCode\":\"OWS\","+"\"TrackingTypeCode\":\"NONE\","+"\"DefaultLink\":\"\","+"\"SuccessLink\":\"\","+"\"FailureLink\":\"\","+"\"OverQuotaLink\":\"\","+"\"QualityTerminationLink\":\"\"}";
+string args = @"{
+                  ""SupplierLinkTypeCode"":""OWS"",
+                  ""TrackingTypeCode"":""NONE"",
+                  ""DefaultLink"":"""",
+                  ""SuccessLink"":"""",
+                  ""FailureLink"":"""",
+                  ""OverQuotaLink"":"""",
+                  ""QualityTerminationLink"":""""
+                }";
     
 request.Method = "PUT";
 request.ContentType = "application/json";
 
 using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
         {
-            streamWriter.Write(params);
+            streamWriter.Write(args);
             streamWriter.Flush();
             streamWriter.Close();
         }
@@ -412,7 +423,9 @@ WebResponse supplierLinks = request.GetResponse();
 ```javascript
 const https = require('https');
 
-var supplierLinks = https.get('https://api.samplicio.us/Supply/v1/SurveyQualifications/BySurveyNumberForOfferwall/{SurveyNumber}?key={APIKey}');
+https.get('https://api.samplicio.us/Supply/v1/SurveyQualifications/BySurveyNumberForOfferwall/{SurveyNumber}?key={APIKey}', function(res){
+  var supplierLinks = res;
+});
 ```
 
 > Example Response

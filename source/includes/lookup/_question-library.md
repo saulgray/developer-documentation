@@ -48,7 +48,9 @@ WebResponse standardQs = request.GetResponse();
 ```javascript
 const https = require('https');
 
-var standardQs = https.get('https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllQuestions/{CountryLanguageID}?key={APIKey}');
+https.get('https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllQuestions/{CountryLanguageID}?key={APIKey}', function(res){
+  var standardQs = res;
+});
 ```
 
 > Example Response
@@ -137,7 +139,9 @@ WebResponse customQs = request.GetResponse();
 ```javascript
 const https = require('https');
 
-var customQs = https.get('https://api.samplicio.us/QuestionLibrary/AllCustomQuestionsByAccount/{CountryLanguageID}?key={APIKey}');
+https.get('https://api.samplicio.us/QuestionLibrary/AllCustomQuestionsByAccount/{CountryLanguageID}?key={APIKey}', function(res){
+  var customQs = res;
+});
 ```
 
 > Example Response
@@ -231,7 +235,9 @@ WebResponse questionText = request.GetResponse();
 ```javascript
 const https = require('https');
 
-var questionText = https.get('https://api.samplicio.us/Lookup/v1/QuestionLibrary/QuestionById/{CountryLanguageID}/{QuestionID}?key={APIKey}');
+https.get('https://api.samplicio.us/Lookup/v1/QuestionLibrary/QuestionById/{CountryLanguageID}/{QuestionID}?key={APIKey}', function(res){
+  var questionText = res;
+});
 ```
 
 > Example Response
@@ -324,7 +330,9 @@ WebResponse questionOptions = request.GetResponse();
 ```javascript
 const https = require('https');
 
-var questionOptions = https.get('https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllQuestionOptions/{CountryLanguageID}/{QuestionID}?key={APIKey}');
+https.get('https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllQuestionOptions/{CountryLanguageID}/{QuestionID}?key={APIKey}', function(res){
+  var questionOptions = res;
+});
 ```
 
 > Example Response

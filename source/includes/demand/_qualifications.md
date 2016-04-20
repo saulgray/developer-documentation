@@ -120,24 +120,22 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SurveyQualifications/Create/{SurveyNumber}?key={APIKey}");
 
-string params = "{
-	\"Name\": \"STANDARD_RELATIONSHIP\",
-	\"QuestionID\": 632,
-	\"LogicalOperator\": \"OR\",
-	\"NumberOfRequiredConditions\": 1,
-	\"IsActive\": true,
-	\"PreCodes\": [
-		\"1\"
-	],
-	\"Order\": 7
-}";
+string args = @"{
+                  ""Name"": ""STANDARD_RELATIONSHIP"",
+                  ""QuestionID"": 632,
+                  ""LogicalOperator"": ""OR"",
+                  ""NumberOfRequiredConditions"": 1,
+                  ""IsActive"": true,
+                  ""PreCodes"": [""1""],
+                  ""Order"": 7
+                }";
     
 request.Method = "POST";
 request.ContentType = "application/json";
 
 using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
 {
-streamWriter.Write(params);
+streamWriter.Write(args);
 streamWriter.Flush();
 streamWriter.Close();
 }
@@ -448,24 +446,22 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SurveyQualifications/Update/{SurveyNumber}?key={APIKey}");
 
-string params = "{
-	\"Name\": \"STANDARD_RELATIONSHIP\",
-	\"QuestionID\": 632,
-	\"LogicalOperator\": \"OR\",
-	\"NumberOfRequiredConditions\": 1,
-	\"IsActive\": true,
-	\"PreCodes\": [
-		\"2\"
-	],
-	\"Order\": 7
-}";
+string args = @"{
+                	""Name"": ""STANDARD_RELATIONSHIP"",
+                	""QuestionID"": 632,
+                	""LogicalOperator"": ""OR"",
+                	""NumberOfRequiredConditions"": 1,
+                	""IsActive"": true,
+                	""PreCodes"": [""2""],
+                	""Order"": 7
+                }";
     
 request.Method = "PUT";
 request.ContentType = "application/json";
 
 using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
 {
-streamWriter.Write(params);
+streamWriter.Write(args);
 streamWriter.Flush();
 streamWriter.Close();
 }
@@ -722,7 +718,9 @@ WebResponse surveyQualifications = request.GetResponse();
 ```javascript
 const https = require('https');
 
-var surveyQualifications = https.get('https://api.samplicio.us/Demand/v1/SurveyQualifications/BySurveyNumber/{SurveyNumber}?key={APIKey}');
+https.get('https://api.samplicio.us/Demand/v1/SurveyQualifications/BySurveyNumber/{SurveyNumber}?key={APIKey}', function(res){
+  var surveyQualifications = res;
+});
 ```
 
 > Example Response
