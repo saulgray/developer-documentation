@@ -248,7 +248,9 @@
 </code></pre>
 <pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'https'</span><span class="p">);</span>
 
-<span class="kd">var</span> <span class="nx">globalDefinitions</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Lookup/v1/BasicLookups/BundledLookups/CountryLanguages,Industries,SampleTypes,StudyTypes,SupplierLinkTypes,SurveyStatuses?key={APIKey}'</span><span class="p">);</span>
+<span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Lookup/v1/BasicLookups/BundledLookups/CountryLanguages,Industries,SampleTypes,StudyTypes,SupplierLinkTypes,SurveyStatuses?key={APIKey}'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">){</span>
+  <span class="kd">var</span> <span class="nx">globalDefinitions</span> <span class="o">=</span> <span class="nx">res</span><span class="p">;</span>
+<span class="p">});</span>
 </code></pre>
 
 <blockquote>
@@ -472,7 +474,9 @@
 </code></pre>
 <pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'https'</span><span class="p">);</span>
 
-<span class="kd">var</span> <span class="nx">suppliers</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Core/v1/Suppliers/AllWithAccount?key={APIKey}'</span><span class="p">);</span>
+<span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Core/v1/Suppliers/AllWithAccount?key={APIKey}'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">){</span>
+  <span class="kd">var</span> <span class="nx">suppliers</span> <span class="o">=</span> <span class="nx">res</span><span class="p">;</span>
+<span class="p">});</span>
 </code></pre>
 
 <blockquote>
@@ -560,7 +564,9 @@
 </code></pre>
 <pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'https'</span><span class="p">);</span>
 
-<span class="kd">var</span> <span class="nx">businessUnits</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Core/v1/BusinessUnits/All?key={APIKey}'</span><span class="p">);</span>
+<span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Core/v1/BusinessUnits/All?key={APIKey}'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">){</span>
+  <span class="kd">var</span> <span class="nx">businessUnits</span> <span class="o">=</span> <span class="nx">res</span><span class="p">;</span>
+<span class="p">});</span>
 </code></pre>
 
 <blockquote>
@@ -634,7 +640,9 @@
 </code></pre>
 <pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'https'</span><span class="p">);</span>
 
-<span class="kd">var</span> <span class="nx">standardQs</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllQuestions/{CountryLanguageID}?key={APIKey}'</span><span class="p">);</span>
+<span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllQuestions/{CountryLanguageID}?key={APIKey}'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">){</span>
+  <span class="kd">var</span> <span class="nx">standardQs</span> <span class="o">=</span> <span class="nx">res</span><span class="p">;</span>
+<span class="p">});</span>
 </code></pre>
 
 <blockquote>
@@ -728,7 +736,9 @@
 </code></pre>
 <pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'https'</span><span class="p">);</span>
 
-<span class="kd">var</span> <span class="nx">customQs</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/QuestionLibrary/AllCustomQuestionsByAccount/{CountryLanguageID}?key={APIKey}'</span><span class="p">);</span>
+<span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/QuestionLibrary/AllCustomQuestionsByAccount/{CountryLanguageID}?key={APIKey}'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">){</span>
+  <span class="kd">var</span> <span class="nx">customQs</span> <span class="o">=</span> <span class="nx">res</span><span class="p">;</span>
+<span class="p">});</span>
 </code></pre>
 
 <blockquote>
@@ -824,7 +834,9 @@
 </code></pre>
 <pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'https'</span><span class="p">);</span>
 
-<span class="kd">var</span> <span class="nx">questionText</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Lookup/v1/QuestionLibrary/QuestionById/{CountryLanguageID}/{QuestionID}?key={APIKey}'</span><span class="p">);</span>
+<span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Lookup/v1/QuestionLibrary/QuestionById/{CountryLanguageID}/{QuestionID}?key={APIKey}'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">){</span>
+  <span class="kd">var</span> <span class="nx">questionText</span> <span class="o">=</span> <span class="nx">res</span><span class="p">;</span>
+<span class="p">});</span>
 </code></pre>
 
 <blockquote>
@@ -924,7 +936,9 @@
 </code></pre>
 <pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'https'</span><span class="p">);</span>
 
-<span class="kd">var</span> <span class="nx">questionOptions</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllQuestionOptions/{CountryLanguageID}/{QuestionID}?key={APIKey}'</span><span class="p">);</span>
+<span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllQuestionOptions/{CountryLanguageID}/{QuestionID}?key={APIKey}'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">){</span>
+  <span class="kd">var</span> <span class="nx">questionOptions</span> <span class="o">=</span> <span class="nx">res</span><span class="p">;</span>
+<span class="p">});</span>
 </code></pre>
 
 <blockquote>
@@ -1165,7 +1179,9 @@
 </code></pre>
 <pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'https'</span><span class="p">);</span>
 
-<span class="kd">var</span> <span class="nx">surveys</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}'</span><span class="p">);</span>
+<span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">){</span>
+  <span class="kd">var</span> <span class="nx">surveys</span> <span class="o">=</span> <span class="nx">res</span><span class="p">;</span>
+<span class="p">});</span>
 </code></pre>
 
 <blockquote>
@@ -1651,7 +1667,9 @@
 </code></pre>
 <pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'https'</span><span class="p">);</span>
 
-<span class="kd">var</span> <span class="nx">allocations</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/All/{SupplierCode}?key={APIKey}'</span><span class="p">);</span>
+<span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/All/{SupplierCode}?key={APIKey}'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">){</span>
+  <span class="kd">var</span> <span class="nx">allocations</span> <span class="o">=</span> <span class="nx">res</span><span class="p">;</span>
+<span class="p">});</span>
 </code></pre>
 
 <blockquote>
@@ -1759,7 +1777,9 @@
 </code></pre>
 <pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'https'</span><span class="p">);</span>
 
-<span class="kd">var</span> <span class="nx">allocations</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}'</span><span class="p">);</span>
+<span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">){</span>
+  <span class="kd">var</span> <span class="nx">allocations</span> <span class="o">=</span> <span class="nx">res</span><span class="p">;</span>
+<span class="p">});</span>
 </code></pre>
 
 <blockquote>
@@ -1888,7 +1908,9 @@
 </code></pre>
 <pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'https'</span><span class="p">);</span>
 
-<span class="kd">var</span> <span class="nx">allocations</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/ByDate/{Date}/{SupplierCode}?key={APIKey}'</span><span class="p">);</span>
+<span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/ByDate/{Date}/{SupplierCode}?key={APIKey}'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">){</span>
+  <span class="kd">var</span> <span class="nx">allocations</span> <span class="o">=</span> <span class="nx">res</span><span class="p">;</span>
+<span class="p">});</span>
 </code></pre>
 
 <blockquote>
@@ -2004,7 +2026,9 @@
 </code></pre>
 <pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'https'</span><span class="p">);</span>
 
-<span class="kd">var</span> <span class="nx">groups</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/Surveys/SurveyGroups/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}'</span><span class="p">);</span>
+<span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/Surveys/SurveyGroups/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">){</span>
+  <span class="kd">var</span> <span class="nx">groups</span> <span class="o">=</span> <span class="nx">res</span><span class="p">;</span>
+<span class="p">});</span>
 </code></pre>
 
 <blockquote>
@@ -2149,7 +2173,9 @@
 </code></pre>
 <pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'https'</span><span class="p">);</span>
 
-<span class="kd">var</span> <span class="nx">surveyQualifications</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/SurveyQualifications/BySurveyNumberForOfferwall/{SurveyNumber}?key={APIKey}'</span><span class="p">);</span>
+<span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/SurveyQualifications/BySurveyNumberForOfferwall/{SurveyNumber}?key={APIKey}'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">){</span>
+  <span class="kd">var</span> <span class="nx">surveyQualifications</span> <span class="o">=</span> <span class="nx">res</span><span class="p">;</span>
+<span class="p">});</span>
 </code></pre>
 
 <blockquote>
@@ -2372,7 +2398,9 @@
 </code></pre>
 <pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'https'</span><span class="p">);</span>
 
-<span class="kd">var</span> <span class="nx">surveyQuotas</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/SurveyQuotas/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}'</span><span class="p">);</span>
+<span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/SurveyQuotas/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">){</span>
+  <span class="kd">var</span> <span class="nx">surveyQuotas</span> <span class="o">=</span> <span class="nx">res</span><span class="p">;</span>
+<span class="p">});</span>
 </code></pre>
 
 <blockquote>
@@ -2613,14 +2641,17 @@
 
 <span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Supply/v1/SupplierLinks/Create/{SurveyNumber}/{SupplierCode}?key={APIKey}"</span><span class="p">);</span>
 
-<span class="kt">string</span> <span class="k">params</span> <span class="p">=</span> <span class="s">"{\"SupplierLinkTypeCode\":\"OWS\","</span><span class="p">+</span><span class="s">"\"TrackingTypeCode\":\"NONE\"}"</span><span class="p">;</span>
-
+<span class="kt">string</span> <span class="n">args</span> <span class="p">=</span> <span class="err">@</span><span class="s">"{
+</span>                  <span class="s">""</span><span class="n">SupplierLinkTypeCode</span><span class="s">""</span><span class="p">:</span><span class="s">""</span><span class="n">OWS</span><span class="s">""</span><span class="p">,</span>
+                  <span class="s">""</span><span class="n">TrackingTypeCode</span><span class="s">""</span><span class="p">:</span><span class="s">""</span><span class="n">NONE</span><span class="s">""</span>
+                <span class="p">}</span><span class="s">";
+</span>
 <span class="n">request</span><span class="p">.</span><span class="n">Method</span> <span class="p">=</span> <span class="s">"POST"</span><span class="p">;</span>
 <span class="n">request</span><span class="p">.</span><span class="n">ContentType</span> <span class="p">=</span> <span class="s">"application/json"</span><span class="p">;</span>
 
 <span class="k">using</span><span class="p">(</span><span class="n">StreamWriter</span> <span class="n">streamWriter</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">StreamWriter</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="nf">GetRequestStream</span><span class="p">()))</span>
 <span class="p">{</span>
-<span class="n">streamWriter</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="k">params</span><span class="p">);</span>
+<span class="n">streamWriter</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="n">args</span><span class="p">);</span>
 <span class="n">streamWriter</span><span class="p">.</span><span class="nf">Flush</span><span class="p">();</span>
 <span class="n">streamWriter</span><span class="p">.</span><span class="nf">Close</span><span class="p">();</span>
 <span class="p">}</span>
@@ -2812,14 +2843,22 @@
 
 <span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Supply/v1/SupplierLinks/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}"</span><span class="p">);</span>
 
-<span class="kt">string</span> <span class="k">params</span> <span class="p">=</span> <span class="s">"{\"SupplierLinkTypeCode\":\"OWS\","</span><span class="p">+</span><span class="s">"\"TrackingTypeCode\":\"NONE\","</span><span class="p">+</span><span class="s">"\"DefaultLink\":\"\","</span><span class="p">+</span><span class="s">"\"SuccessLink\":\"\","</span><span class="p">+</span><span class="s">"\"FailureLink\":\"\","</span><span class="p">+</span><span class="s">"\"OverQuotaLink\":\"\","</span><span class="p">+</span><span class="s">"\"QualityTerminationLink\":\"\"}"</span><span class="p">;</span>
-
+<span class="kt">string</span> <span class="n">args</span> <span class="p">=</span> <span class="err">@</span><span class="s">"{
+</span>                  <span class="s">""</span><span class="n">SupplierLinkTypeCode</span><span class="s">""</span><span class="p">:</span><span class="s">""</span><span class="n">OWS</span><span class="s">""</span><span class="p">,</span>
+                  <span class="s">""</span><span class="n">TrackingTypeCode</span><span class="s">""</span><span class="p">:</span><span class="s">""</span><span class="n">NONE</span><span class="s">""</span><span class="p">,</span>
+                  <span class="s">""</span><span class="n">DefaultLink</span><span class="s">""</span><span class="p">:</span><span class="s">""""</span><span class="p">,</span>
+                  <span class="s">""</span><span class="n">SuccessLink</span><span class="s">""</span><span class="p">:</span><span class="s">""""</span><span class="p">,</span>
+                  <span class="s">""</span><span class="n">FailureLink</span><span class="s">""</span><span class="p">:</span><span class="s">""""</span><span class="p">,</span>
+                  <span class="s">""</span><span class="n">OverQuotaLink</span><span class="s">""</span><span class="p">:</span><span class="s">""""</span><span class="p">,</span>
+                  <span class="s">""</span><span class="n">QualityTerminationLink</span><span class="s">""</span><span class="p">:</span><span class="s">""""</span>
+                <span class="p">}</span><span class="s">";
+</span>
 <span class="n">request</span><span class="p">.</span><span class="n">Method</span> <span class="p">=</span> <span class="s">"PUT"</span><span class="p">;</span>
 <span class="n">request</span><span class="p">.</span><span class="n">ContentType</span> <span class="p">=</span> <span class="s">"application/json"</span><span class="p">;</span>
 
 <span class="k">using</span><span class="p">(</span><span class="n">StreamWriter</span> <span class="n">streamWriter</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">StreamWriter</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="nf">GetRequestStream</span><span class="p">()))</span>
         <span class="p">{</span>
-            <span class="n">streamWriter</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="k">params</span><span class="p">);</span>
+            <span class="n">streamWriter</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="n">args</span><span class="p">);</span>
             <span class="n">streamWriter</span><span class="p">.</span><span class="nf">Flush</span><span class="p">();</span>
             <span class="n">streamWriter</span><span class="p">.</span><span class="nf">Close</span><span class="p">();</span>
         <span class="p">}</span>
@@ -3007,7 +3046,9 @@
 </code></pre>
 <pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'https'</span><span class="p">);</span>
 
-<span class="kd">var</span> <span class="nx">supplierLinks</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/SurveyQualifications/BySurveyNumberForOfferwall/{SurveyNumber}?key={APIKey}'</span><span class="p">);</span>
+<span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/SurveyQualifications/BySurveyNumberForOfferwall/{SurveyNumber}?key={APIKey}'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">){</span>
+  <span class="kd">var</span> <span class="nx">supplierLinks</span> <span class="o">=</span> <span class="nx">res</span><span class="p">;</span>
+<span class="p">});</span>
 </code></pre>
 
 <blockquote>
@@ -3075,17 +3116,17 @@
 <blockquote>
 <p>Definition </p>
 </blockquote>
-<pre class="highlight plaintext"><code>GET  https://api.samplicio.us/Supply/v1/SurveyStatistics/All/{SupplierCode}/{Scope}/{Timespan}?key={APIKey}
+<pre class="highlight plaintext"><code>GET  https://api.samplicio.us/Supply/v1/SurveyStatistics/BySurveyNumber/{SurveyNumber}/{SupplierCode}/{Scope}/{Timespan}?key={APIKey}
 </code></pre>
 
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell"><code>curl https://api.samplicio.us/Supply/v1/SurveyStatistics/All/<span class="o">{</span>SupplierCode<span class="o">}</span>/<span class="o">{</span>Scope<span class="o">}</span>/<span class="o">{</span>Timespan<span class="o">}</span>?key<span class="o">={</span>APIKey<span class="o">}</span>
+<pre class="highlight shell"><code>curl https://api.samplicio.us/Supply/v1/SurveyStatistics/BySurveyNumber/<span class="o">{</span>SurveyNumber<span class="o">}</span>/<span class="o">{</span>SupplierCode<span class="o">}</span>/<span class="o">{</span>Scope<span class="o">}</span>/<span class="o">{</span>Timespan<span class="o">}</span>?key<span class="o">={</span>APIKey<span class="o">}</span>
 </code></pre>
 <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
 
-<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/SurveyStatistics/All/{SupplierCode}/{Scope}/{Timespan}?key={APIKey}'</span><span class="p">)</span>
+<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/SurveyStatistics/BySurveyNumber/{SurveyNumber}/{SupplierCode}/{Scope}/{Timespan}?key={APIKey}'</span><span class="p">)</span>
 
 <span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">uri</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
 
@@ -3093,25 +3134,27 @@
 
 <span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">request_uri</span><span class="p">)</span>
 
-<span class="no">StatisticsBySurvey</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span> 
+<span class="n">statisticsBySurvey</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span> 
 </code></pre>
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$StatisticsBySurvey</span> <span class="o">=</span> <span class="nb">file_get_contents</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/SurveyStatistics/BySurveyNumber/{SurveyNumber}/{SupplierCode}/{Scope}/{Timespan}?key={APIKey}'</span><span class="p">);</span>
+<span class="nv">$statisticsBySurvey</span> <span class="o">=</span> <span class="nb">file_get_contents</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/SurveyStatistics/BySurveyNumber/{SurveyNumber}/{SupplierCode}/{Scope}/{Timespan}?key={APIKey}'</span><span class="p">);</span>
 <span class="cp">?&gt;</span>
 </code></pre>
 <pre class="highlight python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">StatisticsBySurvey</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://api.samplicio.us/Supply/v1/SurveyStatistics/BySurveyNumber/{SurveyNumber}/{SupplierCode}/{Scope}/{Timespan}?key={APIKey}'</span><span class="p">)</span>
+<span class="n">statisticsBySurvey</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://api.samplicio.us/Supply/v1/SurveyStatistics/BySurveyNumber/{SurveyNumber}/{SupplierCode}/{Scope}/{Timespan}?key={APIKey}'</span><span class="p">)</span>
 </code></pre>
 <pre class="highlight csharp"><code><span class="k">using</span> <span class="nn">System.Net</span><span class="p">;</span>
 
 <span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Supply/v1/SurveyStatistics/BySurveyNumber/{SurveyNumber}/{SupplierCode}/{Scope}/{Timespan}?key={APIKey}"</span><span class="p">);</span>
 
-<span class="n">WebResponse</span> <span class="n">StatisticsBySurvey</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">GetResponse</span><span class="p">();</span>
+<span class="n">WebResponse</span> <span class="n">statisticsBySurvey</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">GetResponse</span><span class="p">();</span>
 </code></pre>
 <pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'https'</span><span class="p">);</span>
 
-<span class="kd">var</span> <span class="nx">StatisticsBySurvey</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/SurveyStatistics/BySurveyNumber/{SurveyNumber}/{SupplierCode}/{Scope}/{Timespan}?key={APIKey}'</span><span class="p">);</span>
+<span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/SurveyStatistics/BySurveyNumber/{SurveyNumber}/{SupplierCode}/{Scope}/{Timespan}?key={APIKey}'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">){</span>
+  <span class="kd">var</span> <span class="nx">statisticsBySurvey</span> <span class="o">=</span> <span class="nx">res</span><span class="p">;</span>
+<span class="p">});</span>
 </code></pre>
 
 <blockquote>
@@ -3200,25 +3243,27 @@
 
 <span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">request_uri</span><span class="p">)</span>
 
-<span class="no">StatisticsAll</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span> 
+<span class="n">statisticsAll</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span> 
 </code></pre>
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$StatisticsAll</span> <span class="o">=</span> <span class="nb">file_get_contents</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/SurveyStatistics/All/{SupplierCode}/{Scope}/{Timespan}?key={APIKey}'</span><span class="p">);</span>
+<span class="nv">$statisticsAll</span> <span class="o">=</span> <span class="nb">file_get_contents</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/SurveyStatistics/All/{SupplierCode}/{Scope}/{Timespan}?key={APIKey}'</span><span class="p">);</span>
 <span class="cp">?&gt;</span>
 </code></pre>
 <pre class="highlight python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">StatisticsAll</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://api.samplicio.us/Supply/v1/SurveyStatistics/All/{SupplierCode}/{Scope}/{Timespan}?key={APIKey}'</span><span class="p">)</span>
+<span class="n">statisticsAll</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://api.samplicio.us/Supply/v1/SurveyStatistics/All/{SupplierCode}/{Scope}/{Timespan}?key={APIKey}'</span><span class="p">)</span>
 </code></pre>
 <pre class="highlight csharp"><code><span class="k">using</span> <span class="nn">System.Net</span><span class="p">;</span>
 
 <span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Supply/v1/SurveyStatistics/All/{SupplierCode}/{Scope}/{Timespan}?key={APIKey}"</span><span class="p">);</span>
 
-<span class="n">WebResponse</span> <span class="n">StatisticsAll</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">GetResponse</span><span class="p">();</span>
+<span class="n">WebResponse</span> <span class="n">statisticsAll</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">GetResponse</span><span class="p">();</span>
 </code></pre>
 <pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'https'</span><span class="p">);</span>
 
-<span class="kd">var</span> <span class="nx">StatisticsAll</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/SurveyStatistics/All/{SupplierCode}/{Scope}/{Timespan}?key={APIKey}'</span><span class="p">);</span>
+<span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/SurveyStatistics/All/{SupplierCode}/{Scope}/{Timespan}?key={APIKey}'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">){</span>
+  <span class="kd">var</span> <span class="nx">statisticsAll</span> <span class="o">=</span> <span class="nx">res</span><span class="p">;</span>
+<span class="p">});</span>
 </code></pre>
 
 <blockquote>
@@ -3326,7 +3371,9 @@
 </code></pre>
 <pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'https'</span><span class="p">);</span>
 
-<span class="kd">var</span> <span class="nx">marketingInfo</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/Surveys/MarketingInformation/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}'</span><span class="p">);</span>
+<span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/Surveys/MarketingInformation/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">){</span>
+  <span class="kd">var</span> <span class="nx">marketingInfo</span> <span class="o">=</span> <span class="nx">res</span><span class="p">;</span>
+<span class="p">});</span>
 </code></pre>
 
 <blockquote>
@@ -3420,7 +3467,9 @@
 </code></pre>
 <pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'https'</span><span class="p">);</span>
 
-<span class="kd">var</span> <span class="nx">qualifiedRespondents</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/SurveyQualifiedRespondents/BySurveyNumberSupplierCode/{SurveyNumber}/{SupplierCode}?key={APIKey}'</span><span class="p">);</span>
+<span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/SurveyQualifiedRespondents/BySurveyNumberSupplierCode/{SurveyNumber}/{SupplierCode}?key={APIKey}'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">){</span>
+  <span class="kd">var</span> <span class="nx">qualifiedRespondents</span> <span class="o">=</span> <span class="nx">res</span><span class="p">;</span>
+<span class="p">});</span>
 </code></pre>
 
 <blockquote>
@@ -3810,44 +3859,44 @@
 
 <span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Demand/v1/Surveys/Create?key={APIKey}"</span><span class="p">);</span>
 
-<span class="kt">string</span> <span class="k">params</span> <span class="p">=</span> <span class="s">"{
-</span>   <span class="err">\</span><span class="s">"AccountID\": 1,
-</span>    <span class="err">\</span><span class="s">"SurveyStatusCode\": \"01\",
-</span>    <span class="err">\</span><span class="s">"SurveyPriority\": 11,
-</span>    <span class="err">\</span><span class="s">"SurveyName\": \"Example API Survey\",
-</span>    <span class="err">\</span><span class="s">"CountryLanguageID\": 9,
-</span>    <span class="err">\</span><span class="s">"IndustryID\": 30,
-</span>    <span class="err">\</span><span class="s">"StudyTypeID\": 1,
-</span>    <span class="err">\</span><span class="s">"ClientCPI\": 1,
-</span>    <span class="err">\</span><span class="s">"QuotaCPI\": 2,
-</span>    <span class="err">\</span><span class="s">"ClientSurveyLiveURL\": \"http://www.surveyURL.com?rid=[%RID%]\",
-</span>    <span class="err">\</span><span class="s">"TestRedirectURL\": \"http://www.surveyURL.com?rid=[%RID%]\",
-</span>    <span class="err">\</span><span class="s">"IsActive\": true,
-</span>    <span class="err">\</span><span class="s">"Quota\": 1000,
-</span>    <span class="err">\</span><span class="s">"FulcrumExchangeAllocation\": 0,
-</span>    <span class="err">\</span><span class="s">"FulcrumExchangeHedgeAccess\": true,
-</span>    <span class="err">\</span><span class="s">"IsVerifyCallBack\": true,
-</span>    <span class="err">\</span><span class="s">"UniquePID\": true,
-</span>    <span class="err">\</span><span class="s">"UniqueIPAddress\": true,
-</span>    <span class="err">\</span><span class="s">"IsRelevantID\": false,
-</span>    <span class="err">\</span><span class="s">"IsDedupe\": false,
-</span>    <span class="err">\</span><span class="s">"IsGeoIP\": false,
-</span>    <span class="err">\</span><span class="s">"IsFraudProfile\": false,
-</span>    <span class="err">\</span><span class="s">"FraudProfileThreshold\": 0,
-</span>    <span class="err">\</span><span class="s">"IsTrueSample\": false,
-</span>    <span class="err">\</span><span class="s">"QuotaCalculationTypeID\": 1,
-</span>    <span class="err">\</span><span class="s">"SurveyPlatformID\": 2,
-</span>    <span class="err">\</span><span class="s">"BidLengthOfInterview\": 10,
-</span>    <span class="err">\</span><span class="s">"BusinessUnitID\": 9,
-</span>    <span class="err">\</span><span class="s">"SampleTypeID\": 100
-</span> <span class="p">}</span><span class="s">";
+<span class="kt">string</span> <span class="n">args</span> <span class="p">=</span> <span class="err">@</span><span class="s">"{
+</span>                    <span class="s">""</span><span class="n">AccountID</span><span class="s">""</span><span class="p">:</span> <span class="m">1</span><span class="p">,</span>
+                    <span class="s">""</span><span class="n">SurveyStatusCode</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="m">01</span><span class="s">""</span><span class="p">,</span>
+                    <span class="s">""</span><span class="n">SurveyPriority</span><span class="s">""</span><span class="p">:</span> <span class="m">11</span><span class="p">,</span>
+                    <span class="s">""</span><span class="n">SurveyName</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">Example</span> <span class="n">API</span> <span class="n">Survey</span><span class="s">""</span><span class="p">,</span>
+                    <span class="s">""</span><span class="n">CountryLanguageID</span><span class="s">""</span><span class="p">:</span> <span class="m">9</span><span class="p">,</span>
+                    <span class="s">""</span><span class="n">IndustryID</span><span class="s">""</span><span class="p">:</span> <span class="m">30</span><span class="p">,</span>
+                    <span class="s">""</span><span class="n">StudyTypeID</span><span class="s">""</span><span class="p">:</span> <span class="m">1</span><span class="p">,</span>
+                    <span class="s">""</span><span class="n">ClientCPI</span><span class="s">""</span><span class="p">:</span> <span class="m">1</span><span class="p">,</span>
+                    <span class="s">""</span><span class="n">QuotaCPI</span><span class="s">""</span><span class="p">:</span> <span class="m">2</span><span class="p">,</span>
+                    <span class="s">""</span><span class="n">ClientSurveyLiveURL</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">http</span><span class="p">:</span><span class="c1">//www.surveyURL.com?rid=[%RID%]"",
+</span>                    <span class="s">""</span><span class="n">TestRedirectURL</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">http</span><span class="p">:</span><span class="c1">//www.surveyURL.com?rid=[%RID%]"",
+</span>                    <span class="s">""</span><span class="n">IsActive</span><span class="s">""</span><span class="p">:</span> <span class="k">true</span><span class="p">,</span>
+                    <span class="s">""</span><span class="n">Quota</span><span class="s">""</span><span class="p">:</span> <span class="m">1000</span><span class="p">,</span>
+                    <span class="s">""</span><span class="n">FulcrumExchangeAllocation</span><span class="s">""</span><span class="p">:</span> <span class="m">0</span><span class="p">,</span>
+                    <span class="s">""</span><span class="n">FulcrumExchangeHedgeAccess</span><span class="s">""</span><span class="p">:</span> <span class="k">true</span><span class="p">,</span>
+                    <span class="s">""</span><span class="n">IsVerifyCallBack</span><span class="s">""</span><span class="p">:</span> <span class="k">true</span><span class="p">,</span>
+                    <span class="s">""</span><span class="n">UniquePID</span><span class="s">""</span><span class="p">:</span> <span class="k">true</span><span class="p">,</span>
+                    <span class="s">""</span><span class="n">UniqueIPAddress</span><span class="s">""</span><span class="p">:</span> <span class="k">true</span><span class="p">,</span>
+                    <span class="s">""</span><span class="n">IsRelevantID</span><span class="s">""</span><span class="p">:</span> <span class="k">false</span><span class="p">,</span>
+                    <span class="s">""</span><span class="n">IsDedupe</span><span class="s">""</span><span class="p">:</span> <span class="k">false</span><span class="p">,</span>
+                    <span class="s">""</span><span class="n">IsGeoIP</span><span class="s">""</span><span class="p">:</span> <span class="k">false</span><span class="p">,</span>
+                    <span class="s">""</span><span class="n">IsFraudProfile</span><span class="s">""</span><span class="p">:</span> <span class="k">false</span><span class="p">,</span>
+                    <span class="s">""</span><span class="n">FraudProfileThreshold</span><span class="s">""</span><span class="p">:</span> <span class="m">0</span><span class="p">,</span>
+                    <span class="s">""</span><span class="n">IsTrueSample</span><span class="s">""</span><span class="p">:</span> <span class="k">false</span><span class="p">,</span>
+                    <span class="s">""</span><span class="n">QuotaCalculationTypeID</span><span class="s">""</span><span class="p">:</span> <span class="m">1</span><span class="p">,</span>
+                    <span class="s">""</span><span class="n">SurveyPlatformID</span><span class="s">""</span><span class="p">:</span> <span class="m">2</span><span class="p">,</span>
+                    <span class="s">""</span><span class="n">BidLengthOfInterview</span><span class="s">""</span><span class="p">:</span> <span class="m">10</span><span class="p">,</span>
+                    <span class="s">""</span><span class="n">BusinessUnitID</span><span class="s">""</span><span class="p">:</span> <span class="m">9</span><span class="p">,</span>
+                    <span class="s">""</span><span class="n">SampleTypeID</span><span class="s">""</span><span class="p">:</span> <span class="m">100</span>
+                <span class="p">}</span><span class="s">";
 </span>
 <span class="n">request</span><span class="p">.</span><span class="n">Method</span> <span class="p">=</span> <span class="s">"POST"</span><span class="p">;</span>
 <span class="n">request</span><span class="p">.</span><span class="n">ContentType</span> <span class="p">=</span> <span class="s">"application/json"</span><span class="p">;</span>
 
 <span class="k">using</span><span class="p">(</span><span class="n">StreamWriter</span> <span class="n">streamWriter</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">StreamWriter</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="nf">GetRequestStream</span><span class="p">()))</span>
 <span class="p">{</span>
-<span class="n">streamWriter</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="k">params</span><span class="p">);</span>
+<span class="n">streamWriter</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="n">args</span><span class="p">);</span>
 <span class="n">streamWriter</span><span class="p">.</span><span class="nf">Flush</span><span class="p">();</span>
 <span class="n">streamWriter</span><span class="p">.</span><span class="nf">Close</span><span class="p">();</span>
 <span class="p">}</span>
@@ -4312,45 +4361,45 @@
 
 <span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Demand/v1/Surveys/Update/{SurveyNumber}?key={APIKey}"</span><span class="p">);</span>
 
-<span class="kt">string</span> <span class="k">params</span> <span class="p">=</span> <span class="s">"{
-</span>   <span class="err">\</span><span class="s">"AccountID\": 1,
-</span>    <span class="err">\</span><span class="s">"SurveyStatusCode\": \"01\",
-</span>    <span class="err">\</span><span class="s">"SurveyPriority\": 11,
-</span>    <span class="err">\</span><span class="s">"SurveyNumber\": 12345,
-</span>    <span class="err">\</span><span class="s">"SurveyName\": \"Example API Survey\",
-</span>    <span class="err">\</span><span class="s">"CountryLanguageID\": 9,
-</span>    <span class="err">\</span><span class="s">"IndustryID\": 30,
-</span>    <span class="err">\</span><span class="s">"StudyTypeID\": 1,
-</span>    <span class="err">\</span><span class="s">"ClientCPI\": 1,
-</span>    <span class="err">\</span><span class="s">"QuotaCPI\": 2,
-</span>    <span class="err">\</span><span class="s">"ClientSurveyLiveURL\": \"http://www.surveyURL.com?rid=[%RID%]\",
-</span>    <span class="err">\</span><span class="s">"TestRedirectURL\": \"http://www.surveyURL.com?rid=[%RID%]\",
-</span>    <span class="err">\</span><span class="s">"IsActive\": true,
-</span>    <span class="err">\</span><span class="s">"Quota\": 100,
-</span>    <span class="err">\</span><span class="s">"FulcrumExchangeAllocation\": 0,
-</span>    <span class="err">\</span><span class="s">"FulcrumExchangeHedgeAccess\": true,
-</span>    <span class="err">\</span><span class="s">"IsVerifyCallBack\": true,
-</span>    <span class="err">\</span><span class="s">"UniquePID\": true,
-</span>    <span class="err">\</span><span class="s">"UniqueIPAddress\": true,
-</span>    <span class="err">\</span><span class="s">"IsRelevantID\": false,
-</span>    <span class="err">\</span><span class="s">"IsDedupe\": false,
-</span>    <span class="err">\</span><span class="s">"IsGeoIP\": false,
-</span>    <span class="err">\</span><span class="s">"IsFraudProfile\": false,
-</span>    <span class="err">\</span><span class="s">"FraudProfileThreshold\": 0,
-</span>    <span class="err">\</span><span class="s">"IsTrueSample\": false,
-</span>    <span class="err">\</span><span class="s">"QuotaCalculationTypeID\": 1,
-</span>    <span class="err">\</span><span class="s">"SurveyPlatformID\": 2,
-</span>    <span class="err">\</span><span class="s">"BidLengthOfInterview\": 10,
-</span>    <span class="err">\</span><span class="s">"BusinessUnitID\": 9,
-</span>    <span class="err">\</span><span class="s">"SampleTypeID\": 100
-</span> <span class="p">}</span><span class="s">";
+<span class="kt">string</span> <span class="n">args</span> <span class="p">=</span> <span class="err">@</span><span class="s">"{
+</span>                    <span class="s">""</span><span class="n">AccountID</span><span class="s">""</span><span class="p">:</span> <span class="m">1</span><span class="p">,</span>
+                    <span class="s">""</span><span class="n">SurveyStatusCode</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="m">01</span><span class="s">""</span><span class="p">,</span>
+                    <span class="s">""</span><span class="n">SurveyPriority</span><span class="s">""</span><span class="p">:</span> <span class="m">11</span><span class="p">,</span>
+                    <span class="s">""</span><span class="n">SurveyNumber</span><span class="s">""</span><span class="p">:</span> <span class="m">12345</span><span class="p">,</span>
+                    <span class="s">""</span><span class="n">SurveyName</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">Example</span> <span class="n">API</span> <span class="n">Survey</span><span class="s">""</span><span class="p">,</span>
+                    <span class="s">""</span><span class="n">CountryLanguageID</span><span class="s">""</span><span class="p">:</span> <span class="m">9</span><span class="p">,</span>
+                    <span class="s">""</span><span class="n">IndustryID</span><span class="s">""</span><span class="p">:</span> <span class="m">30</span><span class="p">,</span>
+                    <span class="s">""</span><span class="n">StudyTypeID</span><span class="s">""</span><span class="p">:</span> <span class="m">1</span><span class="p">,</span>
+                    <span class="s">""</span><span class="n">ClientCPI</span><span class="s">""</span><span class="p">:</span> <span class="m">1</span><span class="p">,</span>
+                    <span class="s">""</span><span class="n">QuotaCPI</span><span class="s">""</span><span class="p">:</span> <span class="m">2</span><span class="p">,</span>
+                    <span class="s">""</span><span class="n">ClientSurveyLiveURL</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">http</span><span class="p">:</span><span class="c1">//www.surveyURL.com?rid=[%RID%]"",
+</span>                    <span class="s">""</span><span class="n">TestRedirectURL</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">http</span><span class="p">:</span><span class="c1">//www.surveyURL.com?rid=[%RID%]"",
+</span>                    <span class="s">""</span><span class="n">IsActive</span><span class="s">""</span><span class="p">:</span> <span class="k">true</span><span class="p">,</span>
+                    <span class="s">""</span><span class="n">Quota</span><span class="s">""</span><span class="p">:</span> <span class="m">100</span><span class="p">,</span>
+                    <span class="s">""</span><span class="n">FulcrumExchangeAllocation</span><span class="s">""</span><span class="p">:</span> <span class="m">0</span><span class="p">,</span>
+                    <span class="s">""</span><span class="n">FulcrumExchangeHedgeAccess</span><span class="s">""</span><span class="p">:</span> <span class="k">true</span><span class="p">,</span>
+                    <span class="s">""</span><span class="n">IsVerifyCallBack</span><span class="s">""</span><span class="p">:</span> <span class="k">true</span><span class="p">,</span>
+                    <span class="s">""</span><span class="n">UniquePID</span><span class="s">""</span><span class="p">:</span> <span class="k">true</span><span class="p">,</span>
+                    <span class="s">""</span><span class="n">UniqueIPAddress</span><span class="s">""</span><span class="p">:</span> <span class="k">true</span><span class="p">,</span>
+                    <span class="s">""</span><span class="n">IsRelevantID</span><span class="s">""</span><span class="p">:</span> <span class="k">false</span><span class="p">,</span>
+                    <span class="s">""</span><span class="n">IsDedupe</span><span class="s">""</span><span class="p">:</span> <span class="k">false</span><span class="p">,</span>
+                    <span class="s">""</span><span class="n">IsGeoIP</span><span class="s">""</span><span class="p">:</span> <span class="k">false</span><span class="p">,</span>
+                    <span class="s">""</span><span class="n">IsFraudProfile</span><span class="s">""</span><span class="p">:</span> <span class="k">false</span><span class="p">,</span>
+                    <span class="s">""</span><span class="n">FraudProfileThreshold</span><span class="s">""</span><span class="p">:</span> <span class="m">0</span><span class="p">,</span>
+                    <span class="s">""</span><span class="n">IsTrueSample</span><span class="s">""</span><span class="p">:</span> <span class="k">false</span><span class="p">,</span>
+                    <span class="s">""</span><span class="n">QuotaCalculationTypeID</span><span class="s">""</span><span class="p">:</span> <span class="m">1</span><span class="p">,</span>
+                    <span class="s">""</span><span class="n">SurveyPlatformID</span><span class="s">""</span><span class="p">:</span> <span class="m">2</span><span class="p">,</span>
+                    <span class="s">""</span><span class="n">BidLengthOfInterview</span><span class="s">""</span><span class="p">:</span> <span class="m">10</span><span class="p">,</span>
+                    <span class="s">""</span><span class="n">BusinessUnitID</span><span class="s">""</span><span class="p">:</span> <span class="m">9</span><span class="p">,</span>
+                    <span class="s">""</span><span class="n">SampleTypeID</span><span class="s">""</span><span class="p">:</span> <span class="m">100</span>
+                <span class="p">}</span><span class="s">";
 </span>
 <span class="n">request</span><span class="p">.</span><span class="n">Method</span> <span class="p">=</span> <span class="s">"PUT"</span><span class="p">;</span>
 <span class="n">request</span><span class="p">.</span><span class="n">ContentType</span> <span class="p">=</span> <span class="s">"application/json"</span><span class="p">;</span>
 
 <span class="k">using</span><span class="p">(</span><span class="n">StreamWriter</span> <span class="n">streamWriter</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">StreamWriter</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="nf">GetRequestStream</span><span class="p">()))</span>
 <span class="p">{</span>
-<span class="n">streamWriter</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="k">params</span><span class="p">);</span>
+<span class="n">streamWriter</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="n">args</span><span class="p">);</span>
 <span class="n">streamWriter</span><span class="p">.</span><span class="nf">Flush</span><span class="p">();</span>
 <span class="n">streamWriter</span><span class="p">.</span><span class="nf">Close</span><span class="p">();</span>
 <span class="p">}</span>
@@ -4701,7 +4750,9 @@
 </code></pre>
 <pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'https'</span><span class="p">);</span>
 
-<span class="kd">var</span> <span class="nx">survey</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/{SurveyNumber}?key={APIKey}'</span><span class="p">);</span>
+<span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/{SurveyNumber}?key={APIKey}'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">){</span>
+  <span class="kd">var</span> <span class="nx">survey</span> <span class="o">=</span> <span class="nx">res</span><span class="p">;</span>
+<span class="p">});</span>
 </code></pre>
 
 <blockquote>
@@ -4781,17 +4832,17 @@
 <blockquote>
 <p>Definition</p>
 </blockquote>
-<pre class="highlight plaintext"><code>GET  https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyNStatus}?key={APIKey}
+<pre class="highlight plaintext"><code>GET  https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyStatus}?key={APIKey}
 </code></pre>
 
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell"><code>curl https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/<span class="o">{</span>SurveyNStatus<span class="o">}</span>?key<span class="o">={</span>APIKey<span class="o">}</span>
+<pre class="highlight shell"><code>curl https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/<span class="o">{</span>SurveyStatus<span class="o">}</span>?key<span class="o">={</span>APIKey<span class="o">}</span>
 </code></pre>
 <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
 
-<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyNStatus}?key={APIKey}'</span><span class="p">)</span>
+<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyStatus}?key={APIKey}'</span><span class="p">)</span>
 
 <span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">uri</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
 
@@ -4802,22 +4853,24 @@
 <span class="n">surveyQuotas</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>  
 </code></pre>
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$surveyQuotas</span> <span class="o">=</span> <span class="nb">file_get_contents</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyNStatus}?key={APIKey}'</span><span class="p">);</span>
+<span class="nv">$surveyQuotas</span> <span class="o">=</span> <span class="nb">file_get_contents</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyStatus}?key={APIKey}'</span><span class="p">);</span>
 <span class="cp">?&gt;</span>
 </code></pre>
 <pre class="highlight python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">surveyQuotas</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyNStatus}?key={APIKey}'</span><span class="p">)</span>
+<span class="n">surveyQuotas</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyStatus}?key={APIKey}'</span><span class="p">)</span>
 </code></pre>
 <pre class="highlight csharp"><code><span class="k">using</span> <span class="nn">System.Net</span><span class="p">;</span>
 
-<span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyNStatus}?key={APIKey}"</span><span class="p">);</span>
+<span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyStatus}?key={APIKey}"</span><span class="p">);</span>
 
 <span class="n">WebResponse</span> <span class="n">surveyQuotas</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">GetResponse</span><span class="p">();</span>
 </code></pre>
 <pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'https'</span><span class="p">);</span>
 
-<span class="kd">var</span> <span class="nx">surveyQuotas</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyNStatus}?key={APIKey}'</span><span class="p">);</span>
+<span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyStatus}?key={APIKey}'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">){</span>
+  <span class="kd">var</span> <span class="nx">surveyQuotas</span> <span class="o">=</span> <span class="nx">res</span><span class="p">;</span>
+<span class="p">});</span>
 </code></pre>
 
 <blockquote>
@@ -5037,24 +5090,22 @@
 
 <span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Demand/v1/SurveyQualifications/Create/{SurveyNumber}?key={APIKey}"</span><span class="p">);</span>
 
-<span class="kt">string</span> <span class="k">params</span> <span class="p">=</span> <span class="s">"{
-</span>    <span class="err">\</span><span class="s">"Name\": \"STANDARD_RELATIONSHIP\",
-</span>    <span class="err">\</span><span class="s">"QuestionID\": 632,
-</span>    <span class="err">\</span><span class="s">"LogicalOperator\": \"OR\",
-</span>    <span class="err">\</span><span class="s">"NumberOfRequiredConditions\": 1,
-</span>    <span class="err">\</span><span class="s">"IsActive\": true,
-</span>    <span class="err">\</span><span class="s">"PreCodes\": [
-</span>        <span class="err">\</span><span class="s">"1\"
-</span>    <span class="p">],</span>
-    <span class="err">\</span><span class="s">"Order\": 7
-</span><span class="p">}</span><span class="s">";
+<span class="kt">string</span> <span class="n">args</span> <span class="p">=</span> <span class="err">@</span><span class="s">"{
+</span>                  <span class="s">""</span><span class="n">Name</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">STANDARD_RELATIONSHIP</span><span class="s">""</span><span class="p">,</span>
+                  <span class="s">""</span><span class="n">QuestionID</span><span class="s">""</span><span class="p">:</span> <span class="m">632</span><span class="p">,</span>
+                  <span class="s">""</span><span class="n">LogicalOperator</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">OR</span><span class="s">""</span><span class="p">,</span>
+                  <span class="s">""</span><span class="n">NumberOfRequiredConditions</span><span class="s">""</span><span class="p">:</span> <span class="m">1</span><span class="p">,</span>
+                  <span class="s">""</span><span class="n">IsActive</span><span class="s">""</span><span class="p">:</span> <span class="k">true</span><span class="p">,</span>
+                  <span class="s">""</span><span class="n">PreCodes</span><span class="s">""</span><span class="p">:</span> <span class="p">[</span><span class="s">""</span><span class="m">1</span><span class="s">""</span><span class="p">],</span>
+                  <span class="s">""</span><span class="n">Order</span><span class="s">""</span><span class="p">:</span> <span class="m">7</span>
+                <span class="p">}</span><span class="s">";
 </span>
 <span class="n">request</span><span class="p">.</span><span class="n">Method</span> <span class="p">=</span> <span class="s">"POST"</span><span class="p">;</span>
 <span class="n">request</span><span class="p">.</span><span class="n">ContentType</span> <span class="p">=</span> <span class="s">"application/json"</span><span class="p">;</span>
 
 <span class="k">using</span><span class="p">(</span><span class="n">StreamWriter</span> <span class="n">streamWriter</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">StreamWriter</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="nf">GetRequestStream</span><span class="p">()))</span>
 <span class="p">{</span>
-<span class="n">streamWriter</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="k">params</span><span class="p">);</span>
+<span class="n">streamWriter</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="n">args</span><span class="p">);</span>
 <span class="n">streamWriter</span><span class="p">.</span><span class="nf">Flush</span><span class="p">();</span>
 <span class="n">streamWriter</span><span class="p">.</span><span class="nf">Close</span><span class="p">();</span>
 <span class="p">}</span>
@@ -5393,24 +5444,22 @@
 
 <span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Demand/v1/SurveyQualifications/Update/{SurveyNumber}?key={APIKey}"</span><span class="p">);</span>
 
-<span class="kt">string</span> <span class="k">params</span> <span class="p">=</span> <span class="s">"{
-</span>    <span class="err">\</span><span class="s">"Name\": \"STANDARD_RELATIONSHIP\",
-</span>    <span class="err">\</span><span class="s">"QuestionID\": 632,
-</span>    <span class="err">\</span><span class="s">"LogicalOperator\": \"OR\",
-</span>    <span class="err">\</span><span class="s">"NumberOfRequiredConditions\": 1,
-</span>    <span class="err">\</span><span class="s">"IsActive\": true,
-</span>    <span class="err">\</span><span class="s">"PreCodes\": [
-</span>        <span class="err">\</span><span class="s">"2\"
-</span>    <span class="p">],</span>
-    <span class="err">\</span><span class="s">"Order\": 7
-</span><span class="p">}</span><span class="s">";
+<span class="kt">string</span> <span class="n">args</span> <span class="p">=</span> <span class="err">@</span><span class="s">"{
+</span>                    <span class="s">""</span><span class="n">Name</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">STANDARD_RELATIONSHIP</span><span class="s">""</span><span class="p">,</span>
+                    <span class="s">""</span><span class="n">QuestionID</span><span class="s">""</span><span class="p">:</span> <span class="m">632</span><span class="p">,</span>
+                    <span class="s">""</span><span class="n">LogicalOperator</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">OR</span><span class="s">""</span><span class="p">,</span>
+                    <span class="s">""</span><span class="n">NumberOfRequiredConditions</span><span class="s">""</span><span class="p">:</span> <span class="m">1</span><span class="p">,</span>
+                    <span class="s">""</span><span class="n">IsActive</span><span class="s">""</span><span class="p">:</span> <span class="k">true</span><span class="p">,</span>
+                    <span class="s">""</span><span class="n">PreCodes</span><span class="s">""</span><span class="p">:</span> <span class="p">[</span><span class="s">""</span><span class="m">2</span><span class="s">""</span><span class="p">],</span>
+                    <span class="s">""</span><span class="n">Order</span><span class="s">""</span><span class="p">:</span> <span class="m">7</span>
+                <span class="p">}</span><span class="s">";
 </span>
 <span class="n">request</span><span class="p">.</span><span class="n">Method</span> <span class="p">=</span> <span class="s">"PUT"</span><span class="p">;</span>
 <span class="n">request</span><span class="p">.</span><span class="n">ContentType</span> <span class="p">=</span> <span class="s">"application/json"</span><span class="p">;</span>
 
 <span class="k">using</span><span class="p">(</span><span class="n">StreamWriter</span> <span class="n">streamWriter</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">StreamWriter</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="nf">GetRequestStream</span><span class="p">()))</span>
 <span class="p">{</span>
-<span class="n">streamWriter</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="k">params</span><span class="p">);</span>
+<span class="n">streamWriter</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="n">args</span><span class="p">);</span>
 <span class="n">streamWriter</span><span class="p">.</span><span class="nf">Flush</span><span class="p">();</span>
 <span class="n">streamWriter</span><span class="p">.</span><span class="nf">Close</span><span class="p">();</span>
 <span class="p">}</span>
@@ -5693,7 +5742,9 @@
 </code></pre>
 <pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'https'</span><span class="p">);</span>
 
-<span class="kd">var</span> <span class="nx">surveyQualifications</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Demand/v1/SurveyQualifications/BySurveyNumber/{SurveyNumber}?key={APIKey}'</span><span class="p">);</span>
+<span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Demand/v1/SurveyQualifications/BySurveyNumber/{SurveyNumber}?key={APIKey}'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">){</span>
+  <span class="kd">var</span> <span class="nx">surveyQualifications</span> <span class="o">=</span> <span class="nx">res</span><span class="p">;</span>
+<span class="p">});</span>
 </code></pre>
 
 <blockquote>
@@ -5862,7 +5913,7 @@
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell"><code>curl -H <span class="s2">"Content-Type: application/json"</span> -X POST --data <span class="s1">'{"Name": "Quota Name", "Quota": 50, "IsActive":true, "Conditions":[{"QuestionID":42, "Precodes": ["18","19","20","21","22"] }]}'</span> https://api.samplicio.us/Demand/v1/SurveyQuotas/Create/<span class="o">{</span>SurveyNumber<span class="o">}</span>?key<span class="o">={</span>APIKey<span class="o">}</span>
+<pre class="highlight shell"><code>curl -H <span class="s2">"Content-Type: application/json"</span> -X POST --data <span class="s1">'{"Name": "Quota Name", "Quota": 50, "IsActive":true, "Conditions":[{"QuestionID":42, "PreCodes": ["18","19","20","21","22"] }]}'</span> https://api.samplicio.us/Demand/v1/SurveyQuotas/Create/<span class="o">{</span>SurveyNumber<span class="o">}</span>?key<span class="o">={</span>APIKey<span class="o">}</span>
 </code></pre>
 <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
 <span class="nb">require</span> <span class="s1">'net/http'</span>
@@ -5878,14 +5929,14 @@
 
 <span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Post</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">fullUriPath</span><span class="p">,</span> <span class="n">initheader</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'Content-Type'</span> <span class="o">=&gt;</span><span class="s1">'application/json'</span><span class="p">})</span>
 
-<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="p">{</span><span class="no">SupplierLinkTypeCode</span><span class="ss">:"OWS"</span><span class="p">,</span><span class="no">TrackingTypeCode</span><span class="ss">:"NONE"</span><span class="p">}.</span><span class="nf">to_json</span>
+<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="p">{</span><span class="no">Name</span><span class="p">:</span> <span class="s2">"Quota Name"</span><span class="p">,</span> <span class="no">Quota</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="no">IsActive</span><span class="ss">:true</span><span class="p">,</span> <span class="no">Conditions</span><span class="p">:[{</span><span class="no">QuestionID</span><span class="p">:</span><span class="mi">42</span><span class="p">,</span> <span class="no">PreCodes</span><span class="p">:</span> <span class="p">[</span><span class="s2">"18"</span><span class="p">,</span><span class="s2">"19"</span><span class="p">,</span><span class="s2">"20"</span><span class="p">,</span><span class="s2">"21"</span><span class="p">,</span><span class="s2">"22"</span><span class="p">]</span> <span class="p">}]}.</span><span class="nf">to_json</span>
 
 <span class="n">quotas</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
 </code></pre>
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
-<span class="nv">$params</span> <span class="o">=</span> <span class="s1">'{"Name": "Quota Name", "Quota": 50, "IsActive":true, "Conditions":[{"QuestionID":42, "Precodes": ["18","19","20","21","22"] }]}'</span><span class="p">;</span>
+<span class="nv">$params</span> <span class="o">=</span> <span class="s1">'{"Name": "Quota Name", "Quota": 50, "IsActive":true, "Conditions":[{"QuestionID":42, "PreCodes": ["18","19","20","21","22"] }]}'</span><span class="p">;</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
   <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://api.samplicio.us/Demand/v1/SurveyQuotas/Create/</span><span class="si">{</span><span class="nv">SurveyNumber}?key={APIKey</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
@@ -5907,7 +5958,7 @@
 <pre class="highlight python"><code><span class="kn">import</span> <span class="nn">requests</span><span class="o">,</span> <span class="nn">json</span>
 
 <span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.samplicio.us/Demand/v1/SurveyQuotas/Create/{SurveyNumber}?key={APIKey}'</span>
-<span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Name'</span><span class="p">:</span> <span class="s">'Quota Name'</span><span class="p">,</span> <span class="s">'Quota'</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="s">'IsActive'</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span> <span class="s">'Conditions'</span><span class="p">:[{</span><span class="s">'QuestionID'</span><span class="p">:</span><span class="mi">42</span><span class="p">,</span> <span class="s">'Precodes'</span><span class="p">:</span> <span class="p">[</span><span class="s">'18'</span><span class="p">,</span><span class="s">'19'</span><span class="p">,</span><span class="s">'20'</span><span class="p">,</span><span class="s">'21'</span><span class="p">,</span><span class="s">'22'</span><span class="p">]</span> <span class="p">}]}</span>
+<span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Name'</span><span class="p">:</span> <span class="s">'Quota Name'</span><span class="p">,</span> <span class="s">'Quota'</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="s">'IsActive'</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span> <span class="s">'Conditions'</span><span class="p">:[{</span><span class="s">'QuestionID'</span><span class="p">:</span><span class="mi">42</span><span class="p">,</span> <span class="s">'PreCodes'</span><span class="p">:</span> <span class="p">[</span><span class="s">'18'</span><span class="p">,</span><span class="s">'19'</span><span class="p">,</span><span class="s">'20'</span><span class="p">,</span><span class="s">'21'</span><span class="p">,</span><span class="s">'22'</span><span class="p">]</span> <span class="p">}]}</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Content-type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span> <span class="s">'Accept'</span><span class="p">:</span> <span class="s">'text/plain'</span><span class="p">}</span>
 
@@ -5918,14 +5969,22 @@
 
 <span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Demand/v1/SurveyQuotas/Create/{SurveyNumber}?key={APIKey}"</span><span class="p">);</span>
 
-<span class="kt">string</span> <span class="k">params</span> <span class="p">=</span> <span class="s">"{\"Name\": \"Quota Name\", \"Quota\": 50, \"IsActive\": true, \"Conditions\":[{\"QuestionID\":42, \"Precodes\": [\"18\",\"19\",\"20\",\"21\",\"22\"] }]}\"}"</span><span class="p">;</span>
-
+<span class="kt">string</span> <span class="n">args</span> <span class="p">=</span> <span class="err">@</span><span class="s">"{
+</span>                <span class="s">""</span><span class="n">Name</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">Quota</span> <span class="n">Name</span><span class="s">""</span><span class="p">,</span>
+                 <span class="s">""</span><span class="n">Quota</span><span class="s">""</span><span class="p">:</span> <span class="m">50</span><span class="p">,</span>
+                 <span class="s">""</span><span class="n">IsActive</span><span class="s">""</span><span class="p">:</span> <span class="k">true</span><span class="p">,</span>
+                 <span class="s">""</span><span class="n">Conditions</span><span class="s">""</span><span class="p">:[{</span>
+                                  <span class="s">""</span><span class="n">QuestionID</span><span class="s">""</span><span class="p">:</span><span class="m">42</span><span class="p">,</span>
+                                  <span class="s">""</span><span class="n">PreCodes</span><span class="s">""</span><span class="p">:</span> <span class="p">[</span><span class="s">""</span><span class="m">18</span><span class="s">""</span><span class="p">,</span><span class="s">""</span><span class="m">19</span><span class="s">""</span><span class="p">,</span><span class="s">""</span><span class="m">20</span><span class="s">""</span><span class="p">,</span><span class="s">""</span><span class="m">21</span><span class="s">""</span><span class="p">,</span><span class="s">""</span><span class="m">22</span><span class="s">""</span><span class="p">]</span> 
+                                <span class="p">}]</span>
+              <span class="p">}</span><span class="s">";
+</span>
 <span class="n">request</span><span class="p">.</span><span class="n">Method</span> <span class="p">=</span> <span class="s">"POST"</span><span class="p">;</span>
 <span class="n">request</span><span class="p">.</span><span class="n">ContentType</span> <span class="p">=</span> <span class="s">"application/json"</span><span class="p">;</span>
 
 <span class="k">using</span><span class="p">(</span><span class="n">StreamWriter</span> <span class="n">streamWriter</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">StreamWriter</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="nf">GetRequestStream</span><span class="p">()))</span>
 <span class="p">{</span>
-<span class="n">streamWriter</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="k">params</span><span class="p">);</span>
+<span class="n">streamWriter</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="n">args</span><span class="p">);</span>
 <span class="n">streamWriter</span><span class="p">.</span><span class="nf">Flush</span><span class="p">();</span>
 <span class="n">streamWriter</span><span class="p">.</span><span class="nf">Close</span><span class="p">();</span>
 <span class="p">}</span>
@@ -6099,7 +6158,7 @@
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell"><code>curl -H <span class="s2">"Content-Type: application/json"</span> -X PUT  --data <span class="s1">'{"Name": "Quota Name", "Quota": 50, "IsActive":true, "Conditions":[{"QuestionID":42, "Precodes": ["18","19","20","21","22"] }]}'</span> https://api.samplicio.us/Demand/v1/SurveyQuotas/Update/<span class="o">{</span>SurveyNumber<span class="o">}</span>?key<span class="o">={</span>APIKey<span class="o">}</span>
+<pre class="highlight shell"><code>curl -H <span class="s2">"Content-Type: application/json"</span> -X PUT  --data <span class="s1">'{"SurveyQuotaID": 1000110,"Name": "Quota Name", "FieldTarget":1000, "Quota": 50, "IsActive":true, "Conditions":[{"QuestionID":42, "Precodes": ["18","19","20","21","22"] }]}'</span>  https://api.samplicio.us/Demand/v1/SurveyQuotas/Update/<span class="o">{</span>SurveyNumber<span class="o">}</span>?key<span class="o">={</span>APIKey<span class="o">}</span>
 </code></pre>
 <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
 <span class="nb">require</span> <span class="s1">'json'</span>
@@ -6114,14 +6173,14 @@
 
 <span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Put</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">fullUriPath</span><span class="p">,</span> <span class="n">initheader</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'Content-Type'</span> <span class="o">=&gt;</span><span class="s1">'application/json'</span><span class="p">})</span>
 
-<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="p">{</span><span class="no">Name</span><span class="p">:</span> <span class="s2">"Quota Name"</span><span class="p">,</span> <span class="no">Quota</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="no">IsActive</span><span class="ss">:true</span><span class="p">,</span> <span class="no">Conditions</span><span class="p">:[{</span><span class="no">QuestionID</span><span class="p">:</span><span class="mi">42</span><span class="p">,</span> <span class="no">Precodes</span><span class="p">:</span> <span class="p">[</span><span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">]</span> <span class="p">}]}.</span><span class="nf">to_json</span>
+<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="p">{</span><span class="no">SurveyQuotaID</span><span class="p">:</span> <span class="mi">1000110</span><span class="p">,</span> <span class="no">Name</span><span class="p">:</span> <span class="s2">"Quota Name"</span><span class="p">,</span> <span class="no">FieldTarget</span><span class="p">:</span><span class="mi">1000</span><span class="p">,</span> <span class="no">Quota</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="no">IsActive</span><span class="ss">:true</span><span class="p">,</span> <span class="no">Conditions</span><span class="p">:[{</span><span class="no">QuestionID</span><span class="p">:</span><span class="mi">42</span><span class="p">,</span> <span class="no">PreCodes</span><span class="p">:</span> <span class="p">[</span><span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">]</span> <span class="p">}]}.</span><span class="nf">to_json</span>
 
 <span class="n">quotas</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
 </code></pre>
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
-<span class="nv">$params</span> <span class="o">=</span> <span class="s1">'{"Name": "Quota Name", "Quota": 50, "IsActive":true, "Conditions":[{"QuestionID":42, "Precodes": ["18","19","20","21","22"] }]}'</span><span class="p">;</span>
+<span class="nv">$params</span> <span class="o">=</span> <span class="s1">'{"SurveyQuotaID": 1000110, "Name": "Quota Name", "FieldTarget":1000, "Quota": 50, "IsActive":true, "Conditions":[{"QuestionID":42, "PreCodes": ["18","19","20","21","22"] }]}'</span><span class="p">;</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
   <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://api.samplicio.us/Demand/v1/SurveyQuotas/Update/</span><span class="si">{</span><span class="nv">SurveyNumber}?key={APIKey</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
@@ -6143,7 +6202,7 @@
 <pre class="highlight python"><code><span class="kn">import</span> <span class="nn">requests</span><span class="o">,</span> <span class="nn">json</span>
 
 <span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.samplicio.us/Demand/v1/SurveyQuotas/Update/{SurveyNumber}?key={APIKey}'</span>
-<span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Name'</span><span class="p">:</span> <span class="s">'Quota Name'</span><span class="p">,</span> <span class="s">'Quota'</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="s">'IsActive'</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span> <span class="s">'Conditions'</span><span class="p">:[{</span><span class="s">'QuestionID'</span><span class="p">:</span><span class="mi">42</span><span class="p">,</span> <span class="s">'Precodes'</span><span class="p">:</span> <span class="p">[</span><span class="s">'18'</span><span class="p">,</span><span class="s">'19'</span><span class="p">,</span><span class="s">'20'</span><span class="p">,</span><span class="s">'21'</span><span class="p">,</span><span class="s">'22'</span><span class="p">]</span> <span class="p">}]}</span>
+<span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s">'SurveyQuotaID'</span><span class="p">:</span> <span class="mi">1000110</span><span class="p">,</span> <span class="s">'Name'</span><span class="p">:</span> <span class="s">"Quota Name"</span><span class="p">,</span> <span class="s">'FieldTarget'</span><span class="p">:</span><span class="mi">1000</span><span class="p">,</span> <span class="s">'Quota'</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="s">'IsActive'</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span> <span class="s">'Conditions'</span><span class="p">:[{</span><span class="s">'QuestionID'</span><span class="p">:</span><span class="mi">42</span><span class="p">,</span> <span class="s">'PreCodes'</span><span class="p">:</span> <span class="p">[</span><span class="s">'18'</span><span class="p">,</span><span class="s">'19'</span><span class="p">,</span><span class="s">'20'</span><span class="p">,</span><span class="s">'21'</span><span class="p">,</span><span class="s">'22'</span><span class="p">]</span> <span class="p">}]}</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Content-type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span> <span class="s">'Accept'</span><span class="p">:</span> <span class="s">'text/plain'</span><span class="p">}</span>
 
@@ -6154,14 +6213,24 @@
 
 <span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Demand/v1/SurveyQuotas/Update/{SurveyNumber}?key={APIKey}"</span><span class="p">);</span>
 
-<span class="kt">string</span> <span class="k">params</span> <span class="p">=</span> <span class="s">"{\"Name\": \"Quota Name\", \"Quota\": 50, \"IsActive\": true, \"Conditions\":[{\"QuestionID\":42, \"Precodes\": [\"18\",\"19\",\"20\",\"21\",\"22\"] }]}\"}"</span><span class="p">;</span>
-
+<span class="kt">string</span> <span class="n">args</span> <span class="p">=</span> <span class="err">@</span><span class="s">"{
+</span>                <span class="s">""</span><span class="n">SurveyQuotaID</span><span class="s">""</span><span class="p">:</span> <span class="m">1000110</span><span class="p">,</span>
+                 <span class="s">""</span><span class="n">Name</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">Quota</span> <span class="n">Name</span><span class="s">""</span><span class="p">,</span>
+                 <span class="s">""</span><span class="n">FieldTarget</span><span class="s">""</span><span class="p">:</span><span class="m">1000</span><span class="p">,</span>
+                 <span class="s">""</span><span class="n">Quota</span><span class="s">""</span><span class="p">:</span> <span class="m">50</span><span class="p">,</span>
+                 <span class="s">""</span><span class="n">IsActive</span><span class="s">""</span><span class="p">:</span> <span class="k">true</span><span class="p">,</span>
+                 <span class="s">""</span><span class="n">Conditions</span><span class="s">""</span><span class="p">:[{</span>
+                                  <span class="s">""</span><span class="n">QuestionID</span><span class="s">""</span><span class="p">:</span><span class="m">42</span><span class="p">,</span>
+                                  <span class="s">""</span><span class="n">PreCodes</span><span class="s">""</span><span class="p">:</span> <span class="p">[</span><span class="s">""</span><span class="m">18</span><span class="s">""</span><span class="p">,</span><span class="s">""</span><span class="m">19</span><span class="s">""</span><span class="p">,</span><span class="s">""</span><span class="m">20</span><span class="s">""</span><span class="p">,</span><span class="s">""</span><span class="m">21</span><span class="s">""</span><span class="p">,</span><span class="s">""</span><span class="m">22</span><span class="s">""</span><span class="p">]</span> 
+                                <span class="p">}]</span>
+               <span class="p">}</span><span class="s">";
+</span>
 <span class="n">request</span><span class="p">.</span><span class="n">Method</span> <span class="p">=</span> <span class="s">"POST"</span><span class="p">;</span>
 <span class="n">request</span><span class="p">.</span><span class="n">ContentType</span> <span class="p">=</span> <span class="s">"application/json"</span><span class="p">;</span>
 
 <span class="k">using</span><span class="p">(</span><span class="n">StreamWriter</span> <span class="n">streamWriter</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">StreamWriter</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="nf">GetRequestStream</span><span class="p">()))</span>
 <span class="p">{</span>
-<span class="n">streamWriter</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="k">params</span><span class="p">);</span>
+<span class="n">streamWriter</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="n">args</span><span class="p">);</span>
 <span class="n">streamWriter</span><span class="p">.</span><span class="nf">Flush</span><span class="p">();</span>
 <span class="n">streamWriter</span><span class="p">.</span><span class="nf">Close</span><span class="p">();</span>
 <span class="p">}</span>
@@ -6362,7 +6431,9 @@
 </code></pre>
 <pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'https'</span><span class="p">);</span>
 
-<span class="kd">var</span> <span class="nx">quotas</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Demand/v1/SurveyQuotas/BySurveyNumber/{SurveyNumber}}?key={APIKey}'</span><span class="p">);</span>
+<span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Demand/v1/SurveyQuotas/BySurveyNumber/{SurveyNumber}}?key={APIKey}'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">){</span>
+  <span class="kd">var</span> <span class="nx">quotas</span> <span class="o">=</span> <span class="nx">res</span><span class="p">;</span>
+<span class="p">});</span>
 </code></pre>
 
 <blockquote>
@@ -6604,7 +6675,9 @@
 </code></pre>
 <pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'https'</span><span class="p">);</span>
 
-<span class="kd">var</span> <span class="nx">exchangeTemplate</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Demand/v1/ExchangeTemplates/GetAll?key={APIKey}'</span><span class="p">);</span>
+<span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Demand/v1/ExchangeTemplates/GetAll?key={APIKey}'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">){</span>
+  <span class="kd">var</span> <span class="nx">exchangeTemplate</span> <span class="o">=</span> <span class="nx">res</span><span class="p">;</span>
+<span class="p">});</span>
 </code></pre>
 
 <blockquote>
@@ -6881,14 +6954,22 @@
 
 <span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Demand/v1/SupplierGroups/CreateWithSuppliers/{SurveyNumber}?key={APIKey}"</span><span class="p">);</span>
 
-<span class="kt">string</span> <span class="k">params</span> <span class="p">=</span> <span class="s">"{\"SurveyNumber\": 101100, \"Name\":\"Top Supplier Group\", \"AllocationPercentage\": 0.10, \"IsHedgeAccess\": true, \"Suppliers\": [{\"SupplierCode\":\"1010\"}]}"</span><span class="p">;</span>
-
+<span class="kt">string</span> <span class="n">args</span> <span class="p">=</span> <span class="err">@</span><span class="s">"{
+</span>                 <span class="s">""</span><span class="n">SurveyNumber</span><span class="s">""</span><span class="p">:</span> <span class="m">101100</span><span class="p">,</span>
+                 <span class="s">""</span><span class="n">Name</span><span class="s">""</span><span class="p">:</span><span class="s">""</span><span class="n">Top</span> <span class="n">Supplier</span> <span class="n">Group</span><span class="s">""</span><span class="p">,</span>
+                 <span class="s">""</span><span class="n">AllocationPercentage</span><span class="s">""</span><span class="p">:</span> <span class="m">0.10</span><span class="p">,</span>
+                 <span class="s">""</span><span class="n">IsHedgeAccess</span><span class="s">""</span><span class="p">:</span> <span class="k">true</span><span class="p">,</span>
+                 <span class="s">""</span><span class="n">Suppliers</span><span class="s">""</span><span class="p">:</span> <span class="p">[{</span>
+                                  <span class="s">""</span><span class="n">SupplierCode</span><span class="s">""</span><span class="p">:</span><span class="s">""</span><span class="m">1010</span><span class="s">""</span>
+                                <span class="p">}]</span>
+                <span class="p">}</span><span class="s">";
+</span>
 <span class="n">request</span><span class="p">.</span><span class="n">Method</span> <span class="p">=</span> <span class="s">"POST"</span><span class="p">;</span>
 <span class="n">request</span><span class="p">.</span><span class="n">ContentType</span> <span class="p">=</span> <span class="s">"application/json"</span><span class="p">;</span>
 
 <span class="k">using</span><span class="p">(</span><span class="n">StreamWriter</span> <span class="n">streamWriter</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">StreamWriter</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="nf">GetRequestStream</span><span class="p">()))</span>
 <span class="p">{</span>
-<span class="n">streamWriter</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="k">params</span><span class="p">);</span>
+<span class="n">streamWriter</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="n">args</span><span class="p">);</span>
 <span class="n">streamWriter</span><span class="p">.</span><span class="nf">Flush</span><span class="p">();</span>
 <span class="n">streamWriter</span><span class="p">.</span><span class="nf">Close</span><span class="p">();</span>
 <span class="p">}</span>
@@ -7078,14 +7159,19 @@
 
 <span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Demand/v1/SupplierGroups/Create/{SurveyNumber}?key={APIKey}"</span><span class="p">);</span>
 
-<span class="kt">string</span> <span class="k">params</span> <span class="p">=</span> <span class="s">"{\"SurveyNumber\": 101100, \"Name\":\"Top Supplier Group\", \"AllocationPercentage\": 0.10, \"IsHedgeAccess\": true}]}"</span><span class="p">;</span>
-
+<span class="kt">string</span> <span class="n">args</span> <span class="p">=</span> <span class="err">@</span><span class="s">"{
+</span>                 <span class="s">""</span><span class="n">SurveyNumber</span><span class="s">""</span><span class="p">:</span> <span class="m">101100</span><span class="p">,</span>
+                 <span class="s">""</span><span class="n">Name</span><span class="s">""</span><span class="p">:</span><span class="s">""</span><span class="n">Top</span> <span class="n">Supplier</span> <span class="n">Group</span><span class="s">""</span><span class="p">,</span>
+                 <span class="s">""</span><span class="n">AllocationPercentage</span><span class="s">""</span><span class="p">:</span> <span class="m">0.10</span><span class="p">,</span>
+                 <span class="s">""</span><span class="n">IsHedgeAccess</span><span class="s">""</span><span class="p">:</span> <span class="k">true</span>
+                <span class="p">}</span><span class="s">";
+</span>
 <span class="n">request</span><span class="p">.</span><span class="n">Method</span> <span class="p">=</span> <span class="s">"POST"</span><span class="p">;</span>
 <span class="n">request</span><span class="p">.</span><span class="n">ContentType</span> <span class="p">=</span> <span class="s">"application/json"</span><span class="p">;</span>
 
 <span class="k">using</span><span class="p">(</span><span class="n">StreamWriter</span> <span class="n">streamWriter</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">StreamWriter</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="nf">GetRequestStream</span><span class="p">()))</span>
 <span class="p">{</span>
-<span class="n">streamWriter</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="k">params</span><span class="p">);</span>
+<span class="n">streamWriter</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="n">args</span><span class="p">);</span>
 <span class="n">streamWriter</span><span class="p">.</span><span class="nf">Flush</span><span class="p">();</span>
 <span class="n">streamWriter</span><span class="p">.</span><span class="nf">Close</span><span class="p">();</span>
 <span class="p">}</span>
@@ -7263,14 +7349,20 @@
 
 <span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Demand/v1/SupplierGroups/Update/{SurveyNumber}?key={APIKey}"</span><span class="p">);</span>
 
-<span class="kt">string</span> <span class="k">params</span> <span class="p">=</span> <span class="s">"{\"ID\": 1234,\"SurveyNumber\": 101100, \"Name\":\"Top Supplier Group\", \"AllocationPercentage\": 0.10, \"IsHedgeAccess\": true}]}"</span><span class="p">;</span>
-
+<span class="kt">string</span> <span class="n">args</span> <span class="p">=</span> <span class="err">@</span><span class="s">"{
+</span>                 <span class="s">""</span><span class="n">ID</span><span class="s">""</span><span class="p">:</span> <span class="m">1234</span><span class="p">,</span>
+                 <span class="s">""</span><span class="n">SurveyNumber</span><span class="s">""</span><span class="p">:</span> <span class="m">101100</span><span class="p">,</span>
+                 <span class="s">""</span><span class="n">Name</span><span class="s">""</span><span class="p">:</span><span class="s">""</span><span class="n">Top</span> <span class="n">Supplier</span> <span class="n">Group</span><span class="s">""</span><span class="p">,</span>
+                 <span class="s">""</span><span class="n">AllocationPercentage</span><span class="s">""</span><span class="p">:</span> <span class="m">0.10</span><span class="p">,</span>
+                 <span class="s">""</span><span class="n">IsHedgeAccess</span><span class="s">""</span><span class="p">:</span> <span class="k">true</span>
+                <span class="p">}</span><span class="s">";
+</span>
 <span class="n">request</span><span class="p">.</span><span class="n">Method</span> <span class="p">=</span> <span class="s">"PUT"</span><span class="p">;</span>
 <span class="n">request</span><span class="p">.</span><span class="n">ContentType</span> <span class="p">=</span> <span class="s">"application/json"</span><span class="p">;</span>
 
 <span class="k">using</span><span class="p">(</span><span class="n">StreamWriter</span> <span class="n">streamWriter</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">StreamWriter</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="nf">GetRequestStream</span><span class="p">()))</span>
 <span class="p">{</span>
-<span class="n">streamWriter</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="k">params</span><span class="p">);</span>
+<span class="n">streamWriter</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="n">args</span><span class="p">);</span>
 <span class="n">streamWriter</span><span class="p">.</span><span class="nf">Flush</span><span class="p">();</span>
 <span class="n">streamWriter</span><span class="p">.</span><span class="nf">Close</span><span class="p">();</span>
 <span class="p">}</span>
@@ -7553,14 +7645,14 @@
 
 <span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Demand/v1/SupplierGroups/Update/{SurveyNumber}?key={APIKey}"</span><span class="p">);</span>
 
-<span class="kt">string</span> <span class="k">params</span> <span class="p">=</span> <span class="s">"{\"SupplierCode\": 1010}]}"</span><span class="p">;</span>
+<span class="kt">string</span> <span class="n">args</span> <span class="p">=</span> <span class="s">@"{""SupplierCode"": 1010}"</span><span class="p">;</span>
 
 <span class="n">request</span><span class="p">.</span><span class="n">Method</span> <span class="p">=</span> <span class="s">"POST"</span><span class="p">;</span>
 <span class="n">request</span><span class="p">.</span><span class="n">ContentType</span> <span class="p">=</span> <span class="s">"application/json"</span><span class="p">;</span>
 
 <span class="k">using</span><span class="p">(</span><span class="n">StreamWriter</span> <span class="n">streamWriter</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">StreamWriter</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="nf">GetRequestStream</span><span class="p">()))</span>
 <span class="p">{</span>
-<span class="n">streamWriter</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="k">params</span><span class="p">);</span>
+<span class="n">streamWriter</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="n">args</span><span class="p">);</span>
 <span class="n">streamWriter</span><span class="p">.</span><span class="nf">Flush</span><span class="p">();</span>
 <span class="n">streamWriter</span><span class="p">.</span><span class="nf">Close</span><span class="p">();</span>
 <span class="p">}</span>
@@ -7697,7 +7789,9 @@
 </code></pre>
 <pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'https'</span><span class="p">);</span>
 
-<span class="kd">var</span> <span class="nx">group</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Demand/v1/SupplierGroups/BySurveyNumber/{SurveyNumber}?key={APIKey}'</span><span class="p">);</span>
+<span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Demand/v1/SupplierGroups/BySurveyNumber/{SurveyNumber}?key={APIKey}'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">){</span>
+  <span class="kd">var</span> <span class="nx">group</span> <span class="o">=</span> <span class="nx">res</span><span class="p">;</span>
+<span class="p">});</span>
 </code></pre>
 
 <blockquote>
@@ -7844,14 +7938,14 @@
 
 <span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Demand/v1/SupplierGroups/RemoveSuppliersFromGroup/{SurveyNumber}?key={APIKey}"</span><span class="p">);</span>
 
-<span class="kt">string</span> <span class="k">params</span> <span class="p">=</span> <span class="s">"{\"SupplierCode\": 1010}"</span><span class="p">;</span>
+<span class="kt">string</span> <span class="n">args</span> <span class="p">=</span> <span class="s">@"{""SupplierCode"": 1010}"</span><span class="p">;</span>
 
 <span class="n">request</span><span class="p">.</span><span class="n">Method</span> <span class="p">=</span> <span class="s">"PUT"</span><span class="p">;</span>
 <span class="n">request</span><span class="p">.</span><span class="n">ContentType</span> <span class="p">=</span> <span class="s">"application/json"</span><span class="p">;</span>
 
 <span class="k">using</span><span class="p">(</span><span class="n">StreamWriter</span> <span class="n">streamWriter</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">StreamWriter</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="nf">GetRequestStream</span><span class="p">()))</span>
         <span class="p">{</span>
-            <span class="n">streamWriter</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="k">params</span><span class="p">);</span>
+            <span class="n">streamWriter</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="n">args</span><span class="p">);</span>
             <span class="n">streamWriter</span><span class="p">.</span><span class="nf">Flush</span><span class="p">();</span>
             <span class="n">streamWriter</span><span class="p">.</span><span class="nf">Close</span><span class="p">();</span>
         <span class="p">}</span>
@@ -7986,7 +8080,9 @@
 </code></pre>
 <pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'https'</span><span class="p">);</span>
 
-<span class="kd">var</span> <span class="nx">allocations</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Demand/v1/SupplierAllocations/BySurveyNumber/{SurveyNumber}?key={APIKey}'</span><span class="p">);</span>
+<span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Demand/v1/SupplierAllocations/BySurveyNumber/{SurveyNumber}?key={APIKey}'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">){</span>
+  <span class="kd">var</span> <span class="nx">allocations</span> <span class="o">=</span> <span class="nx">res</span><span class="p">;</span>
+<span class="p">});</span>
 </code></pre>
 
 <blockquote>
@@ -8110,14 +8206,20 @@
 
 <span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Demand/v1/SupplierAllocations/Create/{SurveyNumber}?key={APIKey}"</span><span class="p">);</span>
 
-<span class="kt">string</span> <span class="k">params</span> <span class="p">=</span> <span class="s">"{\"SupplierCode\": \"1010\", \"AllocationPercentage\": 0.1, \"TCPI\": 2, \"HedgeAccess\": true, \"BlockRouterTraffic\": false,}"</span><span class="p">;</span>
-
+<span class="kt">string</span> <span class="n">args</span> <span class="p">=</span> <span class="err">@</span><span class="s">"{
+</span>                   <span class="s">""</span><span class="n">SupplierCode</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="m">1010</span><span class="s">""</span><span class="p">,</span>
+                   <span class="s">""</span><span class="n">AllocationPercentage</span><span class="s">""</span><span class="p">:</span> <span class="m">0.1</span><span class="p">,</span>
+                   <span class="s">""</span><span class="n">TCPI</span><span class="s">""</span><span class="p">:</span> <span class="m">2</span><span class="p">,</span>
+                   <span class="s">""</span><span class="n">HedgeAccess</span><span class="s">""</span><span class="p">:</span> <span class="k">true</span><span class="p">,</span>
+                   <span class="s">""</span><span class="n">BlockRouterTraffic</span><span class="s">""</span><span class="p">:</span> <span class="k">false</span>
+                 <span class="p">}</span><span class="s">";
+</span>
 <span class="n">request</span><span class="p">.</span><span class="n">Method</span> <span class="p">=</span> <span class="s">"POST"</span><span class="p">;</span>
 <span class="n">request</span><span class="p">.</span><span class="n">ContentType</span> <span class="p">=</span> <span class="s">"application/json"</span><span class="p">;</span>
 
 <span class="k">using</span><span class="p">(</span><span class="n">StreamWriter</span> <span class="n">streamWriter</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">StreamWriter</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="nf">GetRequestStream</span><span class="p">()))</span>
 <span class="p">{</span>
-<span class="n">streamWriter</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="k">params</span><span class="p">);</span>
+<span class="n">streamWriter</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="n">args</span><span class="p">);</span>
 <span class="n">streamWriter</span><span class="p">.</span><span class="nf">Flush</span><span class="p">();</span>
 <span class="n">streamWriter</span><span class="p">.</span><span class="nf">Close</span><span class="p">();</span>
 <span class="p">}</span>
@@ -8307,14 +8409,20 @@
 
 <span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Demand/v1/SupplierAllocations/Update/{SurveyNumber}?key={APIKey}"</span><span class="p">);</span>
 
-<span class="kt">string</span> <span class="k">params</span> <span class="p">=</span> <span class="s">"{\"SupplierCode\": \"1010\", \"AllocationPercentage\": 0.1, \"TCPI\": 2, \"HedgeAccess\": true, \"BlockRouterTraffic\": false,}"</span><span class="p">;</span>
-
+<span class="kt">string</span> <span class="n">args</span> <span class="p">=</span> <span class="err">@</span><span class="s">"{
+</span>                   <span class="s">""</span><span class="n">SupplierCode</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="m">1010</span><span class="s">""</span><span class="p">,</span>
+                   <span class="s">""</span><span class="n">AllocationPercentage</span><span class="s">""</span><span class="p">:</span> <span class="m">0.1</span><span class="p">,</span>
+                   <span class="s">""</span><span class="n">TCPI</span><span class="s">""</span><span class="p">:</span> <span class="m">2</span><span class="p">,</span>
+                   <span class="s">""</span><span class="n">HedgeAccess</span><span class="s">""</span><span class="p">:</span> <span class="k">true</span><span class="p">,</span>
+                   <span class="s">""</span><span class="n">BlockRouterTraffic</span><span class="s">""</span><span class="p">:</span> <span class="k">false</span>
+                 <span class="p">}</span><span class="s">";
+</span>
 <span class="n">request</span><span class="p">.</span><span class="n">Method</span> <span class="p">=</span> <span class="s">"PUT"</span><span class="p">;</span>
 <span class="n">request</span><span class="p">.</span><span class="n">ContentType</span> <span class="p">=</span> <span class="s">"application/json"</span><span class="p">;</span>
 
 <span class="k">using</span><span class="p">(</span><span class="n">StreamWriter</span> <span class="n">streamWriter</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">StreamWriter</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="nf">GetRequestStream</span><span class="p">()))</span>
 <span class="p">{</span>
-<span class="n">streamWriter</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="k">params</span><span class="p">);</span>
+<span class="n">streamWriter</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="n">args</span><span class="p">);</span>
 <span class="n">streamWriter</span><span class="p">.</span><span class="nf">Flush</span><span class="p">();</span>
 <span class="n">streamWriter</span><span class="p">.</span><span class="nf">Close</span><span class="p">();</span>
 <span class="p">}</span>
@@ -8747,14 +8855,17 @@
 
 <span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Demand/v1/SupplierAllocations/Targets/Create/{SurveyNumber}/{SupplierCode}?key={APIKey}"</span><span class="p">);</span>
 
-<span class="kt">string</span> <span class="k">params</span> <span class="p">=</span> <span class="s">"{\"SupplierLinkTypeCode\":\"TS\","</span><span class="p">+</span><span class="s">"\"TrackingTypeCode\":\"NONE\"}"</span><span class="p">;</span>
-
+<span class="kt">string</span> <span class="n">args</span> <span class="p">=</span> <span class="err">@</span><span class="s">"{
+</span>                  <span class="s">""</span><span class="n">SupplierLinkTypeCode</span><span class="s">""</span><span class="p">:</span><span class="s">""</span><span class="n">TS</span><span class="s">""</span><span class="p">,</span>
+                  <span class="s">""</span><span class="n">TrackingTypeCode</span><span class="s">""</span><span class="p">:</span><span class="s">""</span><span class="n">NONE</span><span class="s">""</span>
+                <span class="p">}</span><span class="s">";
+</span>
 <span class="n">request</span><span class="p">.</span><span class="n">Method</span> <span class="p">=</span> <span class="s">"POST"</span><span class="p">;</span>
 <span class="n">request</span><span class="p">.</span><span class="n">ContentType</span> <span class="p">=</span> <span class="s">"application/json"</span><span class="p">;</span>
 
 <span class="k">using</span><span class="p">(</span><span class="n">StreamWriter</span> <span class="n">streamWriter</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">StreamWriter</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="nf">GetRequestStream</span><span class="p">()))</span>
 <span class="p">{</span>
-<span class="n">streamWriter</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="k">params</span><span class="p">);</span>
+<span class="n">streamWriter</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="n">args</span><span class="p">);</span>
 <span class="n">streamWriter</span><span class="p">.</span><span class="nf">Flush</span><span class="p">();</span>
 <span class="n">streamWriter</span><span class="p">.</span><span class="nf">Close</span><span class="p">();</span>
 <span class="p">}</span>
@@ -8958,14 +9069,22 @@
 
 <span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Demand/v1/SupplierAllocations/Targets/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}"</span><span class="p">);</span>
 
-<span class="kt">string</span> <span class="k">params</span> <span class="p">=</span> <span class="s">"{\"SupplierLinkTypeCode\":\"TS\","</span><span class="p">+</span><span class="s">"\"TrackingTypeCode\":\"NONE\","</span><span class="p">+</span><span class="s">"\"DefaultLink\":\"\","</span><span class="p">+</span><span class="s">"\"SuccessLink\":\"\","</span><span class="p">+</span><span class="s">"\"FailureLink\":\"\","</span><span class="p">+</span><span class="s">"\"OverQuotaLink\":\"\","</span><span class="p">+</span><span class="s">"\"QualityTerminationLink\":\"\"}"</span><span class="p">;</span>
-
+<span class="kt">string</span> <span class="n">args</span> <span class="p">=</span> <span class="err">@</span><span class="s">"{
+</span>                  <span class="s">""</span><span class="n">SupplierLinkTypeCode</span><span class="s">""</span><span class="p">:</span><span class="s">""</span><span class="n">TS</span><span class="s">""</span><span class="p">,</span>
+                  <span class="s">""</span><span class="n">TrackingTypeCode</span><span class="s">""</span><span class="p">:</span><span class="s">""</span><span class="n">NONE</span><span class="s">""</span><span class="p">,</span>
+                  <span class="s">""</span><span class="n">DefaultLink</span><span class="s">""</span><span class="p">:</span><span class="s">""""</span><span class="p">,</span>
+                  <span class="s">""</span><span class="n">SuccessLink</span><span class="s">""</span><span class="p">:</span><span class="s">""""</span><span class="p">,</span>
+                  <span class="s">""</span><span class="n">FailureLink</span><span class="s">""</span><span class="p">:</span><span class="s">""""</span><span class="p">,</span>
+                  <span class="s">""</span><span class="n">OverQuotaLink</span><span class="s">""</span><span class="p">:</span><span class="s">""""</span><span class="p">,</span>
+                  <span class="s">""</span><span class="n">QualityTerminationLink</span><span class="s">""</span><span class="p">:</span><span class="s">""""</span>
+                <span class="p">}</span><span class="s">";
+</span>
 <span class="n">request</span><span class="p">.</span><span class="n">Method</span> <span class="p">=</span> <span class="s">"PUT"</span><span class="p">;</span>
 <span class="n">request</span><span class="p">.</span><span class="n">ContentType</span> <span class="p">=</span> <span class="s">"application/json"</span><span class="p">;</span>
 
 <span class="k">using</span><span class="p">(</span><span class="n">StreamWriter</span> <span class="n">streamWriter</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">StreamWriter</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="nf">GetRequestStream</span><span class="p">()))</span>
         <span class="p">{</span>
-            <span class="n">streamWriter</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="k">params</span><span class="p">);</span>
+            <span class="n">streamWriter</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="n">args</span><span class="p">);</span>
             <span class="n">streamWriter</span><span class="p">.</span><span class="nf">Flush</span><span class="p">();</span>
             <span class="n">streamWriter</span><span class="p">.</span><span class="nf">Close</span><span class="p">();</span>
         <span class="p">}</span>
@@ -9269,14 +9388,52 @@
 
 <span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Demand/v1/Feasibility/Time?key={APIkey}"</span><span class="p">);</span>
 
-<span class="kt">string</span> <span class="k">params</span> <span class="p">=</span> <span class="s">"{\"CountryLanguageID\": 9, \"LengthOfInterview\": 5, \"Incidence\": 100, \"Quotas\": [{\"CompletesPerDay\": [1000], \"Conditions\": [{\"QuestionID\": 42, \"PreCodes\": [\"18\", \"19\", \"20\", \"21\", \"22\", \"23\", \"24\", \"25\", \"26\", \"27\", \"28\", \"29\"]}, {\"QuestionID\": 43, \"PreCodes\": [\"1\"] } ] }, {\"CompletesPerDay\": [1250], \"Conditions\": [{\"QuestionID\": 42, \"PreCodes\": [\"18\", \"19\", \"20\", \"21\", \"22\", \"23\", \"24\", \"25\", \"26\", \"27\", \"28\", \"29\"]}, {\"QuestionID\": 43, \"PreCodes\": [\"2\"] } ] }] }"</span><span class="p">;</span>
-
+<span class="kt">string</span> <span class="n">args</span> <span class="p">=</span> <span class="err">@</span><span class="s">"{
+</span>                 <span class="s">""</span><span class="n">CountryLanguageID</span><span class="s">""</span><span class="p">:</span> <span class="m">9</span><span class="p">,</span>
+                 <span class="s">""</span><span class="n">LengthOfInterview</span><span class="s">""</span><span class="p">:</span> <span class="m">5</span><span class="p">,</span>
+                 <span class="s">""</span><span class="n">Incidence</span><span class="s">""</span><span class="p">:</span> <span class="m">100</span><span class="p">,</span>
+                 <span class="s">""</span><span class="n">Quotas</span><span class="s">""</span><span class="p">:</span> <span class="p">[</span>
+                                <span class="p">{</span>
+                                  <span class="s">""</span><span class="n">CompletesPerDay</span><span class="s">""</span><span class="p">:</span> <span class="p">[</span><span class="m">1000</span><span class="p">],</span> 
+                                  <span class="s">""</span><span class="n">Conditions</span><span class="s">""</span><span class="p">:</span> 
+                                  <span class="p">[</span>
+                                    <span class="p">{</span>
+                                      <span class="s">""</span><span class="n">QuestionID</span><span class="s">""</span><span class="p">:</span> <span class="m">42</span><span class="p">,</span> 
+                                      <span class="s">""</span><span class="n">PreCodes</span><span class="s">""</span><span class="p">:</span> <span class="p">[</span><span class="s">""</span><span class="m">18</span><span class="s">""</span><span class="p">,</span> <span class="s">""</span><span class="m">19</span><span class="s">""</span><span class="p">,</span> <span class="s">""</span><span class="m">20</span><span class="s">""</span><span class="p">,</span> <span class="s">""</span><span class="m">21</span><span class="s">""</span><span class="p">,</span> 
+                                                     <span class="s">""</span><span class="m">22</span><span class="s">""</span><span class="p">,</span> <span class="s">""</span><span class="m">23</span><span class="s">""</span><span class="p">,</span> <span class="s">""</span><span class="m">24</span><span class="s">""</span><span class="p">,</span> <span class="s">""</span><span class="m">25</span><span class="s">""</span><span class="p">,</span> 
+                                                     <span class="s">""</span><span class="m">26</span><span class="s">""</span><span class="p">,</span> <span class="s">""</span><span class="m">27</span><span class="s">""</span><span class="p">,</span> <span class="s">""</span><span class="m">28</span><span class="s">""</span><span class="p">,</span> <span class="s">""</span><span class="m">29</span><span class="s">""</span><span class="p">]</span>
+                                    <span class="p">},</span> 
+                                    <span class="p">{</span>
+                                      <span class="s">""</span><span class="n">QuestionID</span><span class="s">""</span><span class="p">:</span> <span class="m">43</span><span class="p">,</span> 
+                                      <span class="s">""</span><span class="n">PreCodes</span><span class="s">""</span><span class="p">:</span> <span class="p">[</span><span class="s">""</span><span class="m">1</span><span class="s">""</span><span class="p">]</span> 
+                                    <span class="p">}</span> 
+                                  <span class="p">]</span>
+                                <span class="p">},</span> 
+                                <span class="p">{</span>
+                                  <span class="s">""</span><span class="n">CompletesPerDay</span><span class="s">""</span><span class="p">:</span> <span class="p">[</span><span class="m">1250</span><span class="p">],</span> 
+                                  <span class="s">""</span><span class="n">Conditions</span><span class="s">""</span><span class="p">:</span> 
+                                  <span class="p">[</span>
+                                    <span class="p">{</span>
+                                      <span class="s">""</span><span class="n">QuestionID</span><span class="s">""</span><span class="p">:</span> <span class="m">42</span><span class="p">,</span> 
+                                      <span class="s">""</span><span class="n">PreCodes</span><span class="s">""</span><span class="p">:</span> <span class="p">[</span><span class="s">""</span><span class="m">18</span><span class="s">""</span><span class="p">,</span> <span class="s">""</span><span class="m">19</span><span class="s">""</span><span class="p">,</span> <span class="s">""</span><span class="m">20</span><span class="s">""</span><span class="p">,</span> <span class="s">""</span><span class="m">21</span><span class="s">""</span><span class="p">,</span> 
+                                                     <span class="s">""</span><span class="m">22</span><span class="s">""</span><span class="p">,</span> <span class="s">""</span><span class="m">23</span><span class="s">""</span><span class="p">,</span> <span class="s">""</span><span class="m">24</span><span class="s">""</span><span class="p">,</span> <span class="s">""</span><span class="m">25</span><span class="s">""</span><span class="p">,</span> 
+                                                     <span class="s">""</span><span class="m">26</span><span class="s">""</span><span class="p">,</span> <span class="s">""</span><span class="m">27</span><span class="s">""</span><span class="p">,</span> <span class="s">""</span><span class="m">28</span><span class="s">""</span><span class="p">,</span> <span class="s">""</span><span class="m">29</span><span class="s">""</span><span class="p">]</span>
+                                    <span class="p">},</span> 
+                                    <span class="p">{</span>
+                                      <span class="s">""</span><span class="n">QuestionID</span><span class="s">""</span><span class="p">:</span> <span class="m">43</span><span class="p">,</span> 
+                                      <span class="s">""</span><span class="n">PreCodes</span><span class="s">""</span><span class="p">:</span> <span class="p">[</span><span class="s">""</span><span class="m">2</span><span class="s">""</span><span class="p">]</span> 
+                                    <span class="p">}</span> 
+                                  <span class="p">]</span> 
+                                <span class="p">}</span>
+                              <span class="p">]</span> 
+                <span class="p">}</span><span class="s">";
+</span>
 <span class="n">request</span><span class="p">.</span><span class="n">Method</span> <span class="p">=</span> <span class="s">"POST"</span><span class="p">;</span>
 <span class="n">request</span><span class="p">.</span><span class="n">ContentType</span> <span class="p">=</span> <span class="s">"application/json"</span><span class="p">;</span>
 
 <span class="k">using</span><span class="p">(</span><span class="n">StreamWriter</span> <span class="n">streamWriter</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">StreamWriter</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="nf">GetRequestStream</span><span class="p">()))</span>
 <span class="p">{</span>
-<span class="n">streamWriter</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="k">params</span><span class="p">);</span>
+<span class="n">streamWriter</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="n">args</span><span class="p">);</span>
 <span class="n">streamWriter</span><span class="p">.</span><span class="nf">Flush</span><span class="p">();</span>
 <span class="n">streamWriter</span><span class="p">.</span><span class="nf">Close</span><span class="p">();</span>
 <span class="p">}</span>
@@ -9514,14 +9671,35 @@
 
 <span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Demand/v1/Feasibility/Price?key={APIkey}"</span><span class="p">);</span>
 
-<span class="kt">string</span> <span class="k">params</span> <span class="p">=</span> <span class="s">"{\"CountryLanguageID\": 9, \"LengthOfInterview\": 5, \"Incidence\": 100, \"Quotas\": [{\"CompletesPerDay\": [1000, 1500], \"Conditions\": [{\"QuestionID\": 42, \"PreCodes\": [\"18\", \"19\", \"20\", \"21\", \"22\", \"23\", \"24\", \"25\", \"26\", \"27\", \"28\", \"29\"]}, {\"QuestionID\": 43, \"PreCodes\": [\"1\"] } ] }, ] }"</span><span class="p">;</span>
-
+<span class="kt">string</span> <span class="n">args</span> <span class="p">=</span> <span class="err">@</span><span class="s">"{
+</span>                 <span class="s">""</span><span class="n">CountryLanguageID</span><span class="s">""</span><span class="p">:</span> <span class="m">9</span><span class="p">,</span>
+                 <span class="s">""</span><span class="n">LengthOfInterview</span><span class="s">""</span><span class="p">:</span> <span class="m">5</span><span class="p">,</span>
+                 <span class="s">""</span><span class="n">Incidence</span><span class="s">""</span><span class="p">:</span> <span class="m">100</span><span class="p">,</span>
+                 <span class="s">""</span><span class="n">Quotas</span><span class="s">""</span><span class="p">:</span> <span class="p">[</span>
+                                <span class="p">{</span><span class="s">""</span><span class="n">CompletesPerDay</span><span class="s">""</span><span class="p">:</span> <span class="p">[</span><span class="m">1000</span><span class="p">,</span> <span class="m">1500</span><span class="p">],</span> 
+                                  <span class="s">""</span><span class="n">Conditions</span><span class="s">""</span><span class="p">:</span> 
+                                  <span class="p">[</span>
+                                    <span class="p">{</span>
+                                      <span class="s">""</span><span class="n">QuestionID</span><span class="s">""</span><span class="p">:</span> <span class="m">42</span><span class="p">,</span> 
+                                      <span class="s">""</span><span class="n">PreCodes</span><span class="s">""</span><span class="p">:</span> <span class="p">[</span><span class="s">""</span><span class="m">18</span><span class="s">""</span><span class="p">,</span> <span class="s">""</span><span class="m">19</span><span class="s">""</span><span class="p">,</span> <span class="s">""</span><span class="m">20</span><span class="s">""</span><span class="p">,</span> <span class="s">""</span><span class="m">21</span><span class="s">""</span><span class="p">,</span> 
+                                                     <span class="s">""</span><span class="m">22</span><span class="s">""</span><span class="p">,</span> <span class="s">""</span><span class="m">23</span><span class="s">""</span><span class="p">,</span> <span class="s">""</span><span class="m">24</span><span class="s">""</span><span class="p">,</span> <span class="s">""</span><span class="m">25</span><span class="s">""</span><span class="p">,</span> 
+                                                     <span class="s">""</span><span class="m">26</span><span class="s">""</span><span class="p">,</span> <span class="s">""</span><span class="m">27</span><span class="s">""</span><span class="p">,</span> <span class="s">""</span><span class="m">28</span><span class="s">""</span><span class="p">,</span> <span class="s">""</span><span class="m">29</span><span class="s">""</span><span class="p">]</span>
+                                    <span class="p">},</span> 
+                                    <span class="p">{</span>
+                                      <span class="s">""</span><span class="n">QuestionID</span><span class="s">""</span><span class="p">:</span> <span class="m">43</span><span class="p">,</span> 
+                                      <span class="s">""</span><span class="n">PreCodes</span><span class="s">""</span><span class="p">:</span> <span class="p">[</span><span class="s">""</span><span class="m">1</span><span class="s">""</span><span class="p">]</span> 
+                                    <span class="p">}</span> 
+                                  <span class="p">]</span>
+                                <span class="p">},</span> 
+                              <span class="p">]</span> 
+                <span class="p">}</span><span class="s">";
+</span>
 <span class="n">request</span><span class="p">.</span><span class="n">Method</span> <span class="p">=</span> <span class="s">"POST"</span><span class="p">;</span>
 <span class="n">request</span><span class="p">.</span><span class="n">ContentType</span> <span class="p">=</span> <span class="s">"application/json"</span><span class="p">;</span>
 
 <span class="k">using</span><span class="p">(</span><span class="n">StreamWriter</span> <span class="n">streamWriter</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">StreamWriter</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="nf">GetRequestStream</span><span class="p">()))</span>
 <span class="p">{</span>
-<span class="n">streamWriter</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="k">params</span><span class="p">);</span>
+<span class="n">streamWriter</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="n">args</span><span class="p">);</span>
 <span class="n">streamWriter</span><span class="p">.</span><span class="nf">Flush</span><span class="p">();</span>
 <span class="n">streamWriter</span><span class="p">.</span><span class="nf">Close</span><span class="p">();</span>
 <span class="p">}</span>
@@ -9748,14 +9926,35 @@
 
 <span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Demand/v1/Feasibility/NumberOfRespondents?key={APIkey}"</span><span class="p">);</span>
 
-<span class="kt">string</span> <span class="k">params</span> <span class="p">=</span> <span class="s">"{\"CountryLanguageID\": 9, \"LengthOfInterview\": 1, \"Incidence\": 100, \"Price\": 5, \"Quotas\": [{\"Conditions\": [{\"QuestionID\": 42, \"PreCodes\": [\"18\", \"19\", \"20\", \"21\", \"22\", \"23\", \"24\", \"25\", \"26\", \"27\", \"28\", \"29\"]}, {\"QuestionID\": 43, \"PreCodes\": [\"1\"]}]}]}"</span><span class="p">;</span>
-
+<span class="kt">string</span> <span class="n">args</span> <span class="p">=</span> <span class="err">@</span><span class="s">"{
+</span>                 <span class="s">""</span><span class="n">CountryLanguageID</span><span class="s">""</span><span class="p">:</span> <span class="m">9</span><span class="p">,</span>
+                 <span class="s">""</span><span class="n">LengthOfInterview</span><span class="s">""</span><span class="p">:</span> <span class="m">1</span><span class="p">,</span>
+                 <span class="s">""</span><span class="n">Incidence</span><span class="s">""</span><span class="p">:</span> <span class="m">100</span><span class="p">,</span>
+                 <span class="s">""</span><span class="n">Price</span><span class="s">""</span><span class="p">:</span> <span class="m">5</span><span class="p">,</span>
+                 <span class="s">""</span><span class="n">Quotas</span><span class="s">""</span><span class="p">:</span> <span class="p">[</span>
+                                <span class="p">{</span><span class="s">""</span><span class="n">Conditions</span><span class="s">""</span><span class="p">:</span> 
+                                  <span class="p">[</span>
+                                    <span class="p">{</span>
+                                      <span class="s">""</span><span class="n">QuestionID</span><span class="s">""</span><span class="p">:</span> <span class="m">42</span><span class="p">,</span> 
+                                      <span class="s">""</span><span class="n">PreCodes</span><span class="s">""</span><span class="p">:</span> <span class="p">[</span><span class="s">""</span><span class="m">18</span><span class="s">""</span><span class="p">,</span> <span class="s">""</span><span class="m">19</span><span class="s">""</span><span class="p">,</span> <span class="s">""</span><span class="m">20</span><span class="s">""</span><span class="p">,</span> <span class="s">""</span><span class="m">21</span><span class="s">""</span><span class="p">,</span> 
+                                                     <span class="s">""</span><span class="m">22</span><span class="s">""</span><span class="p">,</span> <span class="s">""</span><span class="m">23</span><span class="s">""</span><span class="p">,</span> <span class="s">""</span><span class="m">24</span><span class="s">""</span><span class="p">,</span> <span class="s">""</span><span class="m">25</span><span class="s">""</span><span class="p">,</span> 
+                                                     <span class="s">""</span><span class="m">26</span><span class="s">""</span><span class="p">,</span> <span class="s">""</span><span class="m">27</span><span class="s">""</span><span class="p">,</span> <span class="s">""</span><span class="m">28</span><span class="s">""</span><span class="p">,</span> <span class="s">""</span><span class="m">29</span><span class="s">""</span><span class="p">]</span>
+                                    <span class="p">},</span> 
+                                    <span class="p">{</span>
+                                      <span class="s">""</span><span class="n">QuestionID</span><span class="s">""</span><span class="p">:</span> <span class="m">43</span><span class="p">,</span> 
+                                      <span class="s">""</span><span class="n">PreCodes</span><span class="s">""</span><span class="p">:</span> <span class="p">[</span><span class="s">""</span><span class="m">1</span><span class="s">""</span><span class="p">]</span> 
+                                    <span class="p">}</span> 
+                                  <span class="p">]</span>
+                                <span class="p">},</span> 
+                              <span class="p">]</span> 
+                <span class="p">}</span><span class="s">";
+</span>
 <span class="n">request</span><span class="p">.</span><span class="n">Method</span> <span class="p">=</span> <span class="s">"POST"</span><span class="p">;</span>
 <span class="n">request</span><span class="p">.</span><span class="n">ContentType</span> <span class="p">=</span> <span class="s">"application/json"</span><span class="p">;</span>
 
 <span class="k">using</span><span class="p">(</span><span class="n">StreamWriter</span> <span class="n">streamWriter</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">StreamWriter</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="nf">GetRequestStream</span><span class="p">()))</span>
 <span class="p">{</span>
-<span class="n">streamWriter</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="k">params</span><span class="p">);</span>
+<span class="n">streamWriter</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="n">args</span><span class="p">);</span>
 <span class="n">streamWriter</span><span class="p">.</span><span class="nf">Flush</span><span class="p">();</span>
 <span class="n">streamWriter</span><span class="p">.</span><span class="nf">Close</span><span class="p">();</span>
 <span class="p">}</span>
@@ -9938,7 +10137,9 @@
 </code></pre>
 <pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'https'</span><span class="p">);</span>
 
-<span class="kd">var</span> <span class="nx">qualifiedRespondents</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/BySurveyNumberSupplierCode/{SurveyNumber}/{SupplierCode}?key={APIKey}'</span><span class="p">);</span>
+<span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/BySurveyNumberSupplierCode/{SurveyNumber}/{SupplierCode}?key={APIKey}'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">){</span>
+  <span class="kd">var</span> <span class="nx">qualifiedRespondents</span> <span class="o">=</span> <span class="nx">res</span><span class="p">;</span>
+<span class="p">});</span>
 </code></pre>
 
 <blockquote>
@@ -10061,14 +10262,17 @@
 
 <span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}"</span><span class="p">);</span>
 
-<span class="kt">string</span> <span class="k">params</span> <span class="p">=</span> <span class="s">"{\"PID\": \"0001110\", \"IsActive\": true}"</span><span class="p">;</span>
-
+<span class="kt">string</span> <span class="n">args</span> <span class="p">=</span> <span class="err">@</span><span class="s">"{
+</span>                   <span class="s">""</span><span class="n">PID</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="m">0001110</span><span class="s">""</span><span class="p">,</span>
+                   <span class="s">""</span><span class="n">IsActive</span><span class="s">""</span><span class="p">:</span> <span class="k">true</span>
+                <span class="p">}</span><span class="s">";
+</span>
 <span class="n">request</span><span class="p">.</span><span class="n">Method</span> <span class="p">=</span> <span class="s">"PUT"</span><span class="p">;</span>
 <span class="n">request</span><span class="p">.</span><span class="n">ContentType</span> <span class="p">=</span> <span class="s">"application/json"</span><span class="p">;</span>
 
 <span class="k">using</span><span class="p">(</span><span class="n">StreamWriter</span> <span class="n">streamWriter</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">StreamWriter</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="nf">GetRequestStream</span><span class="p">()))</span>
 <span class="p">{</span>
-<span class="n">streamWriter</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="k">params</span><span class="p">);</span>
+<span class="n">streamWriter</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="n">args</span><span class="p">);</span>
 <span class="n">streamWriter</span><span class="p">.</span><span class="nf">Flush</span><span class="p">();</span>
 <span class="n">streamWriter</span><span class="p">.</span><span class="nf">Close</span><span class="p">();</span>
 <span class="p">}</span>
@@ -10304,15 +10508,19 @@
 <span class="n">String</span> <span class="n">password</span> <span class="p">=</span> <span class="s">"{password}"</span><span class="p">;</span>
 <span class="n">String</span> <span class="n">encoded</span> <span class="p">=</span> <span class="n">System</span><span class="p">.</span><span class="n">Convert</span><span class="p">.</span><span class="nf">ToBase64String</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="n">Text</span><span class="p">.</span><span class="n">Encoding</span><span class="p">.</span><span class="nf">GetEncoding</span><span class="p">(</span><span class="s">"ISO-8859-1"</span><span class="p">).</span><span class="nf">GetBytes</span><span class="p">(</span><span class="n">username</span> <span class="p">+</span> <span class="s">":"</span> <span class="p">+</span> <span class="n">password</span><span class="p">));</span>
 
-<span class="kt">string</span> <span class="n">parameters</span> <span class="p">=</span> <span class="s">"{\"description\": \"MegaCorp Tracker\",\"name\": \"Project 999\",\"surveys\": [123,48452]}"</span><span class="p">;</span>
-
+<span class="kt">string</span> <span class="n">args</span> <span class="p">=</span> <span class="err">@</span><span class="s">"{
+</span>                  <span class="s">""</span><span class="n">description</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">MegaCorp</span> <span class="n">Tracker</span><span class="s">""</span><span class="p">,</span>
+                  <span class="s">""</span><span class="n">name</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">Project</span> <span class="m">999</span><span class="s">""</span><span class="p">,</span>
+                  <span class="s">""</span><span class="n">surveys</span><span class="s">""</span><span class="p">:</span> <span class="p">[</span><span class="m">123</span><span class="p">,</span><span class="m">48452</span><span class="p">]</span>
+                <span class="p">}</span><span class="s">";
+</span>
 <span class="n">request</span><span class="p">.</span><span class="n">Method</span> <span class="p">=</span> <span class="s">"POST"</span><span class="p">;</span>
 <span class="n">request</span><span class="p">.</span><span class="n">ContentType</span> <span class="p">=</span> <span class="s">"application/json"</span><span class="p">;</span>
 <span class="n">request</span><span class="p">.</span><span class="n">Headers</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Basic "</span> <span class="p">+</span> <span class="n">encoded</span><span class="p">);</span>
 
 <span class="k">using</span><span class="p">(</span><span class="n">StreamWriter</span> <span class="n">streamWriter</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">StreamWriter</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="nf">GetRequestStream</span><span class="p">()))</span>
 <span class="p">{</span>
-<span class="n">streamWriter</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="n">parameters</span><span class="p">);</span>
+<span class="n">streamWriter</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="n">args</span><span class="p">);</span>
 <span class="n">streamWriter</span><span class="p">.</span><span class="nf">Flush</span><span class="p">();</span>
 <span class="n">streamWriter</span><span class="p">.</span><span class="nf">Close</span><span class="p">();</span>
 <span class="p">}</span>
@@ -10498,7 +10706,7 @@
 <span class="n">String</span> <span class="n">password</span> <span class="p">=</span> <span class="s">"{password}"</span><span class="p">;</span>
 <span class="n">String</span> <span class="n">encoded</span> <span class="p">=</span> <span class="n">System</span><span class="p">.</span><span class="n">Convert</span><span class="p">.</span><span class="nf">ToBase64String</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="n">Text</span><span class="p">.</span><span class="n">Encoding</span><span class="p">.</span><span class="nf">GetEncoding</span><span class="p">(</span><span class="s">"ISO-8859-1"</span><span class="p">).</span><span class="nf">GetBytes</span><span class="p">(</span><span class="n">username</span> <span class="p">+</span> <span class="s">":"</span> <span class="p">+</span> <span class="n">password</span><span class="p">));</span>
 
-<span class="kt">string</span> <span class="n">parameters</span> <span class="p">=</span> <span class="s">"{\"surveys\": [554784,982545]}"</span><span class="p">;</span>
+<span class="kt">string</span> <span class="n">args</span> <span class="p">=</span> <span class="s">@"{""surveys"": [554784,982545]}"</span><span class="p">;</span>
 
 <span class="n">request</span><span class="p">.</span><span class="n">Method</span> <span class="p">=</span> <span class="s">"POST"</span><span class="p">;</span>
 <span class="n">request</span><span class="p">.</span><span class="n">ContentType</span> <span class="p">=</span> <span class="s">"application/json"</span><span class="p">;</span>
@@ -10506,7 +10714,7 @@
 
 <span class="k">using</span><span class="p">(</span><span class="n">StreamWriter</span> <span class="n">streamWriter</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">StreamWriter</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="nf">GetRequestStream</span><span class="p">()))</span>
 <span class="p">{</span>
-<span class="n">streamWriter</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="n">parameters</span><span class="p">);</span>
+<span class="n">streamWriter</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="n">args</span><span class="p">);</span>
 <span class="n">streamWriter</span><span class="p">.</span><span class="nf">Flush</span><span class="p">();</span>
 <span class="n">streamWriter</span><span class="p">.</span><span class="nf">Close</span><span class="p">();</span>
 <span class="p">}</span>
