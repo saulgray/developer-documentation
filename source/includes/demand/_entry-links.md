@@ -111,14 +111,14 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SupplierAllocations/Targets/Create/{SurveyNumber}/{SupplierCode}?key={APIKey}");
 
-string params = "{\"SupplierLinkTypeCode\":\"TS\","+"\"TrackingTypeCode\":\"NONE\"}";
+string args = "{\"SupplierLinkTypeCode\":\"TS\","+"\"TrackingTypeCode\":\"NONE\"}";
     
 request.Method = "POST";
 request.ContentType = "application/json";
 
 using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
 {
-streamWriter.Write(params);
+streamWriter.Write(args);
 streamWriter.Flush();
 streamWriter.Close();
 }
@@ -290,14 +290,14 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SupplierAllocations/Targets/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}");
 
-string params = "{\"SupplierLinkTypeCode\":\"TS\","+"\"TrackingTypeCode\":\"NONE\","+"\"DefaultLink\":\"\","+"\"SuccessLink\":\"\","+"\"FailureLink\":\"\","+"\"OverQuotaLink\":\"\","+"\"QualityTerminationLink\":\"\"}";
+string args = "{\"SupplierLinkTypeCode\":\"TS\","+"\"TrackingTypeCode\":\"NONE\","+"\"DefaultLink\":\"\","+"\"SuccessLink\":\"\","+"\"FailureLink\":\"\","+"\"OverQuotaLink\":\"\","+"\"QualityTerminationLink\":\"\"}";
     
 request.Method = "PUT";
 request.ContentType = "application/json";
 
 using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
         {
-            streamWriter.Write(params);
+            streamWriter.Write(args);
             streamWriter.Flush();
             streamWriter.Close();
         }
