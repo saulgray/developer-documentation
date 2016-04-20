@@ -412,7 +412,9 @@ WebResponse supplierLinks = request.GetResponse();
 ```javascript
 const https = require('https');
 
-var supplierLinks = https.get('https://api.samplicio.us/Supply/v1/SurveyQualifications/BySurveyNumberForOfferwall/{SurveyNumber}?key={APIKey}');
+https.get('https://api.samplicio.us/Supply/v1/SurveyQualifications/BySurveyNumberForOfferwall/{SurveyNumber}?key={APIKey}', function(res){
+  var supplierLinks = res;
+});
 ```
 
 > Example Response

@@ -722,7 +722,9 @@ WebResponse surveyQualifications = request.GetResponse();
 ```javascript
 const https = require('https');
 
-var surveyQualifications = https.get('https://api.samplicio.us/Demand/v1/SurveyQualifications/BySurveyNumber/{SurveyNumber}?key={APIKey}');
+https.get('https://api.samplicio.us/Demand/v1/SurveyQualifications/BySurveyNumber/{SurveyNumber}?key={APIKey}', function(res){
+  var surveyQualifications = res;
+});
 ```
 
 > Example Response
