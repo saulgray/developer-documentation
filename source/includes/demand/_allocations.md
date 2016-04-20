@@ -172,7 +172,13 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SupplierAllocations/Create/{SurveyNumber}?key={APIKey}");
 
-string args = "{\"SupplierCode\": \"1010\", \"AllocationPercentage\": 0.1, \"TCPI\": 2, \"HedgeAccess\": true, \"BlockRouterTraffic\": false,}";
+string args = @"{
+                   ""SupplierCode"": ""1010"",
+                   ""AllocationPercentage"": 0.1,
+                   ""TCPI"": 2,
+                   ""HedgeAccess"": true,
+                   ""BlockRouterTraffic"": false
+                 }";
     
 request.Method = "POST";
 request.ContentType = "application/json";
@@ -342,7 +348,13 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SupplierAllocations/Update/{SurveyNumber}?key={APIKey}");
 
-string args = "{\"SupplierCode\": \"1010\", \"AllocationPercentage\": 0.1, \"TCPI\": 2, \"HedgeAccess\": true, \"BlockRouterTraffic\": false,}";
+string args = @"{
+                   ""SupplierCode"": ""1010"",
+                   ""AllocationPercentage"": 0.1,
+                   ""TCPI"": 2,
+                   ""HedgeAccess"": true,
+                   ""BlockRouterTraffic"": false
+                 }";
     
 request.Method = "PUT";
 request.ContentType = "application/json";

@@ -121,16 +121,14 @@ using System.Net;
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SurveyQualifications/Create/{SurveyNumber}?key={APIKey}");
 
 string args = @"{
-            ""Name"": ""STANDARD_RELATIONSHIP"",
-            ""QuestionID"": 632,
-            ""LogicalOperator"": ""OR"",
-            ""NumberOfRequiredConditions"": 1,
-            ""IsActive"": true,
-            ""PreCodes"": [
-                ""1""
-            ],
-            ""Order"": 7
-        }";
+                  ""Name"": ""STANDARD_RELATIONSHIP"",
+                  ""QuestionID"": 632,
+                  ""LogicalOperator"": ""OR"",
+                  ""NumberOfRequiredConditions"": 1,
+                  ""IsActive"": true,
+                  ""PreCodes"": [""1""],
+                  ""Order"": 7
+                }";
     
 request.Method = "POST";
 request.ContentType = "application/json";
@@ -448,17 +446,15 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SurveyQualifications/Update/{SurveyNumber}?key={APIKey}");
 
-string args = "{
-	\"Name\": \"STANDARD_RELATIONSHIP\",
-	\"QuestionID\": 632,
-	\"LogicalOperator\": \"OR\",
-	\"NumberOfRequiredConditions\": 1,
-	\"IsActive\": true,
-	\"PreCodes\": [
-		\"2\"
-	],
-	\"Order\": 7
-}";
+string args = @"{
+                	""Name"": ""STANDARD_RELATIONSHIP"",
+                	""QuestionID"": 632,
+                	""LogicalOperator"": ""OR"",
+                	""NumberOfRequiredConditions"": 1,
+                	""IsActive"": true,
+                	""PreCodes"": [""2""],
+                	""Order"": 7
+                }";
     
 request.Method = "PUT";
 request.ContentType = "application/json";
