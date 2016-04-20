@@ -806,7 +806,9 @@ WebResponse survey = request.GetResponse();
 ```javascript
 const https = require('https');
 
-var survey = https.get('https://api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/{SurveyNumber}?key={APIKey}');
+https.get('https://api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/{SurveyNumber}?key={APIKey}', function(res){
+  var survey = res;
+});
 ```
 
 > Example Response
@@ -921,7 +923,9 @@ WebResponse surveyQuotas = request.GetResponse();
 ```javascript
 const https = require('https');
 
-var surveyQuotas = https.get('https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyStatus}?key={APIKey}');
+https.get('https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyStatus}?key={APIKey}', function(res){
+  var surveyQuotas = res;
+});
 ```
 
 > Example Response

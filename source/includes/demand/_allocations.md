@@ -51,7 +51,9 @@ WebResponse allocations = request.GetResponse();
 ```javascript
 const https = require('https');
 
-var allocations = https.get('https://api.samplicio.us/Demand/v1/SupplierAllocations/BySurveyNumber/{SurveyNumber}?key={APIKey}');
+https.get('https://api.samplicio.us/Demand/v1/SupplierAllocations/BySurveyNumber/{SurveyNumber}?key={APIKey}', function(res){
+  var allocations = res;
+});
 ```
 > Example Response
 

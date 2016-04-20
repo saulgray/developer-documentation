@@ -86,7 +86,9 @@ WebResponse exchangeTemplate = request.GetResponse();
 ```javascript
 const https = require('https');
 
-var exchangeTemplate = https.get('https://api.samplicio.us/Demand/v1/ExchangeTemplates/GetAll?key={APIKey}');
+https.get('https://api.samplicio.us/Demand/v1/ExchangeTemplates/GetAll?key={APIKey}', function(res){
+  var exchangeTemplate = res;
+});
 ```
 
 > Example Response
