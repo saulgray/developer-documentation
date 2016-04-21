@@ -105,19 +105,27 @@ To streamline the user experience, you should also [include all qualifications o
 #### 6. Redirects
 
 Redirects: Below are the redirects that should be added to your client survey to send the respondent back to Fulcrum
+
 > Complete
+
 ```plaintext
 http://www.samplicio.us/router/ClientCallBack.aspx?RIS=10&RID=xxxxx
 ```
+
 > Term
+
 ```plaintext
 http://www.samplicio.us/router/ClientCallBack.aspx?RIS=20&RID=xxxxx
 ```
+
 > Quality Term / Duplication / Security
+
 ```plaintext
 http://www.samplicio.us/router/ClientCallBack.aspx?RIS=30&RID=xxxxx
 ```
+
 > Overquota
+
 ```plaintext
 Overquota: http://www.samplicio.us/router/ClientCallBack.aspx?RIS=40&RID=xxxxx
 ```
