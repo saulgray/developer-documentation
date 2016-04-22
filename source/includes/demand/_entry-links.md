@@ -73,7 +73,7 @@ supplierLink = http.request(request)
 <?php
 $curl = curl_init();
 
-$params = '{"SupplierLinkTypeCode": "TS,"TrackingTypeCode": "NONE"}';
+$params = '{"SupplierLinkTypeCode": "TS","TrackingTypeCode": "NONE"}';
 
 curl_setopt_array($curl, array(
   CURLOPT_URL => "https://api.samplicio.us/Demand/v1/SupplierAllocations/Targets/Create/{SurveyNumber}/{SupplierCode}?key={APIKey}",
@@ -256,7 +256,7 @@ supplierLink = http.request(request)
 <?php
 $curl = curl_init();
 
-$params = '{"SupplierLinkTypeCode": "TS,"TrackingTypeCode": "NONE","DefaultLink": "","SuccessLink": "","FailureLink": "","OverQuotaLink": "","QualityTerminationLink": ""}';
+$params = '{"SupplierLinkTypeCode": "TS","TrackingTypeCode": "NONE","DefaultLink": "","SuccessLink": "","FailureLink": "","OverQuotaLink": "","QualityTerminationLink": ""}';
 
 curl_setopt_array($curl, array(
   CURLOPT_URL => "https://api.samplicio.us/Demand/v1/SupplierAllocations/Targets/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}",
