@@ -114,7 +114,7 @@ PUT  https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/Update/{Surve
 >Example Request
 
 ```shell
-curl -H "Content-Type: application/json" -X PUT  --data '{"PID": "0001110", "IsActive": true}' https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}
+curl -H "Content-Type: application/json" -X PUT  --data '{"SurveyQualifiedRespondents":[{"IsActive": true,"PID": "0001110"},]}' https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}
 ```
 
 ```ruby
@@ -131,7 +131,15 @@ fullUriPath = uri.path + '?' + uri.query
 
 request = Net::HTTP::Put.new(fullUriPath, initheader = {'Content-Type' =>'application/json'})
 
-request.body = {PID:"0001110", IsActive:true}.to_json
+request.body = {
+                  SurveyQualifiedRespondents: 
+                  [
+                    {
+                      IsActive: true,
+                      PID: '0001110'
+                    },
+                  ]
+                }.to_json
 
 qualifiedRespondents = http.request(request)
 ```
@@ -140,7 +148,15 @@ qualifiedRespondents = http.request(request)
 <?php
 $curl = curl_init();
 
-$params = '{"PID": "0000111", "IsActive": true}';
+$params = '{
+              "SurveyQualifiedRespondents": 
+              [
+                {
+                  "IsActive": true,
+                  "PID": "0001110"
+                },
+              ]
+            }';
 
 curl_setopt_array($curl, array(
   CURLOPT_URL => "https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}",
@@ -164,7 +180,16 @@ curl_close($curl);
 import requests, json
 
 url = 'https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}'
-params = {'PID': '0001110', 'IsActive': True}
+params = {
+            'SurveyQualifiedRespondents': 
+            [
+              {
+                'IsActive': True,
+                'PID': '0001110'
+              },
+            ]
+          }
+
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
@@ -178,8 +203,13 @@ using System.Net;
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}");
 
 string args = @"{
-                   ""PID"": ""0001110"",
-                   ""IsActive"": true
+                  ""SurveyQualifiedRespondents"": 
+                  [
+                    {
+                       ""IsActive"": true,
+                       ""PID"": ""0001110""
+                    },
+                  ]
                 }";
 
 request.Method = "PUT";
@@ -207,13 +237,14 @@ var options = {
 };
 
 var json = {
-  "SurveyQualifiedRespondents": [
-    {
-      "IsActive": true,
-      "PID": "0001110"
-    },
-  ]
-};
+              "SurveyQualifiedRespondents": 
+              [
+                {
+                  "IsActive": true,
+                  "PID": "0001110"
+                },
+              ]
+            };
 
 var params = JSON.stringify(json);
 
