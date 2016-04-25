@@ -1,14 +1,21 @@
 <!doctype html>
 <html>
-<script src="https://use.typekit.net/squ8frf.js"></script>
-<script>try{Typekit.load({ async: true });}catch(e){}</script>
-<script type="text/javascript" src="http://fast.fonts.net/jsapi/c580d838-ab64-4d76-8ca9-80a777f8fdaa.js"></script>
   <head>
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Fulcrum API Documentation</title>
     <link rel="shortcut icon" type="image/x-icon" href="images/fulcrum-favicon.ico">
+
+    script type="text/javascript">
+      !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.1.0";
+      analytics.load("ahAKHCapavwGo8rmdDxiohHIV8W660mc");
+      analytics.page()
+      }}();
+    </script>
+    <script src="https://use.typekit.net/squ8frf.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+    <script type="text/javascript" src="http://fast.fonts.net/jsapi/c580d838-ab64-4d76-8ca9-80a777f8fdaa.js"></script>
 
     <link href="stylesheets/screen.css" rel="stylesheet" type="text/css" media="screen" />
     <link href="stylesheets/print.css" rel="stylesheet" type="text/css" media="print" />
@@ -102,7 +109,7 @@
 <pre class="highlight plaintext"><code>GET  https://stg-api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/22789?key=5175285E-D74B-46A8-AE2C-EF95B3A5175B
 </code></pre>
 
-<p>The Fulcrum API uses simple key-based authentication over SSL. Every call should have a <code class="prettyprint">key</code> variable appended to the query string. Ensure that the key you are passing is the correct key for the environment.</p>
+<p>The Fulcrum API uses simple key-based authentication over SSL. Every call should have a <code class="prettyprint">key</code> variable appended to the query string. Ensure that the key you are passing is the correct key for the environment. If you don&rsquo;t already have a Fulcrum account, get started by <a href="https://luc.id/fulcrum/">signing up for a demo</a>!</p>
 
               <h2 id="request-format">Request format</h2>
 
@@ -1985,6 +1992,31 @@
 
               <h2 id="groups">Groups</h2>
 
+<p>The Survey Groups resource will return survey group details for a particular survey number. This information can be used to track survey groups to avoid sending a respondent to a survey which is in a survey group with a survey they have already been sent to.</p>
+
+<p>The <a href="#get-list-exchange-surveys">Surveys/AllOfferwall</a> and <a href="#get-show-an-allocated-survey">SupplierAllocations/BySurveyNumber</a> calls return a SurveyGroupExists property which will indicate if the survey is in a survey group. The Surveys/SurveyGroups call can then be made to identify and track survey group details. You will need to continue to check the survey number and do not send the same respondent to any survey in that survey group until the original survey number sent to returns &ldquo;null&rdquo;. </p>
+
+<h4 id="survey-groups-model">Survey Groups Model</h4>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>SurveyGroup</td>
+<td>string</td>
+<td>Name associated with the survey group.</td>
+</tr>
+<tr>
+<td>SurveyGroupID</td>
+<td>int</td>
+<td>Unique ID associated a survey group</td>
+</tr>
+</tbody></table>
+
 <h3 id="get-list-a-survey’s-groups">GET List a Survey’s Groups</h3>
 
 <blockquote>
@@ -2607,7 +2639,7 @@
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
-<span class="nv">$params</span> <span class="o">=</span> <span class="s1">'{"SupplierLinkTypeCode": "OWS,"TrackingTypeCode": "NONE"}'</span><span class="p">;</span>
+<span class="nv">$params</span> <span class="o">=</span> <span class="s1">'{"SupplierLinkTypeCode": "OWS","TrackingTypeCode": "NONE"}'</span><span class="p">;</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
   <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://api.samplicio.us/Supply/v1/SupplierLinks/Create/</span><span class="si">{</span><span class="nv">SurveyNumber}/{SupplierCode}?key={APIKey</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
@@ -2810,7 +2842,7 @@
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
-<span class="nv">$params</span> <span class="o">=</span> <span class="s1">'{"SupplierLinkTypeCode": "OWS,"TrackingTypeCode": "NONE","DefaultLink": "","SuccessLink": "","FailureLink": "","OverQuotaLink": "","QualityTerminationLink": ""}'</span><span class="p">;</span>
+<span class="nv">$params</span> <span class="o">=</span> <span class="s1">'{"SupplierLinkTypeCode": "OWS","TrackingTypeCode": "NONE","DefaultLink": "","SuccessLink": "","FailureLink": "","OverQuotaLink": "","QualityTerminationLink": ""}'</span><span class="p">;</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
   <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://api.samplicio.us/Supply/v1/SupplierLinks/Update/</span><span class="si">{</span><span class="nv">SurveyNumber}/{SupplierCode}?key={APIKey</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
@@ -3109,7 +3141,70 @@
 
               <h2 id="statistics">Statistics</h2>
 
-<p>System Conversion is defined as the number of entrants into Fulcrum, over the total number of completes achieved on the study.</p>
+<p>The Survey Statistics resource returns valuable survey performance statistics based on scope and timeframe. This resource is an important part of Yield Managmement which is the process of implementing business and API processes rank and order surveys to ensure high earnings-per-click (EPC) studies receive the most traffic and low EPC studies are removed from sample send.     </p>
+
+<h4 id="global-trailing-model">Global Trailing Model</h4>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>EffectiveEPC</td>
+<td>float</td>
+<td>Global Effective EPC given the trailing conversion rate and current CPI of survey (TrailingConversion*CPI)</td>
+</tr>
+<tr>
+<td>LengthOfInterview</td>
+<td>float</td>
+<td>Global Trailing LOI. Median time for a respondent to complete the survey excluding the Fulcrum prescreener in minutes.</td>
+</tr>
+<tr>
+<td>SystemConversion</td>
+<td>float</td>
+<td>Global trailing conversion rate (# Completes / # System Entrants)</td>
+</tr>
+</tbody></table>
+
+<h4 id="supplier-lifetime-model">Supplier Lifetime Model</h4>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>EPC</td>
+<td>float</td>
+<td>Lifetime EPC</td>
+</tr>
+<tr>
+<td>SystemConversion</td>
+<td>float</td>
+<td>Lifetime conversion rate</td>
+</tr>
+</tbody></table>
+
+<h4 id="supplier-trailing-model">Supplier Trailing Model</h4>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>SystemConversion</td>
+<td>float</td>
+<td>Trailing conversion rate</td>
+</tr>
+</tbody></table>
 
 <h3 id="get-show-statistics">GET Show Statistics</h3>
 
@@ -3180,7 +3275,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>Returns conversion information (as a percentage) for a live study based on the <code class="prettyprint">Scope</code> and <code class="prettyprint">Timespan</code>.    </p>
+<p>Returns Exchange conversion information (as a percentage) for a live study based on the <code class="prettyprint">Scope</code> and <code class="prettyprint">Timespan</code>.    </p>
 
 <aside class="notice">The &ldquo;Global&rdquo; scope can only be used with a &ldquo;Trailing&rdquo; timespan.</aside>
 
@@ -3294,7 +3389,7 @@
 </span><span class="p">}</span><span class="w">    
 </span></code></pre>
 
-<p>Returns conversion information (as a percentage) based on the Scope and Timespan, for live surveys only. System Conversion is defined as the number of entrants into Fulcrum, over the total number of completes achieved on the study.   </p>
+<p>Returns Exchange conversion information (as a percentage) based on the Scope and Timespan, for all live surveys which have received an entrant in the last 12 hours.</p>
 
 <aside class="notice">The &ldquo;Global&rdquo; scope can only be used with a &ldquo;Trailing&rdquo; timespan.</aside>
 
@@ -3329,6 +3424,39 @@
 </tbody></table>
 
               <h2 id="recruit">Recruit</h2>
+
+<p>Buyers will use Fulcrum to recruit new respondents to their panel or community. The MarketingInformation resource allows suppliers to retrieve campaign marketing information when the study type is either <code class="prettyprint">Recruit – Panel</code> or <code class="prettyprint">Community Build</code> which can be presented to respondents.</p>
+
+<h4 id="marketing-information-survey-model">Marketing Information Survey Model</h4>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>MarketingHeadline</td>
+<td>string</td>
+<td>A headline that describes the recruit offer</td>
+</tr>
+<tr>
+<td>MarketingText</td>
+<td>double</td>
+<td>string</td>
+</tr>
+<tr>
+<td>MarketingImageLargeUrl</td>
+<td>string</td>
+<td>A company logo or image that represents the recruit offer</td>
+</tr>
+<tr>
+<td>MarketingImageSmallUrl</td>
+<td>string</td>
+<td>EA thumbnail image, usually company logo, that represents the recruit offer</td>
+</tr>
+</tbody></table>
 
 <h3 id="get-show-marketing-info">GET Show Marketing Info</h3>
 
@@ -3425,6 +3553,29 @@
 </tbody></table>
 
               <h2 id="recontact">Recontact</h2>
+
+<p>Recontacts allow buyers to collect a follow-up impression on a respondent they have already interacted with or already have knowledge of.</p>
+
+<h4 id="surveyqualifiedrespondents-model">SurveyQualifiedRespondents Model</h4>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>IsActive</td>
+<td>int</td>
+<td>Indicates whether a respondent qualifies for the recontact.</td>
+</tr>
+<tr>
+<td>PID</td>
+<td>string</td>
+<td>A supplier&rsquo;s unique respondent identifier.</td>
+</tr>
+</tbody></table>
 
 <h3 id="get-list-qualified-respondents">GET List Qualified Respondents</h3>
 
@@ -5902,6 +6053,70 @@
 
               <h2 id="quotas">Quotas</h2>
 
+<p>Quotas are used to specify how many respondents of a desired demographic type are allowed to complete the survey. Quotas must be built off of qualifications. </p>
+
+<h4 id="quotas-model">Quotas Model</h4>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>SurveyQuotaID</td>
+<td>int</td>
+<td>Unique ID associated with the quota.</td>
+</tr>
+<tr>
+<td>Name</td>
+<td>string</td>
+<td>Name associated with the quota.</td>
+</tr>
+<tr>
+<td>FieldTarget</td>
+<td>int</td>
+<td>Field Target associated with the quota.</td>
+</tr>
+<tr>
+<td>Quota</td>
+<td>int</td>
+<td>Quota number for the specified quota.</td>
+</tr>
+<tr>
+<td>IsActive</td>
+<td>boolean</td>
+<td>Indicates if the quotas is active or inactive. Should the quota be enforced on this project?</td>
+</tr>
+<tr>
+<td>Conditions</td>
+<td>array</td>
+<td>Contains an array of elements described below</td>
+</tr>
+</tbody></table>
+
+<h4 id="conditions-model">Conditions Model</h4>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>QuestionID</td>
+<td>int</td>
+<td>QuestionID(s) that the quota is based upon</td>
+</tr>
+<tr>
+<td>PreCodes</td>
+<td>array of strings</td>
+<td>Qualification answer option precodes defined by the API Standard</td>
+</tr>
+</tbody></table>
+
 <h3 id="post-create-a-quota">POST Create a Quota</h3>
 
 <blockquote>
@@ -6225,7 +6440,7 @@
                                 <span class="p">}]</span>
                <span class="p">}</span><span class="s">";
 </span>
-<span class="n">request</span><span class="p">.</span><span class="n">Method</span> <span class="p">=</span> <span class="s">"POST"</span><span class="p">;</span>
+<span class="n">request</span><span class="p">.</span><span class="n">Method</span> <span class="p">=</span> <span class="s">"PUT"</span><span class="p">;</span>
 <span class="n">request</span><span class="p">.</span><span class="n">ContentType</span> <span class="p">=</span> <span class="s">"application/json"</span><span class="p">;</span>
 
 <span class="k">using</span><span class="p">(</span><span class="n">StreamWriter</span> <span class="n">streamWriter</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">StreamWriter</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="nf">GetRequestStream</span><span class="p">()))</span>
@@ -6327,7 +6542,6 @@
             </span><span class="s2">"22"</span><span class="p">,</span><span class="w">
           </span><span class="p">]</span><span class="w">
         </span><span class="p">},</span><span class="w">
-
       </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
@@ -7594,7 +7808,7 @@
 <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
 <span class="nb">require</span> <span class="s1">'json'</span>
 
-<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Demand/v1/SupplierGroups/Update/{SurveyNumber}?key={APIKey}'</span><span class="p">)</span>
+<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Demand/v1/SupplierGroups/AddSuppliersToGroup/{SurveyNumber}/{SupplierGroupID}?key={APIKey}'</span><span class="p">)</span>
 
 <span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">uri</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
 
@@ -7643,7 +7857,7 @@
 <span class="k">using</span> <span class="nn">System.IO</span><span class="p">;</span>
 <span class="k">using</span> <span class="nn">System.Net</span><span class="p">;</span>
 
-<span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Demand/v1/SupplierGroups/Update/{SurveyNumber}?key={APIKey}"</span><span class="p">);</span>
+<span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Demand/v1/SupplierGroups/AddSuppliersToGroup/{SurveyNumber}/{SupplierGroupID}?key={APIKey}"</span><span class="p">);</span>
 
 <span class="kt">string</span> <span class="n">args</span> <span class="p">=</span> <span class="s">@"{""SupplierCode"": 1010}"</span><span class="p">;</span>
 
@@ -7665,7 +7879,7 @@
   <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"POST"</span><span class="p">,</span>
   <span class="s2">"hostname"</span><span class="p">:</span> <span class="s2">"api.samplicio.us"</span><span class="p">,</span>
   <span class="s2">"port"</span><span class="p">:</span> <span class="mi">443</span><span class="p">,</span>
-  <span class="s2">"path"</span><span class="p">:</span> <span class="s2">"/Demand/v1/SupplierGroups/Update/{SurveyNumber}?key={APIKey}"</span><span class="p">,</span>
+  <span class="s2">"path"</span><span class="p">:</span> <span class="s2">"/Demand/v1/SupplierGroups/AddSuppliersToGroup/{SurveyNumber}/{SupplierGroupID}?key={APIKey}"</span><span class="p">,</span>
   <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span><span class="s1">'Content-Type'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">}</span>
 <span class="p">};</span>
 
@@ -8038,6 +8252,150 @@
 </tbody></table>
 
               <h2 id="non-exchange-allocations">Non-Exchange Allocations</h2>
+
+<p>Non-Exchange Allocations allow you to add a specific supplier to your survey. These allocations are seperate from the Exchange and are sometimes referred to as &ldquo;targeted suppier allocations&rdquo;, &ldquo;individual sources&rdquo;, or &ldquo;OTC allocations&rdquo;. This resource allows you to create, update, delete, and retrieve a supplier allocation. You can also specify a TCPI (targeted CPI) and allocate a desired number of completes to each supplier.</p>
+
+<h4 id="supplier-allocations-model">Supplier Allocations Model</h4>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>SupplierCode</td>
+<td>int</td>
+<td>Unique code associated with a supplier account.</td>
+</tr>
+<tr>
+<td>AllocationPercentage</td>
+<td>double</td>
+<td>Percentage of total completes allocated to supplier.</td>
+</tr>
+<tr>
+<td>TCPI</td>
+<td>double</td>
+<td>Gross payout per targeted complete.</td>
+</tr>
+<tr>
+<td>HedgeAccess</td>
+<td>boolean</td>
+<td>Enables or disables hedge access for the supplier.</td>
+</tr>
+<tr>
+<td>BlockRouterTraffic</td>
+<td>boolean</td>
+<td>Enables or disables router traffic for the supplier.</td>
+</tr>
+<tr>
+<td>SupplierSurveyID</td>
+<td>string</td>
+<td>Survey supplier ID (SSID).</td>
+</tr>
+<tr>
+<td>Prescreens</td>
+<td>int</td>
+<td>Number of prescreens achieved by the supplier. A prescreen is a respondent who enters the client survey.</td>
+</tr>
+<tr>
+<td>Completes</td>
+<td>int</td>
+<td>Number of completes achieved by the supplier.</td>
+</tr>
+<tr>
+<td>AllocationRemaining</td>
+<td>int</td>
+<td>Number of completes allocated only to the supplier.</td>
+</tr>
+<tr>
+<td>HedgeRemaining</td>
+<td>int</td>
+<td>Number of unallocated completes available to any suppliers with access to hedge.</td>
+</tr>
+<tr>
+<td>TotalRemaining</td>
+<td>int</td>
+<td>Total number of completes available to the supplier (aggregate of allocation and hedge remaining</td>
+</tr>
+<tr>
+<td>Target</td>
+<td>array</td>
+<td>Contains an array of elements described below</td>
+</tr>
+</tbody></table>
+
+<h4 id="target-model">Target Model</h4>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>SupplierLinkTypeCode</td>
+<td>string</td>
+<td>Defines the type of buyer-supplier engagment and the respondent&rsquo;s path in Fulcrum. See <a href="#get-list-global-definitions">List Global Definitions</a> for a map of supplier link types.</td>
+</tr>
+<tr>
+<td>TrackingTypeCode</td>
+<td>string</td>
+<td>Defines how Fulcrum should communicate back to the supplier&rsquo;s system at the end of a session. The options are:</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>NONE (Default and recommended, physically redirects the respondent back to the supplier system)</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>PIXEL (pixel tracking)</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>S2S (server to server postback)</td>
+</tr>
+<tr>
+<td>DefaultLink</td>
+<td>string</td>
+<td>Tracking code or link used if none of the below apply. This will typically be the same as the FailureLink</td>
+</tr>
+<tr>
+<td>SuccessLink</td>
+<td>string</td>
+<td>Tracking code or link used after a completion.</td>
+</tr>
+<tr>
+<td>FailureLink</td>
+<td>string</td>
+<td>Tracking code or link used after a termination.</td>
+</tr>
+<tr>
+<td>OverQuotaLink</td>
+<td>string</td>
+<td>Tracking code or link used after an overquota.</td>
+</tr>
+<tr>
+<td>QualityTerminationLink</td>
+<td>string</td>
+<td>Tracking code or link used after a quality (security) termination.</td>
+</tr>
+<tr>
+<td>LiveLink</td>
+<td>string</td>
+<td>Live supplier-specific respondent entry link generated by Fulcrum.</td>
+</tr>
+<tr>
+<td>TestLink</td>
+<td>string</td>
+<td>Test supplier-specific respondent entry link generated by Fulcrum.</td>
+</tr>
+</tbody></table>
 
 <h3 id="get-show-allocations">GET Show Allocations</h3>
 
@@ -8821,7 +9179,7 @@
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
-<span class="nv">$params</span> <span class="o">=</span> <span class="s1">'{"SupplierLinkTypeCode": "TS,"TrackingTypeCode": "NONE"}'</span><span class="p">;</span>
+<span class="nv">$params</span> <span class="o">=</span> <span class="s1">'{"SupplierLinkTypeCode": "TS","TrackingTypeCode": "NONE"}'</span><span class="p">;</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
   <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://api.samplicio.us/Demand/v1/SupplierAllocations/Targets/Create/</span><span class="si">{</span><span class="nv">SurveyNumber}/{SupplierCode}?key={APIKey</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
@@ -9036,7 +9394,7 @@
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
-<span class="nv">$params</span> <span class="o">=</span> <span class="s1">'{"SupplierLinkTypeCode": "TS,"TrackingTypeCode": "NONE","DefaultLink": "","SuccessLink": "","FailureLink": "","OverQuotaLink": "","QualityTerminationLink": ""}'</span><span class="p">;</span>
+<span class="nv">$params</span> <span class="o">=</span> <span class="s1">'{"SupplierLinkTypeCode": "TS","TrackingTypeCode": "NONE","DefaultLink": "","SuccessLink": "","FailureLink": "","OverQuotaLink": "","QualityTerminationLink": ""}'</span><span class="p">;</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
   <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://api.samplicio.us/Demand/v1/SupplierAllocations/Targets/Update/</span><span class="si">{</span><span class="nv">SurveyNumber}/{SupplierCode}?key={APIKey</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
@@ -10096,6 +10454,29 @@
 
               <h2 id="recontact">Recontact</h2>
 
+<p>Recontacts allow buyers to collect a follow-up impression on a respondent they have already interacted with or already have knowledge of.</p>
+
+<h4 id="surveyqualifiedrespondents-model">SurveyQualifiedRespondents Model</h4>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>IsActive</td>
+<td>int</td>
+<td>Indicates whether a respondent qualifies for the recontact.</td>
+</tr>
+<tr>
+<td>PID</td>
+<td>string</td>
+<td>A supplier&rsquo;s unique respondent identifier.</td>
+</tr>
+</tbody></table>
+
 <h3 id="get-list-qualified-respondents">GET List Qualified Respondents</h3>
 
 <blockquote>
@@ -10207,7 +10588,7 @@
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell"><code>curl -H <span class="s2">"Content-Type: application/json"</span> -X PUT  --data <span class="s1">'{"PID": "0001110", "IsActive": true}'</span> https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/Update/<span class="o">{</span>SurveyNumber<span class="o">}</span>/<span class="o">{</span>SupplierCode<span class="o">}</span>?key<span class="o">={</span>APIKey<span class="o">}</span>
+<pre class="highlight shell"><code>curl -H <span class="s2">"Content-Type: application/json"</span> -X PUT  --data <span class="s1">'{"SurveyQualifiedRespondents":[{"IsActive": true,"PID": "0001110"},]}'</span> https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/Update/<span class="o">{</span>SurveyNumber<span class="o">}</span>/<span class="o">{</span>SupplierCode<span class="o">}</span>?key<span class="o">={</span>APIKey<span class="o">}</span>
 </code></pre>
 <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
 <span class="nb">require</span> <span class="s1">'json'</span>
@@ -10222,14 +10603,30 @@
 
 <span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Put</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">fullUriPath</span><span class="p">,</span> <span class="n">initheader</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'Content-Type'</span> <span class="o">=&gt;</span><span class="s1">'application/json'</span><span class="p">})</span>
 
-<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="p">{</span><span class="no">PID</span><span class="ss">:"0001110"</span><span class="p">,</span> <span class="no">IsActive</span><span class="ss">:true</span><span class="p">}.</span><span class="nf">to_json</span>
+<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="p">{</span>
+                  <span class="no">SurveyQualifiedRespondents</span><span class="p">:</span> 
+                  <span class="p">[</span>
+                    <span class="p">{</span>
+                      <span class="no">IsActive</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span>
+                      <span class="no">PID</span><span class="p">:</span> <span class="s1">'0001110'</span>
+                    <span class="p">},</span>
+                  <span class="p">]</span>
+                <span class="p">}.</span><span class="nf">to_json</span>
 
 <span class="n">qualifiedRespondents</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
 </code></pre>
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
-<span class="nv">$params</span> <span class="o">=</span> <span class="s1">'{"PID": "0000111", "IsActive": true}'</span><span class="p">;</span>
+<span class="nv">$params</span> <span class="o">=</span> <span class="s1">'{
+              "SurveyQualifiedRespondents": 
+              [
+                {
+                  "IsActive": true,
+                  "PID": "0001110"
+                },
+              ]
+            }'</span><span class="p">;</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
   <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/Update/</span><span class="si">{</span><span class="nv">SurveyNumber}/{SupplierCode}?key={APIKey</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
@@ -10251,7 +10648,16 @@
 <pre class="highlight python"><code><span class="kn">import</span> <span class="nn">requests</span><span class="o">,</span> <span class="nn">json</span>
 
 <span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}'</span>
-<span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s">'PID'</span><span class="p">:</span> <span class="s">'0001110'</span><span class="p">,</span> <span class="s">'IsActive'</span><span class="p">:</span> <span class="bp">True</span><span class="p">}</span>
+<span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s">'SurveyQualifiedRespondents'</span><span class="p">:</span> 
+            <span class="p">[</span>
+              <span class="p">{</span>
+                <span class="s">'IsActive'</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+                <span class="s">'PID'</span><span class="p">:</span> <span class="s">'0001110'</span>
+              <span class="p">},</span>
+            <span class="p">]</span>
+          <span class="p">}</span>
+
 <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Content-type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span> <span class="s">'Accept'</span><span class="p">:</span> <span class="s">'text/plain'</span><span class="p">}</span>
 
@@ -10263,8 +10669,13 @@
 <span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}"</span><span class="p">);</span>
 
 <span class="kt">string</span> <span class="n">args</span> <span class="p">=</span> <span class="err">@</span><span class="s">"{
-</span>                   <span class="s">""</span><span class="n">PID</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="m">0001110</span><span class="s">""</span><span class="p">,</span>
-                   <span class="s">""</span><span class="n">IsActive</span><span class="s">""</span><span class="p">:</span> <span class="k">true</span>
+</span>                  <span class="s">""</span><span class="n">SurveyQualifiedRespondents</span><span class="s">""</span><span class="p">:</span> 
+                  <span class="p">[</span>
+                    <span class="p">{</span>
+                       <span class="s">""</span><span class="n">IsActive</span><span class="s">""</span><span class="p">:</span> <span class="k">true</span><span class="p">,</span>
+                       <span class="s">""</span><span class="n">PID</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="m">0001110</span><span class="s">""</span>
+                    <span class="p">},</span>
+                  <span class="p">]</span>
                 <span class="p">}</span><span class="s">";
 </span>
 <span class="n">request</span><span class="p">.</span><span class="n">Method</span> <span class="p">=</span> <span class="s">"PUT"</span><span class="p">;</span>
@@ -10290,13 +10701,14 @@
 <span class="p">};</span>
 
 <span class="kd">var</span> <span class="nx">json</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s2">"SurveyQualifiedRespondents"</span><span class="p">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="s2">"IsActive"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-      <span class="s2">"PID"</span><span class="p">:</span> <span class="s2">"0001110"</span>
-    <span class="p">},</span>
-  <span class="p">]</span>
-<span class="p">};</span>
+              <span class="s2">"SurveyQualifiedRespondents"</span><span class="p">:</span> 
+              <span class="p">[</span>
+                <span class="p">{</span>
+                  <span class="s2">"IsActive"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                  <span class="s2">"PID"</span><span class="p">:</span> <span class="s2">"0001110"</span>
+                <span class="p">},</span>
+              <span class="p">]</span>
+            <span class="p">};</span>
 
 <span class="kd">var</span> <span class="nx">params</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">json</span><span class="p">);</span>
 
@@ -10378,7 +10790,7 @@
 
               <h1 id="labs">Labs</h1>
 
-<p>The Labs API is a testing ground for experimental endpoints that aren&rsquo;t quite ready for primetime. <strong>They may change, break or disappear at any time.</strong> Labs API seats are limited and credentials are seperate from the Production API. To request access, please email <a href="mailto:support@luc.id">support@luc.id</a>.</p>
+<p>The Labs API is a testing ground for experimental endpoints that aren&rsquo;t quite ready for primetime. <strong>They may change, break or disappear at any time.</strong> Labs API seats are limited and credentials are separate from the Production API. To request access, please email <a href="mailto:support@luc.id">support@luc.id</a>.</p>
 
               <h2 id="survey-groups">Survey Groups</h2>
 
