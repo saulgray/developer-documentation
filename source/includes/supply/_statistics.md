@@ -1,6 +1,27 @@
 ##Statistics
 
-System Conversion is defined as the number of entrants into Fulcrum, over the total number of completes achieved on the study.
+The Survey Statistics resource returns valuable survey performance statistics based on scope and timeframe. This resource is an important part of Yield Managmement which is the process of implementing business and API processes rank and order surveys to ensure high earnings-per-click (EPC) studies receive the most traffic and low EPC studies are removed from sample send.     
+
+#### Global Trailing Model
+
+| Property         | Type     | Description                                                                                                           |
+|------------------|----------|-----------------------------------------------------------------------------------------------------------------------|
+| EffectiveEPC     | float    | Global Effective EPC given the trailing conversion rate and current CPI of survey (TrailingConversion*CPI)            |  
+| LengthOfInterview| float    | Global Trailing LOI. Median time for a respondent to complete the survey excluding the Fulcrum prescreener in minutes.|
+| SystemConversion | float    | Global trailing conversion rate (# Completes / # System Entrants)                                                     |
+
+#### Supplier Lifetime Model
+
+| Property         | Type     | Description                               |
+|------------------|----------|-------------------------------------------|
+| EPC              | float    | Lifetime EPC                              |    
+| SystemConversion | float    | Lifetime conversion rate                  |
+
+#### Supplier Trailing Model
+
+| Property         | Type     | Description                               |
+|------------------|----------|-------------------------------------------|
+| SystemConversion | float    | Trailing conversion rate                  |
 
 ### GET Show Statistics
 
@@ -78,18 +99,18 @@ https.get('https://api.samplicio.us/Supply/v1/SurveyStatistics/BySurveyNumber/{S
 }
 ```
 
-Returns conversion information (as a percentage) for a live study based on the `Scope` and `Timespan`.    
+Returns Exchange conversion information (as a percentage) for a live study based on the `Scope` and `Timespan`.    
 
 <aside class="notice">The "Global" scope can only be used with a "Trailing" timespan.</aside>
 
 #### Arguments
 
-| Property                     | Type     | Required | Description                                                                                                                                  |
-|------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| Survey Number                | int.     | true     | Unique ID associated with the study.                                                        |
-| SupplierCode                 | string   | true     | Your unique supplier code.                                                        |
-| Scope                        | string   | true     | Either "Global" or "Supplier".                                                             |
-| Timespan                     | string   | true     | Either "Trailing" or "Lifetime". Trailing returns data from the last 12 hours.                                                            |
+| Property                     | Type     | Required | Description                                                                    |
+|------------------------------|----------|----------|--------------------------------------------------------------------------------|
+| Survey Number                | int.     | true     | Unique ID associated with the study.                                           |
+| SupplierCode                 | string   | true     | Your unique supplier code.                                                     |
+| Scope                        | string   | true     | Either "Global" or "Supplier".                                                 |
+| Timespan                     | string   | true     | Either "Trailing" or "Lifetime". Trailing returns data from the last 12 hours. |
 
 ### GET List Statistics
 
@@ -172,14 +193,14 @@ https.get('https://api.samplicio.us/Supply/v1/SurveyStatistics/All/{SupplierCode
 }    
 ```
 
-Returns conversion information (as a percentage) based on the Scope and Timespan, for live surveys only. System Conversion is defined as the number of entrants into Fulcrum, over the total number of completes achieved on the study.   
+Returns Exchange conversion information (as a percentage) based on the Scope and Timespan, for all live surveys which have received an entrant in the last 12 hours.
 
 <aside class="notice">The "Global" scope can only be used with a "Trailing" timespan.</aside>
 
 #### Arguments
 
-| Property                     | Type     | Required | Description                                                                                                                                  |
-|------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| Scope                        | string   | true     | Either "Global" or "Supplier".                                                             |
-| Timespan                     | string   | true     | Either "Trailing" or "Lifetime". Trailing returns the last 12 hours.                                                            |
-| SupplierCode                 | string   | true     | Your unique supplier code.                                                        |                                                      |
+| Property                     | Type     | Required | Description                                                                           |
+|------------------------------|----------|----------|---------------------------------------------------------------------------------------|
+| Scope                        | string   | true     | Either "Global" or "Supplier".                                                        |
+| Timespan                     | string   | true     | Either "Trailing" or "Lifetime". Trailing returns the last 12 hours.                  |
+| SupplierCode                 | string   | true     | Your unique supplier code.                                                            |
