@@ -636,7 +636,7 @@ curl -H "Content-Type: application/json" -X POST --data '{"SupplierCode":"0010"}
 require 'net/http'
 require 'json'
 
-uri = URI('https://api.samplicio.us/Demand/v1/SupplierGroups/Update/{SurveyNumber}?key={APIKey}')
+uri = URI('https://api.samplicio.us/Demand/v1/SupplierGroups/AddSuppliersToGroup/{SurveyNumber}/{SupplierGroupID}?key={APIKey}')
 
 http = Net::HTTP.new(uri.host, uri.port)
 
@@ -691,7 +691,7 @@ group = requests.post(url, data=data, headers=headers)
 using System.IO;
 using System.Net;
 
-WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SupplierGroups/Update/{SurveyNumber}?key={APIKey}");
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SupplierGroups/AddSuppliersToGroup/{SurveyNumber}/{SupplierGroupID}?key={APIKey}");
 
 string args = @"{""SupplierCode"": 1010}";
 
@@ -715,7 +715,7 @@ var options = {
   "method": "POST",
   "hostname": "api.samplicio.us",
   "port": 443,
-  "path": "/Demand/v1/SupplierGroups/Update/{SurveyNumber}?key={APIKey}",
+  "path": "/Demand/v1/SupplierGroups/AddSuppliersToGroup/{SurveyNumber}/{SupplierGroupID}?key={APIKey}",
   "headers": {'Content-Type': 'application/json'}
 };
 

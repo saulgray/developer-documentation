@@ -299,7 +299,7 @@ string args = @"{
                                 }]
                }";
 
-request.Method = "POST";
+request.Method = "PUT";
 request.ContentType = "application/json";
 
 using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
