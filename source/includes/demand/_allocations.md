@@ -1,5 +1,42 @@
 ##Non-Exchange Allocations
 
+Non-Exchange Allocations allow you to add a specific supplier to your survey. These allocations are seperate from the Exchange and are sometimes referred to as "targeted suppier allocations", "individual sources", or "OTC allocations". This resource allows you to create, update, delete, and retrieve a supplier allocation. You can also specify a TCPI (targeted CPI) and allocate a desired number of completes to each supplier.
+
+#### Supplier Allocations Model
+
+| Property            | Type    |  Description                                                                                             |
+|---------------------|---------|----------------------------------------------------------------------------------------------------------|
+| SupplierCode        | int     | Unique code associated with a supplier account.                                                          |
+| AllocationPercentage| double  | Percentage of total completes allocated to supplier.                                                     |
+| TCPI                | double  | Gross payout per targeted complete.                                                                      |
+| HedgeAccess         | boolean | Enables or disables hedge access for the supplier.                                                       |
+| BlockRouterTraffic  | boolean | Enables or disables router traffic for the supplier.                                                     |
+| SupplierSurveyID    | string  | Survey supplier ID (SSID).                                                                               |
+| Prescreens          | int     | Number of prescreens achieved by the supplier. A prescreen is a respondent who enters the client survey. |
+| Completes           | int     | Number of completes achieved by the supplier.                                                            |
+| AllocationRemaining | int     | Number of completes allocated only to the supplier.                                                      |
+| HedgeRemaining      | int     | Number of unallocated completes available to any suppliers with access to hedge.                         |
+| TotalRemaining      | int     | Total number of completes available to the supplier (aggregate of allocation and hedge remaining         |
+| Target              | array   | Contains an array of elements described below                                                            |
+
+#### Target Model
+
+| Property               | Type     | Description                                                                                                                                                                     |
+|------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| SupplierLinkTypeCode   | string   | Defines the type of buyer-supplier engagment and the respondent's path in Fulcrum. See [List Global Definitions](#get-list-global-definitions) for a map of supplier link types.|
+| TrackingTypeCode       | string   | Defines how Fulcrum should communicate back to the supplier's system at the end of a session. The options are:                                                                  |
+|                        |          | NONE (Default and recommended, physically redirects the respondent back to the supplier system)                                                                                 |
+|                        |          | PIXEL (pixel tracking)                                                                                                                                                          |
+|                        |          | S2S (server to server postback)                                                                                                                                                 |
+| DefaultLink            | string   | Tracking code or link used if none of the below apply. This will typically be the same as the FailureLink                                                                       |
+| SuccessLink            | string   | Tracking code or link used after a completion.                                                                                                                                  |
+| FailureLink            | string   | Tracking code or link used after a termination.                                                                                                                                 |
+| OverQuotaLink          | string   | Tracking code or link used after an overquota.                                                                                                                                  |
+| QualityTerminationLink | string   | Tracking code or link used after a quality (security) termination.                                                                                                              |
+| LiveLink               | string   | Live supplier-specific respondent entry link generated by Fulcrum.                                                                                                              |
+| TestLink               | string   | Test supplier-specific respondent entry link generated by Fulcrum.                                                                                                              |
+
+
 ### GET Show Allocations
 
 > Definition
