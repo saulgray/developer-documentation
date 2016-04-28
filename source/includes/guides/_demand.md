@@ -10,6 +10,7 @@ Fulcrum contains numerous objects, structures, and options that may either be ad
 These definitions provide human-readable strings that correspond to various object/option IDs in Fulcrum.
 #### 2. Store Fulcrum Standard qualification [question texts](#get-list-standard-questions) and [answer options](#get-show-question-options) for countries you operate in.
 Qualifications in Fulcrum act as filters to help you find the respondents you are targeting and quotas allow you to control how many respondents you want. Begin by mapping Fulcrum's most-used qualifications to your system. Below are the top 30 Fulcrum Standard qualifications in the US:
+
  - `AGE`
  - `GENDER`
  - `ZIP`
@@ -71,25 +72,30 @@ Fulcrum quotas can be nested, not nested, overlapping, or contain only a subset 
 #### 1. Write a function to hash a URL and generate a checksum.
 
 > Example key
+
 ```plaintext
 ZZ6VkORqV25iSWOVb5cwZ03zpns
 ```
 
 > Example Base URL
+
 ```plaintext
 https://www.abc.com/ex.aspx?abc=def&vid=123&oenc2=
 ```
 
 > Example Signature
+
 ```plaintext
 NPJPxGx/+1vHe0T1q4tt+MyWnQ4=
 ```
 > Example Encoded Signature
+
 ```plaintext
 NPJPxGx_-1vHe0T1q4tt-MyWnQ4
 ```
 
 > Example Final URL
+
 ```plaintext
 https://www.abc.com/ex.aspx?abc=def&vid=123&oenc2=NPJPxGx_-1vHe0T1q4tt-MyWnQ4
 ```
