@@ -1,15 +1,15 @@
-## Demand Integration (Basic)
+## Demand Integration
 A Fulcrum Demand API integration gives you instant access to millions of human sessions right inside your own application, effectively eliminating additional training requirements, duplication of effort, and overhead associated with scaling. Fulcrum's Demand API also offers in-depth Demand Side Platform features, allowing you to manage hundreds of suppliers on the Fulcrum Exchange while simultaniously controling the exact taregets and quotas you seek.
 
-Before getting started, it's important to note that all testing and development should be done in the [sandbox environment](#environments). Information on environments and other foundational information is available in the [Introduction](#introduction) and should be reviewed before moving on to Phase 1.
+Before getting started, it's important to note that all testing and development should be done in the [sandbox environment](#environments). Information on environments and other foundational topics is available in the [Introduction](#introduction) and should be reviewed before moving on to Phase 1.
 
 ### Phase 1 - Mapping
-Fulcrum contains numerous objects, structures and options that may either be adopted by the host system or mapped to the host system's existing architecture. The steps below guide you through the key areas that should be mapped or adopted.
+Fulcrum contains numerous objects, structures, and options that may either be adopted by the host system or mapped to the host system's existing architecture. The steps below guide you through the key areas that should be mapped or adopted.
 
 #### 1. Store our system [definitions](#definitions) and map them to your system.
 These definitions provide human-readable strings that correspond to various object/option IDs in Fulcrum.
 #### 2. Store Fulcrum Standard qualification [question texts](#get-list-standard-questions) and [answer options](#get-show-question-options) for countries you operate in.
-Qualifications in Fulcrum act as filters to help you find the respondents you’re targeting and quotas allow you to control how many respondents you want. Begin by mapping Fulcrum's most-used qualifications to your system. Below are the top 30 Fulcrum Standard qualifications in the US:
+Qualifications in Fulcrum act as filters to help you find the respondents you are targeting and quotas allow you to control how many respondents you want. Begin by mapping Fulcrum's most-used qualifications to your system. Below are the top 30 Fulcrum Standard qualifications in the US:
  - `AGE`
  - `GENDER`
  - `ZIP`
@@ -40,7 +40,7 @@ Qualifications in Fulcrum act as filters to help you find the respondents you’
  - `STANDARD_ELECTRONICS`
  - `STANDARD_FLIGHT_DESTINATION`
  
-For a list of top qualificaitons in other countries, [shoot as an email](mailto:support@luc.id). Map as many or as few qualifications as you would like depending on your needs. Fulcrum Standards provide an industry standard for programattic targeting. As such your projects will be more successful if you use all Standards that apply to that particular project's target. To encourage qualification usage, it's usually helpful to ensure that qualifications are easy to find and are searchable on your platform.
+For a list of top qualifications in other countries, [shoot as an email](mailto:support@luc.id). Map as many or as few qualifications as you would like depending on your needs. Fulcrum Standards provide an industry standard for programmatic targeting. As such your projects will be more successful if you use all Standards that apply to that particular project's target. To encourage qualification usage, it's usually helpful to ensure that qualifications are easy to find and are searchable on your platform.
 #### 3. If your system has a quota system, map your quota structure to Fulcrum's.
 Fulcrum quotas can be nested, not nested, overlapping, or contain only a subset of the qualified respondents. Here are a few examples:
 - Study 1: only total quota
@@ -51,13 +51,13 @@ Fulcrum quotas can be nested, not nested, overlapping, or contain only a subset 
     - Male 36+ = 250
     - Female 18-35 = 250
     - Female 36+ = 250
-- Study 3: seperate gender and age
+- Study 3: separate gender and age
   - Total = 1000
     - Male = 500
     - Female = 500
     - 18-35 = 500
     - 36+ = 500
-- Study 4: seperate gender and nested gender and age quotas
+- Study 4: separate gender and nested gender and age quotas
   - Total = 1000
     - Male = 500
     - Female = 500
@@ -66,11 +66,145 @@ Fulcrum quotas can be nested, not nested, overlapping, or contain only a subset 
     - Female 18-35 = 250
     - Female 36+ = 250
 
-### Phase 2 - Creating a Survey
+### Phase 2 - Preparing your Survey Environment
+
+#### 1. Write a function to hash a URL and generate a checksum.
+
+> Example key
+```plaintext
+ZZ6VkORqV25iSWOVb5cwZ03zpns
+```
+
+> Example Base URL
+```plaintext
+https://www.abc.com/ex.aspx?abc=def&vid=123&oenc2=
+```
+
+> Example Signature
+```plaintext
+NPJPxGx/+1vHe0T1q4tt+MyWnQ4=
+```
+> Example Encoded Signature
+```plaintext
+NPJPxGx_-1vHe0T1q4tt-MyWnQ4
+```
+
+> Example Final URL
+```plaintext
+https://www.abc.com/ex.aspx?abc=def&vid=123&oenc2=NPJPxGx_-1vHe0T1q4tt-MyWnQ4
+```
+
+```csharp
+//compute a signature as the url compatible base64 encoded hmac-sha1. //input the complete absolute url sans &s=, something like
+
+public class UrlSigner {
+
+ private readonly HMAC hmac;
+
+ private readonly string signatureParam;
+
+ public UrlSigner(string secret): this(secret, “x”) {}
+
+ private UrlSigner(string secret, string name) {
+
+  this.hmac = new HMACSHA1(GetBytes(secret));
+
+  this.signatureParam = string.Format(“{0} = ”, name);
+ }
+
+ public string Sign(string url) {
+
+  var urlToSign = UrlToSign(url);
+
+  var bytes = GetBytes(urlToSign);
+
+  var signature = hmac.ComputeHash(bytes, 0, bytes.Length);
+
+  return string.Format(“{0} {1} {2}”, urlToSign, signatureParam, Base64ForUrl(signature));
+
+ }
+
+ public bool Verify(string url) {
+
+  var npos = url.LastIndexOf(signatureParam);
+  if (npos == -1)
+
+   return false;
+
+  return Sign(url.Substring(0, npos)) == url;
+
+ }
+
+ string UrlToSign(string url) {
+
+  if (!url.Contains(‘ ? ’)) return url + ‘ ? ’;
+
+  if (url.EndsWith(“ ? ”) || url.EndsWith(“ & ”)) return url;
+
+  return url + “ & ”;
+ }
+
+ byte[] GetBytes(string s) {
+  return Encoding.UTF8.GetBytes(s);
+ }
+
+ string Base64ForUrl(byte[] bytes) {
+
+  return Convert.ToBase64String(bytes).Replace(‘+’, ‘-’)
+
+  .Replace(‘/’, ‘_’)
+
+   .Replace(“ = ”, string.Empty);
+
+  }
+ }
+ ```
+
+Fulcrum strongly recommends taking advantage of inbound and outbound URL hashing, which will prevent respondents from manipulating links. Your secret key and variable name configuration can be set or disabled in the Fulcrum UI (`Clients>{Your Account} API_Client>Show Encryption). In order to verify the validity of any Fulcrum outbound connection or generate a hash to match with any Fulcrum inbound connection, you must create a function that computes an RFC 2014-compliant HMAC signature and substitute the following characters:
+
+| Original | Substitute   |
+|----------|--------------|
+| +        | -            |
+| /        | _            |
+| =        | empty string |
+
+It's important to note that your base string should include the entire URL up to and including the `&` preceding your encryption variable. We've provided an example function in C#. If you do not control the destination survey environment, and your client cannot support this type of security, you should skip this step and instead use Verify Callback.
+
+#### 2. Configure your survey end links, commonly referred to as "redirects".
+
+> Complete
+
+```plaintext
+http://www.samplicio.us/router/ClientCallBack.aspx?RIS=10&RID={RID}&ienc={hash}
+```
+
+> Term
+
+```plaintext
+http://www.samplicio.us/router/ClientCallBack.aspx?RIS=20&RID={RID}&ienc={hash}
+```
+
+> Quality Term / Duplication / Security
+
+```plaintext
+http://www.samplicio.us/router/ClientCallBack.aspx?RIS=30&RID={RID}&ienc={hash}
+```
+
+> Overquota
+
+```plaintext
+Overquota: http://www.samplicio.us/router/ClientCallBack.aspx?RIS=40&RID={RID}&ienc={hash}
+```
+
+At the end of a respondent's experience in your platform, you should send them back to Fulcrum using the end link corresponding to their respective status. This will update the respondent's status in Fulcrum and send them back to their supplier with information on how to be compensated. `RID` is an SID unique to identify the respondent and session. You must include `&RID=[%RID%]` on the `ClientSurveyLiveURL` property of your `Survey` object referenced in Phase 3 in order to capture the respondent's identifier in your system on entry and include it on the redirect when they return to Fulcrum.
+
+If you have opted not to generate checksums for your links, you should set the `IsVerifyCallBack` property of your `Survey` object to `True` and append `&RISN=[%RSFN%]` to the `ClientSurveyLiveURL` for storage with RID on respondent entry. `RISN` should be appended to the Complete redirect only. You should not include `&ienc={hash}` if you have opted not to generate checksums for links. 
+
+### Phase 3 - Creating a Survey
 
 <aside class="notice">Keep in mind that user adoption will be higher with UIs that require the fewest clicks and data input. Leverage information you already have in your database to reduce the number of fields that are asked, and place areas for additional information with regard for the typical user flow.</aside>
 
-Surveys objects are the basis for a project or demographic segment you are seeking. Here are the key steps to creatin a survey in Fulcrum.
+Surveys objects are the basis for a project or demographic segment you are seeking. Here are the key steps to creating a survey in Fulcrum.
 #### 1. Determine the [fair market price](#feasibility) of the target demographic.
 The Feasibility resource returns pricing data from the Fulcrum Pricing Index (FPI), which represents fair market price for a target given the surveys specs, qualifications, quotas, and time in field. Integrators with consumer users often take the response from this call and add a margin before returning it to the end user (i.e. `FPI Price * 1.3 = Price`)
 
@@ -100,40 +234,19 @@ To streamline the user experience, you should also [include all qualifications o
 
 #### 4. [Create quotas](#post-create-a-quota) for each target group.
 
-#### 5. Allocations
+#### 5. Set your supplier blend using [Exchange Templates](#exchange-templates).
 
-#### 6. Redirects
+Surveys fill quickest and most efficiently by simply allowing the Exchange to fill the project in a free market. However, if a specific blend is important to you, you can set price and allocation for groups of suppliers by applying an [Exchange Template](#exchange-templates). In addition, Fulcrum's [Survey Group](#exchange-groups) resource allows you to group suppliers for an individual study on an adhoc basis.
 
-Redirects: Below are the redirects that should be added to your client survey to send the respondent back to Fulcrum
+### Phase 4 - Launching and Updating Surveys
 
-> Complete
+Keeping your Fulcrum projects up-to-date is an important part of survey health and maximizing sample delivery. A good integration automatically syncs quotas real-time and closes completed studies in Fulcrum. You should also consider alerting users to poor performing projects for quick resolution.
 
-```plaintext
-http://www.samplicio.us/router/ClientCallBack.aspx?RIS=10&RID=xxxxx
-```
+#### 1. [Update your survey](#put-update-a-survey) status.
+When you are ready to launch a survey, simply set `SurveyStatusCode` to `03`. Studies that are complete should be marked with a status of `04`. For a full list of `SurveyStatuses` make the [List Global Definitions](#get-list-global-definitions) call.
 
-> Term
+#### 2. [Update your quotas](#put-update-a-quota) regularly.
+If you have not enabled hash checksums or your users have direct access to Fulcrum, you should reconcile quotas between Fulcrum and your environment every 15 minutes. Otherwise, your quotas should remain in sync with Fulcrum.  In either case, you should ensure that Fulcrum is updated any time a change to quotas is made in your system.
 
-```plaintext
-http://www.samplicio.us/router/ClientCallBack.aspx?RIS=20&RID=xxxxx
-```
-
-> Quality Term / Duplication / Security
-
-```plaintext
-http://www.samplicio.us/router/ClientCallBack.aspx?RIS=30&RID=xxxxx
-```
-
-> Overquota
-
-```plaintext
-Overquota: http://www.samplicio.us/router/ClientCallBack.aspx?RIS=40&RID=xxxxx
-```
-
-SHA-1 Encryption: (https://support.lucidhq.com/customer/en/portal/articles/2097928-security-measures-for-controlling-sample)
-
-### Phase 3 - Updating Surveys
-
-### Phase 4 - Advanced Options
-
-SHA-1 Encryption: (https://support.lucidhq.com/customer/en/portal/articles/2097928-security-measures-for-controlling-sample)
+#### 3. Monitor your [survey statistics](#put-update-a-quota) and adjust pricing accordingly.
+By monitoring your survey's earnings per click (EPC) through Fulcrum's Survey Statistics resource or more granularly in your own system, you can determine whether the price you are offering for a survey given field specs is the fair market price. A "good" EPC depends on market conditions and the supplier(s) with whom you are working; however, EPCs of $0.10-$0.15 often ensure proper delivery of a survey.
