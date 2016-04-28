@@ -41,9 +41,10 @@ Qualifications in Fulcrum act as filters to help you find the respondents you ar
  - `STANDARD_ELECTRONICS`
  - `STANDARD_FLIGHT_DESTINATION`
  
-For a list of top qualifications in other countries, [shoot as an email](mailto:support@luc.id). Map as many or as few qualifications as you would like depending on your needs. Fulcrum Standards provide an industry standard for programmatic targeting. As such your projects will be more successful if you use all Standards that apply to that particular project's target. To encourage qualification usage, it's usually helpful to ensure that qualifications are easy to find and are searchable on your platform.
+For a list of top qualifications in other countries, [shoot us an email](mailto:support@luc.id). Map as many or as few qualifications as you would like depending on your needs. Fulcrum Standards provide an industry standard for programmatic targeting. As such your projects will be more successful if you use all Standards that apply to that particular project's target. To encourage qualification usage, it's usually helpful to ensure that qualifications are easy to find and are searchable on your platform.
 #### 3. If your system has a quota system, map your quota structure to Fulcrum's.
 Fulcrum quotas can be nested, not nested, overlapping, or contain only a subset of the qualified respondents. Here are a few examples:
+
 - Study 1: only total quota
   - Total = 1000
 - Study 2: nested gender and age
