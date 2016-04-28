@@ -44,6 +44,8 @@ includes:
   - demand/recontact
   - labs/introduction
   - labs/survey-groups
+  - guides/introduction
+  - guides/demand
   - changelog/changelog
   
 search: true
