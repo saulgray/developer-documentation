@@ -100,72 +100,6 @@ NPJPxGx_-1vHe0T1q4tt-MyWnQ4
 https://www.abc.com/ex.aspx?abc=def&vid=123&oenc2=NPJPxGx_-1vHe0T1q4tt-MyWnQ4
 ```
 
-```csharp
-//compute a signature as the url compatible base64 encoded hmac-sha1. //input the complete absolute url sans &s=, something like
-
-public class UrlSigner {
-
- private readonly HMAC hmac;
-
- private readonly string signatureParam;
-
- public UrlSigner(string secret): this(secret, “x”) {}
-
- private UrlSigner(string secret, string name) {
-
-  this.hmac = new HMACSHA1(GetBytes(secret));
-
-  this.signatureParam = string.Format(“{0} = ”, name);
- }
-
- public string Sign(string url) {
-
-  var urlToSign = UrlToSign(url);
-
-  var bytes = GetBytes(urlToSign);
-
-  var signature = hmac.ComputeHash(bytes, 0, bytes.Length);
-
-  return string.Format(“{0} {1} {2}”, urlToSign, signatureParam, Base64ForUrl(signature));
-
- }
-
- public bool Verify(string url) {
-
-  var npos = url.LastIndexOf(signatureParam);
-  if (npos == -1)
-
-   return false;
-
-  return Sign(url.Substring(0, npos)) == url;
-
- }
-
- string UrlToSign(string url) {
-
-  if (!url.Contains(‘ ? ’)) return url + ‘ ? ’;
-
-  if (url.EndsWith(“ ? ”) || url.EndsWith(“ & ”)) return url;
-
-  return url + “ & ”;
- }
-
- byte[] GetBytes(string s) {
-  return Encoding.UTF8.GetBytes(s);
- }
-
- string Base64ForUrl(byte[] bytes) {
-
-  return Convert.ToBase64String(bytes).Replace(‘+’, ‘-’)
-
-  .Replace(‘/’, ‘_’)
-
-   .Replace(“ = ”, string.Empty);
-
-  }
- }
- ```
-
 Fulcrum strongly recommends taking advantage of inbound and outbound URL hashing, which will prevent respondents from manipulating links. Your secret key and variable name configuration can be set or disabled in the Fulcrum UI (`Clients>{Your Account} API_Client>Show Encryption). In order to verify the validity of any Fulcrum outbound connection or generate a hash to match with any Fulcrum inbound connection, you must create a function that computes an RFC 2014-compliant HMAC signature and substitute the following characters:
 
 | Original | Substitute   |
@@ -174,7 +108,7 @@ Fulcrum strongly recommends taking advantage of inbound and outbound URL hashing
 | /        | _            |
 | =        | empty string |
 
-It's important to note that your base string should include the entire URL up to and including the `&` preceding your encryption variable. We've provided an example function in C#. If you do not control the destination survey environment, and your client cannot support this type of security, you should skip this step and instead use Verify Callback.
+It's important to note that your base string should include the entire URL up to and including the `&` preceding your encryption variable. If you do not control the destination survey environment, and your client cannot support this type of security, you should skip this step and instead use Verify Callback.
 
 #### 2. Configure your survey end links, commonly referred to as "redirects".
 
