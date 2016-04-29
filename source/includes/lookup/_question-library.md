@@ -24,32 +24,32 @@ http.use_ssl = true
 
 request = Net::HTTP::Get.new(uri.request_uri)
 
-standardQs = http.request(request) 
+response = http.request(request) 
 ```
 
 ```php
 <?php
-$standardQs = file_get_contents('https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllQuestions/{CountryLanguageID}?key={APIKey}');
+$response = file_get_contents('https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllQuestions/{CountryLanguageID}?key={APIKey}');
 ?>
 ```
 
 ```python
 import requests
 
-standardQs = requests.get('https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllQuestions/{CountryLanguageID}?key={APIKey}')
+response = requests.get('https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllQuestions/{CountryLanguageID}?key={APIKey}')
 ```
 ```csharp
 using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllQuestions/{CountryLanguageID}?key={APIKey}");
 
-WebResponse standardQs = request.GetResponse();
+WebResponse response = request.GetResponse();
 ```
 ```javascript
 const https = require('https');
 
 https.get('https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllQuestions/{CountryLanguageID}?key={APIKey}', function(res){
-  var standardQs = res;
+  var response = res;
 });
 ```
 
@@ -115,32 +115,32 @@ http.use_ssl = true
 
 request = Net::HTTP::Get.new(uri.request_uri)
 
-customQs = http.request(request) 
+response = http.request(request) 
 ```
 
 ```php
 <?php
-$customQs = file_get_contents('https://api.samplicio.us/Supply/v1/QuestionLibrary/AllCustomQuestionsByAccount/{CountryLanguageID}?key={APIKey}');
+$response = file_get_contents('https://api.samplicio.us/Supply/v1/QuestionLibrary/AllCustomQuestionsByAccount/{CountryLanguageID}?key={APIKey}');
 ?>
 ```
 
 ```python
 import requests
 
-customQs = requests.get('https://api.samplicio.us/QuestionLibrary/AllCustomQuestionsByAccount/{CountryLanguageID}?key={APIKey}')
+response = requests.get('https://api.samplicio.us/QuestionLibrary/AllCustomQuestionsByAccount/{CountryLanguageID}?key={APIKey}')
 ```
 ```csharp
 using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/QuestionLibrary/AllCustomQuestionsByAccount/{CountryLanguageID}?key={APIKey}");
 
-WebResponse customQs = request.GetResponse();
+WebResponse response = request.GetResponse();
 ```
 ```javascript
 const https = require('https');
 
 https.get('https://api.samplicio.us/QuestionLibrary/AllCustomQuestionsByAccount/{CountryLanguageID}?key={APIKey}', function(res){
-  var customQs = res;
+  var response = res;
 });
 ```
 
@@ -209,19 +209,19 @@ http.use_ssl = true
 
 request = Net::HTTP::Get.new(uri.request_uri)
 
-questionText = http.request(request)  
+response = http.request(request)  
 ```
 
 ```php
 <?php
-$questionText = file_get_contents('https://api.samplicio.us/Lookup/v1/QuestionLibrary/QuestionById/{CountryLanguageID}/{QuestionID}?key={APIKey}');
+$response = file_get_contents('https://api.samplicio.us/Lookup/v1/QuestionLibrary/QuestionById/{CountryLanguageID}/{QuestionID}?key={APIKey}');
 ?>
 ```
 
 ```python
 import requests
 
-questionText = requests.get('https://api.samplicio.us/Lookup/v1/QuestionLibrary/QuestionById/{CountryLanguageID}/{QuestionID}?key={APIKey}')
+response = requests.get('https://api.samplicio.us/Lookup/v1/QuestionLibrary/QuestionById/{CountryLanguageID}/{QuestionID}?key={APIKey}')
 ```
 
 ```csharp
@@ -229,14 +229,14 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Lookup/v1/QuestionLibrary/QuestionById/{CountryLanguageID}/{QuestionID}?key={APIKey}");
 
-WebResponse questionText = request.GetResponse();
+WebResponse response = request.GetResponse();
 ```
 
 ```javascript
 const https = require('https');
 
 https.get('https://api.samplicio.us/Lookup/v1/QuestionLibrary/QuestionById/{CountryLanguageID}/{QuestionID}?key={APIKey}', function(res){
-  var questionText = res;
+  var response = res;
 });
 ```
 
@@ -304,19 +304,19 @@ http.use_ssl = true
 
 request = Net::HTTP::Get.new(uri.request_uri)
 
-questionOptions= http.request(request)  
+response= http.request(request)  
 ```
 
 ```php
 <?php
-$questionOptions = file_get_contents('https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllQuestionOptions/{CountryLanguageID}/{QuestionID}?key={APIKey}');
+$response = file_get_contents('https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllQuestionOptions/{CountryLanguageID}/{QuestionID}?key={APIKey}');
 ?>
 ```
 
 ```python
 import requests
 
-questionOptions = requests.get('https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllQuestionOptions/{CountryLanguageID}/{QuestionID}?key={APIKey}')
+response = requests.get('https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllQuestionOptions/{CountryLanguageID}/{QuestionID}?key={APIKey}')
 ```
 
 ```csharp
@@ -324,14 +324,14 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllQuestionOptions/{CountryLanguageID}/{QuestionID}?key={APIKey}");
 
-WebResponse questionOptions = request.GetResponse();
+WebResponse response = request.GetResponse();
 ```
 
 ```javascript
 const https = require('https');
 
 https.get('https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllQuestionOptions/{CountryLanguageID}/{QuestionID}?key={APIKey}', function(res){
-  var questionOptions = res;
+  var response = res;
 });
 ```
 
@@ -353,6 +353,7 @@ https.get('https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllQuestionOptions
   "QuestionOptions": [
     {
       "OptionText": "Male",
+}
       "ParentItemText": null,
       "Precode": "1",
       "QuestionID": 43
@@ -364,7 +365,6 @@ https.get('https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllQuestionOptions
       "QuestionID": 43
     }
   ]
-}
 ```
 
 Returns the answer options and associated precodes for a specific QuestionID and country-language pair.
