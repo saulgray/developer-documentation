@@ -62,19 +62,19 @@ http.use_ssl = true
 
 request = Net::HTTP::Get.new(uri.request_uri)
 
-allocations = http.request(request)  
+response = http.request(request)  
 ```
 
 ```php
 <?php
-$allocations = file_get_contents('https://api.samplicio.us/Demand/v1/SupplierAllocations/BySurveyNumber/{SurveyNumber}?key={APIKey}');
+$response = file_get_contents('https://api.samplicio.us/Demand/v1/SupplierAllocations/BySurveyNumber/{SurveyNumber}?key={APIKey}');
 ?>
 ```
 
 ```python
 import requests
 
-allocations = requests.get('https://api.samplicio.us/Demand/v1/SupplierAllocations/BySurveyNumber/{SurveyNumber}?key={APIKey}')
+response = requests.get('https://api.samplicio.us/Demand/v1/SupplierAllocations/BySurveyNumber/{SurveyNumber}?key={APIKey}')
 ```
 
 ```csharp
@@ -82,14 +82,14 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SupplierAllocations/BySurveyNumber/{SurveyNumber}?key={APIKey}");
 
-WebResponse allocations = request.GetResponse();
+WebResponse response = request.GetResponse();
 ```
 
 ```javascript
 const https = require('https');
 
 https.get('https://api.samplicio.us/Demand/v1/SupplierAllocations/BySurveyNumber/{SurveyNumber}?key={APIKey}', function(res){
-  var allocations = res;
+  var response = res;
 });
 ```
 > Example Response
@@ -164,7 +164,7 @@ request = Net::HTTP::Post.new(fullUriPath, initheader = {'Content-Type' =>'appli
 
 request.body = {SupplierCode: "1010", AllocationPercentage: 0.1, TCPI: 2, HedgeAccess: true, BlockRouterTraffic: false}.to_json
 
-supplierAllocation = http.request(request)
+response = http.request(request)
 ```
 
 ```php
@@ -185,7 +185,7 @@ curl_setopt_array($curl, array(
   CURLOPT_POSTFIELDS => $params,
 ));
 
-$supplierAllocation = curl_exec($curl);
+$response = curl_exec($curl);
 
 curl_close($curl);
 ?>
@@ -200,7 +200,7 @@ params = {'SupplierCode': '1010', 'AllocationPercentage': 0.1, 'TCPI': 2, 'Hedge
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
-supplierAllocation = requests.post(url, data=data, headers=headers)
+response = requests.post(url, data=data, headers=headers)
 ```
 
 ```csharp
@@ -227,7 +227,7 @@ streamWriter.Flush();
 streamWriter.Close();
 }
 
-WebResponse supplierAllocation = request.GetResponse();
+WebResponse response = request.GetResponse();
 ```
 
 ```javascript
@@ -251,10 +251,10 @@ var json = {
 
 var params = JSON.stringify(json);
 
-var request = https.request(options, function (supplierAllocation) {
+var request = https.request(options, function (response) {
   var chunks = [];
 
-  supplierAllocation.on("data", function (chunk) {
+  response.on("data", function (chunk) {
     chunks.push(chunk);
   });
   
@@ -340,7 +340,7 @@ request = Net::HTTP::Put.new(fullUriPath, initheader = {'Content-Type' =>'applic
 
 request.body = {SupplierCode: "1010", AllocationPercentage: 0.1, TCPI: 2, HedgeAccess: true, BlockRouterTraffic: false}.to_json
 
-supplierAllocation = http.request(request)
+response = http.request(request)
 ```
 
 ```php
@@ -361,7 +361,7 @@ curl_setopt_array($curl, array(
   CURLOPT_POSTFIELDS => $params,
 ));
 
-$supplierAllocation = curl_exec($curl);
+$response = curl_exec($curl);
 
 curl_close($curl);
 ?>
@@ -403,7 +403,7 @@ streamWriter.Flush();
 streamWriter.Close();
 }
 
-WebResponse supplierAllocation = request.GetResponse();
+WebResponse response = request.GetResponse();
 ```
 
 ```javascript
@@ -427,10 +427,10 @@ var json = {
 
 var params = JSON.stringify(json);
 
-var request = https.request(options, function (supplierAllocation) {
+var request = https.request(options, function (response) {
   var chunks = [];
 
-  supplierAllocation.on("data", function (chunk) {
+  response.on("data", function (chunk) {
     chunks.push(chunk);
   });
   
