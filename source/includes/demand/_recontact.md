@@ -34,19 +34,19 @@ http.use_ssl = true
 
 request = Net::HTTP::Get.new(uri.request_uri)
 
-qualifiedRespondents = http.request(request)  
+response = http.request(request)  
 ```
 
 ```php
 <?php
-$qualifiedRespondents = file_get_contents('https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/BySurveyNumberSupplierCode/{SurveyNumber}/{SupplierCode}?key={APIKey}');
+$response = file_get_contents('https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/BySurveyNumberSupplierCode/{SurveyNumber}/{SupplierCode}?key={APIKey}');
 ?>
 ```
 
 ```python
 import requests
 
-qualifiedRespondents = requests.get('https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/BySurveyNumberSupplierCode/{SurveyNumber}/{SupplierCode}?key={APIKey}')
+response = requests.get('https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/BySurveyNumberSupplierCode/{SurveyNumber}/{SupplierCode}?key={APIKey}')
 ```
 
 ```csharp
@@ -54,14 +54,14 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/BySurveyNumberSupplierCode/{SurveyNumber}/{SupplierCode}?key={APIKey}");
 
-WebResponse qualifiedRespondents = request.GetResponse();
+WebResponse response = request.GetResponse();
 ```
 
 ```javascript
 const https = require('https');
 
 https.get('https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/BySurveyNumberSupplierCode/{SurveyNumber}/{SupplierCode}?key={APIKey}', function(res){
-  var qualifiedRespondents = res;
+  var response = res;
 });
 ```
 
@@ -141,7 +141,7 @@ request.body = {
                   ]
                 }.to_json
 
-qualifiedRespondents = http.request(request)
+response = http.request(request)
 ```
 
 ```php
@@ -170,7 +170,7 @@ curl_setopt_array($curl, array(
   CURLOPT_POSTFIELDS => $params,
 ));
 
-$qualifiedRespondents = curl_exec($curl);
+$response = curl_exec($curl);
 
 curl_close($curl);
 ?>
@@ -193,7 +193,7 @@ params = {
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
-qualifiedRespondents = requests.put(url, data=data, headers=headers)
+response = requests.put(url, data=data, headers=headers)
 ```
 
 ```csharp
@@ -222,7 +222,7 @@ streamWriter.Flush();
 streamWriter.Close();
 }
 
-WebResponse qualifiedRespondents = request.GetResponse();
+WebResponse response = request.GetResponse();
 ```
 
 ```javascript
@@ -248,10 +248,10 @@ var json = {
 
 var params = JSON.stringify(json);
 
-var request = https.request(options, function (qualifiedRespondents) {
+var request = https.request(options, function (response) {
   var chunks = [];
 
-  qualifiedRespondents.on("data", function (chunk) {
+  response.on("data", function (chunk) {
     chunks.push(chunk);
   });
 
