@@ -56,19 +56,19 @@ http.use_ssl = true
 
 request = Net::HTTP::Get.new(uri.request_uri)
 
-surveys = http.request(request)  
+response = http.request(request)  
 ```
 
 ```php
 <?php
-$surveys = file_get_contents('https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}');
+$response = file_get_contents('https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}');
 ?>
 ```
 
 ```python
 import requests
 
-surveys = requests.get('https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}')
+response = requests.get('https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}')
 ```
 
 ```csharp
@@ -76,14 +76,14 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}");
 
-WebResponse surveys = request.GetResponse();
+WebResponse response = request.GetResponse();
 ```
 
 ```javascript
 const https = require('https');
 
 https.get('https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}', function(res){
-  var surveys = res;
+  var response = res;
 });
 ```
 
