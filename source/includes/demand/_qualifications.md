@@ -55,7 +55,7 @@ request.body = {
 	Order: 7
 }.to_json
 
-surveyQualifications = http.request(request)
+response = http.request(request)
 ```
 
 ```php
@@ -86,7 +86,7 @@ curl_setopt_array($curl, array(
   CURLOPT_POSTFIELDS => $params,
 ));
 
-$surveyQualifications = curl_exec($curl);
+$response = curl_exec($curl);
 
 curl_close($curl);
 ?>
@@ -111,7 +111,7 @@ params = {
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
-surveyQualifications = requests.post(url, data=data, headers=headers)
+response = requests.post(url, data=data, headers=headers)
 ```
 
 ```csharp
@@ -140,7 +140,7 @@ streamWriter.Flush();
 streamWriter.Close();
 }
 
-WebResponse surveyQualifications = request.GetResponse();
+WebResponse response = request.GetResponse();
 ```
 
 ```javascript
@@ -168,10 +168,10 @@ var json = {
 
 var params = JSON.stringify(json);
 
-var request = https.request(options, function (surveyQualifications) {
+var request = https.request(options, function (response) {
   var chunks = [];
 
-  surveyQualifications.on("data", function (chunk) {
+  response.on("data", function (chunk) {
     chunks.push(chunk);
   });
   
@@ -381,7 +381,7 @@ request.body = {
 	Order: 7
 }.to_json
 
-surveyQualifications = http.request(request)
+response = http.request(request)
 ```
 
 ```php
@@ -412,7 +412,7 @@ curl_setopt_array($curl, array(
   CURLOPT_POSTFIELDS => $params,
 ));
 
-$surveyQualifications = curl_exec($curl);
+$response = curl_exec($curl);
 
 curl_close($curl);
 ?>
@@ -437,7 +437,7 @@ params = {
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
-surveyQualifications = requests.put(url, data=data, headers=headers)
+response = requests.put(url, data=data, headers=headers)
 ```
 
 ```csharp
@@ -466,7 +466,7 @@ streamWriter.Flush();
 streamWriter.Close();
 }
 
-WebResponse surveyQualifications = request.GetResponse();
+WebResponse response = request.GetResponse();
 ```
 
 ```javascript
@@ -494,10 +494,10 @@ var json = {
 
 var params = JSON.stringify(json);
 
-var request = https.request(options, function (surveyQualifications) {
+var request = https.request(options, function (response) {
   var chunks = [];
 
-  surveyQualifications.on("data", function (chunk) {
+  response.on("data", function (chunk) {
     chunks.push(chunk);
   });
   
@@ -692,19 +692,19 @@ http.use_ssl = true
 
 request = Net::HTTP::Get.new(uri.request_uri)
 
-surveyQualifications = http.request(request)  
+response = http.request(request)  
 ```
 
 ```php
 <?php
-$surveyQualifications = file_get_contents('https://api.samplicio.us/Demand/v1/SurveyQualifications/BySurveyNumber/{SurveyNumber}?key={APIKey}');
+$response = file_get_contents('https://api.samplicio.us/Demand/v1/SurveyQualifications/BySurveyNumber/{SurveyNumber}?key={APIKey}');
 ?>
 ```
 
 ```python
 import requests
 
-surveyQualifications = requests.get('https://api.samplicio.us/Demand/v1/SurveyQualifications/BySurveyNumber/{SurveyNumber}?key={APIKey}')
+response = requests.get('https://api.samplicio.us/Demand/v1/SurveyQualifications/BySurveyNumber/{SurveyNumber}?key={APIKey}')
 ```
 
 ```csharp
@@ -712,14 +712,14 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SurveyQualifications/BySurveyNumber/{SurveyNumber}?key={APIKey}");
 
-WebResponse surveyQualifications = request.GetResponse();
+WebResponse response = request.GetResponse();
 ```
 
 ```javascript
 const https = require('https');
 
 https.get('https://api.samplicio.us/Demand/v1/SurveyQualifications/BySurveyNumber/{SurveyNumber}?key={APIKey}', function(res){
-  var surveyQualifications = res;
+  var response = res;
 });
 ```
 

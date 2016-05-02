@@ -60,19 +60,19 @@ http.use_ssl = true
 
 request = Net::HTTP::Get.new(uri.request_uri)
 
-exchangeTemplate = http.request(request)  
+response = http.request(request)  
 ```
 
 ```php
 <?php
-$exchangeTemplate = file_get_contents('https://api.samplicio.us/Demand/v1/ExchangeTemplates/GetAll?key={APIKey}');
+$response = file_get_contents('https://api.samplicio.us/Demand/v1/ExchangeTemplates/GetAll?key={APIKey}');
 ?>
 ```
 
 ```python
 import requests
 
-exchangeTemplate = requests.get('https://api.samplicio.us/Demand/v1/ExchangeTemplates/GetAll?key={APIKey}')
+response = requests.get('https://api.samplicio.us/Demand/v1/ExchangeTemplates/GetAll?key={APIKey}')
 ```
 
 ```csharp
@@ -80,14 +80,14 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/ExchangeTemplates/GetAll?key={APIKey}");
 
-WebResponse exchangeTemplate = request.GetResponse();
+WebResponse response = request.GetResponse();
 ```
 
 ```javascript
 const https = require('https');
 
 https.get('https://api.samplicio.us/Demand/v1/ExchangeTemplates/GetAll?key={APIKey}', function(res){
-  var exchangeTemplate = res;
+  var response = res;
 });
 ```
 
@@ -157,7 +157,7 @@ fullUriPath = uri.path + '?' + uri.query
 
 request = Net::HTTP::Post.new(fullUriPath, initheader = {'Content-Type' =>'application/json'})
 
-exchangeTemplate = http.request(request)
+response = http.request(request)
 ```
 
 ```php
@@ -175,7 +175,7 @@ curl_setopt_array($curl, array(
   CURLOPT_CUSTOMREQUEST => "POST",
 ));
 
-$exchangeTemplate = curl_exec($curl);
+$response = curl_exec($curl);
 
 curl_close($curl);
 ?>
@@ -188,7 +188,7 @@ import requests, json
 url = 'https://api.samplicio.us/Demand/v1/ExchangeTemplates/ApplyToSurvey/{SurveyNumber}/{ExchangeTemplateID}?key={APIKey}'
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
-exchangeTemplate = requests.post(url, headers=headers)
+response = requests.post(url, headers=headers)
 ```
 
 ```csharp
@@ -205,7 +205,7 @@ streamWriter.Flush();
 streamWriter.Close();
 }
 
-WebResponse exchangeTemplate = request.GetResponse();
+WebResponse response = request.GetResponse();
 ```
 
 ```javascript
@@ -219,10 +219,10 @@ var options = {
   "headers": {'Content-Type': 'application/json'}
 };
 
-var request = https.request(options, function (exchangeTemplate) {
+var request = https.request(options, function (response) {
   var chunks = [];
 
-  exchangeTemplate.on("data", function (chunk) {
+  response.on("data", function (chunk) {
     chunks.push(chunk);
   });
   

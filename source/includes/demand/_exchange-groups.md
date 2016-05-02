@@ -28,7 +28,7 @@ request = Net::HTTP::Post.new(FullUriPath, initheader = {'Content-Type' => 'appl
 
 request.body = {SurveyNumber: 101100, Name:"Top Supplier Group", AllocationPercentage: 0.10, IsHedgeAccess: true, "Suppliers": [{"SupplierCode":"0001"}]}.to_json
 
-group = http.request(request)  
+response = http.request(request)  
 ```
 
 ```php
@@ -49,7 +49,7 @@ curl_setopt_array($curl, array(
   CURLOPT_POSTFIELDS => $params,
 ));
 
-$group = curl_exec($curl);
+$response = curl_exec($curl);
 
 curl_close($curl);
 ?>
@@ -62,7 +62,7 @@ url = 'https://api.samplicio.us/Demand/v1/SupplierGroups/CreateWithSuppliers/{Su
 params = {'SurveyNumber': 101100, 'Name':'Top Supplier Group', 'AllocationPercentage': 0.10, 'IsHedgeAccess': True, 'Suppliers': [{'SupplierCode':'1010'}]}
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
-group = requests.post(url, data=data, headers=headers)
+response = requests.post(url, data=data, headers=headers)
 
 ```
 
@@ -92,7 +92,7 @@ streamWriter.Flush();
 streamWriter.Close();
 }
 
-WebResponse group = request.GetResponse();
+WebResponse response = request.GetResponse();
 
 ```
 
@@ -211,7 +211,7 @@ request = Net::HTTP::Post.new(fullUriPath, initheader = {'Content-Type' =>'appli
 
 request.body = {SurveyNumber: 101100, Name:"Top Supplier Group", AllocationPercentage: 0.10, IsHedgeAccess: true}.to_json
 
-group = http.request(request)
+response = http.request(request)
 ```
 
 ```php
@@ -232,7 +232,7 @@ curl_setopt_array($curl, array(
   CURLOPT_POSTFIELDS => $params,
 ));
 
-$group = curl_exec($curl);
+$response = curl_exec($curl);
 
 curl_close($curl);
 ?>
@@ -246,7 +246,7 @@ params = {'SurveyNumber': 101100,'Name':'Top Supplier Group', 'AllocationPercent
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
-group = requests.post(url, data=data, headers=headers)
+response = requests.post(url, data=data, headers=headers)
 ```
 
 ```csharp
@@ -273,7 +273,7 @@ streamWriter.Flush();
 streamWriter.Close();
 }
 
-WebResponse group = request.GetResponse();
+WebResponse response = request.GetResponse();
 ```
 
 ```javascript
@@ -295,10 +295,10 @@ var json = {"SurveyNumber": 101100,
 
 var params = JSON.stringify(json);
 
-var request = https.request(options, function (group) {
+var request = https.request(options, function (response) {
   var chunks = [];
 
-  group.on("data", function (chunk) {
+  response.on("data", function (chunk) {
     chunks.push(chunk);
   });
 
@@ -381,7 +381,7 @@ request = Net::HTTP::Put.new(fullUriPath, initheader = {'Content-Type' =>'applic
 
 request.body = {ID: 1234, SurveyNumber: 101100, Name:"Top Supplier Group",AllocationPercentage: 0.10, IsHedgeAccess: true}.to_json
 
-group = http.request(request)
+response = http.request(request)
 ```
 
 ```php
@@ -402,7 +402,7 @@ curl_setopt_array($curl, array(
   CURLOPT_POSTFIELDS => $params,
 ));
 
-$group = curl_exec($curl);
+$response = curl_exec($curl);
 
 curl_close($curl);
 ?>
@@ -416,7 +416,7 @@ params = {'ID': 1234,'SurveyNumber': 101100,'Name':'Top Supplier Group', 'Alloca
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
-group = requests.put(url, data=data, headers=headers)
+response = requests.put(url, data=data, headers=headers)
 ```
 
 ```csharp
@@ -444,7 +444,7 @@ streamWriter.Flush();
 streamWriter.Close();
 }
 
-WebResponse group = request.GetResponse();
+WebResponse response = request.GetResponse();
 ```
 
 ```javascript
@@ -467,10 +467,10 @@ var json = {"ID": 1234,
 
 var params = JSON.stringify(json);
 
-var request = https.request(options, function (group) {
+var request = https.request(options, function (response) {
   var chunks = [];
 
-  group.on("data", function (chunk) {
+  response.on("data", function (chunk) {
     chunks.push(chunk);
   });
 
@@ -550,7 +550,7 @@ http.use_ssl = true
 
 request = Net::HTTP::Delete.new(uri.request_uri)
 
-group = http.request(request)  
+response = http.request(request)  
 ```
 
 ```php
@@ -648,7 +648,7 @@ request = Net::HTTP::Post.new(fullUriPath, initheader = {'Content-Type' =>'appli
 
 request.body = {SupplierCode: 1010}.to_json
 
-group = http.request(request)
+response = http.request(request)
 ```
 
 ```php
@@ -669,7 +669,7 @@ curl_setopt_array($curl, array(
   CURLOPT_POSTFIELDS => $params,
 ));
 
-$group = curl_exec($curl);
+$response = curl_exec($curl);
 
 curl_close($curl);
 ?>
@@ -683,7 +683,7 @@ params = {'SupplierCode': 1010}
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
-group = requests.post(url, data=data, headers=headers)
+response = requests.post(url, data=data, headers=headers)
 ```
 
 ```csharp
@@ -705,7 +705,7 @@ streamWriter.Flush();
 streamWriter.Close();
 }
 
-WebResponse group = request.GetResponse();
+WebResponse response = request.GetResponse();
 ```
 
 ```javascript
@@ -809,19 +809,19 @@ http.use_ssl = true
 
 request = Net::HTTP::Get.new(uri.request_uri)
 
-group = http.request(request)  
+response = http.request(request)  
 ```
 
 ```php
 <?php
-$group = file_get_contents('https://api.samplicio.us/Demand/v1/SupplierGroups/BySurveyNumber/{SurveyNumber}?key={APIKey}');
+$response = file_get_contents('https://api.samplicio.us/Demand/v1/SupplierGroups/BySurveyNumber/{SurveyNumber}?key={APIKey}');
 ?>
 ```
 
 ```python
 import requests
 
-group = requests.get('https://api.samplicio.us/Demand/v1/SupplierGroups/BySurveyNumber/{SurveyNumber}?key={APIKey}')
+response = requests.get('https://api.samplicio.us/Demand/v1/SupplierGroups/BySurveyNumber/{SurveyNumber}?key={APIKey}')
 ```
 
 ```csharp
@@ -829,14 +829,14 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SupplierGroups/BySurveyNumber/{SurveyNumber}?key={APIKey}");
 
-WebResponse group = request.GetResponse();
+WebResponse response = request.GetResponse();
 ```
 
 ```javascript
 const https = require('https');
 
 https.get('https://api.samplicio.us/Demand/v1/SupplierGroups/BySurveyNumber/{SurveyNumber}?key={APIKey}', function(res){
-  var group = res;
+  var response = res;
 });
 ```
 > Example Response
@@ -931,7 +931,7 @@ request = Net::HTTP::Put.new(fullUriPath, initheader = {'Content-Type' =>'applic
 
 request.body = {SupplierCode: '1010'}.to_json
 
-group = http.request(request)
+response = http.request(request)
 
 
 
@@ -956,7 +956,7 @@ curl_setopt_array($curl, array(
   CURLOPT_POSTFIELDS => $params,
 ));
 
-$group = curl_exec($curl);
+$response = curl_exec($curl);
 
 curl_close($curl);
 ?>
@@ -971,7 +971,7 @@ params = {'SupplierCode': '1010'}
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
-group = requests.put(url, data=data, headers=headers)
+response = requests.put(url, data=data, headers=headers)
 ```
 
 ```csharp
@@ -992,7 +992,7 @@ using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
             streamWriter.Close();
         }
 
-WebResponse group = request.GetResponse();
+WebResponse response = request.GetResponse();
 ```
 
 ```javascript
@@ -1012,10 +1012,10 @@ var json = {
 
 var params = JSON.stringify(json);
 
-var request = https.request(options, function (group) {
+var request = https.request(options, function (response) {
   var chunks = [];
 
-  group.on("data", function (chunk) {
+  response.on("data", function (chunk) {
     chunks.push(chunk);
   });
 

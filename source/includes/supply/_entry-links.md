@@ -71,7 +71,7 @@ curl_setopt_array($curl, array(
   CURLOPT_POSTFIELDS => $params,
 ));
 
-$supplierLink = curl_exec($curl);
+$response = curl_exec($curl);
 
 curl_close($curl);
 ?>
@@ -86,7 +86,7 @@ params = {'SupplierLinkTypeCode':'OWS','TrackingTypeCode':'NONE'}
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
-supplierLink = requests.post(url, data=data, headers=headers)
+response = requests.post(url, data=data, headers=headers)
 ```
 
 ```csharp
@@ -110,7 +110,7 @@ streamWriter.Flush();
 streamWriter.Close();
 }
 
-WebResponse supplierLink = request.GetResponse();
+WebResponse response = request.GetResponse();
 ```
 
 ```javascript
@@ -131,10 +131,10 @@ var json = {
 
 var params = JSON.stringify(json);
 
-var request = https.request(options, function (supplierLink) {
+var request = https.request(options, function (response) {
   var chunks = [];
 
-  supplierLink.on("data", function (chunk) {
+  response.on("data", function (chunk) {
     chunks.push(chunk);
   });
   
@@ -220,7 +220,7 @@ request = Net::HTTP::Put.new(fullUriPath, initheader = {'Content-Type' =>'applic
 
 request.body = {SupplierLinkTypeCode:"OWS",TrackingTypeCode:"NONE",DefaultLink:"",SuccessLink:"",FailureLink:"",OverQuotaLink:"",QualityTerminationLink:""}.to_json
 
-supplierLink = http.request(request)
+response = http.request(request)
 ```
 
 ```php
@@ -241,7 +241,7 @@ curl_setopt_array($curl, array(
   CURLOPT_POSTFIELDS => $params,
 ));
 
-$supplierLink = curl_exec($curl);
+$response = curl_exec($curl);
 
 curl_close($curl);
 ?>
@@ -255,7 +255,7 @@ params = {'SupplierLinkTypeCode':'OWS','TrackingTypeCode':'NONE','DefaultLink':'
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
-supplierLink = requests.put(url, data=data, headers=headers)
+response = requests.put(url, data=data, headers=headers)
 ```
 
 ```csharp
@@ -284,7 +284,7 @@ using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
             streamWriter.Close();
         }
 
-WebResponse supplierLink = request.GetResponse();
+WebResponse response = request.GetResponse();
 ```
 
 ```javascript
@@ -310,10 +310,10 @@ var json = {
 
 var params = JSON.stringify(json);
 
-var request = https.request(options, function (supplierLink) {
+var request = https.request(options, function (response) {
   var chunks = [];
 
-  supplierLink.on("data", function (chunk) {
+  response.on("data", function (chunk) {
     chunks.push(chunk);
   });
 
@@ -397,19 +397,19 @@ http.use_ssl = true
 
 request = Net::HTTP::Get.new(uri.request_uri)
 
-supplierLinks = http.request(request)  
+response = http.request(request)  
 ```
 
 ```php
 <?php
-$supplierLinks = file_get_contents('https://api.samplicio.us/Supply/v1/SupplierLinks/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}');
+$response = file_get_contents('https://api.samplicio.us/Supply/v1/SupplierLinks/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}');
 ?>
 ```
 
 ```python
 import requests
 
-supplierLinks = requests.get('https://api.samplicio.us/Supply/v1/SupplierLinks/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}')
+response = requests.get('https://api.samplicio.us/Supply/v1/SupplierLinks/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}')
 ```
 
 ```csharp
@@ -417,14 +417,14 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Supply/v1/SupplierLinks/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}");
 
-WebResponse supplierLinks = request.GetResponse();
+WebResponse response = request.GetResponse();
 ```
 
 ```javascript
 const https = require('https');
 
 https.get('https://api.samplicio.us/Supply/v1/SurveyQualifications/BySurveyNumberForOfferwall/{SurveyNumber}?key={APIKey}', function(res){
-  var supplierLinks = res;
+  var response = res;
 });
 ```
 
