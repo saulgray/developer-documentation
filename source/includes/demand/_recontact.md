@@ -1,5 +1,14 @@
 ## Recontact
 
+Recontacts allow buyers to collect a follow-up impression on a respondent they have already interacted with or already have knowledge of.
+
+#### SurveyQualifiedRespondents Model
+
+| Property | Type   | Description                                                 |
+|----------|--------|-------------------------------------------------------------|
+| IsActive | int    | Indicates whether a respondent qualifies for the recontact. |
+| PID      | string | A supplier's unique respondent identifier.                  |
+
 ### GET List Qualified Respondents
 
 > Definition
@@ -51,7 +60,9 @@ WebResponse qualifiedRespondents = request.GetResponse();
 ```javascript
 const https = require('https');
 
-var qualifiedRespondents = https.get('https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/BySurveyNumberSupplierCode/{SurveyNumber}/{SupplierCode}?key={APIKey}');
+https.get('https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/BySurveyNumberSupplierCode/{SurveyNumber}/{SupplierCode}?key={APIKey}', function(res){
+  var qualifiedRespondents = res;
+});
 ```
 
 > Example Response
@@ -89,7 +100,7 @@ Returns a list of qualified respondents for a specified recontact study and supp
 | Property                     | Type     | Required | Description                                                                                                                                  |
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
 | SurveyNumber                 | int      | true     | Unique number associated with the survey.                                                                                                    |
-| SupplierCode                 | int      | true     | Unique code associated with a supplier account.                                                                                              |
+| SupplierCode                 | string   | true     | Unique code associated with a supplier account.                                                                                              |
 
 
 ### PUT Update Qualified Respondents
@@ -103,12 +114,10 @@ PUT  https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/Update/{Surve
 >Example Request
 
 ```shell
-curl -H "Content-Type: application/json" \
--X PUT  --data '{"PID": "0001110", "IsActive": true}' \ 
+curl -H "Content-Type: application/json" -X PUT  --data '{"SurveyQualifiedRespondents":[{"IsActive": true,"PID": "0001110"},]}' https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}
 ```
 
 ```ruby
-require 'net/http'
 require 'net/http'
 require 'json'
 
@@ -122,7 +131,15 @@ fullUriPath = uri.path + '?' + uri.query
 
 request = Net::HTTP::Put.new(fullUriPath, initheader = {'Content-Type' =>'application/json'})
 
-request.body = {PID:"0001110", IsActive:true}.to_json
+request.body = {
+                  SurveyQualifiedRespondents: 
+                  [
+                    {
+                      IsActive: true,
+                      PID: '0001110'
+                    },
+                  ]
+                }.to_json
 
 qualifiedRespondents = http.request(request)
 ```
@@ -131,7 +148,15 @@ qualifiedRespondents = http.request(request)
 <?php
 $curl = curl_init();
 
-$params = '{"PID": "0000111", "IsActive": true}';
+$params = '{
+              "SurveyQualifiedRespondents": 
+              [
+                {
+                  "IsActive": true,
+                  "PID": "0001110"
+                },
+              ]
+            }';
 
 curl_setopt_array($curl, array(
   CURLOPT_URL => "https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}",
@@ -141,7 +166,7 @@ curl_setopt_array($curl, array(
   CURLOPT_MAXREDIRS => 10,
   CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-  CURLOPT_CUSTOMREQUEST => "POST",
+  CURLOPT_CUSTOMREQUEST => "PUT",
   CURLOPT_POSTFIELDS => $params,
 ));
 
@@ -155,7 +180,16 @@ curl_close($curl);
 import requests, json
 
 url = 'https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}'
-params = {'PID': '0001110', 'IsActive': true}
+params = {
+            'SurveyQualifiedRespondents': 
+            [
+              {
+                'IsActive': True,
+                'PID': '0001110'
+              },
+            ]
+          }
+
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
@@ -168,14 +202,22 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}");
 
-string params = "{\"PID\": \"0001110\", \"IsActive\": true}";
+string args = @"{
+                  ""SurveyQualifiedRespondents"": 
+                  [
+                    {
+                       ""IsActive"": true,
+                       ""PID"": ""0001110""
+                    },
+                  ]
+                }";
 
 request.Method = "PUT";
 request.ContentType = "application/json";
 
 using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
 {
-streamWriter.Write(params);
+streamWriter.Write(args);
 streamWriter.Flush();
 streamWriter.Close();
 }
@@ -195,13 +237,14 @@ var options = {
 };
 
 var json = {
-  "SurveyQualifiedRespondents": [
-    {
-      "IsActive": true,
-      "PID": "0001110"
-    },
-  ]
-};
+              "SurveyQualifiedRespondents": 
+              [
+                {
+                  "IsActive": true,
+                  "PID": "0001110"
+                },
+              ]
+            };
 
 var params = JSON.stringify(json);
 
@@ -250,6 +293,6 @@ Updates the list of PIDs that qualify for a recontact survey.
 | Property                     | Type     | Required | Description                                                                                                                                  |
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
 | SurveyNumber                 | int      | true     | Unique number associated with the survey.                                                                                                    |
-| SupplierCode                 | int      | true     | Unique code associated with a supplier account.                                                                                              |
+| SupplierCode                 | string   | true     | Unique code associated with a supplier account.                                                                                              |
 | IsActive                     | boolean  | true     | Should the respondent still qualify?                                                                                                         |
 | PID                          | int      | true     | Persistent panelist identifier used by the supplier.                                                                                         |

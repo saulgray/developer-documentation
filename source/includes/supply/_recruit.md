@@ -1,5 +1,17 @@
 ##Recruit
 
+Buyers will use Fulcrum to recruit new respondents to their panel or community. The MarketingInformation resource allows suppliers to retrieve campaign marketing information when the study type is either `Recruit – Panel` or `Community Build` which can be presented to respondents.
+
+#### Marketing Information Survey Model
+
+| Property               | Type    |  Description                                                                                             |
+|------------------------|---------|----------------------------------------------------------------------------------------------------------|
+| MarketingHeadline      | string  | A headline that describes the recruit offer                                                              |
+| MarketingText| double  | string  | Marketing text that describes the benefits the recruit offer                                             |
+| MarketingImageLargeUrl | string  | A company logo or image that represents the recruit offer                                                |
+| MarketingImageSmallUrl | string  | EA thumbnail image, usually company logo, that represents the recruit offer                              |
+
+
 ### GET Show Marketing Info
 
 > Definition
@@ -51,7 +63,9 @@ WebResponse marketingInfo = request.GetResponse();
 ```javascript
 const https = require('https');
 
-var marketingInfo = https.get('https://api.samplicio.us/Supply/v1/Surveys/MarketingInformation/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}');
+https.get('https://api.samplicio.us/Supply/v1/Surveys/MarketingInformation/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}', function(res){
+  var marketingInfo = res;
+});
 ```
 
 > Example Response
@@ -82,9 +96,9 @@ Returns marketing information for a specific survey when study type is either `R
 
 
 
-| Property     | Type | Required | Description                                                   |
-|--------------|------|----------|---------------------------------------------------------------|
-| SurveyNumber | int  | true     | Unique number associated with the survey.                     |
-| SupplierCode | int  | true     | Unique code associated with the supplier performing the call. |
+| Property     | Type   | Required | Description                                                   |
+|--------------|--------|----------|---------------------------------------------------------------|
+| SurveyNumber | int    | true     | Unique number associated with the survey.                     |
+| SupplierCode | string | true     | Unique code associated with the supplier performing the call. |
 
 

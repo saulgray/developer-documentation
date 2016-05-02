@@ -1,5 +1,14 @@
 ##Recontact
 
+Recontacts allow buyers to collect a follow-up impression on a respondent they have already interacted with or already have knowledge of.
+
+#### SurveyQualifiedRespondents Model
+
+| Property | Type   | Description                                                 |
+|----------|--------|-------------------------------------------------------------|
+| IsActive | int    | Indicates whether a respondent qualifies for the recontact. |
+| PID      | string | A supplier's unique respondent identifier.                  |
+
 ### GET List Qualified Respondents
 
 > Definition
@@ -51,7 +60,9 @@ WebResponse qualifiedRespondents = request.GetResponse();
 ```javascript
 const https = require('https');
 
-var qualifiedRespondents = https.get('https://api.samplicio.us/Supply/v1/SurveyQualifiedRespondents/BySurveyNumberSupplierCode/{SurveyNumber}/{SupplierCode}?key={APIKey}');
+https.get('https://api.samplicio.us/Supply/v1/SurveyQualifiedRespondents/BySurveyNumberSupplierCode/{SurveyNumber}/{SupplierCode}?key={APIKey}', function(res){
+  var qualifiedRespondents = res;
+});
 ```
 
 > Example Response
@@ -100,6 +111,6 @@ Returns the list of PIDs by supplier for a specific Fulcrum survey when study ty
 | Property                     | Type     | Required | Description                                                                                                                                  |
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
 | SurveyNumber                 | int      | true     | Unique number associated with the survey.                                                                                                    |
-| SupplierCode                 | int      | true     | Unique code associated with the supplier performing the call.               
+| SupplierCode                 | string   | true     | Unique code associated with the supplier performing the call.               
 
        

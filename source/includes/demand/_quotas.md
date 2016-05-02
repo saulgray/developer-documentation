@@ -1,5 +1,25 @@
 ##Quotas
 
+Quotas are used to specify how many respondents of a desired demographic type are allowed to complete the survey. Quotas must be built off of qualifications. 
+
+#### Quotas Model
+
+| Property        | Type    |  Description                                                              |
+|-----------------|---------|---------------------------------------------------------------------------|
+| SurveyQuotaID   | int     | Unique ID associated with the quota.                                      |
+| Name            | string  | Name associated with the quota.                                           |
+| FieldTarget     | int     | Field Target associated with the quota.                                   |
+| Quota           | int     | Quota number for the specified quota.                                     |
+| IsActive        | boolean | Indicates if the quotas is active or inactive. Should the quota be enforced on this project?|
+| Conditions      | array   | Contains an array of elements described below                             |
+
+#### Conditions Model
+
+| Property     | Type               | Description                                                       |
+|--------------|--------------------|-------------------------------------------------------------------|
+| QuestionID   | int                | QuestionID(s) that the quota is based upon                        |  
+| PreCodes     | array of strings   | Qualification answer option precodes defined by the API Standard  |
+
 ### POST Create a Quota
 
 > Definition
@@ -11,9 +31,7 @@ POST https://api.samplicio.us/Demand/v1/SurveyQuotas/Create/{SurveyNumber}?key={
 > Example Request
 
 ```shell
-curl -H "Content-Type: application/json" \
--X POST --data '{"Name": "Quota Name", "Quota": 50, "IsActive":true, "Conditions":[{"QuestionID":42, "Precodes": ["18","19","20","21","22"] }]}' \
-https://api.samplicio.us/Demand/v1/SurveyQuotas/Create/{SurveyNumber}?key={APIKey}
+curl -H "Content-Type: application/json" -X POST --data '{"Name": "Quota Name", "Quota": 50, "IsActive":true, "Conditions":[{"QuestionID":42, "PreCodes": ["18","19","20","21","22"] }]}' https://api.samplicio.us/Demand/v1/SurveyQuotas/Create/{SurveyNumber}?key={APIKey}
 ```
 
 ```ruby
@@ -31,7 +49,7 @@ fullUriPath = uri.path + '?' + uri.query
 
 request = Net::HTTP::Post.new(fullUriPath, initheader = {'Content-Type' =>'application/json'})
 
-request.body = {SupplierLinkTypeCode:"OWS",TrackingTypeCode:"NONE"}.to_json
+request.body = {Name: "Quota Name", Quota: 50, IsActive:true, Conditions:[{QuestionID:42, PreCodes: ["18","19","20","21","22"] }]}.to_json
 
 quotas = http.request(request)
 ```
@@ -40,7 +58,7 @@ quotas = http.request(request)
 <?php
 $curl = curl_init();
 
-$params = '{"Name": "Quota Name", "Quota": 50, "IsActive":true, "Conditions":[{"QuestionID":42, "Precodes": ["18","19","20","21","22"] }]}';
+$params = '{"Name": "Quota Name", "Quota": 50, "IsActive":true, "Conditions":[{"QuestionID":42, "PreCodes": ["18","19","20","21","22"] }]}';
 
 curl_setopt_array($curl, array(
   CURLOPT_URL => "https://api.samplicio.us/Demand/v1/SurveyQuotas/Create/{SurveyNumber}?key={APIKey}",
@@ -64,7 +82,7 @@ curl_close($curl);
 import requests, json
 
 url = 'https://api.samplicio.us/Demand/v1/SurveyQuotas/Create/{SurveyNumber}?key={APIKey}'
-params = {'Name': 'Quota Name', 'Quota': 50, 'IsActive': true, 'Conditions':[{'QuestionID':42, 'Precodes': ['18','19','20','21','22'] }]}
+params = {'Name': 'Quota Name', 'Quota': 50, 'IsActive': True, 'Conditions':[{'QuestionID':42, 'PreCodes': ['18','19','20','21','22'] }]}
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
@@ -77,14 +95,22 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SurveyQuotas/Create/{SurveyNumber}?key={APIKey}");
 
-string params = "{\"Name\": \"Quota Name\", \"Quota\": 50, \"IsActive\": true, \"Conditions\":[{\"QuestionID\":42, \"Precodes\": [\"18\",\"19\",\"20\",\"21\",\"22\"] }]}\"}";
+string args = @"{
+                ""Name"": ""Quota Name"",
+                 ""Quota"": 50,
+                 ""IsActive"": true,
+                 ""Conditions"":[{
+                                  ""QuestionID"":42,
+                                  ""PreCodes"": [""18"",""19"",""20"",""21"",""22""] 
+                                }]
+              }";
 
 request.Method = "POST";
 request.ContentType = "application/json";
 
 using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
 {
-streamWriter.Write(params);
+streamWriter.Write(args);
 streamWriter.Flush();
 streamWriter.Close();
 }
@@ -107,7 +133,8 @@ var json = {
   "Name": "Quota Name",
   "Quota": 50,
   "IsActive": true,
-  "Conditions": [
+  "Conditions": 
+  [
     {
       "QuestionID": 42,
       "PreCodes": [
@@ -117,7 +144,10 @@ var json = {
         "21",
         "22",
       ]
-    };
+    }
+  ]
+};
+
 
 var params = JSON.stringify(json);
 
@@ -214,12 +244,10 @@ PUT  https://api.samplicio.us/Demand/v1/SurveyQuotas/Update/{SurveyNumber}?key={
 >Example Request
 
 ```shell
-curl -H "Content-Type: application/json" \
--X PUT  --data '{"Name": "Quota Name", "Quota": 50, "IsActive":true, "Conditions":[{"QuestionID":42, "Precodes": ["18","19","20","21","22"] }]}' \ 
+curl -H "Content-Type: application/json" -X PUT  --data '{"SurveyQuotaID": 1000110,"Name": "Quota Name", "FieldTarget":1000, "Quota": 50, "IsActive":true, "Conditions":[{"QuestionID":42, "Precodes": ["18","19","20","21","22"] }]}'  https://api.samplicio.us/Demand/v1/SurveyQuotas/Update/{SurveyNumber}?key={APIKey}
 ```
 
 ```ruby
-require 'net/http'
 require 'net/http'
 require 'json'
 
@@ -233,7 +261,7 @@ fullUriPath = uri.path + '?' + uri.query
 
 request = Net::HTTP::Put.new(fullUriPath, initheader = {'Content-Type' =>'application/json'})
 
-request.body = {Name: "Quota Name", Quota: 50, IsActive:true, Conditions:[{QuestionID:42, Precodes: [18, 19, 20, 21, 22] }]}.to_json
+request.body = {SurveyQuotaID: 1000110, Name: "Quota Name", FieldTarget:1000, Quota: 50, IsActive:true, Conditions:[{QuestionID:42, PreCodes: [18, 19, 20, 21, 22] }]}.to_json
 
 quotas = http.request(request)
 ```
@@ -242,7 +270,7 @@ quotas = http.request(request)
 <?php
 $curl = curl_init();
 
-$params = '{"Name": "Quota Name", "Quota": 50, "IsActive":true, "Conditions":[{"QuestionID":42, "Precodes": ["18","19","20","21","22"] }]}';
+$params = '{"SurveyQuotaID": 1000110, "Name": "Quota Name", "FieldTarget":1000, "Quota": 50, "IsActive":true, "Conditions":[{"QuestionID":42, "PreCodes": ["18","19","20","21","22"] }]}';
 
 curl_setopt_array($curl, array(
   CURLOPT_URL => "https://api.samplicio.us/Demand/v1/SurveyQuotas/Update/{SurveyNumber}?key={APIKey}",
@@ -252,7 +280,7 @@ curl_setopt_array($curl, array(
   CURLOPT_MAXREDIRS => 10,
   CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-  CURLOPT_CUSTOMREQUEST => "POST",
+  CURLOPT_CUSTOMREQUEST => "PUT",
   CURLOPT_POSTFIELDS => $params,
 ));
 
@@ -266,7 +294,7 @@ curl_close($curl);
 import requests, json
 
 url = 'https://api.samplicio.us/Demand/v1/SurveyQuotas/Update/{SurveyNumber}?key={APIKey}'
-params = {'Name': 'Quota Name', 'Quota': 50, 'IsActive': true, 'Conditions':[{'QuestionID':42, 'Precodes': ['18','19','20','21','22'] }]}
+params = {'SurveyQuotaID': 1000110, 'Name': "Quota Name", 'FieldTarget':1000, 'Quota': 50, 'IsActive': True, 'Conditions':[{'QuestionID':42, 'PreCodes': ['18','19','20','21','22'] }]}
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
@@ -279,14 +307,24 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SurveyQuotas/Update/{SurveyNumber}?key={APIKey}");
 
-string params = "{\"Name\": \"Quota Name\", \"Quota\": 50, \"IsActive\": true, \"Conditions\":[{\"QuestionID\":42, \"Precodes\": [\"18\",\"19\",\"20\",\"21\",\"22\"] }]}\"}";
+string args = @"{
+                ""SurveyQuotaID"": 1000110,
+                 ""Name"": ""Quota Name"",
+                 ""FieldTarget"":1000,
+                 ""Quota"": 50,
+                 ""IsActive"": true,
+                 ""Conditions"":[{
+                                  ""QuestionID"":42,
+                                  ""PreCodes"": [""18"",""19"",""20"",""21"",""22""] 
+                                }]
+               }";
 
-request.Method = "POST";
+request.Method = "PUT";
 request.ContentType = "application/json";
 
 using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
 {
-streamWriter.Write(params);
+streamWriter.Write(args);
 streamWriter.Flush();
 streamWriter.Close();
 }
@@ -340,7 +378,7 @@ request.end();
 
 > Example Response
 
-```
+```json
 {
   "ApiResult": 0,
   "ApiResultCode": 0,
@@ -385,7 +423,6 @@ request.end();
             "22",
           ]
         },
-        
       ]
     }
   ]
@@ -411,19 +448,19 @@ Updates a quota's size, conditions, and other parameters.
 > Definition
 
 ```plaintext
-GET  http://api.samplicio.us/Demand/v1/SurveyQuotas/BySurveyNumber/{SurveyNumber}}?key={APIKey}
+GET  https://api.samplicio.us/Demand/v1/SurveyQuotas/BySurveyNumber/{SurveyNumber}}?key={APIKey}
 ```
 
 > Example Request
 
 ```shell
-curl http://api.samplicio.us/Demand/v1/SurveyQuotas/BySurveyNumber/{SurveyNumber}}?key={APIKey}
+curl https://api.samplicio.us/Demand/v1/SurveyQuotas/BySurveyNumber/{SurveyNumber}}?key={APIKey}
 ```
 
 ```ruby
 require 'net/http'
 
-uri = URI('http://api.samplicio.us/Demand/v1/SurveyQuotas/BySurveyNumber/{SurveyNumber}}?key={APIKey}')
+uri = URI('https://api.samplicio.us/Demand/v1/SurveyQuotas/BySurveyNumber/{SurveyNumber}}?key={APIKey}')
 
 http = Net::HTTP.new(uri.host, uri.port)
 
@@ -436,20 +473,20 @@ quotas = http.request(request)
 
 ```php
 <?php
-$quotas = file_get_contents('http://api.samplicio.us/Demand/v1/SurveyQuotas/BySurveyNumber/{SurveyNumber}}?key={APIKey}');
+$quotas = file_get_contents('https://api.samplicio.us/Demand/v1/SurveyQuotas/BySurveyNumber/{SurveyNumber}}?key={APIKey}');
 ?>
 ```
 
 ```python
 import requests
 
-quotas = requests.get('http://api.samplicio.us/Demand/v1/SurveyQuotas/BySurveyNumber/{SurveyNumber}}?key={APIKey}')
+quotas = requests.get('https://api.samplicio.us/Demand/v1/SurveyQuotas/BySurveyNumber/{SurveyNumber}}?key={APIKey}')
 ```
 
 ```csharp
 using System.Net;
 
-WebRequest request = WebRequest.Create("http://api.samplicio.us/Demand/v1/SurveyQuotas/BySurveyNumber/{SurveyNumber}}?key={APIKey}");
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SurveyQuotas/BySurveyNumber/{SurveyNumber}}?key={APIKey}");
 
 WebResponse quotas = request.GetResponse();
 ```
@@ -457,7 +494,9 @@ WebResponse quotas = request.GetResponse();
 ```javascript
 const https = require('https');
 
-var quotas = https.get('http://api.samplicio.us/Demand/v1/SurveyQuotas/BySurveyNumber/{SurveyNumber}}?key={APIKey}');
+https.get('https://api.samplicio.us/Demand/v1/SurveyQuotas/BySurveyNumber/{SurveyNumber}}?key={APIKey}', function(res){
+  var quotas = res;
+});
 ```
 
 > Example Response

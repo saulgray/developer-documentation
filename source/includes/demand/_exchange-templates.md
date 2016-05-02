@@ -86,7 +86,9 @@ WebResponse exchangeTemplate = request.GetResponse();
 ```javascript
 const https = require('https');
 
-var exchangeTemplate = https.get('https://api.samplicio.us/Demand/v1/ExchangeTemplates/GetAll?key={APIKey}');
+https.get('https://api.samplicio.us/Demand/v1/ExchangeTemplates/GetAll?key={APIKey}', function(res){
+  var exchangeTemplate = res;
+});
 ```
 
 > Example Response
@@ -138,9 +140,7 @@ POST  https://api.samplicio.us/Demand/v1/ExchangeTemplates/ApplyToSurvey/{Survey
 > Example Request
 
 ```shell
-curl -H "Content-Type: application/json" \
--X POST \
-https://api.samplicio.us/Demand/v1/ExchangeTemplates/ApplyToSurvey/{SurveyNumber}/{ExchangeTemplateID}?key={APIKey}
+curl -H "Content-Type: application/json" -X POST https://api.samplicio.us/Demand/v1/ExchangeTemplates/ApplyToSurvey/{SurveyNumber}/{ExchangeTemplateID}?key={APIKey}
 ```
 
 ```ruby

@@ -1,6 +1,6 @@
 ##Quotas
 
-The quotas resource returns the number of completes available to you for each demographic cell in a survey. Quotas can be built on any qualification(s). For more information about quotas in Fulcrum please refer to [Understanding Fulcrum Quotas](#understanding-fulcrum-quotas) in the Supply API guide.  
+The quotas resource returns the number of completes available to you for each demographic cell in a survey. Quotas can be built on any qualification(s).
 
 #### Response Properties
 
@@ -86,7 +86,9 @@ WebResponse surveyQuotas = request.GetResponse();
 ```javascript
 const https = require('https');
 
-var surveyQuotas = https.get('https://api.samplicio.us/Supply/v1/SurveyQuotas/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}');
+https.get('https://api.samplicio.us/Supply/v1/SurveyQuotas/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}', function(res){
+  var surveyQuotas = res;
+});
 ```
 
 > Example Response
@@ -159,8 +161,8 @@ Returns the total quota and client quotas associated with a survey.
 
 #### Arguments
 
-| Property     | Type | Required | Description                                   |
-|--------------|------|----------|-----------------------------------------------|
-| SurveyNumber | int  | true     | Unique number associated with the survey.     |
-| SupplierCode | int  | true     | Unique code associated with supplier account. |
+| Property     | Type   | Required | Description                                   |
+|--------------|--------|----------|-----------------------------------------------|
+| SurveyNumber | int    | true     | Unique number associated with the survey.     |
+| SupplierCode | string | true     | Unique code associated with supplier account. |
 
