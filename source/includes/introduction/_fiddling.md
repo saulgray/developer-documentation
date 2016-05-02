@@ -1,4 +1,4 @@
-## Fiddling
+## Running in Postman
 
 ![postman](images/postman.png)
 
