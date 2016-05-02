@@ -20,32 +20,20 @@ The Qualifications resource allows the buyer to create new qualifications on an 
 > Definition
 
 ```plaintext
-POST  http://api.samplicio.us/Demand/v1/SurveyQualifications/Create/{SurveyNumber}?key={APIKey}
+POST  https://api.samplicio.us/Demand/v1/SurveyQualifications/Create/{SurveyNumber}?key={APIKey}
 ```
 
 > Example Request
 
 ```shell
-curl -H "Content-Type: application/json" \
--X POST --data '{
-	"Name": "STANDARD_RELATIONSHIP",
-	"QuestionID": 632,
-	"LogicalOperator": "OR",
-	"NumberOfRequiredConditions": 1,
-	"IsActive": true,
-	"PreCodes": [
-		"1"
-	],
-	"Order": 7
-}' \
-http://api.samplicio.us/Demand/v1/SurveyQualifications/Create/{SurveyNumber}?key={APIKey}
+curl -H "Content-Type: application/json" -X POST --data '{"Name": "STANDARD_RELATIONSHIP","QuestionID": 632,"LogicalOperator": "OR","NumberOfRequiredConditions": 1,"IsActive": true,"PreCodes": ["1"], "Order": 7}' https://api.samplicio.us/Demand/v1/SurveyQualifications/Create/{SurveyNumber}?key={APIKey}
 ```
 
 ```ruby
 require 'net/http'
 require 'json'
 
-uri = URI('http://api.samplicio.us/Demand/v1/SurveyQualifications/Create/{SurveyNumber}?key={APIKey}')
+uri = URI('https://api.samplicio.us/Demand/v1/SurveyQualifications/Create/{SurveyNumber}?key={APIKey}')
 
 http = Net::HTTP.new(uri.host, uri.port)
 
@@ -56,15 +44,15 @@ fullUriPath = uri.path + '?' + uri.query
 request = Net::HTTP::Post.new(fullUriPath, initheader = {'Content-Type' =>'application/json'})
 
 request.body = {
-	"Name": "STANDARD_RELATIONSHIP",
-	"QuestionID": 632,
-	"LogicalOperator": "OR",
-	"NumberOfRequiredConditions": 1,
-	"IsActive": true,
-	"PreCodes": [
+	Name: "STANDARD_RELATIONSHIP",
+	QuestionI: 632,
+	LogicalOperator: "OR",
+	NumberOfRequiredConditions: 1,
+	IsActive: true,
+	PreCodes: [
 		"1"
 	],
-	"Order": 7
+	Order: 7
 }.to_json
 
 surveyQualifications = http.request(request)
@@ -87,7 +75,7 @@ $params = '{
 }';
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "http://api.samplicio.us/Demand/v1/SurveyQualifications/Create/{SurveyNumber}?key={APIKey}",
+  CURLOPT_URL => "https://api.samplicio.us/Demand/v1/SurveyQualifications/Create/{SurveyNumber}?key={APIKey}",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
   CURLOPT_HTTPHEADER => array('Content-Type: application/json'),
@@ -108,13 +96,13 @@ curl_close($curl);
 ```python
 import requests, json
 
-url = 'http://api.samplicio.us/Demand/v1/SurveyQualifications/Create/{SurveyNumber}?key={APIKey}'
+url = 'https://api.samplicio.us/Demand/v1/SurveyQualifications/Create/{SurveyNumber}?key={APIKey}'
 params = {
 	"Name": "STANDARD_RELATIONSHIP",
 	"QuestionID": 632,
 	"LogicalOperator": "OR",
 	"NumberOfRequiredConditions": 1,
-	"IsActive": true,
+	"IsActive": True,
 	"PreCodes": [
 		"1"
 	],
@@ -130,26 +118,24 @@ surveyQualifications = requests.post(url, data=data, headers=headers)
 using System.IO;
 using System.Net;
 
-WebRequest request = WebRequest.Create("http://api.samplicio.us/Demand/v1/SurveyQualifications/Create/{SurveyNumber}?key={APIKey}");
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SurveyQualifications/Create/{SurveyNumber}?key={APIKey}");
 
-string params = "{
-	\"Name\": \"STANDARD_RELATIONSHIP\",
-	\"QuestionID\": 632,
-	\"LogicalOperator\": \"OR\",
-	\"NumberOfRequiredConditions\": 1,
-	\"IsActive\": true,
-	\"PreCodes\": [
-		\"1\"
-	],
-	\"Order\": 7
-}";
+string args = @"{
+                  ""Name"": ""STANDARD_RELATIONSHIP"",
+                  ""QuestionID"": 632,
+                  ""LogicalOperator"": ""OR"",
+                  ""NumberOfRequiredConditions"": 1,
+                  ""IsActive"": true,
+                  ""PreCodes"": [""1""],
+                  ""Order"": 7
+                }";
     
 request.Method = "POST";
 request.ContentType = "application/json";
 
 using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
 {
-streamWriter.Write(params);
+streamWriter.Write(args);
 streamWriter.Flush();
 streamWriter.Close();
 }
@@ -185,7 +171,7 @@ var params = JSON.stringify(json);
 var request = https.request(options, function (surveyQualifications) {
   var chunks = [];
 
-  survey.on("data", function (chunk) {
+  surveyQualifications.on("data", function (chunk) {
     chunks.push(chunk);
   });
   
@@ -366,19 +352,7 @@ PUT  https://api.samplicio.us/Demand/v1/SurveyQualifications/Update/{SurveyNumbe
 > Example Request
 
 ```shell
-curl -H "Content-Type: application/json" \
--X PUT --data '{
-	"Name": "STANDARD_RELATIONSHIP",
-	"QuestionID": 632,
-	"LogicalOperator": "OR",
-	"NumberOfRequiredConditions": 1,
-	"IsActive": true,
-	"PreCodes": [
-		"2"
-	],
-	"Order": 7
-}' \
-https://api.samplicio.us/Demand/v1/SurveyQualifications/Update/{SurveyNumber}?key={APIKey}
+curl -H "Content-Type: application/json" -X PUT --data '{"Name": "STANDARD_RELATIONSHIP","QuestionID": 632,"LogicalOperator": "OR",NumberOfRequiredConditions": 1,"IsActive": true,"PreCodes": ["2"],"Order": 7}' https://api.samplicio.us/Demand/v1/SurveyQualifications/Update/{SurveyNumber}?key={APIKey}
 ```
 
 ```ruby
@@ -396,15 +370,15 @@ fullUriPath = uri.path + '?' + uri.query
 request = Net::HTTP::Put.new(fullUriPath, initheader = {'Content-Type' =>'application/json'})
 
 request.body = {
-	"Name": "STANDARD_RELATIONSHIP",
-	"QuestionID": 632,
-	"LogicalOperator": "OR",
-	"NumberOfRequiredConditions": 1,
-	"IsActive": true,
-	"PreCodes": [
+	Name: "STANDARD_RELATIONSHIP",
+	QuestionID: 632,
+	LogicalOperator: "OR",
+	NumberOfRequiredConditions: 1,
+	IsActive: true,
+	PreCodes: [
 		"2"
 	],
-	"Order": 7
+	Order: 7
 }.to_json
 
 surveyQualifications = http.request(request)
@@ -454,7 +428,7 @@ params = {
 	"QuestionID": 632,
 	"LogicalOperator": "OR",
 	"NumberOfRequiredConditions": 1,
-	"IsActive": true,
+	"IsActive": True,
 	"PreCodes": [
 		"2"
 	],
@@ -472,24 +446,22 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SurveyQualifications/Update/{SurveyNumber}?key={APIKey}");
 
-string params = "{
-	\"Name\": \"STANDARD_RELATIONSHIP\",
-	\"QuestionID\": 632,
-	\"LogicalOperator\": \"OR\",
-	\"NumberOfRequiredConditions\": 1,
-	\"IsActive\": true,
-	\"PreCodes\": [
-		"2"
-	],
-	\"Order\": 7
-}";
+string args = @"{
+                	""Name"": ""STANDARD_RELATIONSHIP"",
+                	""QuestionID"": 632,
+                	""LogicalOperator"": ""OR"",
+                	""NumberOfRequiredConditions"": 1,
+                	""IsActive"": true,
+                	""PreCodes"": [""2""],
+                	""Order"": 7
+                }";
     
 request.Method = "PUT";
 request.ContentType = "application/json";
 
 using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
 {
-streamWriter.Write(params);
+streamWriter.Write(args);
 streamWriter.Flush();
 streamWriter.Close();
 }
@@ -525,7 +497,7 @@ var params = JSON.stringify(json);
 var request = https.request(options, function (surveyQualifications) {
   var chunks = [];
 
-  qualification.on("data", function (chunk) {
+  surveyQualifications.on("data", function (chunk) {
     chunks.push(chunk);
   });
   
@@ -746,7 +718,9 @@ WebResponse surveyQualifications = request.GetResponse();
 ```javascript
 const https = require('https');
 
-var surveyQualifications = https.get('https://api.samplicio.us/Demand/v1/SurveyQualifications/BySurveyNumber/{SurveyNumber}?key={APIKey}');
+https.get('https://api.samplicio.us/Demand/v1/SurveyQualifications/BySurveyNumber/{SurveyNumber}?key={APIKey}', function(res){
+  var surveyQualifications = res;
+});
 ```
 
 > Example Response

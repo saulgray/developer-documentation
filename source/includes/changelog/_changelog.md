@@ -10,10 +10,12 @@ If BusinessUnitID is passed in as NULL on Survey Create, it will default to the 
 
 The following deprecated methods were removed from the Lookup and Supply APIs:
 
- - Lookup/v1/QuestionLibrary/AllBidQuestions
- - Lookup/v1/QuestionLibrary/AllBidQuestionOptions
- - Lookup/v1/QuestionLibrary/BidQuestionById
- - Supply/v1/SupplierLinks/CreateOfferwall
- - Supply/v1/SupplierLinks/CreateOfferwallWithSupplierCode
- - Supply/v1/SupplierLinks/CreateOfferwallWithTrackingUrlTypeCode
- - Supply/v1/SupplierLinks/UpdateRedirectUrlBySupplierLinkSid
+ - Lookup/v1/QuestionLibrary/
+  - AllBidQuestions
+  - AllBidQuestionOptions
+  - BidQuestionById
+ - Supply/v1/SupplierLinks/
+  - CreateOfferwall
+   - WithSupplierCode
+   - WithTrackingUrlTypeCode
+  - UpdateRedirectUrlBySupplierLinkSid

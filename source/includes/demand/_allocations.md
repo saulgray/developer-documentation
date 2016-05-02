@@ -1,5 +1,140 @@
 ##Non-Exchange Allocations
 
+Non-Exchange Allocations allow you to add a specific supplier to your survey. These allocations are seperate from the Exchange and are sometimes referred to as "targeted suppier allocations", "individual sources", or "OTC allocations". This resource allows you to create, update, delete, and retrieve a supplier allocation. You can also specify a TCPI (targeted CPI) and allocate a desired number of completes to each supplier.
+
+#### Supplier Allocations Model
+
+| Property            | Type    |  Description                                                                                             |
+|---------------------|---------|----------------------------------------------------------------------------------------------------------|
+| SupplierCode        | int     | Unique code associated with a supplier account.                                                          |
+| AllocationPercentage| double  | Percentage of total completes allocated to supplier.                                                     |
+| TCPI                | double  | Gross payout per targeted complete.                                                                      |
+| HedgeAccess         | boolean | Enables or disables hedge access for the supplier.                                                       |
+| BlockRouterTraffic  | boolean | Enables or disables router traffic for the supplier.                                                     |
+| SupplierSurveyID    | string  | Survey supplier ID (SSID).                                                                               |
+| Prescreens          | int     | Number of prescreens achieved by the supplier. A prescreen is a respondent who enters the client survey. |
+| Completes           | int     | Number of completes achieved by the supplier.                                                            |
+| AllocationRemaining | int     | Number of completes allocated only to the supplier.                                                      |
+| HedgeRemaining      | int     | Number of unallocated completes available to any suppliers with access to hedge.                         |
+| TotalRemaining      | int     | Total number of completes available to the supplier (aggregate of allocation and hedge remaining         |
+| Target              | array   | Contains an array of elements described below                                                            |
+
+#### Target Model
+
+| Property               | Type     | Description                                                                                                                                                                     |
+|------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| SupplierLinkTypeCode   | string   | Defines the type of buyer-supplier engagment and the respondent's path in Fulcrum. See [List Global Definitions](#get-list-global-definitions) for a map of supplier link types.|
+| TrackingTypeCode       | string   | Defines how Fulcrum should communicate back to the supplier's system at the end of a session. The options are:                                                                  |
+|                        |          | NONE (Default and recommended, physically redirects the respondent back to the supplier system)                                                                                 |
+|                        |          | PIXEL (pixel tracking)                                                                                                                                                          |
+|                        |          | S2S (server to server postback)                                                                                                                                                 |
+| DefaultLink            | string   | Tracking code or link used if none of the below apply. This will typically be the same as the FailureLink                                                                       |
+| SuccessLink            | string   | Tracking code or link used after a completion.                                                                                                                                  |
+| FailureLink            | string   | Tracking code or link used after a termination.                                                                                                                                 |
+| OverQuotaLink          | string   | Tracking code or link used after an overquota.                                                                                                                                  |
+| QualityTerminationLink | string   | Tracking code or link used after a quality (security) termination.                                                                                                              |
+| LiveLink               | string   | Live supplier-specific respondent entry link generated by Fulcrum.                                                                                                              |
+| TestLink               | string   | Test supplier-specific respondent entry link generated by Fulcrum.                                                                                                              |
+
+
+### GET Show Allocations
+
+> Definition
+
+```plaintext
+GET  https://api.samplicio.us/Demand/v1/SupplierAllocations/BySurveyNumber/{SurveyNumber}?key={APIKey}
+```
+
+> Example Request
+
+```shell
+curl https://api.samplicio.us/Demand/v1/SupplierAllocations/BySurveyNumber/{SurveyNumber}?key={APIKey}
+```
+
+```ruby
+require 'net/http'
+
+uri = URI('https://api.samplicio.us/Demand/v1/SupplierAllocations/BySurveyNumber/{SurveyNumber}?key={APIKey}')
+
+http = Net::HTTP.new(uri.host, uri.port)
+
+http.use_ssl = true
+
+request = Net::HTTP::Get.new(uri.request_uri)
+
+allocations = http.request(request)  
+```
+
+```php
+<?php
+$allocations = file_get_contents('https://api.samplicio.us/Demand/v1/SupplierAllocations/BySurveyNumber/{SurveyNumber}?key={APIKey}');
+?>
+```
+
+```python
+import requests
+
+allocations = requests.get('https://api.samplicio.us/Demand/v1/SupplierAllocations/BySurveyNumber/{SurveyNumber}?key={APIKey}')
+```
+
+```csharp
+using System.Net;
+
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SupplierAllocations/BySurveyNumber/{SurveyNumber}?key={APIKey}");
+
+WebResponse allocations = request.GetResponse();
+```
+
+```javascript
+const https = require('https');
+
+https.get('https://api.samplicio.us/Demand/v1/SupplierAllocations/BySurveyNumber/{SurveyNumber}?key={APIKey}', function(res){
+  var allocations = res;
+});
+```
+> Example Response
+
+```
+{
+  "ApiResult": 0,
+  "ApiResultCode": 0,
+  "ApiAccount": "Anon",
+  "AccountType": 1,
+  "ApiAccountStatus": 1,
+  "AccountCode": "AA",
+  "ApiMessages": [
+    "API Message: Response initialized.",
+    "API Message: GetAllSupplierAllocationsBySurveyNumber successful."
+  ],
+  "ResultCount": 1,
+  "SupplierAllocations": [
+    {
+      "SupplierCode": "1010",
+      "AllocationPercentage": 0,
+      "TCPI": 11,
+      "HedgeAccess": true,
+      "BlockRouterTraffic": false,
+      "SupplierSurveyID": null,
+      "Prescreens": 183,
+      "Completes": 4,
+      "AllocationRemaining": 0,
+      "HedgeRemaining": 695,
+      "TotalRemaining": 695,
+      "Target": null
+    }
+  ]
+}
+```
+
+Returns the supplier allocations for the survey specified.
+
+
+#### Arguments
+
+| Property     | Type | Required | Description                               |
+|--------------|------|----------|-------------------------------------------|
+| SurveyNumber | int  | true     | Unique number associated with the survey. |
+
 ### POST Create an Allocation
 > Definition
 
@@ -10,9 +145,7 @@ POST  https://api.samplicio.us/Demand/v1/SupplierAllocations/Create/{SurveyNumbe
 > Example Request
 
 ```shell
-curl -H "Content-Type: application/json" \
--X POST --data '{"SupplierCode": "1010", "AllocationPercentage": 0.1, "TCPI": 2, "HedgeAccess": true, "BlockRouterTraffic": false,}' \
-https://api.samplicio.us/Demand/v1/SupplierAllocations/Create/{SurveyNumber}?key={APIKey}
+curl -H "Content-Type: application/json" -X POST --data '{"SupplierCode": "1010", "AllocationPercentage": 0.1, "TCPI": 2, "HedgeAccess": true, "BlockRouterTraffic": false,}' https://api.samplicio.us/Demand/v1/SupplierAllocations/Create/{SurveyNumber}?key={APIKey}
 ```
 
 ```ruby
@@ -63,7 +196,7 @@ curl_close($curl);
 import requests, json
 
 url = 'https://api.samplicio.us/Demand/v1/SupplierAllocations/Create/{SurveyNumber}?key={APIKey}'
-params = {'SupplierCode': '1010', 'AllocationPercentage': 0.1, 'TCPI': 2, 'HedgeAccess': true, 'BlockRouterTraffic': false}
+params = {'SupplierCode': '1010', 'AllocationPercentage': 0.1, 'TCPI': 2, 'HedgeAccess': True, 'BlockRouterTraffic': False}
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
@@ -76,14 +209,20 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SupplierAllocations/Create/{SurveyNumber}?key={APIKey}");
 
-string params = "{\"SupplierCode\": \"1010\", \"AllocationPercentage\": 0.1, \"TCPI\": 2, \"HedgeAccess\": true, \"BlockRouterTraffic\": false,}";
+string args = @"{
+                   ""SupplierCode"": ""1010"",
+                   ""AllocationPercentage"": 0.1,
+                   ""TCPI"": 2,
+                   ""HedgeAccess"": true,
+                   ""BlockRouterTraffic"": false
+                 }";
     
 request.Method = "POST";
 request.ContentType = "application/json";
 
 using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
 {
-streamWriter.Write(params);
+streamWriter.Write(args);
 streamWriter.Flush();
 streamWriter.Close();
 }
@@ -162,14 +301,15 @@ Creates supplier allocations for an existing Fulcrum survey.
 
 #### Arguments
 
-| Property                     | Type     | Required | Description                                                                                                                                  |
-|------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| SurveyNumber                 | int      | true     | Unique number associated with the survey.                                                                                                    |
-| SupplierCode                 | int      | true     | Unique code associated with a supplier account.                                                                                              |
-| AllocationPercentage         | double   | false    | Percentage of total completes allocated to supplier.                                                                                         |
-| TCPI                         | double   | true     | Over-the-counter cost per supplier complete.                                                                                                 |
-| HedgeAccess                  | boolean  | false    | Indicates if hedge access is enabled for the supplier.                                                                                       |
-| BlockRouterTraffic           | string   | false    | Indicates if router traffic is enabled for the supplier.                                                                                     |
+| Property             | Type    | Required | Description                                              |
+|----------------------|---------|----------|----------------------------------------------------------|
+| SurveyNumber         | int     | true     | Unique number associated with the survey.                |
+| SupplierCode         | string  | true     | Unique code associated with a supplier account.          |
+| AllocationPercentage | double  | false    | Percentage of total completes allocated to supplier.     |
+| TCPI                 | double  | true     | Over-the-counter cost per supplier complete.             |
+| HedgeAccess          | boolean | false    | Indicates if hedge access is enabled for the supplier.   |
+| BlockRouterTraffic   | string  | false    | Indicates if router traffic is enabled for the supplier. |
+
 
 ### PUT Update an Allocation
 > Definition
@@ -181,9 +321,7 @@ PUT  https://api.samplicio.us/Demand/v1/SupplierAllocations/Update/{SurveyNumber
 > Example Request
 
 ```shell
-curl -H "Content-Type: application/json" \
--X PUT --data '{"SupplierCode": "1010", "AllocationPercentage": 0.1, "TCPI": 2, "HedgeAccess": true, "BlockRouterTraffic": false,}' \
-https://api.samplicio.us/Demand/v1/SupplierAllocations/Update/{SurveyNumber}?key={APIKey}
+curl -H "Content-Type: application/json" -X PUT --data '{"SupplierCode": "1010", "AllocationPercentage": 0.1, "TCPI": 2, "HedgeAccess": true, "BlockRouterTraffic": false,}' https://api.samplicio.us/Demand/v1/SupplierAllocations/Update/{SurveyNumber}?key={APIKey}
 ```
 
 ```ruby
@@ -234,7 +372,7 @@ curl_close($curl);
 import requests, json
 
 url = 'https://api.samplicio.us/Demand/v1/SupplierAllocations/Update/{SurveyNumber}?key={APIKey}'
-params = {'SupplierCode': '1010', 'AllocationPercentage': 0.1, 'TCPI': 2, 'HedgeAccess': true, 'BlockRouterTraffic': false}
+params = {'SupplierCode': '1010', 'AllocationPercentage': 0.1, 'TCPI': 2, 'HedgeAccess': True, 'BlockRouterTraffic': False}
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
@@ -247,14 +385,20 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SupplierAllocations/Update/{SurveyNumber}?key={APIKey}");
 
-string params = "{\"SupplierCode\": \"1010\", \"AllocationPercentage\": 0.1, \"TCPI\": 2, \"HedgeAccess\": true, \"BlockRouterTraffic\": false,}";
+string args = @"{
+                   ""SupplierCode"": ""1010"",
+                   ""AllocationPercentage"": 0.1,
+                   ""TCPI"": 2,
+                   ""HedgeAccess"": true,
+                   ""BlockRouterTraffic"": false
+                 }";
     
 request.Method = "PUT";
 request.ContentType = "application/json";
 
 using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
 {
-streamWriter.Write(params);
+streamWriter.Write(args);
 streamWriter.Flush();
 streamWriter.Close();
 }
@@ -333,31 +477,33 @@ Creates supplier allocations for an existing Fulcrum survey.
 
 #### Arguments
 
-| Property                     | Type     | Required | Description                                                                                                                                  |
-|------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| SurveyNumber                 | int      | true     | Unique number associated with the survey.                                                                                                    |
-| SupplierCode                 | int      | true     | Unique code associated with a supplier account.                                                                                              |
-| AllocationPercentage         | double   | false    | Percentage of total completes allocated to supplier.                                                                                         |
-| TCPI                         | double   | true     | Over-the-counter cost per supplier complete.                                                                                                 |
-| HedgeAccess                  | boolean  | false    | Indicates if hedge access is enabled for the supplier.                                                                                       |
-| BlockRouterTraffic           | string   | false    | Indicates if router traffic is enabled for the supplier.                                                                                     |
+| Property             | Type    | Required | Description                                              |
+|----------------------|---------|----------|----------------------------------------------------------|
+| SurveyNumber         | int     | true     | Unique number associated with the survey.                |
+| SupplierCode         | string  | true     | Unique code associated with a supplier account.          |
+| AllocationPercentage | double  | false    | Percentage of total completes allocated to supplier.     |
+| TCPI                 | double  | true     | Over-the-counter cost per supplier complete.             |
+| HedgeAccess          | boolean | false    | Indicates if hedge access is enabled for the supplier.   |
+| BlockRouterTraffic   | string  | false    | Indicates if router traffic is enabled for the supplier. |
+
+
 ### DELETE Delete an Allocation
 > Definition
 
 ```plaintext
-DELETE  http://api.samplicio.us/Demand/v1/SupplierAllocations/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}
+DELETE  https://api.samplicio.us/Demand/v1/SupplierAllocations/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}
 ```
 
 > Example Request
 
 ```shell
-curl -X DELETE http://api.samplicio.us/Demand/v1/SupplierAllocations/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}
+curl -X DELETE https://api.samplicio.us/Demand/v1/SupplierAllocations/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}
 ```
 
 ```ruby
 require 'net/http'
 
-uri = URI('http://api.samplicio.us/Demand/v1/SupplierAllocations/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}')
+uri = URI('https://api.samplicio.us/Demand/v1/SupplierAllocations/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}')
 
 http = Net::HTTP.new(uri.host, uri.port)
 
@@ -374,7 +520,7 @@ http.request(request)
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "http://api.samplicio.us/Demand/v1/SupplierAllocations/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}",
+  CURLOPT_URL => "https://api.samplicio.us/Demand/v1/SupplierAllocations/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
   CURLOPT_MAXREDIRS => 10,
@@ -392,13 +538,13 @@ curl_close($curl);
 ```python
 import requests
 
-requests.delete('http://api.samplicio.us/Demand/v1/SupplierAllocations/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}')
+requests.delete('https://api.samplicio.us/Demand/v1/SupplierAllocations/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}')
 ```
 
 ```csharp
 using System.Net; 
 
-WebRequest request = WebRequest.Create("http://api.samplicio.us/Demand/v1/SupplierAllocations/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}");
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SupplierAllocations/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}");
 
 request.Method = "DELETE";
 
@@ -421,4 +567,10 @@ var request = https.request(options);
 request.end();
 ```
 
-### GET List Allocations
+Deletes a supplier allocation for an existing Fulcrum survey.
+
+#### Arguments
+| Property     | Type   | Required | Description                                     |
+|--------------|--------|----------|-------------------------------------------------|
+| SurveyNumber | int    | true     | Unique number associated with the survey.       |
+| SupplierCode | string | true     | Unique code associated with a supplier account. |

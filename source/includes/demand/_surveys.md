@@ -48,39 +48,7 @@ POST  https://api.samplicio.us/Demand/v1/Surveys/Create?key={APIKey}
 > Example Request
 
 ```shell
-curl -H "Content-Type: application/json" \
--X POST --data '{
-    "AccountID": 1,
-    "SurveyStatusCode": "01",
-    "SurveyPriority": 11,
-    "SurveyName": "Example API Survey",
-    "CountryLanguageID": 9,
-    "IndustryID": 30,
-    "StudyTypeID": 1,
-    "ClientCPI": 1,
-    "QuotaCPI": 2,
-    "ClientSurveyLiveURL": "http://www.surveyURL.com?rid=[%RID%]",
-    "TestRedirectURL": "http://www.surveyURL.com?rid=[%RID%]",
-    "IsActive": true,
-    "Quota": 1000,
-    "FulcrumExchangeAllocation": 0,
-    "FulcrumExchangeHedgeAccess": true,
-    "IsVerifyCallBack": true,
-    "UniquePID": true,
-    "UniqueIPAddress": true,
-    "IsRelevantID": false,
-    "IsDedupe": false,
-    "IsGeoIP": false,
-    "IsFraudProfile": false,
-    "FraudProfileThreshold": 0,
-    "IsTrueSample": false,
-    "QuotaCalculationTypeID": 1,
-    "SurveyPlatformID": 2,
-    "BidLengthOfInterview": 10,
-    "BusinessUnitID": 9,
-    "SampleTypeID": 100
- }' \
-https://api.samplicio.us/Demand/v1/Surveys/Create?key={APIKey}
+curl -H "Content-Type: application/json" -X POST --data '{"AccountID": 1,"SurveyStatusCode": "01","SurveyPriority": 11,"SurveyName": "Example API Survey","CountryLanguageID": 9,"IndustryID": 30,"StudyTypeID": 1,"ClientCPI": 1,"QuotaCPI": 2,"ClientSurveyLiveURL": "http://www.surveyURL.com?rid=[%RID%]","TestRedirectURL": "http://www.surveyURL.com?rid=[%RID%]","IsActive": true,"Quota": 1000,"FulcrumExchangeAllocation": 0,"FulcrumExchangeHedgeAccess": true,"IsVerifyCallBack": true,"UniquePID": true,"UniqueIPAddress": true,"IsRelevantID": false,"IsDedupe": false,"IsGeoIP": false,"IsFraudProfile": false,"FraudProfileThreshold": 0,"IsTrueSample": false,"QuotaCalculationTypeID": 1,"SurveyPlatformID": 2,"BidLengthOfInterview": 10,"BusinessUnitID": 9,"SampleTypeID": 100}' https://api.samplicio.us/Demand/v1/Surveys/Create?key={APIKey}
 ```
 
 ```ruby
@@ -98,35 +66,35 @@ fullUriPath = uri.path + '?' + uri.query
 request = Net::HTTP::Post.new(fullUriPath, initheader = {'Content-Type' =>'application/json'})
 
 request.body = {
-    "AccountID": 1,
-    "SurveyStatusCode": "01",
-    "SurveyPriority": 11,
-    "SurveyName": "Example API Survey",
+    "AccountID"=> 1,
+    "SurveyStatusCode"=> "01",
+    "SurveyPriority"=> 11,
+    "SurveyName"=> "Example API Survey",
     "CountryLanguageID": 9,
-    "IndustryID": 30,
-    "StudyTypeID": 1,
-    "ClientCPI": 1,
-    "QuotaCPI": 2,
-    "ClientSurveyLiveURL": "http://www.surveyURL.com?rid=[%RID%]",
-    "TestRedirectURL": "http://www.surveyURL.com?rid=[%RID%]",
-    "IsActive": true,
-    "Quota": 1000,
-    "FulcrumExchangeAllocation": 0,
-    "FulcrumExchangeHedgeAccess": true,
-    "IsVerifyCallBack": true,
-    "UniquePID": true,
-    "UniqueIPAddress": true,
-    "IsRelevantID": false,
-    "IsDedupe": false,
-    "IsGeoIP": false,
-    "IsFraudProfile": false,
-    "FraudProfileThreshold": 0,
-    "IsTrueSample": false,
-    "QuotaCalculationTypeID": 1,
-    "SurveyPlatformID": 2,
-    "BidLengthOfInterview": 10,
-    "BusinessUnitID": 9,
-    "SampleTypeID": 100
+    "IndustryID"=> 30,
+    "StudyTypeID"=> 1,
+    "ClientCPI"=> 1,
+    "QuotaCPI"=> 2,
+    "ClientSurveyLiveURL"=> "http://www.surveyURL.com?rid=[%RID%]",
+    "TestRedirectURL"=> "http://www.surveyURL.com?rid=[%RID%]",
+    "IsActive"=> true,
+    "Quota"=> 1000,
+    "FulcrumExchangeAllocation"=> 0,
+    "FulcrumExchangeHedgeAccess"=> true,
+    "IsVerifyCallBack"=> true,
+    "UniquePID"=> true,
+    "UniqueIPAddress"=> true,
+    "IsRelevantID"=> false,
+    "IsDedupe"=> false,
+    "IsGeoIP"=> false,
+    "IsFraudProfile"=> false,
+    "FraudProfileThreshold"=> 0,
+    "IsTrueSample"=> false,
+    "QuotaCalculationTypeID"=> 1,
+    "SurveyPlatformID"=> 2,
+    "BidLengthOfInterview"=> 10,
+    "BusinessUnitID"=> 9,
+    "SampleTypeID"=> 100
  }.to_json
 
 survey = http.request(request)
@@ -203,19 +171,19 @@ params = {
     "QuotaCPI": 2,
     "ClientSurveyLiveURL": "http://www.surveyURL.com?rid=[%RID%]",
     "TestRedirectURL": "http://www.surveyURL.com?rid=[%RID%]",
-    "IsActive": true,
+    "IsActive": True,
     "Quota": 1000,
     "FulcrumExchangeAllocation": 0,
-    "FulcrumExchangeHedgeAccess": true,
-    "IsVerifyCallBack": true,
-    "UniquePID": true,
-    "UniqueIPAddress": true,
-    "IsRelevantID": false,
-    "IsDedupe": false,
-    "IsGeoIP": false,
-    "IsFraudProfile": false,
+    "FulcrumExchangeHedgeAccess": True,
+    "IsVerifyCallBack": True,
+    "UniquePID": True,
+    "UniqueIPAddress": True,
+    "IsRelevantID": False,
+    "IsDedupe": False,
+    "IsGeoIP": False,
+    "IsFraudProfile": False,
     "FraudProfileThreshold": 0,
-    "IsTrueSample": false,
+    "IsTrueSample": False,
     "QuotaCalculationTypeID": 1,
     "SurveyPlatformID": 2,
     "BidLengthOfInterview": 10,
@@ -234,44 +202,44 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/Surveys/Create?key={APIKey}");
 
-string params = "{
-   \"AccountID\": 1,
-    \"SurveyStatusCode\": \"01\",
-    \"SurveyPriority\": 11,
-    \"SurveyName\": \"Example API Survey\",
-    \"CountryLanguageID\": 9,
-    \"IndustryID\": 30,
-    \"StudyTypeID\": 1,
-    \"ClientCPI\": 1,
-    \"QuotaCPI\": 2,
-    \"ClientSurveyLiveURL\": \"http://www.surveyURL.com?rid=[%RID%]\",
-    \"TestRedirectURL\": \"http://www.surveyURL.com?rid=[%RID%]\",
-    \"IsActive\": true,
-    \"Quota\": 1000,
-    \"FulcrumExchangeAllocation\": 0,
-    \"FulcrumExchangeHedgeAccess\": true,
-    \"IsVerifyCallBack\": true,
-    \"UniquePID\": true,
-    \"UniqueIPAddress\": true,
-    \"IsRelevantID\": false,
-    \"IsDedupe\": false,
-    \"IsGeoIP\": false,
-    \"IsFraudProfile\": false,
-    \"FraudProfileThreshold\": 0,
-    \"IsTrueSample\": false,
-    \"QuotaCalculationTypeID\": 1,
-    \"SurveyPlatformID\": 2,
-    \"BidLengthOfInterview\": 10,
-    \"BusinessUnitID\": 9,
-    \"SampleTypeID\": 100
- }";
+string args = @"{
+                    ""AccountID"": 1,
+                    ""SurveyStatusCode"": ""01"",
+                    ""SurveyPriority"": 11,
+                    ""SurveyName"": ""Example API Survey"",
+                    ""CountryLanguageID"": 9,
+                    ""IndustryID"": 30,
+                    ""StudyTypeID"": 1,
+                    ""ClientCPI"": 1,
+                    ""QuotaCPI"": 2,
+                    ""ClientSurveyLiveURL"": ""http://www.surveyURL.com?rid=[%RID%]"",
+                    ""TestRedirectURL"": ""http://www.surveyURL.com?rid=[%RID%]"",
+                    ""IsActive"": true,
+                    ""Quota"": 1000,
+                    ""FulcrumExchangeAllocation"": 0,
+                    ""FulcrumExchangeHedgeAccess"": true,
+                    ""IsVerifyCallBack"": true,
+                    ""UniquePID"": true,
+                    ""UniqueIPAddress"": true,
+                    ""IsRelevantID"": false,
+                    ""IsDedupe"": false,
+                    ""IsGeoIP"": false,
+                    ""IsFraudProfile"": false,
+                    ""FraudProfileThreshold"": 0,
+                    ""IsTrueSample"": false,
+                    ""QuotaCalculationTypeID"": 1,
+                    ""SurveyPlatformID"": 2,
+                    ""BidLengthOfInterview"": 10,
+                    ""BusinessUnitID"": 9,
+                    ""SampleTypeID"": 100
+                }";
     
 request.Method = "POST";
 request.ContentType = "application/json";
 
 using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
 {
-streamWriter.Write(params);
+streamWriter.Write(args);
 streamWriter.Flush();
 streamWriter.Close();
 }
@@ -437,39 +405,7 @@ PUT  https://api.samplicio.us/Demand/v1/Surveys/Update/{SurveyNumber}?key={APIKe
 > Example Request
 
 ```shell
-curl -H "Content-Type: application/json" \
--X PUT --data '{
-    "AccountID": 1,
-    "SurveyStatusCode": "01",
-    "SurveyPriority": 11,
-    "SurveyName": "Example API Survey",
-    "CountryLanguageID": 9,
-    "IndustryID": 30,
-    "StudyTypeID": 1,
-    "ClientCPI": 1,
-    "QuotaCPI": 2,
-    "ClientSurveyLiveURL": "http://www.surveyURL.com?rid=[%RID%]",
-    "TestRedirectURL": "http://www.surveyURL.com?rid=[%RID%]",
-    "IsActive": true,
-    "Quota": 100,
-    "FulcrumExchangeAllocation": 0,
-    "FulcrumExchangeHedgeAccess": true,
-    "IsVerifyCallBack": true,
-    "UniquePID": true,
-    "UniqueIPAddress": true,
-    "IsRelevantID": false,
-    "IsDedupe": false,
-    "IsGeoIP": false,
-    "IsFraudProfile": false,
-    "FraudProfileThreshold": 0,
-    "IsTrueSample": false,
-    "QuotaCalculationTypeID": 1,
-    "SurveyPlatformID": 2,
-    "BidLengthOfInterview": 10,
-    "BusinessUnitID": 9,
-    "SampleTypeID": 100
- }' \
-https://api.samplicio.us/Demand/v1/Surveys/Update/{SurveyNumber}?key={APIKey}
+curl -H "Content-Type: application/json" -X PUT --data '{"AccountID": 1,"SurveyStatusCode": "01","SurveyPriority": 11,"SurveyNumber": 12345,"SurveyName": "Example API Survey","CountryLanguageID": 9,"IndustryID": 30,"StudyTypeID": 1,"ClientCPI": 1,"QuotaCPI": 2,"ClientSurveyLiveURL": "http://www.surveyURL.com?rid=[%RID%]","TestRedirectURL": "http://www.surveyURL.com?rid=[%RID%]","IsActive": true,"Quota": 100,"FulcrumExchangeAllocation": 0,"FulcrumExchangeHedgeAccess": true,"IsVerifyCallBack": true,"UniquePID": true,"UniqueIPAddress": true,"IsRelevantID": false,"IsDedupe": false,"IsGeoIP": false,"IsFraudProfile": false,"FraudProfileThreshold": 0,"IsTrueSample": false,"QuotaCalculationTypeID": 1,"SurveyPlatformID": 2,"BidLengthOfInterview": 10,"BusinessUnitID": 9,"SampleTypeID": 100}' https://api.samplicio.us/Demand/v1/Surveys/Update/{SurveyNumber}?key={APIKey}
 ```
 
 ```ruby
@@ -487,35 +423,36 @@ fullUriPath = uri.path + '?' + uri.query
 request = Net::HTTP::Put.new(fullUriPath, initheader = {'Content-Type' =>'application/json'})
 
 request.body = {
-    "AccountID": 1,
-    "SurveyStatusCode": "01",
-    "SurveyPriority": 11,
-    "SurveyName": "Example API Survey",
-    "CountryLanguageID": 9,
-    "IndustryID": 30,
-    "StudyTypeID": 1,
-    "ClientCPI": 1,
-    "QuotaCPI": 2,
-    "ClientSurveyLiveURL": "http://www.surveyURL.com?rid=[%RID%]",
-    "TestRedirectURL": "http://www.surveyURL.com?rid=[%RID%]",
-    "IsActive": true,
-    "Quota": 100,
-    "FulcrumExchangeAllocation": 0,
-    "FulcrumExchangeHedgeAccess": true,
-    "IsVerifyCallBack": true,
-    "UniquePID": true,
-    "UniqueIPAddress": true,
-    "IsRelevantID": false,
-    "IsDedupe": false,
-    "IsGeoIP": false,
-    "IsFraudProfile": false,
-    "FraudProfileThreshold": 0,
-    "IsTrueSample": false,
-    "QuotaCalculationTypeID": 1,
-    "SurveyPlatformID": 2,
-    "BidLengthOfInterview": 10,
-    "BusinessUnitID": 9,
-    "SampleTypeID": 100
+    AccountID: 1,
+    SurveyStatusCode: "01",
+    SurveyPriority: 11,
+    SurveyNumber: 12345,
+    SurveyName: "Example API Survey",
+    CountryLanguageID: 9,
+    IndustryID: 30,
+    StudyTypeID: 1,
+    ClientCPI: 1,
+    QuotaCPI: 2,
+    ClientSurveyLiveURL: "http://www.surveyURL.com?rid=[%RID%]",
+    TestRedirectURL: "http://www.surveyURL.com?rid=[%RID%]",
+    IsActive: true,
+    Quota: 100,
+    FulcrumExchangeAllocation: 0,
+    FulcrumExchangeHedgeAccess: true,
+    IsVerifyCallBack: true,
+    UniquePID: true,
+    UniqueIPAddress: true,
+    IsRelevantID: false,
+    IsDedupe: false,
+    IsGeoIP: false,
+    IsFraudProfile: false,
+    FraudProfileThreshold: 0,
+    IsTrueSample: false,
+    QuotaCalculationTypeID: 1,
+    SurveyPlatformID: 2,
+    BidLengthOfInterview: 10,
+    BusinessUnitID: 9,
+    SampleTypeID: 100
  }.to_json
 
 survey = http.request(request)
@@ -529,6 +466,7 @@ $params = '{
     "AccountID": 1,
     "SurveyStatusCode": "01",
     "SurveyPriority": 11,
+    "SurveyNumber": 12345,
     "SurveyName": "Example API Survey",
     "CountryLanguageID": 9,
     "IndustryID": 30,
@@ -584,6 +522,7 @@ params = {
     "AccountID": 1,
     "SurveyStatusCode": "01",
     "SurveyPriority": 11,
+    "SurveyNumber": 12345,
     "SurveyName": "Example API Survey",
     "CountryLanguageID": 9,
     "IndustryID": 30,
@@ -592,19 +531,19 @@ params = {
     "QuotaCPI": 2,
     "ClientSurveyLiveURL": "http://www.surveyURL.com?rid=[%RID%]",
     "TestRedirectURL": "http://www.surveyURL.com?rid=[%RID%]",
-    "IsActive": true,
+    "IsActive": True,
     "Quota": 100,
     "FulcrumExchangeAllocation": 0,
-    "FulcrumExchangeHedgeAccess": true,
-    "IsVerifyCallBack": true,
-    "UniquePID": true,
-    "UniqueIPAddress": true,
-    "IsRelevantID": false,
-    "IsDedupe": false,
-    "IsGeoIP": false,
-    "IsFraudProfile": false,
+    "FulcrumExchangeHedgeAccess": True,
+    "IsVerifyCallBack": True,
+    "UniquePID": True,
+    "UniqueIPAddress": True,
+    "IsRelevantID": False,
+    "IsDedupe": False,
+    "IsGeoIP": False,
+    "IsFraudProfile": False,
     "FraudProfileThreshold": 0,
-    "IsTrueSample": false,
+    "IsTrueSample": False,
     "QuotaCalculationTypeID": 1,
     "SurveyPlatformID": 2,
     "BidLengthOfInterview": 10,
@@ -623,44 +562,45 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/Surveys/Update/{SurveyNumber}?key={APIKey}");
 
-string params = "{
-   \"AccountID\": 1,
-    \"SurveyStatusCode\": \"01\",
-    \"SurveyPriority\": 11,
-    \"SurveyName\": \"Example API Survey\",
-    \"CountryLanguageID\": 9,
-    \"IndustryID\": 30,
-    \"StudyTypeID\": 1,
-    \"ClientCPI\": 1,
-    \"QuotaCPI\": 2,
-    \"ClientSurveyLiveURL\": \"http://www.surveyURL.com?rid=[%RID%]\",
-    \"TestRedirectURL\": \"http://www.surveyURL.com?rid=[%RID%]\",
-    \"IsActive\": true,
-    \"Quota\": 100,
-    \"FulcrumExchangeAllocation\": 0,
-    \"FulcrumExchangeHedgeAccess\": true,
-    \"IsVerifyCallBack\": true,
-    \"UniquePID\": true,
-    \"UniqueIPAddress\": true,
-    \"IsRelevantID\": false,
-    \"IsDedupe\": false,
-    \"IsGeoIP\": false,
-    \"IsFraudProfile\": false,
-    \"FraudProfileThreshold\": 0,
-    \"IsTrueSample\": false,
-    \"QuotaCalculationTypeID\": 1,
-    \"SurveyPlatformID\": 2,
-    \"BidLengthOfInterview\": 10,
-    \"BusinessUnitID\": 9,
-    \"SampleTypeID\": 100
- }";
+string args = @"{
+                    ""AccountID"": 1,
+                    ""SurveyStatusCode"": ""01"",
+                    ""SurveyPriority"": 11,
+                    ""SurveyNumber"": 12345,
+                    ""SurveyName"": ""Example API Survey"",
+                    ""CountryLanguageID"": 9,
+                    ""IndustryID"": 30,
+                    ""StudyTypeID"": 1,
+                    ""ClientCPI"": 1,
+                    ""QuotaCPI"": 2,
+                    ""ClientSurveyLiveURL"": ""http://www.surveyURL.com?rid=[%RID%]"",
+                    ""TestRedirectURL"": ""http://www.surveyURL.com?rid=[%RID%]"",
+                    ""IsActive"": true,
+                    ""Quota"": 100,
+                    ""FulcrumExchangeAllocation"": 0,
+                    ""FulcrumExchangeHedgeAccess"": true,
+                    ""IsVerifyCallBack"": true,
+                    ""UniquePID"": true,
+                    ""UniqueIPAddress"": true,
+                    ""IsRelevantID"": false,
+                    ""IsDedupe"": false,
+                    ""IsGeoIP"": false,
+                    ""IsFraudProfile"": false,
+                    ""FraudProfileThreshold"": 0,
+                    ""IsTrueSample"": false,
+                    ""QuotaCalculationTypeID"": 1,
+                    ""SurveyPlatformID"": 2,
+                    ""BidLengthOfInterview"": 10,
+                    ""BusinessUnitID"": 9,
+                    ""SampleTypeID"": 100
+                }";
     
 request.Method = "PUT";
 request.ContentType = "application/json";
 
 using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
 {
-streamWriter.Write(params);
+streamWriter.Write(args);
 streamWriter.Flush();
 streamWriter.Close();
 }
@@ -683,6 +623,7 @@ var json = {
     "AccountID": 1,
     "SurveyStatusCode": "01",
     "SurveyPriority": 11,
+    "SurveyNumber": 12345,
     "SurveyName": "Example API Survey",
     "CountryLanguageID": 9,
     "IndustryID": 30,
@@ -865,7 +806,9 @@ WebResponse survey = request.GetResponse();
 ```javascript
 const https = require('https');
 
-var survey = https.get('https://api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/{SurveyNumber}?key={APIKey}');
+https.get('https://api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/{SurveyNumber}?key={APIKey}', function(res){
+  var survey = res;
+});
 ```
 
 > Example Response
@@ -934,19 +877,19 @@ Returns the details of a specific Fulcrum survey.
 > Definition
 
 ```plaintext
-GET  https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyNStatus}?key={APIKey}
+GET  https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyStatus}?key={APIKey}
 ```
 
 > Example Request
 
 ```shell
-curl https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyNStatus}?key={APIKey}
+curl https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyStatus}?key={APIKey}
 ```
 
 ```ruby
 require 'net/http'
 
-uri = URI('https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyNStatus}?key={APIKey}')
+uri = URI('https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyStatus}?key={APIKey}')
 
 http = Net::HTTP.new(uri.host, uri.port)
 
@@ -959,20 +902,20 @@ surveyQuotas = http.request(request)
 
 ```php
 <?php
-$surveyQuotas = file_get_contents('https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyNStatus}?key={APIKey}');
+$surveyQuotas = file_get_contents('https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyStatus}?key={APIKey}');
 ?>
 ```
 
 ```python
 import requests
 
-surveyQuotas = requests.get('https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyNStatus}?key={APIKey}')
+surveyQuotas = requests.get('https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyStatus}?key={APIKey}')
 ```
 
 ```csharp
 using System.Net;
 
-WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyNStatus}?key={APIKey}");
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyStatus}?key={APIKey}");
 
 WebResponse surveyQuotas = request.GetResponse();
 ```
@@ -980,7 +923,9 @@ WebResponse surveyQuotas = request.GetResponse();
 ```javascript
 const https = require('https');
 
-var surveyQuotas = https.get('https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyNStatus}?key={APIKey}');
+https.get('https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyStatus}?key={APIKey}', function(res){
+  var surveyQuotas = res;
+});
 ```
 
 > Example Response

@@ -31,9 +31,7 @@ POST  https://api.samplicio.us/Supply/v1/SupplierLinks/Create/{SurveyNumber}/{Su
 > Example Request
 
 ```shell
-curl -H "Content-Type: application/json" \
--X POST --data '{"SupplierLinkTypeCode": "OWS", "TrackingTypeCode": "NONE"}' \
-https://api.samplicio.us/Supply/v1/SupplierLinks/Create/{SurveyNumber}/{SupplierCode}?key={APIKey}
+curl -H "Content-Type: application/json" -X POST --data '{"SupplierLinkTypeCode": "OWS", "TrackingTypeCode": "NONE"}' https://api.samplicio.us/Supply/v1/SupplierLinks/Create/{SurveyNumber}/{SupplierCode}?key={APIKey}
 ```
 
 ```ruby
@@ -59,7 +57,7 @@ supplierLink = http.request(request)
 <?php
 $curl = curl_init();
 
-$params = '{"SupplierLinkTypeCode": "OWS,"TrackingTypeCode": "NONE"}';
+$params = '{"SupplierLinkTypeCode": "OWS","TrackingTypeCode": "NONE"}';
 
 curl_setopt_array($curl, array(
   CURLOPT_URL => "https://api.samplicio.us/Supply/v1/SupplierLinks/Create/{SurveyNumber}/{SupplierCode}?key={APIKey}",
@@ -97,14 +95,17 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Supply/v1/SupplierLinks/Create/{SurveyNumber}/{SupplierCode}?key={APIKey}");
 
-string params = "{\"SupplierLinkTypeCode\":\"OWS\","+"\"TrackingTypeCode\":\"NONE\"}";
+string args = @"{
+                  ""SupplierLinkTypeCode"":""OWS"",
+                  ""TrackingTypeCode"":""NONE""
+                }";
     
 request.Method = "POST";
 request.ContentType = "application/json";
 
 using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
 {
-streamWriter.Write(params);
+streamWriter.Write(args);
 streamWriter.Flush();
 streamWriter.Close();
 }
@@ -167,8 +168,8 @@ request.end();
     "FailureLink": "http:\/\/www.anon.com\/surveys?v=federated&fs=1&uid=[%MID%]",
     "OverQuotaLink": "http:\/\/www.anon.com\/surveys?v=federated&fs=1&uid=[%MID%]",
     "QualityTerminationLink": "http:\/\/www.anon.com\/surveys?v=federated&fs=1&uid=[%MID%]",
-    "LiveLink": "http:\/\/staging.samplicio.us\/router\/default.aspx?SID=52c975a7-15fb-804d-9bf2-3d5d553aa7af&PID=",
-    "TestLink": "http:\/ \/staging.samplicio.us\/router\/default.aspx?SID=a948gef7-3591-42c0-ce51-0e4jdf25582f&FIRID=MSDHONI7&SUMSTAT=1&PID=test",
+    "LiveLink": "http:\/\/samplicio.us\/router\/default.aspx?SID=52c975a7-15fb-804d-9bf2-3d5d553aa7af&PID=",
+    "TestLink": "http:\/ \/samplicio.us\/router\/default.aspx?SID=a948gef7-3591-42c0-ce51-0e4jdf25582f&FIRID=MSDHONI7&SUMSTAT=1&PID=test",
     "CPI": 100
   }
 }
@@ -182,7 +183,7 @@ Creates a supplier-specific respondent entry link for a survey. If no supplier r
 | Property                     | Type     | Required | Description                                                                                                                                  |
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
 | SurveyNumber                 | int      | true     | Unique number associated with the survey.                                                                                                    |
-| SupplierCode                 | int      | true     | Unique code associated with supplier account.                                                                                                |
+| SupplierCode                 | string   | true     | Unique code associated with supplier account.                                                                                                |
 | SupplierLinkTypeCode         | string   | true     | Defines the type of buyer-supplier engagment and the respondent's path in Fulcrum.                                                           |
 | TrackingTypeCode             | string   | true     | Defines how Fulcrum should communicate back to the supplier's system at the end of a session. The options are:                               |
 |                              |          |          | NONE (Default and recommended, physically redirects the respondent back to the supplier system)                                              |
@@ -200,8 +201,7 @@ PUT  https://api.samplicio.us/Supply/v1/SupplierLinks/Update/{SurveyNumber}/{Sup
 > Example Request
 
 ```shell
-curl -H "Content-Type: application/json" \
--X PUT  --data '{"SupplierLinkTypeCode": "OWS", "TrackingTypeCode": "NONE", "DefaultLink":"","SuccessLink":"","FailureLink":"","OverQuotaLink":"","QualityTerminationLink":""}' \ https://api.samplicio.us/Supply/v1/SupplierLinks/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}
+curl -H "Content-Type: application/json" -X PUT  --data '{"SupplierLinkTypeCode": "OWS", "TrackingTypeCode": "NONE", "DefaultLink":"","SuccessLink":"","FailureLink":"","OverQuotaLink":"","QualityTerminationLink":""}' https://api.samplicio.us/Supply/v1/SupplierLinks/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}
 ```
 
 ```ruby
@@ -227,7 +227,7 @@ supplierLink = http.request(request)
 <?php
 $curl = curl_init();
 
-$params = '{"SupplierLinkTypeCode": "OWS,"TrackingTypeCode": "NONE","DefaultLink": "","SuccessLink": "","FailureLink": "","OverQuotaLink": "","QualityTerminationLink": ""}';
+$params = '{"SupplierLinkTypeCode": "OWS","TrackingTypeCode": "NONE","DefaultLink": "","SuccessLink": "","FailureLink": "","OverQuotaLink": "","QualityTerminationLink": ""}';
 
 curl_setopt_array($curl, array(
   CURLOPT_URL => "https://api.samplicio.us/Supply/v1/SupplierLinks/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}",
@@ -264,14 +264,22 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Supply/v1/SupplierLinks/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}");
 
-string params = "{\"SupplierLinkTypeCode\":\"OWS\","+"\"TrackingTypeCode\":\"NONE\","+"\"DefaultLink\":\"\","+"\"SuccessLink\":\"\","+"\"FailureLink\":\"\","+"\"OverQuotaLink\":\"\","+"\"QualityTerminationLink\":\"\"}";
+string args = @"{
+                  ""SupplierLinkTypeCode"":""OWS"",
+                  ""TrackingTypeCode"":""NONE"",
+                  ""DefaultLink"":"""",
+                  ""SuccessLink"":"""",
+                  ""FailureLink"":"""",
+                  ""OverQuotaLink"":"""",
+                  ""QualityTerminationLink"":""""
+                }";
     
 request.Method = "PUT";
 request.ContentType = "application/json";
 
 using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
         {
-            streamWriter.Write(params);
+            streamWriter.Write(args);
             streamWriter.Flush();
             streamWriter.Close();
         }
@@ -339,8 +347,8 @@ request.end();
     "FailureLink": "",
     "OverQuotaLink": "",
     "QualityTerminationLink": "",
-    "LiveLink": "http:\/\/staging.samplicio.us\/router\/default.aspx?SID=52c795a7-15fh-454d-9ap2-3d5d803aa7af&PID=",
-    "TestLink": "http:\/\/staging.samplicio.us\/router\/default.aspx?SID=a348dif7- 3491-42v0-be51-0e4fdf25582f&FIRID=MSDHQNI7&SUMSTAT=8&PID=test",
+    "LiveLink": "http:\/\/samplicio.us\/router\/default.aspx?SID=52c795a7-15fh-454d-9ap2-3d5d803aa7af&PID=",
+    "TestLink": "http:\/\/samplicio.us\/router\/default.aspx?SID=a348dif7- 3491-42v0-be51-0e4fdf25582f&FIRID=MSDHQNI7&SUMSTAT=8&PID=test",
     "CPI": 100
   }
 }
@@ -415,7 +423,9 @@ WebResponse supplierLinks = request.GetResponse();
 ```javascript
 const https = require('https');
 
-var supplierLinks = https.get('https://api.samplicio.us/Supply/v1/SurveyQualifications/BySurveyNumberForOfferwall/{SurveyNumber}?key={APIKey}');
+https.get('https://api.samplicio.us/Supply/v1/SurveyQualifications/BySurveyNumberForOfferwall/{SurveyNumber}?key={APIKey}', function(res){
+  var supplierLinks = res;
+});
 ```
 
 > Example Response
@@ -441,8 +451,8 @@ var supplierLinks = https.get('https://api.samplicio.us/Supply/v1/SurveyQualific
     "FailureLink": "http:\/\/www.anon.com\/surveys?v=1&fs=1&uid=[%MID%]",
     "OverQuotaLink": "http:\/\/www.anon.com\/surveys?v=1&fs=1&uid=[%MID%]",
     "QualityTerminationLink": "http:\/\/www.anon.com\/surveys?v=1&fs=1&uid=[%MID%]",
-    "LiveLink": "http:\/\/staging.samplicio.us\/router\/default.aspx?SID=52c975a7-15fb-804d-9bd2-3d5d553aa7af&PID=",
-    "TestLink": "http:\/ \/staging.samplicio.us\/router\/default.aspx?SID=a948gef7-3591-42c0-ce51-0e4xdf25582f&FIRID=MSDHONI7&SUMSTAT=1&PID=test",
+    "LiveLink": "http:\/\/samplicio.us\/router\/default.aspx?SID=52c975a7-15fb-804d-9bd2-3d5d553aa7af&PID=",
+    "TestLink": "http:\/ \/samplicio.us\/router\/default.aspx?SID=a948gef7-3591-42c0-ce51-0e4xdf25582f&FIRID=MSDHONI7&SUMSTAT=1&PID=test",
     "CPI": 100
   }
 }
@@ -455,4 +465,4 @@ Returns link details for a survey.
 | Property                     | Type     | Required | Description                                                                                                                                  |
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
 | SurveyNumber                 | int      | true     | Unique number associated with the survey.                                                                                                    |
-| SupplierCode                 | int      | true     | Unique code associated with supplier account.                                                                                                |
+| SupplierCode                 | string   | true     | Unique code associated with supplier account.                                                                                                |
