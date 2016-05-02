@@ -66,7 +66,7 @@ request = Net::HTTP::Post.new(fullUriPath, initheader = {'Content-Type' =>'appli
 
 request.body = {SupplierLinkTypeCode:"TS",TrackingTypeCode:"NONE"}.to_json
 
-supplierLink = http.request(request)
+response = http.request(request)
 ```
 
 ```php
@@ -87,7 +87,7 @@ curl_setopt_array($curl, array(
   CURLOPT_POSTFIELDS => $params,
 ));
 
-$supplierLink = curl_exec($curl);
+$response = curl_exec($curl);
 
 curl_close($curl);
 ?>
@@ -102,7 +102,7 @@ params = {'SupplierLinkTypeCode':'TS','TrackingTypeCode':'NONE'}
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
-supplierLink = requests.post(url, data=data, headers=headers)
+response = requests.post(url, data=data, headers=headers)
 ```
 
 ```csharp
@@ -126,7 +126,7 @@ streamWriter.Flush();
 streamWriter.Close();
 }
 
-WebResponse supplierLink = request.GetResponse();
+WebResponse response = request.GetResponse();
 ```
 
 ```javascript
@@ -147,10 +147,10 @@ var json = {
 
 var params = JSON.stringify(json);
 
-var request = https.request(options, function (supplierLink) {
+var request = https.request(options, function (response) {
   var chunks = [];
 
-  supplierLink.on("data", function (chunk) {
+  response.on("data", function (chunk) {
     chunks.push(chunk);
   });
   
@@ -249,7 +249,7 @@ request = Net::HTTP::Put.new(fullUriPath, initheader = {'Content-Type' =>'applic
 
 request.body = {SupplierLinkTypeCode:"TS",TrackingTypeCode:"NONE",DefaultLink:"",SuccessLink:"",FailureLink:"",OverQuotaLink:"",QualityTerminationLink:""}.to_json
 
-supplierLink = http.request(request)
+response = http.request(request)
 ```
 
 ```php
@@ -270,7 +270,7 @@ curl_setopt_array($curl, array(
   CURLOPT_POSTFIELDS => $params,
 ));
 
-$supplierLink = curl_exec($curl);
+$response = curl_exec($curl);
 
 curl_close($curl);
 ?>
@@ -284,7 +284,7 @@ params = {'SupplierLinkTypeCode':'TS','TrackingTypeCode':'NONE','DefaultLink':''
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
-supplierLink = requests.put(url, data=data, headers=headers)
+response = requests.put(url, data=data, headers=headers)
 ```
 
 ```csharp
@@ -313,7 +313,7 @@ using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
             streamWriter.Close();
         }
 
-WebResponse supplierLink = request.GetResponse();
+WebResponse response = request.GetResponse();
 ```
 
 ```javascript

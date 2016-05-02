@@ -24,32 +24,32 @@ http.use_ssl = true
 
 request = Net::HTTP::Get.new(uri.request_uri)
 
-globalDefinitions = http.request(request) 
+response = http.request(request) 
 ```
 
 ```php
 <?php
-$globalDefinitions = file_get_contents('https://api.samplicio.us/Lookup/v1/BasicLookups/BundledLookups/CountryLanguages,Industries,SampleTypes,StudyTypes,SupplierLinkTypes,SurveyStatuses?key={APIKey}');
+$response = file_get_contents('https://api.samplicio.us/Lookup/v1/BasicLookups/BundledLookups/CountryLanguages,Industries,SampleTypes,StudyTypes,SupplierLinkTypes,SurveyStatuses?key={APIKey}');
 ?>
 ```
 
 ```python
 import requests
 
-globalDefinitions = requests.get('https://api.samplicio.us/Lookup/v1/BasicLookups/BundledLookups/CountryLanguages,Industries,SampleTypes,StudyTypes,SupplierLinkTypes,SurveyStatuses?key={APIKey}')
+response = requests.get('https://api.samplicio.us/Lookup/v1/BasicLookups/BundledLookups/CountryLanguages,Industries,SampleTypes,StudyTypes,SupplierLinkTypes,SurveyStatuses?key={APIKey}')
 ```
 ```csharp
 using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Lookup/v1/BasicLookups/BundledLookups/CountryLanguages,Industries,SampleTypes,StudyTypes,SupplierLinkTypes,SurveyStatuses?key={APIKey}");
 
-WebResponse globalDefinitions = request.GetResponse();
+WebResponse response = request.GetResponse();
 ```
 ```javascript
 const https = require('https');
 
 https.get('https://api.samplicio.us/Lookup/v1/BasicLookups/BundledLookups/CountryLanguages,Industries,SampleTypes,StudyTypes,SupplierLinkTypes,SurveyStatuses?key={APIKey}', function(res){
-  var globalDefinitions = res;
+  var response = res;
 });
 ```
 
@@ -194,32 +194,32 @@ http.use_ssl = true
 
 request = Net::HTTP::Get.new(uri.request_uri)
 
-suppliers = http.request(request) 
+response = http.request(request) 
 ```
 
 ```php
 <?php
-$suppliers = file_get_contents('https://api.samplicio.us/Core/v1/Suppliers/AllWithAccount?key={APIKey}');
+$response = file_get_contents('https://api.samplicio.us/Core/v1/Suppliers/AllWithAccount?key={APIKey}');
 ?>
 ```
 
 ```python
 import requests
 
-suppliers = requests.get('https://api.samplicio.us/Core/v1/Suppliers/AllWithAccount?key={APIKey}')
+response = requests.get('https://api.samplicio.us/Core/v1/Suppliers/AllWithAccount?key={APIKey}')
 ```
 ```csharp
 using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Core/v1/Suppliers/AllWithAccount?key={APIKey}");
 
-WebResponse suppliers = request.GetResponse();
+WebResponse response = request.GetResponse();
 ```
 ```javascript
 const https = require('https');
 
 https.get('https://api.samplicio.us/Core/v1/Suppliers/AllWithAccount?key={APIKey}', function(res){
-  var suppliers = res;
+  var response = res;
 });
 ```
 
@@ -291,32 +291,32 @@ http.use_ssl = true
 
 request = Net::HTTP::Get.new(uri.request_uri)
 
-businessUnits = http.request(request) 
+response = http.request(request) 
 ```
 
 ```php
 <?php
-$businessUnits = file_get_contents('https://api.samplicio.us/Core/v1/BusinessUnits/All?key={APIKey}');
+$response = file_get_contents('https://api.samplicio.us/Core/v1/BusinessUnits/All?key={APIKey}');
 ?>
 ```
 
 ```python
 import requests
 
-businessUnits = requests.get('https://api.samplicio.us/Core/v1/BusinessUnits/All?key={APIKey}')
+response = requests.get('https://api.samplicio.us/Core/v1/BusinessUnits/All?key={APIKey}')
 ```
 ```csharp
 using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Core/v1/BusinessUnits/All?key={APIKey}");
 
-WebResponse businessUnits = request.GetResponse();
+WebResponse response = request.GetResponse();
 ```
 ```javascript
 const https = require('https');
 
 https.get('https://api.samplicio.us/Core/v1/BusinessUnits/All?key={APIKey}', function(res){
-  var businessUnits = res;
+  var response = res;
 });
 ```
 
