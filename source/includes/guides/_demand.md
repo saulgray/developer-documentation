@@ -10,6 +10,7 @@ Fulcrum contains numerous objects, structures, and options that may either be ad
 These definitions provide human-readable strings that correspond to various object/option IDs in Fulcrum.
 #### 2. Store Fulcrum Standard qualification [question texts](#get-list-standard-questions) and [answer options](#get-show-question-options) for countries you operate in.
 Qualifications in Fulcrum act as filters to help you find the respondents you are targeting and quotas allow you to control how many respondents you want. Begin by mapping Fulcrum's most-used qualifications to your system. Below are the top 30 Fulcrum Standard qualifications in the US:
+
  - `AGE`
  - `GENDER`
  - `ZIP`
@@ -40,9 +41,10 @@ Qualifications in Fulcrum act as filters to help you find the respondents you ar
  - `STANDARD_ELECTRONICS`
  - `STANDARD_FLIGHT_DESTINATION`
  
-For a list of top qualifications in other countries, [shoot as an email](mailto:support@luc.id). Map as many or as few qualifications as you would like depending on your needs. Fulcrum Standards provide an industry standard for programmatic targeting. As such your projects will be more successful if you use all Standards that apply to that particular project's target. To encourage qualification usage, it's usually helpful to ensure that qualifications are easy to find and are searchable on your platform.
+For a list of top qualifications in other countries, [shoot us an email](mailto:support@luc.id). Map as many or as few qualifications as you would like depending on your needs. Fulcrum Standards provide an industry standard for programmatic targeting. As such your projects will be more successful if you use all Standards that apply to that particular project's target. To encourage qualification usage, it's usually helpful to ensure that qualifications are easy to find and are searchable on your platform.
 #### 3. If your system has a quota system, map your quota structure to Fulcrum's.
 Fulcrum quotas can be nested, not nested, overlapping, or contain only a subset of the qualified respondents. Here are a few examples:
+
 - Study 1: only total quota
   - Total = 1000
 - Study 2: nested gender and age
@@ -71,94 +73,33 @@ Fulcrum quotas can be nested, not nested, overlapping, or contain only a subset 
 #### 1. Write a function to hash a URL and generate a checksum.
 
 > Example key
+
 ```plaintext
 ZZ6VkORqV25iSWOVb5cwZ03zpns
 ```
 
 > Example Base URL
+
 ```plaintext
 https://www.abc.com/ex.aspx?abc=def&vid=123&oenc2=
 ```
 
 > Example Signature
+
 ```plaintext
 NPJPxGx/+1vHe0T1q4tt+MyWnQ4=
 ```
 > Example Encoded Signature
+
 ```plaintext
 NPJPxGx_-1vHe0T1q4tt-MyWnQ4
 ```
 
 > Example Final URL
+
 ```plaintext
 https://www.abc.com/ex.aspx?abc=def&vid=123&oenc2=NPJPxGx_-1vHe0T1q4tt-MyWnQ4
 ```
-
-```csharp
-//compute a signature as the url compatible base64 encoded hmac-sha1. //input the complete absolute url sans &s=, something like
-
-public class UrlSigner {
-
- private readonly HMAC hmac;
-
- private readonly string signatureParam;
-
- public UrlSigner(string secret): this(secret, “x”) {}
-
- private UrlSigner(string secret, string name) {
-
-  this.hmac = new HMACSHA1(GetBytes(secret));
-
-  this.signatureParam = string.Format(“{0} = ”, name);
- }
-
- public string Sign(string url) {
-
-  var urlToSign = UrlToSign(url);
-
-  var bytes = GetBytes(urlToSign);
-
-  var signature = hmac.ComputeHash(bytes, 0, bytes.Length);
-
-  return string.Format(“{0} {1} {2}”, urlToSign, signatureParam, Base64ForUrl(signature));
-
- }
-
- public bool Verify(string url) {
-
-  var npos = url.LastIndexOf(signatureParam);
-  if (npos == -1)
-
-   return false;
-
-  return Sign(url.Substring(0, npos)) == url;
-
- }
-
- string UrlToSign(string url) {
-
-  if (!url.Contains(‘ ? ’)) return url + ‘ ? ’;
-
-  if (url.EndsWith(“ ? ”) || url.EndsWith(“ & ”)) return url;
-
-  return url + “ & ”;
- }
-
- byte[] GetBytes(string s) {
-  return Encoding.UTF8.GetBytes(s);
- }
-
- string Base64ForUrl(byte[] bytes) {
-
-  return Convert.ToBase64String(bytes).Replace(‘+’, ‘-’)
-
-  .Replace(‘/’, ‘_’)
-
-   .Replace(“ = ”, string.Empty);
-
-  }
- }
- ```
 
 Fulcrum strongly recommends taking advantage of inbound and outbound URL hashing, which will prevent respondents from manipulating links. Your secret key and variable name configuration can be set or disabled in the Fulcrum UI (`Clients>{Your Account} API_Client>Show Encryption). In order to verify the validity of any Fulcrum outbound connection or generate a hash to match with any Fulcrum inbound connection, you must create a function that computes an RFC 2014-compliant HMAC signature and substitute the following characters:
 
@@ -168,7 +109,7 @@ Fulcrum strongly recommends taking advantage of inbound and outbound URL hashing
 | /        | _            |
 | =        | empty string |
 
-It's important to note that your base string should include the entire URL up to and including the `&` preceding your encryption variable. We've provided an example function in C#. If you do not control the destination survey environment, and your client cannot support this type of security, you should skip this step and instead use Verify Callback.
+It's important to note that your base string should include the entire URL up to and including the `&` preceding your encryption variable. If you do not control the destination survey environment, and your client cannot support this type of security, you should skip this step and instead use Verify Callback.
 
 #### 2. Configure your survey end links, commonly referred to as "redirects".
 
@@ -211,9 +152,9 @@ The Feasibility resource returns pricing data from the Fulcrum Pricing Index (FP
 #### 2. Make the call to [create a survey](#post-create-a-survey) object.
 This survey object contains the key settings for the survey such as your quota cost per impression (QCPI), security settings, and links for the destination user experience (survey, user test, etc). Some of the most popular properties integrators give end-users control over are:
  - QuotaCPI: Allows the end-user to set their purchase price. In many cases, integrators will suggest (or command a price) based on the feasibility response.
- - CountryLanguageID: The country-language combination which the survey should be available to. Keep in mind that this will affect certain localized standards. For example, you would want want to use STANDARD_HHI_INT in all countries outside of the United States and STANDARD_HHI_US for `English - United States` and `Spanish - US` projects. Further, you would not want to display the Hispanic nor Ethnicity qualifications outside of the United States.
+ - CountryLanguageID: The country-language combination which the survey should be available to. Keep in mind that this will affect certain localized standards. For example, you would want to use STANDARD_HHI_INT in all countries outside of the United States and STANDARD_HHI_US for `English - United States` and `Spanish - US` projects. Further, you would not want to display the Hispanic nor Ethnicity qualifications outside of the United States.
 
-<aside class="notice">An additional column in your database for earnings-per-click (EPC) can help you track whether yo are still offering a fair market price as your survey fields and specs change. EPC is the revenue per respondent a supplier sends in suppliers and thus the value that the survey provides to the suppliers.</aside>
+<aside class="notice">An additional column in your database for earnings-per-click (EPC) can help you track whether you are still offering a fair market price as your survey fields and specs change. EPC is the revenue per respondent a supplier sends in suppliers and thus the value that the survey provides to the suppliers.</aside>
 
 #### 3. [Add qualifications](#post-create-a-quota) to the survey.
 The following 7 qualifications are automatically added to US studies:
