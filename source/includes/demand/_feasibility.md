@@ -32,7 +32,7 @@ request.body = {CountryLanguageID: 9, LengthOfInterview: 5, Incidence: 100,  "Pr
  "25", "26", "27", "28", "29"]}, {QuestionID: 43, PreCodes: ["1"] } ] }, {CompletesPerDay: [1000], Conditions: [{QuestionID: 42, PreCodes: ["18", "19", "20", "21", "22", "23", "24",
  "25", "26", "27", "28", "29"]}, {QuestionID: 43, PreCodes: ["2"] } ] }] }.to_json
 
-time = http.request(request)
+response = http.request(request)
 
 ```
 
@@ -56,7 +56,7 @@ curl_setopt_array($curl, array(
   CURLOPT_POSTFIELDS => $params,
 ));
 
-$time = curl_exec($curl);
+$response = curl_exec($curl);
 
 curl_close($curl);
 ?>
@@ -71,7 +71,7 @@ params = {'CountryLanguageID': 9, 'LengthOfInterview': 5, 'Incidence': 100, 'Quo
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
-time = requests.post(url, data=data, headers=headers)
+response = requests.post(url, data=data, headers=headers)
 ```
 
 ```csharp
@@ -130,7 +130,7 @@ streamWriter.Flush();
 streamWriter.Close();
 }
 
-WebResponse time = request.GetResponse();
+WebResponse response = request.GetResponse();
 ```
 
 ```javascript
@@ -150,10 +150,10 @@ var json = {"CountryLanguageID": 9, "LengthOfInterview": 5, "Incidence": 100, "Q
 
 var params = JSON.stringify(json);
 
-var request = https.request(options, function (time) {
+var request = https.request(options, function (response) {
   var chunks = [];
 
-  time.on("data", function (chunk) {
+  response.on("data", function (chunk) {
     chunks.push(chunk);
   });
   
@@ -285,7 +285,7 @@ request = Net::HTTP::Post.new(fullUriPath, initheader = {'Content-Type' =>'appli
 request.body = {CountryLanguageID: 9, LengthOfInterview: 5, Incidence: 100, Quotas: [{CompletesPerDay: [1000, 1500], Conditions: [{QuestionID: 42, PreCodes: ["18", "19", "20", "21", "22", "23", "24",
  "25", "26", "27", "28", "29"]}, {QuestionID: 43, PreCodes: ["1"] } ] }, ] }.to_json
 
-price = http.request(request)
+response = http.request(request)
 
 ```
 
@@ -308,7 +308,7 @@ curl_setopt_array($curl, array(
   CURLOPT_POSTFIELDS => $params,
 ));
 
-$price = curl_exec($curl);
+$response = curl_exec($curl);
 
 curl_close($curl);
 ?>
@@ -323,7 +323,7 @@ params = {'CountryLanguageID': 9, 'LengthOfInterview': 5, 'Incidence': 100, 'Quo
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
-price = requests.post(url, data=data, headers=headers)
+response = requests.post(url, data=data, headers=headers)
 ```
 
 ```csharp
@@ -365,7 +365,7 @@ streamWriter.Flush();
 streamWriter.Close();
 }
 
-WebResponse price = request.GetResponse();
+WebResponse response = request.GetResponse();
 ```
 
 ```javascript
@@ -384,10 +384,10 @@ var json = {"CountryLanguageID": 9, "LengthOfInterview": 5, "Incidence": 100, "Q
 
 var params = JSON.stringify(json);
 
-var request = https.request(options, function (price) {
+var request = https.request(options, function (response) {
   var chunks = [];
 
-  price.on("data", function (chunk) {
+  response.on("data", function (chunk) {
     chunks.push(chunk);
   });
   
@@ -511,7 +511,7 @@ request = Net::HTTP::Post.new(fullUriPath, initheader = {'Content-Type' =>'appli
 
 request.body = {CountryLanguageID: 9, LengthOfInterview: 5, Incidence: 100, Price: 5, Quotas: [{CompletesPerDay: [1000, 1500], Conditions: [{QuestionID: 42, PreCodes: ["18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29"]}, {QuestionID: 43, PreCodes: ["1"] } ] }, ] }.to_json
 
-completes = http.request(request)
+response = http.request(request)
 
 ```
 
@@ -534,7 +534,7 @@ curl_setopt_array($curl, array(
   CURLOPT_POSTFIELDS => $params,
 ));
 
-$completes = curl_exec($curl);
+$response = curl_exec($curl);
 
 curl_close($curl);
 ?>
@@ -549,7 +549,7 @@ params = {'CountryLanguageID': 9, 'LengthOfInterview': 5, 'Incidence': 100, 'Quo
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
-completes = requests.post(url, data=data, headers=headers)
+response = requests.post(url, data=data, headers=headers)
 ```
 
 ```csharp
@@ -591,7 +591,7 @@ streamWriter.Flush();
 streamWriter.Close();
 }
 
-WebResponse completes = request.GetResponse();
+WebResponse response = request.GetResponse();
 ```
 
 ```javascript
@@ -610,10 +610,10 @@ var json = {"CountryLanguageID": 9, "LengthOfInterview": 5, "Incidence": 100, "P
 
 var params = JSON.stringify(json);
 
-var request = https.request(options, function (completes) {
+var request = https.request(options, function (response) {
   var chunks = [];
 
-  completes.on("data", function (chunk) {
+  response.on("data", function (chunk) {
     chunks.push(chunk);
   });
   
