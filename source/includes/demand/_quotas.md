@@ -51,7 +51,7 @@ request = Net::HTTP::Post.new(fullUriPath, initheader = {'Content-Type' =>'appli
 
 request.body = {Name: "Quota Name", Quota: 50, IsActive:true, Conditions:[{QuestionID:42, PreCodes: ["18","19","20","21","22"] }]}.to_json
 
-quotas = http.request(request)
+response = http.request(request)
 ```
 
 ```php
@@ -72,7 +72,7 @@ curl_setopt_array($curl, array(
   CURLOPT_POSTFIELDS => $params,
 ));
 
-$quotas = curl_exec($curl);
+$response = curl_exec($curl);
 
 curl_close($curl);
 ?>
@@ -86,7 +86,7 @@ params = {'Name': 'Quota Name', 'Quota': 50, 'IsActive': True, 'Conditions':[{'Q
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
-quotas = requests.post(url, data=data, headers=headers)
+response = requests.post(url, data=data, headers=headers)
 ```
 
 ```csharp
@@ -115,7 +115,7 @@ streamWriter.Flush();
 streamWriter.Close();
 }
 
-WebResponse quotas = request.GetResponse();
+WebResponse response = request.GetResponse();
 ```
 
 ```javascript
@@ -151,10 +151,10 @@ var json = {
 
 var params = JSON.stringify(json);
 
-var request = https.request(options, function (quotas) {
+var request = https.request(options, function (response) {
   var chunks = [];
 
-  quotas.on("data", function (chunk) {
+  response.on("data", function (chunk) {
     chunks.push(chunk);
   });
 
@@ -263,7 +263,7 @@ request = Net::HTTP::Put.new(fullUriPath, initheader = {'Content-Type' =>'applic
 
 request.body = {SurveyQuotaID: 1000110, Name: "Quota Name", FieldTarget:1000, Quota: 50, IsActive:true, Conditions:[{QuestionID:42, PreCodes: [18, 19, 20, 21, 22] }]}.to_json
 
-quotas = http.request(request)
+response = http.request(request)
 ```
 
 ```php
@@ -284,7 +284,7 @@ curl_setopt_array($curl, array(
   CURLOPT_POSTFIELDS => $params,
 ));
 
-$quotas = curl_exec($curl);
+$response = curl_exec($curl);
 
 curl_close($curl);
 ?>
@@ -329,7 +329,7 @@ streamWriter.Flush();
 streamWriter.Close();
 }
 
-WebResponse quotas = request.GetResponse();
+WebResponse response = request.GetResponse();
 ```
 
 ```javascript
@@ -362,10 +362,10 @@ var json = {
 
 var params = JSON.stringify(json);
 
-var request = https.request(options, function (quotas) {
+var request = https.request(options, function (response) {
   var chunks = [];
 
-  quotas.on("data", function (chunk) {
+  response.on("data", function (chunk) {
     chunks.push(chunk);
   });
 
@@ -468,19 +468,19 @@ http.use_ssl = true
 
 request = Net::HTTP::Get.new(uri.request_uri)
 
-quotas = http.request(request)  
+response = http.request(request)  
 ```
 
 ```php
 <?php
-$quotas = file_get_contents('https://api.samplicio.us/Demand/v1/SurveyQuotas/BySurveyNumber/{SurveyNumber}}?key={APIKey}');
+$response = file_get_contents('https://api.samplicio.us/Demand/v1/SurveyQuotas/BySurveyNumber/{SurveyNumber}}?key={APIKey}');
 ?>
 ```
 
 ```python
 import requests
 
-quotas = requests.get('https://api.samplicio.us/Demand/v1/SurveyQuotas/BySurveyNumber/{SurveyNumber}}?key={APIKey}')
+response = requests.get('https://api.samplicio.us/Demand/v1/SurveyQuotas/BySurveyNumber/{SurveyNumber}}?key={APIKey}')
 ```
 
 ```csharp
@@ -488,14 +488,14 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SurveyQuotas/BySurveyNumber/{SurveyNumber}}?key={APIKey}");
 
-WebResponse quotas = request.GetResponse();
+WebResponse response = request.GetResponse();
 ```
 
 ```javascript
 const https = require('https');
 
 https.get('https://api.samplicio.us/Demand/v1/SurveyQuotas/BySurveyNumber/{SurveyNumber}}?key={APIKey}', function(res){
-  var quotas = res;
+  var response = res;
 });
 ```
 

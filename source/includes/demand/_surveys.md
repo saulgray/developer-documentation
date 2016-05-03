@@ -97,7 +97,7 @@ request.body = {
     "SampleTypeID"=> 100
  }.to_json
 
-survey = http.request(request)
+response = http.request(request)
 ```
 
 ```php
@@ -148,7 +148,7 @@ curl_setopt_array($curl, array(
   CURLOPT_POSTFIELDS => $params,
 ));
 
-$survey = curl_exec($curl);
+$response = curl_exec($curl);
 
 curl_close($curl);
 ?>
@@ -193,7 +193,7 @@ params = {
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
-survey = requests.post(url, data=data, headers=headers)
+response = requests.post(url, data=data, headers=headers)
 ```
 
 ```csharp
@@ -244,7 +244,7 @@ streamWriter.Flush();
 streamWriter.Close();
 }
 
-WebResponse survey = request.GetResponse();
+WebResponse response = request.GetResponse();
 ```
 
 ```javascript
@@ -292,10 +292,10 @@ var json = {
 
 var params = JSON.stringify(json);
 
-var request = https.request(options, function (survey) {
+var request = https.request(options, function (response) {
   var chunks = [];
 
-  survey.on("data", function (chunk) {
+  response.on("data", function (chunk) {
     chunks.push(chunk);
   });
   
@@ -455,7 +455,7 @@ request.body = {
     SampleTypeID: 100
  }.to_json
 
-survey = http.request(request)
+response = http.request(request)
 ```
 
 ```php
@@ -507,7 +507,7 @@ curl_setopt_array($curl, array(
   CURLOPT_POSTFIELDS => $params,
 ));
 
-$survey = curl_exec($curl);
+$response = curl_exec($curl);
 
 curl_close($curl);
 ?>
@@ -553,7 +553,7 @@ params = {
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
-survey = requests.put(url, data=data, headers=headers)
+response = requests.put(url, data=data, headers=headers)
 ```
 
 ```csharp
@@ -605,7 +605,7 @@ streamWriter.Flush();
 streamWriter.Close();
 }
 
-WebResponse survey = request.GetResponse();
+WebResponse response = request.GetResponse();
 ```
 
 ```javascript
@@ -654,10 +654,10 @@ var json = {
 
 var params = JSON.stringify(json);
 
-var request = https.request(options, function (survey) {
+var request = https.request(options, function (response) {
   var chunks = [];
 
-  survey.on("data", function (chunk) {
+  response.on("data", function (chunk) {
     chunks.push(chunk);
   });
   
@@ -780,19 +780,19 @@ http.use_ssl = true
 
 request = Net::HTTP::Get.new(uri.request_uri)
 
-survey = http.request(request)  
+response = http.request(request)  
 ```
 
 ```php
 <?php
-$survey = file_get_contents('https://api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/{SurveyNumber}?key={APIKey}');
+$response = file_get_contents('https://api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/{SurveyNumber}?key={APIKey}');
 ?>
 ```
 
 ```python
 import requests
 
-survey = requests.get('https://api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/{SurveyNumber}?key={APIKey}')
+response = requests.get('https://api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/{SurveyNumber}?key={APIKey}')
 ```
 
 ```csharp
@@ -800,14 +800,14 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/{SurveyNumber}?key={APIKey}");
 
-WebResponse survey = request.GetResponse();
+WebResponse response = request.GetResponse();
 ```
 
 ```javascript
 const https = require('https');
 
 https.get('https://api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/{SurveyNumber}?key={APIKey}', function(res){
-  var survey = res;
+  var response = res;
 });
 ```
 
@@ -897,19 +897,19 @@ http.use_ssl = true
 
 request = Net::HTTP::Get.new(uri.request_uri)
 
-surveyQuotas = http.request(request)  
+response = http.request(request)  
 ```
 
 ```php
 <?php
-$surveyQuotas = file_get_contents('https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyStatus}?key={APIKey}');
+$response = file_get_contents('https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyStatus}?key={APIKey}');
 ?>
 ```
 
 ```python
 import requests
 
-surveyQuotas = requests.get('https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyStatus}?key={APIKey}')
+response = requests.get('https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyStatus}?key={APIKey}')
 ```
 
 ```csharp
@@ -917,14 +917,14 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyStatus}?key={APIKey}");
 
-WebResponse surveyQuotas = request.GetResponse();
+WebResponse response = request.GetResponse();
 ```
 
 ```javascript
 const https = require('https');
 
 https.get('https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyStatus}?key={APIKey}', function(res){
-  var surveyQuotas = res;
+  var response = res;
 });
 ```
 
