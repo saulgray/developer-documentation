@@ -158,6 +158,7 @@ This survey object contains the key settings for the survey such as your quota c
 
 #### 3. [Add qualifications](#post-create-a-quota) to the survey.
 The following 7 qualifications are automatically added to US studies:
+
  - United States Studies:
   1. `AGE`
   2. `GENDER`
