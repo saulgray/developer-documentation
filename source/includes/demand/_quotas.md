@@ -10,8 +10,8 @@ Quotas are used to specify how many respondents of a desired demographic type ar
 | Name            | string  | Name associated with the quota.                                           |
 | FieldTarget     | int     | Field Target associated with the quota.                                   |
 | Quota           | int     | Quota number for the specified quota.                                     |
-| Prescreens      | int     | Number of prescreens achieved.                                            |
-| Completes       | int     | Number of completes achieved. A prescreen is a respondent who enters the client survey.|
+| Prescreens      | int     | Number of prescreens achieved. A prescreen is a respondent who enters the client survey.|
+| Completes       | int     | Number of completes achieved.                                             |
 | IsActive        | boolean | Indicates if the quotas is active or inactive. Should the quota be enforced on this project?|
 | Conditions      | array   | Contains an array of elements described below                             |
 
