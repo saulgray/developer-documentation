@@ -185,7 +185,9 @@ __Objective: Earn the most revenue with the least amount of clicks by reviewing 
 - __Push survey to inactive status if you have sent over 20+ respondents and have not yet received a complete back.__
 - Please note that the above is more conservative and will tend to cut off surveys early and often. It’s a good thing to remove more chaff, so long as there is sufficient high quality inventory to earn revenue for your respondents. You may want to add in more forgiveness if you are finding too few surveys.
 
+### Phase 5 - Advanced Topics
 
+In this phase we’ll explain how to handle Survey Groups, Recontact Studies, and Custom Qualifications
 
 
 
