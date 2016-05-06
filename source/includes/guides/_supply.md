@@ -101,22 +101,19 @@ In this phase, we’ll explain the recommended process to find new Offerwall stu
 
 #### 1. Recommended Supply API Call Frequency
 
-| API Call                                                   | Ideal Frequency |
-|------------------------------------------------------------|-----------------|
-| /Supply/v1/SurveyQuotas/BySurveyNumber                     | 3  |
-| /Supply/v1/Surveys/SupplierAllocations                     | 3        |
-| /Supply/v1/SurveyQualifications/BySurveyNumberForOfferwall | 3        |
-| /Supply/v1/SurveyStatistics/BySurveyNumber                     | 60   |
-| /Supply/v1/Surveys/AllOfferwall                     | 3       |
-| /Supply/v1/SurveyQualifiedRespondents/BySurveyNumberSupplierCode | 3, if recontact study type        |
-| /Supply/v1/Surveys/SurveyGroups                     | 10, if in survey group   |
-| /Supply/v1/SupplierLinks/Create                     | 1 per project        |
-| /Supply/v1/SupplierLinks/BySurveyNumber | Only for troubleshooting        |
-| /Supply/v1/SupplierLinks/CreateOfferwall                     | Never        |
-| /Supply/v1/SurveyQuotas/Offerwall | Never        |
-| /Supply/v1/SurveyStatistics/All                     | Never   |
-| /Supply/v1/SupplierLinks/CreateOfferwallWithSupplierCode                     | Never        |
-| /Supply/v1/SupplierLinks/Update | Never, unless project specific        |
+| API Call                                                         | Ideal Frequency                |
+|------------------------------------------------------------------|--------------------------------|
+| /Supply/v1/SurveyQuotas/BySurveyNumber                           | 3                              |
+| /Supply/v1/Surveys/SupplierAllocations                           | 3                              |
+| /Supply/v1/SurveyQualifications/BySurveyNumberForOfferwall       | 3                              |
+| /Supply/v1/SurveyStatistics/BySurveyNumber                       | 60                             |
+| /Supply/v1/Surveys/AllOfferwall                                  | 3                              |
+| /Supply/v1/SurveyQualifiedRespondents/BySurveyNumberSupplierCode | 3, if recontact study type     |
+| /Supply/v1/Surveys/SurveyGroups                                  | 10, if in survey group         |
+| /Supply/v1/SupplierLinks/Create                                  | 1 per project                  |
+| /Supply/v1/SupplierLinks/BySurveyNumber                          | Only for troubleshooting       |
+| /Supply/v1/SurveyStatistics/All                                  | If desired                     |
+| /Supply/v1/SupplierLinks/Update                                  | Never, unless project specific |
 
 > Example key
 
@@ -238,3 +235,55 @@ If you have not enabled hash checksums or your users have direct access to Fulcr
 
 #### 3. Monitor your [survey statistics](#put-update-a-quota) and adjust pricing accordingly.
 By monitoring your survey's earnings per click (EPC) through Fulcrum's Survey Statistics resource or more granularly in your own system, you can determine whether the price you are offering for a survey given field specs is the fair market price. A "good" EPC depends on market conditions and the supplier(s) with whom you are working; however, EPCs of $0.10-$0.15 often ensure proper delivery of a survey.
+
+##Security
+
+SHA-1 hashing for both buyers and suppiers helps prevent URL manipulation when utilized on redirects into and out of Fulcrum. Utilizing complete end-to-end link encryption makes the Fulcrum environment more secure and productive for suppliers and buyers. Fulcrum strongly recommends taking advantage of inbound and outbound URL hashing.
+
+In order to verify the validity of any Fulcrum outbound connection or generate a hash to match with any Fulcrum inbound connection, you must create a function that computes an RFC 2014-compliant HMAC signature and substitute the following characters:
+
+> Example key
+
+```plaintext
+ZZ6VkORqV25iSWOVb5cwZ03zpns
+```
+
+> Example Base URL
+
+```plaintext
+https://www.abc.com/ex.aspx?abc=def&vid=123&oenc2=
+```
+
+> Example Signature
+
+```plaintext
+NPJPxGx/+1vHe0T1q4tt+MyWnQ4=
+```
+> Example Encoded Signature
+
+```plaintext
+NPJPxGx_-1vHe0T1q4tt-MyWnQ4
+```
+
+> Example Final URL
+
+```plaintext
+https://www.abc.com/ex.aspx?abc=def&vid=123&oenc2=NPJPxGx_-1vHe0T1q4tt-MyWnQ4
+```
+
+| Original | Substitute   |
+|----------|--------------|
+| +        | -            |
+| /        | _            |
+| =        | empty string |
+
+It's important to note that your base string should include the entire URL up to and including the `&` preceding your encryption variable. If you do not control the destination survey environment, and your client cannot support this type of security, you should skip this step and instead use Verify Callback.
+
+### Supplier SHA-1 Hashing
+
+Incoming and outgoing encryption 
+
+Incoming encryption requires an appended encryption value on entry from the supplier on incoming links which will be verified by Fulcrum. On outgoing encryption, Fulcrum will append the encryption value which will need to be verified by the supplier to ensure completes are legitimate.
+
+### Buyer SHA-1 Hashing
+
