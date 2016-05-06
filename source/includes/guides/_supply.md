@@ -97,7 +97,26 @@ __Important Details:__
 
 ### Phase 2 - Getting [Offerwall Studies](http://developer.lucidhq.com/#get-list-exchange-surveys), [Creating Links](http://developer.lucidhq.com/#post-create-a-link), [Getting Qualifications](http://developer.lucidhq.com/#get-show-qualifications), and [Quotas](http://developer.lucidhq.com/#get-show-quotas)
 
-#### 1. Write a function to hash a URL and generate a checksum.
+In this phase, we’ll explain the recommended process to find new Offerwall studies, and retrieve and store qualifications and quotas in tables locally for future reference.
+
+#### 1. Recommended Supply API Call Frequency
+
+| API Call                                                   | Ideal Frequency |
+|------------------------------------------------------------|-----------------|
+| /Supply/v1/SurveyQuotas/BySurveyNumber                     | 3  |
+| /Supply/v1/Surveys/SupplierAllocations                     | 3        |
+| /Supply/v1/SurveyQualifications/BySurveyNumberForOfferwall | 3        |
+| /Supply/v1/SurveyStatistics/BySurveyNumber                     | 60   |
+| /Supply/v1/Surveys/AllOfferwall                     | 3       |
+| /Supply/v1/SurveyQualifiedRespondents/BySurveyNumberSupplierCode | 3, if recontact study type        |
+| /Supply/v1/Surveys/SurveyGroups                     | 10, if in survey group   |
+| /Supply/v1/SupplierLinks/Create                     | 1 per project        |
+| /Supply/v1/SupplierLinks/BySurveyNumber | Only for troubleshooting        |
+| /Supply/v1/SupplierLinks/CreateOfferwall                     | Never        |
+| /Supply/v1/SurveyQuotas/Offerwall | Never        |
+| /Supply/v1/SurveyStatistics/All                     | Never   |
+| /Supply/v1/SupplierLinks/CreateOfferwallWithSupplierCode                     | Never        |
+| /Supply/v1/SupplierLinks/Update | Never, unless project specific        |
 
 > Example key
 
