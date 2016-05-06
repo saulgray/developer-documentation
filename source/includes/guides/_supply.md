@@ -101,7 +101,7 @@ In this phase, we’ll explain the recommended process to find new Offerwall sur
 
 #### 1. Recommended Supply API Call Frequency
 
-| API Call                                                      | Ideal Frequency                |
+| API Call                                                      | Ideal Frequency (in minutes)   |
 |---------------------------------------------------------------|--------------------------------|
 | [Show Quotas](#get-show-quotas)                               | 3                              |
 | [List Allocated Surveys](#get-list-allocated-surveys)         | 3                              |
@@ -115,6 +115,21 @@ In this phase, we’ll explain the recommended process to find new Offerwall sur
 | [Show a Link](#get-show-a-link)                               | Only for troubleshooting       |
 | [List Statistics](#get-list-statistics)                       | If desired                     |
 | [Update a Link](#put-update-a-link)                           | Never, unless project specific |
+
+####2. [List Exchange Surveys](#get-list-exchange-surveys)
+
+The Fulcrum Offerwall is a list of all studies currently available to you on the Fulcrum Exchange. [List Exchange Surveys](#get-list-exchange-surveys) will return a list of all __live__ surveys on the platform which you do not already have a link against.
+
+Select and filter surveys based on desired criteria (e.g. country, study type, acceptable LOI, and QCPI)
+
+####3. [Create a Link](#post-create-a-link)
+
+Once you have identifed a good survey opportuniy, create the entry links. This call will return "live" and "test" links. The "live" link is where you should send your respondents.
+
+<aside class="notice">It's best practice to never put the survey entry link directly in your respondent invite emails as surveys and survey quotas can be closed by the time the respondent clicks. Rather, use a link into your decisioning system and always select the best opportunity for your respondent and for you based on earnings per click (EPC) </aside>
+
+This call will also automatically add your default supplier redirects. Custom supplier redirects can be included in the payload with this call.
+
 
 
 ### Phase 3 - Creating a Survey
