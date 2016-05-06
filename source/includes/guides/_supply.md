@@ -103,7 +103,7 @@ In this phase, we’ll explain the recommended process to find new Offerwall stu
 
 | API Call                                                         | Ideal Frequency                |
 |------------------------------------------------------------------|--------------------------------|
-| /Supply/v1/SurveyQuotas/BySurveyNumber                           | 3                              |
+| [Show Quotas](#quotas)                                           | 3                              |
 | /Supply/v1/Surveys/SupplierAllocations                           | 3                              |
 | /Supply/v1/SurveyQualifications/BySurveyNumberForOfferwall       | 3                              |
 | /Supply/v1/SurveyStatistics/BySurveyNumber                       | 60                             |
