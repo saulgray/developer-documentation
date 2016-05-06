@@ -281,7 +281,7 @@ It's important to note that your base string should include the entire URL up to
 
 ### Supplier SHA-1 Hashing
 
-Incoming and outgoing encryption 
+![Supplier SHA-1](developer-documentation/source/images/Supplier_sha1_flowchart_v21.png)
 
 Incoming encryption requires an appended encryption value on entry from the supplier on incoming links which will be verified by Fulcrum. On outgoing encryption, Fulcrum will append the encryption value which will need to be verified by the supplier to ensure completes are legitimate.
 
