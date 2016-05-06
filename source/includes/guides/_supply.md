@@ -171,17 +171,17 @@ The final step in the Supply API integration is Yield Management. This is the pr
 __Objective: Earn the most revenue with the least amount of clicks by reviewing survey EPC and ranking live surveys in your tables__
 
 - Once an hour start with the list of all your live surveys from [List Allocated Surveys](#get-list-allocated-surveys)
-- Show Global/Trailing Survey Statistics](#get-show-statistics) for all live surveys and add/update with a value for each survey in a __`Global EPC`__ column in your tables.
-  - The `Global` scope will return statistics for __all__ traffic sent by __all__ suppliers 
-  - Surveys may return with a `Global` EPC of $0.00 because they have not received any Offerwall traffic + had a complete in the last 12 hours. You should still attempt these studies as you may be there first.
-- Show Supplier/Trailing Survey Statistics](#get-show-statistics) for all live surveys and add/update with a value for each survey in a __`Internal EPC`__ column in your tables.
-  - The `Supplier` scope will return statistics __only__ for entrants sent by the supplier
-- Add a __`Functional EPC`__ column in your tables.
-  - The `functional EPC` should be the `internal EPC` if it is non-zero.
-  - If the `internal EPC` is zero then set the `functional EPC` to the global EPC
-  - If the `global EPC` is zero then set it to your `median EPC` value until your have further information (let's say $0.20)
+- Show Global/Trailing Survey Statistics](#get-show-statistics) for all live surveys and add/update with a value for each survey in a __Global EPC__ column in your tables.
+  - The Global scope will return statistics for __all__ traffic sent by __all__ suppliers 
+  - Surveys may return with a Global EPC of $0.00 because they have not received any Offerwall traffic + had a complete in the last 12 hours. You should still attempt these studies as you may be there first.
+- Show Supplier/Trailing Survey Statistics](#get-show-statistics) for all live surveys and add/update with a value for each survey in a __Internal EPC__ column in your tables.
+  - The Supplier scope will return statistics __only__ for entrants sent by the supplier
+- Add a __Functional EPC__ column in your tables.
+  - The __functional EPC__ should be the __internal EPC__ if it is non-zero.
+  - If the __internal EPC__ is zero then set the __functional EPC__ to the __global EPC__
+  - If the __global EPC__ is zero then set it to your __median EPC__ value until your have further information (let's say $0.20)
 - Any survey beneath your desired minimum threshold (which should be below the media EPC value) should be set to inactive.   - You'll also want to create either a UI or an email alert to the business side to let them know when surveys become inactive in case you want to manually review and override, if they haven’t been alerted already.
-- Rank your surveys by functional EPC. Since this data will only update once an hour, you only should make the calls and reorder once an hour.
+- Rank your surveys by __functional EPC__. Since this data will only update once an hour, you only should make the calls and reorder once an hour.
 - __Push survey to inactive status if you have sent over 20+ respondents and have not yet received a complete back.__
 - Please note that the above is more conservative and will tend to cut off surveys early and often. It’s a good thing to remove more chaff, so long as there is sufficient high quality inventory to earn revenue for your respondents. You may want to add in more forgiveness if you are finding too few surveys.
 
