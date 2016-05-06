@@ -88,14 +88,14 @@ Fulcrum quotas can be nested, not nested, overlapping, or contain only a subset 
     - Female 18-35 = 250
     - Female 36+ = 250
 
-_Important Details:_
+__Important Details:__
 
-- Quota groups are distinguished with a SurveyQuotaID.
+- Quota groups are distinguished by `SurveyQuotaID` property.
 - A respondent applies to a quota if they fit ALL of the conditions of the qualifications.
-- _All_ quotas which apply to a respondent _must_ be greater than 0. If a respondent fits into any quota which is = 0 then the respondent will _term_.
+- __All__ quotas which apply to a respondent __must__ be greater than 0. If a respondent fits into any quota which is = 0 then the respondent will __term__.
 - The logical operator is “OR” within the same quota qualification (i.e. AGE 18 OR 19 OR 20), but AND between quota qualifications (AGE 18 OR 19 or 20 AND Male OR Female)
 
-### Phase 2 - Preparing your Survey Environment
+### Phase 2 - Getting [Offerwall Studies](http://developer.lucidhq.com/#get-list-exchange-surveys), [Creating Links](http://developer.lucidhq.com/#post-create-a-link), [Getting Qualifications](http://developer.lucidhq.com/#get-show-qualifications), and [Quotas](http://developer.lucidhq.com/#get-show-quotas)
 
 #### 1. Write a function to hash a URL and generate a checksum.
 
