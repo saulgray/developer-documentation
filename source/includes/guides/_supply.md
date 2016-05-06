@@ -95,7 +95,7 @@ __Important Details:__
 - __All__ quotas which apply to a respondent __must__ be greater than 0. If a respondent fits into any quota which is = 0 then the respondent will __term__.
 - The logical operator is “OR” within the same quota qualification (i.e. AGE 18 OR 19 OR 20), but AND between quota qualifications (AGE 18 OR 19 or 20 AND Male OR Female)
 
-### Phase 2 - [List Exchange Surveys](#get-list-exchange-surveys), [Creating Links](#post-create-a-link), [Getting Qualifications](#get-show-qualifications), and [Quotas](#get-show-quotas)
+### Phase 2 - Getting new Offerwall surveys, Qualifications, and Quotas
 
 In this phase, we’ll explain the recommended process to find new Offerwall surveys, and retrieve and store qualifications and quotas in tables locally to be referenced later.
 
@@ -113,73 +113,86 @@ In this phase, we’ll explain the recommended process to find new Offerwall sur
 | [List a Survey’s Groups](#groups)                             | 10, if in survey group         |
 | [Create a Link](#post-create-a-link)                          | 1 per project                  |
 | [Show a Link](#get-show-a-link)                               | Only for troubleshooting       |
-| [List Statistics](#get-list-statistics)                       | If desired                     |
+| [List Statistics](#get-list-statistics)                       | If desired to see all platform live survey stats|
 | [Update a Link](#put-update-a-link)                           | Never, unless project specific |
 
-####2. [List Exchange Surveys](#get-list-exchange-surveys)
+#### 2. [List Exchange Surveys](#get-list-exchange-surveys)
 
-The Fulcrum Offerwall is a list of all studies currently available to you on the Fulcrum Exchange. [List Exchange Surveys](#get-list-exchange-surveys) will return a list of all __live__ surveys on the platform which you do not already have a link against.
+The Fulcrum Offerwall is a list of all __live__ studies currently available to you on the Fulcrum Exchange. [List Exchange Surveys](#get-list-exchange-surveys) will return the list of all __live__ surveys on the platform which you do not already have a link against. A survey will only return on this call if there are completes available to you.
 
 Select and filter surveys based on desired criteria (e.g. country, study type, acceptable LOI, and QCPI)
 
-####3. [Create a Link](#post-create-a-link)
+#### 3. [Create a Link](#post-create-a-link)
 
 Once you have identifed a good survey opportuniy, create the entry links. This call will return "live" and "test" links. The "live" link is where you should send your respondents.
 
-<aside class="notice">It's best practice to never put the survey entry link directly in your respondent invite emails as surveys and survey quotas can be closed by the time the respondent clicks. Rather, use a link into your decisioning system and always select the best opportunity for your respondent and for you based on earnings per click (EPC) </aside>
+<aside class="notice">It's best practice to never put the survey entry link directly in your respondent invite emails as surveys and survey quotas can be closed by the time the respondent clicks. Rather, use a link into your decisioning system and always select the best opportunity for your respondent and for you based on earnings per click (EPC)</aside>
 
-This call will also automatically add your default supplier redirects. Custom supplier redirects can be included in the payload with this call.
+- This call will also automatically add your default supplier redirects. Custom supplier redirects can be included in the payload with this and the [Update a Link](#put-update-a-link) call.
+- We recommend sending the respondent into Fulcrum with PID as the unique panelist ID and the MID as the supplier unique session identifier.
+
+#### 4. [Show Qualifications](#get-show-qualifications)
+
+Get and store the survey qualifications and conditions in your tables
+
+#### 5. [Show Quotas](#get-show-quotas)
+
+Get and store the survey quotas in your tables. This call will give you exact number of respondents the survey is looking for.
+
+<aside class="notice">The returned data from the quotas call can be very big.  Age is represented as a string with each precode by itself.  So it will be 18, 19, 20, 21, 22, 23, 24, 25 for 18-25.  That can create large models if the survey is looking for 18-99, and has multiple age quotas.</aside>
+
+### Phase 3 - Keeping your Survey tables up to date
+
+In this phase we’ll explain how to update your live survey tables. The main goals in this phase are to ensure you’re sending sample only to live surveys and respondents to surveys with open quotas.
+
+#### 1. [List Allocated Surveys](#get-list-allocated-surveys)
+
+This call returns an index of all __LIVE__ surveys where the supplier has an allocation. Your survey update processes should be performed based on the results of this call.
+
+- Update LOI of all surveys
+- Update the country (rarely changes)
+- Pause surveys that are live in your system but are not returned on this call. The buyer has puased the survey
+- Set surveys live that are paused in your system but return on this call. The buyers has set this survey live
+- If this call returns a survey and you did not create the link via [Create a Link](#post-create-a-link) than you have been given a "targeted" allocation or "OTC" allocation. In these cases the buyer typically creates the entry link for you.
+  - Use the [Show an Allocated Survey](#get-show-an-allocated-survey) call to retrieve you entry links and TCPI
+
+#### 2. [Show Qualifications](#get-show-qualifications)
+
+Overwrite stored qualification date for each survey. 
+
+#### 3. [Show Quotas](#get-show-quotas)
+
+Overwrite store quota data for each survey. Overwrite stored pricing using the QuotaCPI property.
+
+### Phase 4 - Yield Management
+
+The final step in the Supply API integration is Yield Management. This is the process of setting business rules and API processes to ensure high earnings-per-click (EPC) studies receive the most traffic and low EPC studies are removed from sample send. If a respondent qualifies for multiple opportunities they should be sent to the one with the highest EPC. The EPC of surveys can fluctuate up and down over the life of the survey depending on numerous factors. EPC = (TrailingConversion*CPI).
+
+__Objective: Earn the most revenue with the least amount of clicks by reviewing survey EPC and ranking live surveys in your tables__
+
+- Once an hour start with the list of all your live surveys from [List Allocated Surveys](#get-list-allocated-surveys)
+- Show Global/Trailing Survey Statistics](#get-show-statistics) for all live surveys and add/update with a value for each survey in a __`Global EPC`__ column in your tables.
+  - The `Global` scope will return statistics for __all__ traffic sent by __all__ suppliers 
+  - Surveys may return with a `Global` EPC of $0.00 because they have not received any Offerwall traffic + had a complete in the last 12 hours. You should still attempt these studies as you may be there first.
+- Show Supplier/Trailing Survey Statistics](#get-show-statistics) for all live surveys and add/update with a value for each survey in a __`Internal EPC`__ column in your tables.
+  - The `Supplier` scope will return statistics __only__ for entrants sent by the supplier
+- Add a __`Functional EPC`__ column in your tables.
+  - The `functional EPC` should be the `internal EPC` if it is non-zero.
+  - If the `internal EPC` is zero then set the `functional EPC` to the global EPC
+  - If the `global EPC` is zero then set it to your `median EPC` value until your have further information (let's say $0.20)
+- Any survey beneath your desired minimum threshold (which should be below the media EPC value) should be set to inactive.   - You'll also want to create either a UI or an email alert to the business side to let them know when surveys become inactive in case you want to manually review and override, if they haven’t been alerted already.
+- Rank your surveys by functional EPC. Since this data will only update once an hour, you only should make the calls and reorder once an hour.
+- __Push survey to inactive status if you have sent over 20+ respondents and have not yet received a complete back.__
+- Please note that the above is more conservative and will tend to cut off surveys early and often. It’s a good thing to remove more chaff, so long as there is sufficient high quality inventory to earn revenue for your respondents. You may want to add in more forgiveness if you are finding too few surveys.
 
 
 
-### Phase 3 - Creating a Survey
 
-<aside class="notice">Keep in mind that user adoption will be higher with UIs that require the fewest clicks and data input. Leverage information you already have in your database to reduce the number of fields that are asked, and place areas for additional information with regard for the typical user flow.</aside>
 
-Surveys objects are the basis for a project or demographic segment you are seeking. Here are the key steps to creating a survey in Fulcrum.
-#### 1. Determine the [fair market price](#feasibility) of the target demographic.
-The Feasibility resource returns pricing data from the Fulcrum Pricing Index (FPI), which represents fair market price for a target given the surveys specs, qualifications, quotas, and time in field. Integrators with consumer users often take the response from this call and add a margin before returning it to the end user (i.e. `FPI Price * 1.3 = Price`)
 
-#### 2. Make the call to [create a survey](#post-create-a-survey) object.
-This survey object contains the key settings for the survey such as your quota cost per impression (QCPI), security settings, and links for the destination user experience (survey, user test, etc). Some of the most popular properties integrators give end-users control over are:
- - QuotaCPI: Allows the end-user to set their purchase price. In many cases, integrators will suggest (or command a price) based on the feasibility response.
- - CountryLanguageID: The country-language combination which the survey should be available to. Keep in mind that this will affect certain localized standards. For example, you would want to use STANDARD_HHI_INT in all countries outside of the United States and STANDARD_HHI_US for `English - United States` and `Spanish - US` projects. Further, you would not want to display the Hispanic nor Ethnicity qualifications outside of the United States.
 
-<aside class="notice">An additional column in your database for earnings-per-click (EPC) can help you track whether you are still offering a fair market price as your survey fields and specs change. EPC is the revenue per respondent a supplier sends in suppliers and thus the value that the survey provides to the suppliers.</aside>
 
-#### 3. [Add qualifications](#post-create-a-quota) to the survey.
-The following 7 qualifications are automatically added to US studies:
 
- - United States Studies:
-  1. `AGE`
-  2. `GENDER`
-  3. `ZIP`
-  4. `STATE`
-  5. `ETHNICITY`
-  6. `HISPANIC`
-  7. `STANDARD_HHI_US`
 
-Any of these qualifications can be modified or removed by [updating a qualification](#put-update-a-qualification) except for `AGE`, which must remain to enforce the US minimum of 13.
 
-In addition to the automatic qualifications, be sure to add qualifications for all termination points found in the client destination user experience as qualifications in Fulcrum . This helps suppliers target their respondents, which in turn lowers the cost of completes.
 
-To streamline the user experience, you should also [include all qualifications on the survey entry link](http://knowledge.fulcrumexchange.com/?p=625). This should reduce the length of interview and improve conversion, further improving pricing.
-
-#### 4. [Create quotas](#post-create-a-quota) for each target group.
-
-#### 5. Set your supplier blend using [Exchange Templates](#exchange-templates).
-
-Surveys fill quickest and most efficiently by simply allowing the Exchange to fill the project in a free market. However, if a specific blend is important to you, you can set price and allocation for groups of suppliers by applying an [Exchange Template](#exchange-templates). In addition, Fulcrum's [Survey Group](#exchange-groups) resource allows you to group suppliers for an individual study on an adhoc basis.
-
-### Phase 4 - Launching and Updating Surveys
-
-Keeping your Fulcrum projects up-to-date is an important part of survey health and maximizing sample delivery. A good integration automatically syncs quotas real-time and closes completed studies in Fulcrum. You should also consider alerting users to poor performing projects for quick resolution.
-
-#### 1. [Update your survey](#put-update-a-survey) status.
-When you are ready to launch a survey, simply set `SurveyStatusCode` to `03`. Studies that are complete should be marked with a status of `04`. For a full list of `SurveyStatuses` make the [List Global Definitions](#get-list-global-definitions) call.
-
-#### 2. [Update your quotas](#put-update-a-quota) regularly.
-If you have not enabled hash checksums or your users have direct access to Fulcrum, you should reconcile quotas between Fulcrum and your environment every 15 minutes. Otherwise, your quotas should remain in sync with Fulcrum.  In either case, you should ensure that Fulcrum is updated any time a change to quotas is made in your system.
-
-#### 3. Monitor your [survey statistics](#put-update-a-quota) and adjust pricing accordingly.
-By monitoring your survey's earnings per click (EPC) through Fulcrum's Survey Statistics resource or more granularly in your own system, you can determine whether the price you are offering for a survey given field specs is the fair market price. A "good" EPC depends on market conditions and the supplier(s) with whom you are working; however, EPCs of $0.10-$0.15 often ensure proper delivery of a survey.
