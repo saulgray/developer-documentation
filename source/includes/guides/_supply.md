@@ -53,13 +53,19 @@ Fulcrum Standard qualifications provide an industry standard for programmatic su
 - A client may not necessarily build quotas off of all qualifications. It’s very important to use both qualifications and conditions when determining whether to send your respondent.
 - You can pass respondent demographics on the Fulcrum entry link allowing the respondent to bypass prescreener questions. 
   - Example Entry Link: http://www.samplicio.us/router/default.aspx?SID=f6c83654-3d4f-4f7c-bef1-2f5097b6ae9c&PID=12345&MID=54321&AGE=35&GENDER=2&ZIP=70117
-- You can include variables in your supplier redirects to capture valuable demographic data on your respondents if already stored in Fulcrum. Fulcrum will pass back qualification answers if the respondent has answered that question within the last 30 days. If demographic data is returned on the supplier redirect which you do not already have for your panelist then update your panelist profile with this information to better improve targeting. If demographic data is returned on the supplier redirect which you already have for your panelist then ignore the data returned on the supplier redirect. We recommend including the top 20 qualifications on your return redirects to capture valuable demographic data on your respondents.
+- You can include variables in your supplier redirects to capture valuable demographic data on your respondents if already stored in Fulcrum. 
+  - Fulcrum will pass back stored demographic data if the respondent has answered that question within the last 30 days. 
+  - If demographic data is returned on the supplier redirect which you do not have for your panelist then update your panelist profile with this information to better improve targeting. 
+  - If demographic data is returned on the supplier redirect which you already have for your panelist then ignore the data returned on the supplier redirect. 
+  - We recommend including the top 20 qualifications on your return redirects to capture valuable demographic data on your respondents.
   - Example Supplier Redirect template: http://www.supplierURL.com?status=complete&PID=[%PID%]&MID=[%MID%]&42=[%AGE%]&43=[%GENDER%]&45=[%ZIP%]&47=[%HISPANIC%]&113=[%ETHNICITY%]
 
 #### 4. Understanding Fulcrum Quotas
+[Quotas](http://developer.lucidhq.com/#quotas) determine how many completes of each type of respondent are allowed into the survey. Quotas are always created off Fulcrum qualifications and conditions. 
+
 Fulcrum quotas can be nested, not nested, overlapping, or contain only a subset of the qualified respondents. Here are a few examples:
 
-- Study 1: only total quota
+- Study 1: only total quota (no subquotas)
   - Total = 1000
 - Study 2: nested gender and age
   - Total = 1000
@@ -81,6 +87,12 @@ Fulcrum quotas can be nested, not nested, overlapping, or contain only a subset 
     - Male 36+ = 250
     - Female 18-35 = 250
     - Female 36+ = 250
+
+*Important Details:*
+
+- A respondent applies to a quota if they fit ALL of the conditions of the qualifications.
+- ALL quotas apply to the respondent must be greater than 0.
+- The logical operator is “OR” within the same quota qualification (i.e. AGE 18 OR 19 OR 20), but AND between quota qualifications (AGE 18 OR 19 or 20 AND Male OR Female)
 
 ### Phase 2 - Preparing your Survey Environment
 
