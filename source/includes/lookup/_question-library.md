@@ -353,7 +353,6 @@ https.get('https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllQuestionOptions
   "QuestionOptions": [
     {
       "OptionText": "Male",
-}
       "ParentItemText": null,
       "Precode": "1",
       "QuestionID": 43
@@ -365,6 +364,7 @@ https.get('https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllQuestionOptions
       "QuestionID": 43
     }
   ]
+}
 ```
 
 Returns the answer options and associated precodes for a specific QuestionID and country-language pair.
