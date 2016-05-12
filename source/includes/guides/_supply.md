@@ -207,16 +207,21 @@ _NOTE:*SurveyGroup* and *SurveyGroupID on the _GET List Exchange Surveys_ and th
 
 We recommended that you run this flow every 5 mins.
 
-#### Recontact Studies
-Buyers often want to recontact respondents that have completed their surveys in order to ask follow-up questions. These surveys are known as recontact studies and have a “StudyTypeID”&nbsp;of 22 in Fulcrum and are unique in that buyers will upload a list of PIDs specifically for each supplier that the supplier can then use to send only those respondents into the recontact study. All recontact studies will have a unique Qualification “PIDCheck” that will contain the PIDs for the supplier.
+#### Recontacts
+Buyers often want to recontact respondents that have completed their surveys in order to ask follow-up questions. These surveys are known as recontact studies and have a “StudyTypeID” of 22 in Fulcrum and are unique in that buyers will upload a list of PIDs specifically for each supplier that the supplier can then use to send only those respondents into the recontact study. All recontact studies will have a unique Qualification “PIDCheck” that will contain the PIDs for the supplier.
 
 *Below is the API process flow for recontact studies:*
 
-1. Make the [List Exchange Surveys](#get-list-exchange-surveys)and [Show an Allocated Survey](#get-show-an-allocated-survey) call as normal
-2. For recontact studies (“StudyTypeID” of 22) make the [SurveyQualifiedRespondents/BySurveyNumberSupplierCode]()call as normal to retrieve the specific PIDs the buyer is looking for contained in the PIDCheck qual
+1. Make the [GET List Exchange Surveys](#get-list-exchange-surveys)and [GET Show an Allocated Survey](#get-show-an-allocated-survey) call as normal
+2. For recontact studies (“StudyTypeID” of 22) make the [GET List Qualified Respondents](http://developer.lucidhq.com/#get-list-qualified-respondents)call as normal to retrieve the specific PIDs the buyer is looking for contained in the PIDCheck qual
 3. Only send those respondents to the study
 4. If PIDCheck returns empty of PIDs then do not send
 
+#### Custom Qualification
+Buyers are now able to choose to expose custom qualifications to suppliers at the project level. On these studies the [GET Show Qualifications](http://developer.fulcrumexchange.com/?p=26) call will return the list of all question IDs on a given study – standards and exposed customs.
+The [GET List Standard Questions](http://developer.lucidhq.com/#get-list-standard-questions) call only returns all standard qualifications.
+
+Therefore, if a question ID returned via the Qualifications call on a study isn’t in your library, because it doesn’t appear in the AllQuestions call above, you then “know” that it’s an exposed custom. You can then look up the details on the fly for profiling respondents using the [GET Show Question Text](http://developer.lucidhq.com/#get-show-question-text) call and the [GET Show Question Options](http://developer.lucidhq.com/#get-show-question-options) call.
 
 
 
