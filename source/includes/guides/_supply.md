@@ -189,6 +189,24 @@ __Objective: Earn the most revenue with the least amount of clicks by reviewing 
 
 In this phase we’ll explain how to handle Survey Groups, Recontact Studies, and Custom Qualifications
 
+####Survey Groups
+
+The [Show an Allocated Survey](#get-show-an-allocated-survey) call returns the property SurveyGroup.  This information can be used to avoid sending respondents to a survey that is included in a survey group that contains a survey which they have previously  attempted. Buyers typically remove older surveys from the survey group over time as the lockout period ends and the respondent can then attempt new surveys once again.
+
+Below is the API process flow to check and update survey groups: (every 5 minutes):
+
+1. Make the the _GET List Exchange Surveys_ and the _GET Show an Allocated Survey_ calls
+2. Check the property _SurveyGroupExists_. “0″ or “1″ – indicates whether there is a survey group(s) associated with the survey with “0″ representing false and “1″ representing true
+3. If SurveyGroupExists = 0 then no additional steps are needed as the survey is not in a survey group
+4. If SurveyGroupExists = 1 then the survey is in a survey group and you should make the _[GET List a Survey’s Groups](http://developer.lucidhq.com/#groups)_ call for that survey
+5. Add survey number(s) to your survey group table and continue to check that survey number until null
+6. Do not send the same respondent to any survey in that survey group until the original survey number sent to returns null
+
+
+_NOTE:*SurveyGroup* and *SurveyGroupID on the _GET List Exchange Surveys_ and the _GET Show an Allocated Survey_ calls will now always return null as per June 25th changes. You should no longer use these fields._
+
+We recommended that you run this flow every 5 mins.
+
 
 
 
