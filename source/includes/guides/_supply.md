@@ -207,6 +207,17 @@ _NOTE:*SurveyGroup* and *SurveyGroupID on the _GET List Exchange Surveys_ and th
 
 We recommended that you run this flow every 5 mins.
 
+#### Recontact Studies
+Buyers often want to recontact respondents that have completed their surveys in order to ask follow-up questions. These surveys are known as recontact studies and have a “StudyTypeID”&nbsp;of 22 in Fulcrum and are unique in that buyers will upload a list of PIDs specifically for each supplier that the supplier can then use to send only those respondents into the recontact study. All recontact studies will have a unique Qualification “PIDCheck” that will contain the PIDs for the supplier.
+
+*Below is the API process flow for recontact studies:*
+
+1. Make the [List Exchange Surveys](#get-list-exchange-surveys)and [Show an Allocated Survey](#get-show-an-allocated-survey) call as normal
+2. For recontact studies (“StudyTypeID” of 22) make the [SurveyQualifiedRespondents/BySurveyNumberSupplierCode]()call as normal to retrieve the specific PIDs the buyer is looking for contained in the PIDCheck qual
+3. Only send those respondents to the study
+4. If PIDCheck returns empty of PIDs then do not send
+
+
 
 
 
