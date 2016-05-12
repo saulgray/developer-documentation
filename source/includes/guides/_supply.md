@@ -189,21 +189,21 @@ __Objective: Earn the most revenue with the least amount of clicks by reviewing 
 
 In this phase we’ll explain how to handle Survey Groups, Recontact Studies, and Custom Qualifications
 
-####Survey Groups
+#### Survey Groups
 
 The [Show an Allocated Survey](#get-show-an-allocated-survey) call returns the property SurveyGroup.  This information can be used to avoid sending respondents to a survey that is included in a survey group that contains a survey which they have previously  attempted. Buyers typically remove older surveys from the survey group over time as the lockout period ends and the respondent can then attempt new surveys once again.
 
 Below is the API process flow to check and update survey groups: (every 5 minutes):
 
-1. Make the the _GET List Exchange Surveys_ and the _GET Show an Allocated Survey_ calls
+1. Make the the [List Exchange Surveys](#get-list-exchange-surveys) and the [Show an Allocated Survey](#get-show-an-allocated-survey) calls
 2. Check the property _SurveyGroupExists_. “0″ or “1″ – indicates whether there is a survey group(s) associated with the survey with “0″ representing false and “1″ representing true
 3. If SurveyGroupExists = 0 then no additional steps are needed as the survey is not in a survey group
-4. If SurveyGroupExists = 1 then the survey is in a survey group and you should make the _[GET List a Survey’s Groups](http://developer.lucidhq.com/#groups)_ call for that survey
+4. If SurveyGroupExists = 1 then the survey is in a survey group and you should make the [List a Survey’s Groups](http://developer.lucidhq.com/#groups) call for that survey
 5. Add survey number(s) to your survey group table and continue to check that survey number until null
 6. Do not send the same respondent to any survey in that survey group until the original survey number sent to returns null
 
 
-_NOTE:*SurveyGroup* and *SurveyGroupID on the _GET List Exchange Surveys_ and the _GET Show an Allocated Survey_ calls will now always return null as per June 25th changes. You should no longer use these fields._
+NOTE:*SurveyGroup* and *SurveyGroupID on the [List Exchange Surveys](#get-list-exchange-surveys) and the [Show an Allocated Survey](#get-show-an-allocated-survey) calls will now always return null as per June 25th changes. You should no longer use these fields.
 
 We recommended that you run this flow every 5 mins.
 
@@ -212,16 +212,16 @@ Buyers often want to recontact respondents that have completed their surveys in 
 
 *Below is the API process flow for recontact studies:*
 
-1. Make the [GET List Exchange Surveys](#get-list-exchange-surveys)and [GET Show an Allocated Survey](#get-show-an-allocated-survey) call as normal
-2. For recontact studies (“StudyTypeID” of 22) make the [GET List Qualified Respondents](http://developer.lucidhq.com/#get-list-qualified-respondents)call as normal to retrieve the specific PIDs the buyer is looking for contained in the PIDCheck qual
+1. Make the [List Exchange Surveys](#get-list-exchange-surveys) and [Show an Allocated Survey](#get-show-an-allocated-survey) call as normal
+2. For recontact studies (“StudyTypeID” of 22) make the [List Qualified Respondents](http://developer.lucidhq.com/#get-list-qualified-respondents)call as normal to retrieve the specific PIDs the buyer is looking for contained in the PIDCheck qual
 3. Only send those respondents to the study
 4. If PIDCheck returns empty of PIDs then do not send
 
 #### Custom Qualification
-Buyers are now able to choose to expose custom qualifications to suppliers at the project level. On these studies the [GET Show Qualifications](http://developer.fulcrumexchange.com/?p=26) call will return the list of all question IDs on a given study – standards and exposed customs.
-The [GET List Standard Questions](http://developer.lucidhq.com/#get-list-standard-questions) call only returns all standard qualifications.
+Buyers are now able to choose to expose custom qualifications to suppliers at the project level. On these studies the [Show Qualifications](http://developer.fulcrumexchange.com/?p=26) call will return the list of all question IDs on a given study – standards and exposed customs.
+The [List Standard Questions](http://developer.lucidhq.com/#get-list-standard-questions) call only returns all standard qualifications.
 
-Therefore, if a question ID returned via the Qualifications call on a study isn’t in your library, because it doesn’t appear in the AllQuestions call above, you then “know” that it’s an exposed custom. You can then look up the details on the fly for profiling respondents using the [GET Show Question Text](http://developer.lucidhq.com/#get-show-question-text) call and the [GET Show Question Options](http://developer.lucidhq.com/#get-show-question-options) call.
+Therefore, if a question ID returned via the Qualifications call on a study isn’t in your library, because it doesn’t appear in the AllQuestions call above, you then “know” that it’s an exposed custom. You can then look up the details on the fly for profiling respondents using the [Show Question Text](http://developer.lucidhq.com/#get-show-question-text) call and the [Show Question Options](http://developer.lucidhq.com/#get-show-question-options) call.
 
 
 
