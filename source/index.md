@@ -46,6 +46,8 @@ includes:
   - labs/survey-groups
   - guides/introduction
   - guides/demand
+  - guides/supply
+  - guides/security
   - changelog/changelog
   
 search: true

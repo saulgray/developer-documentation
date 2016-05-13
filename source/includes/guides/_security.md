@@ -43,7 +43,7 @@ It's important to note that your base string should include the entire URL up to
 
 ### Supplier SHA-1 Hashing
 
-![Supplier SHA-1](developer-documentation/source/images/Supplier_sha1_flowchart_v21.png)
+![Supplier SHA-1](images/Supplier_sha1_flowchart_v21.png)
 
 Incoming encryption requires a hash value to be generated and appended for each respondent on the incoming supplier link. The hash value which will then be validated by Fulcrum. If the hash values match, the respondent will be allowed into Fulcrum. If they do not match, the respondent will be immediately terminated and sent back to the supplier on the Security redirect. 
 
@@ -51,23 +51,41 @@ On outgoing encryption, Fulcrum will append the hash value which will need to th
 
 #### 1. Encryption: Interface Setup
 
-![SHA-1 Setup](developer-documentation/source/images/Supplier-SHA-1-Encryption Screenshot.png)
+![SHA-1 Setup](images/Supplier-SHA-1-Encryption Screenshot.png)
 
 #### 2. Encryption: Incoming to Fulcrum
 
-Incoming encryption requires the supplier to append the encryption value on the Fulcrum entry links. An example of the encrypted URLs from the Supplier into Fulcrum, where the Incoming Variable Name is set to “ienc2” and the Secret Key is set to 1234567890ABC. Please note that “ienc2” and the secret key are merely example values.
+> URL Without Encryption: 
 
-- URL Without Encryption: http://www.samplicio.us/router/default.aspx?SID=12345dca-a691-4496-a2fa-12345b99ec29&PID=1234
-- URL With Encryption: http://www.samplicio.us/router/default.aspx?SID=12345dca-a691-4496-a2fa-12345b99ec29&PID=1234&ienc2=XWwaVNlMH8fxcLe5OQIh-vn5_b8
+```plaintext
+http://www.samplicio.us/router/default.aspx?SID=12345dca-a691-4496-a2fa-12345b99ec29&PID=1234
+```
+
+> URL With Encryption: 
+
+```plaintext
+http://www.samplicio.us/router/default.aspx?SID=12345dca-a691-4496-a2fa-12345b99ec29&PID=1234&ienc2=XWwaVNlMH8fxcLe5OQIh-vn5_b8
+```
+
+Incoming encryption requires the supplier to append the encryption value on the Fulcrum entry links. An example of the encrypted URLs from the Supplier into Fulcrum, where the Incoming Variable Name is set to “ienc2” and the Secret Key is set to 1234567890ABC. Please note that “ienc2” and the secret key are merely example values.
 
 If the Incoming Variable does not match the results of the algorithm, the respondent will count as a quality termination immediately upon entering Fulcrum and will be redirected on the quality termination failure link back to the supplier without the chance to route.
 
 #### 3. Encryption: Outgoing from Fulcrum
 
-Fulcrum will append the encryption value on the supplier redirect which needs to be captured and verified by the supplier. An example of the encrypted URLs from the Fulcrum to Supplier where the Outgoing Variable Name is set to “oenc” and the Secret Key is set to 1234567890ABC. Please note that “oenc” and the secret key are merely example values. All Kinesis partners should use the outgoing parameter name “hash” to ensure encryption is successful.
+> URL Without Encryption:
 
-- URL Without Encryption: https://www.abc.com/ex.aspx?abc=def&vid=123
-- URL With Encryption: https://www.abc.com/ex.aspx?abc=def&vid=123&oenc=h5o29uA19Z73RFWNsQU6-OW-7ls
+```plaintext
+https://www.abc.com/ex.aspx?abc=def&vid=123
+```
+
+> URL With Encryption:
+
+```plaintext
+https://www.abc.com/ex.aspx?abc=def&vid=123&oenc=h5o29uA19Z73RFWNsQU6-OW-7ls
+```
+
+Fulcrum will append the encryption value on the supplier redirect which needs to be captured and verified by the supplier. An example of the encrypted URLs from the Fulcrum to Supplier where the Outgoing Variable Name is set to “oenc” and the Secret Key is set to 1234567890ABC. Please note that “oenc” and the secret key are merely example values. All Kinesis partners should use the outgoing parameter name “hash” to ensure encryption is successful.
 
 If the Outgoing Variable does not match the results of the algorithm, the supplier should terminate these respondents and consider them non-completes.
 
@@ -81,7 +99,3 @@ Do I need to use incoming and outgoing SHA-1 encryption?
 
 - We strongly recommend implementing both incoming and outgoing encryption. Incoming encryption helps prevent URL tampering as the respondent moves further downstream to the client survey. Catching URL link tampering earlier in the process helps reduce cheating elsewhere in the Fulcrum environment which helps buyers and clients feel more confident with the quality of your panel. Outgoing encryption helps directly prevent respondents from manipulating supplier redirects in an attempt to “fake” a complete.
 Where can I get help implementing incoming and outgoing SHA-1 encryption?
-
-If, after reading the above SHA-1 encryption guide you still have questions, please feel free to email support@luc.id for assistance.
-
-### Buyer SHA-1 Hashing
