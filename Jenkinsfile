@@ -4,7 +4,7 @@ node('docker'){
     checkout scm
 
     def channel  = 'integrations-testing'
-    def app_name = 'DeveloperDocumentation'
+    def app_name = 'developer_documentation'
 
     def docker_container = docker.build( app_name )
     docker_container.inside {
