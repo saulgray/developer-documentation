@@ -1,12 +1,10 @@
-FROM ubuntu:trusty
+FROM ruby:2.3.1-slim
 
 RUN apt-get update
-RUN apt-get install -yq ruby ruby-dev build-essential git
-RUN gem install --no-ri --no-rdoc bundler
-ADD Gemfile /app/Gemfile
-ADD Gemfile.lock /app/Gemfile.lock
-RUN cd /app; bundle install
-ADD . /app
-EXPOSE 4567
-WORKDIR /app
-CMD ["bundle", "exec", "middleman", "server"]
+RUN apt-get install -y sudo
+RUN apt-get install -y git
+RUN apt-get install -y build-essential
+
+RUN useradd -u 1001 jenkins
+RUN adduser jenkins sudo
+RUN echo 'jenkins ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
