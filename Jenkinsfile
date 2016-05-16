@@ -11,8 +11,8 @@ node('docker'){
         notifySlack("${app_name} build and publish starting!", channel)
 
         stage 'Publish'
-        sh 'bundle install'
-        sh 'rake build --trace'
+        sh 'sudo bundle install'
+        sh 'sudo rake build --trace'
 
         notifySlack("${app_name} build and publish finished!", channel)
     }
