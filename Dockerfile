@@ -1,4 +1,4 @@
-FROM ruby:2.3.1-slim
+FROM ruby:2.2.5-slim
 
 RUN apt-get update
 RUN apt-get install -y sudo
