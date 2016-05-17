@@ -18,8 +18,8 @@ node('docker'){
                 notifySlack("${app_name} build and publish starting!", channel)
 
                 stage 'Publish'
-                sh 'sudo bundle install'
-                sh 'if [ -d "build" ]; then sudo rm -rf "build"; fi'
+                sh 'bundle install'
+                sh 'if [ -d "build" ]; then rm -rf "build"; fi'
                 // echo "sudo GIT_SSH_COMMAND='ssh -i \$KEY_FILE' rake publish --trace"
                 // sh "sudo GIT_SSH_COMMAND='ssh -i \$KEY_FILE' rake publish --trace"
                 sshagent (credentials: ['8550b216-2b35-4a37-be2f-1d0190198db4']) {
