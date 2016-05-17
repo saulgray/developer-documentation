@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 # Middleman
-gem 'bundler'
 gem 'middleman', '~>3.3.10'
 gem 'middleman-gh-pages', '~> 0.0.3'
 gem 'middleman-syntax', '~> 2.0.0'

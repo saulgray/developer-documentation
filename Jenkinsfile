@@ -23,7 +23,7 @@ node('master'){
             // sh "sudo GIT_SSH_COMMAND='ssh -i \$KEY_FILE' rake publish --trace"
             sshagent (credentials: ['8550b216-2b35-4a37-be2f-1d0190198db4']) {
                 // sh 'ls ~/.ssh'
-                sh "GIT_SSH_COMMAND='ssh -v' rake publish --trace"
+                sh "GIT_SSH_COMMAND='ssh -i /var/lib/jenkins/.ssh/dev_doc_deployer' rake publish --trace"
             }
 
             notifySlack("${app_name} publish finished!", channel)
