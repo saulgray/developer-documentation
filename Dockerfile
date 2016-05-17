@@ -13,5 +13,7 @@ RUN apt-get install -y curl
 RUN gem install bundler
 
 RUN useradd -u 1001 jenkins
+RUN mkdir -p /home/jenkins
+RUN chown -R jenkins:jenkins /home/jenkins
 RUN adduser jenkins sudo
 RUN echo 'jenkins ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
