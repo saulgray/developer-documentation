@@ -13,9 +13,9 @@ node('docker'){
 
             stage 'Publish'
             sh 'sudo bundle install'
-            sh 'sudo rake build --trace'
+            sh "sudo GIT_SSH_COMMAND='ssh -i $KEY_FILE' rake publish --trace"
 
-            notifySlack("${app_name} build and publish finished!", channel)
+            notifySlack("${app_name} publish finished!", channel)
         }
     }
 }
