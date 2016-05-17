@@ -9,6 +9,7 @@ node('docker'){
     print push_branch_ref
     def channel         = 'integrations-testing'
     def app_name        = 'developer_documentation'
+    payload_obj         = null
 
     if( push_branch_ref.contains('master') ){
         withCredentials([[$class: 'FileBinding', credentialsId: '31ccb6e3-1905-4ea5-918f-d3686a7537c0', variable: 'KEY_FILE']]) {
