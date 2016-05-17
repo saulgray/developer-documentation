@@ -27,6 +27,6 @@ node('docker'){
         }
     }
     else{
-        notifySlack("${app_name} changed was pushed, but not to master.", channel)
+        notifySlack("${app_name} non-master change pushed.", channel)
     }
 }
