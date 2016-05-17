@@ -11,7 +11,7 @@ node('docker'){
     def app_name        = 'developer_documentation'
     payload_obj         = null
 
-    if( push_branch_ref.contains('master') ){
+    if( push_branch_ref == 'refs/heads/master' ){
         withCredentials([[$class: 'FileBinding', credentialsId: '31ccb6e3-1905-4ea5-918f-d3686a7537c0', variable: 'KEY_FILE']]) {
             def docker_container = docker.build( app_name )
             docker_container.inside {
@@ -19,6 +19,7 @@ node('docker'){
 
                 stage 'Publish'
                 sh 'sudo bundle install'
+                sh 'if [ -d "build" ]; then rm -rf "build"; fi'
                 sh "sudo GIT_SSH_COMMAND='ssh -i \$KEY_FILE' rake publish --trace"
 
                 notifySlack("${app_name} publish finished!", channel)
@@ -26,6 +27,6 @@ node('docker'){
         }
     }
     else{
-        notifySlack("${app_name} changed was pushed, but not to master.", channel)
+        notifySlack("${app_name} non-master change pushed.", channel)
     }
 }
