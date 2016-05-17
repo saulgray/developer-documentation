@@ -1,10 +1,12 @@
 #!groovy
+import groovy.json.JsonSlurper
 
 node('docker'){
     checkout scm
 
     def payload_obj     = new JsonSlurper().parseText(payload)
     def push_branch_ref = payload_obj.ref
+    print push_branch_ref
     def channel         = 'integrations-testing'
     def app_name        = 'developer_documentation'
 
