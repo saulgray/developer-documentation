@@ -6,7 +6,6 @@ node('docker'){
 
     def payload_obj     = new JsonSlurper().parseText(payload)
     def push_branch_ref = payload_obj.ref
-    print push_branch_ref
     def channel         = 'integrations-testing'
     def app_name        = 'developer_documentation'
     payload_obj         = null
@@ -17,14 +16,11 @@ node('docker'){
             notifySlack("${app_name} build and publish starting!", channel)
 
             stage 'Publish'
+            sh 'git config --global user.email "devops@luc.id"'
+            sh 'git config --global user.name "Jenkins"'
             sh 'bundle install'
             sh 'if [ -d "build" ]; then rm -rf "build"; fi'
-            // echo "sudo GIT_SSH_COMMAND='ssh -i \$KEY_FILE' rake publish --trace"
-            // sh "sudo GIT_SSH_COMMAND='ssh -i \$KEY_FILE' rake publish --trace"
-            sshagent (credentials: ['8550b216-2b35-4a37-be2f-1d0190198db4']) {
-                // sh 'ls ~/.ssh'
-                sh "GIT_SSH_COMMAND='ssh -v' rake publish --trace"
-            }
+            sh 'rake publish --trace'
 
             notifySlack("${app_name} publish finished!", channel)
         }
