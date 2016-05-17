@@ -20,8 +20,11 @@ node('docker'){
                 stage 'Publish'
                 sh 'sudo bundle install'
                 sh 'if [ -d "build" ]; then sudo rm -rf "build"; fi'
-                echo "sudo GIT_SSH_COMMAND='ssh -i \$KEY_FILE' rake publish --trace"
-                sh "sudo GIT_SSH_COMMAND='ssh -i \$KEY_FILE' rake publish --trace"
+                // echo "sudo GIT_SSH_COMMAND='ssh -i \$KEY_FILE' rake publish --trace"
+                // sh "sudo GIT_SSH_COMMAND='ssh -i \$KEY_FILE' rake publish --trace"
+                sshagent (credentials: ['lucid-jenkins-bot']) {
+                    sh "sudo rake publish --trace"
+                }
 
                 notifySlack("${app_name} publish finished!", channel)
             }
