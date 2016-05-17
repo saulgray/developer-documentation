@@ -966,11 +966,10 @@
   </span><span class="nt">"QuestionOptions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"OptionText"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Male"</span><span class="p">,</span><span class="w">
-</span><span class="err">}</span><span class="w">
-      </span><span class="s2">"ParentItemText"</span><span class="err">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Precode"</span><span class="err">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"QuestionID"</span><span class="err">:</span><span class="w"> </span><span class="mi">43</span><span class="w">
-    </span><span class="err">}</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ParentItemText"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Precode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"QuestionID"</span><span class="p">:</span><span class="w"> </span><span class="mi">43</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"OptionText"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Female"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"ParentItemText"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -978,6 +977,7 @@
       </span><span class="nt">"QuestionID"</span><span class="p">:</span><span class="w"> </span><span class="mi">43</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
 
 <p>Returns the answer options and associated precodes for a specific QuestionID and country-language pair.</p>
@@ -11469,6 +11469,450 @@
 <h4 id="3-monitor-your-survey-statistics-and-adjust-pricing-accordingly">3. Monitor your <a href="#put-update-a-quota">survey statistics</a> and adjust pricing accordingly.</h4>
 
 <p>By monitoring your survey&rsquo;s earnings per click (EPC) through Fulcrum&rsquo;s Survey Statistics resource or more granularly in your own system, you can determine whether the price you are offering for a survey given field specs is the fair market price. A &ldquo;good&rdquo; EPC depends on market conditions and the supplier(s) with whom you are working; however, EPCs of $0.10-$0.15 often ensure proper delivery of a survey.</p>
+
+              <h2 id="supply-integration">Supply Integration</h2>
+
+<p>A Fulcrum Supply API integration gives you and your respondents instant access to thousands of Fulcrum project opportunities globally. The Fulcrum API gives you the ability to find and filter new survey opportunities, send targeted respondents using survey qualifications and quotas, and strategically rank survey opportunities in order to maximize revenue.</p>
+
+<p>Before getting started, it&rsquo;s important to note that all testing and development should be done in the <a href="#environments">sandbox environment</a>. Information on environments and other foundational topics is available in the <a href="#introduction">Introduction</a> and should be reviewed before moving on to Phase 1.</p>
+
+<h3 id="phase-1-mapping">Phase 1 - Mapping</h3>
+
+<p>Fulcrum contains numerous objects, structures, and options that should be added to the supplier system or mapped. The steps below guide you through the key areas that should be mapped or adopted.</p>
+
+<h4 id="1-store-our-system-definitions-and-map-them-to-your-system">1. Store our system <a href="#definitions">definitions</a> and map them to your system.</h4>
+
+<p>These definitions provide human-readable strings that correspond to various object/option IDs in Fulcrum.</p>
+
+<h4 id="2-store-fulcrum-standard-qualification-question-texts-and-answer-options-for-countries-you-operate-in">2. Store Fulcrum Standard qualification <a href="#get-list-standard-questions">question texts</a> and <a href="#get-show-question-options">answer options</a> for countries you operate in.</h4>
+
+<p>We recommend mapping your respondents to the top 20-30 Fulcrum standard qualifications (please see below). Note: In the United States, State, DMA, Region, and Division are all based off ZIP. Be sure to map all zip codes to their corresponding State, DMA, Region, and Division for optimal geographic targeting.</p>
+
+<ul>
+<li><code class="prettyprint">AGE</code></li>
+<li><code class="prettyprint">GENDER</code></li>
+<li><code class="prettyprint">ZIP</code></li>
+<li><code class="prettyprint">HISPANIC</code></li>
+<li><code class="prettyprint">ETHNICITY</code></li>
+<li><code class="prettyprint">STANDARD_HHI_US</code></li>
+<li><code class="prettyprint">STANDARD_EDUCATION</code></li>
+<li><code class="prettyprint">STANDARD_EMPLOYMENT</code></li>
+<li><code class="prettyprint">STANDARD_JOB_TITLE</code></li>
+<li><code class="prettyprint">Age_and_Gender_of_Child</code></li>
+<li><code class="prettyprint">STANDARD_INDUSTRY</code></li>
+<li><code class="prettyprint">STANDARD_No_OF_EMPLOYEES</code></li>
+<li><code class="prettyprint">STANDARD_B2B_DECISION_MAKER</code></li>
+<li><code class="prettyprint">Parental_Status_Standard</code></li>
+<li><code class="prettyprint">STANDARD_COMPANY_REVENUE</code></li>
+<li><code class="prettyprint">STANDARD_SUFFERER_AILMENTS_I</code></li>
+<li><code class="prettyprint">STANDARD_SUFFERER_AILMENTS_II</code></li>
+<li><code class="prettyprint">STANDARD_COMPANY_DEPARTMENT</code></li>
+<li><code class="prettyprint">STANDARD_INDUSTRY_PERSONAL</code></li>
+<li><code class="prettyprint">STANDARD_DIAGNOSED_AILMENTS_I</code></li>
+<li><code class="prettyprint">STANDARD_DIAGNOSED_AILMENTS_II</code></li>
+<li><code class="prettyprint">STANDARD_PETS</code></li>
+<li><code class="prettyprint">STANDARD_BEVERAGE_P4W</code></li>
+<li><code class="prettyprint">STANDARD_RELATIONSHIP</code></li>
+<li><code class="prettyprint">STANDARD_HOUSEHOLD_TYPE</code></li>
+<li><code class="prettyprint">Panel_Recruit</code></li>
+<li><code class="prettyprint">STANDARD_DIABETES_TYPE</code></li>
+<li><code class="prettyprint">STANDARD_ELECTRONICS</code></li>
+<li><code class="prettyprint">STANDARD_FLIGHT_DESTINATION</code></li>
+</ul>
+
+<p>For a list of top qualifications in other countries, <a href="mailto:support@luc.id">shoot us an email</a>.</p>
+
+<h4 id="3-understanding-fulcrum-qualifications">3. Understanding Fulcrum Qualifications</h4>
+
+<blockquote>
+<p>Example Entry to Fulcrum with Supplier&rsquo;s Respondent Data:</p>
+</blockquote>
+<pre class="highlight plaintext"><code>http://www.samplicio.us/router/default.aspx?SID=f6c83654-3d4f-4f7c-bef1-2f5097b6ae9c&amp;PID=12345&amp;MID=54321&amp;AGE=35&amp;GENDER=2&amp;ZIP=70117
+</code></pre>
+
+<blockquote>
+<p>Example Supplier End Link with Fulcrum&rsquo;s Respondent Data:</p>
+</blockquote>
+<pre class="highlight plaintext"><code>http://www.supplierURL.com?status=complete&amp;PID=[%PID%]&amp;MID=[%MID%]&amp;42=[%AGE%]&amp;43=[%GENDER%]&amp;45=[%ZIP%]&amp;47=[%HISPANIC%]&amp;113=[%ETHNICITY%]
+</code></pre>
+
+<p>Fulcrum Standard questions provide an industry standard for programmatic survey targeting. A survey’s qualifications form the pre-screener questions that are presented to each respondent before they leave Fulcrum and enter the client survey.</p>
+
+<ul>
+<li>Questions and their conditions make up qualifications—the overall type of respondents the buyer is looking for. </li>
+<li>Conditions are set on a question to form a qualification, which specifies who is allowed into the survey. For example AGE and GENDER are questions. If the client is looking for AGE 18-24 and only Males, those would be conditions.</li>
+<li>A client may not necessarily build quotas off of all qualifications. It’s very important to use both qualifications and quotas when determining whether to send your respondent.</li>
+<li>You can pass respondent demographics on the Fulcrum entry link allowing the respondent to bypass prescreener questions.</li>
+<li>Respondents will also bypass questions they have already answered in Fulcrum. You can include variables in your supplier redirects to capture this valuable demographic data on your respondents as they answer those quesetions in Fulcrum. 
+
+<ul>
+<li>Fulcrum will pass back stored demographic data if the respondent has answered that question within the last 30 days. 30 days is the exipration period for all demographic data in Fulcrum.</li>
+<li>If demographic data is returned on the supplier redirect which you <strong>do not</strong> have for your panelist, then update your panelist profile with this information to better improve your targeting. </li>
+<li>If you already have that demographic information stored, ignore Fulcrum&rsquo;s data and use your own as the source of truth.</li>
+<li>We recommend including the top 20 qualifications on your return redirects to capture valuable demographic data on your respondents.</li>
+</ul></li>
+</ul>
+
+<h4 id="4-understanding-fulcrum-quotas">4. Understanding Fulcrum Quotas</h4>
+
+<p><a href="#quotas">Quotas</a> determine how many completes of each type of respondent are allowed into the survey. Quotas are always created off Fulcrum qualifications. </p>
+
+<p>Fulcrum quotas can be nested, overlapping, or contain only a subset of the qualified respondents. Here are a few examples:</p>
+
+<ul>
+<li>Study 1: only total quota (no subquotas)
+
+<ul>
+<li>Total = 1000</li>
+</ul></li>
+<li>Study 2: nested gender and age
+
+<ul>
+<li>Total = 1000</li>
+<li>Male 18-35 = 250</li>
+<li>Male 36+ = 250</li>
+<li>Female 18-35 = 250</li>
+<li>Female 36+ = 250</li>
+</ul></li>
+<li>Study 3: separate gender and age
+
+<ul>
+<li>Total = 1000</li>
+<li>Male = 500</li>
+<li>Female = 500</li>
+<li>18-35 = 500</li>
+<li>36+ = 500</li>
+</ul></li>
+<li>Study 4: separate gender and nested gender and age quotas
+
+<ul>
+<li>Total = 1000</li>
+<li>Male = 500</li>
+<li>Female = 500</li>
+<li>Male 18-35 = 250</li>
+<li>Male 36+ = 250</li>
+<li>Female 18-35 = 250</li>
+<li>Female 36+ = 250</li>
+</ul></li>
+</ul>
+
+<p><strong>Important Details:</strong></p>
+
+<ul>
+<li>Quotas are distinguished by <code class="prettyprint">SurveyQuotaID</code> property.</li>
+<li>A respondent qualifies for a quota cell if they fit <strong>all</strong> of the conditions of the qualifications.</li>
+<li><strong>All</strong> quotas a respondent qualifies for <strong>must</strong> be greater than 0 in order for them to qualify to enter the study. If a respondent fits into any quota which is has 0 completes remaining, the respondent will <strong>term</strong>.</li>
+<li>The logical operator is “OR” within the same quota qualification (i.e. AGE 18 OR 19 OR 20), but AND between quota qualifications (AGE 18 OR 19 or 20 AND Male OR Female)</li>
+</ul>
+
+<h3 id="phase-2-getting-the-offerwall-qualifications-and-quotas">Phase 2 - Getting the Offerwall, Qualifications, and Quotas</h3>
+
+<p>In this phase, we’ll explain the recommended process to find new Offerwall surveys, and retrieve and store qualifications and quotas in tables locally to be referenced later.</p>
+
+<h4 id="1-recommended-supply-api-call-interval">1. Recommended Supply API Call Interval</h4>
+
+<table><thead>
+<tr>
+<th>API Call</th>
+<th>Ideal Interval (in minutes)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="#get-show-quotas">Show Quotas</a></td>
+<td>3</td>
+</tr>
+<tr>
+<td><a href="#get-list-allocated-surveys">List Allocated Surveys</a></td>
+<td>3</td>
+</tr>
+<tr>
+<td><a href="#get-show-an-allocated-survey">Show an Allocated Survey</a></td>
+<td>Project-specific</td>
+</tr>
+<tr>
+<td><a href="#get-show-qualifications">Show Qualifications</a></td>
+<td>3</td>
+</tr>
+<tr>
+<td><a href="#get-show-statistics">Show Survey Statistics</a></td>
+<td>60</td>
+</tr>
+<tr>
+<td><a href="#get-list-exchange-surveys">List Exchange Surveys</a></td>
+<td>3</td>
+</tr>
+<tr>
+<td><a href="#get-list-qualified-respondents">List Qualified Respondents</a></td>
+<td>3 (if recontact study type)</td>
+</tr>
+<tr>
+<td><a href="#groups">List a Survey’s Groups</a></td>
+<td>10 (if in survey group)</td>
+</tr>
+<tr>
+<td><a href="#post-create-a-link">Create a Link</a></td>
+<td>Once</td>
+</tr>
+<tr>
+<td><a href="#get-show-a-link">Show a Link</a></td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><a href="#get-list-statistics">List Statistics</a></td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><a href="#put-update-a-link">Update a Link</a></td>
+<td>Never (unless project-specific)</td>
+</tr>
+</tbody></table>
+
+<h4 id="2-list-exchange-surveys">2. <a href="#get-list-exchange-surveys">List Exchange Surveys</a></h4>
+
+<p>The Fulcrum Offerwall is a list of all <strong>live</strong> studies currently available to you on the Fulcrum Exchange. <a href="#get-list-exchange-surveys">List Exchange Surveys</a> will return the list of all <strong>live</strong> surveys on the platform which you do not already have a link against. A survey will only return on this call if there are completes available to you.</p>
+
+<p>Select and filter surveys based on desired criteria (e.g. country, study type, acceptable LOI, and QCPI)</p>
+
+<h4 id="3-create-a-link">3. <a href="#post-create-a-link">Create a Link</a></h4>
+
+<p>Once you have identifed a good survey opportuniy, create the entry links. This call will return &ldquo;live&rdquo; and &ldquo;test&rdquo; links. The &ldquo;live&rdquo; link is where you should send your respondents.</p>
+
+<aside class="notice">It&rsquo;s best practice to never put the survey entry link directly in your respondent invite emails as surveys and survey quotas can be closed by the time the respondent clicks. Rather, use a link into your decisioning system and always re-evaluate the best opportunity for your respondent and for you based on earnings per click (EPC) at that time.</aside>
+
+<ul>
+<li>Fulcrum will automatically use your default supplier redirects. Custom supplier redirects can be included in the payload with this call and the <a href="#put-update-a-link">Update a Link</a> call.</li>
+<li>We require sending the respondent into Fulcrum with PID equal to the unique panelist ID and recommend sending the MID equal to the supplier&rsquo;s unique identifier for the session.</li>
+</ul>
+
+<h4 id="4-show-qualifications">4. <a href="#get-show-qualifications">Show Qualifications</a></h4>
+
+<p>Get and store the survey qualifications and conditions in your tables</p>
+
+<h4 id="5-show-quotas">5. <a href="#get-show-quotas">Show Quotas</a></h4>
+
+<p>Get and store the survey quotas in your tables. This call will give you exact number of respondents the survey is looking for.</p>
+
+<h3 id="phase-3-keeping-your-survey-tables-up-to-date">Phase 3 - Keeping your Survey tables up to date</h3>
+
+<p>In this phase we’ll explain how to update your live survey tables. The main goals in this phase are to ensure you’re sending sample only to live surveys and respondents to surveys with relevant open quotas.</p>
+
+<h4 id="1-list-allocated-surveys">1. <a href="#get-list-allocated-surveys">List Allocated Surveys</a></h4>
+
+<p>This call returns an index of all live surveys where the supplier has an allocation. Your survey update processes should be performed based on the results of this call.</p>
+
+<ul>
+<li>Update LOI of all surveys.</li>
+<li>Update the country (rarely changes).</li>
+<li>Pause surveys that are live in your system but are not returned on this call. The buyer has paused the survey.</li>
+<li>Set surveys live that are paused in your system but return on this call. The buyers has set this survey back to live.</li>
+<li>If this call returns a survey and you did not create the link via <a href="#post-create-a-link">Create a Link</a> than you have been given a &ldquo;targeted&rdquo; allocation or &ldquo;OTC&rdquo; allocation.
+
+<ul>
+<li>In these cases the buyer typically creates the entry link for you.</li>
+<li>Use the <a href="#get-show-an-allocated-survey">Show an Allocated Survey</a> call to retrieve you entry links and TCPI</li>
+</ul></li>
+</ul>
+
+<h4 id="2-show-qualifications">2. <a href="#get-show-qualifications">Show Qualifications</a></h4>
+
+<p>Overwrite stored qualification data for each survey. </p>
+
+<h4 id="3-show-quotas">3. <a href="#get-show-quotas">Show Quotas</a></h4>
+
+<p>Overwrite stored quota data for each survey. Overwrite stored pricing using the QuotaCPI property. QuotaCPI can be stored on the survey level rather than the quota level. Fulcrum does not support quota-level pricing at this time.</p>
+
+<h3 id="phase-4-yield-management">Phase 4 - Yield Management</h3>
+
+<p>The next step in the Supply API integration is Yield Management. This is the process of setting business rules and API processes to ensure that high earnings-per-click (EPC) studies receive the most traffic and that sample is not sent studies with an EPC lower than your EPC floor. If a respondent qualifies for multiple opportunities, they should be sent to the one with the highest EPC. The EPC of surveys can fluctuate up and down over the life of the survey depending on numerous factors. EPC = (TrailingConversion*CPI).</p>
+
+<p><strong>Objective: Earn the most revenue with the least amount of clicks by reviewing survey EPC and ranking live surveys in your tables.</strong></p>
+
+<ul>
+<li>Once an hour start with the list of all your live surveys from <a href="#get-list-allocated-surveys">List Allocated Surveys</a></li>
+<li><a href="#get-show-statistics">Show Global/Trailing Survey Statistics</a> for all live surveys and add/update with a value for each survey in a <code class="prettyprint">Global EPC</code> column in your tables.
+
+<ul>
+<li>The Global scope will return statistics for <strong>all</strong> traffic sent by <strong>all</strong> suppliers </li>
+<li>Surveys may return with a Global EPC of $0.00 because they have not received any Offerwall traffic or had a complete in the last 12 hours. You should still attempt these studies as you may be there first.</li>
+</ul></li>
+<li><a href="#get-show-statistics">Show Supplier/Trailing Survey Statistics</a> for all live surveys and add/update with a value for each survey in a <code class="prettyprint">Internal EPC</code> column in your tables.
+
+<ul>
+<li>The Supplier scope will return statistics <strong>only</strong> for entrants sent by the supplier</li>
+<li>You may also choose to calculate EPC within your system rather than relying on Fulcrum&rsquo;s calcualtion for yoru internal EPC.</li>
+</ul></li>
+<li>Add a <code class="prettyprint">Functional EPC</code> column in your tables.
+
+<ul>
+<li>The <code class="prettyprint">functional EPC</code> should be the <code class="prettyprint">internal EPC</code> if it is non-zero.</li>
+<li>If the <code class="prettyprint">internal EPC</code> is zero then set the <code class="prettyprint">functional EPC</code> to the <code class="prettyprint">global EPC</code>.</li>
+<li>If the <code class="prettyprint">global EPC</code> is zero then set it to your <code class="prettyprint">median EPC</code> value until your have further information.</li>
+</ul></li>
+<li>Any survey beneath your desired minimum threshold (which should be below the media EPC value) should be set to inactive. Many suppliers find it useful to create a UI, log, or email alert to the business side to let them know when surveys become inactive in case you want to manually review and override.</li>
+<li>Rank your surveys by <code class="prettyprint">functional EPC</code>. Since this data will only update once an hour, you should make the calls and process EPC data once an hour.</li>
+<li>Push survey to inactive status if you have sent over 20+ respondents and have not yet received a complete back.</li>
+<li>Please note that the above is more conservative and will tend to cut off surveys early and often. It’s a good thing to remove more chaff, so long as there is sufficient high quality inventory to earn revenue for your respondents. You may want to add in more forgiveness if you are finding too few surveys.</li>
+</ul>
+
+<h3 id="phase-5-advanced-topics">Phase 5 - Advanced Topics</h3>
+
+<p>In this phase we’ll explain how to handle Survey Groups, Recontact Studies, and Custom Qualifications</p>
+
+<h4 id="survey-groups">Survey Groups</h4>
+
+<p>The <a href="#get-show-an-allocated-survey">Show an Allocated Survey</a> call returns the property <code class="prettyprint">SurveyGroup</code>.  This information can be used to avoid sending respondents to a survey that is included in a survey group that contains a survey which they have previously  attempted. Buyers typically remove older surveys from the survey group over time as the lockout period ends and the respondent can then attempt new surveys once again.</p>
+
+<p>Below is recommended process to check and update survey groups every 5 minutes:</p>
+
+<ol>
+<li>Make the the <a href="#get-list-exchange-surveys">List Exchange Surveys</a> and the <a href="#get-show-an-allocated-survey">Show an Allocated Survey</a> calls</li>
+<li>Check the property <code class="prettyprint">SurveyGroupExists</code>. <code class="prettyprint">0</code> or <code class="prettyprint">1</code> indicates whether there is a survey group(s) associated with the survey. <code class="prettyprint">0</code> represents <code class="prettyprint">false</code> and <code class="prettyprint">1</code> representing <code class="prettyprint">true</code>.</li>
+<li>If <code class="prettyprint">SurveyGroupExists</code> = <code class="prettyprint">0</code> then no additional steps are needed as the survey is not in a survey group</li>
+<li>If <code class="prettyprint">SurveyGroupExists</code> = <code class="prettyprint">1</code> then the survey is in a survey group and you should make the <a href="#groups">List a Survey’s Groups</a> call for that survey.</li>
+<li>Add the groups&rsquo;s survey number(s) to your survey group table and continue to check that survey number until it is removed from the survey group—the response will be <code class="prettyprint">null</code>.</li>
+<li>Do not send the same respondent to any survey in that survey group until you get a <code class="prettyprint">null</code> response for that survey.</li>
+</ol>
+
+<p><code class="prettyprint">SurveyGroup</code> and <code class="prettyprint">SurveyGroupID</code> on the <a href="#get-list-exchange-surveys">List Exchange Surveys</a> and the <a href="#get-show-an-allocated-survey">Show an Allocated Survey</a> calls will now always return null as per June 25th changes. You should no longer use these fields.</p>
+
+<h4 id="recontacts">Recontacts</h4>
+
+<p>Buyers often want to recontact respondents that have completed their surveys in order to ask follow-up questions. These surveys are known as recontact studies and have a <code class="prettyprint">StudyTypeID</code> of 22 in Fulcrum. These studies are unique in that buyers will upload a list of PIDs that the supplier can then use to identify respondents that qualify for the opportunity. All recontact studies will have a unique Qualification, <code class="prettyprint">PIDCheck</code>, that will terminate PID and supplier combinations that are not in the buyer&rsquo;s PID list.</p>
+
+<p>Below is the API process flow for recontact studies:</p>
+
+<ol>
+<li>Make the <a href="#get-list-exchange-surveys">List Exchange Surveys</a> and <a href="#get-show-an-allocated-survey">Show an Allocated Survey</a> call as normal.</li>
+<li>For recontact studies (<code class="prettyprint">StudyTypeID</code> of 22) make the <a href="#get-list-qualified-respondents">List Qualified Respondents</a> call as normal to retrieve the specific PIDs the buyer is looking for.</li>
+<li>Only send those respondents to the study.</li>
+<li>If PIDCheck returns empty of PIDs, you do not have any qualifying respondents.</li>
+</ol>
+
+<h4 id="custom-qualification">Custom Qualification</h4>
+
+<p>Buyers are now able to choose to expose custom qualifications to suppliers at the survey level. On these studies the <a href="#get-show-qualifications">Show Qualifications</a> call will return the list of all question IDs for a given study—standards and exposed customs.
+The <a href="#get-list-standard-questions">List Standard Questions</a> call only returns all standard qualifications. Therefore, if a question ID returned via the <a href="#get-show-qualifications">Show Qualifications</a> call is not in the Standard library, you can assume it is a custom. You can then look up the details on the fly for profiling respondents using the <a href="#get-show-question-text">Show Question Text</a> call and the <a href="#get-show-question-options">Show Question Options</a> call.</p>
+
+              <h2 id="security">Security</h2>
+
+<p>SHA-1 hashing for both buyers and suppiers helps prevent URL manipulation when utilized on redirects into and out of Fulcrum. Utilizing complete end-to-end link encryption makes the Fulcrum environment more secure and productive for suppliers and buyers. Fulcrum strongly recommends taking advantage of inbound and outbound URL hashing.</p>
+
+<p>In order to verify the validity of any Fulcrum outbound connection or generate a hash to match with any Fulcrum inbound connection, you must create a function that computes an RFC 2014-compliant HMAC signature and substitute the following characters:</p>
+
+<blockquote>
+<p>Example key</p>
+</blockquote>
+<pre class="highlight plaintext"><code>ZZ6VkORqV25iSWOVb5cwZ03zpns
+</code></pre>
+
+<blockquote>
+<p>Example Base URL</p>
+</blockquote>
+<pre class="highlight plaintext"><code>https://www.abc.com/ex.aspx?abc=def&amp;vid=123&amp;oenc2=
+</code></pre>
+
+<blockquote>
+<p>Example Signature</p>
+</blockquote>
+<pre class="highlight plaintext"><code>NPJPxGx/+1vHe0T1q4tt+MyWnQ4=
+</code></pre>
+
+<blockquote>
+<p>Example Encoded Signature</p>
+</blockquote>
+<pre class="highlight plaintext"><code>NPJPxGx_-1vHe0T1q4tt-MyWnQ4
+</code></pre>
+
+<blockquote>
+<p>Example Final URL</p>
+</blockquote>
+<pre class="highlight plaintext"><code>https://www.abc.com/ex.aspx?abc=def&amp;vid=123&amp;oenc2=NPJPxGx_-1vHe0T1q4tt-MyWnQ4
+</code></pre>
+
+<table><thead>
+<tr>
+<th>Original</th>
+<th>Substitute</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>+</td>
+<td>-</td>
+</tr>
+<tr>
+<td>/</td>
+<td>_</td>
+</tr>
+<tr>
+<td>=</td>
+<td>empty string</td>
+</tr>
+</tbody></table>
+
+<p>It&rsquo;s important to note that your base string should include the entire URL up to and including the <code class="prettyprint">&amp;</code> preceding your encryption variable. If you do not control the destination survey environment, and your client cannot support this type of security, you should skip this step and instead use Verify Callback.</p>
+
+<h3 id="supplier-sha-1-hashing">Supplier SHA-1 Hashing</h3>
+
+<p><img alt="Supplier SHA-1" src="images/Supplier_sha1_flowchart_v21.png" /></p>
+
+<p>Incoming encryption requires a hash value to be generated and appended for each respondent on the incoming supplier link. The hash value which will then be validated by Fulcrum. If the hash values match, the respondent will be allowed into Fulcrum. If they do not match, the respondent will be immediately terminated and sent back to the supplier on the Security redirect. </p>
+
+<p>On outgoing encryption, Fulcrum will append the hash value which will need to then be validated by the supplier to ensure the complete link is legitimate.</p>
+
+<h4 id="1-encryption-interface-setup">1. Encryption: Interface Setup</h4>
+
+<p><img alt="SHA-1 Setup" src="images/images/Supplier-SHA-1-EncryptionScreenshot.png" /></p>
+
+<h4 id="2-encryption-incoming-to-fulcrum">2. Encryption: Incoming to Fulcrum</h4>
+
+<blockquote>
+<p>URL Without Encryption: </p>
+</blockquote>
+<pre class="highlight plaintext"><code>http://www.samplicio.us/router/default.aspx?SID=12345dca-a691-4496-a2fa-12345b99ec29&amp;PID=1234
+</code></pre>
+
+<blockquote>
+<p>URL With Encryption: </p>
+</blockquote>
+<pre class="highlight plaintext"><code>http://www.samplicio.us/router/default.aspx?SID=12345dca-a691-4496-a2fa-12345b99ec29&amp;PID=1234&amp;ienc2=XWwaVNlMH8fxcLe5OQIh-vn5_b8
+</code></pre>
+
+<p>Incoming encryption requires the supplier to append the encryption value on the Fulcrum entry links. An example of the encrypted URLs from the Supplier into Fulcrum, where the Incoming Variable Name is set to “ienc2” and the Secret Key is set to 1234567890ABC. Please note that “ienc2” and the secret key are merely example values.</p>
+
+<p>If the Incoming Variable does not match the results of the algorithm, the respondent will count as a quality termination immediately upon entering Fulcrum and will be redirected on the quality termination failure link back to the supplier without the chance to route.</p>
+
+<h4 id="3-encryption-outgoing-from-fulcrum">3. Encryption: Outgoing from Fulcrum</h4>
+
+<blockquote>
+<p>URL Without Encryption:</p>
+</blockquote>
+<pre class="highlight plaintext"><code>https://www.abc.com/ex.aspx?abc=def&amp;vid=123
+</code></pre>
+
+<blockquote>
+<p>URL With Encryption:</p>
+</blockquote>
+<pre class="highlight plaintext"><code>https://www.abc.com/ex.aspx?abc=def&amp;vid=123&amp;oenc=h5o29uA19Z73RFWNsQU6-OW-7ls
+</code></pre>
+
+<p>Fulcrum will append the encryption value on the supplier redirect which needs to be captured and verified by the supplier. An example of the encrypted URLs from the Fulcrum to Supplier where the Outgoing Variable Name is set to “oenc” and the Secret Key is set to 1234567890ABC. Please note that “oenc” and the secret key are merely example values. All Kinesis partners should use the outgoing parameter name “hash” to ensure encryption is successful.</p>
+
+<p>If the Outgoing Variable does not match the results of the algorithm, the supplier should terminate these respondents and consider them non-completes.</p>
+
+<h4 id="4-sha-1-faq">4. SHA-1 FAQ</h4>
+
+<p>Can I implement SHA-1 on multiple suppliers?</p>
+
+<ul>
+<li>Yes.In the screenshot above you can use the drop down in the top right to change encryption settings for multiple suppliers.</li>
+</ul>
+
+<p>Do I need to use incoming and outgoing SHA-1 encryption?</p>
+
+<ul>
+<li>We strongly recommend implementing both incoming and outgoing encryption. Incoming encryption helps prevent URL tampering as the respondent moves further downstream to the client survey. Catching URL link tampering earlier in the process helps reduce cheating elsewhere in the Fulcrum environment which helps buyers and clients feel more confident with the quality of your panel. Outgoing encryption helps directly prevent respondents from manipulating supplier redirects in an attempt to “fake” a complete.
+Where can I get help implementing incoming and outgoing SHA-1 encryption?</li>
+</ul>
 
               <h1 id="changelog">Changelog</h1>
 
