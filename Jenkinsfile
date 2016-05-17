@@ -22,8 +22,8 @@ node('docker'){
                 sh 'if [ -d "build" ]; then rm -rf "build"; fi'
                 // echo "sudo GIT_SSH_COMMAND='ssh -i \$KEY_FILE' rake publish --trace"
                 // sh "sudo GIT_SSH_COMMAND='ssh -i \$KEY_FILE' rake publish --trace"
-                sh 'ls ~/.ssh'
                 sshagent (credentials: ['8550b216-2b35-4a37-be2f-1d0190198db4']) {
+                    sh 'ls ~/.ssh'
                     sh "rake publish --trace"
                 }
 
