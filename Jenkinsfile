@@ -12,7 +12,6 @@ node('docker'){
             notifySlack("${app_name} build and publish starting!", channel)
 
             stage 'Publish'
-            sh 'echo $KEY_FILE >> temp_file'
             sh 'sudo bundle install'
             sh 'sudo rake build --trace'
 
