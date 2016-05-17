@@ -1,5 +1,7 @@
 FROM ubuntu:trusty
 
+RUN apt-get update
+RUN apt-get install -y software-properties-common
 RUN add-apt-repository ppa:git-core/ppa
 RUN apt-get update
 RUN apt-get install -y ruby
