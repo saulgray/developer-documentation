@@ -11,18 +11,21 @@ node('docker'){
     payload_obj         = null
 
     if( push_branch_ref == 'refs/heads/master' ){
-        def docker_container = docker.build( app_name )
-        docker_container.inside {
-            notifySlack("${app_name} build and publish starting!", channel)
+        withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'eaaac95b-2f12-42ee-94ef-ab0912a8de53', passwordVariable: 'PASS', usernameVariable: 'USER']]) {
+            def docker_container = docker.build( app_name )
+            docker_container.inside {
+                notifySlack("${app_name} build and publish starting!", channel)
 
-            stage 'Publish'
-            sh 'git config --global user.email "devops@luc.id"'
-            sh 'git config --global user.name "Jenkins"'
-            sh 'bundle install'
-            sh 'if [ -d "build" ]; then rm -rf "build"; fi'
-            sh 'rake publish --trace'
+                stage 'Publish'
+                sh 'git config --global user.email "devops@luc.id"'
+                sh 'git config --global user.name "Jenkins"'
+                sh 'git remote set-url origin "https://\$USER:\$PASS@github.com/lucidhq/developer-documentation.git"'
+                sh 'bundle install'
+                sh 'if [ -d "build" ]; then rm -rf "build"; fi'
+                sh 'rake publish --trace'
 
-            notifySlack("${app_name} publish finished!", channel)
+                notifySlack("${app_name} publish finished!", channel)
+            }
         }
     }
     else{
