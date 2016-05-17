@@ -17,7 +17,7 @@ node('master'){
             notifySlack("${app_name} build and publish starting!", channel)
 
             stage 'Publish'
-            sh 'bundle install --deployment'
+            sh 'sudo bundle install'
             sh 'if [ -d "build" ]; then rm -rf "build"; fi'
             // echo "sudo GIT_SSH_COMMAND='ssh -i \$KEY_FILE' rake publish --trace"
             // sh "sudo GIT_SSH_COMMAND='ssh -i \$KEY_FILE' rake publish --trace"
