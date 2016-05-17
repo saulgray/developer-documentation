@@ -22,7 +22,7 @@ node('docker'){
                 sh 'if [ -d "build" ]; then sudo rm -rf "build"; fi'
                 // echo "sudo GIT_SSH_COMMAND='ssh -i \$KEY_FILE' rake publish --trace"
                 // sh "sudo GIT_SSH_COMMAND='ssh -i \$KEY_FILE' rake publish --trace"
-                sshagent (credentials: ['lucid-jenkins-bot']) {
+                sshagent (credentials: ['8550b216-2b35-4a37-be2f-1d0190198db4']) {
                     sh "sudo rake publish --trace"
                 }
 
