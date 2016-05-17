@@ -1,4 +1,5 @@
 #!groovy
+import groovy.json.JsonSlurper
 
 node('docker'){
     checkout scm
