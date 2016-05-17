@@ -11,7 +11,7 @@ node('docker'){
     def app_name        = 'developer_documentation'
     payload_obj         = null
 
-    if( push_branch_ref.contains('master') ){
+    if( push_branch_ref == 'refs/heads/master' ){
         withCredentials([[$class: 'FileBinding', credentialsId: '31ccb6e3-1905-4ea5-918f-d3686a7537c0', variable: 'KEY_FILE']]) {
             def docker_container = docker.build( app_name )
             docker_container.inside {
