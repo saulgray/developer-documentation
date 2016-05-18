@@ -51,7 +51,7 @@ On outgoing encryption, Fulcrum will append the hash value which will need to th
 
 #### 1. Encryption: Interface Setup
 
-![SHA-1 Setup](images/Supplier-SHA-1-Encryption Screenshot.png)
+![SHA-1 Setup](images/Supplier-SHA-1-Encryption%20Screenshot.png)
 
 #### 2. Encryption: Incoming to Fulcrum
 
