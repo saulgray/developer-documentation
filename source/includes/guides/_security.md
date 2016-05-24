@@ -13,24 +13,24 @@ ZZ6VkORqV25iSWOVb5cwZ03zpns
 > Example Base URL
 
 ```plaintext
-https://www.abc.com/ex.aspx?abc=def&vid=123&oenc2=
+https://www.abc.com/ex.aspx?abc=def&vid=123&
 ```
 
 > Example Signature
 
 ```plaintext
-NPJPxGx/+1vHe0T1q4tt+MyWnQ4=
+dYQuf4tCr1l07nDRpzO+PLSBNTQ=
 ```
 > Example Encoded Signature
 
 ```plaintext
-NPJPxGx_-1vHe0T1q4tt-MyWnQ4
+dYQuf4tCr1l07nDRpzO-PLSBNTQ
 ```
 
 > Example Final URL
 
 ```plaintext
-https://www.abc.com/ex.aspx?abc=def&vid=123&oenc2=NPJPxGx_-1vHe0T1q4tt-MyWnQ4
+https://www.abc.com/ex.aspx?abc=def&vid=123&oenc2=dYQuf4tCr1l07nDRpzO-PLSBNTQ
 ```
 
 | Original | Substitute   |
