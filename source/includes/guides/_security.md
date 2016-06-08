@@ -82,7 +82,7 @@ Buyers will configure these settings by navigating to the `Clients` tab locate `
 
 Suppliers will configure these settings by clicking on the `Supply` tab to navigate to the `Supplier Surveys` page.  From the supply list page click on the `Optimizer Preferences` tab, which will navigate you to the `Supplier Preferences` page, where you will select `Encryption` from the side menu.
 
-#### 4. SHA-1 FAQ
+#### SHA-1 FAQ
 
 Can I implement SHA-1 on multiple suppliers?
 
