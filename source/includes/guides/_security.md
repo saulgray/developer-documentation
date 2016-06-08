@@ -30,7 +30,7 @@ https://www.abc.com/ex.aspx?abc=def&vid=123&oenc=NPJPxGx_-1vHe0T1q4tt-MyWnQ4
 ```
 Fulcrum strongly recommends taking advantage of inbound and outbound URL hashing, which will prevent respondents from manipulating links.
 
-![SHA-1 Setup](images/Supplier-SHA-1-Encryption Screenshot.png)
+![SHA-1 Setup](/source/images/Supplier_sha1_flowchart_v21.png)
 
 Your secret key and variable name configuration can be set or disabled in the Fulcrum UI. In order to verify the validity of any Fulcrum outbound connection or generate a hash to match with any Fulcrum inbound connection, you must create a function that computes an RFC 2014-compliant HMAC signature and substitute the following characters:
 
