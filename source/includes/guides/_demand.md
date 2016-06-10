@@ -81,24 +81,24 @@ ZZ6VkORqV25iSWOVb5cwZ03zpns
 > Example Base URL
 
 ```plaintext
-https://www.abc.com/ex.aspx?abc=def&vid=123&oenc2=
+https://www.abc.com/ex.aspx?abc=def&vid=123&
 ```
 
 > Example Signature
 
 ```plaintext
-NPJPxGx/+1vHe0T1q4tt+MyWnQ4=
+dYQuf4tCr1l07nDRpzO+PLSBNTQ=
 ```
 > Example Encoded Signature
 
 ```plaintext
-NPJPxGx_-1vHe0T1q4tt-MyWnQ4
+dYQuf4tCr1l07nDRpzO-PLSBNTQ
 ```
 
 > Example Final URL
 
 ```plaintext
-https://www.abc.com/ex.aspx?abc=def&vid=123&oenc2=NPJPxGx_-1vHe0T1q4tt-MyWnQ4
+https://www.abc.com/ex.aspx?abc=def&vid=123&oenc2=dYQuf4tCr1l07nDRpzO-PLSBNTQ
 ```
 
 Fulcrum strongly recommends taking advantage of inbound and outbound URL hashing, which will prevent respondents from manipulating links. Your secret key and variable name configuration can be set or disabled in the Fulcrum UI (`Clients>{Your Account} API_Client>Show Encryption). In order to verify the validity of any Fulcrum outbound connection or generate a hash to match with any Fulcrum inbound connection, you must create a function that computes an RFC 2014-compliant HMAC signature and substitute the following characters:

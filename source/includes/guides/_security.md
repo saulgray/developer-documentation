@@ -13,24 +13,24 @@ ZZ6VkORqV25iSWOVb5cwZ03zpns
 > Example Base URL
 
 ```plaintext
-https://www.abc.com/ex.aspx?abc=def&vid=123&oenc2=
+https://www.abc.com/ex.aspx?abc=def&vid=123&
 ```
 
 > Example Signature
 
 ```plaintext
-NPJPxGx/+1vHe0T1q4tt+MyWnQ4=
+dYQuf4tCr1l07nDRpzO+PLSBNTQ=
 ```
 > Example Encoded Signature
 
 ```plaintext
-NPJPxGx_-1vHe0T1q4tt-MyWnQ4
+dYQuf4tCr1l07nDRpzO-PLSBNTQ
 ```
 
 > Example Final URL
 
 ```plaintext
-https://www.abc.com/ex.aspx?abc=def&vid=123&oenc2=NPJPxGx_-1vHe0T1q4tt-MyWnQ4
+https://www.abc.com/ex.aspx?abc=def&vid=123&oenc2=dYQuf4tCr1l07nDRpzO-PLSBNTQ
 ```
 
 | Original | Substitute   |
@@ -51,7 +51,7 @@ On outgoing encryption, Fulcrum will append the hash value which will need to th
 
 #### 1. Encryption: Interface Setup
 
-![SHA-1 Setup](images/Supplier-SHA-1-Encryption Screenshot.png)
+![SHA-1 Setup](images/Supplier-SHA-1-Encryption%20Screenshot.png)
 
 #### 2. Encryption: Incoming to Fulcrum
 
