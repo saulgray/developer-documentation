@@ -2,13 +2,16 @@
 import groovy.json.JsonSlurper
 
 node('docker'){
-    checkout changelog: false, poll: false, scm: [$class: 'GitSCM', branches: [[name: commit_sha]], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'WipeWorkspace']], gitTool: 'Linux', submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'eaaac95b-2f12-42ee-94ef-ab0912a8de53', url: 'https://github.com/lucidhq/developer-documentation.git']]]
 
     def payload_obj     = new JsonSlurper().parseText(payload)
+    def commit_sha      = get_commit_sha_from_payload( payload_obj )
     def push_branch_ref = payload_obj.ref
     def channel         = 'integrations-testing'
     def app_name        = 'developer_documentation'
     payload_obj         = null
+
+    checkout changelog: false, poll: false, scm: [$class: 'GitSCM', branches: [[name: commit_sha]], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'WipeWorkspace']], gitTool: 'Linux', submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'eaaac95b-2f12-42ee-94ef-ab0912a8de53', url: 'https://github.com/lucidhq/developer-documentation.git']]]
+
 
     if( push_branch_ref == 'refs/heads/master' ){
         withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'eaaac95b-2f12-42ee-94ef-ab0912a8de53', passwordVariable: 'PASS', usernameVariable: 'USER']]) {
