@@ -17,7 +17,7 @@ node('docker'){
         withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'eaaac95b-2f12-42ee-94ef-ab0912a8de53', passwordVariable: 'PASS', usernameVariable: 'USER']]) {
             def docker_container = docker.build( app_name )
             docker_container.inside {
-                notifySlack("${app_name} build and publish starting!", channel)
+                notify_slack("${app_name} build and publish starting!", channel)
 
                 stage 'Publish'
                 sh 'git config --global user.email "devops@luc.id"'
@@ -27,11 +27,11 @@ node('docker'){
                 sh 'if [ -d "build" ]; then rm -rf "build"; fi'
                 sh 'rake publish --trace'
 
-                notifySlack("${app_name} publish finished!", channel)
+                notify_slack("${app_name} publish finished!", channel)
             }
         }
     }
     else{
-        notifySlack("${app_name} non-master change pushed.", channel)
+        notify_slack("${app_name} non-master change pushed.", channel)
     }
 }
