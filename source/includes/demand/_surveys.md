@@ -36,6 +36,7 @@ The Surveys resource allows the buyer to create new surveys, update existing sur
 | BidLengthOfInterview         | int      | Estimated time for a respondent to complete the survey excluding the Fulcrum prescreener in minutes as provided by the buyer.                           |
 | BusinessUnitID               | int      | Sets the account [business unit](#list-business-units).                                                                                                 |
 | SampleTypeID                 | int      | Sets the type of sample the survey is open to (i.e. consumer, business-to-business, etc). (SampleTypes)[#definitions]                                   |
+| SurveySID                    | string   | Unique hash value (GUID) assoicated with the survey.                                                                                                    |
 
 ### POST Create a Survey
 
@@ -351,7 +352,8 @@ request.end();
     "SurveyPlatformID": 2,
     "BidLengthOfInterview": 10,
     "BusinessUnitID": 9,
-    "SampleTypeID": 100
+    "SampleTypeID": 100,
+    "SurveySID": "E75CDFE2-7221-4FAC-8561-78EE1B1D6ECF"
   }
 }
 ```
@@ -713,7 +715,8 @@ request.end();
     "SurveyPlatformID": 2,
     "BidLengthOfInterview": 10,
     "BusinessUnitID": 9,
-    "SampleTypeID": 100
+    "SampleTypeID": 100,
+    "SurveySID": "E75CDFE2-7221-4FAC-8561-78EE1B1D6ECF"
   }
 }
 ```
@@ -856,7 +859,8 @@ https.get('https://api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/{SurveyNumb
     "SurveyPlatformID": 2,
     "BidLengthOfInterview": 10,
     "BusinessUnitID": 9,
-    "SampleTypeID": 100
+    "SampleTypeID": 100,
+    "SurveySID": "E75CDFE2-7221-4FAC-8561-78EE1B1D6ECF"
   }
 }
 ```
@@ -973,7 +977,8 @@ https.get('https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyStat
       "SurveyPlatformID": 2,
       "BidLengthOfInterview": 10,
       "BusinessUnitID": 9,
-      "SampleTypeID": 100
+      "SampleTypeID": 100,
+      "SurveySID": "E75CDFE2-7221-4FAC-8561-78EE1B1D6ECF"
   }
 }
 ```
