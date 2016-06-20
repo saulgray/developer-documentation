@@ -64,10 +64,10 @@ http://www.samplicio.us/router/default.aspx?SID=12345dca-a691-4496-a2fa-12345b99
 > URL With Encryption: 
 
 ```plaintext
-http://www.samplicio.us/router/default.aspx?SID=12345dca-a691-4496-a2fa-12345b99ec29&PID=1234&ienc2=XWwaVNlMH8fxcLe5OQIh-vn5_b8
+http://www.samplicio.us/router/default.aspx?SID=12345dca-a691-4496-a2fa-12345b99ec29&PID=1234&ienc=XWwaVNlMH8fxcLe5OQIh-vn5_b8
 ```
 
-Incoming encryption requires the supplier to append the encryption value on the Fulcrum entry links. An example of the encrypted URLs from the Supplier into Fulcrum, where the Incoming Variable Name is set to “ienc2” and the Secret Key is set to 1234567890ABC. Please note that “ienc2” and the secret key are merely example values.
+Incoming encryption requires the supplier to append the encryption value on the Fulcrum entry links. An example of the encrypted URLs from the Supplier into Fulcrum, where the Incoming Variable Name is set to “ienc” and the Secret Key is set to 1234567890ABC. Please note that “ienc2” and the secret key are merely example values.
 
 If the Incoming Variable does not match the results of the algorithm, the respondent will count as a quality termination immediately upon entering Fulcrum and will be redirected on the quality termination failure link back to the supplier without the chance to route.
 
