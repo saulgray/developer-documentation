@@ -42,7 +42,7 @@ Your secret key and variable name configuration can be set or disabled in the Fu
 
 <aside class="notice">When hashing URLs for Fulcrum your base string should include the entire URL, up to and including the `&` preceding your encryption variable.
 
-When hashing URLs for Fulcrum your base string should include the entire URL up to but NOT including the `&` preceding your encryption variable.</aside>
+When hashing URLs for Pulley your base string should include the entire URL up to but NOT including the `&` preceding your encryption variable.</aside>
 
 ### Generating a HMAC signature
 
