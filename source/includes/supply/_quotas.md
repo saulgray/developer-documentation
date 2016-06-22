@@ -21,7 +21,7 @@ The quotas resource returns the number of completes available to you for each de
 | SurveyQuotaType     | string | Represents the function of the quota.                                                                                             |
 |                     |        | The `Total` quota represents the maximum number of completes available on the survey and will always be present.                  |
 |                     |        | `Client` quotas are any subquotas on the survey. They are independent of the total quota and may be overlapping with one another. |
-| QuotaCPI            | double | *We recommend using the [Show an Allocated Survey](#get-show-an-allocated-survey) call to retrieve survey CPI.* Gross payout per complete. This value is before any applicable commissions or fees.                                               |
+| QuotaCPI            | double | *We recommend using [Show an Allocated Survey](#get-show-an-allocated-survey) and `TargetCCPI` to retrieve survey CPI.* Gross payout per complete. This value is before any applicable commissions or fees.                                               |
 | Conversion          | int    | Percentage of respondents who complete the survey after qualifying for that quota.                                                |
 | NumberOfRespondents | int    | Number of completes available in that quota group.                                                                                |
 | Questions           | array  | Contains an array of Question models.                                                                                             |
