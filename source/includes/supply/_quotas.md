@@ -21,7 +21,7 @@ The quotas resource returns the number of completes available to you for each de
 | SurveyQuotaType     | string | Represents the function of the quota.                                                                                             |
 |                     |        | The `Total` quota represents the maximum number of completes available on the survey and will always be present.                  |
 |                     |        | `Client` quotas are any subquotas on the survey. They are independent of the total quota and may be overlapping with one another. |
-| QuotaCPI            | double | Gross payout per complete. This value is before any applicable commissions or fees.                                               |
+| QuotaCPI            | double | *We recommend using the [Show an Allocated Survey](#get-show-an-allocated-survey) call to retrieve survey CPI.* Gross payout per complete. This value is before any applicable commissions or fees.                                               |
 | Conversion          | int    | Percentage of respondents who complete the survey after qualifying for that quota.                                                |
 | NumberOfRespondents | int    | Number of completes available in that quota group.                                                                                |
 | Questions           | array  | Contains an array of Question models.                                                                                             |
@@ -156,7 +156,11 @@ https.get('https://api.samplicio.us/Supply/v1/SurveyQuotas/BySurveyNumber/{Surve
 
 Returns the total quota and client quotas associated with a survey. 
 
-<aside class="notice">The NumberOfRespondents property is calculated in real-time. The cache rules do not apply to this property.</aside>
+<aside class="notice">The `NumberOfRespondents` property is calculated in real-time. The cache rules do not apply to this property.
+
+While this call does return `QuotaCPI`, it is recommended that [Show an Allocated Survey](#get-show-an-allocated-survey) is used to retrieve the most up-to-date pricing in all cases.
+
+</aside>
 
 
 #### Arguments
