@@ -309,6 +309,8 @@ https.get('https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/BySurv
 ```
 Returns any allocation(s) given to you for a particular survey.
 
+<aside class="notice">This API call should be used in all situations to get the most up-to-date pricing using the "TargetCCPI" property. Make this call as needed.</aside>
+
 #### Arguments
 
 | Property     | Type   | Required | Description                                     |
