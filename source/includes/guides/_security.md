@@ -57,9 +57,9 @@ http://www.samplicio.us/router/default.aspx?SID=12345dca-a691-4496-a2fa-12345b99
 ```plaintext
 http://www.samplicio.us/router/default.aspx?SID=12345dca-a691-4496-a2fa-12345b99ec29&PID=1234&ienc=XWwaVNlMH8fxcLe5OQIh-vn5_b8
 ```
-Accounts with Incoming SHA-1 Encryption enabled will want to will want to generate and append an HMAC signature value when directing users to the Fulcrum domain.  For suppliers this means appending the signature to entry links provided to Respondents.  For Buyers this means appending signatures to Callback links on which Respondents are return to Fuclrum.
+Accounts with Incoming SHA-1 Encryption enabled will want to generate and append an HMAC signature value when directing users to the Fulcrum domain.  For suppliers this means appending the signature to your w entry links provided to Respondents.  For Buyers this means appending signatures to your Callback links on which Respondents are return to Fuclrum.
 
-Once the HMAC signature value has been generated it should be added to the url following the variable name that has been set for the account in the Fulcrum UI. Fulcrum will attempt to validate the hash once the user navigates to our platform. If Fulcrum is able to validate the signature value, the User will be allowed to proceed.  If the signature value cannot be validated the users session will be terminated.  An example of the encrypted URLs, where the Incoming Variable Name is set to “ienc” and the Secret Key use is to generate the signature value is 1234567890ABC, is available in the code column. Please note that “ienc” and the secret key are merely example values.
+Once an HMAC signature value has been generated, for a URL it should be added to the url following the variable name that you have set in the Fulcrum UI. Fulcrum will attempt to validate the hash once the user navigates to our platform. If Fulcrum is able to validate the signature value, the User will be allowed to proceed.  If the signature value cannot be validated the users session will be terminated.  An example of the encrypted URLs, where the Incoming Variable Name is set to “ienc” and the Secret Key use is to generate the signature value is 1234567890ABC, is available in the code column. Please note that “ienc” and the secret key are merely example values.
 
 ### Verifying a HMAC signature
 
@@ -75,7 +75,7 @@ https://www.abc.com/ex.aspx?abc=def&vid=123
 https://www.abc.com/ex.aspx?abc=def&vid=123&oenc=h5o29uA19Z73RFWNsQU6-OW-7ls
 ```
 
-Accounts with Outgoing SHA-1 Encryption enabled will need to attempt to validate an HMAC signature value that Fulcrum will append to links we sent to your platform. Buyers will see these signatures appended to the links used by Respondents to enter a client survey.  Suppliers will see these signatures appended to the links on which respondents are returned to your platform from Fulcurm.
+Accounts with Outgoing SHA-1 Encryption enabled will need to attempt to validate an HMAC signature value that Fulcrum will append when refering respondents to your platform. Buyers will see these signatures appended to the links used by Respondents to enter a client survey.  Suppliers will see these signatures appended to the links on which respondents are returned to your platform from Fulcurm.
 Fulcrum will append the signature following the variable label set for the account in the Fulcrum UI.  An example of the encrypted URLs where the variable name is set to “ienc” and the Secret Key is set to 1234567890ABC. Please note that “ienc” and the secret key are merely example values.
 
 ### Configure SHA-1 Settings for an Account
