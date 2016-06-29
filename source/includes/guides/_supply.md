@@ -117,7 +117,7 @@ In this phase, we’ll explain the recommended process to find new Offerwall sur
 |---------------------------------------------------------------|--------------------------------|
 | [Show Quotas](#get-show-quotas)                               | 3                              |
 | [List Allocated Surveys](#get-list-allocated-surveys)         | 3                              |
-| [Show an Allocated Survey](#get-show-an-allocated-survey)     | Project-specific               |
+| [Show an Allocated Survey](#get-show-an-allocated-survey)     | As desired for pricing (CPI)   |
 | [Show Qualifications](#get-show-qualifications)               | 3                              |
 | [Show Survey Statistics](#get-show-statistics)                | 60                             |
 | [List Exchange Surveys](#get-list-exchange-surveys)           | 3                              |
@@ -173,7 +173,11 @@ Overwrite stored qualification data for each survey.
 
 #### 3. [Show Quotas](#get-show-quotas)
 
-Overwrite stored quota data for each survey. Overwrite stored pricing using the QuotaCPI property. QuotaCPI can be stored on the survey level rather than the quota level. Fulcrum does not support quota-level pricing at this time.
+Overwrite stored quota data for each survey.
+
+#### 4. [Show Allocated Survey](#get-show-an-allocated-survey)
+
+Check and update the TargetCCPI for a survey.
 
 ### Phase 4 - Yield Management
 
