@@ -361,7 +361,7 @@
 <tr>
 <td>Bundle</td>
 <td>string</td>
-<td>false</td>
+<td>true</td>
 <td>A string of lookup options delimited by a comma.</td>
 </tr>
 </tbody></table>
@@ -1850,6 +1850,8 @@
 
 <p>Returns any allocation(s) given to you for a particular survey.</p>
 
+<aside class="notice">This API call should be used in all situations to get the most up-to-date pricing using the &ldquo;TargetCCPI&rdquo; property. Make this call as needed.</aside>
+
 <h4 id="arguments">Arguments</h4>
 
 <table><thead>
@@ -2344,7 +2346,7 @@
 <tr>
 <td>QuotaCPI</td>
 <td>double</td>
-<td>Gross payout per complete. This value is before any applicable commissions or fees.</td>
+<td><em>We recommend using <a href="#get-show-an-allocated-survey">Show an Allocated Survey</a> and <code class="prettyprint">TargetCCPI</code> to retrieve survey CPI.</em> Gross payout per complete. This value is before any applicable commissions or fees.</td>
 </tr>
 <tr>
 <td>Conversion</td>
@@ -2500,7 +2502,11 @@
 
 <p>Returns the total quota and client quotas associated with a survey. </p>
 
-<aside class="notice">The NumberOfRespondents property is calculated in real-time. The cache rules do not apply to this property.</aside>
+<aside class="notice">The `NumberOfRespondents` property is calculated in real-time. The cache rules do not apply to this property.
+
+While this call does return `QuotaCPI`, it is recommended that [Show an Allocated Survey](#get-show-an-allocated-survey) is used to retrieve the most up-to-date pricing in all cases.
+
+</aside>
 
 <h4 id="arguments">Arguments</h4>
 
@@ -12101,7 +12107,7 @@
 </tr>
 <tr>
 <td><a href="#get-show-an-allocated-survey">Show an Allocated Survey</a></td>
-<td>Project-specific</td>
+<td>As desired for pricing (CPI)</td>
 </tr>
 <tr>
 <td><a href="#get-show-qualifications">Show Qualifications</a></td>
@@ -12193,7 +12199,11 @@
 
 <h4 id="3-show-quotas">3. <a href="#get-show-quotas">Show Quotas</a></h4>
 
-<p>Overwrite stored quota data for each survey. Overwrite stored pricing using the QuotaCPI property. QuotaCPI can be stored on the survey level rather than the quota level. Fulcrum does not support quota-level pricing at this time.</p>
+<p>Overwrite stored quota data for each survey.</p>
+
+<h4 id="4-show-allocated-survey">4. <a href="#get-show-an-allocated-survey">Show Allocated Survey</a></h4>
+
+<p>Check and update the TargetCCPI for a survey.</p>
 
 <h3 id="phase-4-yield-management">Phase 4 - Yield Management</h3>
 
@@ -12348,10 +12358,10 @@ The <a href="#get-list-standard-questions">List Standard Questions</a> call only
 <blockquote>
 <p>URL With Encryption: </p>
 </blockquote>
-<pre class="highlight plaintext"><code>http://www.samplicio.us/router/default.aspx?SID=12345dca-a691-4496-a2fa-12345b99ec29&amp;PID=1234&amp;ienc2=XWwaVNlMH8fxcLe5OQIh-vn5_b8
+<pre class="highlight plaintext"><code>http://www.samplicio.us/router/default.aspx?SID=12345dca-a691-4496-a2fa-12345b99ec29&amp;PID=1234&amp;ienc=XWwaVNlMH8fxcLe5OQIh-vn5_b8
 </code></pre>
 
-<p>Incoming encryption requires the supplier to append the encryption value on the Fulcrum entry links. An example of the encrypted URLs from the Supplier into Fulcrum, where the Incoming Variable Name is set to “ienc2” and the Secret Key is set to 1234567890ABC. Please note that “ienc2” and the secret key are merely example values.</p>
+<p>Incoming encryption requires the supplier to append the encryption value on the Fulcrum entry links. An example of the encrypted URLs from the Supplier into Fulcrum, where the Incoming Variable Name is set to “ienc” and the Secret Key is set to 1234567890ABC. Please note that “ienc2” and the secret key are merely example values.</p>
 
 <p>If the Incoming Variable does not match the results of the algorithm, the respondent will count as a quality termination immediately upon entering Fulcrum and will be redirected on the quality termination failure link back to the supplier without the chance to route.</p>
 
