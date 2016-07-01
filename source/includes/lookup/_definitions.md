@@ -145,7 +145,7 @@ Returns a list of global system definitions. Arguments can be passed individuall
 
 | Property                     | Type     | Required | Description                                                                                                                                  |
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| Bundle                       | string   | false    | A string of lookup options delimited by a comma.  
+| Bundle                       | string   | true     | A string of lookup options delimited by a comma.  
 
 #### Options
 
