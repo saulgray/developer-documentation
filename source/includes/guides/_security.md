@@ -9,24 +9,32 @@ ZZ6VkORqV25iSWOVb5cwZ03zpns
 > Example Base URL
 
 ```plaintext
+<<<<<<< HEAD
 https://www.abc.com/ex.aspx?abc=def&vid=123&oenc=
+=======
+https://www.abc.com/ex.aspx?abc=def&vid=123&
+>>>>>>> develop
 ```
 
 > Example Signature
 
 ```plaintext
-NPJPxGx/+1vHe0T1q4tt+MyWnQ4=
+dYQuf4tCr1l07nDRpzO+PLSBNTQ=
 ```
 > Example Encoded Signature
 
 ```plaintext
-NPJPxGx_-1vHe0T1q4tt-MyWnQ4
+dYQuf4tCr1l07nDRpzO-PLSBNTQ
 ```
 
 > Example Final URL
 
 ```plaintext
+<<<<<<< HEAD
 https://www.abc.com/ex.aspx?abc=def&vid=123&oenc=NPJPxGx_-1vHe0T1q4tt-MyWnQ4
+=======
+https://www.abc.com/ex.aspx?abc=def&vid=123&oenc2=dYQuf4tCr1l07nDRpzO-PLSBNTQ
+>>>>>>> develop
 ```
 Fulcrum strongly recommends taking advantage of inbound and outbound URL hashing, which will prevent respondents from manipulating links.
 
@@ -59,7 +67,11 @@ http://www.samplicio.us/router/default.aspx?SID=12345dca-a691-4496-a2fa-12345b99
 ```
 Accounts with Incoming SHA-1 Encryption enabled will want to generate and append an HMAC signature value when directing users to the Fulcrum domain.  For suppliers this means appending the signature to your w entry links provided to Respondents.  For Buyers this means appending signatures to your Callback links on which Respondents are return to Fuclrum.
 
+<<<<<<< HEAD
 Once an HMAC signature value has been generated, for a URL it should be added to the url following the variable name that you have set in the Fulcrum UI. Fulcrum will attempt to validate the hash once the user navigates to our platform. If Fulcrum is able to validate the signature value, the User will be allowed to proceed.  If the signature value cannot be validated the users session will be terminated.  An example of the encrypted URLs, where the Incoming Variable Name is set to “ienc” and the Secret Key use is to generate the signature value is 1234567890ABC, is available in the code column. Please note that “ienc” and the secret key are merely example values.
+=======
+Incoming encryption requires the supplier to append the encryption value on the Fulcrum entry links. An example of the encrypted URLs from the Supplier into Fulcrum, where the Incoming Variable Name is set to “ienc” and the Secret Key is set to 1234567890ABC. Please note that “ienc2” and the secret key are merely example values.
+>>>>>>> develop
 
 ### Verifying a HMAC signature
 

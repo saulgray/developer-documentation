@@ -161,8 +161,6 @@ var options = {
   "auth": username + ":" + password
 };
 
-console.log(body);
-
 var request = http.request(options, function (response) {
   var chunks = [];
 
