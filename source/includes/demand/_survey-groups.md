@@ -1,7 +1,7 @@
 ##Survey Groups
 
 
-### GET All Survey Groups
+### GET List Survey Groups
 
 > Definition
 
@@ -118,7 +118,7 @@ Returns the supplier groups for the survey specified.
 | SurveyNumber | int  | true     | Unique number associated with the survey. |
 
 
-### POST Create a Survey Group
+### POST Create a Group
 
 > Definition
 
@@ -300,7 +300,7 @@ Creates a group with specific suppliers and allocation for that group.
 | Suppliers            | array   | true     | An array of all supplier codes (strings).          |
 
 
-### POST Survey to Survey Group
+### POST Add Survey to Group
 
 > Definition
 
@@ -471,7 +471,7 @@ Creates an empty supplier group with a specific allocation and name.
 
 
 
-### DELETE Remove Survey from a Survey Group
+### DELETE Ungroup Survey
 
 > Definition
 
@@ -731,7 +731,7 @@ Adds suppliers to the specified supplier group.
 | SupplierGroupID | int  | true     | Unique ID for Supplier Group.             |
 
 
-### GET Individual Survey Groups
+### GET Show a Group
 
 > Definition
 
