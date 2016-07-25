@@ -10811,7 +10811,7 @@ While this call does return `QuotaCPI`, it is recommended that [Show an Allocate
 
               <h2 id="survey-groups">Survey Groups</h2>
 
-<h3 id="get-all-survey-groups">GET All Survey Groups</h3>
+<h3 id="get-list-survey-groups">GET List Survey Groups</h3>
 
 <blockquote>
 <p>Definition</p>
@@ -10826,7 +10826,7 @@ While this call does return `QuotaCPI`, it is recommended that [Show an Allocate
 </code></pre>
 <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
 
-<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Demand/v1/SupplierGroups/BySurveyNumber/{SurveyNumber}?key={APIKey}'</span><span class="p">)</span>
+<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Demand/v1/SurveyGroups?key={APIKey}'</span><span class="p">)</span>
 
 <span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">uri</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
 
@@ -10837,22 +10837,22 @@ While this call does return `QuotaCPI`, it is recommended that [Show an Allocate
 <span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>  
 </code></pre>
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$response</span> <span class="o">=</span> <span class="nb">file_get_contents</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Demand/v1/SupplierGroups/BySurveyNumber/{SurveyNumber}?key={APIKey}'</span><span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">file_get_contents</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Demand/v1/SurveyGroups?key={APIKey}'</span><span class="p">);</span>
 <span class="cp">?&gt;</span>
 </code></pre>
 <pre class="highlight python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://api.samplicio.us/Demand/v1/SupplierGroups/BySurveyNumber/{SurveyNumber}?key={APIKey}'</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://api.samplicio.us/Demand/v1/SurveyGroups?key={APIKey}'</span><span class="p">)</span>
 </code></pre>
 <pre class="highlight csharp"><code><span class="k">using</span> <span class="nn">System.Net</span><span class="p">;</span>
 
-<span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Demand/v1/SupplierGroups/BySurveyNumber/{SurveyNumber}?key={APIKey}"</span><span class="p">);</span>
+<span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Demand/v1/SurveyGroups?key={APIKey}"</span><span class="p">);</span>
 
 <span class="n">WebResponse</span> <span class="n">response</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">GetResponse</span><span class="p">();</span>
 </code></pre>
 <pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'https'</span><span class="p">);</span>
 
-<span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Demand/v1/SupplierGroups/BySurveyNumber/{SurveyNumber}?key={APIKey}'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">){</span>
+<span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Demand/v1/SurveyGroups?key={APIKey}'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">){</span>
   <span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">res</span><span class="p">;</span>
 <span class="p">});</span>
 </code></pre>
@@ -10909,7 +10909,107 @@ While this call does return `QuotaCPI`, it is recommended that [Show an Allocate
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>Returns the supplier groups for the survey specified.</p>
+<p>Returns the survey groups, their IDs, and number of surveys within each.</p>
+
+<h3 id="get-show-a-group">GET Show a Group</h3>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET  https://api.samplicio.us//Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}
+</code></pre>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl https://api.samplicio.us//Demand/v1/SurveyGroups/<span class="o">{</span>SurveyGroupID<span class="o">}</span>?key<span class="o">={</span>APIKey<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
+
+<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}'</span><span class="p">)</span>
+
+<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">uri</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
+
+<span class="n">http</span><span class="p">.</span><span class="nf">use_ssl</span> <span class="o">=</span> <span class="kp">true</span>
+
+<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">request_uri</span><span class="p">)</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>  
+</code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">file_get_contents</span><span class="p">(</span><span class="s1">'https://api.samplicio.us//Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}'</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://api.samplicio.us//Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}'</span><span class="p">)</span>
+</code></pre>
+<pre class="highlight csharp"><code><span class="k">using</span> <span class="nn">System.Net</span><span class="p">;</span>
+
+<span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us//Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}"</span><span class="p">);</span>
+
+<span class="n">WebResponse</span> <span class="n">response</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">GetResponse</span><span class="p">();</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'https'</span><span class="p">);</span>
+
+<span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us//Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">){</span>
+  <span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">res</span><span class="p">;</span>
+<span class="p">});</span>
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"ApiResult"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiResultCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiAccount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Anon"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"AccountType"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiAccountStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"AccountCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AA"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiMessages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"API Message: Response initialized."</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"API Message: GetAllWithSuppliersBySurveyNumber successful."</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"ResultCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"SupplierGroups"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"ID"</span><span class="p">:</span><span class="w"> </span><span class="mi">001100</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Top Supplier Group"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Completes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Screens"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"AllocationPercentage"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CPI"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsHedgeAccess"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Suppliers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"SupplierCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1010"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"Completes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"Screens"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"ID"</span><span class="p">:</span><span class="w"> </span><span class="mi">001001</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Gremlins"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Completes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Screens"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"AllocationPercentage"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.15</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CPI"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsHedgeAccess"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Suppliers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"SupplierCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1010"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"Completes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"Screens"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Returns the survey IDs for the survey group specified.</p>
 
 <h4 id="arguments">Arguments</h4>
 
@@ -10922,14 +11022,14 @@ While this call does return `QuotaCPI`, it is recommended that [Show an Allocate
 </tr>
 </thead><tbody>
 <tr>
-<td>SurveyNumber</td>
+<td>SurveyGroupID</td>
 <td>int</td>
 <td>true</td>
-<td>Unique number associated with the survey.</td>
+<td>Unique ID associated with the survey group.</td>
 </tr>
 </tbody></table>
 
-<h3 id="post-create-a-survey-group">POST Create a Survey Group</h3>
+<h3 id="post-create-a-group">POST Create a Group</h3>
 
 <blockquote>
 <p>Definition</p>
@@ -10940,12 +11040,12 @@ While this call does return `QuotaCPI`, it is recommended that [Show an Allocate
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell"><code>curl -H <span class="s2">"Content-Type: application/json"</span> -X POST --data <span class="s1">'{"SurveyNumber": 101100,"Name":"Top Supplier Group", "AllocationPercentage": 0.10,"IsHedgeAccess": true, "Suppliers": [{"SupplierCode":"0001"}]}'</span> https://api.samplicio.us/Demand/v1/SurveyGroups/?key<span class="o">={</span>APIKey<span class="o">}</span>
+<pre class="highlight shell"><code>curl -H <span class="s2">"Content-Type: application/json"</span> -X POST --data <span class="s1">'{"Name": "Group 1"}'</span> https://api.samplicio.us/Demand/v1/SurveyGroups/?key<span class="o">={</span>APIKey<span class="o">}</span>
 </code></pre>
 <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
 <span class="nb">require</span> <span class="s1">'json'</span>
 
-<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Demand/v1/SupplierGroups/CreateWithSuppliers/{SurveyNumber}?key={APIKey}'</span><span class="p">)</span>
+<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Demand/v1/SurveyGroups/?key={APIKey}'</span><span class="p">)</span>
 
 <span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">uri</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
 
@@ -10953,17 +11053,17 @@ While this call does return `QuotaCPI`, it is recommended that [Show an Allocate
 
 <span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Post</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="no">FullUriPath</span><span class="p">,</span> <span class="n">initheader</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">})</span>
 
-<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="p">{</span><span class="no">SurveyNumber</span><span class="p">:</span> <span class="mi">101100</span><span class="p">,</span> <span class="no">Name</span><span class="ss">:"Top Supplier Group"</span><span class="p">,</span> <span class="no">AllocationPercentage</span><span class="p">:</span> <span class="mi">0</span><span class="o">.</span><span class="mi">10</span><span class="p">,</span> <span class="no">IsHedgeAccess</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span> <span class="s2">"Suppliers"</span><span class="p">:</span> <span class="p">[{</span><span class="s2">"SupplierCode"</span><span class="ss">:"0001"</span><span class="p">}]}.</span><span class="nf">to_json</span>
+<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="p">{</span><span class="no">Name</span><span class="ss">:"Group 1"</span><span class="p">}.</span><span class="nf">to_json</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>  
 </code></pre>
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
-<span class="nv">$params</span> <span class="o">=</span> <span class="s1">'{"SurveyNumber": 101100, "Name":"Top Supplier Group", "AllocationPercentage": 0.10, "IsHedgeAccess": true, "Suppliers": [{"SupplierCode":"0001"}]}'</span><span class="p">;</span>
+<span class="nv">$params</span> <span class="o">=</span> <span class="s1">'{"Name":"Group 1"}'</span><span class="p">;</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://api.samplicio.us/Demand/v1/SupplierGroups/CreateWithSuppliers/</span><span class="si">{</span><span class="nv">SurveyNumber}?key={APIKey</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://api.samplicio.us/Demand/v1/SurveyGroups/?key=</span><span class="si">{</span><span class="nv">APIKey</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
   <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
   <span class="nx">CURLOPT_ENCODING</span> <span class="o">=&gt;</span> <span class="s2">""</span><span class="p">,</span>
   <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">'Content-Type: application/json'</span><span class="p">),</span>
@@ -10981,8 +11081,8 @@ While this call does return `QuotaCPI`, it is recommended that [Show an Allocate
 </code></pre>
 <pre class="highlight python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.samplicio.us/Demand/v1/SupplierGroups/CreateWithSuppliers/{SurveyNumber}?key={APIKey}'</span>
-<span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s">'SurveyNumber'</span><span class="p">:</span> <span class="mi">101100</span><span class="p">,</span> <span class="s">'Name'</span><span class="p">:</span><span class="s">'Top Supplier Group'</span><span class="p">,</span> <span class="s">'AllocationPercentage'</span><span class="p">:</span> <span class="mf">0.10</span><span class="p">,</span> <span class="s">'IsHedgeAccess'</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span> <span class="s">'Suppliers'</span><span class="p">:</span> <span class="p">[{</span><span class="s">'SupplierCode'</span><span class="p">:</span><span class="s">'1010'</span><span class="p">}]}</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.samplicio.us/Demand/v1/SurveyGroups/?key={APIKey}'</span>
+<span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Name'</span><span class="p">:</span><span class="s">'Group 1'</span><span class="p">}</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Content-type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span> <span class="s">'Accept'</span><span class="p">:</span> <span class="s">'text/plain'</span><span class="p">}</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
@@ -10991,18 +11091,10 @@ While this call does return `QuotaCPI`, it is recommended that [Show an Allocate
 <pre class="highlight csharp"><code><span class="k">using</span> <span class="nn">System.IO</span><span class="p">;</span>
 <span class="k">using</span> <span class="nn">System.Net</span><span class="p">;</span>
 
-<span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Demand/v1/SupplierGroups/CreateWithSuppliers/{SurveyNumber}?key={APIKey}"</span><span class="p">);</span>
+<span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Demand/v1/SurveyGroups/?key={APIKey}"</span><span class="p">);</span>
 
-<span class="kt">string</span> <span class="n">args</span> <span class="p">=</span> <span class="err">@</span><span class="s">"{
-</span>                 <span class="s">""</span><span class="n">SurveyNumber</span><span class="s">""</span><span class="p">:</span> <span class="m">101100</span><span class="p">,</span>
-                 <span class="s">""</span><span class="n">Name</span><span class="s">""</span><span class="p">:</span><span class="s">""</span><span class="n">Top</span> <span class="n">Supplier</span> <span class="n">Group</span><span class="s">""</span><span class="p">,</span>
-                 <span class="s">""</span><span class="n">AllocationPercentage</span><span class="s">""</span><span class="p">:</span> <span class="m">0.10</span><span class="p">,</span>
-                 <span class="s">""</span><span class="n">IsHedgeAccess</span><span class="s">""</span><span class="p">:</span> <span class="k">true</span><span class="p">,</span>
-                 <span class="s">""</span><span class="n">Suppliers</span><span class="s">""</span><span class="p">:</span> <span class="p">[{</span>
-                                  <span class="s">""</span><span class="n">SupplierCode</span><span class="s">""</span><span class="p">:</span><span class="s">""</span><span class="m">1010</span><span class="s">""</span>
-                                <span class="p">}]</span>
-                <span class="p">}</span><span class="s">";
-</span>
+<span class="kt">string</span> <span class="n">args</span> <span class="p">=</span> <span class="s">@"{""Name"":""Group 1""}"</span><span class="p">;</span>
+
 <span class="n">request</span><span class="p">.</span><span class="n">Method</span> <span class="p">=</span> <span class="s">"POST"</span><span class="p">;</span>
 <span class="n">request</span><span class="p">.</span><span class="n">ContentType</span> <span class="p">=</span> <span class="s">"application/json"</span><span class="p">;</span>
 
@@ -11023,19 +11115,12 @@ While this call does return `QuotaCPI`, it is recommended that [Show an Allocate
   <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"POST"</span><span class="p">,</span>
   <span class="s2">"hostname"</span><span class="p">:</span> <span class="s2">"api.samplicio.us"</span><span class="p">,</span>
   <span class="s2">"port"</span><span class="p">:</span> <span class="mi">443</span><span class="p">,</span>
-  <span class="s2">"path"</span><span class="p">:</span> <span class="s2">"/Demand/v1/SupplierGroups/CreateWithSuppliers/{SurveyNumber}?key={APIKey}"</span><span class="p">,</span>
+  <span class="s2">"path"</span><span class="p">:</span> <span class="s2">"Demand/v1/SurveyGroups/?key={APIKey}"</span><span class="p">,</span>
   <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span><span class="s1">'Content-Type'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="kd">var</span> <span class="nx">json</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"SurveyNumber"</span><span class="p">:</span> <span class="mi">101100</span><span class="p">,</span> 
-  <span class="s2">"Name"</span><span class="p">:</span><span class="s2">"Top Supplier Group"</span><span class="p">,</span> 
-  <span class="s2">"AllocationPercentage"</span><span class="p">:</span> <span class="mf">0.10</span><span class="p">,</span> 
-  <span class="s2">"IsHedgeAccess"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> 
-  <span class="s2">"Suppliers"</span><span class="p">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-    <span class="s2">"SupplierCode"</span><span class="p">:</span><span class="s2">"1010"</span>
-    <span class="p">}</span>
-  <span class="p">]</span>
+<span class="kd">var</span> <span class="nx">json</span> <span class="o">=</span> <span class="p">{</span> 
+  <span class="s2">"Name"</span><span class="p">:</span><span class="s2">"Group 1"</span>
 <span class="p">}</span>
 
 <span class="kd">var</span> <span class="nx">params</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">json</span><span class="p">);</span>
@@ -11088,7 +11173,7 @@ While this call does return `QuotaCPI`, it is recommended that [Show an Allocate
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>Creates a group with specific suppliers and allocation for that group.</p>
+<p>Creates an empty survey group.</p>
 
 <h4 id="arguments">Arguments</h4>
 
@@ -11101,54 +11186,30 @@ While this call does return `QuotaCPI`, it is recommended that [Show an Allocate
 </tr>
 </thead><tbody>
 <tr>
-<td>SurveyNumber</td>
-<td>int</td>
-<td>true</td>
-<td>Unique number associated with the survey.</td>
-</tr>
-<tr>
 <td>Name</td>
 <td>string</td>
 <td>true</td>
-<td>Supplier Group name.</td>
-</tr>
-<tr>
-<td>AllocationPercentage</td>
-<td>int</td>
-<td>tue</td>
-<td>Group reserved allocation, expressed as a decimal.</td>
-</tr>
-<tr>
-<td>IsHedgeAccess</td>
-<td>boolean</td>
-<td>true</td>
-<td>Access to unallocated completes on the Exchange.</td>
-</tr>
-<tr>
-<td>Suppliers</td>
-<td>array</td>
-<td>true</td>
-<td>An array of all supplier codes (strings).</td>
+<td>Survey Group name.</td>
 </tr>
 </tbody></table>
 
-<h3 id="post-survey-to-survey-group">POST Survey to Survey Group</h3>
+<h3 id="post-add-survey-to-group">POST Add Survey to Group</h3>
 
 <blockquote>
 <p>Definition</p>
 </blockquote>
-<pre class="highlight plaintext"><code>POST  https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupNumber}?key={APIKey}
+<pre class="highlight plaintext"><code>POST  https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}
 </code></pre>
 
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell"><code>curl -H <span class="s2">"Content-Type: application/json"</span> -X POST --data <span class="s1">'{"SurveyNumber": 101100,"Name":"Top Supplier Group", "AllocationPercentage": 0.10,"IsHedgeAccess": true}'</span> https://api.samplicio.us/Demand/v1/SurveyGroups/<span class="o">{</span>SurveyGroupNumber<span class="o">}</span>?key<span class="o">={</span>APIKey<span class="o">}</span>
+<pre class="highlight shell"><code>curl -H <span class="s2">"Content-Type: application/json"</span> -X POST --data <span class="s1">'{"SurveyNumber": ["101101"]}'</span> https://api.samplicio.us/Demand/v1/SurveyGroups/<span class="o">{</span>SurveyGroupID<span class="o">}</span>?key<span class="o">={</span>APIKey<span class="o">}</span>
 </code></pre>
 <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
 <span class="nb">require</span> <span class="s1">'json'</span>
 
-<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Demand/v1/SupplierGroups/Create/{SurveyNumber}?key={APIKey}'</span><span class="p">)</span>
+<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}'</span><span class="p">)</span>
 
 <span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">uri</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
 
@@ -11158,17 +11219,17 @@ While this call does return `QuotaCPI`, it is recommended that [Show an Allocate
 
 <span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Post</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">fullUriPath</span><span class="p">,</span> <span class="n">initheader</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'Content-Type'</span> <span class="o">=&gt;</span><span class="s1">'application/json'</span><span class="p">})</span>
 
-<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="p">{</span><span class="no">SurveyNumber</span><span class="p">:</span> <span class="mi">101100</span><span class="p">,</span> <span class="no">Name</span><span class="ss">:"Top Supplier Group"</span><span class="p">,</span> <span class="no">AllocationPercentage</span><span class="p">:</span> <span class="mi">0</span><span class="o">.</span><span class="mi">10</span><span class="p">,</span> <span class="no">IsHedgeAccess</span><span class="p">:</span> <span class="kp">true</span><span class="p">}.</span><span class="nf">to_json</span>
+<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="p">{</span><span class="no">SurveyIDs</span><span class="p">:</span> <span class="mi">101101</span><span class="p">}.</span><span class="nf">to_json</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
 </code></pre>
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
-<span class="nv">$params</span> <span class="o">=</span> <span class="s1">'{"SurveyNumber": 101100,"Name":"Top Supplier Group", "AllocationPercentage": 0.10,"IsHedgeAccess": true}'</span><span class="p">;</span>
+<span class="nv">$params</span> <span class="o">=</span> <span class="s1">'{"SurveyIDs": 101101}'</span><span class="p">;</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://api.samplicio.us/Demand/v1/SupplierGroups/Create/</span><span class="si">{</span><span class="nv">SurveyNumber}?key={APIKey</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://api.samplicio.us/Demand/v1/SurveyGroups/</span><span class="si">{</span><span class="nv">SurveyGroupID}?key={APIKey</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
   <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
   <span class="nx">CURLOPT_ENCODING</span> <span class="o">=&gt;</span> <span class="s2">""</span><span class="p">,</span>
   <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">'Content-Type: application/json'</span><span class="p">),</span>
@@ -11186,8 +11247,8 @@ While this call does return `QuotaCPI`, it is recommended that [Show an Allocate
 </code></pre>
 <pre class="highlight python"><code><span class="kn">import</span> <span class="nn">requests</span><span class="o">,</span> <span class="nn">json</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.samplicio.us/Demand/v1/SupplierGroups/Create/{SurveyNumber}?key={APIKey}'</span>
-<span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s">'SurveyNumber'</span><span class="p">:</span> <span class="mi">101100</span><span class="p">,</span><span class="s">'Name'</span><span class="p">:</span><span class="s">'Top Supplier Group'</span><span class="p">,</span> <span class="s">'AllocationPercentage'</span><span class="p">:</span> <span class="mf">0.10</span><span class="p">,</span><span class="s">'IsHedgeAccess'</span><span class="p">:</span> <span class="bp">True</span><span class="p">}</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}'</span>
+<span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s">'SurveyIDs'</span><span class="p">:</span> <span class="mi">101101</span><span class="p">}</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Content-type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span> <span class="s">'Accept'</span><span class="p">:</span> <span class="s">'text/plain'</span><span class="p">}</span>
 
@@ -11197,15 +11258,10 @@ While this call does return `QuotaCPI`, it is recommended that [Show an Allocate
 <span class="k">using</span> <span class="nn">System.IO</span><span class="p">;</span>
 <span class="k">using</span> <span class="nn">System.Net</span><span class="p">;</span>
 
-<span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Demand/v1/SupplierGroups/Create/{SurveyNumber}?key={APIKey}"</span><span class="p">);</span>
+<span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}"</span><span class="p">);</span>
 
-<span class="kt">string</span> <span class="n">args</span> <span class="p">=</span> <span class="err">@</span><span class="s">"{
-</span>                 <span class="s">""</span><span class="n">SurveyNumber</span><span class="s">""</span><span class="p">:</span> <span class="m">101100</span><span class="p">,</span>
-                 <span class="s">""</span><span class="n">Name</span><span class="s">""</span><span class="p">:</span><span class="s">""</span><span class="n">Top</span> <span class="n">Supplier</span> <span class="n">Group</span><span class="s">""</span><span class="p">,</span>
-                 <span class="s">""</span><span class="n">AllocationPercentage</span><span class="s">""</span><span class="p">:</span> <span class="m">0.10</span><span class="p">,</span>
-                 <span class="s">""</span><span class="n">IsHedgeAccess</span><span class="s">""</span><span class="p">:</span> <span class="k">true</span>
-                <span class="p">}</span><span class="s">";
-</span>
+<span class="kt">string</span> <span class="n">args</span> <span class="p">=</span> <span class="s">@"{""SurveyIDs"": [101101]}"</span><span class="p">;</span>
+
 <span class="n">request</span><span class="p">.</span><span class="n">Method</span> <span class="p">=</span> <span class="s">"POST"</span><span class="p">;</span>
 <span class="n">request</span><span class="p">.</span><span class="n">ContentType</span> <span class="p">=</span> <span class="s">"application/json"</span><span class="p">;</span>
 
@@ -11224,14 +11280,11 @@ While this call does return `QuotaCPI`, it is recommended that [Show an Allocate
   <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"POST"</span><span class="p">,</span>
   <span class="s2">"hostname"</span><span class="p">:</span> <span class="s2">"api.samplicio.us"</span><span class="p">,</span>
   <span class="s2">"port"</span><span class="p">:</span> <span class="mi">443</span><span class="p">,</span>
-  <span class="s2">"path"</span><span class="p">:</span> <span class="s2">"/Demand/v1/SupplierGroups/Create/{SurveyNumber}?key={APIKey}"</span><span class="p">,</span>
+  <span class="s2">"path"</span><span class="p">:</span> <span class="s2">"/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}"</span><span class="p">,</span>
   <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span><span class="s1">'Content-Type'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="kd">var</span> <span class="nx">json</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"SurveyNumber"</span><span class="p">:</span> <span class="mi">101100</span><span class="p">,</span> 
-  <span class="s2">"Name"</span><span class="p">:</span><span class="s2">"Top Supplier Group"</span><span class="p">,</span> 
-  <span class="s2">"AllocationPercentage"</span><span class="p">:</span> <span class="mf">0.10</span><span class="p">,</span> 
-  <span class="s2">"IsHedgeAccess"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> 
+<span class="kd">var</span> <span class="nx">json</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"SurveyIDs"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"101101"</span><span class="p">]</span>
   <span class="p">}</span>
 
 <span class="kd">var</span> <span class="nx">params</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">json</span><span class="p">);</span>
@@ -11278,7 +11331,7 @@ While this call does return `QuotaCPI`, it is recommended that [Show an Allocate
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>Creates an empty supplier group with a specific allocation and name.</p>
+<p>Adds a survey to the specified survey group.</p>
 
 <h4 id="arguments">Arguments</h4>
 
@@ -11291,59 +11344,44 @@ While this call does return `QuotaCPI`, it is recommended that [Show an Allocate
 </tr>
 </thead><tbody>
 <tr>
-<td>SurveyNumber</td>
+<td>SurveyGroupID</td>
 <td>int</td>
 <td>true</td>
-<td>Unique number associated with the survey.</td>
+<td>Unique ID associated with the survey group.</td>
 </tr>
 <tr>
-<td>Name</td>
-<td>string</td>
+<td>SurveyIDs</td>
+<td>array</td>
 <td>true</td>
-<td>Supplier Group name.</td>
-</tr>
-<tr>
-<td>AllocationPercentage</td>
-<td>int</td>
-<td>true</td>
-<td>Group reserved allocation, expressed as a decimal.</td>
-</tr>
-<tr>
-<td>IsHedgeAccess</td>
-<td>boolean</td>
-<td>false</td>
-<td>Access to unallocated completes on the Exchange.</td>
-</tr>
-<tr>
-<td>SupplierGroupCPI</td>
-<td>double</td>
-<td>false</td>
-<td>The payout per complete for those suppliers.</td>
+<td>Unique ID associated with the survey.</td>
 </tr>
 </tbody></table>
 
-<h3 id="delete-remove-survey-from-a-survey-group">DELETE Remove Survey from a Survey Group</h3>
+<h3 id="delete-ungroup-survey">DELETE Ungroup Survey</h3>
 
 <blockquote>
 <p>Definition</p>
 </blockquote>
-<pre class="highlight plaintext"><code>DELETE  https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupNumber}?key={APIKey}
+<pre class="highlight plaintext"><code>DELETE  https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}
 </code></pre>
 
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell"><code>curl X- DELETE https://api.samplicio.us/Demand/v1/SurveyGroups/<span class="o">{</span>SurveyGroupNumber<span class="o">}</span>?key<span class="o">={</span>APIKey<span class="o">}</span>
-</code></pre>
+<pre class="highlight shell"><code>curl X- DELETE --data <span class="s1">'{"SurveyNumber": ["101101"]} https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey} 
+</span></code></pre>
 <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
+<span class="nb">require</span> <span class="s1">'json'</span>
 
-<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Demand/v1/SupplierGroups/Delete/{SurveyNumber}/{SupplierGroupID}?key={APIKey}'</span><span class="p">)</span>
+<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}'</span><span class="p">)</span>
 
 <span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">uri</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
 
 <span class="n">http</span><span class="p">.</span><span class="nf">use_ssl</span> <span class="o">=</span> <span class="kp">true</span>
 
 <span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Delete</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">request_uri</span><span class="p">)</span>
+
+<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="p">{</span><span class="no">SurveyIDs</span><span class="p">:</span> <span class="mi">101101</span><span class="p">}.</span><span class="nf">to_json</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>  
 </code></pre>
@@ -11352,7 +11390,7 @@ While this call does return `QuotaCPI`, it is recommended that [Show an Allocate
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://api.samplicio.us/Demand/v1/SupplierGroups/Delete/</span><span class="si">{</span><span class="nv">SurveyNumber}/{SupplierGroupID}?key={APIKey</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://api.samplicio.us/Demand/v1/SurveyGroups/</span><span class="si">{</span><span class="nv">SurveyGroupID}?key={APIKey</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
   <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
   <span class="nx">CURLOPT_ENCODING</span> <span class="o">=&gt;</span> <span class="s2">""</span><span class="p">,</span>
   <span class="nx">CURLOPT_MAXREDIRS</span> <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">,</span>
@@ -11368,128 +11406,20 @@ While this call does return `QuotaCPI`, it is recommended that [Show an Allocate
 </code></pre>
 <pre class="highlight python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">requests</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s">'https://api.samplicio.us/Demand/v1/SupplierGroups/Delete/{SurveyNumber}/{SupplierGroupID}?key={APIKey}'</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight csharp"><code><span class="k">using</span> <span class="nn">System.Net</span><span class="p">;</span>
-
-<span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Demand/v1/SupplierGroups/Delete/{SurveyNumber}/{SupplierGroupID}?key={APIKey}"</span><span class="p">);</span>
-
-<span class="n">request</span><span class="p">.</span><span class="n">Method</span> <span class="p">=</span> <span class="s">"DELETE"</span><span class="p">;</span>
-
-<span class="n">request</span><span class="p">.</span><span class="nf">GetResponse</span><span class="p">();</span>
-</code></pre>
-<pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'https'</span><span class="p">);</span>
-
-<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"DELETE"</span><span class="p">,</span>
-  <span class="s2">"hostname"</span><span class="p">:</span> <span class="s2">"stg-api.samplicio.us"</span><span class="p">,</span>
-  <span class="s2">"port"</span><span class="p">:</span> <span class="mi">443</span><span class="p">,</span>
-  <span class="s2">"path"</span><span class="p">:</span> <span class="s2">"/Demand/v1/SupplierGroups/Delete/{SurveyNumber}/{SupplierGroupID}?key={APIKey}"</span><span class="p">,</span>
-  <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{}</span>
-<span class="p">};</span>
-
-<span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">);</span>
-
-<span class="nx">request</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>
-
-</code></pre>
-
-<p>Deletes the specified supplier group.</p>
-
-<h4 id="arguments">Arguments</h4>
-
-<table><thead>
-<tr>
-<th>Property</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>SurveyNumber</td>
-<td>int</td>
-<td>true</td>
-<td>Unique number associated with the survey.</td>
-</tr>
-<tr>
-<td>SupplierGroupID</td>
-<td>int</td>
-<td>true</td>
-<td>Unique ID for Supplier Group.</td>
-</tr>
-</tbody></table>
-
-<h3 id="post-add-to-a-group">POST Add to a Group</h3>
-
-<blockquote>
-<p>Definition</p>
-</blockquote>
-<pre class="highlight plaintext"><code>POST  https://api.samplicio.us/Demand/v1/SupplierGroups/AddSuppliersToGroup/{SurveyNumber}/{SupplierGroupID}?key={APIKey}
-</code></pre>
-
-<blockquote>
-<p>Example Request</p>
-</blockquote>
-<pre class="highlight shell"><code>curl -H <span class="s2">"Content-Type: application/json"</span> -X POST --data <span class="s1">'{"SupplierCode":"0010"}'</span> https://api.samplicio.us/Demand/v1/SupplierGroups/AddSuppliersToGroup/<span class="o">{</span>SurveyNumber<span class="o">}</span>/<span class="o">{</span>SupplierGroupID<span class="o">}</span>?key<span class="o">={</span>APIKey<span class="o">}</span>
-</code></pre>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
-<span class="nb">require</span> <span class="s1">'json'</span>
-
-<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Demand/v1/SupplierGroups/AddSuppliersToGroup/{SurveyNumber}/{SupplierGroupID}?key={APIKey}'</span><span class="p">)</span>
-
-<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">uri</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
-
-<span class="n">http</span><span class="p">.</span><span class="nf">use_ssl</span> <span class="o">=</span> <span class="kp">true</span>
-
-<span class="n">fullUriPath</span> <span class="o">=</span> <span class="n">uri</span><span class="p">.</span><span class="nf">path</span> <span class="o">+</span> <span class="s1">'?'</span> <span class="o">+</span> <span class="n">uri</span><span class="p">.</span><span class="nf">query</span>
-
-<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Post</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">fullUriPath</span><span class="p">,</span> <span class="n">initheader</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'Content-Type'</span> <span class="o">=&gt;</span><span class="s1">'application/json'</span><span class="p">})</span>
-
-<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="p">{</span><span class="no">SupplierCode</span><span class="p">:</span> <span class="mi">1010</span><span class="p">}.</span><span class="nf">to_json</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
-
-<span class="nv">$params</span> <span class="o">=</span> <span class="s1">'{"SupplierCode": 1010}'</span><span class="p">;</span>
-
-<span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://api.samplicio.us/Demand/v1/SupplierGroups/AddSuppliersToGroup/</span><span class="si">{</span><span class="nv">SurveyNumber}/{SupplierGroupID}?key={APIKey</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_ENCODING</span> <span class="o">=&gt;</span> <span class="s2">""</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">'Content-Type: application/json'</span><span class="p">),</span>
-  <span class="nx">CURLOPT_MAXREDIRS</span> <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTP_VERSION</span> <span class="o">=&gt;</span> <span class="nx">CURL_HTTP_VERSION_1_1</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$params</span><span class="p">,</span>
-<span class="p">));</span>
-
-<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
-
-<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
-<span class="cp">?&gt;</span>
-</code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">requests</span><span class="o">,</span> <span class="nn">json</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.samplicio.us/Demand/v1/SupplierGroups/AddSuppliersToGroup/{SurveyNumber}/{SupplierGroupID}?key={APIKey}'</span>
-<span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s">'SupplierCode'</span><span class="p">:</span> <span class="mi">1010</span><span class="p">}</span>
+<span class="n">requests</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s">'https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}'</span><span class="p">)</span>
+<span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s">'SurveyIDs'</span><span class="p">:</span> <span class="mi">101101</span><span class="p">}</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Content-type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span> <span class="s">'Accept'</span><span class="p">:</span> <span class="s">'text/plain'</span><span class="p">}</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
 </code></pre>
-<pre class="highlight csharp"><code>
-<span class="k">using</span> <span class="nn">System.IO</span><span class="p">;</span>
-<span class="k">using</span> <span class="nn">System.Net</span><span class="p">;</span>
+<pre class="highlight csharp"><code><span class="k">using</span> <span class="nn">System.Net</span><span class="p">;</span>
 
-<span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Demand/v1/SupplierGroups/AddSuppliersToGroup/{SurveyNumber}/{SupplierGroupID}?key={APIKey}"</span><span class="p">);</span>
+<span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}"</span><span class="p">);</span>
 
-<span class="kt">string</span> <span class="n">args</span> <span class="p">=</span> <span class="s">@"{""SupplierCode"": 1010}"</span><span class="p">;</span>
+<span class="kt">string</span> <span class="n">args</span> <span class="p">=</span> <span class="s">@"{""SupplierCode"": [101101]}"</span><span class="p">;</span>
 
-<span class="n">request</span><span class="p">.</span><span class="n">Method</span> <span class="p">=</span> <span class="s">"POST"</span><span class="p">;</span>
+<span class="n">request</span><span class="p">.</span><span class="n">Method</span> <span class="p">=</span> <span class="s">"DELETE"</span><span class="p">;</span>
 <span class="n">request</span><span class="p">.</span><span class="n">ContentType</span> <span class="p">=</span> <span class="s">"application/json"</span><span class="p">;</span>
 
 <span class="k">using</span><span class="p">(</span><span class="n">StreamWriter</span> <span class="n">streamWriter</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">StreamWriter</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="nf">GetRequestStream</span><span class="p">()))</span>
@@ -11499,72 +11429,30 @@ While this call does return `QuotaCPI`, it is recommended that [Show an Allocate
 <span class="n">streamWriter</span><span class="p">.</span><span class="nf">Close</span><span class="p">();</span>
 <span class="p">}</span>
 
-<span class="n">WebResponse</span> <span class="n">response</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">GetResponse</span><span class="p">();</span>
+<span class="n">request</span><span class="p">.</span><span class="nf">GetResponse</span><span class="p">();</span>
 </code></pre>
 <pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'https'</span><span class="p">);</span>
 
 <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"POST"</span><span class="p">,</span>
+  <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"DELETE"</span><span class="p">,</span>
   <span class="s2">"hostname"</span><span class="p">:</span> <span class="s2">"api.samplicio.us"</span><span class="p">,</span>
   <span class="s2">"port"</span><span class="p">:</span> <span class="mi">443</span><span class="p">,</span>
-  <span class="s2">"path"</span><span class="p">:</span> <span class="s2">"/Demand/v1/SupplierGroups/AddSuppliersToGroup/{SurveyNumber}/{SupplierGroupID}?key={APIKey}"</span><span class="p">,</span>
+  <span class="s2">"path"</span><span class="p">:</span> <span class="s2">"/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}"</span><span class="p">,</span>
   <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span><span class="s1">'Content-Type'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">}</span>
 <span class="p">};</span>
 
-<span class="kd">var</span> <span class="nx">json</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"SupplierCode"</span><span class="p">:</span> <span class="mi">1010</span><span class="p">}</span>
+<span class="kd">var</span> <span class="nx">json</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"SurveyIDs"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"101101"</span><span class="p">]</span>
+  <span class="p">}</span>
 
 <span class="kd">var</span> <span class="nx">params</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">json</span><span class="p">);</span>
 
-<span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">createGroupEmpty</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">chunks</span> <span class="o">=</span> <span class="p">[];</span>
-
-  <span class="nx">createGroupEmpty</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">"data"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">chunk</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">chunks</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">chunk</span><span class="p">);</span>
-  <span class="p">});</span>
-
-<span class="p">});</span>
-
-<span class="nx">request</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">params</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">);</span>
 
 <span class="nx">request</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>
+
 </code></pre>
 
-<blockquote>
-<p>Example Response</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"ApiResult"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"ApiResultCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"ApiAccount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Anon"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"AccountType"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"ApiAccountStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"AccountCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AA"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"ApiMessages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="s2">"API Message: Response initialized."</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"API Message: AddSupplierGroupSuppliersToSupplierGroup successful."</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"ResultCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"SupplierGroup"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"ID"</span><span class="p">:</span><span class="w"> </span><span class="mi">201967</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Top Supplier Group"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"Completes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"Screens"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"AllocationPercentage"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"CPI"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"IsHedgeAccess"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"Suppliers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"SupplierCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1010"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"Completes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"Screens"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-     </span><span class="p">]</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-
-</span></code></pre>
-
-<p>Adds suppliers to the specified supplier group.</p>
+<p>Deletes the surveyIDs from the specified survey group.</p>
 
 <h4 id="arguments">Arguments</h4>
 
@@ -11577,134 +11465,10 @@ While this call does return `QuotaCPI`, it is recommended that [Show an Allocate
 </tr>
 </thead><tbody>
 <tr>
-<td>SurveyNumber</td>
-<td>int</td>
+<td>SurveyIDs</td>
+<td>array</td>
 <td>true</td>
-<td>Unique number associated with the survey.</td>
-</tr>
-<tr>
-<td>SupplierGroupID</td>
-<td>int</td>
-<td>true</td>
-<td>Unique ID for Supplier Group.</td>
-</tr>
-</tbody></table>
-
-<h3 id="get-individual-survey-groups">GET Individual Survey Groups</h3>
-
-<blockquote>
-<p>Definition</p>
-</blockquote>
-<pre class="highlight plaintext"><code>GET  https://api.samplicio.us//Demand/v1/SurveyGroups/{SurveyGroupNumber}?key={APIKey}
-</code></pre>
-
-<blockquote>
-<p>Example Request</p>
-</blockquote>
-<pre class="highlight shell"><code>curl https://api.samplicio.us/Demand/v1/SupplierGroups/BySurveyNumber/<span class="o">{</span>SurveyNumber<span class="o">}</span>?key<span class="o">={</span>APIKey<span class="o">}</span>
-</code></pre>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
-
-<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Demand/v1/SupplierGroups/BySurveyNumber/{SurveyNumber}?key={APIKey}'</span><span class="p">)</span>
-
-<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">uri</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
-
-<span class="n">http</span><span class="p">.</span><span class="nf">use_ssl</span> <span class="o">=</span> <span class="kp">true</span>
-
-<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">request_uri</span><span class="p">)</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>  
-</code></pre>
-<pre class="highlight php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$response</span> <span class="o">=</span> <span class="nb">file_get_contents</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Demand/v1/SupplierGroups/BySurveyNumber/{SurveyNumber}?key={APIKey}'</span><span class="p">);</span>
-<span class="cp">?&gt;</span>
-</code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">requests</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://api.samplicio.us/Demand/v1/SupplierGroups/BySurveyNumber/{SurveyNumber}?key={APIKey}'</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight csharp"><code><span class="k">using</span> <span class="nn">System.Net</span><span class="p">;</span>
-
-<span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Demand/v1/SupplierGroups/BySurveyNumber/{SurveyNumber}?key={APIKey}"</span><span class="p">);</span>
-
-<span class="n">WebResponse</span> <span class="n">response</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">GetResponse</span><span class="p">();</span>
-</code></pre>
-<pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">https</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'https'</span><span class="p">);</span>
-
-<span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Demand/v1/SupplierGroups/BySurveyNumber/{SurveyNumber}?key={APIKey}'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">){</span>
-  <span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">res</span><span class="p">;</span>
-<span class="p">});</span>
-</code></pre>
-
-<blockquote>
-<p>Example Response</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"ApiResult"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"ApiResultCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"ApiAccount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Anon"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"AccountType"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"ApiAccountStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"AccountCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AA"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"ApiMessages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="s2">"API Message: Response initialized."</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"API Message: GetAllWithSuppliersBySurveyNumber successful."</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"ResultCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"SupplierGroups"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"ID"</span><span class="p">:</span><span class="w"> </span><span class="mi">001100</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Top Supplier Group"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Completes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Screens"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"AllocationPercentage"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"CPI"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"IsHedgeAccess"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Suppliers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"SupplierCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1010"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"Completes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"Screens"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">]</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"ID"</span><span class="p">:</span><span class="w"> </span><span class="mi">001001</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Gremlins"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Completes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Screens"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"AllocationPercentage"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.15</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"CPI"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"IsHedgeAccess"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Suppliers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"SupplierCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1010"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"Completes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"Screens"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">]</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>Returns the supplier groups for the survey specified.</p>
-
-<h4 id="arguments">Arguments</h4>
-
-<table><thead>
-<tr>
-<th>Property</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>SurveyNumber</td>
-<td>int</td>
-<td>true</td>
-<td>Unique number associated with the survey.</td>
+<td>Unique ID associated with the survey.</td>
 </tr>
 </tbody></table>
 
