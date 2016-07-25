@@ -6,13 +6,13 @@
 > Definition
 
 ```plaintext
-GET  https://api.samplicio.us/Demand/v1/SurveyGroups?key={{key}}
+GET  https://api.samplicio.us/Demand/v1/SurveyGroups?key={APIKey}
 ```
 
 > Example Request
 
 ```shell
-curl https://api.samplicio.us/Demand/v1/SurveyGroups?key={{key}}
+curl https://api.samplicio.us/Demand/v1/SurveyGroups?key={APIKey}
 ```
 
 ```ruby
@@ -123,13 +123,13 @@ Returns the supplier groups for the survey specified.
 > Definition
 
 ```plaintext
-POST  https://api.samplicio.us/Demand/v1/SurveyGroups/?key={{key}}
+POST  https://api.samplicio.us/Demand/v1/SurveyGroups/?key={APIKey}
 ```
 
 > Example Request
 
 ```shell
-curl -H "Content-Type: application/json" -X POST --data '{"SurveyNumber": 101100,"Name":"Top Supplier Group", "AllocationPercentage": 0.10,"IsHedgeAccess": true, "Suppliers": [{"SupplierCode":"0001"}]}' https://api.samplicio.us/Demand/v1/SurveyGroups/?key={{key}}
+curl -H "Content-Type: application/json" -X POST --data '{"SurveyNumber": 101100,"Name":"Top Supplier Group", "AllocationPercentage": 0.10,"IsHedgeAccess": true, "Suppliers": [{"SupplierCode":"0001"}]}' https://api.samplicio.us/Demand/v1/SurveyGroups/?key={APIKey}
 ```
 
 ```ruby
@@ -305,13 +305,13 @@ Creates a group with specific suppliers and allocation for that group.
 > Definition
 
 ```plaintext
-POST  https://api.samplicio.us/Demand/v1/SurveyGroups/{{SurveyGroupNumber}}?key={{key}}
+POST  https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupNumber}?key={APIKey}
 ```
 
 > Example Request
 
 ```shell
-curl -H "Content-Type: application/json" -X POST --data '{"SurveyNumber": 101100,"Name":"Top Supplier Group", "AllocationPercentage": 0.10,"IsHedgeAccess": true}' https://api.samplicio.us/Demand/v1/SurveyGroups/{{SurveyGroupNumber}}?key={{key}}
+curl -H "Content-Type: application/json" -X POST --data '{"SurveyNumber": 101100,"Name":"Top Supplier Group", "AllocationPercentage": 0.10,"IsHedgeAccess": true}' https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupNumber}?key={APIKey}
 ```
 
 ```ruby
@@ -476,13 +476,13 @@ Creates an empty supplier group with a specific allocation and name.
 > Definition
 
 ```plaintext
-DELETE  https://api.samplicio.us/Demand/v1/SurveyGroups/{{SurveyGroupNumber}}?key={{key}}
+DELETE  https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupNumber}?key={APIKey}
 ```
 
 > Example Request
 
 ```shell
-curl X- DELETE https://api.samplicio.us/Demand/v1/SurveyGroups/{{SurveyGroupNumber}}?key={{key}}
+curl X- DELETE https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupNumber}?key={APIKey}
 ```
 
 ```ruby
@@ -736,7 +736,7 @@ Adds suppliers to the specified supplier group.
 > Definition
 
 ```plaintext
-GET  https://api.samplicio.us//Demand/v1/SurveyGroups/{{SurveyGroupNumber}}?key={{key}}
+GET  https://api.samplicio.us//Demand/v1/SurveyGroups/{SurveyGroupNumber}?key={APIKey}
 ```
 
 > Example Request
