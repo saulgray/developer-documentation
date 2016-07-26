@@ -6,19 +6,19 @@
 > Definition
 
 ```plaintext
-GET  https://api.samplicio.us/Demand/v1/SurveyGroups?key={{key}}
+GET  https://api.samplicio.us/Demand/v1/SurveyGroups?key={APIKey}
 ```
 
 > Example Request
 
 ```shell
-curl https://api.samplicio.us/Demand/v1/SurveyGroups?key={{key}}
+curl https://api.samplicio.us/Demand/v1/SurveyGroups?key={APIKey}
 ```
 
 ```ruby
 require 'net/http'
 
-uri = URI('https://api.samplicio.us/Demand/v1/SupplierGroups/BySurveyNumber/{SurveyNumber}?key={APIKey}')
+uri = URI('https://api.samplicio.us/Demand/v1/SurveyGroups?key={APIKey}')
 
 http = Net::HTTP.new(uri.host, uri.port)
 
@@ -31,20 +31,20 @@ response = http.request(request)
 
 ```php
 <?php
-$response = file_get_contents('https://api.samplicio.us/Demand/v1/SupplierGroups/BySurveyNumber/{SurveyNumber}?key={APIKey}');
+$response = file_get_contents('https://api.samplicio.us/Demand/v1/SurveyGroups?key={APIKey}');
 ?>
 ```
 
 ```python
 import requests
 
-response = requests.get('https://api.samplicio.us/Demand/v1/SupplierGroups/BySurveyNumber/{SurveyNumber}?key={APIKey}')
+response = requests.get('https://api.samplicio.us/Demand/v1/SurveyGroups?key={APIKey}')
 ```
 
 ```csharp
 using System.Net;
 
-WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SupplierGroups/BySurveyNumber/{SurveyNumber}?key={APIKey}");
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SurveyGroups?key={APIKey}");
 
 WebResponse response = request.GetResponse();
 ```
@@ -52,7 +52,96 @@ WebResponse response = request.GetResponse();
 ```javascript
 const https = require('https');
 
-https.get('https://api.samplicio.us/Demand/v1/SupplierGroups/BySurveyNumber/{SurveyNumber}?key={APIKey}', function(res){
+https.get('https://api.samplicio.us/Demand/v1/SurveyGroups?key={APIKey}', function(res){
+  var response = res;
+});
+```
+> Example Response
+18091
+```
+{
+  "ApiResult": 0,
+  "ApiResultCode": 0,
+  "ApiAccount": "Anon",
+  "AccountType": 2,
+  "ApiAccountStatus": 1,
+  "AccountCode": "AA",
+  "ApiMessages": [
+    "API Message: Response initialized.",
+    "API Message: GetSurveyGroups successful."
+  ],
+  "ResultCount": 2,
+  "SurveyGroups": [
+    {
+      "ID": 10001,
+      "Name": "Local Group",
+      "SurveyCount": 38
+    },
+    {
+      "ID": 10101,
+      "Name": "Neighbor Group",
+      "SurveyCount": 12
+    }
+  ]
+}
+```
+
+Returns the survey groups, their IDs, and number of surveys within each.
+
+
+
+### GET Individual Survey Groups
+
+> Definition
+
+```plaintext
+GET  https://api.samplicio.us//Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}
+```
+
+> Example Request
+
+```shell
+curl https://api.samplicio.us//Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}
+```
+
+```ruby
+require 'net/http'
+
+uri = URI('https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}')
+
+http = Net::HTTP.new(uri.host, uri.port)
+
+http.use_ssl = true
+
+request = Net::HTTP::Get.new(uri.request_uri)
+
+response = http.request(request)  
+```
+
+```php
+<?php
+$response = file_get_contents('https://api.samplicio.us//Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}');
+?>
+```
+
+```python
+import requests
+
+response = requests.get('https://api.samplicio.us//Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}')
+```
+
+```csharp
+using System.Net;
+
+WebRequest request = WebRequest.Create("https://api.samplicio.us//Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}");
+
+WebResponse response = request.GetResponse();
+```
+
+```javascript
+const https = require('https');
+
+https.get('https://api.samplicio.us//Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}', function(res){
   var response = res;
 });
 ```
@@ -68,54 +157,24 @@ https.get('https://api.samplicio.us/Demand/v1/SupplierGroups/BySurveyNumber/{Sur
   "AccountCode": "AA",
   "ApiMessages": [
     "API Message: Response initialized.",
-    "API Message: GetAllWithSuppliersBySurveyNumber successful."
+    "API Message: GetSurveyGroupBySurveyGroupID successful."
   ],
   "ResultCount": 2,
-  "SupplierGroups": [
-    {
-      "ID": 001100,
-      "Name": "Top Supplier Group",
-      "Completes": 0,
-      "Screens": 0,
-      "AllocationPercentage": 0.1,
-      "CPI": null,
-      "IsHedgeAccess": true,
-      "Suppliers": [
-        {
-          "SupplierCode": "1010",
-          "Completes": 0,
-          "Screens": 0
-        }
-      ]
-    },
-    {
-      "ID": 001001,
-      "Name": "The Gremlins",
-      "Completes": 0,
-      "Screens": 0,
-      "AllocationPercentage": 0.15,
-      "CPI": null,
-      "IsHedgeAccess": true,
-      "Suppliers": [
-      {
-          "SupplierCode": "1010",
-          "Completes": 0,
-          "Screens": 0
-        }
-      ]
-    }
+  "SurveyIDs": [
+    123456,
+    654321
   ]
 }
 ```
 
-Returns the supplier groups for the survey specified.
+Returns the survey IDs for the survey group specified.
 
 
 #### Arguments
 
 | Property     | Type | Required | Description                               |
 |--------------|------|----------|-------------------------------------------|
-| SurveyNumber | int  | true     | Unique number associated with the survey. |
+| SurveyGroupID| int  | true     | Unique ID associated with the survey group. |
 
 
 ### POST Create a Survey Group
@@ -123,20 +182,20 @@ Returns the supplier groups for the survey specified.
 > Definition
 
 ```plaintext
-POST  https://api.samplicio.us/Demand/v1/SurveyGroups/?key={{key}}
+POST  https://api.samplicio.us/Demand/v1/SurveyGroups/?key={APIKey}
 ```
 
 > Example Request
 
 ```shell
-curl -H "Content-Type: application/json" -X POST --data '{"SurveyNumber": 101100,"Name":"Top Supplier Group", "AllocationPercentage": 0.10,"IsHedgeAccess": true, "Suppliers": [{"SupplierCode":"0001"}]}' https://api.samplicio.us/Demand/v1/SurveyGroups/?key={{key}}
+curl -H "Content-Type: application/json" -X POST --data '{"Name": "Group 1"}' https://api.samplicio.us/Demand/v1/SurveyGroups/?key={APIKey}
 ```
 
 ```ruby
 require 'net/http'
 require 'json'
 
-uri = URI('https://api.samplicio.us/Demand/v1/SupplierGroups/CreateWithSuppliers/{SurveyNumber}?key={APIKey}')
+uri = URI('https://api.samplicio.us/Demand/v1/SurveyGroups/?key={APIKey}')
 
 http = Net::HTTP.new(uri.host, uri.port)
 
@@ -144,7 +203,7 @@ http.use_ssl = true
 
 request = Net::HTTP::Post.new(FullUriPath, initheader = {'Content-Type' => 'application/json'})
 
-request.body = {SurveyNumber: 101100, Name:"Top Supplier Group", AllocationPercentage: 0.10, IsHedgeAccess: true, "Suppliers": [{"SupplierCode":"0001"}]}.to_json
+request.body = {Name:"Group 1"}.to_json
 
 response = http.request(request)  
 ```
@@ -153,10 +212,10 @@ response = http.request(request)
 <?php
 $curl = curl_init();
 
-$params = '{"SurveyNumber": 101100, "Name":"Top Supplier Group", "AllocationPercentage": 0.10, "IsHedgeAccess": true, "Suppliers": [{"SupplierCode":"0001"}]}';
+$params = '{"Name":"Group 1"}';
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "https://api.samplicio.us/Demand/v1/SupplierGroups/CreateWithSuppliers/{SurveyNumber}?key={APIKey}",
+  CURLOPT_URL => "https://api.samplicio.us/Demand/v1/SurveyGroups/?key={APIKey}",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
   CURLOPT_HTTPHEADER => array('Content-Type: application/json'),
@@ -176,8 +235,8 @@ curl_close($curl);
 ```python
 import requests
 
-url = 'https://api.samplicio.us/Demand/v1/SupplierGroups/CreateWithSuppliers/{SurveyNumber}?key={APIKey}'
-params = {'SurveyNumber': 101100, 'Name':'Top Supplier Group', 'AllocationPercentage': 0.10, 'IsHedgeAccess': True, 'Suppliers': [{'SupplierCode':'1010'}]}
+url = 'https://api.samplicio.us/Demand/v1/SurveyGroups/?key={APIKey}'
+params = {'Name':'Group 1'}
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 response = requests.post(url, data=data, headers=headers)
@@ -188,17 +247,9 @@ response = requests.post(url, data=data, headers=headers)
 using System.IO;
 using System.Net;
 
-WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SupplierGroups/CreateWithSuppliers/{SurveyNumber}?key={APIKey}");
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SurveyGroups/?key={APIKey}");
 
-string args = @"{
-                 ""SurveyNumber"": 101100,
-                 ""Name"":""Top Supplier Group"",
-                 ""AllocationPercentage"": 0.10,
-                 ""IsHedgeAccess"": true,
-                 ""Suppliers"": [{
-                                  ""SupplierCode"":""1010""
-                                }]
-                }";
+string args = @"{""Name"":""Group 1""}";
 
 request.Method = "POST";
 request.ContentType = "application/json";
@@ -222,19 +273,12 @@ var options = {
   "method": "POST",
   "hostname": "api.samplicio.us",
   "port": 443,
-  "path": "/Demand/v1/SupplierGroups/CreateWithSuppliers/{SurveyNumber}?key={APIKey}",
+  "path": "Demand/v1/SurveyGroups/?key={APIKey}",
   "headers": {'Content-Type': 'application/json'}
 };
 
-var json = {"SurveyNumber": 101100, 
-  "Name":"Top Supplier Group", 
-  "AllocationPercentage": 0.10, 
-  "IsHedgeAccess": true, 
-  "Suppliers": [
-    {
-    "SupplierCode":"1010"
-    }
-  ]
+var json = { 
+  "Name":"Group 1"
 }
 
 var params = JSON.stringify(json);
@@ -265,39 +309,32 @@ request.end();
   "AccountCode": "AA",
   "ApiMessages": [
     "API Message: Response initialized.",
-    "API Message: CreateSupplierGroupFromModel successful."
+    "API Message: InsertSurveyGroup successful."
   ],
-  "ResultCount": 1,
-  "SupplierGroup": {
-    "ID": 201967,
-    "Name": "Top Supplier Group",
-    "Completes": 0,
-    "Screens": 0,
-    "AllocationPercentage": 0.1,
-    "CPI": null,
-    "IsHedgeAccess": true,
-    "Suppliers": [
-      {
-        "SupplierCode": "1010",
-        "Completes": 0,
-        "Screens": 0
-      }
-    ]
+  "ResultCount": 0,
+  "SurveyGroup": {
+    "ID": 18096,
+    "SID": "AA11AA22-A111-CCDD-5F66-123456D11",
+    "Name": "Group 1",
+    "Description": "",
+    "CreateUserID": 1234,
+    "CreateDate": "/Date(1469132948640-0500)/",
+    "UpdateUserID": 1234,
+    "UpdateDate": "/Date(1469132948640-0500)/",
+    "LK_RecordStatusID": true,
+    "LK_SurveyGroupTypeID": 1
   }
 }
 ```
 
-Creates a group with specific suppliers and allocation for that group.
+Creates an empty survey group.
 
 
 #### Arguments
 | Property             | Type    | Required | Description                                        |
 |----------------------|---------|----------|----------------------------------------------------|
-| SurveyNumber         | int     | true     | Unique number associated with the survey.          |
-| Name                 | string  | true     | Supplier Group name.                               |
-| AllocationPercentage | int     | tue      | Group reserved allocation, expressed as a decimal. |
-| IsHedgeAccess        | boolean | true     | Access to unallocated completes on the Exchange.   |
-| Suppliers            | array   | true     | An array of all supplier codes (strings).          |
+| Name                 | string  | true     | Survey Group name.                                 |
+
 
 
 ### POST Survey to Survey Group
@@ -305,20 +342,20 @@ Creates a group with specific suppliers and allocation for that group.
 > Definition
 
 ```plaintext
-POST  https://api.samplicio.us/Demand/v1/SurveyGroups/{{SurveyGroupNumber}}?key={{key}}
+POST  https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}
 ```
 
 > Example Request
 
 ```shell
-curl -H "Content-Type: application/json" -X POST --data '{"SurveyNumber": 101100,"Name":"Top Supplier Group", "AllocationPercentage": 0.10,"IsHedgeAccess": true}' https://api.samplicio.us/Demand/v1/SurveyGroups/{{SurveyGroupNumber}}?key={{key}}
+curl -H "Content-Type: application/json" -X POST --data '{"SurveyNumber": ["101101"]}' https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}
 ```
 
 ```ruby
 require 'net/http'
 require 'json'
 
-uri = URI('https://api.samplicio.us/Demand/v1/SupplierGroups/Create/{SurveyNumber}?key={APIKey}')
+uri = URI('https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}')
 
 http = Net::HTTP.new(uri.host, uri.port)
 
@@ -328,7 +365,7 @@ fullUriPath = uri.path + '?' + uri.query
 
 request = Net::HTTP::Post.new(fullUriPath, initheader = {'Content-Type' =>'application/json'})
 
-request.body = {SurveyNumber: 101100, Name:"Top Supplier Group", AllocationPercentage: 0.10, IsHedgeAccess: true}.to_json
+request.body = {SurveyIDs: 101101}.to_json
 
 response = http.request(request)
 ```
@@ -337,10 +374,10 @@ response = http.request(request)
 <?php
 $curl = curl_init();
 
-$params = '{"SurveyNumber": 101100,"Name":"Top Supplier Group", "AllocationPercentage": 0.10,"IsHedgeAccess": true}';
+$params = '{"SurveyIDs": 101101}';
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "https://api.samplicio.us/Demand/v1/SupplierGroups/Create/{SurveyNumber}?key={APIKey}",
+  CURLOPT_URL => "https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
   CURLOPT_HTTPHEADER => array('Content-Type: application/json'),
@@ -360,8 +397,8 @@ curl_close($curl);
 ```python
 import requests, json
 
-url = 'https://api.samplicio.us/Demand/v1/SupplierGroups/Create/{SurveyNumber}?key={APIKey}'
-params = {'SurveyNumber': 101100,'Name':'Top Supplier Group', 'AllocationPercentage': 0.10,'IsHedgeAccess': True}
+url = 'https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}'
+params = {'SurveyIDs': 101101}
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
@@ -373,14 +410,9 @@ response = requests.post(url, data=data, headers=headers)
 using System.IO;
 using System.Net;
 
-WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SupplierGroups/Create/{SurveyNumber}?key={APIKey}");
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}");
 
-string args = @"{
-                 ""SurveyNumber"": 101100,
-                 ""Name"":""Top Supplier Group"",
-                 ""AllocationPercentage"": 0.10,
-                 ""IsHedgeAccess"": true
-                }";
+string args = @"{""SurveyIDs"": [101101]}";
 
 request.Method = "POST";
 request.ContentType = "application/json";
@@ -402,14 +434,11 @@ var options = {
   "method": "POST",
   "hostname": "api.samplicio.us",
   "port": 443,
-  "path": "/Demand/v1/SupplierGroups/Create/{SurveyNumber}?key={APIKey}",
+  "path": "/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}",
   "headers": {'Content-Type': 'application/json'}
 };
 
-var json = {"SurveyNumber": 101100, 
-  "Name":"Top Supplier Group", 
-  "AllocationPercentage": 0.10, 
-  "IsHedgeAccess": true, 
+var json = {"SurveyIDs": ["101101"]
   }
 
 var params = JSON.stringify(json);
@@ -440,35 +469,23 @@ request.end();
   "AccountCode": "AA",
   "ApiMessages": [
     "API Message: Response initialized.",
-    "API Message: CreateSupplierGroupFromModel successful."
+    "API Message: InsertSurveyGroupSurveys successful."
   ],
   "ResultCount": 1,
-  "SupplierGroup": {
-    "ID": 000110,
-    "Name": "Top Supplier Group",
-    "Completes": 0,
-    "Screens": 0,
-    "AllocationPercentage": 0,
-    "CPI": null,
-    "IsHedgeAccess": true,
-    "Suppliers": []
-  }
+  "SurveyIDs": [
+    101101
+  ]
 }
 ```
 
-Creates an empty supplier group with a specific allocation and name.
+Adds a survey to the specified survey group.
 
 
 #### Arguments
 
 | Property             | Type    | Required | Description                                        |
 |----------------------|---------|----------|----------------------------------------------------|
-| SurveyNumber         | int     | true     | Unique number associated with the survey.          |
-| Name                 | string  | true     | Supplier Group name.                               |
-| AllocationPercentage | int     | true     | Group reserved allocation, expressed as a decimal. |
-| IsHedgeAccess        | boolean | false    | Access to unallocated completes on the Exchange.   |
-| SupplierGroupCPI     | double  | false    | The payout per complete for those suppliers.       |
-
+| SurveyIDs            | int     | true     | Unique ID associated with the survey.              |
 
 
 ### DELETE Remove Survey from a Survey Group
@@ -476,25 +493,28 @@ Creates an empty supplier group with a specific allocation and name.
 > Definition
 
 ```plaintext
-DELETE  https://api.samplicio.us/Demand/v1/SurveyGroups/{{SurveyGroupNumber}}?key={{key}}
+DELETE  https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}
 ```
 
 > Example Request
 
 ```shell
-curl X- DELETE https://api.samplicio.us/Demand/v1/SurveyGroups/{{SurveyGroupNumber}}?key={{key}}
+curl X- DELETE --data '{"SurveyNumber": ["101101"]} https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey} 
 ```
 
 ```ruby
 require 'net/http'
+require 'json'
 
-uri = URI('https://api.samplicio.us/Demand/v1/SupplierGroups/Delete/{SurveyNumber}/{SupplierGroupID}?key={APIKey}')
+uri = URI('https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}')
 
 http = Net::HTTP.new(uri.host, uri.port)
 
 http.use_ssl = true
 
 request = Net::HTTP::Delete.new(uri.request_uri)
+
+request.body = {SurveyIDs: 101101}.to_json
 
 response = http.request(request)  
 ```
@@ -505,7 +525,7 @@ response = http.request(request)
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "https://api.samplicio.us/Demand/v1/SupplierGroups/Delete/{SurveyNumber}/{SupplierGroupID}?key={APIKey}",
+  CURLOPT_URL => "https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
   CURLOPT_MAXREDIRS => 10,
@@ -523,109 +543,8 @@ curl_close($curl);
 ```python
 import requests
 
-requests.delete('https://api.samplicio.us/Demand/v1/SupplierGroups/Delete/{SurveyNumber}/{SupplierGroupID}?key={APIKey}')
-```
-
-```csharp
-using System.Net;
-
-WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SupplierGroups/Delete/{SurveyNumber}/{SupplierGroupID}?key={APIKey}");
-
-request.Method = "DELETE";
-
-request.GetResponse();
-```
-
-```javascript
-const https = require('https');
-
-var options = {
-  "method": "DELETE",
-  "hostname": "stg-api.samplicio.us",
-  "port": 443,
-  "path": "/Demand/v1/SupplierGroups/Delete/{SurveyNumber}/{SupplierGroupID}?key={APIKey}",
-  "headers": {}
-};
-
-var request = https.request(options);
-
-request.end();
-
-```
-
-Deletes the specified supplier group.
-
-
-#### Arguments
-
-| Property        | Type | Required | Description                               |
-|-----------------|------|----------|-------------------------------------------|
-| SurveyNumber    | int  | true     | Unique number associated with the survey. |
-| SupplierGroupID | int  | true     | Unique ID for Supplier Group.             |
-
-### POST Add to a Group
-
-> Definition
-
-```plaintext
-POST  https://api.samplicio.us/Demand/v1/SupplierGroups/AddSuppliersToGroup/{SurveyNumber}/{SupplierGroupID}?key={APIKey}
-```
-
-
-> Example Request
-
-```shell
-curl -H "Content-Type: application/json" -X POST --data '{"SupplierCode":"0010"}' https://api.samplicio.us/Demand/v1/SupplierGroups/AddSuppliersToGroup/{SurveyNumber}/{SupplierGroupID}?key={APIKey}
-```
-
-```ruby
-require 'net/http'
-require 'json'
-
-uri = URI('https://api.samplicio.us/Demand/v1/SupplierGroups/AddSuppliersToGroup/{SurveyNumber}/{SupplierGroupID}?key={APIKey}')
-
-http = Net::HTTP.new(uri.host, uri.port)
-
-http.use_ssl = true
-
-fullUriPath = uri.path + '?' + uri.query
-
-request = Net::HTTP::Post.new(fullUriPath, initheader = {'Content-Type' =>'application/json'})
-
-request.body = {SupplierCode: 1010}.to_json
-
-response = http.request(request)
-```
-
-```php
-<?php
-$curl = curl_init();
-
-$params = '{"SupplierCode": 1010}';
-
-curl_setopt_array($curl, array(
-  CURLOPT_URL => "https://api.samplicio.us/Demand/v1/SupplierGroups/AddSuppliersToGroup/{SurveyNumber}/{SupplierGroupID}?key={APIKey}",
-  CURLOPT_RETURNTRANSFER => true,
-  CURLOPT_ENCODING => "",
-  CURLOPT_HTTPHEADER => array('Content-Type: application/json'),
-  CURLOPT_MAXREDIRS => 10,
-  CURLOPT_TIMEOUT => 30,
-  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-  CURLOPT_CUSTOMREQUEST => "POST",
-  CURLOPT_POSTFIELDS => $params,
-));
-
-$response = curl_exec($curl);
-
-curl_close($curl);
-?>
-```
-
-```python
-import requests, json
-
-url = 'https://api.samplicio.us/Demand/v1/SupplierGroups/AddSuppliersToGroup/{SurveyNumber}/{SupplierGroupID}?key={APIKey}'
-params = {'SupplierCode': 1010}
+requests.delete('https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}')
+params = {'SurveyIDs': 101101}
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
@@ -633,15 +552,13 @@ response = requests.post(url, data=data, headers=headers)
 ```
 
 ```csharp
-
-using System.IO;
 using System.Net;
 
-WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SupplierGroups/AddSuppliersToGroup/{SurveyNumber}/{SupplierGroupID}?key={APIKey}");
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}");
 
-string args = @"{""SupplierCode"": 1010}";
+string args = @"{""SupplierCode"": [101101]}";
 
-request.Method = "POST";
+request.Method = "DELETE";
 request.ContentType = "application/json";
 
 using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
@@ -651,198 +568,37 @@ streamWriter.Flush();
 streamWriter.Close();
 }
 
-WebResponse response = request.GetResponse();
+request.GetResponse();
 ```
 
 ```javascript
 const https = require('https');
 
 var options = {
-  "method": "POST",
+  "method": "DELETE",
   "hostname": "api.samplicio.us",
   "port": 443,
-  "path": "/Demand/v1/SupplierGroups/AddSuppliersToGroup/{SurveyNumber}/{SupplierGroupID}?key={APIKey}",
+  "path": "/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}",
   "headers": {'Content-Type': 'application/json'}
 };
 
-var json = {"SupplierCode": 1010}
+var json = {"SurveyIDs": ["101101"]
+  }
 
 var params = JSON.stringify(json);
 
-var request = https.request(options, function (createGroupEmpty) {
-  var chunks = [];
-
-  createGroupEmpty.on("data", function (chunk) {
-    chunks.push(chunk);
-  });
-
-});
-
-request.write(params);
+var request = https.request(options);
 
 request.end();
-```
-
-
-
-> Example Response
-
-```json
-{
-  "ApiResult": 0,
-  "ApiResultCode": 0,
-  "ApiAccount": "Anon",
-  "AccountType": 2,
-  "ApiAccountStatus": 1,
-  "AccountCode": "AA",
-  "ApiMessages": [
-    "API Message: Response initialized.",
-    "API Message: AddSupplierGroupSuppliersToSupplierGroup successful."
-  ],
-  "ResultCount": 1,
-  "SupplierGroup": {
-    "ID": 201967,
-    "Name": "Top Supplier Group",
-    "Completes": 0,
-    "Screens": 0,
-    "AllocationPercentage": 0.1,
-    "CPI": null,
-    "IsHedgeAccess": true,
-    "Suppliers": [
-      {
-        "SupplierCode": "1010",
-        "Completes": 0,
-        "Screens": 0
-      },
-     ]
-  }
-}
 
 ```
 
-Adds suppliers to the specified supplier group.
+Deletes the surveyID from the specified survey group.
 
 
 #### Arguments
 
 | Property        | Type | Required | Description                               |
 |-----------------|------|----------|-------------------------------------------|
-| SurveyNumber    | int  | true     | Unique number associated with the survey. |
-| SupplierGroupID | int  | true     | Unique ID for Supplier Group.             |
+| SurveyID        | int  | true     | Unique ID associated with the survey.     |
 
-
-### GET Individual Survey Groups
-
-> Definition
-
-```plaintext
-GET  https://api.samplicio.us//Demand/v1/SurveyGroups/{{SurveyGroupNumber}}?key={{key}}
-```
-
-> Example Request
-
-```shell
-curl https://api.samplicio.us/Demand/v1/SupplierGroups/BySurveyNumber/{SurveyNumber}?key={APIKey}
-```
-
-```ruby
-require 'net/http'
-
-uri = URI('https://api.samplicio.us/Demand/v1/SupplierGroups/BySurveyNumber/{SurveyNumber}?key={APIKey}')
-
-http = Net::HTTP.new(uri.host, uri.port)
-
-http.use_ssl = true
-
-request = Net::HTTP::Get.new(uri.request_uri)
-
-response = http.request(request)  
-```
-
-```php
-<?php
-$response = file_get_contents('https://api.samplicio.us/Demand/v1/SupplierGroups/BySurveyNumber/{SurveyNumber}?key={APIKey}');
-?>
-```
-
-```python
-import requests
-
-response = requests.get('https://api.samplicio.us/Demand/v1/SupplierGroups/BySurveyNumber/{SurveyNumber}?key={APIKey}')
-```
-
-```csharp
-using System.Net;
-
-WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SupplierGroups/BySurveyNumber/{SurveyNumber}?key={APIKey}");
-
-WebResponse response = request.GetResponse();
-```
-
-```javascript
-const https = require('https');
-
-https.get('https://api.samplicio.us/Demand/v1/SupplierGroups/BySurveyNumber/{SurveyNumber}?key={APIKey}', function(res){
-  var response = res;
-});
-```
-> Example Response
-
-```
-{
-  "ApiResult": 0,
-  "ApiResultCode": 0,
-  "ApiAccount": "Anon",
-  "AccountType": 2,
-  "ApiAccountStatus": 1,
-  "AccountCode": "AA",
-  "ApiMessages": [
-    "API Message: Response initialized.",
-    "API Message: GetAllWithSuppliersBySurveyNumber successful."
-  ],
-  "ResultCount": 2,
-  "SupplierGroups": [
-    {
-      "ID": 001100,
-      "Name": "Top Supplier Group",
-      "Completes": 0,
-      "Screens": 0,
-      "AllocationPercentage": 0.1,
-      "CPI": null,
-      "IsHedgeAccess": true,
-      "Suppliers": [
-        {
-          "SupplierCode": "1010",
-          "Completes": 0,
-          "Screens": 0
-        }
-      ]
-    },
-    {
-      "ID": 001001,
-      "Name": "The Gremlins",
-      "Completes": 0,
-      "Screens": 0,
-      "AllocationPercentage": 0.15,
-      "CPI": null,
-      "IsHedgeAccess": true,
-      "Suppliers": [
-      {
-          "SupplierCode": "1010",
-          "Completes": 0,
-          "Screens": 0
-        }
-      ]
-    }
-  ]
-}
-```
-
-Returns the supplier groups for the survey specified.
-
-
-#### Arguments
-
-| Property     | Type | Required | Description                               |
-|--------------|------|----------|-------------------------------------------|
-| SurveyNumber | int  | true     | Unique number associated with the survey. |
