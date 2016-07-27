@@ -671,6 +671,8 @@ response = http.request(request)
 
 $curl = curl_init();
 
+$params = '{"SurveyIDs": ["101101"]}';
+
 curl_setopt_array($curl, array(
   CURLOPT_URL => "https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}",
   CURLOPT_RETURNTRANSFER => true,
