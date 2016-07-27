@@ -42,9 +42,9 @@ includes:
   - demand/entry-links
   - demand/feasibility
   - demand/recontact
+  - demand/survey-groups
   - labs/introduction
   - labs/survey
-  - labs/survey-groups
   - guides/introduction
   - guides/demand
   - guides/supply
