@@ -68,41 +68,19 @@ https.get('https://api.samplicio.us/Demand/v1/SurveyGroups?key={APIKey}', functi
   "AccountCode": "AA",
   "ApiMessages": [
     "API Message: Response initialized.",
-    "API Message: GetAllWithSuppliersBySurveyNumber successful."
+    "API Message: GetSurveyGroups successful."
   ],
   "ResultCount": 2,
-  "SupplierGroups": [
+  "SurveyGroups": [
     {
-      "ID": 001100,
-      "Name": "Top Supplier Group",
-      "Completes": 0,
-      "Screens": 0,
-      "AllocationPercentage": 0.1,
-      "CPI": null,
-      "IsHedgeAccess": true,
-      "Suppliers": [
-        {
-          "SupplierCode": "1010",
-          "Completes": 0,
-          "Screens": 0
-        }
-      ]
+      "ID": 10001,
+      "Name": "Local Group",
+      "SurveyCount": 38
     },
     {
-      "ID": 001001,
-      "Name": "The Gremlins",
-      "Completes": 0,
-      "Screens": 0,
-      "AllocationPercentage": 0.15,
-      "CPI": null,
-      "IsHedgeAccess": true,
-      "Suppliers": [
-      {
-          "SupplierCode": "1010",
-          "Completes": 0,
-          "Screens": 0
-        }
-      ]
+      "ID": 10101,
+      "Name": "Neighbor Group",
+      "SurveyCount": 12
     }
   ]
 }
@@ -110,7 +88,9 @@ https.get('https://api.samplicio.us/Demand/v1/SurveyGroups?key={APIKey}', functi
 
 Returns the survey groups, their IDs, and number of surveys within each.
 
-### GET Show a Group
+
+
+### GET Individual Survey Groups
 
 > Definition
 
@@ -177,42 +157,12 @@ https.get('https://api.samplicio.us//Demand/v1/SurveyGroups/{SurveyGroupID}?key=
   "AccountCode": "AA",
   "ApiMessages": [
     "API Message: Response initialized.",
-    "API Message: GetAllWithSuppliersBySurveyNumber successful."
+    "API Message: GetSurveyGroupBySurveyGroupID successful."
   ],
   "ResultCount": 2,
-  "SupplierGroups": [
-    {
-      "ID": 001100,
-      "Name": "Top Supplier Group",
-      "Completes": 0,
-      "Screens": 0,
-      "AllocationPercentage": 0.1,
-      "CPI": null,
-      "IsHedgeAccess": true,
-      "Suppliers": [
-        {
-          "SupplierCode": "1010",
-          "Completes": 0,
-          "Screens": 0
-        }
-      ]
-    },
-    {
-      "ID": 001001,
-      "Name": "The Gremlins",
-      "Completes": 0,
-      "Screens": 0,
-      "AllocationPercentage": 0.15,
-      "CPI": null,
-      "IsHedgeAccess": true,
-      "Suppliers": [
-      {
-          "SupplierCode": "1010",
-          "Completes": 0,
-          "Screens": 0
-        }
-      ]
-    }
+  "SurveyIDs": [
+    123456,
+    654321
   ]
 }
 ```
@@ -222,11 +172,12 @@ Returns the survey IDs for the survey group specified.
 
 #### Arguments
 
-| Property     | Type | Required | Description                                 |
-|--------------|------|----------|---------------------------------------------|
-| SurveyGroupID| int  | true     | Unique ID associated with the survey group. |
+| Property     | Type | Required | Description                               |
+|--------------|------|----------|-------------------------------------------|
+| SurveyID     | int  | true     | Unique ID associated with the survey. |
 
-### POST Create a Group
+
+### POST Create a Survey Group
 
 > Definition
 
@@ -358,24 +309,16 @@ request.end();
   "AccountCode": "AA",
   "ApiMessages": [
     "API Message: Response initialized.",
-    "API Message: CreateSupplierGroupFromModel successful."
+    "API Message: InsertSurveyGroup successful."
   ],
-  "ResultCount": 1,
-  "SupplierGroup": {
-    "ID": 201967,
-    "Name": "Top Supplier Group",
-    "Completes": 0,
-    "Screens": 0,
-    "AllocationPercentage": 0.1,
-    "CPI": null,
-    "IsHedgeAccess": true,
-    "Suppliers": [
-      {
-        "SupplierCode": "1010",
-        "Completes": 0,
-        "Screens": 0
-      }
-    ]
+  "ResultCount": 0,
+  "SurveyGroup": {
+    "ID": 18096,
+    "SID": "AA11AA22-A111-CCDD-5F66-123456D11",
+    "Name": "Group 1",
+    "Description": "",
+    "LK_RecordStatusID": true,
+    "LK_SurveyGroupTypeID": 1
   }
 }
 ```
@@ -389,7 +332,8 @@ Creates an empty survey group.
 | Name                 | string  | true     | Survey Group name.                                 |
 
 
-### POST Add Survey to Group
+
+### POST Survey to Survey Group
 
 > Definition
 
@@ -521,19 +465,12 @@ request.end();
   "AccountCode": "AA",
   "ApiMessages": [
     "API Message: Response initialized.",
-    "API Message: CreateSupplierGroupFromModel successful."
+    "API Message: InsertSurveyGroupSurveys successful."
   ],
   "ResultCount": 1,
-  "SupplierGroup": {
-    "ID": 000110,
-    "Name": "Top Supplier Group",
-    "Completes": 0,
-    "Screens": 0,
-    "AllocationPercentage": 0,
-    "CPI": null,
-    "IsHedgeAccess": true,
-    "Suppliers": []
-  }
+  "SurveyIDs": [
+    101101
+  ]
 }
 ```
 
@@ -544,10 +481,161 @@ Adds a survey to the specified survey group.
 
 | Property             | Type    | Required | Description                                        |
 |----------------------|---------|----------|----------------------------------------------------|
-| SurveyGroupID        | int     | true     | Unique ID associated with the survey group.        |
-| SurveyIDs            | array   | true     | Unique ID associated with the survey.              |
+| SurveyIDs            | int     | true     | Unique ID associated with the survey.              |
 
-### DELETE Ungroup Survey
+
+### PUT Update a Group
+
+> Definition
+
+```plaintext
+PUT  https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}
+```
+
+> Example Request
+
+```shell
+curl -H "Content-Type: application/json" -X PUT --data '{"SurveyIDs":["001100"]}' https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}
+```
+
+```ruby
+require 'net/http'
+require 'json'
+
+uri = URI('https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}')
+
+http = Net::HTTP.new(uri.host, uri.port)
+
+http.use_ssl = true
+
+fullUriPath = uri.path + '?' + uri.query
+
+request = Net::HTTP::Put.new(fullUriPath, initheader = {'Content-Type' =>'application/json'})
+
+request.body = {"SurveyIDs":["001100"]}.to_json
+
+response = http.request(request)
+```
+
+```php
+<?php
+$curl = curl_init();
+
+$params = '{"SurveyIDs":["001100"]}';
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL => "https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => "",
+  CURLOPT_HTTPHEADER => array('Content-Type: application/json'),
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => "PUT",
+  CURLOPT_POSTFIELDS => $params,
+));
+
+$response = curl_exec($curl);
+
+curl_close($curl);
+?>
+```
+
+```python
+import requests, json
+
+url = 'https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}'
+params = {'SurveyIDs':['001100']}
+data = json.dumps(params)
+headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
+
+response = requests.put(url, data=data, headers=headers)
+```
+
+```csharp
+
+using System.IO;
+using System.Net;
+
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}");
+
+string args = @"{"SurveyIDs":["001100"]}";
+
+request.Method = "PUT";
+request.ContentType = "application/json";
+
+using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
+{
+streamWriter.Write(args);
+streamWriter.Flush();
+streamWriter.Close();
+}
+
+WebResponse response = request.GetResponse();
+```
+
+```javascript
+const https = require('https');
+
+var options = {
+  "method": "PUT",
+  "hostname": "api.samplicio.us",
+  "port": 443,
+  "path": "/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}",
+  "headers": {'Content-Type': 'application/json'}
+};
+
+var json = {"SurveyIDs":["001100"]}
+
+var params = JSON.stringify(json);
+
+var request = https.request(options, function (response) {
+  var chunks = [];
+
+  response.on("data", function (chunk) {
+    chunks.push(chunk);
+  });
+
+});
+
+request.write(params);
+
+request.end();
+```
+
+> Example Response
+
+```json 
+{
+  "ApiResult": 0,
+  "ApiResultCode": 0,
+  "ApiAccount": "Anon",
+  "AccountType": 2,
+  "ApiAccountStatus": 1,
+  "AccountCode": "AA",
+  "ApiMessages": [
+    "API Message: Response initialized.",
+    "API Message: GetSurveyGroupBySurveyGroupID successful."
+  ],
+  "ResultCount": 1,
+  "SurveyIDs": [
+    001100
+  ]
+}
+```
+
+Updates a survey group with the specified surveys.
+
+
+#### Arguments
+
+| Property             | Type    | Required | Description                                        |
+|----------------------|---------|----------|----------------------------------------------------|
+| SurveyID             | int     | true     | Unique ID associated with the survey.              |
+
+
+
+### DELETE Remove Survey from a Survey Group
 
 > Definition
 
@@ -575,13 +663,15 @@ request = Net::HTTP::Delete.new(uri.request_uri)
 
 request.body = {SurveyIDs: 101101}.to_json
 
-response = http.request(request)  
+response = http.request(request) 
 ```
 
 ```php
 <?php
 
 $curl = curl_init();
+
+$params = '{"SurveyIDs": ["101101"]}';
 
 curl_setopt_array($curl, array(
   CURLOPT_URL => "https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}",
@@ -650,13 +740,35 @@ var request = https.request(options);
 
 request.end();
 
+> Example Response
+
+```json
+{
+  {
+  "ApiResult": 0,
+  "ApiResultCode": 0,
+  "ApiAccount": "Anon",
+  "AccountType": 2,
+  "ApiAccountStatus": 1,
+  "AccountCode": "AA",
+  "ApiMessages": [
+    "API Message: Response initialized.",
+    "API Message: DeleteSurveyGroupSurveys successful."
+  ],
+  "ResultCount": 0,
+  "SurveyIDs": []
+}
+
+}
+
 ```
 
-Deletes the surveyIDs from the specified survey group.
+Deletes the surveyID from the specified survey group.
 
 
 #### Arguments
 
-| Property        | Type  | Required | Description                               |
-|-----------------|-------|----------|-------------------------------------------|
-| SurveyIDs       | array | true     | Unique ID associated with the survey.     |
+| Property        | Type | Required | Description                               |
+|-----------------|------|----------|-------------------------------------------|
+| SurveyID        | int  | true     | Unique ID associated with the survey.     |
+
