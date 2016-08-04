@@ -10,7 +10,7 @@ Fulcrum contains numerous objects, structures, and options that should be added 
 #### 1. Store our system [definitions](#definitions) and map them to your system.
 These definitions provide human-readable strings that correspond to various object/option IDs in Fulcrum.
 
-#### 2. Store Fulcrum Standard qualification [question texts](#get-list-standard-questions) and [answer options](#get-show-question-options) for countries you operate in. 
+#### 2. Store Fulcrum Standard qualification [question texts](#get-list-standard-questions) and [answer options](#get-show-question-options) for countries you operate in.
 
 We recommend mapping your respondents to the top 20-30 Fulcrum standard qualifications (please see below). Note: In the United States, State, DMA, Region, and Division are all based off ZIP. Be sure to map all zip codes to their corresponding State, DMA, Region, and Division for optimal geographic targeting.
 
@@ -19,13 +19,13 @@ We recommend mapping your respondents to the top 20-30 Fulcrum standard qualific
  - `ZIP`
  - `HISPANIC`
  - `ETHNICITY`
- - `STANDARD_HHI_US`
- - `STANDARD_EDUCATION`
+ - `STANDARD_HHI_US_v2`
+ - `STANDARD_EDUCATION_v2`
  - `STANDARD_EMPLOYMENT`
  - `STANDARD_JOB_TITLE`
  - `Age_and_Gender_of_Child`
  - `STANDARD_INDUSTRY`
- - `STANDARD_No_OF_EMPLOYEES`
+ - `STANDARD_NO_OF_EMPLOYEES`
  - `STANDARD_B2B_DECISION_MAKER`
  - `Parental_Status_Standard`
  - `STANDARD_COMPANY_REVENUE`
@@ -43,7 +43,7 @@ We recommend mapping your respondents to the top 20-30 Fulcrum standard qualific
  - `STANDARD_DIABETES_TYPE`
  - `STANDARD_ELECTRONICS`
  - `STANDARD_FLIGHT_DESTINATION`
- 
+
 For a list of top qualifications in other countries, [shoot us an email](mailto:support@luc.id).
 
 #### 3. Understanding Fulcrum Qualifications
@@ -62,18 +62,18 @@ http://www.supplierURL.com?status=complete&PID=[%PID%]&MID=[%MID%]&42=[%AGE%]&43
 
 Fulcrum Standard questions provide an industry standard for programmatic survey targeting. A survey’s qualifications form the pre-screener questions that are presented to each respondent before they leave Fulcrum and enter the client survey.
 
-- Questions and their conditions make up qualifications—the overall type of respondents the buyer is looking for. 
+- Questions and their conditions make up qualifications—the overall type of respondents the buyer is looking for.
 - Conditions are set on a question to form a qualification, which specifies who is allowed into the survey. For example AGE and GENDER are questions. If the client is looking for AGE 18-24 and only Males, those would be conditions.
 - A client may not necessarily build quotas off of all qualifications. It’s very important to use both qualifications and quotas when determining whether to send your respondent.
 - You can pass respondent demographics on the Fulcrum entry link allowing the respondent to bypass prescreener questions.
-- Respondents will also bypass questions they have already answered in Fulcrum. You can include variables in your supplier redirects to capture this valuable demographic data on your respondents as they answer those quesetions in Fulcrum. 
-  - Fulcrum will pass back stored demographic data if the respondent has answered that question within the last 30 days. 30 days is the exipration period for all demographic data in Fulcrum.
-  - If demographic data is returned on the supplier redirect which you __do not__ have for your panelist, then update your panelist profile with this information to better improve your targeting. 
+- Respondents will also bypass questions they have already answered in Fulcrum. You can include variables in your supplier redirects to capture this valuable demographic data on your respondents as they answer those questions in Fulcrum.
+  - Fulcrum will pass back stored demographic data if the respondent has answered that question within the last 30 days. 30 days is the expiration period for all demographic data in Fulcrum.
+  - If demographic data is returned on the supplier redirect which you __do not__ have for your panelist, then update your panelist profile with this information to better improve your targeting.
   - If you already have that demographic information stored, ignore Fulcrum's data and use your own as the source of truth.
   - We recommend including the top 20 qualifications on your return redirects to capture valuable demographic data on your respondents.
 
 #### 4. Understanding Fulcrum Quotas
-[Quotas](#quotas) determine how many completes of each type of respondent are allowed into the survey. Quotas are always created off Fulcrum qualifications. 
+[Quotas](#quotas) determine how many completes of each type of respondent are allowed into the survey. Quotas are always created off Fulcrum qualifications.
 
 Fulcrum quotas can be nested, overlapping, or contain only a subset of the qualified respondents. Here are a few examples:
 
@@ -136,7 +136,7 @@ Select and filter surveys based on desired criteria (e.g. country, study type, a
 
 #### 3. [Create a Link](#post-create-a-link)
 
-Once you have identifed a good survey opportuniy, create the entry links. This call will return "live" and "test" links. The "live" link is where you should send your respondents.
+Once you have identified a good survey opportunity, create the entry links. This call will return "live" and "test" links. The "live" link is where you should send your respondents.
 
 <aside class="notice">It's best practice to never put the survey entry link directly in your respondent invite emails as surveys and survey quotas can be closed by the time the respondent clicks. Rather, use a link into your decisioning system and always re-evaluate the best opportunity for your respondent and for you based on earnings per click (EPC) at that time.</aside>
 
@@ -169,7 +169,7 @@ This call returns an index of all live surveys where the supplier has an allocat
 
 #### 2. [Show Qualifications](#get-show-qualifications)
 
-Overwrite stored qualification data for each survey. 
+Overwrite stored qualification data for each survey.
 
 #### 3. [Show Quotas](#get-show-quotas)
 
@@ -187,11 +187,11 @@ __Objective: Earn the most revenue with the least amount of clicks by reviewing 
 
 - Once an hour start with the list of all your live surveys from [List Allocated Surveys](#get-list-allocated-surveys)
 - [Show Global/Trailing Survey Statistics](#get-show-statistics) for all live surveys and add/update with a value for each survey in a `Global EPC` column in your tables.
-  - The Global scope will return statistics for __all__ traffic sent by __all__ suppliers 
+  - The Global scope will return statistics for __all__ traffic sent by __all__ suppliers
   - Surveys may return with a Global EPC of $0.00 because they have not received any Offerwall traffic or had a complete in the last 12 hours. You should still attempt these studies as you may be there first.
 - [Show Supplier/Trailing Survey Statistics](#get-show-statistics) for all live surveys and add/update with a value for each survey in a `Internal EPC` column in your tables.
   - The Supplier scope will return statistics __only__ for entrants sent by the supplier
-  - You may also choose to calculate EPC within your system rather than relying on Fulcrum's calcualtion for yoru internal EPC.
+  - You may also choose to calculate EPC within your system rather than relying on Fulcrum's calculation for your internal EPC.
 - Add a `Functional EPC` column in your tables.
   - The `functional EPC` should be the `internal EPC` if it is non-zero.
   - If the `internal EPC` is zero then set the `functional EPC` to the `global EPC`.
