@@ -60,7 +60,7 @@ http://www.samplicio.us/router/default.aspx?SID=f6c83654-3d4f-4f7c-bef1-2f5097b6
 http://www.supplierURL.com?status=complete&PID=[%PID%]&MID=[%MID%]&42=[%AGE%]&43=[%GENDER%]&45=[%ZIP%]&47=[%HISPANIC%]&113=[%ETHNICITY%]
 ```
 
-Fulcrum Standard questions provide an industry standard for programmatic survey targeting. A survey’s qualifications form the pre-screener questions that are presented to each respondent before they leave Fulcrum and enter the client survey.
+Fulcrum Standard questions provide an industry standard for programmatic survey targeting. A survey’s qualifications form the prescreener questions that are presented to each respondent before they leave Fulcrum and enter the client survey.
 
 - Questions and their conditions make up qualifications—the overall type of respondents the buyer is looking for.
 - Conditions are set on a question to form a qualification, which specifies who is allowed into the survey. For example AGE and GENDER are questions. If the client is looking for AGE 18-24 and only Males, those would be conditions.
@@ -70,7 +70,7 @@ Fulcrum Standard questions provide an industry standard for programmatic survey 
   - Fulcrum will pass back stored demographic data if the respondent has answered that question within the last 30 days. 30 days is the expiration period for all demographic data in Fulcrum.
   - If demographic data is returned on the supplier redirect which you __do not__ have for your panelist, then update your panelist profile with this information to better improve your targeting.
   - If you already have that demographic information stored, ignore Fulcrum's data and use your own as the source of truth.
-  - We recommend including the top 20 qualifications on your return redirects to capture valuable demographic data on your respondents.
+  - We recommend including the top 20 qualifications on your return redirects to capture valuable demographic data on your respondents. Use our [redirects generator](http://labs.lucidhq.com/redirects) to add recommended parameters to your redirects.
 
 #### 4. Understanding Fulcrum Quotas
 [Quotas](#quotas) determine how many completes of each type of respondent are allowed into the survey. Quotas are always created off Fulcrum qualifications.
@@ -136,11 +136,12 @@ Select and filter surveys based on desired criteria (e.g. country, study type, a
 
 #### 3. [Create a Link](#post-create-a-link)
 
-Once you have identified a good survey opportunity, create the entry links. This call will return "live" and "test" links. The "live" link is where you should send your respondents.
+Once you have identified a good survey opportunity, create the entry links. This call will return "live" and "test" links. The "live" link is where you should send your respondents. Fulcrum entry links require a unique PID for each panelist. Respondent profiling data should be passed into Fulcrum on the entry links as `&Qualification=Value` using the Name property returned via the [List Standard Questions](#get-list-standard-questions) call and the Precode returned via the [Show Question Options](http://developer.lucidhq.com/#get-show-question-options) call. Respondents will bypass any questions in the Fulcrum prescreener where values are appended to entry links.
 
-<aside class="notice">It's best practice to never put the survey entry link directly in your respondent invite emails as surveys and survey quotas can be closed by the time the respondent clicks. Rather, use a link into your decisioning system and always re-evaluate the best opportunity for your respondent and for you based on earnings per click (EPC) at that time.</aside>
+<aside class="notice">It's best practice to never put the survey entry link directly in your respondent invite emails as surveys and survey quotas can be closed by the time the respondent clicks. Rather, use a link into your decisioning system and always re-evaluate the best opportunity for your respondent based on earnings per click (EPC) at that time.</aside>
 
 - Fulcrum will automatically use your default supplier redirects. Custom supplier redirects can be included in the payload with this call and the [Update a Link](#put-update-a-link) call.
+- Any session or profiling data collected in Fulcrum can be passed back to a supplier on the redirect links. A list of relevant session variables can be found [here](https://support.lucidhq.com/s/article/Adding-Variables-to-Survey-Links). Profiling data will be populated on redirects by appending `[%Qualification_Name%]` to the redirect links. Our [redirects generator](http://labs.lucidhq.com/redirects) is a great tool for formatting redirect links.
 - We require sending the respondent into Fulcrum with PID equal to the unique panelist ID and recommend sending the MID equal to the supplier's unique identifier for the session.
 
 #### 4. [Show Qualifications](#get-show-qualifications)
@@ -165,7 +166,7 @@ This call returns an index of all live surveys where the supplier has an allocat
 - Set surveys live that are paused in your system but return on this call. The buyers has set this survey back to live.
 - If this call returns a survey and you did not create the link via [Create a Link](#post-create-a-link) than you have been given a "targeted" allocation or "OTC" allocation.
   - In these cases the buyer typically creates the entry link for you.
-  - Use the [Show an Allocated Survey](#get-show-an-allocated-survey) call to retrieve you entry links and TCPI
+  - Use the [Show an Allocated Survey](#get-show-an-allocated-survey) call to retrieve you entry links and the CPI.
 
 #### 2. [Show Qualifications](#get-show-qualifications)
 
