@@ -3855,7 +3855,7 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
 <tr>
 <td>SampleTypeID</td>
 <td>int</td>
-<td>Sets the type of sample the survey is open to (i.e. consumer, business-to-business, etc). (SampleTypes)[#definitions]</td>
+<td>Sets the type of sample the survey is open to (i.e. consumer, business-to-business, etc). <a href="#definitions">See Sample Types</a></td>
 </tr>
 <tr>
 <td>SurveySID</td>
@@ -4360,7 +4360,7 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
 <td>SampleTypeID</td>
 <td>int</td>
 <td>false</td>
-<td>Sets the type of sample the survey is open to (i.e. consumer, business-to-business, etc). (SampleTypes)[#definitions].</td>
+<td>Sets the type of sample the survey is open to (i.e. consumer, business-to-business, etc). <a href="#definitions">See Sample Types</a>.</td>
 </tr>
 </tbody></table>
 
@@ -4869,7 +4869,7 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
 <td>SampleTypeID</td>
 <td>int</td>
 <td>false</td>
-<td>Sets the type of sample the survey is open to (i.e. consumer, business-to-business, etc). (SampleTypes)[#definitions].</td>
+<td>Sets the type of sample the survey is open to (i.e. consumer, business-to-business, etc). <a href="#definitions">See Sample Types</a>.</td>
 </tr>
 </tbody></table>
 
@@ -12354,7 +12354,7 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
 <pre class="highlight plaintext"><code>http://www.supplierURL.com?status=complete&amp;PID=[%PID%]&amp;MID=[%MID%]&amp;42=[%AGE%]&amp;43=[%GENDER%]&amp;45=[%ZIP%]&amp;47=[%HISPANIC%]&amp;113=[%ETHNICITY%]
 </code></pre>
 
-<p>Fulcrum Standard questions provide an industry standard for programmatic survey targeting. A survey’s qualifications form the pre-screener questions that are presented to each respondent before they leave Fulcrum and enter the client survey.</p>
+<p>Fulcrum Standard questions provide an industry standard for programmatic survey targeting. A survey’s qualifications form the prescreener questions that are presented to each respondent before they leave Fulcrum and enter the client survey.</p>
 
 <ul>
 <li>Questions and their conditions make up qualifications—the overall type of respondents the buyer is looking for.</li>
@@ -12367,7 +12367,7 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
 <li>Fulcrum will pass back stored demographic data if the respondent has answered that question within the last 30 days. 30 days is the expiration period for all demographic data in Fulcrum.</li>
 <li>If demographic data is returned on the supplier redirect which you <strong>do not</strong> have for your panelist, then update your panelist profile with this information to better improve your targeting.</li>
 <li>If you already have that demographic information stored, ignore Fulcrum&rsquo;s data and use your own as the source of truth.</li>
-<li>We recommend including the top 20 qualifications on your return redirects to capture valuable demographic data on your respondents.</li>
+<li>We recommend including the top 20 qualifications on your return redirects to capture valuable demographic data on your respondents. Use our <a href="http://labs.lucidhq.com/redirects">redirects generator</a> to add recommended parameters to your redirects.</li>
 </ul></li>
 </ul>
 
@@ -12493,12 +12493,13 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
 
 <h4 id="3-create-a-link">3. <a href="#post-create-a-link">Create a Link</a></h4>
 
-<p>Once you have identified a good survey opportunity, create the entry links. This call will return &ldquo;live&rdquo; and &ldquo;test&rdquo; links. The &ldquo;live&rdquo; link is where you should send your respondents.</p>
+<p>Once you have identified a good survey opportunity, create the entry links. This call will return &ldquo;live&rdquo; and &ldquo;test&rdquo; links. The &ldquo;live&rdquo; link is where you should send your respondents. Respondent profiling data should be passed into Fulcrum on the entry link query string as <code class="prettyprint">&amp;Qualification_Name=Value</code> where <code class="prettyprint">Qualification_Name</code> matches the Name property returned via the <a href="#get-list-standard-questions">List Standard Questions</a> call and <code class="prettyprint">Value</code> matches the Precode returned via the <a href="http://developer.lucidhq.com/#get-show-question-options">Show Question Options</a> call. Respondents will bypass any questions in the Fulcrum prescreener where values are appended to entry links.</p>
 
-<aside class="notice">It&rsquo;s best practice to never put the survey entry link directly in your respondent invite emails as surveys and survey quotas can be closed by the time the respondent clicks. Rather, use a link into your decisioning system and always re-evaluate the best opportunity for your respondent and for you based on earnings per click (EPC) at that time.</aside>
+<aside class="notice">It&rsquo;s best practice to never put the survey entry link directly in your respondent invite emails as surveys and survey quotas can be closed by the time the respondent clicks. Rather, use a link into your decisioning system and always re-evaluate the best opportunity for your respondent based on earnings per click (EPC) at that time.</aside>
 
 <ul>
 <li>Fulcrum will automatically use your default supplier redirects. Custom supplier redirects can be included in the payload with this call and the <a href="#put-update-a-link">Update a Link</a> call.</li>
+<li>Any session or profiling data collected in Fulcrum can be passed back to a supplier on the redirect links. A list of relevant session variables can be found <a href="https://support.lucidhq.com/s/article/Adding-Variables-to-Survey-Links">here</a>. Profiling data will be populated on redirects by appending <code class="prettyprint">[%Qualification_Name%]</code> to the redirect links where <code class="prettyprint">Qualification_Name</code> is the name of the qualification you would like to pass. Our <a href="http://labs.lucidhq.com/redirects">redirects generator</a> is a great tool for formatting redirect links.</li>
 <li>We require sending the respondent into Fulcrum with PID equal to the unique panelist ID and recommend sending the MID equal to the supplier&rsquo;s unique identifier for the session.</li>
 </ul>
 
@@ -12527,7 +12528,7 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
 
 <ul>
 <li>In these cases the buyer typically creates the entry link for you.</li>
-<li>Use the <a href="#get-show-an-allocated-survey">Show an Allocated Survey</a> call to retrieve you entry links and TCPI</li>
+<li>Use the <a href="#get-show-an-allocated-survey">Show an Allocated Survey</a> call to retrieve you entry links and the CPI.</li>
 </ul></li>
 </ul>
 
@@ -12699,7 +12700,7 @@ The <a href="#get-list-standard-questions">List Standard Questions</a> call only
 <pre class="highlight plaintext"><code>http://www.samplicio.us/router/default.aspx?SID=12345dca-a691-4496-a2fa-12345b99ec29&amp;PID=1234&amp;ienc=XWwaVNlMH8fxcLe5OQIh-vn5_b8
 </code></pre>
 
-<p>Incoming encryption requires the supplier to append the encryption value on the Fulcrum entry links. An example of the encrypted URLs from the Supplier into Fulcrum, where the Incoming Variable Name is set to “ienc” and the Secret Key is set to 1234567890ABC. Please note that “ienc2” and the secret key are merely example values.</p>
+<p>Incoming encryption requires the supplier to append the encryption value on the Fulcrum entry links. An example of the encrypted URLs from the Supplier into Fulcrum, where the Incoming Variable Name is set to “ienc” and the Secret Key is set to 1234567890ABC. Please note that “ienc” and the secret key are merely example values.</p>
 
 <p>If the Incoming Variable does not match the results of the algorithm, the respondent will count as a quality termination immediately upon entering Fulcrum and will be redirected on the quality termination failure link back to the supplier without the chance to route.</p>
 
