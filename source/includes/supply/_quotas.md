@@ -158,7 +158,7 @@ Returns the total quota and client quotas associated with a survey.
 
 <aside class="notice">The `NumberOfRespondents` property is calculated in real-time. The cache rules do not apply to this property.
 
-While this call does return `QuotaCPI`, it is recommended that [Show an Allocated Survey](#get-show-an-allocated-survey) is used to retrieve the most up-to-date pricing in all cases.
+While this call does return `QuotaCPI`, it is recommended that <a href="#get-show-an-allocated-survey">Show an Allocated Survey</a> is used to retrieve the most up-to-date pricing in all cases.
 
 </aside>
 
