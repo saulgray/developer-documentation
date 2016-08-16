@@ -9,7 +9,7 @@ The Qualifications resource allows the buyer to create new qualifications on an 
 | Qualifications               | array    | Contains an array of elements described below.                                                                                                          |
 | Name                         | string   | Name of the qualification.                                                                                                                              |
 | QuestionID                   | int      | Unique number associated with the question.                                                                                                             |
-| LogicalOperator              | string   | Defines the logical operation applied to the conditions.                                                                                                |
+| LogicalOperator              | string   | Defines the logical operation applied to the conditions (`OR`, `AND`, or `NOT`).                                                                        |
 | NumberOfRequiredConditions   | int      | Indicates the number of conditions that must be selected by the respondent to proceed.                                                                  |
 | IsActive                     | string   | Indicates if the qualification is active or inactive. Inactive effecitvely is the same as deleted.                                                      |
 | PreCodes                     | array of strings   | Qualification answer option identifiers.                                                                                                      |
