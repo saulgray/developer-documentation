@@ -35,7 +35,7 @@ The Surveys resource allows the buyer to create new surveys, update existing sur
 | SurveyPlatformID             | int      | Sets the external platform ID. We recommend setting to 2 for "undefined" in most situations.                                                            |
 | BidLengthOfInterview         | int      | Estimated time for a respondent to complete the survey excluding the Fulcrum prescreener in minutes as provided by the buyer.                           |
 | BusinessUnitID               | int      | Sets the account [business unit](#list-business-units).                                                                                                 |
-| SampleTypeID                 | int      | Sets the type of sample the survey is open to (i.e. consumer, business-to-business, etc). (SampleTypes)[#definitions]                                   |
+| SampleTypeID                 | int      | Sets the type of sample the survey is open to (i.e. consumer, business-to-business, etc). [See Sample Types](#definitions)                              |
 | SurveySID                    | string   | Unique hash value (GUID) assoicated with the survey.                                                                                                    |
 
 ### POST Create a Survey
@@ -394,7 +394,7 @@ Creates a Fulcrum survey.
 | SurveyPlatformID             | int      | false    |Sets the external platform ID. We recommend setting to 2 for "undefined" in most situations.                                                             |
 | BidLengthOfInterview         | int      | false    |Estimated time for a respondent to complete the survey excluding the Fulcrum prescreener in minutes as provided by the buyer.                           |
 | BusinessUnitID               | int      | true     |Sets the account [business unit](#list-business-units).                                                                                                 |
-| SampleTypeID                 | int      | false    |Sets the type of sample the survey is open to (i.e. consumer, business-to-business, etc). (SampleTypes)[#definitions].                                 |
+| SampleTypeID                 | int      | false    |Sets the type of sample the survey is open to (i.e. consumer, business-to-business, etc). [See Sample Types](#definitions).                                 |
 
 ### PUT Update a Survey
 
@@ -756,7 +756,7 @@ Update an existing Fulcrum survey.
 | SurveyPlatformID             | int      | true     |Sets the external platform ID. We recommend setting to 2 for "undefined" in most situations.                                                             |
 | BidLengthOfInterview         | int      | true     |Estimated time for a respondent to complete the survey excluding the Fulcrum prescreener in minutes as provided by the buyer.                           |
 | BusinessUnitID               | int      | true     |Sets the account [business unit](#list-business-units).                                                                                                 |
-| SampleTypeID                 | int      | false    |Sets the type of sample the survey is open to (i.e. consumer, business-to-business, etc). (SampleTypes)[#definitions].                                   |
+| SampleTypeID                 | int      | false    |Sets the type of sample the survey is open to (i.e. consumer, business-to-business, etc). [See Sample Types](#definitions).                                   |
 
 ### GET Show a Survey
 
@@ -984,6 +984,6 @@ Returns an index of all surveys by status such as Pending, Live, and Completed.
 
 #### Arguments
 
-| Property                     | Type     | Required | Description                                                                                                                                      |
-|------------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------|
+| Property                     | Type     | Required | Description                                                                                                                                          |
+|------------------------------|----------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------|
 | SurveyStatus                 | int      | true     | Code associated with the current status of the survey. See [List Global Definitions](#get-list-global-definitions) for a map, of survey status codes.|
