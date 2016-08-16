@@ -867,9 +867,6 @@ https.get('https://api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/{SurveyNumb
 
 Returns the details of a specific Fulcrum survey. 
 
-<aside class="notice">NumberOfRespondents is not cached.</aside>
-
-
 #### Arguments
 
 | Property                     | Type     | Required | Description                                                                                                                                  |
