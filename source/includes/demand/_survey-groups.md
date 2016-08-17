@@ -174,7 +174,7 @@ Returns the survey IDs for the survey group specified.
 
 | Property     | Type | Required | Description                               |
 |--------------|------|----------|-------------------------------------------|
-| SurveyID     | int  | true     | Unique ID associated with the survey. |
+| SurveyIDs    | int  | true     | Unique ID associated with the survey.     |
 
 
 ### POST Create a Survey Group
@@ -631,7 +631,7 @@ Updates a survey group with the specified surveys.
 
 | Property             | Type    | Required | Description                                        |
 |----------------------|---------|----------|----------------------------------------------------|
-| SurveyID             | int     | true     | Unique ID associated with the survey.              |
+| SurveyIDs            | int     | true     | Unique ID associated with the survey.              |
 
 
 
@@ -646,7 +646,7 @@ DELETE  https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={API
 > Example Request
 
 ```shell
-curl X- DELETE --data '{"SurveyNumber": ["101101"]} https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey} 
+curl X- DELETE --data '{"SurveyIDs": ["101101"]} https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey} 
 ```
 
 ```ruby
@@ -705,7 +705,7 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}");
 
-string args = @"{""SupplierCode"": [101101]}";
+string args = @"{""SurveyIDs"": [101101]}";
 
 request.Method = "DELETE";
 request.ContentType = "application/json";
@@ -770,5 +770,5 @@ Deletes the surveyID from the specified survey group.
 
 | Property        | Type | Required | Description                               |
 |-----------------|------|----------|-------------------------------------------|
-| SurveyID        | int  | true     | Unique ID associated with the survey.     |
+| SurveyIDs       | int  | true     | Unique ID associated with the survey.     |
 
