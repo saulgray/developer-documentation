@@ -120,26 +120,26 @@ response = http.request(request)
 
 ```php
 <?php
-$response = file_get_contents('https://api.samplicio.us/Supply/v1/QuestionLibrary/AllCustomQuestionsByAccount/{CountryLanguageID}?key={APIKey}');
+$response = file_get_contents('https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllCustomQuestionsByAccount/{CountryLanguageID}?key={APIKey}');
 ?>
 ```
 
 ```python
 import requests
 
-response = requests.get('https://api.samplicio.us/QuestionLibrary/AllCustomQuestionsByAccount/{CountryLanguageID}?key={APIKey}')
+response = requests.get('https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllCustomQuestionsByAccount/{CountryLanguageID}?key={APIKey}')
 ```
 ```csharp
 using System.Net;
 
-WebRequest request = WebRequest.Create("https://api.samplicio.us/QuestionLibrary/AllCustomQuestionsByAccount/{CountryLanguageID}?key={APIKey}");
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllCustomQuestionsByAccount/{CountryLanguageID}?key={APIKey}");
 
 WebResponse response = request.GetResponse();
 ```
 ```javascript
 const https = require('https');
 
-https.get('https://api.samplicio.us/QuestionLibrary/AllCustomQuestionsByAccount/{CountryLanguageID}?key={APIKey}', function(res){
+https.get('https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllCustomQuestionsByAccount/{CountryLanguageID}?key={APIKey}', function(res){
   var response = res;
 });
 ```
