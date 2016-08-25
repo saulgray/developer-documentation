@@ -233,7 +233,7 @@ Creates Quota based on specified questionIDs.
 | Quota           | int     | true     | Quota number for the specified quota.                                    |
 | IsActive        | boolean | true     | Should the quota be enforced on this project?                            |
 | SurveyQuotaType | string  | false    | Indicates quota type (Client or Total).                                  |
-| Conditions      | array   | false    | Indicates conditions associated with quota (by questionID and precodes). |
+| Conditions      | array   | true     | Indicates conditions associated with quota (by questionID and precodes). |
 
 ### PUT Update a Quota
 
@@ -443,7 +443,7 @@ Updates a quota's size, conditions, and other parameters.
 | Quota           | int     | true     | Quota number for the specified quota.                                    |
 | IsActive        | boolean | true     | Should the quota be enforced on this project?                            |
 | SurveyQuotaType | string  | false    | Indicates quota type (Client or Total).                                  |
-| Conditions      | array   | false    | Indicates conditions associated with quota (by questionID and precodes). |
+| Conditions      | array   | true     | Indicates conditions associated with quota (by questionID and precodes). |
 
 ### GET List Quotas
 
