@@ -211,7 +211,7 @@ params = {
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
-response = requests.post(url, data=data, headers=headers, auth=HTTPBasicAuth('{username}', '{password}'))
+response = requests.put(url, data=data, headers=headers, auth=HTTPBasicAuth('{username}', '{password}'))
 ```
 
 ```csharp
