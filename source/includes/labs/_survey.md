@@ -109,6 +109,7 @@ var options = {
   "protocol": "http:",
   "method": "GET",
   "hostname": "labs.lucidhq.com",
+  "port": 80,
   "path": "/api/v1.0/survey/{SID}/projectmanager",
   "auth": username + ":" + password
 };
@@ -259,6 +260,7 @@ var options = {
   "protocol": "http:",
   "method": "PUT",
   "hostname": "labs.lucidhq.com",
+  "port": 80,
   "path": "/api/v1.0/survey/{SID}/projectmanager",
   "headers": {
     'Content-Type': 'application/json',
