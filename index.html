@@ -11625,18 +11625,18 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
 <blockquote>
 <p>Definition</p>
 </blockquote>
-<pre class="highlight plaintext"><code>GET  http://labs.lucidhq.com/api/v1.0/survey/{SID}/projectmanager
+<pre class="highlight plaintext"><code>GET  https://labs.lucidhq.com/api/v1.0/survey/{SID}/projectmanager
 </code></pre>
 
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell"><code>curl -u <span class="o">{</span>username<span class="o">}</span>:<span class="o">{</span>password<span class="o">}</span> http://labs.lucidhq.com/api/v1.0/survey/<span class="o">{</span>SID<span class="o">}</span>/projectmanager
+<pre class="highlight shell"><code>curl -u <span class="o">{</span>username<span class="o">}</span>:<span class="o">{</span>password<span class="o">}</span> https://labs.lucidhq.com/api/v1.0/survey/<span class="o">{</span>SID<span class="o">}</span>/projectmanager
 </code></pre>
 <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s2">"net/http"</span>
 <span class="nb">require</span> <span class="s2">"uri"</span>
 
-<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="s1">'http://labs.lucidhq.com/api/v1.0/survey/{SID}/projectmanager'</span><span class="p">)</span>
+<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="s1">'https://labs.lucidhq.com/api/v1.0/survey/{SID}/projectmanager'</span><span class="p">)</span>
 
 <span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">uri</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
 
@@ -11650,7 +11650,7 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"http://labs.lucidhq.com/api/v1.0/survey/</span><span class="si">{</span><span class="nv">SID</span><span class="si">}</span><span class="s2">/projectmanager"</span><span class="p">,</span>
+  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://labs.lucidhq.com/api/v1.0/survey/</span><span class="si">{</span><span class="nv">SID</span><span class="si">}</span><span class="s2">/projectmanager"</span><span class="p">,</span>
   <span class="nx">CURLOPT_USERPWD</span> <span class="o">=&gt;</span> <span class="s2">"</span><span class="si">{</span><span class="nv">username}:{password</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
   <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
   <span class="nx">CURLOPT_ENCODING</span> <span class="o">=&gt;</span> <span class="s2">""</span><span class="p">,</span>
@@ -11669,7 +11669,7 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
 <pre class="highlight python"><code><span class="kn">from</span> <span class="nn">requests.auth</span> <span class="kn">import</span> <span class="n">HTTPBasicAuth</span>
 <span class="kn">import</span> <span class="nn">requests</span><span class="o">,</span> <span class="nn">json</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">'http://labs.lucidhq.com/api/v1.0/survey/{SID}/projectmanager'</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">'https://labs.lucidhq.com/api/v1.0/survey/{SID}/projectmanager'</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="n">HTTPBasicAuth</span><span class="p">(</span><span class="s">'{username}'</span><span class="p">,</span> <span class="s">'{password}'</span><span class="p">))</span>
 </code></pre>
@@ -11681,7 +11681,7 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
 <span class="p">{</span>
     <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">()</span>
     <span class="p">{</span>
-        <span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"http://labs.lucidhq.com/api/v1.0/survey/{SID}/projectmanager"</span><span class="p">);</span>
+        <span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://labs.lucidhq.com/api/v1.0/survey/{SID}/projectmanager"</span><span class="p">);</span>
 
         <span class="n">String</span> <span class="n">username</span> <span class="p">=</span> <span class="s">"{username}"</span><span class="p">;</span>
         <span class="n">String</span> <span class="n">password</span> <span class="p">=</span> <span class="s">"{password}"</span><span class="p">;</span>
@@ -11747,7 +11747,7 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
 <blockquote>
 <p>Definition</p>
 </blockquote>
-<pre class="highlight plaintext"><code>PUT  http://labs.lucidhq.com/api/v1.0/survey/{SID}/projectmanager
+<pre class="highlight plaintext"><code>PUT  https://labs.lucidhq.com/api/v1.0/survey/{SID}/projectmanager
 </code></pre>
 
 <blockquote>
@@ -11759,7 +11759,7 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
 <span class="nb">require</span> <span class="s1">'net/http'</span>
 <span class="nb">require</span> <span class="s1">'json'</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"http://labs.lucidhq.com/api/v1.0/survey/{SID}/projectmanager"</span><span class="p">)</span>
+<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"https://labs.lucidhq.com/api/v1.0/survey/{SID}/projectmanager"</span><span class="p">)</span>
 
 <span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
 
@@ -11782,7 +11782,7 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
 }'</span><span class="p">;</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"http://labs.lucidhq.com/api/v1.0/survey/</span><span class="si">{</span><span class="nv">SID</span><span class="si">}</span><span class="s2">/projectmanager"</span><span class="p">,</span>
+  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://labs.lucidhq.com/api/v1.0/survey/</span><span class="si">{</span><span class="nv">SID</span><span class="si">}</span><span class="s2">/projectmanager"</span><span class="p">,</span>
   <span class="nx">CURLOPT_USERPWD</span> <span class="o">=&gt;</span> <span class="s2">"</span><span class="si">{</span><span class="nv">username}:{password</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
   <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
   <span class="nx">CURLOPT_ENCODING</span> <span class="o">=&gt;</span> <span class="s2">""</span><span class="p">,</span>
@@ -11803,7 +11803,7 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
 <pre class="highlight python"><code><span class="kn">from</span> <span class="nn">requests.auth</span> <span class="kn">import</span> <span class="n">HTTPBasicAuth</span>
 <span class="kn">import</span> <span class="nn">requests</span><span class="o">,</span> <span class="nn">json</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">'http://labs.lucidhq.com/api/v1.0/survey/{SID}/projectmanager'</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">'https://labs.lucidhq.com/api/v1.0/survey/{SID}/projectmanager'</span>
 <span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
   <span class="s">"primary_pm"</span><span class="p">:</span> <span class="mi">9379</span><span class="p">,</span>
   <span class="s">"secondary_pm"</span><span class="p">:</span> <span class="mi">9392</span>
@@ -11817,7 +11817,7 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
 <span class="k">using</span> <span class="nn">System.IO</span><span class="p">;</span>
 <span class="k">using</span> <span class="nn">System.Net</span><span class="p">;</span>
 
-<span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"http://labs.lucidhq.com/api/v1.0/survey/{SID}/projectmanager"</span><span class="p">);</span>
+<span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://labs.lucidhq.com/api/v1.0/survey/{SID}/projectmanager"</span><span class="p">);</span>
 
 <span class="n">String</span> <span class="n">username</span> <span class="p">=</span> <span class="s">"{username}"</span><span class="p">;</span>
 <span class="n">String</span> <span class="n">password</span> <span class="p">=</span> <span class="s">"{password}"</span><span class="p">;</span>
