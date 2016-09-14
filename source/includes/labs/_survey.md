@@ -21,20 +21,20 @@ The survey resource on the Labs API gives developers experimental access to prop
 > Definition
 
 ```plaintext
-GET  http://labs.lucidhq.com/api/v1.0/survey/{SID}/projectmanager
+GET  https://labs.lucidhq.com/api/v1.0/survey/{SID}/projectmanager
 ```
 
 > Example Request
 
 ```shell
-curl -u {username}:{password} http://labs.lucidhq.com/api/v1.0/survey/{SID}/projectmanager
+curl -u {username}:{password} https://labs.lucidhq.com/api/v1.0/survey/{SID}/projectmanager
 ```
 
 ```ruby
 require "net/http"
 require "uri"
 
-uri = URI.parse('http://labs.lucidhq.com/api/v1.0/survey/{SID}/projectmanager')
+uri = URI.parse('https://labs.lucidhq.com/api/v1.0/survey/{SID}/projectmanager')
 
 http = Net::HTTP.new(uri.host, uri.port)
 
@@ -50,7 +50,7 @@ response = http.request(request)
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "http://labs.lucidhq.com/api/v1.0/survey/{SID}/projectmanager",
+  CURLOPT_URL => "https://labs.lucidhq.com/api/v1.0/survey/{SID}/projectmanager",
   CURLOPT_USERPWD => "{username}:{password}",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
@@ -71,7 +71,7 @@ curl_close($curl);
 from requests.auth import HTTPBasicAuth
 import requests, json
 
-url = 'http://labs.lucidhq.com/api/v1.0/survey/{SID}/projectmanager'
+url = 'https://labs.lucidhq.com/api/v1.0/survey/{SID}/projectmanager'
 
 response = requests.get(url, auth=HTTPBasicAuth('{username}', '{password}'))
 ```
@@ -85,7 +85,7 @@ public class Program
 {
 	public static void Main()
 	{
-		WebRequest request = WebRequest.Create("http://labs.lucidhq.com/api/v1.0/survey/{SID}/projectmanager");
+		WebRequest request = WebRequest.Create("https://labs.lucidhq.com/api/v1.0/survey/{SID}/projectmanager");
 
 		String username = "{username}";
 		String password = "{password}";
@@ -141,7 +141,7 @@ Returns a the primary and secondary project manager for a survey.
 > Definition
 
 ```plaintext
-PUT  http://labs.lucidhq.com/api/v1.0/survey/{SID}/projectmanager
+PUT  https://labs.lucidhq.com/api/v1.0/survey/{SID}/projectmanager
 ```
 
 > Example Request
@@ -155,7 +155,7 @@ require 'uri'
 require 'net/http'
 require 'json'
 
-url = URI("http://labs.lucidhq.com/api/v1.0/survey/{SID}/projectmanager")
+url = URI("https://labs.lucidhq.com/api/v1.0/survey/{SID}/projectmanager")
 
 http = Net::HTTP.new(url.host, url.port)
 
@@ -180,7 +180,7 @@ $params = '{
 }';
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "http://labs.lucidhq.com/api/v1.0/survey/{SID}/projectmanager",
+  CURLOPT_URL => "https://labs.lucidhq.com/api/v1.0/survey/{SID}/projectmanager",
   CURLOPT_USERPWD => "{username}:{password}",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
@@ -203,7 +203,7 @@ curl_close($curl);
 from requests.auth import HTTPBasicAuth
 import requests, json
 
-url = 'http://labs.lucidhq.com/api/v1.0/survey/{SID}/projectmanager'
+url = 'https://labs.lucidhq.com/api/v1.0/survey/{SID}/projectmanager'
 params = {
   "primary_pm": 9379,
   "secondary_pm": 9392
@@ -219,7 +219,7 @@ using System;
 using System.IO;
 using System.Net;
 
-WebRequest request = WebRequest.Create("http://labs.lucidhq.com/api/v1.0/survey/{SID}/projectmanager");
+WebRequest request = WebRequest.Create("https://labs.lucidhq.com/api/v1.0/survey/{SID}/projectmanager");
 
 String username = "{username}";
 String password = "{password}";

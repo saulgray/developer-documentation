@@ -16,13 +16,13 @@ Survey Groups enable buyers to establish relationships between surveys that serv
 > Definition
 
 ```plaintext
-POST  http://labs.lucidhq.com:5000/api/v1.0/groups
+POST  https://labs.lucidhq.com:5000/api/v1.0/groups
 ```
 
 > Example Request
 
 ```shell
-curl -u {username}:{password} -H "Content-Type: application/json" -X POST --data '{"description": "MegaCorp Tracker", "name": "Project 999", "surveys": [123,48452]}' http://labs.lucidhq.com:5000/api/v1.0/groups
+curl -u {username}:{password} -H "Content-Type: application/json" -X POST --data '{"description": "MegaCorp Tracker", "name": "Project 999", "surveys": [123,48452]}' https://labs.lucidhq.com:5000/api/v1.0/groups
 ```
 
 ```ruby
@@ -30,7 +30,7 @@ require 'uri'
 require 'net/http'
 require 'json'
 
-url = URI("http://labs.lucidhq.com:5000/api/v1.0/groups")
+url = URI("https://labs.lucidhq.com:5000/api/v1.0/groups")
 
 http = Net::HTTP.new(url.host, url.port)
 
@@ -63,7 +63,7 @@ $params = '{
 }';
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "http://labs.lucidhq.com:5000/api/v1.0/groups",
+  CURLOPT_URL => "https://labs.lucidhq.com:5000/api/v1.0/groups",
   CURLOPT_USERPWD => "{username}:{password}",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
@@ -86,7 +86,7 @@ curl_close($curl);
 from requests.auth import HTTPBasicAuth
 import requests, json
 
-url = 'http://labs.lucidhq.com:5000/api/v1.0/groups'
+url = 'https://labs.lucidhq.com:5000/api/v1.0/groups'
 params = {
   "description": "MegaCorp Tracker",
   "name": "Project 999",
@@ -106,7 +106,7 @@ using System;
 using System.IO;
 using System.Net;
 
-WebRequest request = WebRequest.Create("http://labs.lucidhq.com:5000/api/v1.0/groups");
+WebRequest request = WebRequest.Create("https://labs.lucidhq.com:5000/api/v1.0/groups");
 
 String username = "{username}";
 String password = "{password}";
@@ -206,13 +206,13 @@ Creates a new group and adds listed surveys to the group.
 > Definition
 
 ```plaintext
-POST  http://labs.lucidhq.com:5000/api/v1.0/groups/{SID}/append
+POST  https://labs.lucidhq.com:5000/api/v1.0/groups/{SID}/append
 ```
 
 > Example Request
 
 ```shell
-curl -u {username}:{password} -H "Content-Type: application/json" -X POST --data '{"surveys": [554784,982545]}' http://labs.lucidhq.com:5000/api/v1.0/groups/{SID}/append
+curl -u {username}:{password} -H "Content-Type: application/json" -X POST --data '{"surveys": [554784,982545]}' https://labs.lucidhq.com:5000/api/v1.0/groups/{SID}/append
 ```
 
 ```ruby
@@ -220,7 +220,7 @@ require 'uri'
 require 'net/http'
 require 'json'
 
-url = URI("http://labs.lucidhq.com:5000/api/v1.0/groups/{SID}/append")
+url = URI("https://labs.lucidhq.com:5000/api/v1.0/groups/{SID}/append")
 
 http = Net::HTTP.new(url.host, url.port)
 
@@ -249,7 +249,7 @@ $params = '{
 }';
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "http://labs.lucidhq.com:5000/api/v1.0/groups/{SID}/append",
+  CURLOPT_URL => "https://labs.lucidhq.com:5000/api/v1.0/groups/{SID}/append",
   CURLOPT_USERPWD => "{username}:{password}",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
@@ -272,7 +272,7 @@ curl_close($curl);
 from requests.auth import HTTPBasicAuth
 import requests, json
 
-url = 'http://labs.lucidhq.com:5000/api/v1.0/groups/{SID}/append'
+url = 'https://labs.lucidhq.com:5000/api/v1.0/groups/{SID}/append'
 params = {
   "surveys": [
        554784,
@@ -290,7 +290,7 @@ using System;
 using System.IO;
 using System.Net;
 
-WebRequest request = WebRequest.Create("http://labs.lucidhq.com:5000/api/v1.0/groups/{SID}/append");
+WebRequest request = WebRequest.Create("https://labs.lucidhq.com:5000/api/v1.0/groups/{SID}/append");
 
 String username = "{username}";
 String password = "{password}";
