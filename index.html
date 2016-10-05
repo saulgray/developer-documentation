@@ -12498,9 +12498,82 @@ The <a href="#get-list-standard-questions">List Standard Questions</a> call only
 
               <h2 id="security">Security</h2>
 
-<p>SHA-1 hashing for both buyers and suppiers helps prevent URL manipulation when utilized on redirects into and out of Fulcrum. Utilizing complete end-to-end link encryption makes the Fulcrum environment more secure and productive for suppliers and buyers. Fulcrum strongly recommends taking advantage of inbound and outbound URL hashing.</p>
+<p>Fulcrum is capable of handling SHA-1 URL hashing on all incoming and outgoing links.  We strongly recommend that all integrations take advantage of this feature to protect against fraudulent link manipulation.</p>
 
-<p>In order to verify the validity of any Fulcrum outbound connection or generate a hash to match with any Fulcrum inbound connection, you must create a function that computes an RFC 2014-compliant HMAC signature and substitute the following characters:</p>
+<p><img alt="SHA-1 Setup" src="source/images/sha1_flowchart_v3.png" /></p>
+
+<p>Your secret key and variable name configuration can be set or disabled in the Fulcrum UI. In order to verify the validity of any Fulcrum outbound connection or generate a hash to match with any Fulcrum inbound connection, you must create a function that computes an RFC 2014-compliant HMAC signature and substitute the following characters:</p>
+
+<table><thead>
+<tr>
+<th>Original</th>
+<th>Substitute</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>+</td>
+<td>-</td>
+</tr>
+<tr>
+<td>/</td>
+<td>_</td>
+</tr>
+<tr>
+<td>=</td>
+<td>empty string</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">When hashing URLs for Fulcrum your base string should include the entire URL, up to and including the `&` preceding your encryption variable.  When hashing URLs for Pulley, your base string should include the entire URL up to but NOT including the `&` preceding your encryption variable.</aside>
+
+<h3 id="generating-a-hmac-signature">Generating a HMAC signature</h3>
+
+<p>Accounts with Incoming SHA-1 hashing enabled will need to generate an HMAC signature value using the secret key set in Fulcrum and append the hash value on links directing users to Fulcrum.  Hash values should be appended to the URL following the hash variable name in Fulcrum.  When a respondent enters Fulcrum on a url with a SHA-1 hash, Fulcrum will attempt to validate the hash. If the hash is found to be valid the user will be allowed to proceed.  If the hash value is found to be invalid the user&rsquo;s session will be terminated.</p>
+
+<p>For information on how to set a SHA-1 hash variable name and Secret Key in Fulcrum, see the &ldquo;Configure SHA-1 Settings in Fulcrum&rdquo;</p>
+
+<p>Suppliers that have enabled Incoming SHA-1 hashing will append the signature to the Fulcrum entry links provided to respondents.</p>
+
+<p>Buyers that have enabled Incoming SHA-1 hashing will append the signature to the all callback links used to return respondents to Fuclrum. </p>
+
+<p>An example, of a hashed URL that using &ldquo;ienc&rdquo; as the variable name and Secret Key of <code class="prettyprint">ZZ6VkORqV25iSWOVb5cwZ03zpns</code> as the secret key, can be found here.  Please note, <code class="prettyprint">ienc</code> and the secret key <code class="prettyprint">ZZ6VkORqV25iSWOVb5cwZ03zpns</code> are just examples values.</p>
+
+<p>Use our hashing tool to validate your system&rsquo;s SHA-1 hashing!
+https://labs.lucidhq.com/hash</p>
+
+<h3 id="verifying-a-hmac-signature">Verifying a HMAC signature</h3>
+
+<blockquote>
+<p>Example key</p>
+</blockquote>
+<pre class="highlight plaintext"><code>ZZ6VkORqV25iSWOVb5cwZ03zpns
+</code></pre>
+
+<blockquote>
+<p>Example Base URL</p>
+</blockquote>
+<pre class="highlight plaintext"><code>https://www.abc.com/ex.aspx?abc=def&amp;vid=123&amp;
+</code></pre>
+
+<blockquote>
+<p>URL Without Encryption: </p>
+</blockquote>
+<pre class="highlight plaintext"><code>https://www.samplicio.us/router/default.aspx?SID=12345dca-a691-4496-a2fa-12345b99ec29&amp;PID=1234&amp;
+</code></pre>
+
+<blockquote>
+<p>URL With Encryption: </p>
+</blockquote>
+<pre class="highlight plaintext"><code>https://www.samplicio.us/router/default.aspx?SID=12345dca-a691-4496-a2fa-12345b99ec29&amp;PID=1234&amp;ienc=n3yzbU4WgqUT5hNKm7AnN07falA
+</code></pre>
+
+<p>Accounts with Outgoing SHA-1 Encryption enabled will need to be able to validate an HMAC signature hash value.  Fulcrum will append this hash value when passing respondents to your platform. Fulcrum will use the SHA-1 variable name and secret key set in Fulcum to generate and appending the hash. </p>
+
+<p>Buyers will find these signatures appended to the links used by respondents to enter a client survey.  </p>
+
+<p>Suppliers will see these signatures appended to the links on which respondents are returned to your platform from Fulcurm.</p>
+
+<p>An example of the URL with a hash value that is generated using the variable name “oenc” and the Secret Key &ldquo;ZZ6VkORqV25iSWOVb5cwZ03zpns&rdquo;. Please note that “oenc” and the secret key are merely example values.</p>
 
 <blockquote>
 <p>Example key</p>
@@ -12529,80 +12602,16 @@ The <a href="#get-list-standard-questions">List Standard Questions</a> call only
 <blockquote>
 <p>Example Final URL</p>
 </blockquote>
-<pre class="highlight plaintext"><code>https://www.abc.com/ex.aspx?abc=def&amp;vid=123&amp;oenc2=dYQuf4tCr1l07nDRpzO-PLSBNTQ
+<pre class="highlight plaintext"><code>https://www.abc.com/ex.aspx?abc=def&amp;vid=123&amp;oenc=dYQuf4tCr1l07nDRpzO-PLSBNTQ
 </code></pre>
 
-<table><thead>
-<tr>
-<th>Original</th>
-<th>Substitute</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>+</td>
-<td>-</td>
-</tr>
-<tr>
-<td>/</td>
-<td>_</td>
-</tr>
-<tr>
-<td>=</td>
-<td>empty string</td>
-</tr>
-</tbody></table>
+<h3 id="configure-sha-1-settings-in-fulcrum">Configure SHA-1 Settings in Fulcrum</h3>
 
-<p>It&rsquo;s important to note that your base string should include the entire URL up to and including the <code class="prettyprint">&amp;</code> preceding your encryption variable. If you do not control the destination survey environment, and your client cannot support this type of security, you should skip this step and instead use Verify Callback.</p>
+<p>Buyers can configure these settings by navigating to the <code class="prettyprint">Clients</code> tab located <code class="prettyprint">{Your Account} API_Client</code> and click on the <code class="prettyprint">Name</code>, you will be directed to the Client Details page where you will find the setting options under <code class="prettyprint">Show Encryption</code>.</p>
 
-<h3 id="supplier-sha-1-hashing">Supplier SHA-1 Hashing</h3>
+<p>Suppliers can configure these settings by clicking on the <code class="prettyprint">Supply</code> tab to navigate to the <code class="prettyprint">Supplier Surveys</code> page.  From the supply list page click on the <code class="prettyprint">Optimizer Preferences</code> tab, which will navigate you to the <code class="prettyprint">Supplier Preferences</code> page, where you will select <code class="prettyprint">Encryption</code> from the side menu.</p>
 
-<p><img alt="Supplier SHA-1" src="images/Supplier_sha1_flowchart_v21.png" /></p>
-
-<p>Incoming encryption requires a hash value to be generated and appended for each respondent on the incoming supplier link. The hash value which will then be validated by Fulcrum. If the hash values match, the respondent will be allowed into Fulcrum. If they do not match, the respondent will be immediately terminated and sent back to the supplier on the Security redirect. </p>
-
-<p>On outgoing encryption, Fulcrum will append the hash value which will need to then be validated by the supplier to ensure the complete link is legitimate.</p>
-
-<h4 id="1-encryption-interface-setup">1. Encryption: Interface Setup</h4>
-
-<p><img alt="SHA-1 Setup" src="images/Supplier-SHA-1-Encryption Screenshot.png" /></p>
-
-<h4 id="2-encryption-incoming-to-fulcrum">2. Encryption: Incoming to Fulcrum</h4>
-
-<blockquote>
-<p>URL Without Encryption: </p>
-</blockquote>
-<pre class="highlight plaintext"><code>http://www.samplicio.us/router/default.aspx?SID=12345dca-a691-4496-a2fa-12345b99ec29&amp;PID=1234
-</code></pre>
-
-<blockquote>
-<p>URL With Encryption: </p>
-</blockquote>
-<pre class="highlight plaintext"><code>http://www.samplicio.us/router/default.aspx?SID=12345dca-a691-4496-a2fa-12345b99ec29&amp;PID=1234&amp;ienc=XWwaVNlMH8fxcLe5OQIh-vn5_b8
-</code></pre>
-
-<p>Incoming encryption requires the supplier to append the encryption value on the Fulcrum entry links. An example of the encrypted URLs from the Supplier into Fulcrum, where the Incoming Variable Name is set to “ienc” and the Secret Key is set to 1234567890ABC. Please note that “ienc” and the secret key are merely example values.</p>
-
-<p>If the Incoming Variable does not match the results of the algorithm, the respondent will count as a quality termination immediately upon entering Fulcrum and will be redirected on the quality termination failure link back to the supplier without the chance to route.</p>
-
-<h4 id="3-encryption-outgoing-from-fulcrum">3. Encryption: Outgoing from Fulcrum</h4>
-
-<blockquote>
-<p>URL Without Encryption:</p>
-</blockquote>
-<pre class="highlight plaintext"><code>https://www.abc.com/ex.aspx?abc=def&amp;vid=123
-</code></pre>
-
-<blockquote>
-<p>URL With Encryption:</p>
-</blockquote>
-<pre class="highlight plaintext"><code>https://www.abc.com/ex.aspx?abc=def&amp;vid=123&amp;oenc=h5o29uA19Z73RFWNsQU6-OW-7ls
-</code></pre>
-
-<p>Fulcrum will append the encryption value on the supplier redirect which needs to be captured and verified by the supplier. An example of the encrypted URLs from the Fulcrum to Supplier where the Outgoing Variable Name is set to “oenc” and the Secret Key is set to 1234567890ABC. Please note that “oenc” and the secret key are merely example values. All Kinesis partners should use the outgoing parameter name “hash” to ensure encryption is successful.</p>
-
-<p>If the Outgoing Variable does not match the results of the algorithm, the supplier should terminate these respondents and consider them non-completes.</p>
-
-<h4 id="4-sha-1-faq">4. SHA-1 FAQ</h4>
+<h3 id="sha-1-faq">SHA-1 FAQ</h3>
 
 <p>Can I implement SHA-1 on multiple suppliers?</p>
 
@@ -12610,11 +12619,10 @@ The <a href="#get-list-standard-questions">List Standard Questions</a> call only
 <li>Yes.In the screenshot above you can use the drop down in the top right to change encryption settings for multiple suppliers.</li>
 </ul>
 
-<p>Do I need to use incoming and outgoing SHA-1 encryption?</p>
+<p>Do I need to use incoming and outgoing SHA-1 hashing?</p>
 
 <ul>
-<li>We strongly recommend implementing both incoming and outgoing encryption. Incoming encryption helps prevent URL tampering as the respondent moves further downstream to the client survey. Catching URL link tampering earlier in the process helps reduce cheating elsewhere in the Fulcrum environment which helps buyers and clients feel more confident with the quality of your panel. Outgoing encryption helps directly prevent respondents from manipulating supplier redirects in an attempt to “fake” a complete.
-Where can I get help implementing incoming and outgoing SHA-1 encryption?</li>
+<li>We strongly recommend implementing both incoming and outgoing encryption. Incoming encryption helps prevent URL tampering as the respondent moves further downstream to the client survey. Catching URL link tampering earlier in the process helps reduce cheating elsewhere in the Fulcrum environment which helps buyers and clients feel more confident with the quality of your panel. Outgoing encryption helps directly prevent respondents from manipulating supplier redirects in an attempt to “fake” a complete.</li>
 </ul>
 
               <h1 id="changelog">Changelog</h1>
