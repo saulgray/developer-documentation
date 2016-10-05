@@ -2,7 +2,7 @@
 
 Fulcrum is capable of handling SHA-1 URL hashing on all incoming and outgoing links.  We strongly recommend that all integrations take advantage of this feature to protect against fraudulent link manipulation.
 
-![SHA-1 Setup](/source/images/sha1_flowchart_v3.png)
+![SHA-1 Setup](images/sha1_flowchart_v3.png)
  
 Your secret key and variable name configuration can be set or disabled in the Fulcrum UI. In order to verify the validity of any Fulcrum outbound connection or generate a hash to match with any Fulcrum inbound connection, you must create a function that computes an RFC 2014-compliant HMAC signature and substitute the following characters:
 
