@@ -43,8 +43,6 @@ includes:
   - demand/feasibility
   - demand/recontact
   - demand/survey-groups
-  - labs/introduction
-  - labs/survey
   - guides/introduction
   - guides/demand
   - guides/supply
