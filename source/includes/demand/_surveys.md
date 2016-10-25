@@ -34,7 +34,7 @@ The Surveys resource allows the buyer to create new surveys, update existing sur
 | QuotaCalculationTypeID       | int      | Sets the quota calculation method. Either 1 for ”Completes” (quotas determined by completes) or 2=”Prescreens” (quotas determined when leaving Fulcrum).|
 | SurveyPlatformID             | int      | Sets the external platform ID. We recommend setting to 2 for "undefined" in most situations.                                                            |
 | BidLengthOfInterview         | int      | Estimated time for a respondent to complete the survey excluding the Fulcrum prescreener in minutes as provided by the buyer.                           |
-| BusinessUnitID               | int      | Sets the account [business unit](#list-business-units).                                                                                                 |
+| BusinessUnitID               | int      | Sets the account [business unit](#get-list-business-units).                                                                                                 |
 | SampleTypeID                 | int      | Sets the type of sample the survey is open to (i.e. consumer, business-to-business, etc). [See Sample Types](#definitions)                              |
 | SurveySID                    | string   | Unique hash value (GUID) assoicated with the survey.                                                                                                    |
 
@@ -393,7 +393,7 @@ Creates a Fulcrum survey.
 | QuotaCalculationTypeID       | int      | false    |Sets the quota calculation method. Either 1 for ”Completes” (quotas determined by completes) or 2=”Prescreens” (quotas determined when leaving Fulcrum). |
 | SurveyPlatformID             | int      | false    |Sets the external platform ID. We recommend setting to 2 for "undefined" in most situations.                                                             |
 | BidLengthOfInterview         | int      | false    |Estimated time for a respondent to complete the survey excluding the Fulcrum prescreener in minutes as provided by the buyer.                           |
-| BusinessUnitID               | int      | true     |Sets the account [business unit](#list-business-units).                                                                                                 |
+| BusinessUnitID               | int      | true     |Sets the account [business unit](#get-list-business-units).                                                                                                 |
 | SampleTypeID                 | int      | false    |Sets the type of sample the survey is open to (i.e. consumer, business-to-business, etc). [See Sample Types](#definitions).                                 |
 
 ### PUT Update a Survey
@@ -755,7 +755,7 @@ Update an existing Fulcrum survey.
 | QuotaCalculationTypeID       | int      | true     |Sets the quota calculation method. Either 1 for ”Completes” (quotas counted using completes) or 2=”Prescreens” (quotas counted when leaving Fulcrum for the survey). |
 | SurveyPlatformID             | int      | true     |Sets the external platform ID. We recommend setting to 2 for "undefined" in most situations.                                                             |
 | BidLengthOfInterview         | int      | true     |Estimated time for a respondent to complete the survey excluding the Fulcrum prescreener in minutes as provided by the buyer.                           |
-| BusinessUnitID               | int      | true     |Sets the account [business unit](#list-business-units).                                                                                                 |
+| BusinessUnitID               | int      | true     |Sets the account [business unit](#get-list-business-units).                                                                                                 |
 | SampleTypeID                 | int      | false    |Sets the type of sample the survey is open to (i.e. consumer, business-to-business, etc). [See Sample Types](#definitions).                                   |
 
 ### GET Show a Survey
