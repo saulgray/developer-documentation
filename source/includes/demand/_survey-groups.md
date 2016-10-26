@@ -90,7 +90,7 @@ Returns the survey groups, their IDs, and number of surveys within each.
 
 
 
-### GET Individual Survey Groups
+### GET Show a Survey Group
 
 > Definition
 
@@ -333,7 +333,7 @@ Creates an empty survey group.
 
 
 
-### POST Survey to Survey Group
+### POST Add to Survey Group
 
 > Definition
 
@@ -635,7 +635,7 @@ Updates a survey group with the specified surveys.
 
 
 
-### DELETE Remove Survey from a Survey Group
+### DELETE Remove from a Survey Group
 
 > Definition
 
@@ -739,6 +739,7 @@ var params = JSON.stringify(json);
 var request = https.request(options);
 
 request.end();
+```
 
 > Example Response
 
