@@ -10887,7 +10887,7 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
 
 <p>Returns the survey groups, their IDs, and number of surveys within each.</p>
 
-<h3 id="get-individual-survey-groups">GET Individual Survey Groups</h3>
+<h3 id="get-show-a-survey-group">GET Show a Survey Group</h3>
 
 <blockquote>
 <p>Definition</p>
@@ -11131,7 +11131,7 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
 </tr>
 </tbody></table>
 
-<h3 id="post-survey-to-survey-group">POST Survey to Survey Group</h3>
+<h3 id="post-add-to-survey-group">POST Add to Survey Group</h3>
 
 <blockquote>
 <p>Definition</p>
@@ -11432,7 +11432,7 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
 </tr>
 </tbody></table>
 
-<h3 id="delete-remove-survey-from-a-survey-group">DELETE Remove Survey from a Survey Group</h3>
+<h3 id="delete-remove-from-a-survey-group">DELETE Remove from a Survey Group</h3>
 
 <blockquote>
 <p>Definition</p>
@@ -11526,29 +11526,30 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
 <span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">);</span>
 
 <span class="nx">request</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>
-
-<span class="o">&gt;</span> <span class="nx">Example</span> <span class="nx">Response</span>
-
-<span class="err">```</span><span class="nx">json</span>
-<span class="p">{</span>
-  <span class="p">{</span>
-  <span class="s2">"ApiResult"</span><span class="err">:</span> <span class="mi">0</span><span class="p">,</span>
-  <span class="s2">"ApiResultCode"</span><span class="err">:</span> <span class="mi">0</span><span class="p">,</span>
-  <span class="s2">"ApiAccount"</span><span class="err">:</span> <span class="s2">"Anon"</span><span class="p">,</span>
-  <span class="s2">"AccountType"</span><span class="err">:</span> <span class="mi">2</span><span class="p">,</span>
-  <span class="s2">"ApiAccountStatus"</span><span class="err">:</span> <span class="mi">1</span><span class="p">,</span>
-  <span class="s2">"AccountCode"</span><span class="err">:</span> <span class="s2">"AA"</span><span class="p">,</span>
-  <span class="s2">"ApiMessages"</span><span class="err">:</span> <span class="p">[</span>
-    <span class="s2">"API Message: Response initialized."</span><span class="p">,</span>
-    <span class="s2">"API Message: DeleteSurveyGroupSurveys successful."</span>
-  <span class="p">],</span>
-  <span class="s2">"ResultCount"</span><span class="err">:</span> <span class="mi">0</span><span class="p">,</span>
-  <span class="s2">"SurveyIDs"</span><span class="err">:</span> <span class="p">[]</span>
-<span class="p">}</span>
-
-<span class="p">}</span>
-
 </code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="err">{</span><span class="w">
+  </span><span class="nt">"ApiResult"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiResultCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiAccount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Anon"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"AccountType"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiAccountStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"AccountCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AA"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ApiMessages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"API Message: Response initialized."</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"API Message: DeleteSurveyGroupSurveys successful."</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"ResultCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"SurveyIDs"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span><span class="err">}</span><span class="w">
+
+</span></code></pre>
 
 <p>Deletes the surveyID from the specified survey group.</p>
 
@@ -11793,7 +11794,7 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
 
 <p>In addition to the automatic qualifications, be sure to add qualifications for all termination points found in the client destination user experience as qualifications in Fulcrum . This helps suppliers target their respondents, which in turn lowers the cost of completes.</p>
 
-<p>To streamline the user experience, you should also <a href="http://knowledge.fulcrumexchange.com/?p=625">include all qualifications on the survey entry link</a>. This should reduce the length of interview and improve conversion, further improving pricing.</p>
+<p>To streamline the user experience, you should also <a href="https://support.lucidhq.com/s/article/Adding-Variables-to-Study-Links">include all qualifications on the survey entry link</a>. This should reduce the length of interview and improve conversion, further improving pricing.</p>
 
 <h4 id="4-create-quotas-for-each-target-group">4. <a href="#post-create-a-quota">Create quotas</a> for each target group.</h4>
 
