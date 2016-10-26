@@ -172,7 +172,7 @@ Any of these qualifications can be modified or removed by [updating a qualificat
 
 In addition to the automatic qualifications, be sure to add qualifications for all termination points found in the client destination user experience as qualifications in Fulcrum . This helps suppliers target their respondents, which in turn lowers the cost of completes.
 
-To streamline the user experience, you should also [include all qualifications on the survey entry link](http://knowledge.fulcrumexchange.com/?p=625). This should reduce the length of interview and improve conversion, further improving pricing.
+To streamline the user experience, you should also [include all qualifications on the survey entry link](https://support.lucidhq.com/s/article/Adding-Variables-to-Study-Links). This should reduce the length of interview and improve conversion, further improving pricing.
 
 #### 4. [Create quotas](#post-create-a-quota) for each target group.
 
