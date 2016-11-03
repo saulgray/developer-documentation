@@ -26,8 +26,7 @@ Buyers that have enabled Incoming SHA-1 hashing will append the signature to the
 
 An example, of a hashed URL that using "ienc" as the variable name and Secret Key of `ZZ6VkORqV25iSWOVb5cwZ03zpns` as the secret key, can be found here.  Please note, `ienc` and the secret key `ZZ6VkORqV25iSWOVb5cwZ03zpns` are just examples values.
 
-Use our hashing tool to validate your system's SHA-1 hashing!
-https://labs.lucidhq.com/hash
+[Use our hashing tool to validate your system's SHA-1 hashing!](https://labs.lucidhq.com/hash)
 
 ### Verifying a HMAC signature
 
