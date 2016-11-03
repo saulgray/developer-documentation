@@ -2,7 +2,7 @@
 
 ### POST Show Time to Completion
 
-> Definition 
+> Definition
 
 ```plaintext
 POST https://api.samplicio.us/Demand/v1/Feasibility/Time?key={APIkey}
@@ -11,7 +11,7 @@ POST https://api.samplicio.us/Demand/v1/Feasibility/Time?key={APIkey}
 > Example Request
 
 ```shell
-curl -H "Content-Type: application/json" -X POST --data '{"CountryLanguageID": 9, "LengthOfInterview": 5, "Incidence": 100,  "Price": 4.5, "Quotas": [{"CompletesPerDay": [1000], "Conditions": [{"QuestionID": 42, "PreCodes": ["18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29"]}, {"QuestionID": 43, "PreCodes": ["1"] } ] }, {"CompletesPerDay": [1000], "Conditions": [{"QuestionID": 42, "PreCodes": ["18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29"]}, {"QuestionID": 43, "PreCodes": ["2"] } ] }] }}' https://api.samplicio.us/Demand/v1/Feasibility/Time?key={APIkey}
+curl -H "Content-Type: application/json" -X POST --data '{"CountryLanguageID": 9, "LengthOfInterview": 5, "Incidence": 100,  "Price": 4.5, "Quotas": [{"Completes": 1000, "Conditions": [{"QuestionID": 42, "PreCodes": ["18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29"]}, {"QuestionID": 43, "PreCodes": ["1"] } ] }, {"Completes": 1000, "Conditions": [{"QuestionID": 42, "PreCodes": ["18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29"]}, {"QuestionID": 43, "PreCodes": ["2"] } ] }] }}' https://api.samplicio.us/Demand/v1/Feasibility/Time?key={APIkey}
 ```
 
 ```ruby
@@ -28,8 +28,8 @@ fullUriPath = uri.path + '?' + uri.query
 
 request = Net::HTTP::Post.new(fullUriPath, initheader = {'Content-Type' =>'application/json'})
 
-request.body = {CountryLanguageID: 9, LengthOfInterview: 5, Incidence: 100,  "Price": 4.5, Quotas: [{CompletesPerDay: [1000], Conditions: [{QuestionID: 42, PreCodes: ["18", "19", "20", "21", "22", "23", "24",
- "25", "26", "27", "28", "29"]}, {QuestionID: 43, PreCodes: ["1"] } ] }, {CompletesPerDay: [1000], Conditions: [{QuestionID: 42, PreCodes: ["18", "19", "20", "21", "22", "23", "24",
+request.body = {CountryLanguageID: 9, LengthOfInterview: 5, Incidence: 100,  Price: 4.5, Quotas: [{Completes: 1000, Conditions: [{QuestionID: 42, PreCodes: ["18", "19", "20", "21", "22", "23", "24",
+ "25", "26", "27", "28", "29"]}, {QuestionID: 43, PreCodes: ["1"] } ] }, {Completes: 1000, Conditions: [{QuestionID: 42, PreCodes: ["18", "19", "20", "21", "22", "23", "24",
  "25", "26", "27", "28", "29"]}, {QuestionID: 43, PreCodes: ["2"] } ] }] }.to_json
 
 response = http.request(request)
@@ -40,12 +40,12 @@ response = http.request(request)
 <?php
 $curl = curl_init();
 
-$params = '{"CountryLanguageID": 9, "LengthOfInterview": 5, "Incidence": 100, "Quotas": [{"CompletesPerDay": [1000], "Conditions": [{"QuestionID": 42, "PreCodes": ["18", "19", "20", "21", "22", "23", "24",
- "25", "26", "27", "28", "29"]}, {"QuestionID": 43, "PreCodes": ["1"] } ] }, {"CompletesPerDay": [1250], "Conditions": [{"QuestionID": 42, "PreCodes": ["18", "19", "20", "21", "22", "23", "24",
+$params = '{"CountryLanguageID": 9, "LengthOfInterview": 5, "Incidence": 100, "Price": 4.5, "Quotas": [{"Completes": 1000, "Conditions": [{"QuestionID": 42, "PreCodes": ["18", "19", "20", "21", "22", "23", "24",
+ "25", "26", "27", "28", "29"]}, {"QuestionID": 43, "PreCodes": ["1"] } ] }, {"Completes": 1250, "Conditions": [{"QuestionID": 42, "PreCodes": ["18", "19", "20", "21", "22", "23", "24",
  "25", "26", "27", "28", "29"]}, {"QuestionID": 43, "PreCodes": ["2"] } ] } ] }';
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "https://api.samplicio.us/Demand/v1/Feasibility/Price?key={APIkey}",
+  CURLOPT_URL => "https://api.samplicio.us/Demand/v1/Feasibility/Time?key={APIkey}",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
   CURLOPT_HTTPHEADER => array('Content-Type: application/json'),
@@ -67,7 +67,7 @@ curl_close($curl);
 import requests, json
 
 url = 'https://api.samplicio.us/Demand/v1/Feasibility/Time?key={APIkey}'
-params = {'CountryLanguageID': 9, 'LengthOfInterview': 5, 'Incidence': 100, 'Quotas': [{'CompletesPerDay': [1000], 'Conditions': [{'QuestionID': 42, 'PreCodes': ["18", "19", "20", "21", "22", "23", "24","25", "26", "27", "28", "29"]}, {'QuestionID': 43, 'PreCodes': ["1"] } ] }, {'CompletesPerDay': [1250], 'Conditions': [{'QuestionID': 42, 'PreCodes': ["18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29"]}, {'QuestionID': 43, 'PreCodes': ["2"] } ] }] }
+params = {'CountryLanguageID': 9, 'LengthOfInterview': 5, 'Incidence': 100, 'Price': 4.5, 'Quotas': [{'Completes': 1000, 'Conditions': [{'QuestionID': 42, 'PreCodes': ["18", "19", "20", "21", "22", "23", "24","25", "26", "27", "28", "29"]}, {'QuestionID': 43, 'PreCodes': ["1"] } ] }, {'Completes': 1250, 'Conditions': [{'QuestionID': 42, 'PreCodes': ["18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29"]}, {'QuestionID': 43, 'PreCodes': ["2"] } ] }] }
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
@@ -84,42 +84,43 @@ string args = @"{
                  ""CountryLanguageID"": 9,
                  ""LengthOfInterview"": 5,
                  ""Incidence"": 100,
+                 ""Price"": 4.5,
                  ""Quotas"": [
                                 {
-                                  ""CompletesPerDay"": [1000], 
-                                  ""Conditions"": 
+                                  ""Completes"": 1000,
+                                  ""Conditions"":
                                   [
                                     {
-                                      ""QuestionID"": 42, 
-                                      ""PreCodes"": [""18"", ""19"", ""20"", ""21"", 
-                                                     ""22"", ""23"", ""24"", ""25"", 
+                                      ""QuestionID"": 42,
+                                      ""PreCodes"": [""18"", ""19"", ""20"", ""21"",
+                                                     ""22"", ""23"", ""24"", ""25"",
                                                      ""26"", ""27"", ""28"", ""29""]
-                                    }, 
+                                    },
                                     {
-                                      ""QuestionID"": 43, 
-                                      ""PreCodes"": [""1""] 
-                                    } 
+                                      ""QuestionID"": 43,
+                                      ""PreCodes"": [""1""]
+                                    }
                                   ]
-                                }, 
+                                },
                                 {
-                                  ""CompletesPerDay"": [1250], 
-                                  ""Conditions"": 
+                                  ""Completes"": 1250,
+                                  ""Conditions"":
                                   [
                                     {
-                                      ""QuestionID"": 42, 
-                                      ""PreCodes"": [""18"", ""19"", ""20"", ""21"", 
-                                                     ""22"", ""23"", ""24"", ""25"", 
+                                      ""QuestionID"": 42,
+                                      ""PreCodes"": [""18"", ""19"", ""20"", ""21"",
+                                                     ""22"", ""23"", ""24"", ""25"",
                                                      ""26"", ""27"", ""28"", ""29""]
-                                    }, 
+                                    },
                                     {
-                                      ""QuestionID"": 43, 
-                                      ""PreCodes"": [""2""] 
-                                    } 
-                                  ] 
+                                      ""QuestionID"": 43,
+                                      ""PreCodes"": [""2""]
+                                    }
+                                  ]
                                 }
-                              ] 
+                              ]
                 }";
-    
+
 request.Method = "POST";
 request.ContentType = "application/json";
 
@@ -140,12 +141,12 @@ var options = {
   "method": "POST",
   "hostname": "api.samplicio.us",
   "port": 443,
-  "path": "/Demand/v1/Feasibility/Price?key={APIkey}",
+  "path": "/Demand/v1/Feasibility/Time?key={APIkey}",
   "headers": {'Content-Type': 'application/json'}
 };
 
-var json = {"CountryLanguageID": 9, "LengthOfInterview": 5, "Incidence": 100, "Quotas": [{"CompletesPerDay": [1000], "Conditions": [{"QuestionID": 42, "PreCodes": ["18", "19", "20", "21", "22", "23", "24",
- "25", "26", "27", "28", "29"]}, {"QuestionID": 43, "PreCodes": ["1"] } ] }, {"CompletesPerDay": [1250], "Conditions": [{"QuestionID": 42, "PreCodes": ["18", "19", "20", "21", "22", "23", "24",
+var json = {"CountryLanguageID": 9, "LengthOfInterview": 5, "Incidence": 100, "Price": 4.5, "Quotas": [{"Completes": 1000, "Conditions": [{"QuestionID": 42, "PreCodes": ["18", "19", "20", "21", "22", "23", "24",
+ "25", "26", "27", "28", "29"]}, {"QuestionID": 43, "PreCodes": ["1"] } ] }, {"Completes": 1250, "Conditions": [{"QuestionID": 42, "PreCodes": ["18", "19", "20", "21", "22", "23", "24",
  "25", "26", "27", "28", "29"]}, {"QuestionID": 43, "PreCodes": ["2"] } ] }] };
 
 var params = JSON.stringify(json);
@@ -156,7 +157,7 @@ var request = https.request(options, function (response) {
   response.on("data", function (chunk) {
     chunks.push(chunk);
   });
-  
+
 });
 
 request.write(params);
@@ -185,16 +186,18 @@ request.end();
       "Conditions": [
         {
           "PreCodes": [
-            "20",
-            "21",
-            "22",
-            "23",
-            "24",
-            "25",
-            "26",
-            "27",
-            "28",
-            "29"
+              "18",
+              "19",
+              "20",
+              "21",
+              "22",
+              "23",
+              "24",
+              "25",
+              "26",
+              "27",
+              "28",
+              "29"
           ],
           "QuestionID": 42
         },
@@ -212,6 +215,8 @@ request.end();
       "Conditions": [
         {
           "PreCodes": [
+            "18",
+            "19",
             "20",
             "21",
             "22",
@@ -256,7 +261,7 @@ Returns the estimated time in days to achieve the total number of completes spec
 
 ### POST Show Price
 
-> Definition 
+> Definition
 
 ```plaintext
 POST https://api.samplicio.us/Demand/v1/Feasibility/Price?key={APIkey}
@@ -337,24 +342,24 @@ string args = @"{
                  ""LengthOfInterview"": 5,
                  ""Incidence"": 100,
                  ""Quotas"": [
-                                {""CompletesPerDay"": [1000, 1500], 
-                                  ""Conditions"": 
+                                {""CompletesPerDay"": [1000, 1500],
+                                  ""Conditions"":
                                   [
                                     {
-                                      ""QuestionID"": 42, 
-                                      ""PreCodes"": [""18"", ""19"", ""20"", ""21"", 
-                                                     ""22"", ""23"", ""24"", ""25"", 
+                                      ""QuestionID"": 42,
+                                      ""PreCodes"": [""18"", ""19"", ""20"", ""21"",
+                                                     ""22"", ""23"", ""24"", ""25"",
                                                      ""26"", ""27"", ""28"", ""29""]
-                                    }, 
+                                    },
                                     {
-                                      ""QuestionID"": 43, 
-                                      ""PreCodes"": [""1""] 
-                                    } 
+                                      ""QuestionID"": 43,
+                                      ""PreCodes"": [""1""]
+                                    }
                                   ]
-                                }, 
-                              ] 
+                                },
+                              ]
                 }";
-    
+
 request.Method = "POST";
 request.ContentType = "application/json";
 
@@ -390,7 +395,7 @@ var request = https.request(options, function (response) {
   response.on("data", function (chunk) {
     chunks.push(chunk);
   });
-  
+
 });
 
 request.write(params);
@@ -482,7 +487,7 @@ Returns a tiered model of price per complete, given the inputs for Number of Res
 
 ### POST Show Completes per Day
 
-> Definition 
+> Definition
 
 ```plaintext
 POST https://api.samplicio.us/Demand/v1/Feasibility/NumberOfRespondents?key={APIkey}
@@ -545,7 +550,7 @@ curl_close($curl);
 import requests, json
 
 url = 'https://api.samplicio.us/Demand/v1/Feasibility/NumberOfRespondents?key={APIkey}'
-params = {'CountryLanguageID': 9, 'LengthOfInterview': 5, 'Incidence': 100, 'Quotas': [{'CompletesPerDay': [1000, 1500], 'Conditions': [{'QuestionID': 42, 'PreCodes': ["18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29"]}, {'QuestionID': 43, 'PreCodes': ["1"] } ] }, ] }
+params = {'CountryLanguageID': 9, 'LengthOfInterview': 5, 'Incidence': 100, 'Price': 5, 'Quotas': [{'CompletesPerDay': [1000, 1500], 'Conditions': [{'QuestionID': 42, 'PreCodes': ["18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29"]}, {'QuestionID': 43, 'PreCodes': ["1"] } ] }, ] }
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
@@ -560,27 +565,27 @@ WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/Feasi
 
 string args = @"{
                  ""CountryLanguageID"": 9,
-                 ""LengthOfInterview"": 1,
+                 ""LengthOfInterview"": 5,
                  ""Incidence"": 100,
                  ""Price"": 5,
                  ""Quotas"": [
-                                {""Conditions"": 
+                                {""Conditions"":
                                   [
                                     {
-                                      ""QuestionID"": 42, 
-                                      ""PreCodes"": [""18"", ""19"", ""20"", ""21"", 
-                                                     ""22"", ""23"", ""24"", ""25"", 
+                                      ""QuestionID"": 42,
+                                      ""PreCodes"": [""18"", ""19"", ""20"", ""21"",
+                                                     ""22"", ""23"", ""24"", ""25"",
                                                      ""26"", ""27"", ""28"", ""29""]
-                                    }, 
+                                    },
                                     {
-                                      ""QuestionID"": 43, 
-                                      ""PreCodes"": [""1""] 
-                                    } 
+                                      ""QuestionID"": 43,
+                                      ""PreCodes"": [""1""]
+                                    }
                                   ]
-                                }, 
-                              ] 
+                                },
+                              ]
                 }";
-    
+
 request.Method = "POST";
 request.ContentType = "application/json";
 
@@ -616,7 +621,7 @@ var request = https.request(options, function (response) {
   response.on("data", function (chunk) {
     chunks.push(chunk);
   });
-  
+
 });
 
 request.write(params);
@@ -672,7 +677,7 @@ request.end();
 }
 ```
 
-Returns the number of completes achievable given the parameters submitted, based on the Exchange's historical performance. 
+Returns the number of completes achievable given the parameters submitted, based on the Exchange's historical performance.
 
 #### Arguments
 
