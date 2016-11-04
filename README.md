@@ -527,7 +527,7 @@ Building and Deploying to Production
 Testing API code snippets
 --------------------------
 
- Sample scripts for testing documentation code snippets ('http://developer.lucidhq.com/') with JSON response body printed out to the console. Make sure you have installed all the languages. Don't forget to include an API key and point it at the right environment. You will want to pretty print the output. For UNIX, this can be done by piping it as
+ Sample scripts for testing documentation code snippets with JSON response body printed out to the console. Make sure you have installed all the languages. Don't forget to include an API key and point it at the right environment. You will want to pretty print the output. For UNIX, this can be done by piping it as
 
  ```
  thingToExecute | python -m json.tool
@@ -539,23 +539,21 @@ Testing API code snippets
  alias pretty='python -m json.tool'
  ```
 
- ## curl
+### curl
 
-   - For running, just type the command in the terminal, and it will return the response body
-
-   ``` bash
+- For running, just type the command in the terminal, and it will return the response body
+``` bash
    curl -H "Content-Type: application/json" -X POST --data '{"CountryLanguageID": 9, "LengthOfInterview": 5, "Incidence": 100, "Quotas": [{"CompletesPerDay": [1000, 1500], "Conditions": [{"QuestionID": 42, "PreCodes": ["18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29"]}, {"QuestionID": 43, "PreCodes": ["1"] } ] }, ] }' https://api.samplicio.us/Demand/v1/Feasibility/Price?key={{API_key}}
    ```
 
- ## Ruby
+### Ruby
 
- - Save your script with the extension .rb and run it using
- ```
- ruby scriptName.rb
- ```
- - Script:
-
- ``` ruby
+- Save your script with the extension .rb and run it using
+```
+ruby scriptName.rb
+```
+- Script:
+``` ruby
  # Replace with appropriate code snippet and API key
  # ******************************************************************************************************
  require 'net/http'
@@ -581,19 +579,18 @@ Testing API code snippets
  # ******************************************************************************************************
  # Prints output to console
  puts response.body
- ```
+```
 
- ## PHP
+### PHP
 
- - Save your script with the extension .php and run it using
- ```
+- Save your script with the extension .php and run it using
+```
  php scriptName.php
- ```
- - Script:
-
- ``` php
+```
+- Script:
+``` php
  /* Replace with appropriate code snippet and API key */
- /* Make sure you include printing to console - annotated*/
+ /* Make sure you include printing to console - annotated as "INCLUDE"*/
  /* ****************************************************************************************************** */
  <?php
  $curl = curl_init();
@@ -622,17 +619,16 @@ Testing API code snippets
  curl_close($curl);
  ?>
    /* ****************************************************************************************************** */
- ```
+```
 
- ## Python
+### Python
 
- - Save your script with the extension .py and run it using
- ```
+- Save your script with the extension .py and run it using
+```
  python scriptName.p
- ```
- - Script:
-
- ``` python
+```
+- Script:
+``` python
 
  # Replace with appropriate code snippet and API key
  # ******************************************************************************************************
@@ -652,16 +648,15 @@ Testing API code snippets
  print(response.text)
  ```
 
- ## C#
+### C&#35;
 
- - Save your script with the extension .cs and compile and run it using
- ```
+- Save your script with the extension .cs and compile and run it using
+```
  mcs -out:scriptName.exe scriptName.cs
  mono scriptName.exe
- ```
- - Script:
-
- ``` csharp
+```
+- Script:
+``` csharp
  using System.IO;
  using System.Net;
  // Needed for console output
@@ -719,21 +714,20 @@ Testing API code snippets
  Console.WriteLine(strResponse);
  }
  }
+```
 
- ```
+### Node JS
 
- ## Node JS
-
- - Save your script with the extension .js and run it using
- ```
+- Save your script with the extension .js and run it using
+```
  node scriptName.js
- ```
- - Script:
+```
 
- ``` javascript
+- Script:
+```javascript
  // Replace with appropriate code snippet and API key
  // This will work for POST and PUT requests
- // Make sure to include the part that prints out the json response, annotated below
+ // Make sure to include the lines outputting JSON response, annotated below as "INCLUDE"
  // ******************************************************************************************************
  const https = require('https');
 
@@ -757,7 +751,7 @@ Testing API code snippets
      chunks.push(chunk);
        //INCLUE: at the end of stream
    }).on('end', function() {
-       //INCLUE: concatinate chunks into one string
+       //INCLUE: concatenate chunks into one string
    body = Buffer.concat(chunks).toString();
        //INCLUE: print string to console
    console.log(body);
@@ -769,8 +763,7 @@ Testing API code snippets
 
  request.end();
  // ******************************************************************************************************
-
- ```
+```
 
 
 Contributors
