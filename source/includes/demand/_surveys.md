@@ -999,14 +999,14 @@ POST https://api.samplicio.us/Demand/v1/Surveys/Reconcile/{SurveyNumber}?key={AP
 > Example Request
 
 ```shell
-curl -H "Content-Type: application/json" -X POST --data '{"ResponseIDs" : ["RID1", "RID2", "RID3", "RIDN"]}' https://api.samplicio.us/Demand/v1/Surveys/Reconcile/{SurveyNumber}?key={APIkey}
+curl -H "Content-Type: application/json" -X POST --data '{"ResponseIDs" : ["9AF8B134-9E9F-E611-813Z-121EAE80731D", "1ADX57D4-9A9F-E711-813E-121DAC84731P"]}' https://api.samplicio.us/Demand/v1/Surveys/Reconcile/123456?key={APIkey}
 ```
 
 ```ruby
 require 'net/http'
 require 'json'
 
-uri = URI('https://api.samplicio.us/Demand/v1/Surveys/Reconcile/{SurveyNumber}?key={APIkey}')
+uri = URI('https://api.samplicio.us/Demand/v1/Surveys/Reconcile/123456?key={APIkey}')
 
 http = Net::HTTP.new(uri.host, uri.port)
 
@@ -1017,10 +1017,8 @@ fullUriPath = uri.path + '?' + uri.query
 request = Net::HTTP::Post.new(fullUriPath, initheader = {'Content-Type' =>'application/json'})
 
 request.body = {ResponseIDs: [      
-    "RID1",
-    "RID2",
-    "RID3",
-    "RIDN"
+    "9AF8B134-9E9F-E611-813Z-121EAE80731D",
+    "1ADX57D4-9A9F-E711-813E-121DAC84731P"
   ]
  }.to_json
 
@@ -1034,15 +1032,13 @@ response = http.request(request)
 $curl = curl_init();
 
 $params = '{"ResponseIDs": [      
-    "RID1",
-    "RID2",
-    "RID3",
-    "RIDN"
+    "9AF8B134-9E9F-E611-813Z-121EAE80731D",
+    "1ADX57D4-9A9F-E711-813E-121DAC84731P"
   ]
  }';
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "https://api.samplicio.us/Demand/v1/Surveys/Reconcile/{SurveyNumber}?key={APIkey}",
+  CURLOPT_URL => "https://api.samplicio.us/Demand/v1/Surveys/Reconcile/123456?key={APIkey}",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
   CURLOPT_HTTPHEADER => array('Content-Type: application/json'),
@@ -1063,12 +1059,10 @@ curl_close($curl);
 ```python
 import requests, json
 
-url = 'https://api.samplicio.us/Demand/v1/Surveys/Reconcile/{SurveyNumber}?key={APIkey}'
+url = 'https://api.samplicio.us/Demand/v1/Surveys/Reconcile/123456?key={APIkey}'
 params = {"ResponseIDs": [      
-    "RID1",
-    "RID2",
-    "RID3",
-    "RIDN"
+    "9AF8B134-9E9F-E611-813Z-121EAE80731D",
+    "1ADX57D4-9A9F-E711-813E-121DAC84731P"
   ]
  }
 
@@ -1082,14 +1076,12 @@ response = requests.post(url, data=data, headers=headers)
 using System.IO;
 using System.Net;
 
-WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/Surveys/Reconcile/{SurveyNumber}?key={APIkey}");
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/Surveys/Reconcile/123456?key={APIkey}");
 
 string args = @"{
                   ""ResponseIDs"" : [      
-                    RID1,
-                    RID2,
-                    RID3,
-                    RIDN
+                    9AF8B134-9E9F-E611-813Z-121EAE80731D,
+                    1ADX57D4-9A9F-E711-813E-121DAC84731P
                   ]
                 }";
 
@@ -1113,15 +1105,13 @@ var options = {
   "method": "POST",
   "hostname": "api.samplicio.us",
   "port": 443,
-  "path": "/Demand/v1/Surveys/Reconcile/{SurveyNumber}?key={APIKey}",
+  "path": "/Demand/v1/Surveys/Reconcile/123456?key={APIKey}",
   "headers": {'Content-Type': 'application/json'}
 };
 
 var json = {"ResponseIDs": [      
-    "RID1",
-    "RID2",
-    "RID3",
-    "RIDN"
+    "9AF8B134-9E9F-E611-813Z-121EAE80731D",
+    "1ADX57D4-9A9F-E711-813E-121DAC84731P"
   ]
  };
 
@@ -1145,7 +1135,7 @@ request.end();
 
 ```json
 {
-    "AccountCode": "Anon",
+    "AccountCode": "AA",
     "AccountType": 2,
     "ApiAccount": "Anon",
     "ApiAccountStatus": 1,
@@ -1158,10 +1148,8 @@ request.end();
     "ResultCount": 0,
     "reconciliation": {
         "ResponseIDs": [
-          "RID1",
-          "RID2",
-          "RID3",
-          "RIDN"
+          "9AF8B134-9E9F-E611-813Z-121EAE80731D",
+          "1ADX57D4-9A9F-E711-813E-121DAC84731P"
         ]
     }
 }
