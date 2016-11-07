@@ -613,7 +613,7 @@ ruby scriptName.rb
 
  $response = curl_exec($curl);
 
- /* INCLUE: Prints output to console*/
+ /* INCLUDE: Prints output to console*/
  echo $response;
 
  curl_close($curl);
@@ -749,13 +749,13 @@ ruby scriptName.rb
 
    response.on("data", function (chunk) {
      chunks.push(chunk);
-       //INCLUE: at the end of stream
+       //INCLUDE: at the end of stream
    }).on('end', function() {
-       //INCLUE: concatenate chunks into one string
+       //INCLUDE: concatenate chunks into one string
    body = Buffer.concat(chunks).toString();
-       //INCLUE: print string to console
+       //INCLUDE: print string to console
    console.log(body);
-       //INCLUE: close bracket
+       //INCLUDE: close bracket
  });
  });
 
