@@ -234,7 +234,7 @@ string args = @"{
                     ""BusinessUnitID"": 9,
                     ""SampleTypeID"": 100
                 }";
-    
+
 request.Method = "POST";
 request.ContentType = "application/json";
 
@@ -299,7 +299,7 @@ var request = https.request(options, function (response) {
   response.on("data", function (chunk) {
     chunks.push(chunk);
   });
-  
+
 });
 
 request.write(params);
@@ -309,7 +309,7 @@ request.end();
 
 > Example Response
 
-```json 
+```json
 {
   "ApiResult": 0,
   "ApiResultCode": 0,
@@ -596,7 +596,7 @@ string args = @"{
                     ""BusinessUnitID"": 9,
                     ""SampleTypeID"": 100
                 }";
-    
+
 request.Method = "PUT";
 request.ContentType = "application/json";
 
@@ -662,7 +662,7 @@ var request = https.request(options, function (response) {
   response.on("data", function (chunk) {
     chunks.push(chunk);
   });
-  
+
 });
 
 request.write(params);
@@ -672,7 +672,7 @@ request.end();
 
 > Example Response
 
-```json 
+```json
 {
   "ApiResult": 0,
   "ApiResultCode": 0,
@@ -721,7 +721,7 @@ request.end();
 }
 ```
 
-Update an existing Fulcrum survey. 
+Update an existing Fulcrum survey.
 
 #### Arguments
 
@@ -816,7 +816,7 @@ https.get('https://api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/{SurveyNumb
 
 > Example Response
 
-```json 
+```json
 {
   "ApiResult": 0,
   "ApiResultCode": 0,
@@ -865,7 +865,7 @@ https.get('https://api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/{SurveyNumb
 }
 ```
 
-Returns the details of a specific Fulcrum survey. 
+Returns the details of a specific Fulcrum survey.
 
 #### Arguments
 
@@ -931,7 +931,7 @@ https.get('https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyStat
 
 > Example Response
 
-```json 
+```json
 {
   "ApiResult": 0,
   "ApiResultCode": 0,
@@ -980,10 +980,199 @@ https.get('https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyStat
 }
 ```
 
-Returns an index of all surveys by status such as Pending, Live, and Completed. 
+Returns an index of all surveys by status such as Pending, Live, and Completed.
 
 #### Arguments
 
 | Property                     | Type     | Required | Description                                                                                                                                          |
 |------------------------------|----------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------|
 | SurveyStatus                 | int      | true     | Code associated with the current status of the survey. See [List Global Definitions](#get-list-global-definitions) for a map, of survey status codes.|
+
+### POST Reconcile Surveys
+
+> Definition
+
+```plaintext
+POST https://api.samplicio.us/Demand/v1/Surveys/Reconcile/{SurveyNumber}?key={APIkey}`
+```
+
+> Example Request
+
+```shell
+curl -H "Content-Type: application/json" -X POST --data '{"ResponseIDs" : ["RID1", "RID2", "RID3", "RIDN"]}' https://api.samplicio.us/Demand/v1/Surveys/Reconcile/{SurveyNumber}?key={APIkey}
+```
+
+```ruby
+require 'net/http'
+require 'json'
+
+uri = URI('https://api.samplicio.us/Demand/v1/Surveys/Reconcile/{SurveyNumber}?key={APIkey}')
+
+http = Net::HTTP.new(uri.host, uri.port)
+
+http.use_ssl = true
+
+fullUriPath = uri.path + '?' + uri.query
+
+request = Net::HTTP::Post.new(fullUriPath, initheader = {'Content-Type' =>'application/json'})
+
+request.body = {ResponseIDs: [      
+    "RID1",
+    "RID2",
+    "RID3",
+    "RIDN"
+  ]
+ }.to_json
+
+
+
+response = http.request(request)
+```
+
+```php
+<?php
+$curl = curl_init();
+
+$params = '{"ResponseIDs": [      
+    "RID1",
+    "RID2",
+    "RID3",
+    "RIDN"
+  ]
+ }';
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL => "https://api.samplicio.us/Demand/v1/Surveys/Reconcile/{SurveyNumber}?key={APIkey}",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => "",
+  CURLOPT_HTTPHEADER => array('Content-Type: application/json'),
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => "POST",
+  CURLOPT_POSTFIELDS => $params,
+));
+
+$response = curl_exec($curl);
+
+curl_close($curl);
+?>
+
+```
+
+```python
+import requests, json
+
+url = 'https://api.samplicio.us/Demand/v1/Surveys/Reconcile/{SurveyNumber}?key={APIkey}'
+params = {"ResponseIDs": [      
+    "RID1",
+    "RID2",
+    "RID3",
+    "RIDN"
+  ]
+ }
+
+data = json.dumps(params)
+headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
+
+response = requests.post(url, data=data, headers=headers)
+```
+
+```csharp
+using System.IO;
+using System.Net;
+
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/Surveys/Reconcile/{SurveyNumber}?key={APIkey}");
+
+string args = @"{
+                  ""ResponseIDs"" : [      
+                    RID1,
+                    RID2,
+                    RID3,
+                    RIDN
+                  ]
+                }";
+
+request.Method = "POST";
+request.ContentType = "application/json";
+
+using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
+{
+streamWriter.Write(args);
+streamWriter.Flush();
+streamWriter.Close();
+}
+
+WebResponse response = request.GetResponse();
+```
+
+```javascript
+const https = require('https');
+
+var options = {
+  "method": "POST",
+  "hostname": "api.samplicio.us",
+  "port": 443,
+  "path": "/Demand/v1/Surveys/Reconcile/{SurveyNumber}?key={APIKey}",
+  "headers": {'Content-Type': 'application/json'}
+};
+
+var json = {"ResponseIDs": [      
+    "RID1",
+    "RID2",
+    "RID3",
+    "RIDN"
+  ]
+ };
+
+var params = JSON.stringify(json);
+
+var request = https.request(options, function (response) {
+  var chunks = [];
+
+  response.on("data", function (chunk) {
+    chunks.push(chunk);
+  });
+
+});
+
+request.write(params);
+
+request.end();
+```
+
+> Example Response
+
+```json
+{
+    "AccountCode": "Anon",
+    "AccountType": 2,
+    "ApiAccount": "Anon",
+    "ApiAccountStatus": 1,
+    "ApiMessages": [
+        "API Message: Response initialized.",
+        "API Message: Reconciliation in-progress"
+    ],
+    "ApiResult": 0,
+    "ApiResultCode": 0,
+    "ResultCount": 0,
+    "reconciliation": {
+        "ResponseIDs": [
+          "RID1",
+          "RID2",
+          "RID3",
+          "RIDN"
+        ]
+    }
+}
+```
+
+Reconciles all respondents whose Response IDs were not included in this call. Any RID not uploaded will not be a complete and will be reconciled. Reconciliation will not take place immediately, and can take some time to take effect. This call can be done multiple times, with the latest call overriding the previous reconciliations.
+
+<aside class="notice">There is no notification when the reconciliation is complete - a successful call only means it has been added to the queue. It is advised you implement a process to verify the completes count. This can be done by checking quotas by survey number and matching this with what you expect after reconciliation.</aside>
+
+#### Arguments
+
+| Property                     | Type     | Required | Description                                                                                                                                            |
+|------------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ResponseIDs                    | array      | true     | A list of all RIDs that should be completes. Any RIDs omitted from this list will be reconciled.                                                                                                                             |
