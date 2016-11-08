@@ -11,6 +11,7 @@ Table of Contents
  2. [Style Guide](#style-guide)
  3. [Building and Deploying Locally](#building-and-deploying-locally)
  4. [Building and Deploying to Production](#building-and-deploying-to-production)
+ 5. [Testing API Code Snippets](#testing-api-code-snippets)
 
 Contributing
 -----------
@@ -19,7 +20,7 @@ Before contributing to this project, please review the guidelines for [contribut
 Style Guide
 ------------
 ### General
- - For code-like values referenced anywhere in the center section use code highlighting. The markdown syntax is simply to wrap the code word back ticks (i.e. `true`). 
+ - For code-like values referenced anywhere in the center section use code highlighting. The markdown syntax is simply to wrap the code word back ticks (i.e. `true`).
  - Data types:
  	- String
  	- Integer
@@ -432,7 +433,7 @@ requests.delete('http://api.samplicio.us/Demand/v1/SupplierAllocations/Delete/{S
 
 C#
 ```csharp
-using System.Net; 
+using System.Net;
 
 WebRequest request = WebRequest.Create("http://api.samplicio.us/Demand/v1/SupplierAllocations/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}");
 
@@ -475,7 +476,7 @@ You're going to need:
 
 ### Setting up Prerequisites on Windows
 (Certified not to rust, dust, bust, or bite the baby within the first 30ms or your money back, guaranteed.)
- 
+
  1. **[Install Ruby](http://rubyinstaller.org/downloads)** — Be sure to check "Add Ruby executables to your PATH".
  2. **Test the Ruby installation** — Run `ruby -v` and `irb -v` in Command Prompt. If the version number is returned, Ruby has been successfully installed.
  3. **[Install Development Kit](http://rubyinstaller.org/downloads)**
@@ -522,6 +523,248 @@ Building and Deploying to Production
  1. `git checkout master`
  2. `git pull origin master`
  3. `rake publish`
+
+Testing API code snippets
+--------------------------
+
+ Sample scripts for testing documentation code snippets with JSON response body printed out to the console. Make sure you have installed all the languages. Don't forget to include an API key and point it at the right environment. You will want to pretty print the output. For UNIX, this can be done by piping it as
+
+ ```
+ thingToExecute | python -m json.tool
+ ```
+
+ You can alias the pretty printer as
+
+ ```
+ alias pretty='python -m json.tool'
+ ```
+
+### curl
+
+- For running, just type the command in the terminal, and it will return the response body
+``` bash
+   curl -H "Content-Type: application/json" -X POST --data '{"CountryLanguageID": 9, "LengthOfInterview": 5, "Incidence": 100, "Quotas": [{"CompletesPerDay": [1000, 1500], "Conditions": [{"QuestionID": 42, "PreCodes": ["18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29"]}, {"QuestionID": 43, "PreCodes": ["1"] } ] }, ] }' https://api.samplicio.us/Demand/v1/Feasibility/Price?key={{API_key}}
+   ```
+
+### Ruby
+
+- Save your script with the extension .rb and run it using
+```
+ruby scriptName.rb
+```
+- Script:
+``` ruby
+ # Replace with appropriate code snippet and API key
+ # ******************************************************************************************************
+ require 'net/http'
+ require 'json'
+
+ uri = URI('https://api.samplicio.us/Demand/v1/Feasibility/Price?key={{API_key}}')
+
+ http = Net::HTTP.new(uri.host, uri.port)
+
+ http.use_ssl = true
+
+ fullUriPath = uri.path + '?' + uri.query
+
+ request = Net::HTTP::Post.new(fullUriPath, initheader = {'Content-Type' =>'application/json'})
+
+ # Replace with appropriate body
+ request.body = {CountryLanguageID: 9, LengthOfInterview: 5, Incidence: 100, Quotas: [{CompletesPerDay: [1000, 1500], Conditions: [{QuestionID: 42, PreCodes: ["18", "19", "20", "21", "22", "23", "24",
+  "25", "26", "27", "28", "29"]}, {QuestionID: 43, PreCodes: ["1"] } ] }, ] }.to_json
+
+ # this is the returned response
+ response = http.request(request)
+
+ # ******************************************************************************************************
+ # Prints output to console
+ puts response.body
+```
+
+### PHP
+
+- Save your script with the extension .php and run it using
+```
+ php scriptName.php
+```
+- Script:
+``` php
+ /* Replace with appropriate code snippet and API key */
+ /* Make sure you include printing to console - annotated as "INCLUDE"*/
+ /* ****************************************************************************************************** */
+ <?php
+ $curl = curl_init();
+
+ $params = '{"CountryLanguageID": 9, "LengthOfInterview": 5, "Incidence": 100, "Quotas": [{"CompletesPerDay": [1000, 1500], "Conditions": [{"QuestionID": 42, "PreCodes": ["18", "19", "20", "21", "22", "23", "24",
+  "25", "26", "27", "28", "29"]}, {"QuestionID": 43, "PreCodes": ["1"] } ] }, ] }';
+
+ curl_setopt_array($curl, array(
+   /* Replace with desired call and API key */
+   CURLOPT_URL => "https://api.samplicio.us/Demand/v1/Feasibility/Price?key={{API_key}}",
+   CURLOPT_RETURNTRANSFER => true,
+   CURLOPT_ENCODING => "",
+   CURLOPT_HTTPHEADER => array('Content-Type: application/json'),
+   CURLOPT_MAXREDIRS => 10,
+   CURLOPT_TIMEOUT => 30,
+   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+   CURLOPT_CUSTOMREQUEST => "POST",
+   CURLOPT_POSTFIELDS => $params,
+ ));
+
+ $response = curl_exec($curl);
+
+ /* INCLUDE: Prints output to console*/
+ echo $response;
+
+ curl_close($curl);
+ ?>
+   /* ****************************************************************************************************** */
+```
+
+### Python
+
+- Save your script with the extension .py and run it using
+```
+ python scriptName.p
+```
+- Script:
+``` python
+
+ # Replace with appropriate code snippet and API key
+ # ******************************************************************************************************
+ import requests, json
+
+ key = {{API_key}}
+
+ url = 'https://stg-api.samplicio.us/Demand/v1/Feasibility/Price?key=' + key
+ params = {'CountryLanguageID': 9, 'LengthOfInterview': 5, 'Incidence': 100, 'Quotas': [{'CompletesPerDay': [1000, 1500], 'Conditions': [{'QuestionID': 42, 'PreCodes': ["18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29"]}, {'QuestionID': 43, 'PreCodes': ["1"] } ] }, ] }
+ data = json.dumps(params)
+ headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
+
+ response = requests.post(url, data=data, headers=headers)
+
+ # ******************************************************************************************************
+ # Prints output to console
+ print(response.text)
+ ```
+
+### C&#35;
+
+- Save your script with the extension .cs and compile and run it using
+```
+ mcs -out:scriptName.exe scriptName.cs
+ mono scriptName.exe
+```
+- Script:
+``` csharp
+ using System.IO;
+ using System.Net;
+ // Needed for console output
+ using System;
+
+ // This class can be called whatever you like
+ class testingCode {
+   // Leave this as the main method
+   static void Main() {
+
+ // Replace with appropriate code snippet and API key - note the imports have already been included above
+ // ******************************************************************************************************
+ WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/Feasibility/Price?key={{API_key}}");
+
+ string args = @"{
+                  ""CountryLanguageID"": 9,
+                  ""LengthOfInterview"": 5,
+                  ""Incidence"": 100,
+                  ""Quotas"": [
+                                 {""CompletesPerDay"": [1000, 1500],
+                                   ""Conditions"":
+                                   [
+                                     {
+                                       ""QuestionID"": 42,
+                                       ""PreCodes"": [""18"", ""19"", ""20"", ""21"",
+                                                      ""22"", ""23"", ""24"", ""25"",
+                                                      ""26"", ""27"", ""28"", ""29""]
+                                     },
+                                     {
+                                       ""QuestionID"": 43,
+                                       ""PreCodes"": [""1""]
+                                     }
+                                   ]
+                                 },
+                               ]
+                 }";
+
+ request.Method = "POST";
+ request.ContentType = "application/json";
+
+ using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
+ {
+ streamWriter.Write(args);
+ streamWriter.Flush();
+ streamWriter.Close();
+ }
+
+ WebResponse response = request.GetResponse();
+ // ******************************************************************************************************
+ // Print output to console
+ Stream dataStream = response.GetResponseStream();
+ StreamReader reader = new StreamReader(dataStream);
+ string strResponse = reader.ReadToEnd();
+
+ Console.WriteLine(strResponse);
+ }
+ }
+```
+
+### Node JS
+
+- Save your script with the extension .js and run it using
+```
+ node scriptName.js
+```
+
+- Script:
+```javascript
+ // Replace with appropriate code snippet and API key
+ // This will work for POST and PUT requests
+ // Make sure to include the lines outputting JSON response, annotated below as "INCLUDE"
+ // ******************************************************************************************************
+ const https = require('https');
+
+ var options = {
+   "method": "POST",
+   "hostname": "api.samplicio.us",
+   "port": 443,
+   "path": "/Demand/v1/Feasibility/Price?key={{API_key}}",
+   "headers": {'Content-Type': 'application/json'}
+ };
+
+ var json = {"CountryLanguageID": 9, "LengthOfInterview": 5, "Incidence": 100, "Quotas": [{"CompletesPerDay": [1000, 1500], "Conditions": [{"QuestionID": 42, "PreCodes": ["18", "19", "20", "21", "22", "23", "24",
+  "25", "26", "27", "28", "29"]}, {"QuestionID": 43, "PreCodes": ["1"] } ] }, ] };
+
+ var params = JSON.stringify(json);
+
+ var request = https.request(options, function (response) {
+   var chunks = [];
+
+   response.on("data", function (chunk) {
+     chunks.push(chunk);
+       //INCLUDE: at the end of stream
+   }).on('end', function() {
+       //INCLUDE: concatenate chunks into one string
+   body = Buffer.concat(chunks).toString();
+       //INCLUDE: print string to console
+   console.log(body);
+       //INCLUDE: close bracket
+ });
+ });
+
+ request.write(params);
+
+ request.end();
+ // ******************************************************************************************************
+```
+
 
 Contributors
 --------------------
