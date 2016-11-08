@@ -1155,9 +1155,9 @@ request.end();
 }
 ```
 
-Reconciles all respondents whose Response IDs were not included in this call. Any RID not uploaded will not be a complete and will be reconciled. Reconciliation will not take place immediately, and can take some time to take effect. This call can be done multiple times, with the latest call overriding the previous reconciliations.
+Reconciles the list of respondents uploaded in this call with the list of completes on Fulcrum. Any RID not uploaded will be removed from Fulcrum completes, and any uploaded RID not already registered as a complete on Fulcrum will be added. Reconciliation will not take place immediately, and can take some time to take effect. This call can be done multiple times, with the latest call overriding the previous reconciliations.
 
-<aside class="notice">There is no notification when the reconciliation is complete - a successful call only means it has been added to the queue. It is advised you implement a process to verify the completes count. This can be done by checking quotas by survey number and matching this with what you expect after reconciliation.</aside>
+<aside class="notice">A "202 Accepted" response will be returned on a successful call, indicating that the request has been added to the queue. It is advised you implement a process to verify the completes count. This can be done by checking quotas by survey number and matching this with what you expect after reconciliation.</aside>
 
 #### Arguments
 
