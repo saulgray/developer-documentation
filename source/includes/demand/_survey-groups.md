@@ -1,5 +1,23 @@
 ##Survey Groups
 
+#### Survey Groups Model
+
+The Surveys Groups resource allows the buyer to list existing survey groups, see details of a survey group, create survey groups, add and remove surveys from a survey group.
+
+| Property                     | Type     | Description                                                                                                                                             |
+|------------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ID                           | int      | Unique survey group identifier.                                                                                                                         |
+| Name                         | string   | Name of the survey group. This value is not unique across surveys.                                                                                      |
+| SurveyCount                  | int      | Number of surveys in the survey group.                                                                                                                  |
+
+#### Survey Group Model
+
+The Survey Group allows the buyer to view surveys in a survey group.
+
+| Property                     | Type     | Description                                                                                                                                             |
+|------------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
+| SurveyIds                    | array    | Unique IDs associated with the survey.                                                                                                                  |
+
 
 ### GET List Survey Groups
 
@@ -170,13 +188,6 @@ https.get('https://api.samplicio.us//Demand/v1/SurveyGroups/{SurveyGroupID}?key=
 Returns the survey IDs for the survey group specified.
 
 
-#### Arguments
-
-| Property     | Type | Required | Description                               |
-|--------------|------|----------|-------------------------------------------|
-| SurveyIDs    | int  | true     | Unique ID associated with the survey.     |
-
-
 ### POST Create a Survey Group
 
 > Definition
@@ -277,7 +288,7 @@ var options = {
   "headers": {'Content-Type': 'application/json'}
 };
 
-var json = { 
+var json = {
   "Name":"Group 1"
 }
 
@@ -299,7 +310,7 @@ request.end();
 
 > Example Response
 
-```json 
+```json
 {
   "ApiResult": 0,
   "ApiResultCode": 0,
@@ -455,7 +466,7 @@ request.end();
 
 > Example Response
 
-```json 
+```json
 {
   "ApiResult": 0,
   "ApiResultCode": 0,
@@ -481,7 +492,7 @@ Adds a survey to the specified survey group.
 
 | Property             | Type    | Required | Description                                        |
 |----------------------|---------|----------|----------------------------------------------------|
-| SurveyIDs            | int     | true     | Unique ID associated with the survey.              |
+| SurveyIDs            | array   | true     | Unique ID associated with the survey.              |
 
 
 ### PUT Update a Group
@@ -605,7 +616,7 @@ request.end();
 
 > Example Response
 
-```json 
+```json
 {
   "ApiResult": 0,
   "ApiResultCode": 0,
@@ -631,7 +642,7 @@ Updates a survey group with the specified surveys.
 
 | Property             | Type    | Required | Description                                        |
 |----------------------|---------|----------|----------------------------------------------------|
-| SurveyIDs            | int     | true     | Unique ID associated with the survey.              |
+| SurveyIDs            | array   | true     | Unique ID associated with the survey.              |
 
 
 
@@ -646,7 +657,7 @@ DELETE  https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={API
 > Example Request
 
 ```shell
-curl X- DELETE --data '{"SurveyIDs": ["101101"]} https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey} 
+curl X- DELETE --data '{"SurveyIDs": ["101101"]} https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}
 ```
 
 ```ruby
@@ -663,7 +674,7 @@ request = Net::HTTP::Delete.new(uri.request_uri)
 
 request.body = {SurveyIDs: 101101}.to_json
 
-response = http.request(request) 
+response = http.request(request)
 ```
 
 ```php
@@ -769,7 +780,6 @@ Deletes the surveyID from the specified survey group.
 
 #### Arguments
 
-| Property        | Type | Required | Description                               |
-|-----------------|------|----------|-------------------------------------------|
-| SurveyIDs       | int  | true     | Unique ID associated with the survey.     |
-
+| Property        | Type  | Required | Description                               |
+|-----------------|-------|----------|-------------------------------------------|
+| SurveyIDs       | array | true     | Unique ID associated with the survey.     |
