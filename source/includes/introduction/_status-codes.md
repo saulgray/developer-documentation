@@ -1,6 +1,6 @@
 ## HTTP Status Codes
 
-Fulcrum uses conventional HTTP response codes to indicate the success or failure of an API request. In general, codes in the `2xx` range indicate success, codes in the `4xx` range indicate an error caused by the information provided (i.e., a required parameter was omitted, a method was not found, etc.), and codes in the `5xx` range indicate an error with Fulcrum's servers (these are rare). 
+Fulcrum uses conventional HTTP response codes to indicate the success or failure of an API request. In general, codes in the `2xx` range indicate success, codes in the `4xx` range indicate an error caused by the information provided (i.e., a required parameter was omitted, a method was not found, etc.), and codes in the `5xx` range indicate an error with Fulcrum's servers (these are rare).
 
 | Status Code 	| Status Text				| Description																																		|
 |---------------|---------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -8,6 +8,7 @@ Fulcrum uses conventional HTTP response codes to indicate the success or failure
 |				|							| GET: The resource has been fetched and is transmitted in the message body.																		|
 |				|							| POST: The resource describing the result of the action is transmitted in the message body															|
 | 201			| Created					| The request has succeeded and a new resource has been created as a result of it. This is typically the response sent after a PUT request.			|
+| 202			| Accepted				| The request has succeeded and has been added to the queue, but the resource has not yet been created. This is typically the response sent after PUT and POST requests.			|
 | 204			| No Content				| There is no content to send for this request. This is common for DELETE requests.																	|
 | 400			| Bad Request				| This response means that server could not understand the request due to invalid syntax.															|
 | 401			| Unauthorized				| Authentication is needed to get requested response. This is similar to 403, but in this case, authentication is possible.							|
