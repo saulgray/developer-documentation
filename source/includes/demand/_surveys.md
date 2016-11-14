@@ -988,7 +988,7 @@ Returns an index of all surveys by status such as Pending, Live, and Completed.
 |------------------------------|----------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------|
 | SurveyStatus                 | int      | true     | Code associated with the current status of the survey. See [List Global Definitions](#get-list-global-definitions) for a map, of survey status codes.|
 
-### POST Reconcile Surveys
+### POST Reconcile a Survey
 
 > Definition
 
