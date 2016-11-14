@@ -5,18 +5,18 @@
 > Definition
 
 ```plaintext
-GET  http://api.samplicio.us/Lookup/v1/BasicLookups/BundledLookups/{Bundle}?key={APIKey}
+GET  http://api.samplicio.us/Lookup/v1/BasicLookups/BundledLookups/{Bundle}
 ```
 > Example Request
 
 ```shell
-curl https://api.samplicio.us/Lookup/v1/BasicLookups/BundledLookups/CountryLanguages,Industries,SampleTypes,StudyTypes,SupplierLinkTypes,SurveyStatuses?key={APIKey}
+curl -H "Authorization: YOUR_API_KEY_HERE" https://api.samplicio.us/Lookup/v1/BasicLookups/BundledLookups/CountryLanguages,Industries,SampleTypes,StudyTypes,SupplierLinkTypes,SurveyStatuses
 ```
 
 ```ruby
 require 'net/http'
 
-uri = URI('https://api.samplicio.us/Lookup/v1/BasicLookups/BundledLookups/CountryLanguages,Industries,SampleTypes,StudyTypes,SupplierLinkTypes,SurveyStatuses?key={APIKey}')
+uri = URI('https://api.samplicio.us/Lookup/v1/BasicLookups/BundledLookups/CountryLanguages,Industries,SampleTypes,StudyTypes,SupplierLinkTypes,SurveyStatuses')
 
 http = Net::HTTP.new(uri.host, uri.port)
 
@@ -24,38 +24,69 @@ http.use_ssl = true
 
 request = Net::HTTP::Get.new(uri.request_uri)
 
-response = http.request(request) 
+request['Authorization'] = YOUR_API_KEY_HERE
+
+response = http.request(request)
 ```
 
 ```php
 <?php
-$response = file_get_contents('https://api.samplicio.us/Lookup/v1/BasicLookups/BundledLookups/CountryLanguages,Industries,SampleTypes,StudyTypes,SupplierLinkTypes,SurveyStatuses?key={APIKey}');
+$URL = "https://api.samplicio.us/Lookup/v1/BasicLookups/BundledLookups/CountryLanguages,Industries,SampleTypes,StudyTypes,SupplierLinkTypes,SurveyStatuses";
+
+$aHTTP['http']['method']  = 'GET';
+
+$aHTTP['http']['header']  = "Authorization: YOUR_API_KEY_HERE";
+
+$context = stream_context_create($aHTTP);
+
+$response = file_get_contents($URL, false, $context);
 ?>
 ```
 
 ```python
 import requests
 
-response = requests.get('https://api.samplicio.us/Lookup/v1/BasicLookups/BundledLookups/CountryLanguages,Industries,SampleTypes,StudyTypes,SupplierLinkTypes,SurveyStatuses?key={APIKey}')
+url = 'https://api.samplicio.us/Lookup/v1/BasicLookups/BundledLookups/CountryLanguages,Industries,SampleTypes,StudyTypes,SupplierLinkTypes,SurveyStatuses'
+
+headers = {'Authorization' : YOUR_API_KEY_HERE}
+
+response = requests.get(url, headers=headers)
 ```
+
 ```csharp
 using System.Net;
 
-WebRequest request = WebRequest.Create("https://api.samplicio.us/Lookup/v1/BasicLookups/BundledLookups/CountryLanguages,Industries,SampleTypes,StudyTypes,SupplierLinkTypes,SurveyStatuses?key={APIKey}");
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Lookup/v1/BasicLookups/BundledLookups/CountryLanguages,Industries,SampleTypes,StudyTypes,SupplierLinkTypes,SurveyStatuses");
+
+request.Headers.Add("Authorization", YOUR_API_KEY_HERE);
 
 WebResponse response = request.GetResponse();
 ```
 ```javascript
 const https = require('https');
 
-https.get('https://api.samplicio.us/Lookup/v1/BasicLookups/BundledLookups/CountryLanguages,Industries,SampleTypes,StudyTypes,SupplierLinkTypes,SurveyStatuses?key={APIKey}', function(res){
-  var response = res;
+var options = {
+  "method": "GET",
+  "hostname": "api.samplicio.us",
+  "path": "/Lookup/v1/BasicLookups/BundledLookups/CountryLanguages,Industries,SampleTypes,StudyTypes,SupplierLinkTypes,SurveyStatuses",
+  "headers": {'Authorization': YOUR_API_KEY_HERE}
+};
+
+var request = https.request(options, function (response) {
+  var chunks = [];
+
+  response.on("data", function (chunk) {
+    chunks.push(chunk);
+  });
+
 });
+
+request.end();
 ```
 
 > Example Response
 
-```json 
+```json
 {
   "ApiResult": 0,
   "ApiResultCode": 0,
@@ -162,11 +193,11 @@ Returns a list of global system definitions. Arguments can be passed individuall
 | BidStatuses	                 | Array of all possible statuses for a bid.      
 | ProposalTypes                | Array of all possible proposal types.      
 | CategoryLockOutDurations     | Array of all possible lockout times.      
-| QuestionClassifications      | Array of all question categories on the platform. 
-| SupplierPreferenceTypes      | Array of all possible preferences a supplier can communicate. 
-| SupplierRequestStatuses      | Array of all tracking methods a supplier can use to track a respondent's status. 
-| SurveyPlatforms	             | Array of survey platforms users may be sending to or from. 
-| ThirdPartyServices	         | Array of all Third Party Services on the platform. 
+| QuestionClassifications      | Array of all question categories on the platform.
+| SupplierPreferenceTypes      | Array of all possible preferences a supplier can communicate.
+| SupplierRequestStatuses      | Array of all tracking methods a supplier can use to track a respondent's status.
+| SurveyPlatforms	             | Array of survey platforms users may be sending to or from.
+| ThirdPartyServices	         | Array of all Third Party Services on the platform.
 
 
 
@@ -175,18 +206,18 @@ Returns a list of global system definitions. Arguments can be passed individuall
 > Definition
 
 ```plaintext
-GET  https://api.samplicio.us/Core/v1/Suppliers/AllWithAccount?key={APIKey}
+GET  https://api.samplicio.us/Core/v1/Suppliers/AllWithAccount
 ```
 > Example Request
 
 ```shell
-curl https://api.samplicio.us/Core/v1/Suppliers/AllWithAccount?key={APIKey}
+curl -H "Authorization: YOUR_API_KEY_HERE" https://api.samplicio.us/Core/v1/Suppliers/AllWithAccount
 ```
 
 ```ruby
 require 'net/http'
 
-uri = URI('https://api.samplicio.us/Core/v1/Suppliers/AllWithAccount?key={APIKey}')
+uri = URI('https://api.samplicio.us/Core/v1/Suppliers/AllWithAccount')
 
 http = Net::HTTP.new(uri.host, uri.port)
 
@@ -194,38 +225,68 @@ http.use_ssl = true
 
 request = Net::HTTP::Get.new(uri.request_uri)
 
-response = http.request(request) 
+request['Authorization'] = YOUR_API_KEY_HERE
+
+response = http.request(request)
 ```
 
 ```php
 <?php
-$response = file_get_contents('https://api.samplicio.us/Core/v1/Suppliers/AllWithAccount?key={APIKey}');
+$URL = "https://api.samplicio.us/Core/v1/Suppliers/AllWithAccount",
+
+$aHTTP['http']['method']  = 'GET';
+
+$aHTTP['http']['header']  = "Authorization: YOUR_API_KEY_HERE";
+
+$context = stream_context_create($aHTTP);
+
+$response = file_get_contents($URL, false, $context);
 ?>
 ```
 
 ```python
 import requests
 
-response = requests.get('https://api.samplicio.us/Core/v1/Suppliers/AllWithAccount?key={APIKey}')
+url = 'https://api.samplicio.us/Core/v1/Suppliers/AllWithAccount'
+
+headers = {'Authorization' : YOUR_API_KEY_HERE}
+
+response = requests.get(url, headers=headers)
 ```
 ```csharp
 using System.Net;
 
-WebRequest request = WebRequest.Create("https://api.samplicio.us/Core/v1/Suppliers/AllWithAccount?key={APIKey}");
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Core/v1/Suppliers/AllWithAccount");
+
+request.Headers.Add("Authorization", YOUR_API_KEY_HERE);
 
 WebResponse response = request.GetResponse();
 ```
 ```javascript
 const https = require('https');
 
-https.get('https://api.samplicio.us/Core/v1/Suppliers/AllWithAccount?key={APIKey}', function(res){
-  var response = res;
+var options = {
+  "method": "GET",
+  "hostname": "api.samplicio.us",
+  "path": "https://api.samplicio.us/Core/v1/Suppliers/AllWithAccount",
+  "headers": {'Authorization': YOUR_API_KEY_HERE}
+};
+
+var request = https.request(options, function (response) {
+  var chunks = [];
+
+  response.on("data", function (chunk) {
+    chunks.push(chunk);
+  });
+
 });
+
+request.end();
 ```
 
 > Example Response
 
-```json 
+```json
 {
   "ApiResult": 0,
   "ApiResultCode": 0,
@@ -269,21 +330,21 @@ Returns a list of all suppliers.
 
 ### GET List Business Units
 
-> Definition 
+> Definition
 
 ```plaintext
-GET  https://api.samplicio.us/Core/v1/BusinessUnits/All?key={APIKey}
+GET  https://api.samplicio.us/Core/v1/BusinessUnits/All
 ```
 > Example Request
 
 ```shell
-curl https://api.samplicio.us/Core/v1/BusinessUnits/All?key={APIKey}
+curl -H "Authorization: YOUR_API_KEY_HERE" https://api.samplicio.us/Core/v1/BusinessUnits/All
 ```
 
 ```ruby
 require 'net/http'
 
-uri = URI('https://api.samplicio.us/Core/v1/BusinessUnits/All?key={APIKey}')
+uri = URI('https://api.samplicio.us/Core/v1/BusinessUnits/All')
 
 http = Net::HTTP.new(uri.host, uri.port)
 
@@ -291,33 +352,64 @@ http.use_ssl = true
 
 request = Net::HTTP::Get.new(uri.request_uri)
 
-response = http.request(request) 
+request['Authorization'] = YOUR_API_KEY_HERE
+
+response = http.request(request)
 ```
 
 ```php
 <?php
-$response = file_get_contents('https://api.samplicio.us/Core/v1/BusinessUnits/All?key={APIKey}');
+
+$URL = "https://api.samplicio.us/Core/v1/BusinessUnits/All";
+
+$aHTTP['http']['method']  = 'GET';
+
+$aHTTP['http']['header']  = "Authorization: YOUR_API_KEY_HERE";
+
+$context = stream_context_create($aHTTP);
+
+$response = file_get_contents($URL, false, $context);
 ?>
 ```
 
 ```python
 import requests
 
-response = requests.get('https://api.samplicio.us/Core/v1/BusinessUnits/All?key={APIKey}')
+url = 'https://api.samplicio.us/Core/v1/BusinessUnits/All'
+
+headers = {'Authorization' : YOUR_API_KEY_HERE}
+
+response = requests.get(url, headers=headers)
 ```
 ```csharp
 using System.Net;
 
-WebRequest request = WebRequest.Create("https://api.samplicio.us/Core/v1/BusinessUnits/All?key={APIKey}");
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Core/v1/BusinessUnits/All");
+
+request.Headers.Add("Authorization", YOUR_API_KEY_HERE);
 
 WebResponse response = request.GetResponse();
 ```
 ```javascript
 const https = require('https');
 
-https.get('https://api.samplicio.us/Core/v1/BusinessUnits/All?key={APIKey}', function(res){
-  var response = res;
+var options = {
+  "method": "GET",
+  "hostname": "api.samplicio.us",
+  "path": "/Core/v1/BusinessUnits/All",
+  "headers": {'Authorization': YOUR_API_KEY_HERE}
+};
+
+var request = https.request(options, function (response) {
+  var chunks = [];
+
+  response.on("data", function (chunk) {
+    chunks.push(chunk);
+  });
+
 });
+
+request.end();
 ```
 
 > Example Response
