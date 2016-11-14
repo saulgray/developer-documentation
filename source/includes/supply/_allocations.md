@@ -63,7 +63,7 @@ Allocations allow buyers to allocate portions of studies to specific suppliers. 
 |---------------------|--------|-------------------------------------------------------------------------------------|
 | SupplierCode        | int    | Unique code associated with a supplier account.                                     |
 | SupplierName        | string | Name of the supplier.                                                               |
-| IsBlockRouted       | int    | Indicates if the survey accepts routed sample.                                      |
+| IsBlockRouted       | boolean| Indicates if the survey accepts routed sample.                                      |
 | AchievedCompletes   | int    | Number of completes that have been already achieved by the supplier in this survey. |
 | AllocationRemaining | int    | Number of completes remaining as part of the allocation.                            |
 | HedgeRemaining      | int    | Number of unallocated completes available to any suppliers with access to hedge.    |
