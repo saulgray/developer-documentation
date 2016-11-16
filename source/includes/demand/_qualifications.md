@@ -20,20 +20,20 @@ The Qualifications resource allows the buyer to create new qualifications on an 
 > Definition
 
 ```plaintext
-POST  https://api.samplicio.us/Demand/v1/SurveyQualifications/Create/{SurveyNumber}?key={APIKey}
+POST  https://api.samplicio.us/Demand/v1/SurveyQualifications/Create/{SurveyNumber}
 ```
 
 > Example Request
 
 ```shell
-curl -H "Content-Type: application/json" -X POST --data '{"Name": "STANDARD_RELATIONSHIP","QuestionID": 632,"LogicalOperator": "OR","NumberOfRequiredConditions": 1,"IsActive": true,"PreCodes": ["1"], "Order": 7}' https://api.samplicio.us/Demand/v1/SurveyQualifications/Create/{SurveyNumber}?key={APIKey}
+curl -H "Content-Type: application/json" -H "Authorization: YOUR_API_KEY_HERE" -X POST --data '{"Name": "STANDARD_RELATIONSHIP","QuestionID": 632,"LogicalOperator": "OR","NumberOfRequiredConditions": 1,"IsActive": true,"PreCodes": ["1"], "Order": 7}' https://api.samplicio.us/Demand/v1/SurveyQualifications/Create/{SurveyNumber}
 ```
 
 ```ruby
 require 'net/http'
 require 'json'
 
-uri = URI('https://api.samplicio.us/Demand/v1/SurveyQualifications/Create/{SurveyNumber}?key={APIKey}')
+uri = URI('https://api.samplicio.us/Demand/v1/SurveyQualifications/Create/{SurveyNumber}')
 
 http = Net::HTTP.new(uri.host, uri.port)
 
@@ -55,6 +55,8 @@ request.body = {
 	Order: 7
 }.to_json
 
+request['Authorization'] = YOUR_API_KEY_HERE
+
 response = http.request(request)
 ```
 
@@ -75,10 +77,10 @@ $params = '{
 }';
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "https://api.samplicio.us/Demand/v1/SurveyQualifications/Create/{SurveyNumber}?key={APIKey}",
+  CURLOPT_URL => "https://api.samplicio.us/Demand/v1/SurveyQualifications/Create/{SurveyNumber}",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
-  CURLOPT_HTTPHEADER => array('Content-Type: application/json'),
+  CURLOPT_HTTPHEADER => array('Content-Type: application/json', 'Authorization: YOUR_API_KEY_HERE'),
   CURLOPT_MAXREDIRS => 10,
   CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -96,7 +98,7 @@ curl_close($curl);
 ```python
 import requests, json
 
-url = 'https://api.samplicio.us/Demand/v1/SurveyQualifications/Create/{SurveyNumber}?key={APIKey}'
+url = 'https://api.samplicio.us/Demand/v1/SurveyQualifications/Create/{SurveyNumber}'
 params = {
 	"Name": "STANDARD_RELATIONSHIP",
 	"QuestionID": 632,
@@ -109,7 +111,7 @@ params = {
 	"Order": 7
 }
 data = json.dumps(params)
-headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
+headers = {'Content-type': 'application/json', 'Authorization' : 'YOUR_API_KEY_HERE', 'Accept': 'text/plain'}
 
 response = requests.post(url, data=data, headers=headers)
 ```
@@ -118,7 +120,7 @@ response = requests.post(url, data=data, headers=headers)
 using System.IO;
 using System.Net;
 
-WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SurveyQualifications/Create/{SurveyNumber}?key={APIKey}");
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SurveyQualifications/Create/{SurveyNumber}");
 
 string args = @"{
                   ""Name"": ""STANDARD_RELATIONSHIP"",
@@ -129,9 +131,10 @@ string args = @"{
                   ""PreCodes"": [""1""],
                   ""Order"": 7
                 }";
-    
+
 request.Method = "POST";
 request.ContentType = "application/json";
+request.Headers.Add("Authorization", "YOUR_API_KEY_HERE");
 
 using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
 {
@@ -150,8 +153,10 @@ var options = {
   "method": "POST",
   "hostname": "api.samplicio.us",
   "port": 443,
-  "path": "/Demand/v1/SurveyQualifications/Create/{SurveyNumber}?key={APIKey}",
-  "headers": {'Content-Type': 'application/json'}
+  "path": "/Demand/v1/SurveyQualifications/Create/{SurveyNumber}",
+  "headers": {'Content-Type': 'application/json',
+  'Authorization': 'YOUR_API_KEY_HERE'
+	}
 };
 
 var json = {
@@ -174,7 +179,7 @@ var request = https.request(options, function (response) {
   response.on("data", function (chunk) {
     chunks.push(chunk);
   });
-  
+
 });
 
 request.write(params);
@@ -184,7 +189,7 @@ request.end();
 
 > Example Response
 
-```json 
+```json
 {
   "ApiResult": 0,
   "ApiResultCode": 0,
@@ -346,20 +351,20 @@ Creates qualification and conditions for an existing Fulcrum survey.
 > Definition
 
 ```plaintext
-PUT  https://api.samplicio.us/Demand/v1/SurveyQualifications/Update/{SurveyNumber}?key={APIKey}
+PUT  https://api.samplicio.us/Demand/v1/SurveyQualifications/Update/{SurveyNumber}
 ```
 
 > Example Request
 
 ```shell
-curl -H "Content-Type: application/json" -X PUT --data '{"Name": "STANDARD_RELATIONSHIP","QuestionID": 632,"LogicalOperator": "OR",NumberOfRequiredConditions": 1,"IsActive": true,"PreCodes": ["2"],"Order": 7}' https://api.samplicio.us/Demand/v1/SurveyQualifications/Update/{SurveyNumber}?key={APIKey}
+curl -H "Content-Type: application/json" -H "Authorization: YOUR_API_KEY_HERE" -X PUT --data '{"Name": "STANDARD_RELATIONSHIP","QuestionID": 632,"LogicalOperator": "OR",NumberOfRequiredConditions": 1,"IsActive": true,"PreCodes": ["2"],"Order": 7}' https://api.samplicio.us/Demand/v1/SurveyQualifications/Update/{SurveyNumber}
 ```
 
 ```ruby
 require 'net/http'
 require 'json'
 
-uri = URI('https://api.samplicio.us/Demand/v1/SurveyQualifications/Update/{SurveyNumber}?key={APIKey}')
+uri = URI('https://api.samplicio.us/Demand/v1/SurveyQualifications/Update/{SurveyNumber}')
 
 http = Net::HTTP.new(uri.host, uri.port)
 
@@ -381,6 +386,8 @@ request.body = {
 	Order: 7
 }.to_json
 
+request['Authorization'] = YOUR_API_KEY_HERE
+
 response = http.request(request)
 ```
 
@@ -401,10 +408,10 @@ $params = '{
 }';
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "https://api.samplicio.us/Demand/v1/SurveyQualifications/Update/{SurveyNumber}?key={APIKey}",
+  CURLOPT_URL => "https://api.samplicio.us/Demand/v1/SurveyQualifications/Update/{SurveyNumber}",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
-  CURLOPT_HTTPHEADER => array('Content-Type: application/json'),
+  CURLOPT_HTTPHEADER => array('Content-Type: application/json', 'Authorization: YOUR_API_KEY_HERE'),
   CURLOPT_MAXREDIRS => 10,
   CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -422,7 +429,7 @@ curl_close($curl);
 ```python
 import requests, json
 
-url = 'https://api.samplicio.us/Demand/v1/SurveyQualifications/Update/{SurveyNumber}?key={APIKey}'
+url = 'https://api.samplicio.us/Demand/v1/SurveyQualifications/Update/{SurveyNumber}'
 params = {
 	"Name": "STANDARD_RELATIONSHIP",
 	"QuestionID": 632,
@@ -435,7 +442,7 @@ params = {
 	"Order": 7
 }
 data = json.dumps(params)
-headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
+headers = {'Content-type': 'application/json', 'Authorization' : 'YOUR_API_KEY_HERE', 'Accept': 'text/plain'}
 
 response = requests.put(url, data=data, headers=headers)
 ```
@@ -444,7 +451,7 @@ response = requests.put(url, data=data, headers=headers)
 using System.IO;
 using System.Net;
 
-WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SurveyQualifications/Update/{SurveyNumber}?key={APIKey}");
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SurveyQualifications/Update/{SurveyNumber}");
 
 string args = @"{
                 	""Name"": ""STANDARD_RELATIONSHIP"",
@@ -455,9 +462,10 @@ string args = @"{
                 	""PreCodes"": [""2""],
                 	""Order"": 7
                 }";
-    
+
 request.Method = "PUT";
 request.ContentType = "application/json";
+request.Headers.Add("Authorization", "YOUR_API_KEY_HERE");
 
 using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
 {
@@ -475,9 +483,10 @@ const https = require('https');
 var options = {
   "method": "PUT",
   "hostname": "api.samplicio.us",
-  "port": 443,
-  "path": "/Demand/v1/SurveyQualifications/Update/{SurveyNumber}?key={APIKey}",
-  "headers": {'Content-Type': 'application/json'}
+  "path": "/Demand/v1/SurveyQualifications/Update/{SurveyNumber}",
+  "headers": {'Content-Type': 'application/json',
+  'Authorization': 'YOUR_API_KEY_HERE'
+	}
 };
 
 var json = {
@@ -500,7 +509,7 @@ var request = https.request(options, function (response) {
   response.on("data", function (chunk) {
     chunks.push(chunk);
   });
-  
+
 });
 
 request.write(params);
@@ -510,7 +519,7 @@ request.end();
 
 > Example Response
 
-```json 
+```json
 {
   "ApiResult": 0,
   "ApiResultCode": 0,
@@ -652,7 +661,7 @@ request.end();
 }
 ```
 
-Updates existing qualifications for a Fulcrum qualification. 
+Updates existing qualifications for a Fulcrum survey.
 
 #### Arguments
 
@@ -672,19 +681,19 @@ Updates existing qualifications for a Fulcrum qualification.
 > Definition
 
 ```plaintext
-GET  https://api.samplicio.us/Demand/v1/SurveyQualifications/BySurveyNumber/{SurveyNumber}?key={APIKey}
+GET  https://api.samplicio.us/Demand/v1/SurveyQualifications/BySurveyNumber/{SurveyNumber}
 ```
 
 > Example Request
 
 ```shell
-curl https://api.samplicio.us/Demand/v1/SurveyQualifications/BySurveyNumber/{SurveyNumber}?key={APIKey}
+curl -H "Authorization: YOUR_API_KEY_HERE" https://api.samplicio.us/Demand/v1/SurveyQualifications/BySurveyNumber/{SurveyNumber}
 ```
 
 ```ruby
 require 'net/http'
 
-uri = URI('https://api.samplicio.us/Demand/v1/SurveyQualifications/BySurveyNumber/{SurveyNumber}?key={APIKey}')
+uri = URI('https://api.samplicio.us/Demand/v1/SurveyQualifications/BySurveyNumber/{SurveyNumber}')
 
 http = Net::HTTP.new(uri.host, uri.port)
 
@@ -692,25 +701,41 @@ http.use_ssl = true
 
 request = Net::HTTP::Get.new(uri.request_uri)
 
+request['Authorization'] = YOUR_API_KEY_HERE
+
 response = http.request(request)  
 ```
 
 ```php
 <?php
-$response = file_get_contents('https://api.samplicio.us/Demand/v1/SurveyQualifications/BySurveyNumber/{SurveyNumber}?key={APIKey}');
+$URL = "https://api.samplicio.us/Demand/v1/SurveyQualifications/BySurveyNumber/{SurveyNumber}";
+
+$aHTTP['http']['method']  = 'GET';
+
+$aHTTP['http']['header']  = "Authorization: YOUR_API_KEY_HERE";
+
+$context = stream_context_create($aHTTP);
+
+$response = file_get_contents($URL, false, $context);
 ?>
 ```
 
 ```python
 import requests
 
-response = requests.get('https://api.samplicio.us/Demand/v1/SurveyQualifications/BySurveyNumber/{SurveyNumber}?key={APIKey}')
+url = 'https://api.samplicio.us/Demand/v1/SurveyQualifications/BySurveyNumber/{SurveyNumber}'
+
+headers = {'Authorization' : YOUR_API_KEY_HERE}
+
+response = requests.get(url, headers=headers)
 ```
 
 ```csharp
 using System.Net;
 
-WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SurveyQualifications/BySurveyNumber/{SurveyNumber}?key={APIKey}");
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SurveyQualifications/BySurveyNumber/{SurveyNumber}");
+
+request.Headers.Add("Authorization", YOUR_API_KEY_HERE);
 
 WebResponse response = request.GetResponse();
 ```
@@ -718,14 +743,28 @@ WebResponse response = request.GetResponse();
 ```javascript
 const https = require('https');
 
-https.get('https://api.samplicio.us/Demand/v1/SurveyQualifications/BySurveyNumber/{SurveyNumber}?key={APIKey}', function(res){
-  var response = res;
+var options = {
+  "method": "GET",
+  "hostname": "api.samplicio.us",
+  "path": "/Demand/v1/SurveyQualifications/BySurveyNumber/{SurveyNumber}",
+  "headers": {'Authorization': YOUR_API_KEY_HERE}
+};
+
+var request = https.request(options, function (response) {
+  var chunks = [];
+
+  response.on("data", function (chunk) {
+    chunks.push(chunk);
+  });
+
 });
+
+request.end();
 ```
 
 > Example Response
 
-```json 
+```json
 {
   "ApiResult": 0,
   "ApiResultCode": 0,
@@ -856,7 +895,7 @@ https.get('https://api.samplicio.us/Demand/v1/SurveyQualifications/BySurveyNumbe
 }
 ```
 
-Returns a list of all qualifications associated with a survey. 
+Returns a list of all qualifications associated with a survey.
 
 #### Arguments
 
