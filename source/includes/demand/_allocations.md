@@ -558,7 +558,7 @@ var options = {
   "method": "DELETE",
   "hostname": "stg-api.samplicio.us",
   "port": 443,
-  "path": "/Demand/v1/SupplierAllocations/Delete/66900/196?key=YOUR_API_KEY_HERE",
+  "path": "/Demand/v1/SupplierAllocations/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}",
   "headers": {}
 };
 
