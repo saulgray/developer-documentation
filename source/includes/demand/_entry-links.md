@@ -444,7 +444,7 @@ const https = require('https');
 
 var options = {
   "method": "DELETE",
-  "hostname": "stg-api.samplicio.us",
+  "hostname": "api.samplicio.us",
   "port": 443,
   "path": "/Demand/v1/SupplierAllocations/Targets/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}",
   "headers": {}

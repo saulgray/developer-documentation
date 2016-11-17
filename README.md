@@ -636,7 +636,7 @@ ruby scriptName.rb
 
  key = {{API_key}}
 
- url = 'https://stg-api.samplicio.us/Demand/v1/Feasibility/Price?key=' + key
+ url = 'https://api.samplicio.us/Demand/v1/Feasibility/Price?key=' + key
  params = {'CountryLanguageID': 9, 'LengthOfInterview': 5, 'Incidence': 100, 'Quotas': [{'CompletesPerDay': [1000, 1500], 'Conditions': [{'QuestionID': 42, 'PreCodes': ["18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29"]}, {'QuestionID': 43, 'PreCodes': ["1"] } ] }, ] }
  data = json.dumps(params)
  headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
