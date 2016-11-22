@@ -160,7 +160,6 @@ var request = https.request(options, function (response) {
   response.on("data", function (chunk) {
     chunks.push(chunk);
   });
-
 });
 
 request.write(params);
@@ -398,7 +397,6 @@ var request = https.request(options, function (response) {
   response.on("data", function (chunk) {
     chunks.push(chunk);
   });
-
 });
 
 request.write(params);
@@ -628,7 +626,6 @@ var request = https.request(options, function (response) {
   response.on("data", function (chunk) {
     chunks.push(chunk);
   });
-
 });
 
 request.write(params);

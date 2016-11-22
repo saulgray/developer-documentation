@@ -33,6 +33,7 @@ response = http.request(request)
 
 ```php
 <?php
+
 $URL = "https://api.samplicio.us/Demand/v1/SurveyGroups";
 
 $aHTTP['http']['method']  = 'GET';
@@ -42,6 +43,7 @@ $aHTTP['http']['header']  = "Authorization: YOUR_API_KEY_HERE";
 $context = stream_context_create($aHTTP);
 
 $response = file_get_contents($URL, false, $context);
+
 ?>
 ```
 
@@ -53,6 +55,7 @@ url = 'https://api.samplicio.us/Demand/v1/SurveyGroups'
 headers = {'Authorization' : YOUR_API_KEY_HERE}
 
 response = requests.get(url, headers=headers)
+
 ```
 
 ```csharp
@@ -267,7 +270,6 @@ request.body = {Name:"Group 1"}.to_json
 
 request['Authorization'] = YOUR_API_KEY_HERE
 
-response = http.request(request)  
 ```
 
 ```php
@@ -316,6 +318,7 @@ string args = @"{""Name"":""Group 1""}";
 request.Method = "POST";
 request.ContentType = "application/json";
 request.Headers.Add("Authorization", "YOUR_API_KEY_HERE");
+
 
 using(StreamWriter streamWriter = new StreamWriter(request.
 RequestStream()))

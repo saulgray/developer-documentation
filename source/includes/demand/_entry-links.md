@@ -157,7 +157,6 @@ var request = https.request(options, function (response) {
   response.on("data", function (chunk) {
     chunks.push(chunk);
   });
-
 });
 
 request.write(params);
@@ -421,7 +420,7 @@ curl_setopt_array($curl, array(
   CURLOPT_URL => "https://api.samplicio.us/Demand/v1/SupplierAllocations/Targets/Delete/{SurveyNumber}/{SupplierCode}",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
-    CURLOPT_HTTPHEADER => array('Authorization: YOUR_API_KEY_HERE'),
+  CURLOPT_HTTPHEADER => array('Authorization: YOUR_API_KEY_HERE'),
   CURLOPT_MAXREDIRS => 10,
   CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -461,7 +460,7 @@ const https = require('https');
 
 var options = {
   "method": "DELETE",
-  "hostname": "stg-api.samplicio.us",
+  "hostname": "api.samplicio.us",
   "path": "/Demand/v1/SupplierAllocations/Targets/Delete/{SurveyNumber}/{SupplierCode}",
   "headers": {'Authorization': YOUR_API_KEY_HERE}
 };

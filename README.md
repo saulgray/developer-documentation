@@ -19,7 +19,7 @@ Before contributing to this project, please review the guidelines for [contribut
 Style Guide
 ------------
 ### General
- - For code-like values referenced anywhere in the center section use code highlighting. The markdown syntax is simply to wrap the code word back ticks (i.e. `true`). 
+ - For code-like values referenced anywhere in the center section use code highlighting. The markdown syntax is simply to wrap the code word back ticks (i.e. `true`).
  - Data types:
  	- String
  	- Integer
@@ -432,7 +432,7 @@ requests.delete('http://api.samplicio.us/Demand/v1/SupplierAllocations/Delete/{S
 
 C#
 ```csharp
-using System.Net; 
+using System.Net;
 
 WebRequest request = WebRequest.Create("http://api.samplicio.us/Demand/v1/SupplierAllocations/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}");
 
@@ -449,7 +449,7 @@ var options = {
   "method": "DELETE",
   "hostname": "stg-api.samplicio.us",
   "port": 443,
-  "path": "/Demand/v1/SupplierAllocations/Delete/66900/196?key=YOUR_API_KEY_HERE",
+  "path": "/Demand/v1/SupplierAllocations/Delete/66900/196?key=***REMOVED***",
   "headers": {}
 };
 
@@ -475,7 +475,7 @@ You're going to need:
 
 ### Setting up Prerequisites on Windows
 (Certified not to rust, dust, bust, or bite the baby within the first 30ms or your money back, guaranteed.)
- 
+
  1. **[Install Ruby](http://rubyinstaller.org/downloads)** — Be sure to check "Add Ruby executables to your PATH".
  2. **Test the Ruby installation** — Run `ruby -v` and `irb -v` in Command Prompt. If the version number is returned, Ruby has been successfully installed.
  3. **[Install Development Kit](http://rubyinstaller.org/downloads)**
