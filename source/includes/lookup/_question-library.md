@@ -1,8 +1,10 @@
 ##Question Library
 
+The questions in this library can be used to build qualifications for surveys created in Fulcrum.
+
 ### GET List Standard Questions
 
-> Definition 
+> Definition
 
 ```plaintext
 GET  https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllQuestions/{CountryLanguageID}?key={APIKey}
@@ -24,7 +26,7 @@ http.use_ssl = true
 
 request = Net::HTTP::Get.new(uri.request_uri)
 
-response = http.request(request) 
+response = http.request(request)
 ```
 
 ```php
@@ -55,7 +57,7 @@ https.get('https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllQuestions/{Coun
 
 > Example Response
 
-```json 
+```json
 {
   "ApiResult": 0,
   "ApiResultCode": 0,
@@ -93,7 +95,7 @@ Returns a list of all Fulcrum Standard questions and question texts for the spec
 
 ### GET List Custom Questions
 
-> Definition 
+> Definition
 
 ```plaintext
 GET  https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllCustomQuestionsByAccount/{CountryLanguageID}?key={APIKey}
@@ -115,7 +117,7 @@ http.use_ssl = true
 
 request = Net::HTTP::Get.new(uri.request_uri)
 
-response = http.request(request) 
+response = http.request(request)
 ```
 
 ```php
@@ -146,7 +148,7 @@ https.get('https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllCustomQuestions
 
 > Example Response
 
-```json 
+```json
 {
   "ApiResult": 0,
   "ApiResultCode": 0,
@@ -242,7 +244,7 @@ https.get('https://api.samplicio.us/Lookup/v1/QuestionLibrary/QuestionById/{Coun
 
 > Example Response
 
-```json 
+```json
 {
   "ApiResult": 0,
   "ApiResultCode": 0,
@@ -337,7 +339,7 @@ https.get('https://api.samplicio.us/Lookup/v1/QuestionLibrary/AllQuestionOptions
 
 > Example Response
 
-```json 
+```json
 {
   "ApiResult": 0,
   "ApiResultCode": 0,
