@@ -355,7 +355,7 @@ POST  https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKe
 > Example Request
 
 ```shell
-curl -H "Content-Type: application/json" -X POST --data '{"SurveyNumber": ["101101"]}' https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}
+curl -H "Content-Type: application/json" -X POST --data '{"SurveyIDs": ["101101"]}' https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}
 ```
 
 ```ruby
@@ -372,7 +372,7 @@ fullUriPath = uri.path + '?' + uri.query
 
 request = Net::HTTP::Post.new(fullUriPath, initheader = {'Content-Type' =>'application/json'})
 
-request.body = {SurveyIDs: 101101}.to_json
+request.body = {SurveyIDs: ["101101"]}.to_json
 
 response = http.request(request)
 ```
@@ -381,7 +381,7 @@ response = http.request(request)
 <?php
 $curl = curl_init();
 
-$params = '{"SurveyIDs": 101101}';
+$params = '{"SurveyIDs": ["101101"]}';
 
 curl_setopt_array($curl, array(
   CURLOPT_URL => "https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}",
@@ -405,7 +405,7 @@ curl_close($curl);
 import requests, json
 
 url = 'https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}'
-params = {'SurveyIDs': 101101}
+params = {'SurveyIDs': ["101101"]}
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
@@ -419,7 +419,7 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}");
 
-string args = @"{""SurveyIDs"": [101101]}";
+string args = @"{""SurveyIDs"": ["101101"]}";
 
 request.Method = "POST";
 request.ContentType = "application/json";
