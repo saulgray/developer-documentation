@@ -1,12 +1,12 @@
 ##Entry Links
 
-The Entry Links resource enables suppliers to create, update, and retrieve supplier survey entry links as well as specify [supplier link and tracking types](#get-list-global-definitions). 
+The Entry Links resource enables suppliers to create, update, and retrieve supplier survey entry links as well as specify [supplier link and tracking types](#get-list-global-definitions). The entry links can then be used to send a respondent to a particular survey, and attaching important information in a query string, such as the unique panelist ID (PID), or respondent's profiling data.
 
 #### Supplier Link Model
 
 | Property                     | Type     | Description                                                                                                                                             |
 |------------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SupplierLinkTypeCode         | string   | Defines the type of buyer-supplier engagment and the respondent's path in Fulcrum.                                                                      | 
+| SupplierLinkTypeCode         | string   | Defines the type of buyer-supplier engagment and the respondent's path in Fulcrum.                                                                      |
 | TrackingTypeCode             | string   | Defines how Fulcrum should communicate back to the supplier's system at the end of a session. The options are:                                          |
 |                              |          | NONE (Default and recommended, physically redirects the respondent back to the supplier system)                                                         |
 |                              |          | PIXEL (pixel tracking)                                                                                                                                  |
@@ -99,7 +99,7 @@ string args = @"{
                   ""SupplierLinkTypeCode"":""OWS"",
                   ""TrackingTypeCode"":""NONE""
                 }";
-    
+
 request.Method = "POST";
 request.ContentType = "application/json";
 
@@ -137,7 +137,7 @@ var request = https.request(options, function (response) {
   response.on("data", function (chunk) {
     chunks.push(chunk);
   });
-  
+
 });
 
 request.write(params);
@@ -147,7 +147,7 @@ request.end();
 
 > Example Response
 
-```json 
+```json
 {
   "ApiResult": 0,
   "ApiResultCode": 0,
@@ -174,7 +174,7 @@ request.end();
   }
 }
 ```
-Creates a supplier-specific respondent entry link for a survey. If no supplier redirects are included, the default supplier redirects will be used. 
+Creates a supplier-specific respondent entry link for a survey. If no supplier redirects are included, the default supplier redirects will be used.
 
 <aside class="notice">We recommend using Offerwall/Standalone link type (OWS) when creating links for Offerwall surveys.</aside>
 
@@ -273,7 +273,7 @@ string args = @"{
                   ""OverQuotaLink"":"""",
                   ""QualityTerminationLink"":""""
                 }";
-    
+
 request.Method = "PUT";
 request.ContentType = "application/json";
 
@@ -326,7 +326,7 @@ request.end();
 
 > Example Response
 
-```json 
+```json
 {
   "ApiResult": 0,
   "ApiResultCode": 0,
@@ -430,7 +430,7 @@ https.get('https://api.samplicio.us/Supply/v1/SurveyQualifications/BySurveyNumbe
 
 > Example Response
 
-```json 
+```json
 {
   "ApiResult": 0,
   "ApiResultCode": 0,
@@ -458,7 +458,7 @@ https.get('https://api.samplicio.us/Supply/v1/SurveyQualifications/BySurveyNumbe
 }
 ```
 
-Returns link details for a survey. 
+Returns link details for a survey.
 
 #### Arguments
 
