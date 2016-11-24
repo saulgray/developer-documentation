@@ -1,5 +1,7 @@
 ##Exchange Groups
 
+Exchange Groups allow buyers to allocate completes to a specific group of suppliers. It also allows for enabling hedge access - this will allow suppliers from exchange groups to also have access to unallocated completes.
+
 ### POST Create a Group
 
 > Definition
@@ -107,10 +109,10 @@ var options = {
   "headers": {'Content-Type': 'application/json'}
 };
 
-var json = {"SurveyNumber": 101100, 
-  "Name":"Top Supplier Group", 
-  "AllocationPercentage": 0.10, 
-  "IsHedgeAccess": true, 
+var json = {"SurveyNumber": 101100,
+  "Name":"Top Supplier Group",
+  "AllocationPercentage": 0.10,
+  "IsHedgeAccess": true,
   "Suppliers": [
     {
     "SupplierCode":"1010"
@@ -136,7 +138,7 @@ request.end();
 
 > Example Response
 
-```json 
+```json
 {
   "ApiResult": 0,
   "ApiResultCode": 0,
@@ -169,6 +171,8 @@ request.end();
 ```
 
 Creates a group with specific suppliers and allocation for that group.
+
+<aside class="notice"> There are edge cases where allocating 100% of completes to exchange groups can lead to a survey not filling up. In this case, let a small percentage of completes go unallocated, and allow hedge access. </aside>
 
 
 #### Arguments
@@ -287,10 +291,10 @@ var options = {
   "headers": {'Content-Type': 'application/json'}
 };
 
-var json = {"SurveyNumber": 101100, 
-  "Name":"Top Supplier Group", 
-  "AllocationPercentage": 0.10, 
-  "IsHedgeAccess": true, 
+var json = {"SurveyNumber": 101100,
+  "Name":"Top Supplier Group",
+  "AllocationPercentage": 0.10,
+  "IsHedgeAccess": true,
   }
 
 var params = JSON.stringify(json);
@@ -311,7 +315,7 @@ request.end();
 
 > Example Response
 
-```json 
+```json
 {
   "ApiResult": 0,
   "ApiResultCode": 0,
@@ -458,11 +462,11 @@ var options = {
   "headers": {'Content-Type': 'application/json'}
 };
 
-var json = {"ID": 1234, 
-  "SurveyNumber": 101100, 
-  "Name":"Top Supplier Group", 
-  "AllocationPercentage": 0.10, 
-  "IsHedgeAccess": true, 
+var json = {"ID": 1234,
+  "SurveyNumber": 101100,
+  "Name":"Top Supplier Group",
+  "AllocationPercentage": 0.10,
+  "IsHedgeAccess": true,
   }
 
 var params = JSON.stringify(json);
@@ -483,7 +487,7 @@ request.end();
 
 > Example Response
 
-```json 
+```json
 {
   "ApiResult": 0,
   "ApiResultCode": 0,
