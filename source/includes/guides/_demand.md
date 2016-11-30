@@ -40,7 +40,7 @@ Qualifications in Fulcrum act as filters to help you find the respondents you ar
  - `STANDARD_DIABETES_TYPE`
  - `STANDARD_ELECTRONICS`
  - `STANDARD_FLIGHT_DESTINATION`
- 
+
 For a list of top qualifications in other countries, [shoot us an email](mailto:support@luc.id). Map as many or as few qualifications as you would like depending on your needs. Fulcrum Standards provide an industry standard for programmatic targeting. As such your projects will be more successful if you use all Standards that apply to that particular project's target. To encourage qualification usage, it's usually helpful to ensure that qualifications are easy to find and are searchable on your platform.
 #### 3. If your system has a quota system, map your quota structure to Fulcrum's.
 Fulcrum quotas can be nested, not nested, overlapping, or contain only a subset of the qualified respondents. Here are a few examples:
@@ -139,7 +139,7 @@ Overquota: http://www.samplicio.us/router/ClientCallBack.aspx?RIS=40&RID={RID}&i
 
 At the end of a respondent's experience in your platform, you should send them back to Fulcrum using the end link corresponding to their respective status. This will update the respondent's status in Fulcrum and send them back to their supplier with information on how to be compensated. `RID` is an SID unique to identify the respondent and session. You must include `&RID=[%RID%]` on the `ClientSurveyLiveURL` property of your `Survey` object referenced in Phase 3 in order to capture the respondent's identifier in your system on entry and include it on the redirect when they return to Fulcrum.
 
-If you have opted not to generate checksums for your links, you should set the `IsVerifyCallBack` property of your `Survey` object to `True` and append `&RISN=[%RSFN%]` to the `ClientSurveyLiveURL` for storage with RID on respondent entry. `RISN` should be appended to the Complete redirect only. You should not include `&ienc={hash}` if you have opted not to generate checksums for links. 
+If you have opted not to generate checksums for your links, you should set the `IsVerifyCallBack` property of your `Survey` object to `True` and append `&RISN=[%RSFN%]` to the `ClientSurveyLiveURL` for storage with RID on respondent entry. `RISN` should be appended to the Complete redirect only. You should not include `&ienc={hash}` if you have opted not to generate checksums for links.
 
 ### Phase 3 - Creating a Survey
 
@@ -147,6 +147,8 @@ If you have opted not to generate checksums for your links, you should set the `
 
 Surveys objects are the basis for a project or demographic segment you are seeking. Here are the key steps to creating a survey in Fulcrum.
 #### 1. Determine the [fair market price](#feasibility) of the target demographic.
+
+<aside class="notice">As prices are final at the time of transaction, it is a good idea to implement additional safeguards to prevent accidentally setting an excessively high price.</aside>
 The Feasibility resource returns pricing data from the Fulcrum Pricing Index (FPI), which represents fair market price for a target given the surveys specs, qualifications, quotas, and time in field. Integrators with consumer users often take the response from this call and add a margin before returning it to the end user (i.e. `FPI Price * 1.3 = Price`)
 
 #### 2. Make the call to [create a survey](#post-create-a-survey) object.
