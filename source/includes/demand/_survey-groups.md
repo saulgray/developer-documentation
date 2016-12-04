@@ -1,5 +1,23 @@
 ##Survey Groups
 
+#### Survey Groups Model
+
+The Surveys Groups resource allows the buyer to list existing survey groups, see details of a survey group, create survey groups, add and remove surveys from a survey group.
+
+| Property                     | Type     | Description                                                                                                                                             |
+|------------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ID                           | int      | Unique survey group identifier.                                                                                                                         |
+| Name                         | string   | Name of the survey group. This value is not unique across surveys.                                                                                      |
+| SurveyCount                  | int      | Number of surveys in the survey group.                                                                                                                  |
+
+#### Survey Group Model
+
+The Survey Group allows the buyer to view surveys in a survey group.
+
+| Property                     | Type     | Description                                                                                                                                             |
+|------------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
+| SurveyIds                    | array    | Unique IDs associated with the survey.                                                                                                                  |
+
 
 ### GET List Survey Groups
 
@@ -231,13 +249,6 @@ request.end();
 ```
 
 Returns the survey IDs for the survey group specified.
-
-
-#### Arguments
-
-| Property     | Type | Required | Description                               |
-|--------------|------|----------|-------------------------------------------|
-| SurveyIDs    | int  | true     | Unique ID associated with the survey.     |
 
 
 ### POST Create a Survey Group
@@ -552,7 +563,7 @@ Adds a survey to the specified survey group.
 
 | Property             | Type    | Required | Description                                        |
 |----------------------|---------|----------|----------------------------------------------------|
-| SurveyIDs            | int     | true     | Unique ID associated with the survey.              |
+| SurveyIDs            | array   | true     | Unique ID associated with the survey.              |
 
 
 ### PUT Update a Group
@@ -706,7 +717,7 @@ Updates a survey group with the specified surveys.
 
 | Property             | Type    | Required | Description                                        |
 |----------------------|---------|----------|----------------------------------------------------|
-| SurveyIDs            | int     | true     | Unique ID associated with the survey.              |
+| SurveyIDs            | array   | true     | Unique ID associated with the survey.              |
 
 
 
@@ -849,6 +860,6 @@ Deletes the surveyID from the specified survey group.
 
 #### Arguments
 
-| Property        | Type | Required | Description                               |
-|-----------------|------|----------|-------------------------------------------|
-| SurveyIDs       | int  | true     | Unique ID associated with the survey.     |
+| Property        | Type  | Required | Description                               |
+|-----------------|-------|----------|-------------------------------------------|
+| SurveyIDs       | array | true     | Unique ID associated with the survey.     |
