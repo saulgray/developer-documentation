@@ -63,7 +63,7 @@ Allocations allow buyers to allocate portions of studies to specific suppliers. 
 |---------------------|--------|-------------------------------------------------------------------------------------|
 | SupplierCode        | int    | Unique code associated with a supplier account.                                     |
 | SupplierName        | string | Name of the supplier.                                                               |
-| IsBlockRouted       | int    | Indicates if the survey accepts routed sample.                                      |
+| IsBlockRouted       | boolean| Indicates if the survey accepts routed sample.                                      |
 | AchievedCompletes   | int    | Number of completes that have been already achieved by the supplier in this survey. |
 | AllocationRemaining | int    | Number of completes remaining as part of the allocation.                            |
 | HedgeRemaining      | int    | Number of unallocated completes available to any suppliers with access to hedge.    |
@@ -91,19 +91,19 @@ Allocations allow buyers to allocate portions of studies to specific suppliers. 
 > Definition
 
 ```plaintext
-GET  https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/All/{SupplierCode}?key={APIKey}
+GET  https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/All/{SupplierCode}
 ```
 
 > Example Request
 
 ```shell
-curl https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/All/{SupplierCode}?key={APIKey}
+curl -H "Authorization: YOUR_API_KEY_HERE" https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/All/{SupplierCode}
 ```
 
 ```ruby
 require 'net/http'
 
-uri = URI('https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/All/{SupplierCode}?key={APIKey}')
+uri = URI('https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/All/{SupplierCode}')
 
 http = Net::HTTP.new(uri.host, uri.port)
 
@@ -111,25 +111,42 @@ http.use_ssl = true
 
 request = Net::HTTP::Get.new(uri.request_uri)
 
+request['Authorization'] = YOUR_API_KEY_HERE
+
 allocations = http.request(request)  
 ```
 
 ```php
 <?php
-$response = file_get_contents('https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/All/{SupplierCode}?key={APIKey}');
+$URL = "https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/All/{SupplierCode}";
+
+$aHTTP['http']['method']  = 'GET';
+
+$aHTTP['http']['header']  = "Authorization: YOUR_API_KEY_HERE";
+
+$context = stream_context_create($aHTTP);
+
+$response = file_get_contents($URL, false, $context);
 ?>
 ```
 
 ```python
+
 import requests
 
-response = requests.get('https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/All/{SupplierCode}?key={APIKey}')
+url = 'https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/All/{SupplierCode}'
+
+headers = {'Authorization' : YOUR_API_KEY_HERE}
+
+response = requests.get(url, headers=headers)
 ```
 
 ```csharp
 using System.Net;
 
-WebRequest request = WebRequest.Create("https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/All/{SupplierCode}?key={APIKey}");
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/All/{SupplierCode}");
+
+request.Headers.Add("Authorization", YOUR_API_KEY_HERE);
 
 WebResponse response = request.GetResponse();
 ```
@@ -137,14 +154,28 @@ WebResponse response = request.GetResponse();
 ```javascript
 const https = require('https');
 
-https.get('https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/All/{SupplierCode}?key={APIKey}', function(res){
-  var response = res;
+var options = {
+  "method": "GET",
+  "hostname": "api.samplicio.us",
+  "path": "/Supply/v1/Surveys/SupplierAllocations/All/{SupplierCode}",
+  "headers": {'Authorization': YOUR_API_KEY_HERE}
+};
+
+var request = https.request(options, function (response) {
+  var chunks = [];
+
+  response.on("data", function (chunk) {
+    chunks.push(chunk);
+  });
+
 });
+
+request.end();
 ```
 
 > Example Response
 
-```json 
+```json
 {
   "ApiResult": 0,
   "ApiResultCode": 0,
@@ -198,19 +229,19 @@ Returns a list of all live survey opportunities for which you have an allocation
 > Definition
 
 ```plaintext
-GET  https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}
+GET  https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/BySurveyNumber/{SurveyNumber}/{SupplierCode}
 ```
 
 > Example Request
 
 ```shell
-curl https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}
+curl -H "Authorization: YOUR_API_KEY_HERE" https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/BySurveyNumber/{SurveyNumber}/{SupplierCode}
 ```
 
 ```ruby
 require 'net/http'
 
-uri = URI('https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}')
+uri = URI('https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/BySurveyNumber/{SurveyNumber}/{SupplierCode}')
 
 http = Net::HTTP.new(uri.host, uri.port)
 
@@ -218,25 +249,41 @@ http.use_ssl = true
 
 request = Net::HTTP::Get.new(uri.request_uri)
 
+request['Authorization'] = YOUR_API_KEY_HERE
+
 response = http.request(request)  
 ```
 
 ```php
 <?php
-$response = file_get_contents('https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}');
+$URL = "https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/BySurveyNumber/{SurveyNumber}/{SupplierCode}";
+
+$aHTTP['http']['method']  = 'GET';
+
+$aHTTP['http']['header']  = "Authorization: YOUR_API_KEY_HERE";
+
+$context = stream_context_create($aHTTP);
+
+$response = file_get_contents($URL, false, $context);
 ?>
 ```
 
 ```python
 import requests
 
-response = requests.get('https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}')
+url = 'https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/BySurveyNumber/{SurveyNumber}/{SupplierCode}'
+
+headers = {'Authorization' : YOUR_API_KEY_HERE}
+
+response = requests.get(url, headers=headers)
 ```
 
 ```csharp
 using System.Net;
 
-WebRequest request = WebRequest.Create("https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}");
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/BySurveyNumber/{SurveyNumber}/{SupplierCode}");
+
+request.Headers.Add("Authorization", YOUR_API_KEY_HERE);
 
 WebResponse response = request.GetResponse();
 ```
@@ -244,9 +291,23 @@ WebResponse response = request.GetResponse();
 ```javascript
 const https = require('https');
 
-https.get('https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/BySurveyNumber/{SurveyNumber}/{SupplierCode}?key={APIKey}', function(res){
-  var response = res;
+var options = {
+  "method": "GET",
+  "hostname": "api.samplicio.us",
+  "path": "/Supply/v1/Surveys/SupplierAllocations/BySurveyNumber/{SurveyNumber}/{SupplierCode}",
+  "headers": {'Authorization': YOUR_API_KEY_HERE}
+};
+
+var request = https.request(options, function (response) {
+  var chunks = [];
+
+  response.on("data", function (chunk) {
+    chunks.push(chunk);
+  });
+
 });
+
+request.end();
 ```
 
 > Example Response
@@ -324,19 +385,19 @@ Returns any allocation(s) given to you for a particular survey.
 > Definition
 
 ```plaintext
-GET  https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/ByDate/{Date}/{SupplierCode}?key={APIKey}
+GET  https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/ByDate/{Date}/{SupplierCode}
 ```
 
 > Example Request
 
 ```shell
-curl https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/ByDate/{Date}/{SupplierCode}?key={APIKey}
+curl -H "Authorization: YOUR_API_KEY_HERE" https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/ByDate/{Date}/{SupplierCode}
 ```
 
 ```ruby
 require 'net/http'
 
-uri = URI('https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/ByDate/{Date}/{SupplierCode}?key={APIKey}')
+uri = URI('https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/ByDate/{Date}/{SupplierCode}')
 
 http = Net::HTTP.new(uri.host, uri.port)
 
@@ -344,25 +405,41 @@ http.use_ssl = true
 
 request = Net::HTTP::Get.new(uri.request_uri)
 
+request['Authorization'] = YOUR_API_KEY_HERE
+
 response = http.request(request)  
 ```
 
 ```php
 <?php
-$response = file_get_contents('https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/ByDate/{Date}/{SupplierCode}?key={APIKey}');
+$URL = "https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/ByDate/{Date}/{SupplierCode}";
+
+$aHTTP['http']['method']  = 'GET';
+
+$aHTTP['http']['header']  = "Authorization: YOUR_API_KEY_HERE";
+
+$context = stream_context_create($aHTTP);
+
+$response = file_get_contents($URL, false, $context);
 ?>
 ```
 
 ```python
 import requests
 
-response = requests.get('https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/ByDate/{Date}/{SupplierCode}?key={APIKey}')
+url = 'https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/ByDate/{Date}/{SupplierCode}'
+
+headers = {'Authorization' : YOUR_API_KEY_HERE}
+
+response = requests.get(url, headers=headers)
 ```
 
 ```csharp
 using System.Net;
 
-WebRequest request = WebRequest.Create("https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/ByDate/{Date}/{SupplierCode}?key={APIKey}");
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/ByDate/{Date}/{SupplierCode}");
+
+request.Headers.Add("Authorization", YOUR_API_KEY_HERE);
 
 WebResponse response = request.GetResponse();
 ```
@@ -370,9 +447,23 @@ WebResponse response = request.GetResponse();
 ```javascript
 const https = require('https');
 
-https.get('https://api.samplicio.us/Supply/v1/Surveys/SupplierAllocations/ByDate/{Date}/{SupplierCode}?key={APIKey}', function(res){
-  var response = res;
+var options = {
+  "method": "GET",
+  "hostname": "api.samplicio.us",
+  "path": "/Supply/v1/Surveys/SupplierAllocations/ByDate/{Date}/{SupplierCode}",
+  "headers": {'Authorization': YOUR_API_KEY_HERE}
+};
+
+var request = https.request(options, function (response) {
+  var chunks = [];
+
+  response.on("data", function (chunk) {
+    chunks.push(chunk);
+  });
+
 });
+
+request.end();
 ```
 
 > Example Response

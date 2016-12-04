@@ -43,20 +43,20 @@ The Surveys resource allows the buyer to create new surveys, update existing sur
 > Definition
 
 ```plaintext
-POST  https://api.samplicio.us/Demand/v1/Surveys/Create?key={APIKey}
+POST  https://api.samplicio.us/Demand/v1/Surveys/Create
 ```
 
 > Example Request
 
 ```shell
-curl -H "Content-Type: application/json" -X POST --data '{"AccountID": 1,"SurveyStatusCode": "01","SurveyPriority": 11,"SurveyName": "Example API Survey","CountryLanguageID": 9,"IndustryID": 30,"StudyTypeID": 1,"ClientCPI": 1,"QuotaCPI": 2,"ClientSurveyLiveURL": "http://www.surveyURL.com?rid=[%RID%]","TestRedirectURL": "http://www.surveyURL.com?rid=[%RID%]","IsActive": true,"Quota": 1000,"FulcrumExchangeAllocation": 0,"FulcrumExchangeHedgeAccess": true,"IsVerifyCallBack": true,"UniquePID": true,"UniqueIPAddress": true,"IsRelevantID": false,"IsDedupe": false,"IsGeoIP": false,"IsFraudProfile": false,"FraudProfileThreshold": 0,"IsTrueSample": false,"QuotaCalculationTypeID": 1,"SurveyPlatformID": 2,"BidLengthOfInterview": 10,"BusinessUnitID": 9,"SampleTypeID": 100}' https://api.samplicio.us/Demand/v1/Surveys/Create?key={APIKey}
+curl -H "Content-Type: application/json" -H "Authorization: YOUR_API_KEY_HERE" -X POST --data '{"AccountID": 1,"SurveyStatusCode": "01","SurveyPriority": 11,"SurveyName": "Example API Survey","CountryLanguageID": 9,"IndustryID": 30,"StudyTypeID": 1,"ClientCPI": 1,"QuotaCPI": 2,"ClientSurveyLiveURL": "http://www.surveyURL.com?rid=[%RID%]","TestRedirectURL": "http://www.surveyURL.com?rid=[%RID%]","IsActive": true,"Quota": 1000,"FulcrumExchangeAllocation": 0,"FulcrumExchangeHedgeAccess": true,"IsVerifyCallBack": true,"UniquePID": true,"UniqueIPAddress": true,"IsRelevantID": false,"IsDedupe": false,"IsGeoIP": false,"IsFraudProfile": false,"FraudProfileThreshold": 0,"IsTrueSample": false,"QuotaCalculationTypeID": 1,"SurveyPlatformID": 2,"BidLengthOfInterview": 10,"BusinessUnitID": 9,"SampleTypeID": 100}' https://api.samplicio.us/Demand/v1/Surveys/Create
 ```
 
 ```ruby
 require 'net/http'
 require 'json'
 
-uri = URI('https://api.samplicio.us/Demand/v1/Surveys/Create?key={APIKey}')
+uri = URI('https://api.samplicio.us/Demand/v1/Surveys/Create')
 
 http = Net::HTTP.new(uri.host, uri.port)
 
@@ -98,6 +98,8 @@ request.body = {
     "SampleTypeID"=> 100
  }.to_json
 
+ request['Authorization'] = YOUR_API_KEY_HERE
+
 response = http.request(request)
 ```
 
@@ -138,10 +140,10 @@ $params = '{
  }';
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "https://api.samplicio.us/Demand/v1/Surveys/Create?key={APIKey}",
+  CURLOPT_URL => "https://api.samplicio.us/Demand/v1/Surveys/Create",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
-  CURLOPT_HTTPHEADER => array('Content-Type: application/json'),
+  CURLOPT_HTTPHEADER => array('Content-Type: application/json', 'Authorization: YOUR_API_KEY_HERE'),
   CURLOPT_MAXREDIRS => 10,
   CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -159,7 +161,7 @@ curl_close($curl);
 ```python
 import requests, json
 
-url = 'https://api.samplicio.us/Demand/v1/Surveys/Create?key={APIKey}'
+url = 'https://api.samplicio.us/Demand/v1/Surveys/Create'
 params = {
     "AccountID": 1,
     "SurveyStatusCode": "01",
@@ -192,7 +194,7 @@ params = {
     "SampleTypeID": 100
  }
 data = json.dumps(params)
-headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
+headers = {'Content-type': 'application/json', 'Authorization' : 'YOUR_API_KEY_HERE', 'Accept': 'text/plain'}
 
 response = requests.post(url, data=data, headers=headers)
 ```
@@ -201,7 +203,7 @@ response = requests.post(url, data=data, headers=headers)
 using System.IO;
 using System.Net;
 
-WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/Surveys/Create?key={APIKey}");
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/Surveys/Create");
 
 string args = @"{
                     ""AccountID"": 1,
@@ -237,6 +239,7 @@ string args = @"{
 
 request.Method = "POST";
 request.ContentType = "application/json";
+request.Headers.Add("Authorization", "YOUR_API_KEY_HERE");
 
 using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
 {
@@ -254,9 +257,10 @@ const https = require('https');
 var options = {
   "method": "POST",
   "hostname": "api.samplicio.us",
-  "port": 443,
-  "path": "/Demand/v1/Surveys/Create?key={APIKey}",
-  "headers": {'Content-Type': 'application/json'}
+  "path": "/Demand/v1/Surveys/Create",
+  "headers": {'Content-Type': 'application/json',
+  'Authorization': 'YOUR_API_KEY_HERE'
+  }
 };
 
 var json = {
@@ -388,7 +392,7 @@ Creates a Fulcrum survey.
 | IsDedupe                     | boolean  | false    |"true" enables Relevant ID dedupe security. Should always be enabled when using RelevantID.                                                              |
 | IsGeoIP                      | boolean  | false    |"true" enables RelevantID GeoIP security to determine respondent geogrphical location. Should always be enabled when using RelevantID.                   |
 | IsFraudProfile               | boolean  | false    |"true" enables RelevantID Fraud Profile security. Should always be enabled when using RelevantID.                                                        |
-| FraudProfileThreshold        | int      | false    |Set's the RelevantID Fraud Profile Threshold between 0-100. The lower the number the more aggressive the security. We recommend 11.                     |
+| FraudProfileThreshold        | int      | false    |Sets the RelevantID Fraud Profile Threshold between 0-100. The lower the number the more aggressive the security. We recommend 11.                     |
 | IsTrueSample                 | boolean  | false    |"true" enables TrueSample security. TrueSample is a third-party security feature. There is an additional cost associated.                               |
 | QuotaCalculationTypeID       | int      | false    |Sets the quota calculation method. Either 1 for ”Completes” (quotas determined by completes) or 2=”Prescreens” (quotas determined when leaving Fulcrum). |
 | SurveyPlatformID             | int      | false    |Sets the external platform ID. We recommend setting to 2 for "undefined" in most situations.                                                             |
@@ -401,20 +405,20 @@ Creates a Fulcrum survey.
 > Definition
 
 ```plaintext
-PUT  https://api.samplicio.us/Demand/v1/Surveys/Update/{SurveyNumber}?key={APIKey}
+PUT  https://api.samplicio.us/Demand/v1/Surveys/Update/{SurveyNumber}
 ```
 
 > Example Request
 
 ```shell
-curl -H "Content-Type: application/json" -X PUT --data '{"AccountID": 1,"SurveyStatusCode": "01","SurveyPriority": 11,"SurveyNumber": 12345,"SurveyName": "Example API Survey","CountryLanguageID": 9,"IndustryID": 30,"StudyTypeID": 1,"ClientCPI": 1,"QuotaCPI": 2,"ClientSurveyLiveURL": "http://www.surveyURL.com?rid=[%RID%]","TestRedirectURL": "http://www.surveyURL.com?rid=[%RID%]","IsActive": true,"Quota": 100,"FulcrumExchangeAllocation": 0,"FulcrumExchangeHedgeAccess": true,"IsVerifyCallBack": true,"UniquePID": true,"UniqueIPAddress": true,"IsRelevantID": false,"IsDedupe": false,"IsGeoIP": false,"IsFraudProfile": false,"FraudProfileThreshold": 0,"IsTrueSample": false,"QuotaCalculationTypeID": 1,"SurveyPlatformID": 2,"BidLengthOfInterview": 10,"BusinessUnitID": 9,"SampleTypeID": 100}' https://api.samplicio.us/Demand/v1/Surveys/Update/{SurveyNumber}?key={APIKey}
+curl -H "Content-Type: application/json" -H "Authorization: YOUR_API_KEY_HERE" -X PUT --data '{"AccountID": 1,"SurveyStatusCode": "01","SurveyPriority": 11,"SurveyNumber": 12345,"SurveyName": "Example API Survey","CountryLanguageID": 9,"IndustryID": 30,"StudyTypeID": 1,"ClientCPI": 1,"QuotaCPI": 2,"ClientSurveyLiveURL": "http://www.surveyURL.com?rid=[%RID%]","TestRedirectURL": "http://www.surveyURL.com?rid=[%RID%]","IsActive": true,"Quota": 100,"FulcrumExchangeAllocation": 0,"FulcrumExchangeHedgeAccess": true,"IsVerifyCallBack": true,"UniquePID": true,"UniqueIPAddress": true,"IsRelevantID": false,"IsDedupe": false,"IsGeoIP": false,"IsFraudProfile": false,"FraudProfileThreshold": 0,"IsTrueSample": false,"QuotaCalculationTypeID": 1,"SurveyPlatformID": 2,"BidLengthOfInterview": 10,"BusinessUnitID": 9,"SampleTypeID": 100}' https://api.samplicio.us/Demand/v1/Surveys/Update/{SurveyNumber}
 ```
 
 ```ruby
 require 'net/http'
 require 'json'
 
-uri = URI('https://api.samplicio.us/Demand/v1/Surveys/Update/{SurveyNumber}?key={APIKey}')
+uri = URI('https://api.samplicio.us/Demand/v1/Surveys/Update/{SurveyNumber}')
 
 http = Net::HTTP.new(uri.host, uri.port)
 
@@ -457,6 +461,8 @@ request.body = {
     SampleTypeID: 100
  }.to_json
 
+ request['Authorization'] = YOUR_API_KEY_HERE
+
 response = http.request(request)
 ```
 
@@ -498,10 +504,10 @@ $params = '{
  }';
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "https://api.samplicio.us/Demand/v1/Surveys/Update/{SurveyNumber}?key={APIKey}",
+  CURLOPT_URL => "https://api.samplicio.us/Demand/v1/Surveys/Update/{SurveyNumber}",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
-  CURLOPT_HTTPHEADER => array('Content-Type: application/json'),
+  CURLOPT_HTTPHEADER => array('Content-Type: application/json', 'Authorization: YOUR_API_KEY_HERE'),
   CURLOPT_MAXREDIRS => 10,
   CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -519,7 +525,7 @@ curl_close($curl);
 ```python
 import requests, json
 
-url = 'https://api.samplicio.us/Demand/v1/Surveys/Update/{SurveyNumber}?key={APIKey}'
+url = 'https://api.samplicio.us/Demand/v1/Surveys/Update/{SurveyNumber}'
 params = {
     "AccountID": 1,
     "SurveyStatusCode": "01",
@@ -553,7 +559,7 @@ params = {
     "SampleTypeID": 100
  }
 data = json.dumps(params)
-headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
+headers = {'Content-type': 'application/json', 'Authorization' : 'YOUR_API_KEY_HERE', 'Accept': 'text/plain'}
 
 response = requests.put(url, data=data, headers=headers)
 ```
@@ -562,7 +568,7 @@ response = requests.put(url, data=data, headers=headers)
 using System.IO;
 using System.Net;
 
-WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/Surveys/Update/{SurveyNumber}?key={APIKey}");
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/Surveys/Update/{SurveyNumber}");
 
 string args = @"{
                     ""AccountID"": 1,
@@ -599,6 +605,7 @@ string args = @"{
 
 request.Method = "PUT";
 request.ContentType = "application/json";
+request.Headers.Add("Authorization", "YOUR_API_KEY_HERE");
 
 using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
 {
@@ -616,9 +623,10 @@ const https = require('https');
 var options = {
   "method": "PUT",
   "hostname": "api.samplicio.us",
-  "port": 443,
-  "path": "/Demand/v1/Surveys/Update?key={APIKey}",
-  "headers": {'Content-Type': 'application/json'}
+  "path": "/Demand/v1/Surveys/Update",
+  "headers": {'Content-Type': 'application/json',
+  'Authorization': 'YOUR_API_KEY_HERE'
+  }
 };
 
 var json = {
@@ -763,19 +771,19 @@ Update an existing Fulcrum survey.
 > Definition
 
 ```plaintext
-GET  https://api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/{SurveyNumber}?key={APIKey}
+GET  https://api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/{SurveyNumber}
 ```
 
 > Example Request
 
 ```shell
-curl https://api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/{SurveyNumber}?key={APIKey}
+curl -H "Authorization: YOUR_API_KEY_HERE" https://api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/{SurveyNumber}
 ```
 
 ```ruby
 require 'net/http'
 
-uri = URI('https://api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/{SurveyNumber}?key={APIKey}')
+uri = URI('https://api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/{SurveyNumber}')
 
 http = Net::HTTP.new(uri.host, uri.port)
 
@@ -783,25 +791,41 @@ http.use_ssl = true
 
 request = Net::HTTP::Get.new(uri.request_uri)
 
+request['Authorization'] = YOUR_API_KEY_HERE
+
 response = http.request(request)  
 ```
 
 ```php
 <?php
-$response = file_get_contents('https://api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/{SurveyNumber}?key={APIKey}');
+$URL = "https://api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/{SurveyNumber}";
+
+$aHTTP['http']['method']  = 'GET';
+
+$aHTTP['http']['header']  = "Authorization: YOUR_API_KEY_HERE";
+
+$context = stream_context_create($aHTTP);
+
+$response = file_get_contents($URL, false, $context);
 ?>
 ```
 
 ```python
 import requests
 
-response = requests.get('https://api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/{SurveyNumber}?key={APIKey}')
+url = 'https://api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/{SurveyNumber}'
+
+headers = {'Authorization' : YOUR_API_KEY_HERE}
+
+response = requests.get(url, headers=headers)
 ```
 
 ```csharp
 using System.Net;
 
-WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/{SurveyNumber}?key={APIKey}");
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/{SurveyNumber}");
+
+request.Headers.Add("Authorization", YOUR_API_KEY_HERE);
 
 WebResponse response = request.GetResponse();
 ```
@@ -809,9 +833,23 @@ WebResponse response = request.GetResponse();
 ```javascript
 const https = require('https');
 
-https.get('https://api.samplicio.us/Demand/v1/Surveys/BySurveyNumber/{SurveyNumber}?key={APIKey}', function(res){
-  var response = res;
+var options = {
+  "method": "GET",
+  "hostname": "api.samplicio.us",
+  "path": "/Demand/v1/Surveys/BySurveyNumber/{SurveyNumber}",
+  "headers": {'Authorization': YOUR_API_KEY_HERE}
+};
+
+var request = https.request(options, function (response) {
+  var chunks = [];
+
+  response.on("data", function (chunk) {
+    chunks.push(chunk);
+  });
+
 });
+
+request.end();
 ```
 
 > Example Response
@@ -878,19 +916,19 @@ Returns the details of a specific Fulcrum survey.
 > Definition
 
 ```plaintext
-GET  https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyStatus}?key={APIKey}
+GET  https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyStatus}
 ```
 
 > Example Request
 
 ```shell
-curl https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyStatus}?key={APIKey}
+curl -H "Authorization: YOUR_API_KEY_HERE" https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyStatus}
 ```
 
 ```ruby
 require 'net/http'
 
-uri = URI('https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyStatus}?key={APIKey}')
+uri = URI('https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyStatus}')
 
 http = Net::HTTP.new(uri.host, uri.port)
 
@@ -898,25 +936,41 @@ http.use_ssl = true
 
 request = Net::HTTP::Get.new(uri.request_uri)
 
+request['Authorization'] = YOUR_API_KEY_HERE
+
 response = http.request(request)  
 ```
 
 ```php
 <?php
-$response = file_get_contents('https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyStatus}?key={APIKey}');
+$URL = "https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyStatus}";
+
+$aHTTP['http']['method']  = 'GET';
+
+$aHTTP['http']['header']  = "Authorization: YOUR_API_KEY_HERE";
+
+$context = stream_context_create($aHTTP);
+
+$response = file_get_contents($URL, false, $context);
 ?>
 ```
 
 ```python
 import requests
 
-response = requests.get('https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyStatus}?key={APIKey}')
+url = 'https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyStatus}'
+
+headers = {'Authorization' : YOUR_API_KEY_HERE}
+
+response = requests.get(url, headers=headers)
 ```
 
 ```csharp
 using System.Net;
 
-WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyStatus}?key={APIKey}");
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyStatus}");
+
+request.Headers.Add("Authorization", YOUR_API_KEY_HERE);
 
 WebResponse response = request.GetResponse();
 ```
@@ -924,9 +978,23 @@ WebResponse response = request.GetResponse();
 ```javascript
 const https = require('https');
 
-https.get('https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyStatus}?key={APIKey}', function(res){
-  var response = res;
+var options = {
+  "method": "GET",
+  "hostname": "api.samplicio.us",
+  "path": "https://api.samplicio.us/Demand/v1/Surveys/BySurveyStatus/{SurveyStatus}",
+  "headers": {'Authorization': YOUR_API_KEY_HERE}
+};
+
+var request = https.request(options, function (response) {
+  var chunks = [];
+
+  response.on("data", function (chunk) {
+    chunks.push(chunk);
+  });
+
 });
+
+request.end();
 ```
 
 > Example Response

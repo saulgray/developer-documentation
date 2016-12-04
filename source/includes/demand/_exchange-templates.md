@@ -1,6 +1,6 @@
 ##Exchange Templates
 
-The Exchange Templates resource returns all Exchange templates associated with an existing account as well as apply an existing Exchange template to a survey. An Exchange Template must first be created in the Fulcrum UI. An Exchange Template allows a buyer to quickly add an commonly used Exchange supplier blend. 
+The Exchange Templates resource returns all Exchange templates associated with an existing account as well as apply an existing Exchange template to a survey. An Exchange Template must first be created in the Fulcrum UI. An Exchange Template allows a buyer to quickly add a commonly used Exchange supplier blend.
 
 #### Exchange Templates Model
 
@@ -40,19 +40,19 @@ The Exchange Templates resource returns all Exchange templates associated with a
 > Definition
 
 ```plaintext
-GET  https://api.samplicio.us/Demand/v1/ExchangeTemplates/GetAll?key={APIKey}
+GET  https://api.samplicio.us/Demand/v1/ExchangeTemplates/GetAll
 ```
 
 > Example Request
 
 ```shell
-curl https://api.samplicio.us/Demand/v1/ExchangeTemplates/GetAll?key={APIKey}
+curl -H "Authorization: YOUR_API_KEY_HERE" https://api.samplicio.us/Demand/v1/ExchangeTemplates/GetAll
 ```
 
 ```ruby
 require 'net/http'
 
-uri = URI('https://api.samplicio.us/Demand/v1/ExchangeTemplates/GetAll?key={APIKey}')
+uri = URI('https://api.samplicio.us/Demand/v1/ExchangeTemplates/GetAll')
 
 http = Net::HTTP.new(uri.host, uri.port)
 
@@ -60,25 +60,41 @@ http.use_ssl = true
 
 request = Net::HTTP::Get.new(uri.request_uri)
 
+request['Authorization'] = YOUR_API_KEY_HERE
+
 response = http.request(request)  
 ```
 
 ```php
 <?php
-$response = file_get_contents('https://api.samplicio.us/Demand/v1/ExchangeTemplates/GetAll?key={APIKey}');
+$URL = "https://api.samplicio.us/Demand/v1/ExchangeTemplates/GetAll";
+
+$aHTTP['http']['method']  = 'GET';
+
+$aHTTP['http']['header']  = "Authorization: YOUR_API_KEY_HERE";
+
+$context = stream_context_create($aHTTP);
+
+$response = file_get_contents($URL, false, $context);
 ?>
 ```
 
 ```python
 import requests
 
-response = requests.get('https://api.samplicio.us/Demand/v1/ExchangeTemplates/GetAll?key={APIKey}')
+url = 'https://api.samplicio.us/Demand/v1/ExchangeTemplates/GetAll'
+
+headers = {'Authorization' : YOUR_API_KEY_HERE}
+
+response = requests.get(url, headers=headers)
 ```
 
 ```csharp
 using System.Net;
 
-WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/ExchangeTemplates/GetAll?key={APIKey}");
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/ExchangeTemplates/GetAll");
+
+request.Headers.Add("Authorization", YOUR_API_KEY_HERE);
 
 WebResponse response = request.GetResponse();
 ```
@@ -86,14 +102,28 @@ WebResponse response = request.GetResponse();
 ```javascript
 const https = require('https');
 
-https.get('https://api.samplicio.us/Demand/v1/ExchangeTemplates/GetAll?key={APIKey}', function(res){
-  var response = res;
+var options = {
+  "method": "GET",
+  "hostname": "api.samplicio.us",
+  "path": "/Demand/v1/ExchangeTemplates/GetAll",
+  "headers": {'Authorization': YOUR_API_KEY_HERE}
+};
+
+var request = https.request(options, function (response) {
+  var chunks = [];
+
+  response.on("data", function (chunk) {
+    chunks.push(chunk);
+  });
+
 });
+
+request.end();
 ```
 
 > Example Response
 
-```json 
+```json
 {
   "ApiResult": 0,
   "ApiResultCode": 0,
@@ -127,27 +157,27 @@ https.get('https://api.samplicio.us/Demand/v1/ExchangeTemplates/GetAll?key={APIK
 }
 ```
 
-Returns all Exchange templates associated with an existing account. 
+Returns all Exchange templates associated with an existing account.
 
 ### POST Apply an Exchange Template
 
 > Definition
 
 ```plaintext
-POST  https://api.samplicio.us/Demand/v1/ExchangeTemplates/ApplyToSurvey/{SurveyNumber}/{ExchangeTemplateID}?key={APIKey}
+POST  https://api.samplicio.us/Demand/v1/ExchangeTemplates/ApplyToSurvey/{SurveyNumber}/{ExchangeTemplateID}
 ```
 
 > Example Request
 
 ```shell
-curl -H "Content-Type: application/json" -X POST https://api.samplicio.us/Demand/v1/ExchangeTemplates/ApplyToSurvey/{SurveyNumber}/{ExchangeTemplateID}?key={APIKey}
+curl -H "Content-Type: application/json" -H "Authorization: YOUR_API_KEY_HERE" -X POST https://api.samplicio.us/Demand/v1/ExchangeTemplates/ApplyToSurvey/{SurveyNumber}/{ExchangeTemplateID}
 ```
 
 ```ruby
 require 'net/http'
 require 'json'
 
-uri = URI('https://api.samplicio.us/Demand/v1/ExchangeTemplates/ApplyToSurvey/{SurveyNumber}/{ExchangeTemplateID}?key={APIKey}')
+uri = URI('https://api.samplicio.us/Demand/v1/ExchangeTemplates/ApplyToSurvey/{SurveyNumber}/{ExchangeTemplateID}')
 
 http = Net::HTTP.new(uri.host, uri.port)
 
@@ -157,6 +187,8 @@ fullUriPath = uri.path + '?' + uri.query
 
 request = Net::HTTP::Post.new(fullUriPath, initheader = {'Content-Type' =>'application/json'})
 
+request['Authorization'] = YOUR_API_KEY_HERE
+
 response = http.request(request)
 ```
 
@@ -165,10 +197,10 @@ response = http.request(request)
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "https://api.samplicio.us/Demand/v1/ExchangeTemplates/ApplyToSurvey/{SurveyNumber}/{ExchangeTemplateID}?key={APIKey}",
+  CURLOPT_URL => "https://api.samplicio.us/Demand/v1/ExchangeTemplates/ApplyToSurvey/{SurveyNumber}/{ExchangeTemplateID}",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
-  CURLOPT_HTTPHEADER => array('Content-Type: application/json'),
+  CURLOPT_HTTPHEADER => array('Content-Type: application/json', 'Authorization: YOUR_API_KEY_HERE'),
   CURLOPT_MAXREDIRS => 10,
   CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -185,8 +217,8 @@ curl_close($curl);
 ```python
 import requests, json
 
-url = 'https://api.samplicio.us/Demand/v1/ExchangeTemplates/ApplyToSurvey/{SurveyNumber}/{ExchangeTemplateID}?key={APIKey}'
-headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
+url = 'https://api.samplicio.us/Demand/v1/ExchangeTemplates/ApplyToSurvey/{SurveyNumber}/{ExchangeTemplateID}'
+headers = {'Content-type': 'application/json', 'Authorization' : 'YOUR_API_KEY_HERE', 'Accept': 'text/plain'}
 
 response = requests.post(url, headers=headers)
 ```
@@ -195,9 +227,10 @@ response = requests.post(url, headers=headers)
 using System.IO;
 using System.Net;
 
-WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/ExchangeTemplates/ApplyToSurvey/{SurveyNumber}/{ExchangeTemplateID}?key={APIKey}");
-    
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/ExchangeTemplates/ApplyToSurvey/{SurveyNumber}/{ExchangeTemplateID}");
+
 request.Method = "POST";
+request.Headers.Add("Authorization", "YOUR_API_KEY_HERE");
 
 using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
 {
@@ -214,9 +247,10 @@ const https = require('https');
 var options = {
   "method": "POST",
   "hostname": "api.samplicio.us",
-  "port": 443,
-  "path": "/Demand/v1/ExchangeTemplates/ApplyToSurvey/{SurveyNumber}/{ExchangeTemplateID}?key={APIKey}",
-  "headers": {'Content-Type': 'application/json'}
+  "path": "/Demand/v1/ExchangeTemplates/ApplyToSurvey/{SurveyNumber}/{ExchangeTemplateID}",
+  "headers": {'Content-Type': 'application/json',
+  'Authorization': 'YOUR_API_KEY_HERE'
+  }
 };
 
 var request = https.request(options, function (response) {
@@ -225,7 +259,7 @@ var request = https.request(options, function (response) {
   response.on("data", function (chunk) {
     chunks.push(chunk);
   });
-  
+
 });
 
 request.end();
@@ -233,7 +267,7 @@ request.end();
 
 > Example Response
 
-```json 
+```json
 {
   "ApiResult": 0,
   "ApiResultCode": 0,

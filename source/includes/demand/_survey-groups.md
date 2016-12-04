@@ -24,19 +24,19 @@ The Survey Group allows the buyer to view surveys in a survey group.
 > Definition
 
 ```plaintext
-GET  https://api.samplicio.us/Demand/v1/SurveyGroups?key={APIKey}
+GET  https://api.samplicio.us/Demand/v1/SurveyGroups
 ```
 
 > Example Request
 
 ```shell
-curl https://api.samplicio.us/Demand/v1/SurveyGroups?key={APIKey}
+curl -H "Authorization: YOUR_API_KEY_HERE" https://api.samplicio.us/Demand/v1/SurveyGroups
 ```
 
 ```ruby
 require 'net/http'
 
-uri = URI('https://api.samplicio.us/Demand/v1/SurveyGroups?key={APIKey}')
+uri = URI('https://api.samplicio.us/Demand/v1/SurveyGroups')
 
 http = Net::HTTP.new(uri.host, uri.port)
 
@@ -44,25 +44,44 @@ http.use_ssl = true
 
 request = Net::HTTP::Get.new(uri.request_uri)
 
+request['Authorization'] = YOUR_API_KEY_HERE
+
 response = http.request(request)  
 ```
 
 ```php
 <?php
-$response = file_get_contents('https://api.samplicio.us/Demand/v1/SurveyGroups?key={APIKey}');
+
+$URL = "https://api.samplicio.us/Demand/v1/SurveyGroups";
+
+$aHTTP['http']['method']  = 'GET';
+
+$aHTTP['http']['header']  = "Authorization: YOUR_API_KEY_HERE";
+
+$context = stream_context_create($aHTTP);
+
+$response = file_get_contents($URL, false, $context);
+
 ?>
 ```
 
 ```python
 import requests
 
-response = requests.get('https://api.samplicio.us/Demand/v1/SurveyGroups?key={APIKey}')
+url = 'https://api.samplicio.us/Demand/v1/SurveyGroups'
+
+headers = {'Authorization' : YOUR_API_KEY_HERE}
+
+response = requests.get(url, headers=headers)
+
 ```
 
 ```csharp
 using System.Net;
 
-WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SurveyGroups?key={APIKey}");
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SurveyGroups");
+
+request.Headers.Add("Authorization", YOUR_API_KEY_HERE);
 
 WebResponse response = request.GetResponse();
 ```
@@ -70,9 +89,23 @@ WebResponse response = request.GetResponse();
 ```javascript
 const https = require('https');
 
-https.get('https://api.samplicio.us/Demand/v1/SurveyGroups?key={APIKey}', function(res){
-  var response = res;
+var options = {
+  "method": "GET",
+  "hostname": "api.samplicio.us",
+  "path": "/Demand/v1/SurveyGroups",
+  "headers": {'Authorization': YOUR_API_KEY_HERE}
+};
+
+var request = https.request(options, function (response) {
+  var chunks = [];
+
+  response.on("data", function (chunk) {
+    chunks.push(chunk);
+  });
+
 });
+
+request.end();
 ```
 > Example Response
 
@@ -113,19 +146,19 @@ Returns the survey groups, their IDs, and number of surveys within each.
 > Definition
 
 ```plaintext
-GET  https://api.samplicio.us//Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}
+GET  https://api.samplicio.us//Demand/v1/SurveyGroups/{SurveyGroupID}
 ```
 
 > Example Request
 
 ```shell
-curl https://api.samplicio.us//Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}
+curl -H "Authorization: YOUR_API_KEY_HERE" https://api.samplicio.us//Demand/v1/SurveyGroups/{SurveyGroupID}
 ```
 
 ```ruby
 require 'net/http'
 
-uri = URI('https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}')
+uri = URI('https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}')
 
 http = Net::HTTP.new(uri.host, uri.port)
 
@@ -133,25 +166,41 @@ http.use_ssl = true
 
 request = Net::HTTP::Get.new(uri.request_uri)
 
+request['Authorization'] = YOUR_API_KEY_HERE
+
 response = http.request(request)  
 ```
 
 ```php
 <?php
-$response = file_get_contents('https://api.samplicio.us//Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}');
+$URL = "https://api.samplicio.us//Demand/v1/SurveyGroups/{SurveyGroupID}";
+
+$aHTTP['http']['method']  = 'GET';
+
+$aHTTP['http']['header']  = "Authorization: YOUR_API_KEY_HERE";
+
+$context = stream_context_create($aHTTP);
+
+$response = file_get_contents($URL, false, $context);
 ?>
 ```
 
 ```python
 import requests
 
-response = requests.get('https://api.samplicio.us//Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}')
+url = 'https://api.samplicio.us//Demand/v1/SurveyGroups/{SurveyGroupID}'
+
+headers = {'Authorization' : YOUR_API_KEY_HERE}
+
+response = requests.get(url, headers=headers)
 ```
 
 ```csharp
 using System.Net;
 
-WebRequest request = WebRequest.Create("https://api.samplicio.us//Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}");
+WebRequest request = WebRequest.Create("https://api.samplicio.us//Demand/v1/SurveyGroups/{SurveyGroupID}");
+
+request.Headers.Add("Authorization", YOUR_API_KEY_HERE);
 
 WebResponse response = request.GetResponse();
 ```
@@ -159,9 +208,23 @@ WebResponse response = request.GetResponse();
 ```javascript
 const https = require('https');
 
-https.get('https://api.samplicio.us//Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}', function(res){
-  var response = res;
+var options = {
+  "method": "GET",
+  "hostname": "api.samplicio.us",
+  "path": "/Demand/v1/SurveyGroups/{SurveyGroupID}",
+  "headers": {'Authorization': YOUR_API_KEY_HERE}
+};
+
+var request = https.request(options, function (response) {
+  var chunks = [];
+
+  response.on("data", function (chunk) {
+    chunks.push(chunk);
+  });
+
 });
+
+request.end();
 ```
 > Example Response
 
@@ -193,20 +256,20 @@ Returns the survey IDs for the survey group specified.
 > Definition
 
 ```plaintext
-POST  https://api.samplicio.us/Demand/v1/SurveyGroups/?key={APIKey}
+POST  https://api.samplicio.us/Demand/v1/SurveyGroups/
 ```
 
 > Example Request
 
 ```shell
-curl -H "Content-Type: application/json" -X POST --data '{"Name": "Group 1"}' https://api.samplicio.us/Demand/v1/SurveyGroups/?key={APIKey}
+curl -H "Content-Type: application/json" -H "Authorization: YOUR_API_KEY_HERE" -X POST --data '{"Name": "Group 1"}' https://api.samplicio.us/Demand/v1/SurveyGroups/
 ```
 
 ```ruby
 require 'net/http'
 require 'json'
 
-uri = URI('https://api.samplicio.us/Demand/v1/SurveyGroups/?key={APIKey}')
+uri = URI('https://api.samplicio.us/Demand/v1/SurveyGroups/')
 
 http = Net::HTTP.new(uri.host, uri.port)
 
@@ -216,7 +279,8 @@ request = Net::HTTP::Post.new(FullUriPath, initheader = {'Content-Type' => 'appl
 
 request.body = {Name:"Group 1"}.to_json
 
-response = http.request(request)  
+request['Authorization'] = YOUR_API_KEY_HERE
+
 ```
 
 ```php
@@ -226,10 +290,10 @@ $curl = curl_init();
 $params = '{"Name":"Group 1"}';
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "https://api.samplicio.us/Demand/v1/SurveyGroups/?key={APIKey}",
+  CURLOPT_URL => "https://api.samplicio.us/Demand/v1/SurveyGroups/",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
-  CURLOPT_HTTPHEADER => array('Content-Type: application/json'),
+  CURLOPT_HTTPHEADER => array('Content-Type: application/json', 'Authorization: YOUR_API_KEY_HERE'),
   CURLOPT_MAXREDIRS => 10,
   CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -246,10 +310,10 @@ curl_close($curl);
 ```python
 import requests
 
-url = 'https://api.samplicio.us/Demand/v1/SurveyGroups/?key={APIKey}'
+url = 'https://api.samplicio.us/Demand/v1/SurveyGroups/'
 params = {'Name':'Group 1'}
 data = json.dumps(params)
-headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
+headers = {'Content-type': 'application/json', 'Authorization' : 'YOUR_API_KEY_HERE', 'Accept': 'text/plain'}
 response = requests.post(url, data=data, headers=headers)
 
 ```
@@ -258,12 +322,14 @@ response = requests.post(url, data=data, headers=headers)
 using System.IO;
 using System.Net;
 
-WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SurveyGroups/?key={APIKey}");
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SurveyGroups/");
 
 string args = @"{""Name"":""Group 1""}";
 
 request.Method = "POST";
 request.ContentType = "application/json";
+request.Headers.Add("Authorization", "YOUR_API_KEY_HERE");
+
 
 using(StreamWriter streamWriter = new StreamWriter(request.
 RequestStream()))
@@ -283,9 +349,10 @@ const https = require('https');
 var options = {
   "method": "POST",
   "hostname": "api.samplicio.us",
-  "port": 443,
-  "path": "Demand/v1/SurveyGroups/?key={APIKey}",
-  "headers": {'Content-Type': 'application/json'}
+  "path": "Demand/v1/SurveyGroups/",
+  "headers": {'Content-Type': 'application/json',
+  'Authorization': 'YOUR_API_KEY_HERE'
+  }
 };
 
 var json = {
@@ -349,20 +416,20 @@ Creates an empty survey group.
 > Definition
 
 ```plaintext
-POST  https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}
+POST  https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}
 ```
 
 > Example Request
 
 ```shell
-curl -H "Content-Type: application/json" -X POST --data '{"SurveyNumber": ["101101"]}' https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}
+curl -H "Content-Type: application/json" -H "Authorization: YOUR_API_KEY_HERE" -X POST --data '{"SurveyNumber": ["101101"]}' https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}
 ```
 
 ```ruby
 require 'net/http'
 require 'json'
 
-uri = URI('https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}')
+uri = URI('https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}')
 
 http = Net::HTTP.new(uri.host, uri.port)
 
@@ -374,6 +441,8 @@ request = Net::HTTP::Post.new(fullUriPath, initheader = {'Content-Type' =>'appli
 
 request.body = {SurveyIDs: 101101}.to_json
 
+request['Authorization'] = YOUR_API_KEY_HERE
+
 response = http.request(request)
 ```
 
@@ -384,10 +453,10 @@ $curl = curl_init();
 $params = '{"SurveyIDs": 101101}';
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}",
+  CURLOPT_URL => "https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
-  CURLOPT_HTTPHEADER => array('Content-Type: application/json'),
+  CURLOPT_HTTPHEADER => array('Content-Type: application/json', 'Authorization: YOUR_API_KEY_HERE'),
   CURLOPT_MAXREDIRS => 10,
   CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -404,10 +473,10 @@ curl_close($curl);
 ```python
 import requests, json
 
-url = 'https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}'
+url = 'https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}'
 params = {'SurveyIDs': 101101}
 data = json.dumps(params)
-headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
+headers = {'Content-type': 'application/json', 'Authorization' : 'YOUR_API_KEY_HERE', 'Accept': 'text/plain'}
 
 response = requests.post(url, data=data, headers=headers)
 ```
@@ -417,12 +486,13 @@ response = requests.post(url, data=data, headers=headers)
 using System.IO;
 using System.Net;
 
-WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}");
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}");
 
 string args = @"{""SurveyIDs"": [101101]}";
 
 request.Method = "POST";
 request.ContentType = "application/json";
+request.Headers.Add("Authorization", "YOUR_API_KEY_HERE");
 
 using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
 {
@@ -440,9 +510,10 @@ const https = require('https');
 var options = {
   "method": "POST",
   "hostname": "api.samplicio.us",
-  "port": 443,
-  "path": "/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}",
-  "headers": {'Content-Type': 'application/json'}
+  "path": "/Demand/v1/SurveyGroups/{SurveyGroupID}",
+  "headers": {'Content-Type': 'application/json',
+  'Authorization': 'YOUR_API_KEY_HERE'
+  }
 };
 
 var json = {"SurveyIDs": ["101101"]
@@ -500,20 +571,20 @@ Adds a survey to the specified survey group.
 > Definition
 
 ```plaintext
-PUT  https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}
+PUT  https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}
 ```
 
 > Example Request
 
 ```shell
-curl -H "Content-Type: application/json" -X PUT --data '{"SurveyIDs":["001100"]}' https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}
+curl -H "Content-Type: application/json" -H "Authorization: YOUR_API_KEY_HERE" -X PUT --data '{"SurveyIDs":["001100"]}' https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}
 ```
 
 ```ruby
 require 'net/http'
 require 'json'
 
-uri = URI('https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}')
+uri = URI('https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}')
 
 http = Net::HTTP.new(uri.host, uri.port)
 
@@ -525,6 +596,8 @@ request = Net::HTTP::Put.new(fullUriPath, initheader = {'Content-Type' =>'applic
 
 request.body = {"SurveyIDs":["001100"]}.to_json
 
+request['Authorization'] = YOUR_API_KEY_HERE
+
 response = http.request(request)
 ```
 
@@ -535,10 +608,10 @@ $curl = curl_init();
 $params = '{"SurveyIDs":["001100"]}';
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}",
+  CURLOPT_URL => "https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
-  CURLOPT_HTTPHEADER => array('Content-Type: application/json'),
+  CURLOPT_HTTPHEADER => array('Content-Type: application/json', 'Authorization: YOUR_API_KEY_HERE'),
   CURLOPT_MAXREDIRS => 10,
   CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -555,10 +628,10 @@ curl_close($curl);
 ```python
 import requests, json
 
-url = 'https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}'
+url = 'https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}'
 params = {'SurveyIDs':['001100']}
 data = json.dumps(params)
-headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
+headers = {'Content-type': 'application/json', 'Authorization' : 'YOUR_API_KEY_HERE', 'Accept': 'text/plain'}
 
 response = requests.put(url, data=data, headers=headers)
 ```
@@ -568,12 +641,13 @@ response = requests.put(url, data=data, headers=headers)
 using System.IO;
 using System.Net;
 
-WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}");
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}");
 
 string args = @"{"SurveyIDs":["001100"]}";
 
 request.Method = "PUT";
 request.ContentType = "application/json";
+request.Headers.Add("Authorization", "YOUR_API_KEY_HERE");
 
 using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
 {
@@ -591,9 +665,10 @@ const https = require('https');
 var options = {
   "method": "PUT",
   "hostname": "api.samplicio.us",
-  "port": 443,
-  "path": "/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}",
-  "headers": {'Content-Type': 'application/json'}
+  "path": "/Demand/v1/SurveyGroups/{SurveyGroupID}",
+  "headers": {'Content-Type': 'application/json',
+  'Authorization': 'YOUR_API_KEY_HERE'
+  }
 };
 
 var json = {"SurveyIDs":["001100"]}
@@ -651,20 +726,20 @@ Updates a survey group with the specified surveys.
 > Definition
 
 ```plaintext
-DELETE  https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}
+DELETE  https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}
 ```
 
 > Example Request
 
 ```shell
-curl X- DELETE --data '{"SurveyIDs": ["101101"]} https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}
+curl -H "Authorization: YOUR_API_KEY_HERE" -X DELETE --data '{"SurveyIDs": ["101101"]}' https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}
 ```
 
 ```ruby
 require 'net/http'
 require 'json'
 
-uri = URI('https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}')
+uri = URI('https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}')
 
 http = Net::HTTP.new(uri.host, uri.port)
 
@@ -673,6 +748,8 @@ http.use_ssl = true
 request = Net::HTTP::Delete.new(uri.request_uri)
 
 request.body = {SurveyIDs: 101101}.to_json
+
+request['Authorization'] = YOUR_API_KEY_HERE
 
 response = http.request(request)
 ```
@@ -685,9 +762,10 @@ $curl = curl_init();
 $params = '{"SurveyIDs": ["101101"]}';
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}",
+  CURLOPT_URL => "https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
+  CURLOPT_HTTPHEADER => array('Authorization: YOUR_API_KEY_HERE'),
   CURLOPT_MAXREDIRS => 10,
   CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -703,10 +781,10 @@ curl_close($curl);
 ```python
 import requests
 
-requests.delete('https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}')
+requests.delete('https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}')
 params = {'SurveyIDs': 101101}
 data = json.dumps(params)
-headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
+headers = {'Content-type': 'application/json', 'Authorization' : 'YOUR_API_KEY_HERE', 'Accept': 'text/plain'}
 
 response = requests.post(url, data=data, headers=headers)
 ```
@@ -714,12 +792,13 @@ response = requests.post(url, data=data, headers=headers)
 ```csharp
 using System.Net;
 
-WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}");
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}");
 
 string args = @"{""SurveyIDs"": [101101]}";
 
 request.Method = "DELETE";
 request.ContentType = "application/json";
+request.Headers.Add("Authorization", "YOUR_API_KEY_HERE");
 
 using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
 {
@@ -737,9 +816,10 @@ const https = require('https');
 var options = {
   "method": "DELETE",
   "hostname": "api.samplicio.us",
-  "port": 443,
-  "path": "/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}",
-  "headers": {'Content-Type': 'application/json'}
+  "path": "/Demand/v1/SurveyGroups/{SurveyGroupID}",
+  "headers": {'Content-Type': 'application/json',
+  'Authorization': 'YOUR_API_KEY_HERE'
+  }
 };
 
 var json = {"SurveyIDs": ["101101"]

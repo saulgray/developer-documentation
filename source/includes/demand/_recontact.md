@@ -6,7 +6,7 @@ Recontacts allow buyers to collect a follow-up impression on a respondent they h
 
 | Property | Type   | Description                                                 |
 |----------|--------|-------------------------------------------------------------|
-| IsActive | int    | Indicates whether a respondent qualifies for the recontact. |
+| IsActive | boolean| Indicates whether a respondent qualifies for the recontact. |
 | PID      | string | A supplier's unique respondent identifier.                  |
 
 ### GET List Qualified Respondents
@@ -14,19 +14,19 @@ Recontacts allow buyers to collect a follow-up impression on a respondent they h
 > Definition
 
 ```plaintext
-GET  https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/BySurveyNumberSupplierCode/{SurveyNumber}/{SupplierCode}?key={APIKey}
+GET  https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/BySurveyNumberSupplierCode/{SurveyNumber}/{SupplierCode}
 ```
 
 > Example Request
 
 ```shell
-curl https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/BySurveyNumberSupplierCode/{SurveyNumber}/{SupplierCode}?key={APIKey}
+curl -H "Authorization: YOUR_API_KEY_HERE" https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/BySurveyNumberSupplierCode/{SurveyNumber}/{SupplierCode}
 ```
 
 ```ruby
 require 'net/http'
 
-uri = URI('https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/BySurveyNumberSupplierCode/{SurveyNumber}/{SupplierCode}?key={APIKey}')
+uri = URI('https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/BySurveyNumberSupplierCode/{SurveyNumber}/{SupplierCode}')
 
 http = Net::HTTP.new(uri.host, uri.port)
 
@@ -34,25 +34,41 @@ http.use_ssl = true
 
 request = Net::HTTP::Get.new(uri.request_uri)
 
+request['Authorization'] = YOUR_API_KEY_HERE
+
 response = http.request(request)  
 ```
 
 ```php
 <?php
-$response = file_get_contents('https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/BySurveyNumberSupplierCode/{SurveyNumber}/{SupplierCode}?key={APIKey}');
+$URL = "https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/BySurveyNumberSupplierCode/{SurveyNumber}/{SupplierCode}";
+
+$aHTTP['http']['method']  = 'GET';
+
+$aHTTP['http']['header']  = "Authorization: YOUR_API_KEY_HERE";
+
+$context = stream_context_create($aHTTP);
+
+$response = file_get_contents($URL, false, $context);
 ?>
 ```
 
 ```python
 import requests
 
-response = requests.get('https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/BySurveyNumberSupplierCode/{SurveyNumber}/{SupplierCode}?key={APIKey}')
+url = 'https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/BySurveyNumberSupplierCode/{SurveyNumber}/{SupplierCode}'
+
+headers = {'Authorization' : YOUR_API_KEY_HERE}
+
+response = requests.get(url, headers=headers)
 ```
 
 ```csharp
 using System.Net;
 
-WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/BySurveyNumberSupplierCode/{SurveyNumber}/{SupplierCode}?key={APIKey}");
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/BySurveyNumberSupplierCode/{SurveyNumber}/{SupplierCode}");
+
+request.Headers.Add("Authorization", YOUR_API_KEY_HERE);
 
 WebResponse response = request.GetResponse();
 ```
@@ -60,14 +76,28 @@ WebResponse response = request.GetResponse();
 ```javascript
 const https = require('https');
 
-https.get('https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/BySurveyNumberSupplierCode/{SurveyNumber}/{SupplierCode}?key={APIKey}', function(res){
-  var response = res;
+var options = {
+  "method": "GET",
+  "hostname": "api.samplicio.us",
+  "path": "/Demand/v1/SurveyQualifiedRespondents/BySurveyNumberSupplierCode/{SurveyNumber}/{SupplierCode}",
+  "headers": {'Authorization': YOUR_API_KEY_HERE}
+};
+
+var request = https.request(options, function (response) {
+  var chunks = [];
+
+  response.on("data", function (chunk) {
+    chunks.push(chunk);
+  });
+
 });
+
+request.end();
 ```
 
 > Example Response
 
-```json 
+```json
 {
   "ApiResult": 0,
   "ApiResultCode": 0,
@@ -108,20 +138,20 @@ Returns a list of qualified respondents for a specified recontact study and supp
 >Definition
 
 ```plaintext
-PUT  https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}
+PUT  https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/Update/{SurveyNumber}/{SupplierCode}
 ```
 
 >Example Request
 
 ```shell
-curl -H "Content-Type: application/json" -X PUT  --data '{"SurveyQualifiedRespondents":[{"IsActive": true,"PID": "0001110"},]}' https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}
+curl -H "Content-Type: application/json"  -H "Authorization: YOUR_API_KEY_HERE" -X PUT  --data '{"SurveyQualifiedRespondents":[{"IsActive": true,"PID": "0001110"},]}' https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/Update/{SurveyNumber}/{SupplierCode}
 ```
 
 ```ruby
 require 'net/http'
 require 'json'
 
-uri = URI('https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}')
+uri = URI('https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/Update/{SurveyNumber}/{SupplierCode}')
 
 http = Net::HTTP.new(uri.host, uri.port)
 
@@ -132,7 +162,7 @@ fullUriPath = uri.path + '?' + uri.query
 request = Net::HTTP::Put.new(fullUriPath, initheader = {'Content-Type' =>'application/json'})
 
 request.body = {
-                  SurveyQualifiedRespondents: 
+                  SurveyQualifiedRespondents:
                   [
                     {
                       IsActive: true,
@@ -140,6 +170,8 @@ request.body = {
                     },
                   ]
                 }.to_json
+
+request['Authorization'] = YOUR_API_KEY_HERE
 
 response = http.request(request)
 ```
@@ -149,7 +181,7 @@ response = http.request(request)
 $curl = curl_init();
 
 $params = '{
-              "SurveyQualifiedRespondents": 
+              "SurveyQualifiedRespondents":
               [
                 {
                   "IsActive": true,
@@ -159,10 +191,10 @@ $params = '{
             }';
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}",
+  CURLOPT_URL => "https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/Update/{SurveyNumber}/{SupplierCode}",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
-  CURLOPT_HTTPHEADER => array('Content-Type: application/json'),
+  CURLOPT_HTTPHEADER => array('Content-Type: application/json', 'Authorization: YOUR_API_KEY_HERE'),
   CURLOPT_MAXREDIRS => 10,
   CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -179,9 +211,9 @@ curl_close($curl);
 ```python
 import requests, json
 
-url = 'https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}'
+url = 'https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/Update/{SurveyNumber}/{SupplierCode}'
 params = {
-            'SurveyQualifiedRespondents': 
+            'SurveyQualifiedRespondents':
             [
               {
                 'IsActive': True,
@@ -191,7 +223,7 @@ params = {
           }
 
 data = json.dumps(params)
-headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
+headers = {'Content-type': 'application/json', 'Authorization' : 'YOUR_API_KEY_HERE', 'Accept': 'text/plain'}
 
 response = requests.put(url, data=data, headers=headers)
 ```
@@ -200,10 +232,10 @@ response = requests.put(url, data=data, headers=headers)
 using System.IO;
 using System.Net;
 
-WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}");
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SurveyQualifiedRespondents/Update/{SurveyNumber}/{SupplierCode}");
 
 string args = @"{
-                  ""SurveyQualifiedRespondents"": 
+                  ""SurveyQualifiedRespondents"":
                   [
                     {
                        ""IsActive"": true,
@@ -214,6 +246,7 @@ string args = @"{
 
 request.Method = "PUT";
 request.ContentType = "application/json";
+request.Headers.Add("Authorization", "YOUR_API_KEY_HERE");
 
 using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
 {
@@ -231,13 +264,14 @@ const https = require('https');
 var options = {
   "method": "PUT",
   "hostname": "api.samplicio.us",
-  "port": 443,
-  "path": "/Demand/v1/SurveyQualifiedRespondents/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}",
-  "headers": {'Content-Type': 'application/json'}
+  "path": "/Demand/v1/SurveyQualifiedRespondents/Update/{SurveyNumber}/{SupplierCode}",
+  "headers": {'Content-Type': 'application/json',
+  'Authorization': 'YOUR_API_KEY_HERE'
+  }
 };
 
 var json = {
-              "SurveyQualifiedRespondents": 
+              "SurveyQualifiedRespondents":
               [
                 {
                   "IsActive": true,
@@ -286,7 +320,7 @@ request.end();
 }
 ```
 
-Updates the list of PIDs that qualify for a recontact survey. 
+Updates the list of PIDs that qualify for a recontact survey.
 
 #### Arguments
 

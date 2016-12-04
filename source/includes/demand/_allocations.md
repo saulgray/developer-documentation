@@ -42,19 +42,19 @@ Non-Exchange Allocations allow you to add a specific supplier to your survey. Th
 > Definition
 
 ```plaintext
-GET  https://api.samplicio.us/Demand/v1/SupplierAllocations/BySurveyNumber/{SurveyNumber}?key={APIKey}
+GET  https://api.samplicio.us/Demand/v1/SupplierAllocations/BySurveyNumber/{SurveyNumber}
 ```
 
 > Example Request
 
 ```shell
-curl https://api.samplicio.us/Demand/v1/SupplierAllocations/BySurveyNumber/{SurveyNumber}?key={APIKey}
+curl -H "Authorization: YOUR_API_KEY_HERE" https://api.samplicio.us/Demand/v1/SupplierAllocations/BySurveyNumber/{SurveyNumber}
 ```
 
 ```ruby
 require 'net/http'
 
-uri = URI('https://api.samplicio.us/Demand/v1/SupplierAllocations/BySurveyNumber/{SurveyNumber}?key={APIKey}')
+uri = URI('https://api.samplicio.us/Demand/v1/SupplierAllocations/BySurveyNumber/{SurveyNumber}')
 
 http = Net::HTTP.new(uri.host, uri.port)
 
@@ -62,25 +62,41 @@ http.use_ssl = true
 
 request = Net::HTTP::Get.new(uri.request_uri)
 
+request['Authorization'] = YOUR_API_KEY_HERE
+
 response = http.request(request)  
 ```
 
 ```php
 <?php
-$response = file_get_contents('https://api.samplicio.us/Demand/v1/SupplierAllocations/BySurveyNumber/{SurveyNumber}?key={APIKey}');
+$URL = "https://api.samplicio.us/Demand/v1/SupplierAllocations/BySurveyNumber/{SurveyNumber}";
+
+$aHTTP['http']['method']  = 'GET';
+
+$aHTTP['http']['header']  = "Authorization: YOUR_API_KEY_HERE";
+
+$context = stream_context_create($aHTTP);
+
+$response = file_get_contents($URL, false, $context);
 ?>
 ```
 
 ```python
 import requests
 
-response = requests.get('https://api.samplicio.us/Demand/v1/SupplierAllocations/BySurveyNumber/{SurveyNumber}?key={APIKey}')
+url = 'https://api.samplicio.us/Demand/v1/SupplierAllocations/BySurveyNumber/{SurveyNumber}'
+
+headers = {'Authorization' : YOUR_API_KEY_HERE}
+
+response = requests.get(url, headers=headers)
 ```
 
 ```csharp
 using System.Net;
 
-WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SupplierAllocations/BySurveyNumber/{SurveyNumber}?key={APIKey}");
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SupplierAllocations/BySurveyNumber/{SurveyNumber}");
+
+request.Headers.Add("Authorization", YOUR_API_KEY_HERE);
 
 WebResponse response = request.GetResponse();
 ```
@@ -88,9 +104,23 @@ WebResponse response = request.GetResponse();
 ```javascript
 const https = require('https');
 
-https.get('https://api.samplicio.us/Demand/v1/SupplierAllocations/BySurveyNumber/{SurveyNumber}?key={APIKey}', function(res){
-  var response = res;
+var options = {
+  "method": "GET",
+  "hostname": "api.samplicio.us",
+  "path": "/Demand/v1/SupplierAllocations/BySurveyNumber/{SurveyNumber}",
+  "headers": {'Authorization': YOUR_API_KEY_HERE}
+};
+
+var request = https.request(options, function (response) {
+  var chunks = [];
+
+  response.on("data", function (chunk) {
+    chunks.push(chunk);
+  });
+
 });
+
+request.end();
 ```
 > Example Response
 
@@ -139,20 +169,20 @@ Returns the supplier allocations for the survey specified.
 > Definition
 
 ```plaintext
-POST  https://api.samplicio.us/Demand/v1/SupplierAllocations/Create/{SurveyNumber}?key={APIKey}
+POST  https://api.samplicio.us/Demand/v1/SupplierAllocations/Create/{SurveyNumber}
 ```
 
 > Example Request
 
 ```shell
-curl -H "Content-Type: application/json" -X POST --data '{"SupplierCode": "1010", "AllocationPercentage": 0.1, "TCPI": 2, "HedgeAccess": true, "BlockRouterTraffic": false,}' https://api.samplicio.us/Demand/v1/SupplierAllocations/Create/{SurveyNumber}?key={APIKey}
+curl -H "Content-Type: application/json" -H "Authorization: YOUR_API_KEY_HERE" -X POST --data '{"SupplierCode": "1010", "AllocationPercentage": 0.1, "TCPI": 2, "HedgeAccess": true, "BlockRouterTraffic": false,}' https://api.samplicio.us/Demand/v1/SupplierAllocations/Create/{SurveyNumber}
 ```
 
 ```ruby
 require 'net/http'
 require 'json'
 
-uri = URI('https://api.samplicio.us/Demand/v1/SupplierAllocations/Create/{SurveyNumber}?key={APIKey}')
+uri = URI('https://api.samplicio.us/Demand/v1/SupplierAllocations/Create/{SurveyNumber}')
 
 http = Net::HTTP.new(uri.host, uri.port)
 
@@ -164,6 +194,8 @@ request = Net::HTTP::Post.new(fullUriPath, initheader = {'Content-Type' =>'appli
 
 request.body = {SupplierCode: "1010", AllocationPercentage: 0.1, TCPI: 2, HedgeAccess: true, BlockRouterTraffic: false}.to_json
 
+request['Authorization'] = YOUR_API_KEY_HERE
+
 response = http.request(request)
 ```
 
@@ -174,10 +206,10 @@ $curl = curl_init();
 $params = '{"SupplierCode": "1010", "AllocationPercentage": 0.1, "TCPI": 2, "HedgeAccess": true, "BlockRouterTraffic": false}';
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "https://api.samplicio.us/Demand/v1/SupplierAllocations/Create/{SurveyNumber}?key={APIKey}",
+  CURLOPT_URL => "https://api.samplicio.us/Demand/v1/SupplierAllocations/Create/{SurveyNumber}",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
-  CURLOPT_HTTPHEADER => array('Content-Type: application/json'),
+  CURLOPT_HTTPHEADER => array('Content-Type: application/json', 'Authorization: YOUR_API_KEY_HERE'),
   CURLOPT_MAXREDIRS => 10,
   CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -195,10 +227,10 @@ curl_close($curl);
 ```python
 import requests, json
 
-url = 'https://api.samplicio.us/Demand/v1/SupplierAllocations/Create/{SurveyNumber}?key={APIKey}'
+url = 'https://api.samplicio.us/Demand/v1/SupplierAllocations/Create/{SurveyNumber}'
 params = {'SupplierCode': '1010', 'AllocationPercentage': 0.1, 'TCPI': 2, 'HedgeAccess': True, 'BlockRouterTraffic': False}
 data = json.dumps(params)
-headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
+headers = {'Content-type': 'application/json', 'Authorization' : 'YOUR_API_KEY_HERE', 'Accept': 'text/plain'}
 
 response = requests.post(url, data=data, headers=headers)
 ```
@@ -207,7 +239,7 @@ response = requests.post(url, data=data, headers=headers)
 using System.IO;
 using System.Net;
 
-WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SupplierAllocations/Create/{SurveyNumber}?key={APIKey}");
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SupplierAllocations/Create/{SurveyNumber}");
 
 string args = @"{
                    ""SupplierCode"": ""1010"",
@@ -216,9 +248,10 @@ string args = @"{
                    ""HedgeAccess"": true,
                    ""BlockRouterTraffic"": false
                  }";
-    
+
 request.Method = "POST";
 request.ContentType = "application/json";
+request.Headers.Add("Authorization", "YOUR_API_KEY_HERE");
 
 using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
 {
@@ -236,9 +269,10 @@ const https = require('https');
 var options = {
   "method": "POST",
   "hostname": "api.samplicio.us",
-  "port": 443,
-  "path": "/Demand/v1/SupplierAllocations/Create/{SurveyNumber}/{SupplierCode}?key={APIKey}",
-  "headers": {'Content-Type': 'application/json'}
+  "path": "/Demand/v1/SupplierAllocations/Create/{SurveyNumber}/{SupplierCode}",
+  "headers": {'Content-Type': 'application/json',
+  'Authorization': 'YOUR_API_KEY_HERE'
+  }
 };
 
 var json = {
@@ -257,7 +291,7 @@ var request = https.request(options, function (response) {
   response.on("data", function (chunk) {
     chunks.push(chunk);
   });
-  
+
 });
 
 request.write(params);
@@ -267,7 +301,7 @@ request.end();
 
 > Example Response
 
-```json 
+```json
 {
     "ApiResult": 0,
     "ApiResultCode": 0,
@@ -315,20 +349,20 @@ Creates supplier allocations for an existing Fulcrum survey.
 > Definition
 
 ```plaintext
-PUT  https://api.samplicio.us/Demand/v1/SupplierAllocations/Update/{SurveyNumber}?key={APIKey}
+PUT  https://api.samplicio.us/Demand/v1/SupplierAllocations/Update/{SurveyNumber}
 ```
 
 > Example Request
 
 ```shell
-curl -H "Content-Type: application/json" -X PUT --data '{"SupplierCode": "1010", "AllocationPercentage": 0.1, "TCPI": 2, "HedgeAccess": true, "BlockRouterTraffic": false,}' https://api.samplicio.us/Demand/v1/SupplierAllocations/Update/{SurveyNumber}?key={APIKey}
+curl -H "Content-Type: application/json" -H "Authorization: YOUR_API_KEY_HERE" -X PUT --data '{"SupplierCode": "1010", "AllocationPercentage": 0.1, "TCPI": 2, "HedgeAccess": true, "BlockRouterTraffic": false,}' https://api.samplicio.us/Demand/v1/SupplierAllocations/Update/{SurveyNumber}
 ```
 
 ```ruby
 require 'net/http'
 require 'json'
 
-uri = URI('https://api.samplicio.us/Demand/v1/SupplierAllocations/Update/{SurveyNumber}?key={APIKey}')
+uri = URI('https://api.samplicio.us/Demand/v1/SupplierAllocations/Update/{SurveyNumber}')
 
 http = Net::HTTP.new(uri.host, uri.port)
 
@@ -340,6 +374,8 @@ request = Net::HTTP::Put.new(fullUriPath, initheader = {'Content-Type' =>'applic
 
 request.body = {SupplierCode: "1010", AllocationPercentage: 0.1, TCPI: 2, HedgeAccess: true, BlockRouterTraffic: false}.to_json
 
+request['Authorization'] = YOUR_API_KEY_HERE
+
 response = http.request(request)
 ```
 
@@ -350,10 +386,10 @@ $curl = curl_init();
 $params = '{"SupplierCode": "1010", "AllocationPercentage": 0.1, "TCPI": 2, "HedgeAccess": true, "BlockRouterTraffic": false}';
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "https://api.samplicio.us/Demand/v1/SupplierAllocations/Update/{SurveyNumber}?key={APIKey}",
+  CURLOPT_URL => "https://api.samplicio.us/Demand/v1/SupplierAllocations/Update/{SurveyNumber}",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
-  CURLOPT_HTTPHEADER => array('Content-Type: application/json'),
+  CURLOPT_HTTPHEADER => array('Content-Type: application/json', 'Authorization: YOUR_API_KEY_HERE'),
   CURLOPT_MAXREDIRS => 10,
   CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -371,10 +407,10 @@ curl_close($curl);
 ```python
 import requests, json
 
-url = 'https://api.samplicio.us/Demand/v1/SupplierAllocations/Update/{SurveyNumber}?key={APIKey}'
+url = 'https://api.samplicio.us/Demand/v1/SupplierAllocations/Update/{SurveyNumber}'
 params = {'SupplierCode': '1010', 'AllocationPercentage': 0.1, 'TCPI': 2, 'HedgeAccess': True, 'BlockRouterTraffic': False}
 data = json.dumps(params)
-headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
+headers = {'Content-type': 'application/json', 'Authorization' : 'YOUR_API_KEY_HERE', 'Accept': 'text/plain'}
 
 supplierLink = requests.put(url, data=data, headers=headers)
 ```
@@ -383,7 +419,7 @@ supplierLink = requests.put(url, data=data, headers=headers)
 using System.IO;
 using System.Net;
 
-WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SupplierAllocations/Update/{SurveyNumber}?key={APIKey}");
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SupplierAllocations/Update/{SurveyNumber}");
 
 string args = @"{
                    ""SupplierCode"": ""1010"",
@@ -392,9 +428,10 @@ string args = @"{
                    ""HedgeAccess"": true,
                    ""BlockRouterTraffic"": false
                  }";
-    
+
 request.Method = "PUT";
 request.ContentType = "application/json";
+request.Headers.Add("Authorization", "YOUR_API_KEY_HERE");
 
 using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
 {
@@ -412,9 +449,10 @@ const https = require('https');
 var options = {
   "method": "PUT",
   "hostname": "api.samplicio.us",
-  "port": 443,
-  "path": "/Demand/v1/SupplierAllocations/Update/{SurveyNumber}/{SupplierCode}?key={APIKey}",
-  "headers": {'Content-Type': 'application/json'}
+  "path": "/Demand/v1/SupplierAllocations/Update/{SurveyNumber}/{SupplierCode}",
+  "headers": {'Content-Type': 'application/json',
+  'Authorization': 'YOUR_API_KEY_HERE'
+  }
 };
 
 var json = {
@@ -433,7 +471,7 @@ var request = https.request(options, function (response) {
   response.on("data", function (chunk) {
     chunks.push(chunk);
   });
-  
+
 });
 
 request.write(params);
@@ -443,7 +481,7 @@ request.end();
 
 > Example Response
 
-```json 
+```json
 {
   "ApiResult": 0,
   "ApiResultCode": 0,
@@ -491,25 +529,27 @@ Creates supplier allocations for an existing Fulcrum survey.
 > Definition
 
 ```plaintext
-DELETE  https://api.samplicio.us/Demand/v1/SupplierAllocations/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}
+DELETE  https://api.samplicio.us/Demand/v1/SupplierAllocations/Delete/{SurveyNumber}/{SupplierCode}
 ```
 
 > Example Request
 
 ```shell
-curl -X DELETE https://api.samplicio.us/Demand/v1/SupplierAllocations/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}
+curl -H "Authorization: YOUR_API_KEY_HERE" -X DELETE https://api.samplicio.us/Demand/v1/SupplierAllocations/Delete/{SurveyNumber}/{SupplierCode}
 ```
 
 ```ruby
 require 'net/http'
 
-uri = URI('https://api.samplicio.us/Demand/v1/SupplierAllocations/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}')
+uri = URI('https://api.samplicio.us/Demand/v1/SupplierAllocations/Delete/{SurveyNumber}/{SupplierCode}')
 
 http = Net::HTTP.new(uri.host, uri.port)
 
 http.use_ssl = true
 
 request = Net::HTTP::Delete.new(uri.request_uri)
+
+request['Authorization'] = YOUR_API_KEY_HERE
 
 http.request(request)
 ```
@@ -520,9 +560,10 @@ http.request(request)
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "https://api.samplicio.us/Demand/v1/SupplierAllocations/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}",
+  CURLOPT_URL => "https://api.samplicio.us/Demand/v1/SupplierAllocations/Delete/{SurveyNumber}/{SupplierCode}",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
+    CURLOPT_HTTPHEADER => array('Authorization: YOUR_API_KEY_HERE'),
   CURLOPT_MAXREDIRS => 10,
   CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -538,13 +579,19 @@ curl_close($curl);
 ```python
 import requests
 
-requests.delete('https://api.samplicio.us/Demand/v1/SupplierAllocations/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}')
+url = 'https://api.samplicio.us/Demand/v1/SupplierAllocations/Delete/{SurveyNumber}/{SupplierCode}'
+
+headers = {'Authorization' : YOUR_API_KEY_HERE}
+
+response = requests.delete(url, headers=headers)
 ```
 
 ```csharp
-using System.Net; 
+using System.Net;
 
-WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SupplierAllocations/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}");
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SupplierAllocations/Delete/{SurveyNumber}/{SupplierCode}");
+
+request.Headers.Add("Authorization", YOUR_API_KEY_HERE);
 
 request.Method = "DELETE";
 
@@ -556,10 +603,9 @@ const https = require('https');
 
 var options = {
   "method": "DELETE",
-  "hostname": "api.samplicio.us",
-  "port": 443,
-  "path": "/Demand/v1/SupplierAllocations/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}",
-  "headers": {}
+  "hostname": "stg-api.samplicio.us",
+  "path": "/Demand/v1/SupplierAllocations/Delete/{SurveyNumber}/{SupplierCode}",
+  "headers": {'Authorization': YOUR_API_KEY_HERE}
 };
 
 var request = https.request(options);
