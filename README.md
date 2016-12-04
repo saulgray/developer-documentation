@@ -451,7 +451,7 @@ var options = {
   "hostname": "api.samplicio.us",
   "port": 443,
 <<<<<<< HEAD
-  "path": "/Demand/v1/SupplierAllocations/Delete/66900/196?key=***REMOVED***",
+  "path": "/Demand/v1/SupplierAllocations/Delete/66900/196?key=YOUR_API_KEY_HERE",
 =======
   "path": "/Demand/v1/SupplierAllocations/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}",
 >>>>>>> develop
