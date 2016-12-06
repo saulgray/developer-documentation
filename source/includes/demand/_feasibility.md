@@ -5,20 +5,20 @@
 > Definition
 
 ```plaintext
-POST https://api.samplicio.us/Demand/v1/Feasibility/Time?key={APIkey}
+POST https://api.samplicio.us/Demand/v1/Feasibility/Time
 ```
 
 > Example Request
 
 ```shell
-curl -H "Content-Type: application/json" -X POST --data '{"CountryLanguageID": 9, "LengthOfInterview": 5, "Incidence": 100,  "Price": 4.5, "Quotas": [{"Completes": 1000, "Conditions": [{"QuestionID": 42, "PreCodes": ["18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29"]}, {"QuestionID": 43, "PreCodes": ["1"] } ] }, {"Completes": 1000, "Conditions": [{"QuestionID": 42, "PreCodes": ["18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29"]}, {"QuestionID": 43, "PreCodes": ["2"] } ] }] }}' https://api.samplicio.us/Demand/v1/Feasibility/Time?key={APIkey}
+curl -H "Content-Type: application/json" -H "Authorization: YOUR_API_KEY_HERE" -X POST --data '{"CountryLanguageID": 9, "LengthOfInterview": 5, "Incidence": 100,  "Price": 4.5, "Quotas": [{"CompletesPerDay": [1000], "Conditions": [{"QuestionID": 42, "PreCodes": ["18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29"]}, {"QuestionID": 43, "PreCodes": ["1"] } ] }, {"CompletesPerDay": [1000], "Conditions": [{"QuestionID": 42, "PreCodes": ["18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29"]}, {"QuestionID": 43, "PreCodes": ["2"] } ] }] }}' https://api.samplicio.us/Demand/v1/Feasibility/Time
 ```
 
 ```ruby
 require 'net/http'
 require 'json'
 
-uri = URI('https://api.samplicio.us/Demand/v1/Feasibility/Time?key={APIkey}')
+uri = URI('https://api.samplicio.us/Demand/v1/Feasibility/Time')
 
 http = Net::HTTP.new(uri.host, uri.port)
 
@@ -31,6 +31,8 @@ request = Net::HTTP::Post.new(fullUriPath, initheader = {'Content-Type' =>'appli
 request.body = {CountryLanguageID: 9, LengthOfInterview: 5, Incidence: 100,  Price: 4.5, Quotas: [{Completes: 1000, Conditions: [{QuestionID: 42, PreCodes: ["18", "19", "20", "21", "22", "23", "24",
  "25", "26", "27", "28", "29"]}, {QuestionID: 43, PreCodes: ["1"] } ] }, {Completes: 1000, Conditions: [{QuestionID: 42, PreCodes: ["18", "19", "20", "21", "22", "23", "24",
  "25", "26", "27", "28", "29"]}, {QuestionID: 43, PreCodes: ["2"] } ] }] }.to_json
+
+request['Authorization'] = YOUR_API_KEY_HERE
 
 response = http.request(request)
 
@@ -45,10 +47,10 @@ $params = '{"CountryLanguageID": 9, "LengthOfInterview": 5, "Incidence": 100, "P
  "25", "26", "27", "28", "29"]}, {"QuestionID": 43, "PreCodes": ["2"] } ] } ] }';
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "https://api.samplicio.us/Demand/v1/Feasibility/Time?key={APIkey}",
+  CURLOPT_URL => "https://api.samplicio.us/Demand/v1/Feasibility/Time",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
-  CURLOPT_HTTPHEADER => array('Content-Type: application/json'),
+  CURLOPT_HTTPHEADER => array('Content-Type: application/json', 'Authorization: YOUR_API_KEY_HERE'),
   CURLOPT_MAXREDIRS => 10,
   CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -66,10 +68,11 @@ curl_close($curl);
 ```python
 import requests, json
 
-url = 'https://api.samplicio.us/Demand/v1/Feasibility/Time?key={APIkey}'
-params = {'CountryLanguageID': 9, 'LengthOfInterview': 5, 'Incidence': 100, 'Price': 4.5, 'Quotas': [{'Completes': 1000, 'Conditions': [{'QuestionID': 42, 'PreCodes': ["18", "19", "20", "21", "22", "23", "24","25", "26", "27", "28", "29"]}, {'QuestionID': 43, 'PreCodes': ["1"] } ] }, {'Completes': 1250, 'Conditions': [{'QuestionID': 42, 'PreCodes': ["18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29"]}, {'QuestionID': 43, 'PreCodes': ["2"] } ] }] }
+url = 'https://api.samplicio.us/Demand/v1/Feasibility/Time'
+params = {'CountryLanguageID': 9, 'LengthOfInterview': 5, 'Incidence': 100, 'Quotas': [{'CompletesPerDay': [1000], 'Conditions': [{'QuestionID': 42, 'PreCodes': ["18", "19", "20", "21", "22", "23", "24","25", "26", "27", "28", "29"]}, {'QuestionID': 43, 'PreCodes': ["1"] } ] }, {'CompletesPerDay': [1250], 'Conditions': [{'QuestionID': 42, 'PreCodes': ["18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29"]}, {'QuestionID': 43, 'PreCodes': ["2"] } ] }] }
+
 data = json.dumps(params)
-headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
+headers = {'Content-type': 'application/json', 'Authorization' : 'YOUR_API_KEY_HERE', 'Accept': 'text/plain'}
 
 response = requests.post(url, data=data, headers=headers)
 ```
@@ -78,7 +81,7 @@ response = requests.post(url, data=data, headers=headers)
 using System.IO;
 using System.Net;
 
-WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/Feasibility/Time?key={APIkey}");
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/Feasibility/Time");
 
 string args = @"{
                  ""CountryLanguageID"": 9,
@@ -87,7 +90,7 @@ string args = @"{
                  ""Price"": 4.5,
                  ""Quotas"": [
                                 {
-                                  ""Completes"": 1000,
+                                  ""CompletesPerDay"": [1000],
                                   ""Conditions"":
                                   [
                                     {
@@ -103,7 +106,7 @@ string args = @"{
                                   ]
                                 },
                                 {
-                                  ""Completes"": 1250,
+                                  ""CompletesPerDay"": [1250],
                                   ""Conditions"":
                                   [
                                     {
@@ -123,6 +126,7 @@ string args = @"{
 
 request.Method = "POST";
 request.ContentType = "application/json";
+request.Headers.Add("Authorization", "YOUR_API_KEY_HERE");
 
 using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
 {
@@ -140,9 +144,10 @@ const https = require('https');
 var options = {
   "method": "POST",
   "hostname": "api.samplicio.us",
-  "port": 443,
-  "path": "/Demand/v1/Feasibility/Time?key={APIkey}",
-  "headers": {'Content-Type': 'application/json'}
+  "path": "/Demand/v1/Feasibility/Time",
+  "headers": {'Content-Type': 'application/json',
+  'Authorization': 'YOUR_API_KEY_HERE'
+  }
 };
 
 var json = {"CountryLanguageID": 9, "LengthOfInterview": 5, "Incidence": 100, "Price": 4.5, "Quotas": [{"Completes": 1000, "Conditions": [{"QuestionID": 42, "PreCodes": ["18", "19", "20", "21", "22", "23", "24",
@@ -157,7 +162,6 @@ var request = https.request(options, function (response) {
   response.on("data", function (chunk) {
     chunks.push(chunk);
   });
-
 });
 
 request.write(params);
@@ -264,20 +268,20 @@ Returns the estimated time in days to achieve the total number of completes spec
 > Definition
 
 ```plaintext
-POST https://api.samplicio.us/Demand/v1/Feasibility/Price?key={APIkey}
+POST https://api.samplicio.us/Demand/v1/Feasibility/Price
 ```
 
 > Example Request
 
 ```shell
-curl -H "Content-Type: application/json" -X POST --data '{"CountryLanguageID": 9, "LengthOfInterview": 5, "Incidence": 100, "Quotas": [{"CompletesPerDay": [1000, 1500], "Conditions": [{"QuestionID": 42, "PreCodes": ["18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29"]}, {"QuestionID": 43, "PreCodes": ["1"] } ] }, ] }' https://api.samplicio.us/Demand/v1/Feasibility/Price?key={APIkey}
+curl -H "Content-Type: application/json" -H "Authorization: YOUR_API_KEY_HERE" -X POST --data '{"CountryLanguageID": 9, "LengthOfInterview": 5, "Incidence": 100, "Quotas": [{"CompletesPerDay": [1000, 1500], "Conditions": [{"QuestionID": 42, "PreCodes": ["18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29"]}, {"QuestionID": 43, "PreCodes": ["1"] } ] }, ] }' https://api.samplicio.us/Demand/v1/Feasibility/Price
 ```
 
 ```ruby
 require 'net/http'
 require 'json'
 
-uri = URI('https://api.samplicio.us/Demand/v1/Feasibility/Price?key={APIkey}')
+uri = URI('https://api.samplicio.us/Demand/v1/Feasibility/Price')
 
 http = Net::HTTP.new(uri.host, uri.port)
 
@@ -289,6 +293,8 @@ request = Net::HTTP::Post.new(fullUriPath, initheader = {'Content-Type' =>'appli
 
 request.body = {CountryLanguageID: 9, LengthOfInterview: 5, Incidence: 100, Quotas: [{CompletesPerDay: [1000, 1500], Conditions: [{QuestionID: 42, PreCodes: ["18", "19", "20", "21", "22", "23", "24",
  "25", "26", "27", "28", "29"]}, {QuestionID: 43, PreCodes: ["1"] } ] }, ] }.to_json
+
+request['Authorization'] = YOUR_API_KEY_HERE
 
 response = http.request(request)
 
@@ -302,10 +308,10 @@ $params = '{"CountryLanguageID": 9, "LengthOfInterview": 5, "Incidence": 100, "Q
  "25", "26", "27", "28", "29"]}, {"QuestionID": 43, "PreCodes": ["1"] } ] }, ] }';
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "https://api.samplicio.us/Demand/v1/Feasibility/Price?key={APIkey}",
+  CURLOPT_URL => "https://api.samplicio.us/Demand/v1/Feasibility/Price",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
-  CURLOPT_HTTPHEADER => array('Content-Type: application/json'),
+  CURLOPT_HTTPHEADER => array('Content-Type: application/json', 'Authorization: YOUR_API_KEY_HERE'),
   CURLOPT_MAXREDIRS => 10,
   CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -323,10 +329,10 @@ curl_close($curl);
 ```python
 import requests, json
 
-url = 'https://api.samplicio.us/Demand/v1/Feasibility/Price?key={APIkey}'
+url = 'https://api.samplicio.us/Demand/v1/Feasibility/Price'
 params = {'CountryLanguageID': 9, 'LengthOfInterview': 5, 'Incidence': 100, 'Quotas': [{'CompletesPerDay': [1000, 1500], 'Conditions': [{'QuestionID': 42, 'PreCodes': ["18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29"]}, {'QuestionID': 43, 'PreCodes': ["1"] } ] }, ] }
 data = json.dumps(params)
-headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
+headers = {'Content-type': 'application/json', 'Authorization' : 'YOUR_API_KEY_HERE', 'Accept': 'text/plain'}
 
 response = requests.post(url, data=data, headers=headers)
 ```
@@ -335,7 +341,7 @@ response = requests.post(url, data=data, headers=headers)
 using System.IO;
 using System.Net;
 
-WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/Feasibility/Price?key={APIkey}");
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/Feasibility/Price");
 
 string args = @"{
                  ""CountryLanguageID"": 9,
@@ -362,6 +368,7 @@ string args = @"{
 
 request.Method = "POST";
 request.ContentType = "application/json";
+request.Headers.Add("Authorization", "YOUR_API_KEY_HERE");
 
 using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
 {
@@ -379,9 +386,10 @@ const https = require('https');
 var options = {
   "method": "POST",
   "hostname": "api.samplicio.us",
-  "port": 443,
-  "path": "/Demand/v1/Feasibility/Price?key={APIkey}",
-  "headers": {'Content-Type': 'application/json'}
+  "path": "/Demand/v1/Feasibility/Price",
+  "headers": {'Content-Type': 'application/json',
+  'Authorization': 'YOUR_API_KEY_HERE'
+  }
 };
 
 var json = {"CountryLanguageID": 9, "LengthOfInterview": 5, "Incidence": 100, "Quotas": [{"CompletesPerDay": [1000, 1500], "Conditions": [{"QuestionID": 42, "PreCodes": ["18", "19", "20", "21", "22", "23", "24",
@@ -395,7 +403,6 @@ var request = https.request(options, function (response) {
   response.on("data", function (chunk) {
     chunks.push(chunk);
   });
-
 });
 
 request.write(params);
@@ -489,21 +496,21 @@ Returns a tiered model of price in USD per complete, given the inputs for Number
 > Definition
 
 ```plaintext
-POST https://api.samplicio.us/Demand/v1/Feasibility/NumberOfRespondents?key={APIkey}
+POST https://api.samplicio.us/Demand/v1/Feasibility/NumberOfRespondents
 ```
 
 
 > Example Request
 
 ```shell
-curl -H "Content-Type: application/json" -X POST --data '{"CountryLanguageID": 9, "LengthOfInterview": 5, "Incidence": 100, "Price": 5, "Quotas": [{"Conditions": [{"QuestionID": 42, "PreCodes": ["18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29"]}, {"QuestionID": 43, "PreCodes": ["1"] } ] }, ] }' https://api.samplicio.us/Demand/v1/Feasibility/NumberOfRespondents?key={APIkey}
+curl -H "Content-Type: application/json" -H "Authorization: YOUR_API_KEY_HERE" -X POST --data '{"CountryLanguageID": 9, "LengthOfInterview": 5, "Incidence": 100, "Price": 5, "Quotas": [{"Conditions": [{"QuestionID": 42, "PreCodes": ["18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29"]}, {"QuestionID": 43, "PreCodes": ["1"] } ] }, ] }' https://api.samplicio.us/Demand/v1/Feasibility/NumberOfRespondents
 ```
 
 ```ruby
 require 'net/http'
 require 'json'
 
-uri = URI('https://api.samplicio.us/Demand/v1/Feasibility/NumberOfRespondents?key={APIkey}')
+uri = URI('https://api.samplicio.us/Demand/v1/Feasibility/NumberOfRespondents')
 
 http = Net::HTTP.new(uri.host, uri.port)
 
@@ -514,6 +521,8 @@ fullUriPath = uri.path + '?' + uri.query
 request = Net::HTTP::Post.new(fullUriPath, initheader = {'Content-Type' =>'application/json'})
 
 request.body = {CountryLanguageID: 9, LengthOfInterview: 5, Incidence: 100, Price: 5, Quotas: [{Conditions: [{QuestionID: 42, PreCodes: ["18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29"]}, {QuestionID: 43, PreCodes: ["1"] } ] }, ] }.to_json
+
+request['Authorization'] = YOUR_API_KEY_HERE
 
 response = http.request(request)
 
@@ -527,10 +536,10 @@ $params = '{"CountryLanguageID": 9, "LengthOfInterview": 5, "Incidence": 100, "P
  "25", "26", "27", "28", "29"]}, {"QuestionID": 43, "PreCodes": ["1"] } ] }, ] }';
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "https://api.samplicio.us/Demand/v1/Feasibility/NumberOfRespondents?key={APIkey}",
+  CURLOPT_URL => "https://api.samplicio.us/Demand/v1/Feasibility/NumberOfRespondents",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
-  CURLOPT_HTTPHEADER => array('Content-Type: application/json'),
+  CURLOPT_HTTPHEADER => array('Content-Type: application/json', 'Authorization: YOUR_API_KEY_HERE'),
   CURLOPT_MAXREDIRS => 10,
   CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -548,10 +557,10 @@ curl_close($curl);
 ```python
 import requests, json
 
-url = 'https://api.samplicio.us/Demand/v1/Feasibility/NumberOfRespondents?key={APIkey}'
+url = 'https://api.samplicio.us/Demand/v1/Feasibility/NumberOfRespondents'
 params = {'CountryLanguageID': 9, 'LengthOfInterview': 5, 'Incidence': 100, 'Price': 5, 'Quotas': [{'Conditions': [{'QuestionID': 42, 'PreCodes': ["18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29"]}, {'QuestionID': 43, 'PreCodes': ["1"] } ] }, ] }
 data = json.dumps(params)
-headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
+headers = {'Content-type': 'application/json', 'Authorization' : 'YOUR_API_KEY_HERE', 'Accept': 'text/plain'}
 
 response = requests.post(url, data=data, headers=headers)
 ```
@@ -560,7 +569,7 @@ response = requests.post(url, data=data, headers=headers)
 using System.IO;
 using System.Net;
 
-WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/Feasibility/NumberOfRespondents?key={APIkey}");
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/Feasibility/NumberOfRespondents");
 
 string args = @"{
                  ""CountryLanguageID"": 9,
@@ -587,6 +596,7 @@ string args = @"{
 
 request.Method = "POST";
 request.ContentType = "application/json";
+request.Headers.Add("Authorization", "YOUR_API_KEY_HERE");
 
 using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
 {
@@ -604,9 +614,10 @@ const https = require('https');
 var options = {
   "method": "POST",
   "hostname": "api.samplicio.us",
-  "port": 443,
-  "path": "/Demand/v1/Feasibility/NumberOfRespondents?key={APIkey}",
-  "headers": {'Content-Type': 'application/json'}
+  "path": "/Demand/v1/Feasibility/NumberOfRespondents",
+  "headers": {'Content-Type': 'application/json',
+  'Authorization': 'YOUR_API_KEY_HERE'
+  }
 };
 
 var json = {"CountryLanguageID": 9, "LengthOfInterview": 5, "Incidence": 100, "Price": 5, "Quotas": [{"Conditions": [{"QuestionID": 42, "PreCodes": ["18", "19", "20", "21", "22", "23", "24",
@@ -620,7 +631,6 @@ var request = https.request(options, function (response) {
   response.on("data", function (chunk) {
     chunks.push(chunk);
   });
-
 });
 
 request.write(params);
