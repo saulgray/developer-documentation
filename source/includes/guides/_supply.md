@@ -142,6 +142,7 @@ Once you have identified a good survey opportunity, create the entry links. This
 
 - Fulcrum will automatically use your default supplier redirects. Custom supplier redirects can be included in the payload with this call and the [Update a Link](#put-update-a-link) call.
 - Any session or profiling data collected in Fulcrum can be passed back to a supplier on the redirect links. A list of relevant session variables can be found [here](https://support.lucidhq.com/s/article/Adding-Variables-to-Survey-Links). Profiling data will be populated on redirects by appending `[%Qualification_Name%]` to the redirect links where `Qualification_Name` is the name of the qualification you would like to pass. Our [redirects generator](http://labs.lucidhq.com/redirects) is a great tool for formatting redirect links.
+- Details about the respondent's session can be returned on the redirect link as [Fulcrum Response Codes](https://support.lucidhq.com/s/article/Fulcrum-Response-Codes). 
 - We require sending the respondent into Fulcrum with PID equal to the unique panelist ID and recommend sending the MID equal to the supplier's unique identifier for the session.
 
 #### 4. [Show Qualifications](#get-show-qualifications)

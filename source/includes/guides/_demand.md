@@ -148,8 +148,12 @@ If you have opted not to generate checksums for your links, you should set the `
 Surveys objects are the basis for a project or demographic segment you are seeking. Here are the key steps to creating a survey in Fulcrum.
 #### 1. Determine the [fair market price](#feasibility) of the target demographic.
 
+<<<<<<< HEAD
 <aside class="notice">As prices are final at the time of transaction, you are responsible for implementing additional safeguards to prevent accidentally setting an excessively high price.</aside>
 
+=======
+<aside class="notice">As prices are final at the time of transaction, it is a good idea to implement additional safeguards to prevent accidentally setting an excessively high price.</aside>
+>>>>>>> 4c100e222079001228cb43f071048c50c14d28dc
 The Feasibility resource returns pricing data from the Fulcrum Pricing Index (FPI), which represents fair market price for a target given the surveys specs, qualifications, quotas, and time in field. Integrators with consumer users often take the response from this call and add a margin before returning it to the end user (i.e. `FPI Price * 1.3 = Price`)
 
 #### 2. Make the call to [create a survey](#post-create-a-survey) object.

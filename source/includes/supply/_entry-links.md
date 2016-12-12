@@ -1,6 +1,10 @@
 ##Entry Links
 
+<<<<<<< HEAD
 The Entry Links resource enables suppliers to create, update, and retrieve supplier survey entry links as well as specify [supplier link and tracking types](#get-list-global-definitions).
+=======
+The Entry Links resource enables suppliers to create, update, and retrieve supplier survey entry links as well as specify [supplier link and tracking types](#get-list-global-definitions). The entry links can then be used to send a respondent to a particular survey, and attaching important information in a query string, such as the unique panelist ID (PID), unique session ID (MID) or respondent's profiling data.
+>>>>>>> 4c100e222079001228cb43f071048c50c14d28dc
 
 #### Supplier Link Model
 

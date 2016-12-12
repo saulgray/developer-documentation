@@ -1,5 +1,7 @@
 ##Exchange Groups
 
+Exchange Groups allow buyers to allocate completes to a specific group of suppliers. It also allows for enabling hedge access - this will allow suppliers from exchange groups to also have access to unallocated completes.
+
 ### POST Create a Group
 
 > Definition
@@ -173,6 +175,8 @@ request.end();
 ```
 
 Creates a group with specific suppliers and allocation for that group.
+
+<aside class="notice"> There are edge cases where allocating 100% of completes to exchange groups can lead to a survey not filling up. In this case, let a small percentage of completes go unallocated, and allow hedge access. </aside>
 
 
 #### Arguments

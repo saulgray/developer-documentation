@@ -422,7 +422,11 @@ POST  https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}
 > Example Request
 
 ```shell
+<<<<<<< HEAD
 curl -H "Content-Type: application/json" -H "Authorization: YOUR_API_KEY_HERE" -X POST --data '{"SurveyNumber": ["101101"]}' https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}
+=======
+curl -H "Content-Type: application/json" -X POST --data '{"SurveyIDs": ["101101"]}' https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}
+>>>>>>> 4c100e222079001228cb43f071048c50c14d28dc
 ```
 
 ```ruby
@@ -439,7 +443,7 @@ fullUriPath = uri.path + '?' + uri.query
 
 request = Net::HTTP::Post.new(fullUriPath, initheader = {'Content-Type' =>'application/json'})
 
-request.body = {SurveyIDs: 101101}.to_json
+request.body = {SurveyIDs: ["101101"]}.to_json
 
 request['Authorization'] = YOUR_API_KEY_HERE
 
@@ -450,7 +454,7 @@ response = http.request(request)
 <?php
 $curl = curl_init();
 
-$params = '{"SurveyIDs": 101101}';
+$params = '{"SurveyIDs": ["101101"]}';
 
 curl_setopt_array($curl, array(
   CURLOPT_URL => "https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}",
@@ -473,8 +477,13 @@ curl_close($curl);
 ```python
 import requests, json
 
+<<<<<<< HEAD
 url = 'https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}'
 params = {'SurveyIDs': 101101}
+=======
+url = 'https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}'
+params = {'SurveyIDs': ["101101"]}
+>>>>>>> 4c100e222079001228cb43f071048c50c14d28dc
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Authorization' : 'YOUR_API_KEY_HERE', 'Accept': 'text/plain'}
 
@@ -488,7 +497,7 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}");
 
-string args = @"{""SurveyIDs"": [101101]}";
+string args = @"{""SurveyIDs"": ["101101"]}";
 
 request.Method = "POST";
 request.ContentType = "application/json";
