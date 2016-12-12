@@ -1,6 +1,6 @@
 ##Question Library
 
-The questions in this library can be used to build qualifications for surveys created in Fulcrum.
+The questions in this library can be used to build qualifications for surveys created in Fulcrum. Each question represents a respondent profile datapoint.
 
 ### GET List Standard Questions
 
