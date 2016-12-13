@@ -51,13 +51,13 @@ For a list of top qualifications in other countries, [shoot us an email](mailto:
 > Example Entry to Fulcrum with Supplier's Respondent Data:
 
 ```plaintext
-http://www.samplicio.us/router/default.aspx?SID=f6c83654-3d4f-4f7c-bef1-2f5097b6ae9c&PID=12345&MID=54321&AGE=35&GENDER=2&ZIP=70117
+https://www.samplicio.us/router/default.aspx?SID=f6c83654-3d4f-4f7c-bef1-2f5097b6ae9c&PID=12345&MID=54321&AGE=35&GENDER=2&ZIP=70117
 ```
 
 > Example Supplier End Link with Fulcrum's Respondent Data:
 
 ```plaintext
-http://www.supplierURL.com?status=complete&PID=[%PID%]&MID=[%MID%]&42=[%AGE%]&43=[%GENDER%]&45=[%ZIP%]&47=[%HISPANIC%]&113=[%ETHNICITY%]
+https://www.supplierURL.com?status=complete&PID=[%PID%]&MID=[%MID%]&42=[%AGE%]&43=[%GENDER%]&45=[%ZIP%]&47=[%HISPANIC%]&113=[%ETHNICITY%]
 ```
 
 Fulcrum Standard questions provide an industry standard for programmatic survey targeting. A survey’s qualifications form the prescreener questions that are presented to each respondent before they leave Fulcrum and enter the client survey.
@@ -70,7 +70,7 @@ Fulcrum Standard questions provide an industry standard for programmatic survey 
   - Fulcrum will pass back stored demographic data if the respondent has answered that question within the last 30 days. 30 days is the expiration period for all demographic data in Fulcrum.
   - If demographic data is returned on the supplier redirect which you __do not__ have for your panelist, then update your panelist profile with this information to better improve your targeting.
   - If you already have that demographic information stored, ignore Fulcrum's data and use your own as the source of truth.
-  - We recommend including the top 20 qualifications on your return redirects to capture valuable demographic data on your respondents. Use our [redirects generator](http://labs.lucidhq.com/redirects) to add recommended parameters to your redirects.
+  - We recommend including the top 20 qualifications on your return redirects to capture valuable demographic data on your respondents. Use our [redirects generator](https://labs.lucidhq.com/redirects) to add recommended parameters to your redirects.
 
 #### 4. Understanding Fulcrum Quotas
 [Quotas](#quotas) determine how many completes of each type of respondent are allowed into the survey. Quotas are always created off Fulcrum qualifications.
@@ -141,7 +141,7 @@ Once you have identified a good survey opportunity, create the entry links. This
 <aside class="notice">It's best practice to never put the survey entry link directly in your respondent invite emails as surveys and survey quotas can be closed by the time the respondent clicks. Rather, use a link into your decisioning system and always re-evaluate the best opportunity for your respondent based on earnings per click (EPC) at that time.</aside>
 
 - Fulcrum will automatically use your default supplier redirects. Custom supplier redirects can be included in the payload with this call and the [Update a Link](#put-update-a-link) call.
-- Any session or profiling data collected in Fulcrum can be passed back to a supplier on the redirect links. A list of relevant session variables can be found [here](https://support.lucidhq.com/s/article/Adding-Variables-to-Survey-Links). Profiling data will be populated on redirects by appending `[%Qualification_Name%]` to the redirect links where `Qualification_Name` is the name of the qualification you would like to pass. Our [redirects generator](http://labs.lucidhq.com/redirects) is a great tool for formatting redirect links.
+- Any session or profiling data collected in Fulcrum can be passed back to a supplier on the redirect links. A list of relevant session variables can be found [here](https://support.lucidhq.com/s/article/Adding-Variables-to-Survey-Links). Profiling data will be populated on redirects by appending `[%Qualification_Name%]` to the redirect links where `Qualification_Name` is the name of the qualification you would like to pass. Our [redirects generator](https://labs.lucidhq.com/redirects) is a great tool for formatting redirect links.
 - We require sending the respondent into Fulcrum with PID equal to the unique panelist ID and recommend sending the MID equal to the supplier's unique identifier for the session.
 
 #### 4. [Show Qualifications](#get-show-qualifications)

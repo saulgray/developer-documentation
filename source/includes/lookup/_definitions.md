@@ -5,7 +5,7 @@
 > Definition
 
 ```plaintext
-GET  http://api.samplicio.us/Lookup/v1/BasicLookups/BundledLookups/{Bundle}
+GET  https://api.samplicio.us/Lookup/v1/BasicLookups/BundledLookups/{Bundle}
 ```
 > Example Request
 
