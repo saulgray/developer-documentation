@@ -134,7 +134,7 @@ http://www.samplicio.us/router/ClientCallBack.aspx?RIS=30&RID={RID}&ienc={hash}
 > Overquota
 
 ```plaintext
-Overquota: http://www.samplicio.us/router/ClientCallBack.aspx?RIS=40&RID={RID}&ienc={hash}
+http://www.samplicio.us/router/ClientCallBack.aspx?RIS=40&RID={RID}&ienc={hash}
 ```
 
 At the end of a respondent's experience in your platform, you should send them back to Fulcrum using the end link corresponding to their respective status. This will update the respondent's status in Fulcrum and send them back to their supplier with information on how to be compensated. `RID` is an SID unique to identify the respondent and session. You must include `&RID=[%RID%]` on the `ClientSurveyLiveURL` property of your `Survey` object referenced in Phase 3 in order to capture the respondent's identifier in your system on entry and include it on the redirect when they return to Fulcrum.
