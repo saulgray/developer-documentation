@@ -422,11 +422,8 @@ POST  https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}
 > Example Request
 
 ```shell
-<<<<<<< HEAD
+
 curl -H "Content-Type: application/json" -H "Authorization: YOUR_API_KEY_HERE" -X POST --data '{"SurveyNumber": ["101101"]}' https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}
-=======
-curl -H "Content-Type: application/json" -X POST --data '{"SurveyIDs": ["101101"]}' https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}
->>>>>>> 4c100e222079001228cb43f071048c50c14d28dc
 ```
 
 ```ruby
@@ -477,13 +474,8 @@ curl_close($curl);
 ```python
 import requests, json
 
-<<<<<<< HEAD
 url = 'https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}'
 params = {'SurveyIDs': 101101}
-=======
-url = 'https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}?key={APIKey}'
-params = {'SurveyIDs': ["101101"]}
->>>>>>> 4c100e222079001228cb43f071048c50c14d28dc
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Authorization' : 'YOUR_API_KEY_HERE', 'Accept': 'text/plain'}
 
