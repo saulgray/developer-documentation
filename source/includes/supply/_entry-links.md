@@ -185,13 +185,16 @@ Creates a supplier-specific respondent entry link for a survey. If no supplier r
 
 | Property                     | Type     | Required | Description                                                                                                                                  |
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| SurveyNumber                 | int      | true     | Unique number associated with the survey.                                                                                                    |
-| SupplierCode                 | string   | true     | Unique code associated with supplier account.                                                                                                |
 | SupplierLinkTypeCode         | string   | true     | Defines the type of buyer-supplier engagment and the respondent's path in Fulcrum.                                                           |
 | TrackingTypeCode             | string   | true     | Defines how Fulcrum should communicate back to the supplier's system at the end of a session. The options are:                               |
 |                              |          |          | NONE (Default and recommended, physically redirects the respondent back to the supplier system)                                              |
 |                              |          |          | PIXEL (pixel tracking)                                                                                                                       |
 |                              |          |          | S2S (server to server postback)                                                                                                              |
+| DefaultLink                  | string   | false    | Tracking code or link used if none of the below apply.                                                                                       |
+| SuccessLink                  | string   | false    | Tracking code or link used after a completion.                                                                                               |
+| FailureLink                  | string   | false    | Tracking code or link used after a termination.                                                                                              |
+| OverQuotaLink                | string   | false    | Tracking code or link used after an overquota.                                                                                               |
+| QualityTerminationLink       | string   | false    | Tracking code or link used after a quality (security) termination.                                                                           |
 
 ### PUT Update a Link
 
@@ -368,16 +371,16 @@ Update an existing entry link for a study.
 
 | Property               | Type   | Required | Description                                                                                                    |
 |------------------------|--------|----------|----------------------------------------------------------------------------------------------------------------|
-| SupplierLinkTypeCode   | string | True     | Defines the type of buyer-supplier engagment and the respondent's path in Fulcrum.                             |
-| TrackingTypeCode       | string | True     | Defines how Fulcrum should communicate back to the supplier's system at the end of a session. The options are: |
+| SupplierLinkTypeCode   | string | true     | Defines the type of buyer-supplier engagment and the respondent's path in Fulcrum.                             |
+| TrackingTypeCode       | string | true     | Defines how Fulcrum should communicate back to the supplier's system at the end of a session. The options are: |
 |                        |        |          | NONE (Default and recommended, physically redirects the respondent back to the supplier system)                |
 |                        |        |          | PIXEL (pixel tracking)                                                                                         |
 |                        |        |          | S2S (server to server postback)                                                                                |
-| DefaultLink            | string | True     | Tracking code or link used if none of the below apply.                                                         |
-| SuccessLink            | string | True     | Tracking code or link used after a completion.                                                                 |
-| FailureLink            | string | True     | Tracking code or link used after a termination.                                                                |
-| OverQuotaLink          | string | True     | Tracking code or link used after an overquota.                                                                 |
-| QualityTerminationLink | string | True     | Tracking code or link used after a quality (security) termination.                                             |
+| DefaultLink            | string | true     | Tracking code or link used if none of the below apply.                                                         |
+| SuccessLink            | string | true     | Tracking code or link used after a completion.                                                                 |
+| FailureLink            | string | true     | Tracking code or link used after a termination.                                                                |
+| OverQuotaLink          | string | true     | Tracking code or link used after an overquota.                                                                 |
+| QualityTerminationLink | string | true     | Tracking code or link used after a quality (security) termination.                                             |
 
 
 ### GET Show a Link
