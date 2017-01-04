@@ -257,7 +257,7 @@ Returns the estimated time in days to achieve the total number of completes spec
 | LengthofInterview | int   | true     | Expected Length of Interview, in minutes.                       |
 | Incidence         | int   | true     | Expected incidence rate for the study.                          |
 | Price             | double| true     | Price in USD per complete offered.                              |
-| Quotas            | array | true     | List of quotas (can be an empty array).                         |
+| Quotas            | array | true     | Contains arrays for CompletesPerDay and Conditions. The conditions array can be blank for no conditions.|
 | QuestionID        | int   | false    | Unique ID associated with a question.                           |
 | PreCodes          | int   | false    | Precode associated with an answer for a specific questionID.    |
 
@@ -484,7 +484,7 @@ Returns a tiered model of price in USD per complete, given the inputs for Number
 | CountryLanguageID | int   | true     | Unique number associated with a specific Country-Language pair. |
 | LengthofInterview | int   | true     | Expected Length of Interview, in minutes.                       |
 | Incidence         | int   | true     | Expected incidence rate for the study.                          |
-| Quotas            | array | true     | List of quotas (can be an empty array).                         |
+| Quotas            | array | true     | Contains arrays for CompletesPerDay and Conditions. The conditions array can be blank for no conditions.|
 | QuestionID        | int   | false    | Unique ID associated with a question.                           |
 | PreCodes          | int   | false    | Precode associated with an answer for a specific questionID.    |
 
@@ -696,6 +696,6 @@ Returns the number of completes achievable given the parameters submitted, based
 | LengthofInterview | int   | true     | Expected Length of Interview, in minutes.                       |
 | Incidence         | int   | true     | Expected incidence rate for the study.                          |
 | Price             | double| true     | Price in USD per complete offered.                              |
-| Quotas            | array | true     | List of quotas (can be an empty array).                         |
+| Quotas            | array | true     | Contains arrays for CompletesPerDay and Conditions. The conditions array can be blank for no conditions.|
 | QuestionID        | int   | false    | Unique ID associated with a question.                           |
 | PreCodes          | int   | false    | Precode associated with an answer for a specific questionID.    |
