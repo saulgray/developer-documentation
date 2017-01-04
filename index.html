@@ -224,7 +224,7 @@
 <blockquote>
 <p>Definition</p>
 </blockquote>
-<pre class="highlight plaintext"><code>GET  http://api.samplicio.us/Lookup/v1/BasicLookups/BundledLookups/{Bundle}
+<pre class="highlight plaintext"><code>GET  https://api.samplicio.us/Lookup/v1/BasicLookups/BundledLookups/{Bundle}
 </code></pre>
 
 <blockquote>
@@ -2137,7 +2137,7 @@
         </span><span class="nt">"HedgeRemaining"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
         </span><span class="nt">"TargetModel"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nt">"SupplierLinkType"</span><span class="p">:</span><span class="w"> </span><span class="mi">18</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"LiveSupplierLink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://samplicio.us/router/default.aspx?SID=da94c7f8-0dcf-4fcc-80d4-6e2beafc3ff4&amp;PID="</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"LiveSupplierLink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://samplicio.us/router/default.aspx?SID=da94c7f8-0dcf-4fcc-80d4-6e2beafc3ff4&amp;PID="</span><span class="p">,</span><span class="w">
           </span><span class="nt">"SupplierLinkSID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"da94c7f8-0dcf-4fcc-80d4-6e2beafc3ff4"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"TargetCCPI"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
         </span><span class="p">}</span><span class="w">
@@ -4461,7 +4461,7 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell"><code>curl -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"Authorization: YOUR_API_KEY_HERE"</span> -X POST --data <span class="s1">'{"AccountID": 1,"SurveyStatusCode": "01","SurveyPriority": 11,"SurveyName": "Example API Survey","CountryLanguageID": 9,"IndustryID": 30,"StudyTypeID": 1,"ClientCPI": 1,"QuotaCPI": 2,"ClientSurveyLiveURL": "http://www.surveyURL.com?rid=[%RID%]","TestRedirectURL": "http://www.surveyURL.com?rid=[%RID%]","IsActive": true,"Quota": 1000,"FulcrumExchangeAllocation": 0,"FulcrumExchangeHedgeAccess": true,"IsVerifyCallBack": true,"UniquePID": true,"UniqueIPAddress": true,"IsRelevantID": false,"IsDedupe": false,"IsGeoIP": false,"IsFraudProfile": false,"FraudProfileThreshold": 0,"IsTrueSample": false,"QuotaCalculationTypeID": 1,"SurveyPlatformID": 2,"BidLengthOfInterview": 10,"BusinessUnitID": 9,"SampleTypeID": 100}'</span> https://api.samplicio.us/Demand/v1/Surveys/Create
+<pre class="highlight shell"><code>curl -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"Authorization: YOUR_API_KEY_HERE"</span> -X POST --data <span class="s1">'{"AccountID": 1,"SurveyStatusCode": "01","SurveyPriority": 11,"SurveyName": "Example API Survey","CountryLanguageID": 9,"IndustryID": 30,"StudyTypeID": 1,"ClientCPI": 1,"QuotaCPI": 2,"ClientSurveyLiveURL": "https://www.surveyURL.com?rid=[%RID%]","TestRedirectURL": "https://www.surveyURL.com?rid=[%RID%]","IsActive": true,"Quota": 1000,"FulcrumExchangeAllocation": 0,"FulcrumExchangeHedgeAccess": true,"IsVerifyCallBack": true,"UniquePID": true,"UniqueIPAddress": true,"IsRelevantID": false,"IsDedupe": false,"IsGeoIP": false,"IsFraudProfile": false,"FraudProfileThreshold": 0,"IsTrueSample": false,"QuotaCalculationTypeID": 1,"SurveyPlatformID": 2,"BidLengthOfInterview": 10,"BusinessUnitID": 9,"SampleTypeID": 100}'</span> https://api.samplicio.us/Demand/v1/Surveys/Create
 </code></pre>
 <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
 <span class="nb">require</span> <span class="s1">'json'</span>
@@ -4486,8 +4486,8 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
     <span class="s2">"StudyTypeID"</span><span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
     <span class="s2">"ClientCPI"</span><span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
     <span class="s2">"QuotaCPI"</span><span class="o">=&gt;</span> <span class="mi">2</span><span class="p">,</span>
-    <span class="s2">"ClientSurveyLiveURL"</span><span class="o">=&gt;</span> <span class="s2">"http://www.surveyURL.com?rid=[%RID%]"</span><span class="p">,</span>
-    <span class="s2">"TestRedirectURL"</span><span class="o">=&gt;</span> <span class="s2">"http://www.surveyURL.com?rid=[%RID%]"</span><span class="p">,</span>
+    <span class="s2">"ClientSurveyLiveURL"</span><span class="o">=&gt;</span> <span class="s2">"https://www.surveyURL.com?rid=[%RID%]"</span><span class="p">,</span>
+    <span class="s2">"TestRedirectURL"</span><span class="o">=&gt;</span> <span class="s2">"https://www.surveyURL.com?rid=[%RID%]"</span><span class="p">,</span>
     <span class="s2">"IsActive"</span><span class="o">=&gt;</span> <span class="kp">true</span><span class="p">,</span>
     <span class="s2">"Quota"</span><span class="o">=&gt;</span> <span class="mi">1000</span><span class="p">,</span>
     <span class="s2">"FulcrumExchangeAllocation"</span><span class="o">=&gt;</span> <span class="mi">0</span><span class="p">,</span>
@@ -4525,8 +4525,8 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
     "StudyTypeID": 1,
     "ClientCPI": 1,
     "QuotaCPI": 2,
-    "ClientSurveyLiveURL": "http://www.surveyURL.com?rid=[%RID%]",
-    "TestRedirectURL": "http://www.surveyURL.com?rid=[%RID%]",
+    "ClientSurveyLiveURL": "https://www.surveyURL.com?rid=[%RID%]",
+    "TestRedirectURL": "https://www.surveyURL.com?rid=[%RID%]",
     "IsActive": true,
     "Quota": 1000,
     "FulcrumExchangeAllocation": 0,
@@ -4578,8 +4578,8 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
     <span class="s">"StudyTypeID"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="s">"ClientCPI"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="s">"QuotaCPI"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-    <span class="s">"ClientSurveyLiveURL"</span><span class="p">:</span> <span class="s">"http://www.surveyURL.com?rid=[</span><span class="si">%</span><span class="s">RID</span><span class="si">%</span><span class="s">]"</span><span class="p">,</span>
-    <span class="s">"TestRedirectURL"</span><span class="p">:</span> <span class="s">"http://www.surveyURL.com?rid=[</span><span class="si">%</span><span class="s">RID</span><span class="si">%</span><span class="s">]"</span><span class="p">,</span>
+    <span class="s">"ClientSurveyLiveURL"</span><span class="p">:</span> <span class="s">"https://www.surveyURL.com?rid=[</span><span class="si">%</span><span class="s">RID</span><span class="si">%</span><span class="s">]"</span><span class="p">,</span>
+    <span class="s">"TestRedirectURL"</span><span class="p">:</span> <span class="s">"https://www.surveyURL.com?rid=[</span><span class="si">%</span><span class="s">RID</span><span class="si">%</span><span class="s">]"</span><span class="p">,</span>
     <span class="s">"IsActive"</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
     <span class="s">"Quota"</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
     <span class="s">"FulcrumExchangeAllocation"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -4619,8 +4619,8 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
                     <span class="s">""</span><span class="n">StudyTypeID</span><span class="s">""</span><span class="p">:</span> <span class="m">1</span><span class="p">,</span>
                     <span class="s">""</span><span class="n">ClientCPI</span><span class="s">""</span><span class="p">:</span> <span class="m">1</span><span class="p">,</span>
                     <span class="s">""</span><span class="n">QuotaCPI</span><span class="s">""</span><span class="p">:</span> <span class="m">2</span><span class="p">,</span>
-                    <span class="s">""</span><span class="n">ClientSurveyLiveURL</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">http</span><span class="p">:</span><span class="c1">//www.surveyURL.com?rid=[%RID%]"",
-</span>                    <span class="s">""</span><span class="n">TestRedirectURL</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">http</span><span class="p">:</span><span class="c1">//www.surveyURL.com?rid=[%RID%]"",
+                    <span class="s">""</span><span class="n">ClientSurveyLiveURL</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">https</span><span class="p">:</span><span class="c1">//www.surveyURL.com?rid=[%RID%]"",
+</span>                    <span class="s">""</span><span class="n">TestRedirectURL</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">https</span><span class="p">:</span><span class="c1">//www.surveyURL.com?rid=[%RID%]"",
 </span>                    <span class="s">""</span><span class="n">IsActive</span><span class="s">""</span><span class="p">:</span> <span class="k">true</span><span class="p">,</span>
                     <span class="s">""</span><span class="n">Quota</span><span class="s">""</span><span class="p">:</span> <span class="m">1000</span><span class="p">,</span>
                     <span class="s">""</span><span class="n">FulcrumExchangeAllocation</span><span class="s">""</span><span class="p">:</span> <span class="m">0</span><span class="p">,</span>
@@ -4675,8 +4675,8 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
     <span class="s2">"StudyTypeID"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="s2">"ClientCPI"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="s2">"QuotaCPI"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-    <span class="s2">"ClientSurveyLiveURL"</span><span class="p">:</span> <span class="s2">"http://www.surveyURL.com?rid=[%RID%]"</span><span class="p">,</span>
-    <span class="s2">"TestRedirectURL"</span><span class="p">:</span> <span class="s2">"http://www.surveyURL.com?rid=[%RID%]"</span><span class="p">,</span>
+    <span class="s2">"ClientSurveyLiveURL"</span><span class="p">:</span> <span class="s2">"https://www.surveyURL.com?rid=[%RID%]"</span><span class="p">,</span>
+    <span class="s2">"TestRedirectURL"</span><span class="p">:</span> <span class="s2">"https://www.surveyURL.com?rid=[%RID%]"</span><span class="p">,</span>
     <span class="s2">"IsActive"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
     <span class="s2">"Quota"</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
     <span class="s2">"FulcrumExchangeAllocation"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -4739,8 +4739,8 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
     </span><span class="nt">"StudyTypeID"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="nt">"ClientCPI"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="nt">"QuotaCPI"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"ClientSurveyLiveURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.surveyURL.com?rid=[%RID%]"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"TestRedirectURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.surveyURL.com?rid=[%RID%]"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ClientSurveyLiveURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.surveyURL.com?rid=[%RID%]"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"TestRedirectURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.surveyURL.com?rid=[%RID%]"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"IsActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Quota"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
     </span><span class="nt">"FulcrumExchangeAllocation"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -4965,7 +4965,7 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell"><code>curl -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"Authorization: YOUR_API_KEY_HERE"</span> -X PUT --data <span class="s1">'{"AccountID": 1,"SurveyStatusCode": "01","SurveyPriority": 11,"SurveyNumber": 12345,"SurveyName": "Example API Survey","CountryLanguageID": 9,"IndustryID": 30,"StudyTypeID": 1,"ClientCPI": 1,"QuotaCPI": 2,"ClientSurveyLiveURL": "http://www.surveyURL.com?rid=[%RID%]","TestRedirectURL": "http://www.surveyURL.com?rid=[%RID%]","IsActive": true,"Quota": 100,"FulcrumExchangeAllocation": 0,"FulcrumExchangeHedgeAccess": true,"IsVerifyCallBack": true,"UniquePID": true,"UniqueIPAddress": true,"IsRelevantID": false,"IsDedupe": false,"IsGeoIP": false,"IsFraudProfile": false,"FraudProfileThreshold": 0,"IsTrueSample": false,"QuotaCalculationTypeID": 1,"SurveyPlatformID": 2,"BidLengthOfInterview": 10,"BusinessUnitID": 9,"SampleTypeID": 100}'</span> https://api.samplicio.us/Demand/v1/Surveys/Update/<span class="o">{</span>SurveyNumber<span class="o">}</span>
+<pre class="highlight shell"><code>curl -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"Authorization: YOUR_API_KEY_HERE"</span> -X PUT --data <span class="s1">'{"AccountID": 1,"SurveyStatusCode": "01","SurveyPriority": 11,"SurveyNumber": 12345,"SurveyName": "Example API Survey","CountryLanguageID": 9,"IndustryID": 30,"StudyTypeID": 1,"ClientCPI": 1,"QuotaCPI": 2,"ClientSurveyLiveURL": "https://www.surveyURL.com?rid=[%RID%]","TestRedirectURL": "https://www.surveyURL.com?rid=[%RID%]","IsActive": true,"Quota": 100,"FulcrumExchangeAllocation": 0,"FulcrumExchangeHedgeAccess": true,"IsVerifyCallBack": true,"UniquePID": true,"UniqueIPAddress": true,"IsRelevantID": false,"IsDedupe": false,"IsGeoIP": false,"IsFraudProfile": false,"FraudProfileThreshold": 0,"IsTrueSample": false,"QuotaCalculationTypeID": 1,"SurveyPlatformID": 2,"BidLengthOfInterview": 10,"BusinessUnitID": 9,"SampleTypeID": 100}'</span> https://api.samplicio.us/Demand/v1/Surveys/Update/<span class="o">{</span>SurveyNumber<span class="o">}</span>
 </code></pre>
 <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
 <span class="nb">require</span> <span class="s1">'json'</span>
@@ -4991,8 +4991,8 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
     <span class="no">StudyTypeID</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="no">ClientCPI</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="no">QuotaCPI</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-    <span class="no">ClientSurveyLiveURL</span><span class="p">:</span> <span class="s2">"http://www.surveyURL.com?rid=[%RID%]"</span><span class="p">,</span>
-    <span class="no">TestRedirectURL</span><span class="p">:</span> <span class="s2">"http://www.surveyURL.com?rid=[%RID%]"</span><span class="p">,</span>
+    <span class="no">ClientSurveyLiveURL</span><span class="p">:</span> <span class="s2">"https://www.surveyURL.com?rid=[%RID%]"</span><span class="p">,</span>
+    <span class="no">TestRedirectURL</span><span class="p">:</span> <span class="s2">"https://www.surveyURL.com?rid=[%RID%]"</span><span class="p">,</span>
     <span class="no">IsActive</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span>
     <span class="no">Quota</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
     <span class="no">FulcrumExchangeAllocation</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -5031,8 +5031,8 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
     "StudyTypeID": 1,
     "ClientCPI": 1,
     "QuotaCPI": 2,
-    "ClientSurveyLiveURL": "http://www.surveyURL.com?rid=[%RID%]",
-    "TestRedirectURL": "http://www.surveyURL.com?rid=[%RID%]",
+    "ClientSurveyLiveURL": "https://www.surveyURL.com?rid=[%RID%]",
+    "TestRedirectURL": "https://www.surveyURL.com?rid=[%RID%]",
     "IsActive": true,
     "Quota": 100,
     "FulcrumExchangeAllocation": 0,
@@ -5085,8 +5085,8 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
     <span class="s">"StudyTypeID"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="s">"ClientCPI"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="s">"QuotaCPI"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-    <span class="s">"ClientSurveyLiveURL"</span><span class="p">:</span> <span class="s">"http://www.surveyURL.com?rid=[</span><span class="si">%</span><span class="s">RID</span><span class="si">%</span><span class="s">]"</span><span class="p">,</span>
-    <span class="s">"TestRedirectURL"</span><span class="p">:</span> <span class="s">"http://www.surveyURL.com?rid=[</span><span class="si">%</span><span class="s">RID</span><span class="si">%</span><span class="s">]"</span><span class="p">,</span>
+    <span class="s">"ClientSurveyLiveURL"</span><span class="p">:</span> <span class="s">"https://www.surveyURL.com?rid=[</span><span class="si">%</span><span class="s">RID</span><span class="si">%</span><span class="s">]"</span><span class="p">,</span>
+    <span class="s">"TestRedirectURL"</span><span class="p">:</span> <span class="s">"https://www.surveyURL.com?rid=[</span><span class="si">%</span><span class="s">RID</span><span class="si">%</span><span class="s">]"</span><span class="p">,</span>
     <span class="s">"IsActive"</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
     <span class="s">"Quota"</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
     <span class="s">"FulcrumExchangeAllocation"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -5127,8 +5127,8 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
                     <span class="s">""</span><span class="n">StudyTypeID</span><span class="s">""</span><span class="p">:</span> <span class="m">1</span><span class="p">,</span>
                     <span class="s">""</span><span class="n">ClientCPI</span><span class="s">""</span><span class="p">:</span> <span class="m">1</span><span class="p">,</span>
                     <span class="s">""</span><span class="n">QuotaCPI</span><span class="s">""</span><span class="p">:</span> <span class="m">2</span><span class="p">,</span>
-                    <span class="s">""</span><span class="n">ClientSurveyLiveURL</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">http</span><span class="p">:</span><span class="c1">//www.surveyURL.com?rid=[%RID%]"",
-</span>                    <span class="s">""</span><span class="n">TestRedirectURL</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">http</span><span class="p">:</span><span class="c1">//www.surveyURL.com?rid=[%RID%]"",
+                    <span class="s">""</span><span class="n">ClientSurveyLiveURL</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">https</span><span class="p">:</span><span class="c1">//www.surveyURL.com?rid=[%RID%]"",
+</span>                    <span class="s">""</span><span class="n">TestRedirectURL</span><span class="s">""</span><span class="p">:</span> <span class="s">""</span><span class="n">https</span><span class="p">:</span><span class="c1">//www.surveyURL.com?rid=[%RID%]"",
 </span>                    <span class="s">""</span><span class="n">IsActive</span><span class="s">""</span><span class="p">:</span> <span class="k">true</span><span class="p">,</span>
                     <span class="s">""</span><span class="n">Quota</span><span class="s">""</span><span class="p">:</span> <span class="m">100</span><span class="p">,</span>
                     <span class="s">""</span><span class="n">FulcrumExchangeAllocation</span><span class="s">""</span><span class="p">:</span> <span class="m">0</span><span class="p">,</span>
@@ -5184,8 +5184,8 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
     <span class="s2">"StudyTypeID"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="s2">"ClientCPI"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="s2">"QuotaCPI"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-    <span class="s2">"ClientSurveyLiveURL"</span><span class="p">:</span> <span class="s2">"http://www.surveyURL.com?rid=[%RID%]"</span><span class="p">,</span>
-    <span class="s2">"TestRedirectURL"</span><span class="p">:</span> <span class="s2">"http://www.surveyURL.com?rid=[%RID%]"</span><span class="p">,</span>
+    <span class="s2">"ClientSurveyLiveURL"</span><span class="p">:</span> <span class="s2">"https://www.surveyURL.com?rid=[%RID%]"</span><span class="p">,</span>
+    <span class="s2">"TestRedirectURL"</span><span class="p">:</span> <span class="s2">"https://www.surveyURL.com?rid=[%RID%]"</span><span class="p">,</span>
     <span class="s2">"IsActive"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
     <span class="s2">"Quota"</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
     <span class="s2">"FulcrumExchangeAllocation"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -5248,8 +5248,8 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
     </span><span class="nt">"StudyTypeID"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="nt">"ClientCPI"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="nt">"QuotaCPI"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"ClientSurveyLiveURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.surveyURL.com?rid=[%RID%]"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"TestRedirectURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.surveyURL.com?rid=[%RID%]"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ClientSurveyLiveURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.surveyURL.com?rid=[%RID%]"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"TestRedirectURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.surveyURL.com?rid=[%RID%]"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"IsActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Quota"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
     </span><span class="nt">"FulcrumExchangeAllocation"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -5569,8 +5569,8 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
     </span><span class="nt">"StudyTypeID"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="nt">"ClientCPI"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="nt">"QuotaCPI"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"ClientSurveyLiveURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.surveyURL.com?rid=[%RID%]"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"TestRedirectURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.surveyURL.com?rid=[%RID%]"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ClientSurveyLiveURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.surveyURL.com?rid=[%RID%]"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"TestRedirectURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.surveyURL.com?rid=[%RID%]"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"IsActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Quota"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
     </span><span class="nt">"FulcrumExchangeAllocation"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -5716,8 +5716,8 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
       </span><span class="nt">"StudyTypeID"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
       </span><span class="nt">"ClientCPI"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
       </span><span class="nt">"QuotaCPI"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"ClientSurveyLiveURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.surveyURL.com?rid=[%RID%]"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"TestRedirectURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.surveyURL.com?rid=[%RID%]"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ClientSurveyLiveURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.surveyURL.com?rid=[%RID%]"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"TestRedirectURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.surveyURL.com?rid=[%RID%]"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"IsActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="nt">"Quota"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
       </span><span class="nt">"FulcrumExchangeAllocation"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -11035,7 +11035,7 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
 <td>Quotas</td>
 <td>array</td>
 <td>true</td>
-<td>List of quotas (can be an empty array).</td>
+<td>Contains arrays for CompletesPerDay and Conditions. The conditions array can be blank for no conditions.</td>
 </tr>
 <tr>
 <td>QuestionID</td>
@@ -11287,7 +11287,7 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
 <td>Quotas</td>
 <td>array</td>
 <td>true</td>
-<td>List of quotas (can be an empty array).</td>
+<td>Contains arrays for CompletesPerDay and Conditions. The conditions array can be blank for no conditions.</td>
 </tr>
 <tr>
 <td>QuestionID</td>
@@ -11527,7 +11527,7 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
 <td>Quotas</td>
 <td>array</td>
 <td>true</td>
-<td>List of quotas (can be an empty array).</td>
+<td>Contains arrays for CompletesPerDay and Conditions. The conditions array can be blank for no conditions.</td>
 </tr>
 <tr>
 <td>QuestionID</td>
@@ -12943,25 +12943,25 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
 <blockquote>
 <p>Complete</p>
 </blockquote>
-<pre class="highlight plaintext"><code>http://www.samplicio.us/router/ClientCallBack.aspx?RIS=10&amp;RID={RID}&amp;ienc={hash}
+<pre class="highlight plaintext"><code>https://www.samplicio.us/router/ClientCallBack.aspx?RIS=10&amp;RID={RID}&amp;ienc={hash}
 </code></pre>
 
 <blockquote>
 <p>Term</p>
 </blockquote>
-<pre class="highlight plaintext"><code>http://www.samplicio.us/router/ClientCallBack.aspx?RIS=20&amp;RID={RID}&amp;ienc={hash}
+<pre class="highlight plaintext"><code>https://www.samplicio.us/router/ClientCallBack.aspx?RIS=20&amp;RID={RID}&amp;ienc={hash}
 </code></pre>
 
 <blockquote>
 <p>Quality Term / Duplication / Security</p>
 </blockquote>
-<pre class="highlight plaintext"><code>http://www.samplicio.us/router/ClientCallBack.aspx?RIS=30&amp;RID={RID}&amp;ienc={hash}
+<pre class="highlight plaintext"><code>https://www.samplicio.us/router/ClientCallBack.aspx?RIS=30&amp;RID={RID}&amp;ienc={hash}
 </code></pre>
 
 <blockquote>
 <p>Overquota</p>
 </blockquote>
-<pre class="highlight plaintext"><code>Overquota: http://www.samplicio.us/router/ClientCallBack.aspx?RIS=40&amp;RID={RID}&amp;ienc={hash}
+<pre class="highlight plaintext"><code>https://www.samplicio.us/router/ClientCallBack.aspx?RIS=40&amp;RID={RID}&amp;ienc={hash}
 </code></pre>
 
 <p>At the end of a respondent&rsquo;s experience in your platform, you should send them back to Fulcrum using the end link corresponding to their respective status. This will update the respondent&rsquo;s status in Fulcrum and send them back to their supplier with information on how to be compensated. <code class="prettyprint">RID</code> is an SID unique to identify the respondent and session. You must include <code class="prettyprint">&amp;RID=[%RID%]</code> on the <code class="prettyprint">ClientSurveyLiveURL</code> property of your <code class="prettyprint">Survey</code> object referenced in Phase 3 in order to capture the respondent&rsquo;s identifier in your system on entry and include it on the redirect when they return to Fulcrum.</p>
@@ -13089,13 +13089,13 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
 <blockquote>
 <p>Example Entry to Fulcrum with Supplier&rsquo;s Respondent Data:</p>
 </blockquote>
-<pre class="highlight plaintext"><code>http://www.samplicio.us/router/default.aspx?SID=f6c83654-3d4f-4f7c-bef1-2f5097b6ae9c&amp;PID=12345&amp;MID=54321&amp;AGE=35&amp;GENDER=2&amp;ZIP=70117
+<pre class="highlight plaintext"><code>https://www.samplicio.us/router/default.aspx?SID=f6c83654-3d4f-4f7c-bef1-2f5097b6ae9c&amp;PID=12345&amp;MID=54321&amp;AGE=35&amp;GENDER=2&amp;ZIP=70117
 </code></pre>
 
 <blockquote>
 <p>Example Supplier End Link with Fulcrum&rsquo;s Respondent Data:</p>
 </blockquote>
-<pre class="highlight plaintext"><code>http://www.supplierURL.com?status=complete&amp;PID=[%PID%]&amp;MID=[%MID%]&amp;42=[%AGE%]&amp;43=[%GENDER%]&amp;45=[%ZIP%]&amp;47=[%HISPANIC%]&amp;113=[%ETHNICITY%]
+<pre class="highlight plaintext"><code>https://www.supplierURL.com?status=complete&amp;PID=[%PID%]&amp;MID=[%MID%]&amp;42=[%AGE%]&amp;43=[%GENDER%]&amp;45=[%ZIP%]&amp;47=[%HISPANIC%]&amp;113=[%ETHNICITY%]
 </code></pre>
 
 <p>Fulcrum Standard questions provide an industry standard for programmatic survey targeting. A survey’s qualifications form the prescreener questions that are presented to each respondent before they leave Fulcrum and enter the client survey.</p>
@@ -13111,7 +13111,7 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
 <li>Fulcrum will pass back stored demographic data if the respondent has answered that question within the last 30 days. 30 days is the expiration period for all demographic data in Fulcrum.</li>
 <li>If demographic data is returned on the supplier redirect which you <strong>do not</strong> have for your panelist, then update your panelist profile with this information to better improve your targeting.</li>
 <li>If you already have that demographic information stored, ignore Fulcrum&rsquo;s data and use your own as the source of truth.</li>
-<li>We recommend including the top 20 qualifications on your return redirects to capture valuable demographic data on your respondents. Use our <a href="http://labs.lucidhq.com/redirects">redirects generator</a> to add recommended parameters to your redirects.</li>
+<li>We recommend including the top 20 qualifications on your return redirects to capture valuable demographic data on your respondents. Use our <a href="https://labs.lucidhq.com/redirects">redirects generator</a> to add recommended parameters to your redirects.</li>
 </ul></li>
 </ul>
 
@@ -13237,13 +13237,13 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
 
 <h4 id="3-create-a-link">3. <a href="#post-create-a-link">Create a Link</a></h4>
 
-<p>Once you have identified a good survey opportunity, create the entry links. This call will return &ldquo;live&rdquo; and &ldquo;test&rdquo; links. The &ldquo;live&rdquo; link is where you should send your respondents. Respondent profiling data should be passed into Fulcrum on the entry link query string as <code class="prettyprint">&amp;Qualification_Name=Value</code> where <code class="prettyprint">Qualification_Name</code> matches the Name property returned via the <a href="#get-list-standard-questions">List Standard Questions</a> call and <code class="prettyprint">Value</code> matches the Precode returned via the <a href="http://developer.lucidhq.com/#get-show-question-options">Show Question Options</a> call. Respondents will bypass any questions in the Fulcrum prescreener where values are appended to entry links.</p>
+<p>Once you have identified a good survey opportunity, create the entry links. This call will return &ldquo;live&rdquo; and &ldquo;test&rdquo; links. The &ldquo;live&rdquo; link is where you should send your respondents. Respondent profiling data should be passed into Fulcrum on the entry link query string as <code class="prettyprint">&amp;Qualification_Name=Value</code> where <code class="prettyprint">Qualification_Name</code> matches the Name property returned via the <a href="#get-list-standard-questions">List Standard Questions</a> call and <code class="prettyprint">Value</code> matches the Precode returned via the <a href="#get-show-question-options">Show Question Options</a> call. Respondents will bypass any questions in the Fulcrum prescreener where values are appended to entry links.</p>
 
 <aside class="notice">It&rsquo;s best practice to never put the survey entry link directly in your respondent invite emails as surveys and survey quotas can be closed by the time the respondent clicks. Rather, use a link into your decisioning system and always re-evaluate the best opportunity for your respondent based on earnings per click (EPC) at that time.</aside>
 
 <ul>
 <li>Fulcrum will automatically use your default supplier redirects. Custom supplier redirects can be included in the payload with this call and the <a href="#put-update-a-link">Update a Link</a> call.</li>
-<li>Any session or profiling data collected in Fulcrum can be passed back to a supplier on the redirect links. A list of relevant session variables can be found <a href="https://support.lucidhq.com/s/article/Adding-Variables-to-Survey-Links">here</a>. Profiling data will be populated on redirects by appending <code class="prettyprint">[%Qualification_Name%]</code> to the redirect links where <code class="prettyprint">Qualification_Name</code> is the name of the qualification you would like to pass. Our <a href="http://labs.lucidhq.com/redirects">redirects generator</a> is a great tool for formatting redirect links.</li>
+<li>Any session or profiling data collected in Fulcrum can be passed back to a supplier on the redirect links. A list of relevant session variables can be found <a href="https://support.lucidhq.com/s/article/Adding-Variables-to-Survey-Links">here</a>. Profiling data will be populated on redirects by appending <code class="prettyprint">[%Qualification_Name%]</code> to the redirect links where <code class="prettyprint">Qualification_Name</code> is the name of the qualification you would like to pass. Our <a href="https://labs.lucidhq.com/redirects">redirects generator</a> is a great tool for formatting redirect links.</li>
 <li>We require sending the respondent into Fulcrum with PID equal to the unique panelist ID and recommend sending the MID equal to the supplier&rsquo;s unique identifier for the session.</li>
 </ul>
 
