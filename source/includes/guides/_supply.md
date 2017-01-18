@@ -204,23 +204,23 @@ __Objective: Earn the most revenue with the least amount of clicks by reviewing 
 
 ### Phase 5 - Advanced Topics
 
-In this phase we’ll explain how to handle Survey Groups, Recontact Studies, and Custom Qualifications
+In this phase we’ll explain how to handle Survey Groups, Recontact Studies, and Custom Qualifications.
 
 #### Survey Groups
 
-The [Show an Allocated Survey](#get-show-an-allocated-survey) call returns the property `SurveyGroup`.  This information can be used to avoid sending respondents to a survey that is included in a survey group that contains a survey which they have previously  attempted. Buyers typically remove older surveys from the survey group over time as the lockout period ends and the respondent can then attempt new surveys once again.
+Fulcrum buyers place surveys in survey groups to avoid duplication across multiple surveys. Buyers may add or remove surveys from survey groups as their deduplication needs change. Suppliers should avoid sending the same respondent to all other survey in a survey group if that respondent previously attempted one of that group's surveys. The [Show an Allocated Survey](#get-show-an-allocated-survey) call returns the property `SurveyGroupExists`, which can be used to determine if the [List a Survey's Groups](#groups) call should be made for that survey.
 
-Below is recommended process to check and update survey groups every 5 minutes:
+Below is the recommended process to check and update survey groups every 10 minutes:
 
-1. Make the the [List Exchange Surveys](#get-list-exchange-surveys) and the [Show an Allocated Survey](#get-show-an-allocated-survey) calls
-2. Check the property `SurveyGroupExists`. `0` or `1` indicates whether there is a survey group(s) associated with the survey. `0` represents `false` and `1` representing `true`.
-3. If `SurveyGroupExists` = `0` then no additional steps are needed as the survey is not in a survey group
+1. Make the the [List Exchange Surveys](#get-list-exchange-surveys) and the [Show an Allocated Survey](#get-show-an-allocated-survey) calls.
+2. Check the `SurveyGroupExists` property. `0` or `1` indicates whether there is a survey group(s) associated with the survey, where `0` represents `false` and `1` represents `true`.
+3. If `SurveyGroupExists` = `0` then no additional steps are needed.
 4. If `SurveyGroupExists` = `1` then the survey is in a survey group and you should make the [List a Survey’s Groups](#groups) call for that survey.
-5. Add the groups's survey number(s) to your survey group table and continue to check that survey number until it is removed from the survey group—the response will be `null`.
-6. Do not send the same respondent to any survey in that survey group until you get a `null` response for that survey.
+5. Store the `SurveyGroupID` to your survey groups table with every survey number returned in the `SurveyGroupSurveys` array. Remove or inactivate survey numbers not returned in that array for that `SurveyGroupID` from your survey groups table.
+6. Do not send a respondent to more than one survey in each survey group. If a survey is removed from a survey group, you may begin sending respondents to other survey numbers remaining in that group.
 
 
-`SurveyGroup` and `SurveyGroupID` on the [List Exchange Surveys](#get-list-exchange-surveys) and the [Show an Allocated Survey](#get-show-an-allocated-survey) calls will now always return null as per June 25th changes. You should no longer use these fields.
+You should no longer use the `SurveyGroup` and `SurveyGroupID` properties returned on the [List Exchange Surveys](#get-list-exchange-surveys) and the [Show an Allocated Survey](#get-show-an-allocated-survey) calls. These fields will always return `null` per their removal on June 25, 2016.
 
 #### Recontacts
 Buyers often want to recontact respondents that have completed their surveys in order to ask follow-up questions. These surveys are known as recontact studies and have a `StudyTypeID` of 22 in Fulcrum. These studies are unique in that buyers will upload a list of PIDs that the supplier can then use to identify respondents that qualify for the opportunity. All recontact studies will have a unique Qualification, `PIDCheck`, that will terminate PID and supplier combinations that are not in the buyer's PID list.
