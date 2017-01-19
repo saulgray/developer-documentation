@@ -208,7 +208,7 @@ In this phase we’ll explain how to handle Survey Groups, Recontact Studies, an
 
 #### Survey Groups
 
-Fulcrum buyers place surveys in survey groups to avoid duplication across multiple surveys. Buyers may add or remove surveys from survey groups as their deduplication needs change. Suppliers should avoid sending the same respondent to all other survey in a survey group if that respondent previously attempted one of that group's surveys. The [Show an Allocated Survey](#get-show-an-allocated-survey) call returns the property `SurveyGroupExists`, which can be used to determine if the [List a Survey's Groups](#groups) call should be made for that survey.
+Fulcrum buyers place surveys in survey groups to avoid duplication across multiple surveys. Buyers may add or remove surveys from survey groups as their deduplication needs change. Suppliers should avoid sending the same respondent to all other surveys in a survey group if that respondent previously attempted one of that group's surveys. The [Show an Allocated Survey](#get-show-an-allocated-survey) call returns the property `SurveyGroupExists`, which can be used to determine if the [List a Survey's Groups](#groups) call should be made for that survey.
 
 Below is the recommended process to check and update survey groups every 10 minutes:
 
@@ -217,7 +217,7 @@ Below is the recommended process to check and update survey groups every 10 minu
 3. If `SurveyGroupExists` = `0` then no additional steps are needed.
 4. If `SurveyGroupExists` = `1` then the survey is in a survey group and you should make the [List a Survey’s Groups](#groups) call for that survey.
 5. Store the `SurveyGroupID` to your survey groups table with every survey number returned in the `SurveyGroupSurveys` array. Remove or inactivate survey numbers not returned in that array for that `SurveyGroupID` from your survey groups table.
-6. Do not send a respondent to more than one survey in each survey group. If a survey is removed from a survey group, you may begin sending respondents to other survey numbers remaining in that group.
+6. Do not send a respondent to more than one survey in each survey group. If a survey is removed from a survey group, you may begin sending respondents you sent to that particular survey to other survey numbers remaining in that group.
 
 
 You should no longer use the `SurveyGroup` and `SurveyGroupID` properties returned on the [List Exchange Surveys](#get-list-exchange-surveys) and the [Show an Allocated Survey](#get-show-an-allocated-survey) calls. These fields will always return `null` per their removal on June 25, 2016.
