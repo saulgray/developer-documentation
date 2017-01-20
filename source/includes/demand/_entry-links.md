@@ -440,7 +440,7 @@ url = 'https://api.samplicio.us/Demand/v1/SupplierAllocations/Targets/Delete/{Su
 
 headers = {'Authorization' : YOUR_API_KEY_HERE}
 
-response = requests.get(url, headers=headers)
+response = requests.delete(url, headers=headers)
 ```
 
 ```csharp
