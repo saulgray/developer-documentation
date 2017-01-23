@@ -11,7 +11,7 @@ POST  https://api.samplicio.us/Demand/v1/SupplierGroups/CreateWithSuppliers/{Sur
 > Example Request
 
 ```shell
-curl -H "Content-Type: application/json" -H "Authorization: YOUR_API_KEY_HERE" -X POST --data '{"SurveyNumber": 101100,"Name":"Top Supplier Group", "AllocationPercentage": 0.10,"IsHedgeAccess": true, "Suppliers": [{"SupplierCode":"0001"}]}' https://api.samplicio.us/Demand/v1/SupplierGroups/CreateWithSuppliers/{SurveyNumber}
+curl -H "Content-Type: application/json" -H "Authorization: YOUR_API_KEY_HERE" -X POST --data '{"Name":"Top Supplier Group", "AllocationPercentage": 0.10,"IsHedgeAccess": true, "Suppliers": [{"SupplierCode":"0001"}]}' https://api.samplicio.us/Demand/v1/SupplierGroups/CreateWithSuppliers/{SurveyNumber}
 ```
 
 ```ruby
@@ -26,7 +26,7 @@ http.use_ssl = true
 
 request = Net::HTTP::Post.new(FullUriPath, initheader = {'Content-Type' => 'application/json'})
 
-request.body = {SurveyNumber: 101100, Name:"Top Supplier Group", AllocationPercentage: 0.10, IsHedgeAccess: true, "Suppliers": [{"SupplierCode":"0001"}]}.to_json
+request.body = {Name:"Top Supplier Group", AllocationPercentage: 0.10, IsHedgeAccess: true, "Suppliers": [{"SupplierCode":"0001"}]}.to_json
 
 request['Authorization'] = YOUR_API_KEY_HERE
 
@@ -37,7 +37,7 @@ response = http.request(request)
 <?php
 $curl = curl_init();
 
-$params = '{"SurveyNumber": 101100, "Name":"Top Supplier Group", "AllocationPercentage": 0.10, "IsHedgeAccess": true, "Suppliers": [{"SupplierCode":"0001"}]}';
+$params = '{"Name":"Top Supplier Group", "AllocationPercentage": 0.10, "IsHedgeAccess": true, "Suppliers": [{"SupplierCode":"0001"}]}';
 
 curl_setopt_array($curl, array(
   CURLOPT_URL => "https://api.samplicio.us/Demand/v1/SupplierGroups/CreateWithSuppliers/{SurveyNumber}",
@@ -61,7 +61,7 @@ curl_close($curl);
 import requests
 
 url = 'https://api.samplicio.us/Demand/v1/SupplierGroups/CreateWithSuppliers/{SurveyNumber}'
-params = {'SurveyNumber': 101100, 'Name':'Top Supplier Group', 'AllocationPercentage': 0.10, 'IsHedgeAccess': True, 'Suppliers': [{'SupplierCode':'1010'}]}
+params = {'Name':'Top Supplier Group', 'AllocationPercentage': 0.10, 'IsHedgeAccess': True, 'Suppliers': [{'SupplierCode':'1010'}]}
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Authorization' : 'YOUR_API_KEY_HERE', 'Accept': 'text/plain'}
 response = requests.post(url, data=data, headers=headers)
@@ -75,7 +75,6 @@ using System.Net;
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SupplierGroups/CreateWithSuppliers/{SurveyNumber}");
 
 string args = @"{
-                 ""SurveyNumber"": 101100,
                  ""Name"":""Top Supplier Group"",
                  ""AllocationPercentage"": 0.10,
                  ""IsHedgeAccess"": true,
@@ -111,8 +110,7 @@ var options = {
   }
 };
 
-var json = {"SurveyNumber": 101100,
-  "Name":"Top Supplier Group",
+var json = {"Name":"Top Supplier Group",
   "AllocationPercentage": 0.10,
   "IsHedgeAccess": true,
   "Suppliers": [
@@ -178,7 +176,6 @@ Creates a group with specific suppliers and allocation for that group.
 #### Arguments
 | Property             | Type    | Required | Description                                        |
 |----------------------|---------|----------|----------------------------------------------------|
-| SurveyNumber         | int     | true     | Unique number associated with the survey.          |
 | Name                 | string  | true     | Supplier Group name.                               |
 | AllocationPercentage | int     | tue      | Group reserved allocation, expressed as a decimal. |
 | IsHedgeAccess        | boolean | true     | Access to unallocated completes on the Exchange.   |
@@ -196,7 +193,7 @@ POST  https://api.samplicio.us/Demand/v1/SupplierGroups/Create/{SurveyNumber}
 > Example Request
 
 ```shell
-curl -H "Content-Type: application/json" -H "Authorization: YOUR_API_KEY_HERE" -X POST --data '{"SurveyNumber": 101100,"Name":"Top Supplier Group", "AllocationPercentage": 0.10,"IsHedgeAccess": true}' https://api.samplicio.us/Demand/v1/SupplierGroups/Create/{SurveyNumber}
+curl -H "Content-Type: application/json" -H "Authorization: YOUR_API_KEY_HERE" -X POST --data '{"Name":"Top Supplier Group", "AllocationPercentage": 0.10,"IsHedgeAccess": true}' https://api.samplicio.us/Demand/v1/SupplierGroups/Create/{SurveyNumber}
 ```
 
 ```ruby
@@ -213,7 +210,7 @@ fullUriPath = uri.path + '?' + uri.query
 
 request = Net::HTTP::Post.new(fullUriPath, initheader = {'Content-Type' =>'application/json'})
 
-request.body = {SurveyNumber: 101100, Name:"Top Supplier Group", AllocationPercentage: 0.10, IsHedgeAccess: true}.to_json
+request.body = {Name:"Top Supplier Group", AllocationPercentage: 0.10, IsHedgeAccess: true}.to_json
 
 request['Authorization'] = YOUR_API_KEY_HERE
 
@@ -224,7 +221,7 @@ response = http.request(request)
 <?php
 $curl = curl_init();
 
-$params = '{"SurveyNumber": 101100,"Name":"Top Supplier Group", "AllocationPercentage": 0.10,"IsHedgeAccess": true}';
+$params = '{"Name":"Top Supplier Group", "AllocationPercentage": 0.10,"IsHedgeAccess": true}';
 
 curl_setopt_array($curl, array(
   CURLOPT_URL => "https://api.samplicio.us/Demand/v1/SupplierGroups/Create/{SurveyNumber}",
@@ -248,7 +245,7 @@ curl_close($curl);
 import requests, json
 
 url = 'https://api.samplicio.us/Demand/v1/SupplierGroups/Create/{SurveyNumber}'
-params = {'SurveyNumber': 101100,'Name':'Top Supplier Group', 'AllocationPercentage': 0.10,'IsHedgeAccess': True}
+params = {'Name':'Top Supplier Group', 'AllocationPercentage': 0.10,'IsHedgeAccess': True}
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Authorization' : 'YOUR_API_KEY_HERE', 'Accept': 'text/plain'}
 
@@ -263,7 +260,6 @@ using System.Net;
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SupplierGroups/Create/{SurveyNumber}");
 
 string args = @"{
-                 ""SurveyNumber"": 101100,
                  ""Name"":""Top Supplier Group"",
                  ""AllocationPercentage"": 0.10,
                  ""IsHedgeAccess"": true
@@ -295,8 +291,7 @@ var options = {
   }
 };
 
-var json = {"SurveyNumber": 101100,
-  "Name":"Top Supplier Group",
+var json = {"Name":"Top Supplier Group",
   "AllocationPercentage": 0.10,
   "IsHedgeAccess": true,
   }
@@ -352,7 +347,6 @@ Creates an empty supplier group with a specific allocation and name.
 
 | Property             | Type    | Required | Description                                        |
 |----------------------|---------|----------|----------------------------------------------------|
-| SurveyNumber         | int     | true     | Unique number associated with the survey.          |
 | Name                 | string  | true     | Supplier Group name.                               |
 | AllocationPercentage | int     | true     | Group reserved allocation, expressed as a decimal. |
 | IsHedgeAccess        | boolean | false    | Access to unallocated completes on the Exchange.   |
@@ -370,7 +364,7 @@ PUT  https://api.samplicio.us/Demand/v1/SupplierGroups/Update/{SurveyNumber}
 > Example Request
 
 ```shell
-curl -H "Content-Type: application/json" -H "Authorization: YOUR_API_KEY_HERE" -X PUT --data '{"ID": 1234, "SurveyNumber": 001100,"Name":"Top Supplier Group", "AllocationPercentage": 0.10,"IsHedgeAccess": true}' https://api.samplicio.us/Demand/v1/SupplierGroups/Update/{SurveyNumber}
+curl -H "Content-Type: application/json" -H "Authorization: YOUR_API_KEY_HERE" -X PUT --data '{"ID": 1234, "Name":"Top Supplier Group", "AllocationPercentage": 0.10,"IsHedgeAccess": true}' https://api.samplicio.us/Demand/v1/SupplierGroups/Update/{SurveyNumber}
 ```
 
 ```ruby
@@ -387,7 +381,7 @@ fullUriPath = uri.path + '?' + uri.query
 
 request = Net::HTTP::Put.new(fullUriPath, initheader = {'Content-Type' =>'application/json'})
 
-request.body = {ID: 1234, SurveyNumber: 101100, Name:"Top Supplier Group",AllocationPercentage: 0.10, IsHedgeAccess: true}.to_json
+request.body = {ID: 1234, Name:"Top Supplier Group",AllocationPercentage: 0.10, IsHedgeAccess: true}.to_json
 
 request['Authorization'] = YOUR_API_KEY_HERE
 
@@ -398,7 +392,7 @@ response = http.request(request)
 <?php
 $curl = curl_init();
 
-$params = '{"ID": 1234,"SurveyNumber": 101100,"Name":"Top Supplier Group", "AllocationPercentage": 0.10,"IsHedgeAccess": true}';
+$params = '{"ID": 1234, "Name": "Top Supplier Group", "AllocationPercentage": 0.10,"IsHedgeAccess": true}';
 
 curl_setopt_array($curl, array(
   CURLOPT_URL => "https://api.samplicio.us/Demand/v1/SupplierGroups/Update/{SurveyNumber}",
@@ -422,7 +416,7 @@ curl_close($curl);
 import requests, json
 
 url = 'https://api.samplicio.us/Demand/v1/SupplierGroups/Update/{SurveyNumber}'
-params = {'ID': 1234,'SurveyNumber': 101100,'Name':'Top Supplier Group', 'AllocationPercentage': 0.10,'IsHedgeAccess': True}
+params = {'ID': 1234,'Name':'Top Supplier Group', 'AllocationPercentage': 0.10,'IsHedgeAccess': True}
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Authorization' : 'YOUR_API_KEY_HERE', 'Accept': 'text/plain'}
 
@@ -438,7 +432,6 @@ WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/Suppl
 
 string args = @"{
                  ""ID"": 1234,
-                 ""SurveyNumber"": 101100,
                  ""Name"":""Top Supplier Group"",
                  ""AllocationPercentage"": 0.10,
                  ""IsHedgeAccess"": true
@@ -471,7 +464,6 @@ var options = {
 };
 
 var json = {"ID": 1234,
-  "SurveyNumber": 101100,
   "Name":"Top Supplier Group",
   "AllocationPercentage": 0.10,
   "IsHedgeAccess": true,
@@ -529,7 +521,6 @@ Updates a supplier group with the specified values.
 | Property             | Type    | Required | Description                                        |
 |----------------------|---------|----------|----------------------------------------------------|
 | ID                   | int     | true     | Unique ID associated with the group.               |
-| SurveyNumber         | int     | true     | Unique number associated with the survey.          |
 | Name                 | string  | true     | Supplier Group name.                               |
 | AllocationPercentage | int     | true     | Group reserved allocation, expressed as a decimal. |
 | IsHedgeAccess        | boolean | true     | Access to unallocated completes on the Exchange.   |
