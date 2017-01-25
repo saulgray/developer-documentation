@@ -220,7 +220,7 @@ Below is the recommended process to check and update survey groups every 10 minu
 6. Do not send a respondent to more than one survey in each survey group. If a survey is removed from a survey group, you may begin sending respondents you sent to that particular survey to other survey numbers remaining in that group.
 
 
-You should no longer use the `SurveyGroup` and `SurveyGroupID` properties returned on the [List Exchange Surveys](#get-list-exchange-surveys) and the [Show an Allocated Survey](#get-show-an-allocated-survey) calls. These fields will always return `null` per their removal on June 25, 2016.
+You should no longer use the `SurveyGroup` and `SurveyGroupID` properties returned on the [List Exchange Surveys](#get-list-exchange-surveys) and the [Show an Allocated Survey](#get-show-an-allocated-survey) calls. These fields will always return `null` per their deprecation on June 25, 2016.
 
 #### Recontacts
 Buyers often want to recontact respondents that have completed their surveys in order to ask follow-up questions. These surveys are known as recontact studies and have a `StudyTypeID` of 22 in Fulcrum. These studies are unique in that buyers will upload a list of PIDs that the supplier can then use to identify respondents that qualify for the opportunity. All recontact studies will have a unique Qualification, `PIDCheck`, that will terminate PID and supplier combinations that are not in the buyer's PID list.
