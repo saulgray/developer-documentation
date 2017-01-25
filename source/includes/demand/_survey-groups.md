@@ -781,12 +781,12 @@ curl_close($curl);
 ```python
 import requests
 
-requests.delete('https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}')
+url = 'https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}'
 params = {'SurveyIDs': 101101}
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Authorization' : 'YOUR_API_KEY_HERE', 'Accept': 'text/plain'}
 
-response = requests.post(url, data=data, headers=headers)
+response = requests.delete(url, data=data, headers=headers)
 ```
 
 ```csharp
