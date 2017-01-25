@@ -1061,20 +1061,20 @@ Returns an index of all surveys by status such as Pending, Live, and Completed.
 > Definition
 
 ```plaintext
-POST https://api.samplicio.us/Demand/v1/Surveys/Reconcile/{SurveyNumber}?key={APIkey}`
+POST https://api.samplicio.us/Demand/v1/Surveys/Reconcile/{SurveyNumber}
 ```
 
 > Example Request
 
 ```shell
-curl -H "Content-Type: application/json" -X POST --data '{"ResponseIDs" : ["9AF8B134-9E9F-E611-813Z-121EAE80731D", "1ADX57D4-9A9F-E711-813E-121DAC84731P"]}' https://api.samplicio.us/Demand/v1/Surveys/Reconcile/123456?key={APIkey}
+curl -H "Content-Type: application/json" -H "Authorization: YOUR_API_KEY_HERE" -X POST --data '{"ResponseIDs" : ["9AF8B134-9E9F-E611-813Z-121EAE80731D", "1ADX57D4-9A9F-E711-813E-121DAC84731P"]}' https://api.samplicio.us/Demand/v1/Surveys/Reconcile/123456
 ```
 
 ```ruby
 require 'net/http'
 require 'json'
 
-uri = URI('https://api.samplicio.us/Demand/v1/Surveys/Reconcile/123456?key={APIkey}')
+uri = URI('https://api.samplicio.us/Demand/v1/Surveys/Reconcile/123456')
 
 http = Net::HTTP.new(uri.host, uri.port)
 
@@ -1090,7 +1090,7 @@ request.body = {ResponseIDs: [
   ]
  }.to_json
 
-
+request['Authorization'] = YOUR_API_KEY_HERE
 
 response = http.request(request)
 ```
@@ -1106,10 +1106,10 @@ $params = '{"ResponseIDs": [
  }';
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "https://api.samplicio.us/Demand/v1/Surveys/Reconcile/123456?key={APIkey}",
+  CURLOPT_URL => "https://api.samplicio.us/Demand/v1/Surveys/Reconcile/123456",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
-  CURLOPT_HTTPHEADER => array('Content-Type: application/json'),
+  CURLOPT_HTTPHEADER => array('Content-Type: application/json', 'Authorization: YOUR_API_KEY_HERE'),
   CURLOPT_MAXREDIRS => 10,
   CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -1127,7 +1127,7 @@ curl_close($curl);
 ```python
 import requests, json
 
-url = 'https://api.samplicio.us/Demand/v1/Surveys/Reconcile/123456?key={APIkey}'
+url = 'https://api.samplicio.us/Demand/v1/Surveys/Reconcile/123456'
 params = {"ResponseIDs": [      
     "9AF8B134-9E9F-E611-813Z-121EAE80731D",
     "1ADX57D4-9A9F-E711-813E-121DAC84731P"
@@ -1135,7 +1135,7 @@ params = {"ResponseIDs": [
  }
 
 data = json.dumps(params)
-headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
+headers = {'Content-type': 'application/json', 'Authorization' : 'YOUR_API_KEY_HERE', 'Accept': 'text/plain'}
 
 response = requests.post(url, data=data, headers=headers)
 ```
@@ -1144,7 +1144,7 @@ response = requests.post(url, data=data, headers=headers)
 using System.IO;
 using System.Net;
 
-WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/Surveys/Reconcile/123456?key={APIkey}");
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/Surveys/Reconcile/123456");
 
 string args = @"{
                   ""ResponseIDs"" : [      
@@ -1155,6 +1155,7 @@ string args = @"{
 
 request.Method = "POST";
 request.ContentType = "application/json";
+request.Headers.Add("Authorization", "YOUR_API_KEY_HERE");
 
 using(StreamWriter streamWriter = new StreamWriter(request.GetRequestStream()))
 {
@@ -1173,8 +1174,10 @@ var options = {
   "method": "POST",
   "hostname": "api.samplicio.us",
   "port": 443,
-  "path": "/Demand/v1/Surveys/Reconcile/123456?key={APIKey}",
-  "headers": {'Content-Type': 'application/json'}
+  "path": "/Demand/v1/Surveys/Reconcile/123456",
+  "headers": {'Content-Type': 'application/json',
+  'Authorization': 'YOUR_API_KEY_HERE'
+  }
 };
 
 var json = {"ResponseIDs": [      
