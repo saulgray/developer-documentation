@@ -216,7 +216,7 @@ Below is the recommended process to check and update survey groups every 10 minu
 2. Check the `SurveyGroupExists` property. `0` or `1` indicates whether there is a survey group(s) associated with the survey, where `0` represents `false` and `1` represents `true`.
 3. If `SurveyGroupExists` = `0` then no additional steps are needed.
 4. If `SurveyGroupExists` = `1` then the survey is in a survey group and you should make the [List a Survey’s Groups](#groups) call for that survey.
-5. Store the `SurveyGroupID` to your survey groups table with every survey number returned in the `SurveyGroupSurveys` array. Remove or inactivate survey numbers not returned in that array for that `SurveyGroupID` from your survey groups table.
+5. Store the `SurveyGroupID` and associated surveys from the `SurveyGroupSurveys` array. On future polls remove or inactivate survey numbers not returned for that `SurveyGroupID`.
 6. Do not send a respondent to more than one survey in each survey group. If a survey is removed from a survey group, you may begin sending respondents you sent to that particular survey to other survey numbers remaining in that group.
 
 
