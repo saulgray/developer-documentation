@@ -277,7 +277,7 @@ request.end();
   "AccountCode": "AA",
   "ApiMessages": [
     "API Message: Response initialized.",
-    "API Mes sage: ApplyExchangeTemplateToSurvey successful."
+    "API Message: ApplyExchangeTemplateToSurvey successful."
   ],
   "ResultCount": 1,
   "SupplierGroups": [
