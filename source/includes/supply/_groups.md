@@ -2,14 +2,15 @@
 
 The Survey Groups resource will return survey group details for a particular survey number. This information can be used to track survey groups to avoid sending a respondent to a survey which is in a survey group with a survey they have already been sent to.
 
-The [Surveys/AllOfferwall](#get-list-exchange-surveys) and [SupplierAllocations/BySurveyNumber](#get-show-an-allocated-survey) calls return a SurveyGroupExists property which will indicate if the survey is in a survey group. The Surveys/SurveyGroups call can then be made to identify and track survey group details. You will need to continue to check the survey number and do not send the same respondent to any survey in that survey group until the original survey number sent to returns "null".
+The [Surveys/AllOfferwall](#get-list-exchange-surveys) and [SupplierAllocations/BySurveyNumber](#get-show-an-allocated-survey) calls return a SurveyGroupExists property which will indicate if the survey is in a survey group. The `Surveys/SurveyGroups` call can then be made to identify and track survey group details. You will need to continue to check the survey number and do not send the same respondent to any survey in that survey group until the original survey number sent to returns `"SurveyGroupExists": 0` from any of the [Supplier Allocations](#allocations) calls.
 
 #### Survey Groups Model
 
-| Property     | Type  | Description                               |
-|--------------|-------|-------------------------------------------|
-| SurveyGroup  | string| Name associated with the survey group.    |  
-| SurveyGroupID| int   | Unique ID associated a survey group       |
+| Property          | Type   | Description                                   |
+|-------------------|--------|-----------------------------------------------|
+| SurveyGroup       | string | Name associated with the survey group         |  
+| SurveyGroupID     | int    | Unique ID associated with a survey group      |
+| SurveyGroupSurveys| array  | List of all survey numbers in the survey group|
 
 ### GET List a Survey’s Groups
 
@@ -111,11 +112,27 @@ request.end();
     "API Message: Response initialized.",
     "API Message: GetSurveyGroups successful."
   ],
-  "ResultCount": 1,
+  "ResultCount": 2,
   "SurveyGroups": [
     {
-      "SurveyGroup": "Example Survey Group",
-      "SurveyGroupID": 12259
+      "SurveyGroup": "Example Survey Group 1",
+      "SurveyGroupID": 12259,
+      "SurveyGroupSurveys": [
+          590043,
+          600432,
+          583920,
+          601834,
+          598282
+      ]
+    },
+    {
+      "SurveyGroup": "Example Survey Group 2",
+      "SurveyGroupID": 12274,
+      "SurveyGroupSurveys": [
+          600432,
+          601834,
+          601943
+      ]
     }
   ]
 }

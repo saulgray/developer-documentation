@@ -146,13 +146,13 @@ Returns the survey groups, their IDs, and number of surveys within each.
 > Definition
 
 ```plaintext
-GET  https://api.samplicio.us//Demand/v1/SurveyGroups/{SurveyGroupID}
+GET  https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}
 ```
 
 > Example Request
 
 ```shell
-curl -H "Authorization: YOUR_API_KEY_HERE" https://api.samplicio.us//Demand/v1/SurveyGroups/{SurveyGroupID}
+curl -H "Authorization: YOUR_API_KEY_HERE" https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}
 ```
 
 ```ruby
@@ -173,7 +173,7 @@ response = http.request(request)
 
 ```php
 <?php
-$URL = "https://api.samplicio.us//Demand/v1/SurveyGroups/{SurveyGroupID}";
+$URL = "https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}";
 
 $aHTTP['http']['method']  = 'GET';
 
@@ -188,7 +188,7 @@ $response = file_get_contents($URL, false, $context);
 ```python
 import requests
 
-url = 'https://api.samplicio.us//Demand/v1/SurveyGroups/{SurveyGroupID}'
+url = 'https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}'
 
 headers = {'Authorization' : YOUR_API_KEY_HERE}
 
@@ -198,7 +198,7 @@ response = requests.get(url, headers=headers)
 ```csharp
 using System.Net;
 
-WebRequest request = WebRequest.Create("https://api.samplicio.us//Demand/v1/SurveyGroups/{SurveyGroupID}");
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}");
 
 request.Headers.Add("Authorization", YOUR_API_KEY_HERE);
 
@@ -782,12 +782,12 @@ curl_close($curl);
 ```python
 import requests
 
-requests.delete('https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}')
+url = 'https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}'
 params = {'SurveyIDs': 101101}
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Authorization' : 'YOUR_API_KEY_HERE', 'Accept': 'text/plain'}
 
-response = requests.post(url, data=data, headers=headers)
+response = requests.delete(url, data=data, headers=headers)
 ```
 
 ```csharp

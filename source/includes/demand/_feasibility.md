@@ -11,7 +11,7 @@ POST https://api.samplicio.us/Demand/v1/Feasibility/Time
 > Example Request
 
 ```shell
-curl -H "Content-Type: application/json" -H "Authorization: YOUR_API_KEY_HERE" -X POST --data '{"CountryLanguageID": 9, "LengthOfInterview": 5, "Incidence": 100,  "Price": 4.5, "Quotas": [{"CompletesPerDay": [1000], "Conditions": [{"QuestionID": 42, "PreCodes": ["18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29"]}, {"QuestionID": 43, "PreCodes": ["1"] } ] }, {"CompletesPerDay": [1000], "Conditions": [{"QuestionID": 42, "PreCodes": ["18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29"]}, {"QuestionID": 43, "PreCodes": ["2"] } ] }] }}' https://api.samplicio.us/Demand/v1/Feasibility/Time
+curl -H "Content-Type: application/json" -H "Authorization: YOUR_API_KEY_HERE" -X POST --data '{"CountryLanguageID": 9, "LengthOfInterview": 5, "Incidence": 100,  "Price": 4.5, "Quotas": [{"Completes": 1000, "Conditions": [{"QuestionID": 42, "PreCodes": ["18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29"]}, {"QuestionID": 43, "PreCodes": ["1"] } ] }, {"Completes": 1000, "Conditions": [{"QuestionID": 42, "PreCodes": ["18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29"]}, {"QuestionID": 43, "PreCodes": ["2"] } ] }] }}' https://api.samplicio.us/Demand/v1/Feasibility/Time
 ```
 
 ```ruby
@@ -24,15 +24,13 @@ http = Net::HTTP.new(uri.host, uri.port)
 
 http.use_ssl = true
 
-fullUriPath = uri.path + '?' + uri.query
-
-request = Net::HTTP::Post.new(fullUriPath, initheader = {'Content-Type' =>'application/json'})
+request = Net::HTTP::Post.new(uri, initheader = {'Content-Type' =>'application/json'})
 
 request.body = {CountryLanguageID: 9, LengthOfInterview: 5, Incidence: 100,  Price: 4.5, Quotas: [{Completes: 1000, Conditions: [{QuestionID: 42, PreCodes: ["18", "19", "20", "21", "22", "23", "24",
  "25", "26", "27", "28", "29"]}, {QuestionID: 43, PreCodes: ["1"] } ] }, {Completes: 1000, Conditions: [{QuestionID: 42, PreCodes: ["18", "19", "20", "21", "22", "23", "24",
  "25", "26", "27", "28", "29"]}, {QuestionID: 43, PreCodes: ["2"] } ] }] }.to_json
 
-request['Authorization'] = YOUR_API_KEY_HERE
+request['Authorization'] = 'YOUR_API_KEY_HERE'
 
 response = http.request(request)
 
@@ -69,7 +67,7 @@ curl_close($curl);
 import requests, json
 
 url = 'https://api.samplicio.us/Demand/v1/Feasibility/Time'
-params = {'CountryLanguageID': 9, 'LengthOfInterview': 5, 'Incidence': 100, 'Quotas': [{'CompletesPerDay': [1000], 'Conditions': [{'QuestionID': 42, 'PreCodes': ["18", "19", "20", "21", "22", "23", "24","25", "26", "27", "28", "29"]}, {'QuestionID': 43, 'PreCodes': ["1"] } ] }, {'CompletesPerDay': [1250], 'Conditions': [{'QuestionID': 42, 'PreCodes': ["18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29"]}, {'QuestionID': 43, 'PreCodes': ["2"] } ] }] }
+params = {'CountryLanguageID': 9, 'LengthOfInterview': 5, 'Incidence': 100, 'Price': 4.5, 'Quotas': [{'Completes': 1000, 'Conditions': [{'QuestionID': 42, 'PreCodes': ["18", "19", "20", "21", "22", "23", "24","25", "26", "27", "28", "29"]}, {'QuestionID': 43, 'PreCodes': ["1"] } ] }, {'Completes': 1250, 'Conditions': [{'QuestionID': 42, 'PreCodes': ["18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29"]}, {'QuestionID': 43, 'PreCodes': ["2"] } ] }] }
 
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Authorization' : 'YOUR_API_KEY_HERE', 'Accept': 'text/plain'}
@@ -90,7 +88,7 @@ string args = @"{
                  ""Price"": 4.5,
                  ""Quotas"": [
                                 {
-                                  ""CompletesPerDay"": [1000],
+                                  ""Completes"": 1000,
                                   ""Conditions"":
                                   [
                                     {
@@ -106,7 +104,7 @@ string args = @"{
                                   ]
                                 },
                                 {
-                                  ""CompletesPerDay"": [1250],
+                                  ""Completes"": 1250,
                                   ""Conditions"":
                                   [
                                     {
@@ -257,7 +255,7 @@ Returns the estimated time in days to achieve the total number of completes spec
 | LengthofInterview | int   | true     | Expected Length of Interview, in minutes.                       |
 | Incidence         | int   | true     | Expected incidence rate for the study.                          |
 | Price             | double| true     | Price in USD per complete offered.                              |
-| Quotas            | array | true     | List of quotas (can be an empty array).                         |
+| Quotas            | array | true     | Contains an array of CompletesPerDay and Conditions pairs. The conditions array can be blank for no conditions.|
 | QuestionID        | int   | false    | Unique ID associated with a question.                           |
 | PreCodes          | int   | false    | Precode associated with an answer for a specific questionID.    |
 
@@ -484,7 +482,7 @@ Returns a tiered model of price in USD per complete, given the inputs for Number
 | CountryLanguageID | int   | true     | Unique number associated with a specific Country-Language pair. |
 | LengthofInterview | int   | true     | Expected Length of Interview, in minutes.                       |
 | Incidence         | int   | true     | Expected incidence rate for the study.                          |
-| Quotas            | array | true     | List of quotas (can be an empty array).                         |
+| Quotas            | array | true     | Contains arrays for CompletesPerDay and Conditions. The conditions array can be blank for no conditions.|
 | QuestionID        | int   | false    | Unique ID associated with a question.                           |
 | PreCodes          | int   | false    | Precode associated with an answer for a specific questionID.    |
 
@@ -690,12 +688,12 @@ Returns the number of completes achievable given the parameters submitted, based
 
 #### Arguments
 
-| Property          | Type  | Required | Description                                                     |
-|-------------------|-------|----------|-----------------------------------------------------------------|
-| CountryLanguageID | int   | true     | Unique number associated with a specific Country-Language pair. |
-| LengthofInterview | int   | true     | Expected Length of Interview, in minutes.                       |
-| Incidence         | int   | true     | Expected incidence rate for the study.                          |
-| Price             | double| true     | Price in USD per complete offered.                              |
-| Quotas            | array | true     | List of quotas (can be an empty array).                         |
-| QuestionID        | int   | false    | Unique ID associated with a question.                           |
-| PreCodes          | int   | false    | Precode associated with an answer for a specific questionID.    |
+| Property          | Type  | Required | Description                                                        |
+|-------------------|-------|----------|--------------------------------------------------------------------|
+| CountryLanguageID | int   | true     | Unique number associated with a specific Country-Language pair.    |
+| LengthofInterview | int   | true     | Expected Length of Interview, in minutes.                          |
+| Incidence         | int   | true     | Expected incidence rate for the study.                             |
+| Price             | double| true     | Price in USD per complete offered.                                 |
+| Quotas            | array | true     | Contains an array of quotas, which can be blank for no conditions. |
+| QuestionID        | int   | false    | Unique ID associated with a question.                              |
+| PreCodes          | int   | false    | Precode associated with an answer for a specific questionID.       |
