@@ -238,7 +238,7 @@ The [List Standard Questions](#get-list-standard-questions) call only returns al
 
 ### FAQs
 
-#### 1. How can I avoid sending to recruit studies?
+#### 1. How can I control sending respondents to panel recruit & community build study types?
 
 Panel Recruits and Community Builds are excellent revenue opportunities, however, they collect PII and different business rules may or may not allow for this. These studies can be identified from the property `StudyTypeIDs`, returned on calls [List Exchange Surveys](#get-list-exchange-surveys) and [List Allocated Surveys](#get-list-allocated-surveys). Decisioning logic should be added to either look for or avoid studies with the following `StudyTypeIDs`:
 
