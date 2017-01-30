@@ -25,7 +25,7 @@ includes:
   - supply/introduction
   - supply/surveys
   - supply/allocations
-  - supply/groups
+  - supply/survey-groups
   - supply/qualifications
   - supply/quotas
   - supply/entry-links
