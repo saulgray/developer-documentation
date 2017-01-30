@@ -1,5 +1,11 @@
 # Changelog
 
+## 26 Jan 2017
+
+#### Supply API - Survey's Groups
+
+A list of the surveys associated with each survey group is now returned on the call /Supply/v1/Surveys/SurveyGroups/BySurveyNumber/
+
 ## 23 Jan 2017
 
 #### Demand API - Exchange Groups

@@ -1,4 +1,4 @@
-##Groups
+## Survey Groups
 
 The Survey Groups resource will return survey group details for a particular survey number. This information can be used to track survey groups to avoid sending a respondent to a survey which is in a survey group with a survey they have already been sent to.
 
