@@ -235,3 +235,33 @@ Below is the API process flow for recontact studies:
 #### Custom Qualification
 Buyers are now able to choose to expose custom qualifications to suppliers at the survey level. On these studies the [Show Qualifications](#get-show-qualifications) call will return the list of all question IDs for a given study—standards and exposed customs.
 The [List Standard Questions](#get-list-standard-questions) call only returns all standard qualifications. Therefore, if a question ID returned via the [Show Qualifications](#get-show-qualifications) call is not in the Standard library, you can assume it is a custom. You can then look up the details on the fly for profiling respondents using the [Show Question Text](#get-show-question-text) call and the [Show Question Options](#get-show-question-options) call.
+
+### FAQs
+
+#### 1. How can I control sending respondents to panel recruit & community build study types?
+
+Panel Recruits and Community Builds are excellent revenue opportunities, however, they collect PII in the survey and different business rules may or may not allow for this. These studies can be identified from the property `StudyTypeIDs`, returned on calls [List Exchange Surveys](#get-list-exchange-surveys) and [List Allocated Surveys](#get-list-allocated-surveys). Decisioning logic should be added to either look for or avoid studies with the following `StudyTypeIDs`:
+
+* 11 - Recruit - panel
+* 8  - Community Build
+
+#### 2. How do I know when a study is no longer live?
+
+It is important to check that respondents are not sent to a closed survey. There are two ways to implement a check for whether a survey is live:
+
+* If a survey is first returned on the call to [List Allocated Surveys](#get-list-allocated-surveys) and is not returned on subsequent calls, it should be assumed that the survey is no longer live and should be set to pending on your platform. Surveys can change statuses from live to pending and back to live status, and it is important to keep this information up to date.  The recommended frequencies for calls to best keep survey information up to date can be found in the [Call Frequency Table](#phase-2-getting-the-offerwall-qualifications-and-quotas).
+* [Show Quotas](#get-show-quotas) call returns the property `SurveyStillLive` which can be used to determine whether the survey is live or paused. If `SurveyStillLive` returns as `false` on the survey, it is no longer live and sample should no longer be sent.
+
+#### 3. Why is the `QuestionID` I see in a survey not returning on the [List Standard Questions](#get-list-standard-questions) call?
+
+ [List Standard Questions](#get-list-standard-questions) only returns a list of Fulcrum Standard Qualifications.  These are qualifications that are created and maintained by Fulcrum.  If a question for a particular qualification is not returned on that call, it can be assumed that the qualification is a Custom Qualification that is created by a Buyer.  Buyers have the option to set a custom qualifications to “exposed” or “not exposed”.  If a custom qualification is set to “exposed”, the question text and options can be retrieved from [List Custom Questions](#get-list-custom-questions).
+
+#### 4. How can I identify mobile optimized surveys?
+
+If a Buyer is looking specifically for respondents using a mobile device (phone or tablet), the survey will include the qualification `ms_is_mobile` set to `true`. Otherwise, you can monitor conversion for mobile respondents on a survey. Firstly, check the `SurveyMobileConversion` property to identify surveys that are performing well with mobile users. This property is returned as part of our `Surveys` and `SupplierAllocationSurvey` models accessible by three different calls:
+
+* [List Exchange Surveys](#get-list-exchange-surveys)
+* [List Allocated Surveys](#get-list-allocated-surveys)
+* [Show an Allocated Survey](#get-show-an-allocated-survey)
+
+This property will return as zero until a mobile user has entered the survey. In this case, a small batch of around 10-20 mobile respondents can be sent in to monitor their conversion rate.
