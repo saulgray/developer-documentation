@@ -24,7 +24,7 @@ Suppliers that have enabled Incoming SHA-1 hashing will append the signature to 
 
 Buyers that have enabled Incoming SHA-1 hashing will append the signature to the all callback links used to return respondents to Fuclrum. 
 
-An example, of a hashed URL that using "ienc" as the variable name and Secret Key of `ZZ6VkORqV25iSWOVb5cwZ03zpns` as the secret key, can be found here.  Please note, `ienc` and the secret key `ZZ6VkORqV25iSWOVb5cwZ03zpns` are just examples values.
+An example, of a hashed URL that using `ienc` as the variable name and Secret Key of `ZZ6VkORqV25iSWOVb5cwZ03zpns` as the secret key, can be found here.  Please note, `ienc` and the secret key `ZZ6VkORqV25iSWOVb5cwZ03zpns` are just examples values.
 
 [Use our hashing tool to validate your system's SHA-1 hashing!](https://labs.lucidhq.com/hash)
 
@@ -60,7 +60,7 @@ Buyers will find these signatures appended to the links used by respondents to e
 
 Suppliers will see these signatures appended to the links on which respondents are returned to your platform from Fulcurm.
 
-An example of the URL with a hash value that is generated using the variable name “oenc” and the Secret Key "ZZ6VkORqV25iSWOVb5cwZ03zpns". Please note that “oenc” and the secret key are merely example values.
+An example of the URL with a hash value that is generated using the variable name `oenc` and the Secret Key `ZZ6VkORqV25iSWOVb5cwZ03zpns`. Please note that `oenc` and the secret key are merely example values.
 
 > Example key
 
