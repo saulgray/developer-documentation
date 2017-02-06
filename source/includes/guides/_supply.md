@@ -265,3 +265,31 @@ If a Buyer is looking specifically for respondents using a mobile device (phone 
 * [Show an Allocated Survey](#get-show-an-allocated-survey)
 
 This property will return as zero until a mobile user has entered the survey. In this case, a small batch of around 10-20 mobile respondents can be sent in to monitor their conversion rate.
+
+#### 5. What is the difference between the `SupplierAllocations` and the `OfferwallAllocations` models?
+
+1. An Offerwall allocation is created by the supplier for a desired opportunity found on the Offerwall (Exchange).
+
+2. A Targeted, or Over-The-Counter (OTC) allocation is created by the Buyer for a particular supplier and represents a direct invoicing relationship between the Buyer and the supplier.
+
+Multiple allocations can be set for multiple suppliers for a single survey.
+
+From the supplier's perspective, Targeted and Offerwall allocations behave differently in the following ways:
+
+##### Offerwall Allocations:
+
+- The first time a supplier will see a survey, for which they have been given access to an Offerwall allocation, will be in response to the [List Exchange Surveys](http://developer.lucidhq.com/#get-list-exchange-surveys) call.
+
+- The supplier will then need to make the [Create a Link](http://developer.lucidhq.com/#post-create-a-link) call to generate the entry link for this allocation.  Once the entry link is created, that allocation will no longer appear on the [List Exchange Surveys](http://developer.lucidhq.com/#get-list-exchange-surveys) call, but will instead appear on the call to [List Allocated Surveys](#get-list-allocated-surveys),  as long as the survey is live and has completes available.
+
+- [Show an Allocated Survey](#get-show-an-allocated-survey) will return the `OfferWallAllocations` Model for this survey. This will include the property `OfferwallCompletes`, indicating how many completes have been made by the Exchange already. `AllocationRemaining` will indicate how many completes are still available for the Exchange. Other suppliers, who are also on the Exchange and have been allowed to send in to this survey, will see the same number, and the remaining completes will be "first come, first serve".
+
+##### Targeted Allocations:
+
+- Surveys for which the supplier has been given a Targeted allocation, will never appear in the [List Exchange Surveys](http://developer.lucidhq.com/#get-list-exchange-surveys) call response, only in the response for the [List Allocated Surveys](#get-list-allocated-surveys) call.  
+
+- When surveys for which the supplier has a targeted allocation are first returned, the supplier may see that the Buyer has already generated an entry link for them.  If not, the supplier will have to generate the entry link themselves.
+
+-  [Show an Allocated Survey](#get-show-an-allocated-survey) will return the `SupplierAllocations` Model for this survey. This will include the property `AchievedCompletes` to indicate how many completes have already been achieved by the supplier. `AllocationRemaining` will indicate how many completes are reserved for the supplier here, and no other supplier will be able to send in to these completes.
+
+Note that `HedgeRemaining` will behave similarly on both models - these are the unallocated completes, and can be achieved on a "first come first serve" basis for any suppliers that have been allowed access to hedge by the Buyer.
