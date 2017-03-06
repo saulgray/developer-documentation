@@ -422,8 +422,7 @@ POST  https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}
 > Example Request
 
 ```shell
-
-curl -H "Content-Type: application/json" -H "Authorization: YOUR_API_KEY_HERE" -X POST --data '{"SurveyNumber": ["101101"]}' https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}
+curl -H "Content-Type: application/json" -H "Authorization: YOUR_API_KEY_HERE" -X POST --data '{"SurveyIDs": ["101101"]}' https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}
 ```
 
 ```ruby

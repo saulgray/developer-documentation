@@ -14,10 +14,10 @@ toc_footers:
 
 includes:
   - introduction/introduction
-  - introduction/fiddling
   - introduction/environments
   - introduction/authentication
   - introduction/request-format
+  - introduction/fiddling  
   - introduction/status-codes
   - lookup/introduction
   - lookup/definitions
@@ -25,7 +25,7 @@ includes:
   - supply/introduction
   - supply/surveys
   - supply/allocations
-  - supply/groups
+  - supply/survey-groups
   - supply/qualifications
   - supply/quotas
   - supply/entry-links
@@ -51,3 +51,4 @@ includes:
   
 search: true
 ---
+

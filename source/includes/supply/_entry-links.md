@@ -160,7 +160,7 @@ request.end();
   "AccountCode": "AA",
   "ApiMessages": [
     "API Message: Response initialized.",
-    "API Mes sage: CreateSupplierLinkFromModel successful."
+    "API Message: CreateSupplierLinkFromModel successful."
   ],
   "ResultCount": 1,
   "SupplierLink": {
