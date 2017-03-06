@@ -1,5 +1,7 @@
 ##Question Library
 
+The questions in this library can be used to build qualifications for surveys created in Fulcrum. Each question represents a respondent profile datapoint.
+
 ### GET List Standard Questions
 
 > Definition
@@ -24,8 +26,11 @@ http.use_ssl = true
 
 request = Net::HTTP::Get.new(uri.request_uri)
 
+<<<<<<< HEAD
 request['Authorization'] = YOUR_API_KEY_HERE
 
+=======
+>>>>>>> 4c100e222079001228cb43f071048c50c14d28dc
 response = http.request(request)
 ```
 
@@ -145,8 +150,11 @@ http.use_ssl = true
 
 request = Net::HTTP::Get.new(uri.request_uri)
 
+<<<<<<< HEAD
 request['Authorization'] = YOUR_API_KEY_HERE
 
+=======
+>>>>>>> 4c100e222079001228cb43f071048c50c14d28dc
 response = http.request(request)
 ```
 

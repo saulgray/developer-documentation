@@ -439,7 +439,7 @@ fullUriPath = uri.path + '?' + uri.query
 
 request = Net::HTTP::Post.new(fullUriPath, initheader = {'Content-Type' =>'application/json'})
 
-request.body = {SurveyIDs: 101101}.to_json
+request.body = {SurveyIDs: ["101101"]}.to_json
 
 request['Authorization'] = YOUR_API_KEY_HERE
 
@@ -450,7 +450,7 @@ response = http.request(request)
 <?php
 $curl = curl_init();
 
-$params = '{"SurveyIDs": 101101}';
+$params = '{"SurveyIDs": ["101101"]}';
 
 curl_setopt_array($curl, array(
   CURLOPT_URL => "https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}",
@@ -488,7 +488,7 @@ using System.Net;
 
 WebRequest request = WebRequest.Create("https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}");
 
-string args = @"{""SurveyIDs"": [101101]}";
+string args = @"{""SurveyIDs"": ["101101"]}";
 
 request.Method = "POST";
 request.ContentType = "application/json";
