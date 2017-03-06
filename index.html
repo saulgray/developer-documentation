@@ -702,6 +702,8 @@
 
               <h2 id="question-library">Question Library</h2>
 
+<p>The questions in this library can be used to build qualifications for surveys created in Fulcrum. Each question represents a respondent profile datapoint.</p>
+
 <h3 id="get-list-standard-questions">GET List Standard Questions</h3>
 
 <blockquote>
@@ -725,8 +727,11 @@
 
 <span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">request_uri</span><span class="p">)</span>
 
+<span class="o">&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span> <span class="no">HEAD</span>
 <span class="n">request</span><span class="p">[</span><span class="s1">'Authorization'</span><span class="p">]</span> <span class="o">=</span> <span class="no">YOUR_API_KEY_HERE</span>
 
+<span class="o">=======</span>
+<span class="o">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span> <span class="mi">4</span><span class="n">c100e222079001228cb43f071048c50c14d28dc</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
 </code></pre>
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
@@ -851,8 +856,11 @@
 
 <span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">request_uri</span><span class="p">)</span>
 
+<span class="o">&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span> <span class="no">HEAD</span>
 <span class="n">request</span><span class="p">[</span><span class="s1">'Authorization'</span><span class="p">]</span> <span class="o">=</span> <span class="no">YOUR_API_KEY_HERE</span>
 
+<span class="o">=======</span>
+<span class="o">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span> <span class="mi">4</span><span class="n">c100e222079001228cb43f071048c50c14d28dc</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
 </code></pre>
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
@@ -2983,7 +2991,7 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
 
               <h2 id="entry-links">Entry Links</h2>
 
-<p>The Entry Links resource enables suppliers to create, update, and retrieve supplier survey entry links as well as specify <a href="#get-list-global-definitions">supplier link and tracking types</a>.</p>
+<p>The Entry Links resource enables suppliers to create, update, and retrieve supplier survey entry links as well as specify <a href="#get-list-global-definitions">supplier link and tracking types</a>. The entry links can then be used to send a respondent to a particular survey, and attaching important information in a query string, such as the unique panelist ID (PID), unique session ID (MID) or respondent&rsquo;s profile data.</p>
 
 <h4 id="supplier-link-model">Supplier Link Model</h4>
 
@@ -8112,6 +8120,8 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
 
               <h2 id="exchange-groups">Exchange Groups</h2>
 
+<p>Exchange Groups allow buyers to allocate completes to a specific group of suppliers. Exchange groups contain a hedge property, which allows suppliers from exchange groups to also have access to unallocated completes.</p>
+
 <h3 id="post-create-a-group">POST Create a Group</h3>
 
 <blockquote>
@@ -8275,6 +8285,8 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
 </span></code></pre>
 
 <p>Creates a group with specific suppliers and allocation for that group.</p>
+
+<aside class="notice"> There are edge cases where suppliers overfilling their allocation can prevent a study with 100% allocation from finsihing. In this case, some compeltes will be mathematically unattainable. To remedy, let a small percentage of completes go unallocated and allow hedge access. </aside>
 
 <h4 id="arguments">Arguments</h4>
 
@@ -12398,7 +12410,7 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
 
 <span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Post</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">fullUriPath</span><span class="p">,</span> <span class="n">initheader</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'Content-Type'</span> <span class="o">=&gt;</span><span class="s1">'application/json'</span><span class="p">})</span>
 
-<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="p">{</span><span class="no">SurveyIDs</span><span class="p">:</span> <span class="mi">101101</span><span class="p">}.</span><span class="nf">to_json</span>
+<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="p">{</span><span class="no">SurveyIDs</span><span class="p">:</span> <span class="p">[</span><span class="s2">"101101"</span><span class="p">]}.</span><span class="nf">to_json</span>
 
 <span class="n">request</span><span class="p">[</span><span class="s1">'Authorization'</span><span class="p">]</span> <span class="o">=</span> <span class="no">YOUR_API_KEY_HERE</span>
 
@@ -12407,7 +12419,7 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
-<span class="nv">$params</span> <span class="o">=</span> <span class="s1">'{"SurveyIDs": 101101}'</span><span class="p">;</span>
+<span class="nv">$params</span> <span class="o">=</span> <span class="s1">'{"SurveyIDs": ["101101"]}'</span><span class="p">;</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
   <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://api.samplicio.us/Demand/v1/SurveyGroups/</span><span class="si">{</span><span class="nv">SurveyGroupID</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
@@ -12441,7 +12453,7 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
 
 <span class="n">WebRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Demand/v1/SurveyGroups/{SurveyGroupID}"</span><span class="p">);</span>
 
-<span class="kt">string</span> <span class="n">args</span> <span class="p">=</span> <span class="s">@"{""SurveyIDs"": [101101]}"</span><span class="p">;</span>
+<span class="kt">string</span> <span class="n">args</span> <span class="p">=</span> <span class="s">@"{""SurveyIDs"": ["</span><span class="m">101101</span><span class="s">"]}"</span><span class="p">;</span>
 
 <span class="n">request</span><span class="p">.</span><span class="n">Method</span> <span class="p">=</span> <span class="s">"POST"</span><span class="p">;</span>
 <span class="n">request</span><span class="p">.</span><span class="n">ContentType</span> <span class="p">=</span> <span class="s">"application/json"</span><span class="p">;</span>
@@ -13006,7 +13018,7 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
 
 <p>At the end of a respondent&rsquo;s experience in your platform, you should send them back to Fulcrum using the end link corresponding to their respective status. This will update the respondent&rsquo;s status in Fulcrum and send them back to their supplier with information on how to be compensated. <code class="prettyprint">RID</code> is an SID unique to identify the respondent and session. You must include <code class="prettyprint">&amp;RID=[%RID%]</code> on the <code class="prettyprint">ClientSurveyLiveURL</code> property of your <code class="prettyprint">Survey</code> object referenced in Phase 3 in order to capture the respondent&rsquo;s identifier in your system on entry and include it on the redirect when they return to Fulcrum.</p>
 
-<p>If you have opted not to generate checksums for your links, you should set the <code class="prettyprint">IsVerifyCallBack</code> property of your <code class="prettyprint">Survey</code> object to <code class="prettyprint">True</code> and append <code class="prettyprint">&amp;RISN=[%RSFN%]</code> to the <code class="prettyprint">ClientSurveyLiveURL</code> for storage with RID on respondent entry. <code class="prettyprint">RISN</code> should be appended to the Complete redirect only. You should not include <code class="prettyprint">&amp;ienc={hash}</code> if you have opted not to generate checksums for links. </p>
+<p>If you have opted not to generate checksums for your links, you should set the <code class="prettyprint">IsVerifyCallBack</code> property of your <code class="prettyprint">Survey</code> object to <code class="prettyprint">True</code> and append <code class="prettyprint">&amp;RISN=[%RSFN%]</code> to the <code class="prettyprint">ClientSurveyLiveURL</code> for storage with RID on respondent entry. <code class="prettyprint">RISN</code> should be appended to the Complete redirect only. You should not include <code class="prettyprint">&amp;ienc={hash}</code> if you have opted not to generate checksums for links.</p>
 
 <h3 id="phase-3-creating-a-survey">Phase 3 - Creating a Survey</h3>
 
@@ -13016,7 +13028,28 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
 
 <h4 id="1-determine-the-fair-market-price-of-the-target-demographic">1. Determine the <a href="#feasibility">fair market price</a> of the target demographic.</h4>
 
-<p>The Feasibility resource returns pricing data from the Fulcrum Pricing Index (FPI), which represents fair market price for a target given the surveys specs, qualifications, quotas, and time in field. Integrators with consumer users often take the response from this call and add a margin before returning it to the end user (i.e. <code class="prettyprint">FPI Price * 1.3 = Price</code>)</p>
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+<aside class="notice">As prices are final at the time of transaction, you are responsible for implementing additional safeguards to prevent accidentally setting an excessively high price.</aside></p>
+
+<p>=======
+<aside class="notice">As prices are final at the time of transaction, it is a good idea to implement additional safeguards to prevent accidentally setting an excessively high price.</aside></p>
+
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>4c100e222079001228cb43f071048c50c14d28dc
+The Feasibility resource returns pricing data from the Fulcrum Pricing Index (FPI), which represents fair market price for a target given the surveys specs, qualifications, quotas, and time in field. Integrators with consumer users often take the response from this call and add a margin before returning it to the end user (i.e. <code class="prettyprint">FPI Price * 1.3 = Price</code>)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
 
 <h4 id="2-make-the-call-to-create-a-survey-object">2. Make the call to <a href="#post-create-a-survey">create a survey</a> object.</h4>
 
@@ -13283,7 +13316,8 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
 
 <ul>
 <li>Fulcrum will automatically use your default supplier redirects. Custom supplier redirects can be included in the payload with this call and the <a href="#put-update-a-link">Update a Link</a> call.</li>
-<li>Any session or profiling data collected in Fulcrum can be passed back to a supplier on the redirect links. A list of relevant session variables can be found <a href="https://support.lucidhq.com/s/article/Adding-Variables-to-Survey-Links">here</a>. Profiling data will be populated on redirects by appending <code class="prettyprint">[%Qualification_Name%]</code> to the redirect links where <code class="prettyprint">Qualification_Name</code> is the name of the qualification you would like to pass. Our <a href="https://labs.lucidhq.com/redirects">redirects generator</a> is a great tool for formatting redirect links.</li>
+<li>Any session or profiling data collected in Fulcrum can be passed back to a supplier on the redirect links. A list of relevant session variables can be found <a href="https://support.lucidhq.com/s/article/Adding-Variables-to-Survey-Links">here</a>. Profiling data will be populated on redirects by appending <code class="prettyprint">[%Qualification_Name%]</code> to the redirect links where <code class="prettyprint">Qualification_Name</code> is the name of the qualification you would like to pass. Our <a href="http://labs.lucidhq.com/redirects">redirects generator</a> is a great tool for formatting redirect links.</li>
+<li>Details about the respondent&rsquo;s session can be returned on the redirect link as <a href="https://support.lucidhq.com/s/article/Fulcrum-Response-Codes">Fulcrum Response Codes</a>. </li>
 <li>We require sending the respondent into Fulcrum with PID equal to the unique panelist ID and recommend sending the MID equal to the supplier&rsquo;s unique identifier for the session.</li>
 </ul>
 
@@ -13505,7 +13539,7 @@ The <a href="#get-list-standard-questions">List Standard Questions</a> call only
 
 <p>Buyers that have enabled Incoming SHA-1 hashing will append the signature to the all callback links used to return respondents to Fuclrum. </p>
 
-<p>An example, of a hashed URL that using &ldquo;ienc&rdquo; as the variable name and Secret Key of <code class="prettyprint">ZZ6VkORqV25iSWOVb5cwZ03zpns</code> as the secret key, can be found here.  Please note, <code class="prettyprint">ienc</code> and the secret key <code class="prettyprint">ZZ6VkORqV25iSWOVb5cwZ03zpns</code> are just examples values.</p>
+<p>An example, of a hashed URL that using <code class="prettyprint">ienc</code> as the variable name and Secret Key of <code class="prettyprint">ZZ6VkORqV25iSWOVb5cwZ03zpns</code> as the secret key, can be found here.  Please note, <code class="prettyprint">ienc</code> and the secret key <code class="prettyprint">ZZ6VkORqV25iSWOVb5cwZ03zpns</code> are just examples values.</p>
 
 <p><a href="https://labs.lucidhq.com/hash">Use our hashing tool to validate your system&rsquo;s SHA-1 hashing!</a></p>
 
@@ -13541,7 +13575,7 @@ The <a href="#get-list-standard-questions">List Standard Questions</a> call only
 
 <p>Suppliers will see these signatures appended to the links on which respondents are returned to your platform from Fulcurm.</p>
 
-<p>An example of the URL with a hash value that is generated using the variable name “oenc” and the Secret Key &ldquo;ZZ6VkORqV25iSWOVb5cwZ03zpns&rdquo;. Please note that “oenc” and the secret key are merely example values.</p>
+<p>An example of the URL with a hash value that is generated using the variable name <code class="prettyprint">oenc</code> and the Secret Key <code class="prettyprint">ZZ6VkORqV25iSWOVb5cwZ03zpns</code>. Please note that <code class="prettyprint">oenc</code> and the secret key are merely example values.</p>
 
 <blockquote>
 <p>Example key</p>
