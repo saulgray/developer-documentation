@@ -6306,8 +6306,8 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
       </span><span class="p">]</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"STANDARD_HHI_US"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"QuestionID"</span><span class="p">:</span><span class="w"> </span><span class="mi">14785</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"STANDARD_HHI"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"QuestionID"</span><span class="p">:</span><span class="w"> </span><span class="mi">61076</span><span class="p">,</span><span class="w">
       </span><span class="nt">"LogicalOperator"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OR"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"NumberOfRequiredConditions"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="nt">"IsActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -6664,8 +6664,8 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
       </span><span class="p">]</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"STANDARD_HHI_US"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"QuestionID"</span><span class="p">:</span><span class="w"> </span><span class="mi">14785</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"STANDARD_HHI"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"QuestionID"</span><span class="p">:</span><span class="w"> </span><span class="mi">61076</span><span class="p">,</span><span class="w">
       </span><span class="nt">"LogicalOperator"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OR"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"NumberOfRequiredConditions"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="nt">"IsActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -6926,8 +6926,8 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
       </span><span class="p">]</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"STANDARD_HHI_US"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"QuestionID"</span><span class="p">:</span><span class="w"> </span><span class="mi">14785</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"STANDARD_HHI"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"QuestionID"</span><span class="p">:</span><span class="w"> </span><span class="mi">61076</span><span class="p">,</span><span class="w">
       </span><span class="nt">"LogicalOperator"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OR"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"NumberOfRequiredConditions"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="nt">"IsActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -12863,7 +12863,7 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
 <li><code class="prettyprint">ZIP</code></li>
 <li><code class="prettyprint">HISPANIC</code></li>
 <li><code class="prettyprint">ETHNICITY</code></li>
-<li><code class="prettyprint">STANDARD_HHI_US</code></li>
+<li><code class="prettyprint">STANDARD_HHI</code></li>
 <li><code class="prettyprint">STANDARD_EDUCATION</code></li>
 <li><code class="prettyprint">STANDARD_EMPLOYMENT</code></li>
 <li><code class="prettyprint">STANDARD_JOB_TITLE</code></li>
@@ -13055,7 +13055,7 @@ The Feasibility resource returns pricing data from the Fulcrum Pricing Index (FP
 
 <p>This survey object contains the key settings for the survey such as your quota cost per impression (QCPI), security settings, and links for the destination user experience (survey, user test, etc). Some of the most popular properties integrators give end-users control over are:
  - QuotaCPI: Allows the end-user to set their purchase price. In many cases, integrators will suggest (or command a price) based on the feasibility response.
- - CountryLanguageID: The country-language combination which the survey should be available to. Keep in mind that this will affect certain localized standards. For example, you would want to use STANDARD_HHI_INT in all countries outside of the United States and STANDARD_HHI_US for <code class="prettyprint">English - United States</code> and <code class="prettyprint">Spanish - US</code> projects. Further, you would not want to display the Hispanic nor Ethnicity qualifications outside of the United States.</p>
+ - CountryLanguageID: The country-language combination which the survey should be available to. Keep in mind that this will affect certain localized standards. For example, you would not want to display the Hispanic nor Ethnicity qualifications outside of the United States.</p>
 
 <aside class="notice">An additional column in your database for earnings-per-click (EPC) can help you track whether you are still offering a fair market price as your survey fields and specs change. EPC is the revenue per respondent a supplier sends in suppliers and thus the value that the survey provides to the suppliers.</aside>
 
@@ -13129,7 +13129,7 @@ The Feasibility resource returns pricing data from the Fulcrum Pricing Index (FP
 <li><code class="prettyprint">ZIP</code></li>
 <li><code class="prettyprint">HISPANIC</code></li>
 <li><code class="prettyprint">ETHNICITY</code></li>
-<li><code class="prettyprint">STANDARD_HHI_US_v2</code></li>
+<li><code class="prettyprint">STANDARD_HHI</code></li>
 <li><code class="prettyprint">STANDARD_EDUCATION_v2</code></li>
 <li><code class="prettyprint">STANDARD_EMPLOYMENT</code></li>
 <li><code class="prettyprint">STANDARD_JOB_TITLE</code></li>
@@ -13317,7 +13317,7 @@ The Feasibility resource returns pricing data from the Fulcrum Pricing Index (FP
 <ul>
 <li>Fulcrum will automatically use your default supplier redirects. Custom supplier redirects can be included in the payload with this call and the <a href="#put-update-a-link">Update a Link</a> call.</li>
 <li>Any session or profiling data collected in Fulcrum can be passed back to a supplier on the redirect links. A list of relevant session variables can be found <a href="https://support.lucidhq.com/s/article/Adding-Variables-to-Survey-Links">here</a>. Profiling data will be populated on redirects by appending <code class="prettyprint">[%Qualification_Name%]</code> to the redirect links where <code class="prettyprint">Qualification_Name</code> is the name of the qualification you would like to pass. Our <a href="http://labs.lucidhq.com/redirects">redirects generator</a> is a great tool for formatting redirect links.</li>
-<li>Details about the respondent&rsquo;s session can be returned on the redirect link as <a href="https://support.lucidhq.com/s/article/Fulcrum-Response-Codes">Fulcrum Response Codes</a>. </li>
+<li>Details about the respondent&rsquo;s session can be returned on the redirect link as <a href="https://support.lucidhq.com/s/article/Fulcrum-Response-Codes">Fulcrum Response Codes</a>.</li>
 <li>We require sending the respondent into Fulcrum with PID equal to the unique panelist ID and recommend sending the MID equal to the supplier&rsquo;s unique identifier for the session.</li>
 </ul>
 
