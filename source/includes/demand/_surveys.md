@@ -98,6 +98,8 @@ request.body = {
     "BidLengthOfInterview"=> 10,
     "BusinessUnitID"=> 9,
     "SampleTypeID"=> 100
+    "BidIncidence"=> 20,
+    "CollectsPII"=> false
  }.to_json
 
  request['Authorization'] = YOUR_API_KEY_HERE
@@ -138,7 +140,9 @@ $params = '{
     "SurveyPlatformID": 2,
     "BidLengthOfInterview": 10,
     "BusinessUnitID": 9,
-    "SampleTypeID": 100
+    "SampleTypeID": 100,
+    "BidIncidence": 20,
+    "CollectsPII": true
  }';
 
 curl_setopt_array($curl, array(
@@ -193,7 +197,9 @@ params = {
     "SurveyPlatformID": 2,
     "BidLengthOfInterview": 10,
     "BusinessUnitID": 9,
-    "SampleTypeID": 100
+    "SampleTypeID": 100,
+    "BidIncidence": 20,
+    "CollectsPII": true
  }
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Authorization' : 'YOUR_API_KEY_HERE', 'Accept': 'text/plain'}
@@ -236,7 +242,9 @@ string args = @"{
                     ""SurveyPlatformID"": 2,
                     ""BidLengthOfInterview"": 10,
                     ""BusinessUnitID"": 9,
-                    ""SampleTypeID"": 100
+                    ""SampleTypeID"": 100,
+                    ""BidIncidence"": 20,
+                    ""CollectsPII"": true
                 }";
 
 request.Method = "POST";
@@ -294,7 +302,9 @@ var json = {
     "SurveyPlatformID": 2,
     "BidLengthOfInterview": 10,
     "BusinessUnitID": 9,
-    "SampleTypeID": 100
+    "SampleTypeID": 100,
+    "BidIncidence": 20,
+    "CollectsPII": true
  };
 
 var params = JSON.stringify(json);
@@ -359,7 +369,9 @@ request.end();
     "BidLengthOfInterview": 10,
     "BusinessUnitID": 9,
     "SampleTypeID": 100,
-    "SurveySID": "E75CDFE2-7221-4FAC-8561-78EE1B1D6ECF"
+    "SurveySID": "E75CDFE2-7221-4FAC-8561-78EE1B1D6ECF",
+    "BidIncidence": 20,
+    "CollectsPII": true
   }
 }
 ```
@@ -462,7 +474,9 @@ request.body = {
     SurveyPlatformID: 2,
     BidLengthOfInterview: 10,
     BusinessUnitID: 9,
-    SampleTypeID: 100
+    SampleTypeID: 100,
+    BidIncidence: 20,
+    CollectsPII: false
  }.to_json
 
  request['Authorization'] = YOUR_API_KEY_HERE
@@ -504,7 +518,9 @@ $params = '{
     "SurveyPlatformID": 2,
     "BidLengthOfInterview": 10,
     "BusinessUnitID": 9,
-    "SampleTypeID": 100
+    "SampleTypeID": 100,
+    "BidIncidence": 20,
+    "CollectsPII": false
  }';
 
 curl_setopt_array($curl, array(
@@ -560,7 +576,9 @@ params = {
     "SurveyPlatformID": 2,
     "BidLengthOfInterview": 10,
     "BusinessUnitID": 9,
-    "SampleTypeID": 100
+    "SampleTypeID": 100,
+    "BidIncidence": 20,
+    "CollectsPII": false
  }
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Authorization' : 'YOUR_API_KEY_HERE', 'Accept': 'text/plain'}
@@ -604,7 +622,9 @@ string args = @"{
                     ""SurveyPlatformID"": 2,
                     ""BidLengthOfInterview"": 10,
                     ""BusinessUnitID"": 9,
-                    ""SampleTypeID"": 100
+                    ""SampleTypeID"": 100,
+                    ""BidIncidence"": 20,
+                    ""CollectsPII"": false
                 }";
 
 request.Method = "PUT";
@@ -663,7 +683,9 @@ var json = {
     "SurveyPlatformID": 2,
     "BidLengthOfInterview": 10,
     "BusinessUnitID": 9,
-    "SampleTypeID": 100
+    "SampleTypeID": 100,
+    "BidIncidence": 20,
+    "CollectsPII": false
  };
 
 var params = JSON.stringify(json);
@@ -728,7 +750,9 @@ request.end();
     "BidLengthOfInterview": 10,
     "BusinessUnitID": 9,
     "SampleTypeID": 100,
-    "SurveySID": "E75CDFE2-7221-4FAC-8561-78EE1B1D6ECF"
+    "SurveySID": "E75CDFE2-7221-4FAC-8561-78EE1B1D6ECF",
+    "BidIncidence": 20,
+    "CollectsPII": false
   }
 }
 ```
@@ -904,7 +928,9 @@ request.end();
     "BidLengthOfInterview": 10,
     "BusinessUnitID": 9,
     "SampleTypeID": 100,
-    "SurveySID": "E75CDFE2-7221-4FAC-8561-78EE1B1D6ECF"
+    "SurveySID": "E75CDFE2-7221-4FAC-8561-78EE1B1D6ECF",
+    "BidIncidence": 20,
+    "CollectsPII": false
   }
 }
 ```
@@ -1049,7 +1075,9 @@ request.end();
       "BidLengthOfInterview": 10,
       "BusinessUnitID": 9,
       "SampleTypeID": 100,
-      "SurveySID": "E75CDFE2-7221-4FAC-8561-78EE1B1D6ECF"
+      "SurveySID": "E75CDFE2-7221-4FAC-8561-78EE1B1D6ECF",
+      "BidIncidence": 20,
+      "CollectsPII": false
   }
 }
 ```
