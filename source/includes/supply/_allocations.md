@@ -211,7 +211,8 @@ request.end();
       "SurveyQuotaCalcTypeID": 1,
       "IsTrueSample": false,
       "SurveyMobileConversion": 0,
-      "SampleTypeID": null
+      "SampleTypeID": null,
+      "CollectsPII": false
     }
   ]
 }
@@ -364,7 +365,8 @@ request.end();
     "SurveyQuotaCalcTypeID": 1,
     "IsTrueSample": false,
     "SurveyMobileConversion": 0,
-    "SampleTypeID": null
+    "SampleTypeID": null,
+    "CollectsPII": false
   }
 }
 ```
@@ -504,7 +506,8 @@ request.end();
 			"SurveyQuotaCalcTypeID": 1,
 			"IsTrueSample": false,
 			"SurveyMobileConversion": 0,
-			"SampleTypeID": null
+			"SampleTypeID": null,
+			"CollectsPII": false
 		}
 	]
 }
