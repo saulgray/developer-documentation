@@ -37,6 +37,8 @@ The Surveys resource allows the buyer to create new surveys, update existing sur
 | BusinessUnitID               | int      | Sets the account [business unit](#get-list-business-units).                                                                                                 |
 | SampleTypeID                 | int      | Sets the type of sample the survey is open to (i.e. consumer, business-to-business, etc). [See Sample Types](#definitions)                              |
 | SurveySID                    | string   | Unique hash value (GUID) assoicated with the survey.                                                                                                    |
+| BidIncidence                 | int      | Estimated incidence rate for the survey.                                                                                                                |
+| CollectsPII                  | boolean  | "true" indicates that the survey will collect PII. Should always be set when PII is collected.                                                          |
 
 ### POST Create a Survey
 
@@ -399,6 +401,8 @@ Creates a Fulcrum survey.
 | BidLengthOfInterview         | int      | false    |Estimated time for a respondent to complete the survey excluding the Fulcrum prescreener in minutes as provided by the buyer.                           |
 | BusinessUnitID               | int      | true     |Sets the account [business unit](#get-list-business-units).                                                                                                 |
 | SampleTypeID                 | int      | false    |Sets the type of sample the survey is open to (i.e. consumer, business-to-business, etc). [See Sample Types](#definitions).                                 |
+| BidIncidence                 | int      | false    |Estimated incidence rate for the survey.                                                                                                                |
+| CollectsPII                  | boolean  | false    |"true" indicates that the survey will collect PII. Should always be set when PII is collected.                                                          |
 
 ### PUT Update a Survey
 
@@ -765,6 +769,8 @@ Update an existing Fulcrum survey.
 | BidLengthOfInterview         | int      | true     |Estimated time for a respondent to complete the survey excluding the Fulcrum prescreener in minutes as provided by the buyer.                           |
 | BusinessUnitID               | int      | true     |Sets the account [business unit](#get-list-business-units).                                                                                                 |
 | SampleTypeID                 | int      | false    |Sets the type of sample the survey is open to (i.e. consumer, business-to-business, etc). [See Sample Types](#definitions).                                   |
+| BidIncidence                 | int      | false    |Estimated incidence rate for the survey.                                                                                                                |
+| CollectsPII                  | boolean  | false    |"true" indicates that the survey will collect PII. Should always be set when PII is collected.                                                          |
 
 ### GET Show a Survey
 
