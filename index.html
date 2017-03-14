@@ -1368,6 +1368,11 @@
 <td>int</td>
 <td>The type of sample the survey is open to (i.e. consumer, business-to-business, etc).</td>
 </tr>
+<tr>
+<td>CollectsPII</td>
+<td>boolean</td>
+<td><code class="prettyprint">true</code> indicates that the survey will collect PII. Should always be set when PII is collected.</td>
+</tr>
 </tbody></table>
 
 <h3 id="get-list-exchange-surveys">GET List Exchange Surveys</h3>
@@ -1486,7 +1491,8 @@
       </span><span class="nt">"SurveyQuotaCalcTypeID"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
       </span><span class="nt">"IsTrueSample"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"SurveyMobileConversion"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"SampleTypeID"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="nt">"SampleTypeID"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CollectsPII"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1632,6 +1638,11 @@
 <td>int</td>
 <td>The type of sample the survey is open to (i.e. consumer, business-to-business, etc).</td>
 </tr>
+<tr>
+<td>CollectsPII</td>
+<td>boolean</td>
+<td><code class="prettyprint">true</code> indicates that the survey will collect PII. Should always be set when PII is collected.</td>
+</tr>
 </tbody></table>
 
 <h4 id="supplierallocationsurvey-model">SupplierAllocationSurvey Model</h4>
@@ -1767,6 +1778,11 @@
 <td>SampleTypeID</td>
 <td>int</td>
 <td>The type of sample the survey is open to (i.e. consumer, business-to-business, etc).</td>
+</tr>
+<tr>
+<td>CollectsPII</td>
+<td>boolean</td>
+<td><code class="prettyprint">true</code> indicates that the survey will collect PII. Should always be set when PII is collected.</td>
 </tr>
 </tbody></table>
 
@@ -2003,7 +2019,8 @@
       </span><span class="nt">"SurveyQuotaCalcTypeID"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
       </span><span class="nt">"IsTrueSample"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"SurveyMobileConversion"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"SampleTypeID"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="nt">"SampleTypeID"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CollectsPII"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -2159,7 +2176,8 @@
     </span><span class="nt">"SurveyQuotaCalcTypeID"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="nt">"IsTrueSample"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="nt">"SurveyMobileConversion"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"SampleTypeID"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="nt">"SampleTypeID"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CollectsPII"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -2306,7 +2324,8 @@
             </span><span class="nt">"SurveyQuotaCalcTypeID"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
             </span><span class="nt">"IsTrueSample"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
             </span><span class="nt">"SurveyMobileConversion"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"SampleTypeID"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+            </span><span class="nt">"SampleTypeID"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CollectsPII"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -4333,6 +4352,8 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
 
 <h4 id="survey-model">Survey Model</h4>
 
+<aside class="notice">The <code class="prettyprint">CollectsPII</code> property is being introduced in stages.  Beginning March 14, 2017 the property will be included in the Survey model, but will only accept a <code class="prettyprint">null</code> value.  On April 10, 2017, <code class="prettyprint">null</code>, <code class="prettyprint">false</code> and <code class="prettyprint">null</code> values will be accepted.  After April 24, 2017, Buyers will be required to set the property.</aside>
+
 <table><thead>
 <tr>
 <th>Property</th>
@@ -4418,42 +4439,42 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
 <tr>
 <td>FulcrumExchangeHedgeAccess</td>
 <td>boolean</td>
-<td>&ldquo;true&rdquo; gives the Exchange access to any unallocated completes.</td>
+<td><code class="prettyprint">true</code> gives the Exchange access to any unallocated completes.</td>
 </tr>
 <tr>
 <td>IsVerifyCallBack</td>
 <td>boolean</td>
-<td>&ldquo;true&rdquo; enables Verify CallBack security which requires the correct [%RSFN%] variable to be included on the &ldquo;complete&rdquo; client callback for verification.</td>
+<td><code class="prettyprint">true</code> enables Verify CallBack security which requires the correct [%RSFN%] variable to be included on the &ldquo;complete&rdquo; client callback for verification.</td>
 </tr>
 <tr>
 <td>UniquePID</td>
 <td>boolean</td>
-<td>&ldquo;true&rdquo; enables PID deduplication on a survey preventing a repsondent with the same PID from entering more than once. Recommended on all surveys.</td>
+<td><code class="prettyprint">true</code> enables PID deduplication on a survey preventing a repsondent with the same PID from entering more than once. Recommended on all surveys.</td>
 </tr>
 <tr>
 <td>UniqueIPAddress</td>
 <td>boolean</td>
-<td>&ldquo;true&rdquo; enables IP deduplication on a survey preventing a repsondent with the same IP address from entering more than once. Recommended on all surveys.</td>
+<td><code class="prettyprint">true</code> enables IP deduplication on a survey preventing a repsondent with the same IP address from entering more than once. Recommended on all surveys.</td>
 </tr>
 <tr>
 <td>IsRelevantID</td>
 <td>boolean</td>
-<td>&ldquo;true&rdquo; enables RelevantID security. RelevantID is a third-party security feature. There is an additional cost for RelevantID.</td>
+<td><code class="prettyprint">true</code> enables RelevantID security. RelevantID is a third-party security feature. There is an additional cost for RelevantID.</td>
 </tr>
 <tr>
 <td>IsDedupe</td>
 <td>boolean</td>
-<td>&ldquo;true&rdquo; enables Relevant ID dedupe security. Should always be enabled when using RelevantID</td>
+<td><code class="prettyprint">true</code> enables Relevant ID dedupe security. Should always be enabled when using RelevantID</td>
 </tr>
 <tr>
 <td>IsGeoIP</td>
 <td>boolean</td>
-<td>&ldquo;true&rdquo; enables RelevantID GeoIP security to determine respondent geogrphical location. Should always be enabled when using RelevantID.</td>
+<td><code class="prettyprint">true</code> enables RelevantID GeoIP security to determine respondent geogrphical location. Should always be enabled when using RelevantID.</td>
 </tr>
 <tr>
 <td>IsFraudProfile</td>
 <td>boolean</td>
-<td>&ldquo;true&rdquo; enables RelevantID Fraud Profile security. Should always be enabled when using RelevantID.</td>
+<td><code class="prettyprint">true</code> enables RelevantID Fraud Profile security. Should always be enabled when using RelevantID.</td>
 </tr>
 <tr>
 <td>FraudProfileThreshold</td>
@@ -4463,7 +4484,7 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
 <tr>
 <td>IsTrueSample</td>
 <td>boolean</td>
-<td>&ldquo;true&rdquo; enables TrueSample security. TrueSample is a third-party security feature. There is an additional cost associated.</td>
+<td><code class="prettyprint">true</code> enables TrueSample security. TrueSample is a third-party security feature. There is an additional cost associated.</td>
 </tr>
 <tr>
 <td>QuotaCalculationTypeID</td>
@@ -4494,6 +4515,16 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
 <td>SurveySID</td>
 <td>string</td>
 <td>Unique hash value (GUID) assoicated with the survey.</td>
+</tr>
+<tr>
+<td>BidIncidence</td>
+<td>int</td>
+<td>Estimated incidence rate for the survey.</td>
+</tr>
+<tr>
+<td>CollectsPII</td>
+<td>boolean</td>
+<td><code class="prettyprint">true</code> indicates that the survey will collect PII.</td>
 </tr>
 </tbody></table>
 
@@ -4552,7 +4583,9 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
     <span class="s2">"SurveyPlatformID"</span><span class="o">=&gt;</span> <span class="mi">2</span><span class="p">,</span>
     <span class="s2">"BidLengthOfInterview"</span><span class="o">=&gt;</span> <span class="mi">10</span><span class="p">,</span>
     <span class="s2">"BusinessUnitID"</span><span class="o">=&gt;</span> <span class="mi">9</span><span class="p">,</span>
-    <span class="s2">"SampleTypeID"</span><span class="o">=&gt;</span> <span class="mi">100</span>
+    <span class="s2">"SampleTypeID"</span><span class="o">=&gt;</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="s2">"BidIncidence"</span><span class="o">=&gt;</span> <span class="mi">20</span><span class="p">,</span>
+    <span class="s2">"CollectsPII"</span><span class="o">=&gt;</span> <span class="kp">false</span>
  <span class="p">}.</span><span class="nf">to_json</span>
 
  <span class="n">request</span><span class="p">[</span><span class="s1">'Authorization'</span><span class="p">]</span> <span class="o">=</span> <span class="no">YOUR_API_KEY_HERE</span>
@@ -4591,7 +4624,9 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
     "SurveyPlatformID": 2,
     "BidLengthOfInterview": 10,
     "BusinessUnitID": 9,
-    "SampleTypeID": 100
+    "SampleTypeID": 100,
+    "BidIncidence": 20,
+    "CollectsPII": true
  }'</span><span class="p">;</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
@@ -4644,7 +4679,9 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
     <span class="s">"SurveyPlatformID"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
     <span class="s">"BidLengthOfInterview"</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
     <span class="s">"BusinessUnitID"</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
-    <span class="s">"SampleTypeID"</span><span class="p">:</span> <span class="mi">100</span>
+    <span class="s">"SampleTypeID"</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="s">"BidIncidence"</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+    <span class="s">"CollectsPII"</span><span class="p">:</span> <span class="n">true</span>
  <span class="p">}</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Content-type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span> <span class="s">'Authorization'</span> <span class="p">:</span> <span class="s">'YOUR_API_KEY_HERE'</span><span class="p">,</span> <span class="s">'Accept'</span><span class="p">:</span> <span class="s">'text/plain'</span><span class="p">}</span>
@@ -4685,7 +4722,9 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
                     <span class="s">""</span><span class="n">SurveyPlatformID</span><span class="s">""</span><span class="p">:</span> <span class="m">2</span><span class="p">,</span>
                     <span class="s">""</span><span class="n">BidLengthOfInterview</span><span class="s">""</span><span class="p">:</span> <span class="m">10</span><span class="p">,</span>
                     <span class="s">""</span><span class="n">BusinessUnitID</span><span class="s">""</span><span class="p">:</span> <span class="m">9</span><span class="p">,</span>
-                    <span class="s">""</span><span class="n">SampleTypeID</span><span class="s">""</span><span class="p">:</span> <span class="m">100</span>
+                    <span class="s">""</span><span class="n">SampleTypeID</span><span class="s">""</span><span class="p">:</span> <span class="m">100</span><span class="p">,</span>
+                    <span class="s">""</span><span class="n">BidIncidence</span><span class="s">""</span><span class="p">:</span> <span class="m">20</span><span class="p">,</span>
+                    <span class="s">""</span><span class="n">CollectsPII</span><span class="s">""</span><span class="p">:</span> <span class="k">true</span>
                 <span class="p">}</span><span class="s">";
 </span>
 <span class="n">request</span><span class="p">.</span><span class="n">Method</span> <span class="p">=</span> <span class="s">"POST"</span><span class="p">;</span>
@@ -4741,7 +4780,9 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
     <span class="s2">"SurveyPlatformID"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
     <span class="s2">"BidLengthOfInterview"</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
     <span class="s2">"BusinessUnitID"</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
-    <span class="s2">"SampleTypeID"</span><span class="p">:</span> <span class="mi">100</span>
+    <span class="s2">"SampleTypeID"</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="s2">"BidIncidence"</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+    <span class="s2">"CollectsPII"</span><span class="p">:</span> <span class="kc">true</span>
  <span class="p">};</span>
 
 <span class="kd">var</span> <span class="nx">params</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">json</span><span class="p">);</span>
@@ -4806,7 +4847,9 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
     </span><span class="nt">"BidLengthOfInterview"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
     </span><span class="nt">"BusinessUnitID"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
     </span><span class="nt">"SampleTypeID"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"SurveySID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E75CDFE2-7221-4FAC-8561-78EE1B1D6ECF"</span><span class="w">
+    </span><span class="nt">"SurveySID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E75CDFE2-7221-4FAC-8561-78EE1B1D6ECF"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"BidIncidence"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CollectsPII"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -4913,49 +4956,49 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
 <td>FulcrumExchangeHedgeAccess</td>
 <td>boolean</td>
 <td>false</td>
-<td>&ldquo;true&rdquo; gives the Exchange access to any unallocated completes.</td>
+<td><code class="prettyprint">true</code> gives the Exchange access to any unallocated completes.</td>
 </tr>
 <tr>
 <td>IsVerifyCallBack</td>
 <td>boolean</td>
 <td>false</td>
-<td>&ldquo;true&rdquo; enables Verify CallBack security which requires the correct [%RSFN%] variable to be included on the &ldquo;complete&rdquo; client callback for verification.</td>
+<td><code class="prettyprint">true</code> enables Verify CallBack security which requires the correct [%RSFN%] variable to be included on the &ldquo;complete&rdquo; client callback for verification.</td>
 </tr>
 <tr>
 <td>UniquePID</td>
 <td>boolean</td>
 <td>false</td>
-<td>&ldquo;true&rdquo; enables PID deduplication on a survey preventing a repsondent with the same PID from entering more than once. Recommended on all surveys.</td>
+<td><code class="prettyprint">true</code> enables PID deduplication on a survey preventing a repsondent with the same PID from entering more than once. Recommended on all surveys.</td>
 </tr>
 <tr>
 <td>UniqueIPAddress</td>
 <td>boolean</td>
 <td>false</td>
-<td>&ldquo;true&rdquo; enables IP deduplication on a survey preventing a repsondent with the same IP address from entering more than once. Recommended on all surveys.</td>
+<td><code class="prettyprint">true</code> enables IP deduplication on a survey preventing a repsondent with the same IP address from entering more than once. Recommended on all surveys.</td>
 </tr>
 <tr>
 <td>IsRelevantID</td>
 <td>boolean</td>
 <td>false</td>
-<td>&ldquo;true&rdquo; enables RelevantID security. RelevantID is a third-party security feature. There is an additional cost for RelevantID.</td>
+<td><code class="prettyprint">true</code> enables RelevantID security. RelevantID is a third-party security feature. There is an additional cost for RelevantID.</td>
 </tr>
 <tr>
 <td>IsDedupe</td>
 <td>boolean</td>
 <td>false</td>
-<td>&ldquo;true&rdquo; enables Relevant ID dedupe security. Should always be enabled when using RelevantID.</td>
+<td><code class="prettyprint">true</code> enables Relevant ID dedupe security. Should always be enabled when using RelevantID.</td>
 </tr>
 <tr>
 <td>IsGeoIP</td>
 <td>boolean</td>
 <td>false</td>
-<td>&ldquo;true&rdquo; enables RelevantID GeoIP security to determine respondent geogrphical location. Should always be enabled when using RelevantID.</td>
+<td><code class="prettyprint">true</code> enables RelevantID GeoIP security to determine respondent geogrphical location. Should always be enabled when using RelevantID.</td>
 </tr>
 <tr>
 <td>IsFraudProfile</td>
 <td>boolean</td>
 <td>false</td>
-<td>&ldquo;true&rdquo; enables RelevantID Fraud Profile security. Should always be enabled when using RelevantID.</td>
+<td><code class="prettyprint">true</code> enables RelevantID Fraud Profile security. Should always be enabled when using RelevantID.</td>
 </tr>
 <tr>
 <td>FraudProfileThreshold</td>
@@ -4967,7 +5010,7 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
 <td>IsTrueSample</td>
 <td>boolean</td>
 <td>false</td>
-<td>&ldquo;true&rdquo; enables TrueSample security. TrueSample is a third-party security feature. There is an additional cost associated.</td>
+<td><code class="prettyprint">true</code> enables TrueSample security. TrueSample is a third-party security feature. There is an additional cost associated.</td>
 </tr>
 <tr>
 <td>QuotaCalculationTypeID</td>
@@ -4998,6 +5041,18 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
 <td>int</td>
 <td>false</td>
 <td>Sets the type of sample the survey is open to (i.e. consumer, business-to-business, etc). <a href="#definitions">See Sample Types</a>.</td>
+</tr>
+<tr>
+<td>BidIncidence</td>
+<td>int</td>
+<td>false</td>
+<td>Estimated incidence rate for the survey.</td>
+</tr>
+<tr>
+<td>CollectsPII</td>
+<td>boolean</td>
+<td>false</td>
+<td><code class="prettyprint">true</code> indicates that the survey will collect PII.</td>
 </tr>
 </tbody></table>
 
@@ -5057,7 +5112,9 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
     <span class="no">SurveyPlatformID</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
     <span class="no">BidLengthOfInterview</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
     <span class="no">BusinessUnitID</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
-    <span class="no">SampleTypeID</span><span class="p">:</span> <span class="mi">100</span>
+    <span class="no">SampleTypeID</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="no">BidIncidence</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+    <span class="no">CollectsPII</span><span class="p">:</span> <span class="kp">false</span>
  <span class="p">}.</span><span class="nf">to_json</span>
 
  <span class="n">request</span><span class="p">[</span><span class="s1">'Authorization'</span><span class="p">]</span> <span class="o">=</span> <span class="no">YOUR_API_KEY_HERE</span>
@@ -5097,7 +5154,9 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
     "SurveyPlatformID": 2,
     "BidLengthOfInterview": 10,
     "BusinessUnitID": 9,
-    "SampleTypeID": 100
+    "SampleTypeID": 100,
+    "BidIncidence": 20,
+    "CollectsPII": false
  }'</span><span class="p">;</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
@@ -5151,7 +5210,9 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
     <span class="s">"SurveyPlatformID"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
     <span class="s">"BidLengthOfInterview"</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
     <span class="s">"BusinessUnitID"</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
-    <span class="s">"SampleTypeID"</span><span class="p">:</span> <span class="mi">100</span>
+    <span class="s">"SampleTypeID"</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="s">"BidIncidence"</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+    <span class="s">"CollectsPII"</span><span class="p">:</span> <span class="n">false</span>
  <span class="p">}</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Content-type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span> <span class="s">'Authorization'</span> <span class="p">:</span> <span class="s">'YOUR_API_KEY_HERE'</span><span class="p">,</span> <span class="s">'Accept'</span><span class="p">:</span> <span class="s">'text/plain'</span><span class="p">}</span>
@@ -5193,7 +5254,9 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
                     <span class="s">""</span><span class="n">SurveyPlatformID</span><span class="s">""</span><span class="p">:</span> <span class="m">2</span><span class="p">,</span>
                     <span class="s">""</span><span class="n">BidLengthOfInterview</span><span class="s">""</span><span class="p">:</span> <span class="m">10</span><span class="p">,</span>
                     <span class="s">""</span><span class="n">BusinessUnitID</span><span class="s">""</span><span class="p">:</span> <span class="m">9</span><span class="p">,</span>
-                    <span class="s">""</span><span class="n">SampleTypeID</span><span class="s">""</span><span class="p">:</span> <span class="m">100</span>
+                    <span class="s">""</span><span class="n">SampleTypeID</span><span class="s">""</span><span class="p">:</span> <span class="m">100</span><span class="p">,</span>
+                    <span class="s">""</span><span class="n">BidIncidence</span><span class="s">""</span><span class="p">:</span> <span class="m">20</span><span class="p">,</span>
+                    <span class="s">""</span><span class="n">CollectsPII</span><span class="s">""</span><span class="p">:</span> <span class="k">false</span>
                 <span class="p">}</span><span class="s">";
 </span>
 <span class="n">request</span><span class="p">.</span><span class="n">Method</span> <span class="p">=</span> <span class="s">"PUT"</span><span class="p">;</span>
@@ -5250,7 +5313,9 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
     <span class="s2">"SurveyPlatformID"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
     <span class="s2">"BidLengthOfInterview"</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
     <span class="s2">"BusinessUnitID"</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
-    <span class="s2">"SampleTypeID"</span><span class="p">:</span> <span class="mi">100</span>
+    <span class="s2">"SampleTypeID"</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="s2">"BidIncidence"</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+    <span class="s2">"CollectsPII"</span><span class="p">:</span> <span class="kc">false</span>
  <span class="p">};</span>
 
 <span class="kd">var</span> <span class="nx">params</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">json</span><span class="p">);</span>
@@ -5315,7 +5380,9 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
     </span><span class="nt">"BidLengthOfInterview"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
     </span><span class="nt">"BusinessUnitID"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
     </span><span class="nt">"SampleTypeID"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"SurveySID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E75CDFE2-7221-4FAC-8561-78EE1B1D6ECF"</span><span class="w">
+    </span><span class="nt">"SurveySID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E75CDFE2-7221-4FAC-8561-78EE1B1D6ECF"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"BidIncidence"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CollectsPII"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -5426,49 +5493,49 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
 <td>FulcrumExchangeHedgeAccess</td>
 <td>boolean</td>
 <td>true</td>
-<td>&ldquo;true&rdquo; gives the Exchange access to any unallocated completes.</td>
+<td><code class="prettyprint">true</code> gives the Exchange access to any unallocated completes.</td>
 </tr>
 <tr>
 <td>IsVerifyCallBack</td>
 <td>boolean</td>
 <td>true</td>
-<td>&ldquo;true&rdquo; enables Verify CallBack security which requires the correct [%RSFN%] variable to be included on the &ldquo;complete&rdquo; client callback for verification.</td>
+<td><code class="prettyprint">true</code> enables Verify CallBack security which requires the correct [%RSFN%] variable to be included on the &ldquo;complete&rdquo; client callback for verification.</td>
 </tr>
 <tr>
 <td>UniquePID</td>
 <td>boolean</td>
 <td>true</td>
-<td>&ldquo;true&rdquo; enables PID deduplication on a survey preventing a repsondent with the same PID from entering more than once. Recommended on all surveys.</td>
+<td><code class="prettyprint">true</code> enables PID deduplication on a survey preventing a repsondent with the same PID from entering more than once. Recommended on all surveys.</td>
 </tr>
 <tr>
 <td>UniqueIPAddress</td>
 <td>boolean</td>
 <td>true</td>
-<td>&ldquo;true&rdquo; enables IP deduplication on a survey preventing a repsondent with the same IP address from entering more than once. Recommended on all surveys.</td>
+<td><code class="prettyprint">true</code> enables IP deduplication on a survey preventing a repsondent with the same IP address from entering more than once. Recommended on all surveys.</td>
 </tr>
 <tr>
 <td>IsRelevantID</td>
 <td>boolean</td>
 <td>true</td>
-<td>&ldquo;true&rdquo; enables RelevantID security. RelevantID is a third-party security feature. There is an additional cost associated.</td>
+<td><code class="prettyprint">true</code> enables RelevantID security. RelevantID is a third-party security feature. There is an additional cost associated.</td>
 </tr>
 <tr>
 <td>IsDedupe</td>
 <td>boolean</td>
 <td>true</td>
-<td>&ldquo;true&rdquo; enables Relevant ID dedupe security. Should always be enabled when using RelevantID.</td>
+<td><code class="prettyprint">true</code> enables Relevant ID dedupe security. Should always be enabled when using RelevantID.</td>
 </tr>
 <tr>
 <td>IsGeoIP</td>
 <td>boolean</td>
 <td>true</td>
-<td>&ldquo;true&rdquo; enables RelevantID GeoIP security to determine respondent geogrphical location. Should always be enabled when using RelevantID.</td>
+<td><code class="prettyprint">true</code> enables RelevantID GeoIP security to determine respondent geogrphical location. Should always be enabled when using RelevantID.</td>
 </tr>
 <tr>
 <td>IsFraudProfile</td>
 <td>boolean</td>
 <td>true</td>
-<td>&ldquo;true&rdquo; enables RelevantID Fraud Profile security. Should always be enabled when using RelevantID.</td>
+<td><code class="prettyprint">true</code> enables RelevantID Fraud Profile security. Should always be enabled when using RelevantID.</td>
 </tr>
 <tr>
 <td>FraudProfileThreshold</td>
@@ -5480,7 +5547,7 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
 <td>IsTrueSample</td>
 <td>boolean</td>
 <td>true</td>
-<td>&ldquo;true&rdquo; enables TrueSample security. TrueSample is a third-party security feature. There is an additional cost associated.</td>
+<td><code class="prettyprint">true</code> enables TrueSample security. TrueSample is a third-party security feature. There is an additional cost associated.</td>
 </tr>
 <tr>
 <td>QuotaCalculationTypeID</td>
@@ -5511,6 +5578,18 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
 <td>int</td>
 <td>false</td>
 <td>Sets the type of sample the survey is open to (i.e. consumer, business-to-business, etc). <a href="#definitions">See Sample Types</a>.</td>
+</tr>
+<tr>
+<td>BidIncidence</td>
+<td>int</td>
+<td>false</td>
+<td>Estimated incidence rate for the survey.</td>
+</tr>
+<tr>
+<td>CollectsPII</td>
+<td>boolean</td>
+<td>false</td>
+<td><code class="prettyprint">true</code> indicates that the survey will collect PII.</td>
 </tr>
 </tbody></table>
 
@@ -5636,7 +5715,9 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
     </span><span class="nt">"BidLengthOfInterview"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
     </span><span class="nt">"BusinessUnitID"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
     </span><span class="nt">"SampleTypeID"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"SurveySID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E75CDFE2-7221-4FAC-8561-78EE1B1D6ECF"</span><span class="w">
+    </span><span class="nt">"SurveySID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E75CDFE2-7221-4FAC-8561-78EE1B1D6ECF"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"BidIncidence"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CollectsPII"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -5783,7 +5864,9 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
       </span><span class="nt">"BidLengthOfInterview"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
       </span><span class="nt">"BusinessUnitID"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
       </span><span class="nt">"SampleTypeID"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"SurveySID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E75CDFE2-7221-4FAC-8561-78EE1B1D6ECF"</span><span class="w">
+      </span><span class="nt">"SurveySID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E75CDFE2-7221-4FAC-8561-78EE1B1D6ECF"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"BidIncidence"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CollectsPII"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -7739,12 +7822,12 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
 <tr>
 <td>ExchangeIsHedgeAccess</td>
 <td>boolean</td>
-<td>&ldquo;true&rdquo; gives the Exchange access to any unallocated completes. &ldquo;true&rdquo; is recommended when using the Exchange.</td>
+<td><code class="prettyprint">true</code> gives the Exchange access to any unallocated completes. <code class="prettyprint">true</code> is recommended when using the Exchange.</td>
 </tr>
 <tr>
 <td>IsGlobalTemplate</td>
 <td>boolean</td>
-<td>Should always return &ldquo;false&rdquo; indicating the template is only available to the buyers account.</td>
+<td>Should always return <code class="prettyprint">false</code> indicating the template is only available to the buyers account.</td>
 </tr>
 </tbody></table>
 
@@ -7790,12 +7873,12 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
 <tr>
 <td>IsHedgeAccess</td>
 <td>boolean</td>
-<td>&ldquo;true&rdquo; gives the Exchange group access to any unallocated completes.</td>
+<td><code class="prettyprint">true</code> gives the Exchange group access to any unallocated completes.</td>
 </tr>
 <tr>
 <td>CPI</td>
 <td>int</td>
-<td>Will typically return &ldquo;null&rdquo; as CPI can&rsquo;t be set via an Exchange Template.</td>
+<td>Will return <code class="prettyprint">null</code> as CPI can&rsquo;t be set via an Exchange Template.</td>
 </tr>
 <tr>
 <td>Suppliers</td>
@@ -13287,7 +13370,7 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
 
 <p>The Fulcrum Offerwall is a list of all <strong>live</strong> studies currently available to you on the Fulcrum Exchange. <a href="#get-list-exchange-surveys">List Exchange Surveys</a> will return the list of all <strong>live</strong> surveys on the platform which you do not already have a link against. A survey will only return on this call if there are completes available to you.</p>
 
-<p>Select and filter surveys based on desired criteria (e.g. country, study type, acceptable LOI, and QCPI)</p>
+<p>Select and filter surveys based on desired criteria (e.g. country, study type, PII collection, acceptable LOI, and QCPI)</p>
 
 <h4 id="3-create-a-link">3. <a href="#post-create-a-link">Create a Link</a></h4>
 
@@ -13609,6 +13692,18 @@ The <a href="#get-list-standard-questions">List Standard Questions</a> call only
 </ul>
 
               <h1 id="changelog">Changelog</h1>
+
+<h2 id="14-mar-2017">14 Mar 2017</h2>
+
+<h4 id="demand-api-new-properties">Demand API - New Properties</h4>
+
+<p>Two properties have been added to the Survey Model:
+* <code class="prettyprint">CollectsPII</code>
+* <code class="prettyprint">BidIncidence</code></p>
+
+<h4 id="supply-api-survey-39-s-groups">Supply API - Survey&rsquo;s Groups</h4>
+
+<p>A <code class="prettyprint">CollectsPII</code> property has been added to the <code class="prettyprint">Survey</code>, <code class="prettyprint">SupplierAllocationSurveys</code>, and <code class="prettyprint">SupplierAllocationSurvey</code> models.</p>
 
 <h2 id="26-jan-2017">26 Jan 2017</h2>
 
