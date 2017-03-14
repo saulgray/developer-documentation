@@ -97,7 +97,7 @@ request.body = {
     "SurveyPlatformID"=> 2,
     "BidLengthOfInterview"=> 10,
     "BusinessUnitID"=> 9,
-    "SampleTypeID"=> 100
+    "SampleTypeID"=> 100,
     "BidIncidence"=> 20,
     "CollectsPII"=> false
  }.to_json
