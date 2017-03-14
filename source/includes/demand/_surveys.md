@@ -39,7 +39,7 @@ The Surveys resource allows the buyer to create new surveys, update existing sur
 | SampleTypeID                 | int      | Sets the type of sample the survey is open to (i.e. consumer, business-to-business, etc). [See Sample Types](#definitions)                              |
 | SurveySID                    | string   | Unique hash value (GUID) assoicated with the survey.                                                                                                    |
 | BidIncidence                 | int      | Estimated incidence rate for the survey.                                                                                                                |
-| CollectsPII                  | boolean  | `true` indicates that the survey will collect PII. Should always be set when PII is collected.                                                          |
+| CollectsPII                  | boolean  | `true` indicates that the survey will collect PII.                                                                                                      |
 
 ### POST Create a Survey
 
@@ -415,7 +415,7 @@ Creates a Fulcrum survey.
 | BusinessUnitID               | int      | true     |Sets the account [business unit](#get-list-business-units).                                                                                                 |
 | SampleTypeID                 | int      | false    |Sets the type of sample the survey is open to (i.e. consumer, business-to-business, etc). [See Sample Types](#definitions).                                 |
 | BidIncidence                 | int      | false    |Estimated incidence rate for the survey.                                                                                                                |
-| CollectsPII                  | boolean  | false    |"true" indicates that the survey will collect PII. Should always be set when PII is collected.                                                          |
+| CollectsPII                  | boolean  | false    |`true` indicates that the survey will collect PII.                                                                                                      |
 
 ### PUT Update a Survey
 
@@ -795,7 +795,7 @@ Update an existing Fulcrum survey.
 | BusinessUnitID               | int      | true     |Sets the account [business unit](#get-list-business-units).                                                                                                 |
 | SampleTypeID                 | int      | false    |Sets the type of sample the survey is open to (i.e. consumer, business-to-business, etc). [See Sample Types](#definitions).                                   |
 | BidIncidence                 | int      | false    |Estimated incidence rate for the survey.                                                                                                                |
-| CollectsPII                  | boolean  | false    |"true" indicates that the survey will collect PII. Should always be set when PII is collected.                                                          |
+| CollectsPII                  | boolean  | false    |`true` indicates that the survey will collect PII.                                                                                                      |
 
 ### GET Show a Survey
 
