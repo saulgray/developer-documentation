@@ -3,6 +3,7 @@
 The Surveys resource allows the buyer to create new surveys, update existing surveys, and retrieve survey details in Fulcrum.
 
 #### Survey Model
+<aside class="notice">The <code class="prettyprint">CollectsPII</code> property is being introduced in stages.  Beginning March 14, 2017 the property will be included in the Survey model, but will only accept a <code class="prettyprint">null</code> value.  On April 10, 2017, <code class="prettyprint">null</code>, <code class="prettyprint">false</code> and <code class="prettyprint">null</code> values will be accepted.  After April 24, 2017, Buyers will be required to set the property.</aside>
 
 | Property                     | Type     | Description                                                                                                                                             |
 |------------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -38,7 +39,7 @@ The Surveys resource allows the buyer to create new surveys, update existing sur
 | SampleTypeID                 | int      | Sets the type of sample the survey is open to (i.e. consumer, business-to-business, etc). [See Sample Types](#definitions)                              |
 | SurveySID                    | string   | Unique hash value (GUID) assoicated with the survey.                                                                                                    |
 | BidIncidence                 | int      | Estimated incidence rate for the survey.                                                                                                                |
-| CollectsPII                  | boolean  | "true" indicates that the survey will collect PII. Should always be set when PII is collected.                                                          |
+| CollectsPII                  | boolean  | `true` indicates that the survey will collect PII. Should always be set when PII is collected.                                                          |
 
 ### POST Create a Survey
 
