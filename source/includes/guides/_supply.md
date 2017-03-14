@@ -132,7 +132,7 @@ In this phase, we’ll explain the recommended process to find new Offerwall sur
 
 The Fulcrum Offerwall is a list of all __live__ studies currently available to you on the Fulcrum Exchange. [List Exchange Surveys](#get-list-exchange-surveys) will return the list of all __live__ surveys on the platform which you do not already have a link against. A survey will only return on this call if there are completes available to you.
 
-Select and filter surveys based on desired criteria (e.g. country, study type, acceptable LOI, and QCPI)
+Select and filter surveys based on desired criteria (e.g. country, study type, PII collection, acceptable LOI, and QCPI)
 
 #### 3. [Create a Link](#post-create-a-link)
 

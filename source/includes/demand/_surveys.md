@@ -37,6 +37,8 @@ The Surveys resource allows the buyer to create new surveys, update existing sur
 | BusinessUnitID               | int      | Sets the account [business unit](#get-list-business-units).                                                                                                 |
 | SampleTypeID                 | int      | Sets the type of sample the survey is open to (i.e. consumer, business-to-business, etc). [See Sample Types](#definitions)                              |
 | SurveySID                    | string   | Unique hash value (GUID) assoicated with the survey.                                                                                                    |
+| BidIncidence                 | int      | Estimated incidence rate for the survey.                                                                                                                |
+| CollectsPII                  | boolean  | "true" indicates that the survey will collect PII. Should always be set when PII is collected.                                                          |
 
 ### POST Create a Survey
 
@@ -95,7 +97,9 @@ request.body = {
     "SurveyPlatformID"=> 2,
     "BidLengthOfInterview"=> 10,
     "BusinessUnitID"=> 9,
-    "SampleTypeID"=> 100
+    "SampleTypeID"=> 100,
+    "BidIncidence"=> 20,
+    "CollectsPII"=> false
  }.to_json
 
  request['Authorization'] = YOUR_API_KEY_HERE
@@ -136,7 +140,9 @@ $params = '{
     "SurveyPlatformID": 2,
     "BidLengthOfInterview": 10,
     "BusinessUnitID": 9,
-    "SampleTypeID": 100
+    "SampleTypeID": 100,
+    "BidIncidence": 20,
+    "CollectsPII": true
  }';
 
 curl_setopt_array($curl, array(
@@ -191,7 +197,9 @@ params = {
     "SurveyPlatformID": 2,
     "BidLengthOfInterview": 10,
     "BusinessUnitID": 9,
-    "SampleTypeID": 100
+    "SampleTypeID": 100,
+    "BidIncidence": 20,
+    "CollectsPII": true
  }
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Authorization' : 'YOUR_API_KEY_HERE', 'Accept': 'text/plain'}
@@ -234,7 +242,9 @@ string args = @"{
                     ""SurveyPlatformID"": 2,
                     ""BidLengthOfInterview"": 10,
                     ""BusinessUnitID"": 9,
-                    ""SampleTypeID"": 100
+                    ""SampleTypeID"": 100,
+                    ""BidIncidence"": 20,
+                    ""CollectsPII"": true
                 }";
 
 request.Method = "POST";
@@ -292,7 +302,9 @@ var json = {
     "SurveyPlatformID": 2,
     "BidLengthOfInterview": 10,
     "BusinessUnitID": 9,
-    "SampleTypeID": 100
+    "SampleTypeID": 100,
+    "BidIncidence": 20,
+    "CollectsPII": true
  };
 
 var params = JSON.stringify(json);
@@ -357,7 +369,9 @@ request.end();
     "BidLengthOfInterview": 10,
     "BusinessUnitID": 9,
     "SampleTypeID": 100,
-    "SurveySID": "E75CDFE2-7221-4FAC-8561-78EE1B1D6ECF"
+    "SurveySID": "E75CDFE2-7221-4FAC-8561-78EE1B1D6ECF",
+    "BidIncidence": 20,
+    "CollectsPII": true
   }
 }
 ```
@@ -399,6 +413,8 @@ Creates a Fulcrum survey.
 | BidLengthOfInterview         | int      | false    |Estimated time for a respondent to complete the survey excluding the Fulcrum prescreener in minutes as provided by the buyer.                           |
 | BusinessUnitID               | int      | true     |Sets the account [business unit](#get-list-business-units).                                                                                                 |
 | SampleTypeID                 | int      | false    |Sets the type of sample the survey is open to (i.e. consumer, business-to-business, etc). [See Sample Types](#definitions).                                 |
+| BidIncidence                 | int      | false    |Estimated incidence rate for the survey.                                                                                                                |
+| CollectsPII                  | boolean  | false    |"true" indicates that the survey will collect PII. Should always be set when PII is collected.                                                          |
 
 ### PUT Update a Survey
 
@@ -458,7 +474,9 @@ request.body = {
     SurveyPlatformID: 2,
     BidLengthOfInterview: 10,
     BusinessUnitID: 9,
-    SampleTypeID: 100
+    SampleTypeID: 100,
+    BidIncidence: 20,
+    CollectsPII: false
  }.to_json
 
  request['Authorization'] = YOUR_API_KEY_HERE
@@ -500,7 +518,9 @@ $params = '{
     "SurveyPlatformID": 2,
     "BidLengthOfInterview": 10,
     "BusinessUnitID": 9,
-    "SampleTypeID": 100
+    "SampleTypeID": 100,
+    "BidIncidence": 20,
+    "CollectsPII": false
  }';
 
 curl_setopt_array($curl, array(
@@ -556,7 +576,9 @@ params = {
     "SurveyPlatformID": 2,
     "BidLengthOfInterview": 10,
     "BusinessUnitID": 9,
-    "SampleTypeID": 100
+    "SampleTypeID": 100,
+    "BidIncidence": 20,
+    "CollectsPII": false
  }
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Authorization' : 'YOUR_API_KEY_HERE', 'Accept': 'text/plain'}
@@ -600,7 +622,9 @@ string args = @"{
                     ""SurveyPlatformID"": 2,
                     ""BidLengthOfInterview"": 10,
                     ""BusinessUnitID"": 9,
-                    ""SampleTypeID"": 100
+                    ""SampleTypeID"": 100,
+                    ""BidIncidence"": 20,
+                    ""CollectsPII"": false
                 }";
 
 request.Method = "PUT";
@@ -659,7 +683,9 @@ var json = {
     "SurveyPlatformID": 2,
     "BidLengthOfInterview": 10,
     "BusinessUnitID": 9,
-    "SampleTypeID": 100
+    "SampleTypeID": 100,
+    "BidIncidence": 20,
+    "CollectsPII": false
  };
 
 var params = JSON.stringify(json);
@@ -724,7 +750,9 @@ request.end();
     "BidLengthOfInterview": 10,
     "BusinessUnitID": 9,
     "SampleTypeID": 100,
-    "SurveySID": "E75CDFE2-7221-4FAC-8561-78EE1B1D6ECF"
+    "SurveySID": "E75CDFE2-7221-4FAC-8561-78EE1B1D6ECF",
+    "BidIncidence": 20,
+    "CollectsPII": false
   }
 }
 ```
@@ -765,6 +793,8 @@ Update an existing Fulcrum survey.
 | BidLengthOfInterview         | int      | true     |Estimated time for a respondent to complete the survey excluding the Fulcrum prescreener in minutes as provided by the buyer.                           |
 | BusinessUnitID               | int      | true     |Sets the account [business unit](#get-list-business-units).                                                                                                 |
 | SampleTypeID                 | int      | false    |Sets the type of sample the survey is open to (i.e. consumer, business-to-business, etc). [See Sample Types](#definitions).                                   |
+| BidIncidence                 | int      | false    |Estimated incidence rate for the survey.                                                                                                                |
+| CollectsPII                  | boolean  | false    |"true" indicates that the survey will collect PII. Should always be set when PII is collected.                                                          |
 
 ### GET Show a Survey
 
@@ -898,7 +928,9 @@ request.end();
     "BidLengthOfInterview": 10,
     "BusinessUnitID": 9,
     "SampleTypeID": 100,
-    "SurveySID": "E75CDFE2-7221-4FAC-8561-78EE1B1D6ECF"
+    "SurveySID": "E75CDFE2-7221-4FAC-8561-78EE1B1D6ECF",
+    "BidIncidence": 20,
+    "CollectsPII": false
   }
 }
 ```
@@ -1043,7 +1075,9 @@ request.end();
       "BidLengthOfInterview": 10,
       "BusinessUnitID": 9,
       "SampleTypeID": 100,
-      "SurveySID": "E75CDFE2-7221-4FAC-8561-78EE1B1D6ECF"
+      "SurveySID": "E75CDFE2-7221-4FAC-8561-78EE1B1D6ECF",
+      "BidIncidence": 20,
+      "CollectsPII": false
   }
 }
 ```
