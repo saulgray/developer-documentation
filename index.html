@@ -1371,7 +1371,7 @@
 <tr>
 <td>CollectsPII</td>
 <td>boolean</td>
-<td><code class="prettyprint">true</code> indicates that the survey will collect PII. Should always be set when PII is collected.</td>
+<td><code class="prettyprint">true</code> indicates that the survey will collect PII.</td>
 </tr>
 </tbody></table>
 
@@ -1641,7 +1641,7 @@
 <tr>
 <td>CollectsPII</td>
 <td>boolean</td>
-<td><code class="prettyprint">true</code> indicates that the survey will collect PII. Should always be set when PII is collected.</td>
+<td><code class="prettyprint">true</code> indicates that the survey will collect PII.</td>
 </tr>
 </tbody></table>
 
@@ -1782,7 +1782,7 @@
 <tr>
 <td>CollectsPII</td>
 <td>boolean</td>
-<td><code class="prettyprint">true</code> indicates that the survey will collect PII. Should always be set when PII is collected.</td>
+<td><code class="prettyprint">true</code> indicates that the survey will collect PII.</td>
 </tr>
 </tbody></table>
 
@@ -4352,7 +4352,7 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
 
 <h4 id="survey-model">Survey Model</h4>
 
-<aside class="notice">The <code class="prettyprint">CollectsPII</code> property is being introduced in stages.  Beginning March 14, 2017 the property will be included in the Survey model, but will only accept a <code class="prettyprint">null</code> value.  On April 10, 2017, <code class="prettyprint">null</code>, <code class="prettyprint">false</code> and <code class="prettyprint">null</code> values will be accepted.  After April 24, 2017, Buyers will be required to set the property.</aside>
+<aside class="notice">The <code class="prettyprint">CollectsPII</code> property is being introduced in stages.  Beginning March 14, 2017 the property will be included in the <code class="prettyprint">Survey</code> model, but will only accept a <code class="prettyprint">null</code> value.  On April 10, 2017, <code class="prettyprint">null</code>, <code class="prettyprint">false</code> and <code class="prettyprint">true</code> values will be accepted.  After April 24, 2017, Buyers will be required to set the property.</aside>
 
 <table><thead>
 <tr>
@@ -13697,13 +13697,34 @@ The <a href="#get-list-standard-questions">List Standard Questions</a> call only
 
 <h4 id="demand-api-new-properties">Demand API - New Properties</h4>
 
-<p>Two properties have been added to the Survey Model:
-* <code class="prettyprint">CollectsPII</code>
-* <code class="prettyprint">BidIncidence</code></p>
+<p>Two properties have been added to the Survey Model:</p>
 
-<h4 id="supply-api-survey-39-s-groups">Supply API - Survey&rsquo;s Groups</h4>
+<ul>
+<li><code class="prettyprint">CollectsPII</code></li>
+<li><code class="prettyprint">BidIncidence</code></li>
+</ul>
+
+<p>Links to affected calls can be found below:</p>
+
+<ul>
+<li><a href="#post-create-a-survey">Create a Survey</a></li>
+<li><a href="#put-update-a-survey">Update a Survey</a></li>
+<li><a href="#get-show-a-survey">Show a Survey</a></li>
+<li><a href="#get-list-surveys-by-status">List Surveys By Status</a></li>
+</ul>
+
+<h4 id="supply-api-new-properties">Supply API - New Properties</h4>
 
 <p>A <code class="prettyprint">CollectsPII</code> property has been added to the <code class="prettyprint">Survey</code>, <code class="prettyprint">SupplierAllocationSurveys</code>, and <code class="prettyprint">SupplierAllocationSurvey</code> models.</p>
+
+<p>Links to affected calls can be found below:</p>
+
+<ul>
+<li><a href="#get-list-exchange-surveys">List Exchange Surveys</a></li>
+<li><a href="#get-list-allocated-surveys">List Allocated Surveys</a></li>
+<li><a href="#get-show-an-allocated-survey">Show an Allocated Survey</a></li>
+<li><a href="#get-list-recently-allocated-surveys">List Recently Allocated Surveys</a></li>
+</ul>
 
 <h2 id="26-jan-2017">26 Jan 2017</h2>
 
