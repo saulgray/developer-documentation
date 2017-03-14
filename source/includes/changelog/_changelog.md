@@ -5,12 +5,12 @@
 #### Demand API - New Properties
 
 Two properties have been added to the Survey Model:
-* "CollectsPII"
-* "BidIncidence"
+* `CollectsPII`
+* `BidIncidence`
 
 #### Supply API - Survey's Groups
 
-A "CollectsPII" property has been added to the "Survey", "SupplierAllocationSurveys", and "SupplierAllocationSurvey" models.
+A `CollectsPII` property has been added to the `Survey`, `SupplierAllocationSurveys`, and `SupplierAllocationSurvey` models.
 
 ## 26 Jan 2017
 
