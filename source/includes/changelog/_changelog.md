@@ -5,6 +5,7 @@
 #### Demand API - New Properties
 
 Two properties have been added to the Survey Model:
+
 * `CollectsPII`
 * `BidIncidence`
 
