@@ -3,6 +3,7 @@
 The Surveys resource allows the buyer to create new surveys, update existing surveys, and retrieve survey details in Fulcrum.
 
 #### Survey Model
+<aside class="notice">The <code class="prettyprint">CollectsPII</code> property is being introduced in stages.  Beginning March 14, 2017 the property will be included in the Survey model, but will only accept a <code class="prettyprint">null</code> value.  On April 10, 2017, <code class="prettyprint">null</code>, <code class="prettyprint">false</code> and <code class="prettyprint">null</code> values will be accepted.  After April 24, 2017, Buyers will be required to set the property.</aside>
 
 | Property                     | Type     | Description                                                                                                                                             |
 |------------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -21,22 +22,24 @@ The Surveys resource allows the buyer to create new surveys, update existing sur
 | IsActive                     | string   | Indicates if a survey is active or inactive.                                                                                                            |
 | Quota                        | int      | Total number of completes needed.                                                                                                                       |
 | FulcrumExchangeAllocation    | double   | Percentage of total completes allocated only to the Exchange. Must be between 0 and 100%.                                                               |
-| FulcrumExchangeHedgeAccess   | boolean  | "true" gives the Exchange access to any unallocated completes.                                                                                          |
-| IsVerifyCallBack             | boolean  | "true" enables Verify CallBack security which requires the correct [%RSFN%] variable to be included on the "complete" client callback for verification. |
-| UniquePID                    | boolean  | "true" enables PID deduplication on a survey preventing a repsondent with the same PID from entering more than once. Recommended on all surveys.        |
-| UniqueIPAddress              | boolean  | "true" enables IP deduplication on a survey preventing a repsondent with the same IP address from entering more than once. Recommended on all surveys.  |
-| IsRelevantID                 | boolean  | "true" enables RelevantID security. RelevantID is a third-party security feature. There is an additional cost for RelevantID.                           |
-| IsDedupe                     | boolean  | "true" enables Relevant ID dedupe security. Should always be enabled when using RelevantID                                                              |
-| IsGeoIP                      | boolean  | "true" enables RelevantID GeoIP security to determine respondent geogrphical location. Should always be enabled when using RelevantID.                  |
-| IsFraudProfile               | boolean  | "true" enables RelevantID Fraud Profile security. Should always be enabled when using RelevantID.                                                       |
+| FulcrumExchangeHedgeAccess   | boolean  | `true` gives the Exchange access to any unallocated completes.                                                                                          |
+| IsVerifyCallBack             | boolean  | `true` enables Verify CallBack security which requires the correct [%RSFN%] variable to be included on the "complete" client callback for verification. |
+| UniquePID                    | boolean  | `true` enables PID deduplication on a survey preventing a repsondent with the same PID from entering more than once. Recommended on all surveys.        |
+| UniqueIPAddress              | boolean  | `true` enables IP deduplication on a survey preventing a repsondent with the same IP address from entering more than once. Recommended on all surveys.  |
+| IsRelevantID                 | boolean  | `true` enables RelevantID security. RelevantID is a third-party security feature. There is an additional cost for RelevantID.                           |
+| IsDedupe                     | boolean  | `true` enables Relevant ID dedupe security. Should always be enabled when using RelevantID                                                              |
+| IsGeoIP                      | boolean  | `true` enables RelevantID GeoIP security to determine respondent geogrphical location. Should always be enabled when using RelevantID.                  |
+| IsFraudProfile               | boolean  | `true` enables RelevantID Fraud Profile security. Should always be enabled when using RelevantID.                                                       |
 | FraudProfileThreshold        | int      | Sets the RelevantID Fraud Profile Threshold between 0-100. The lower the number the more aggressive the security. We recommend 11.                      |
-| IsTrueSample                 | boolean  | "true" enables TrueSample security. TrueSample is a third-party security feature. There is an additional cost associated.                               |
+| IsTrueSample                 | boolean  | `true` enables TrueSample security. TrueSample is a third-party security feature. There is an additional cost associated.                               |
 | QuotaCalculationTypeID       | int      | Sets the quota calculation method. Either 1 for ”Completes” (quotas determined by completes) or 2=”Prescreens” (quotas determined when leaving Fulcrum).|
 | SurveyPlatformID             | int      | Sets the external platform ID. We recommend setting to 2 for "undefined" in most situations.                                                            |
 | BidLengthOfInterview         | int      | Estimated time for a respondent to complete the survey excluding the Fulcrum prescreener in minutes as provided by the buyer.                           |
 | BusinessUnitID               | int      | Sets the account [business unit](#get-list-business-units).                                                                                                 |
 | SampleTypeID                 | int      | Sets the type of sample the survey is open to (i.e. consumer, business-to-business, etc). [See Sample Types](#definitions)                              |
 | SurveySID                    | string   | Unique hash value (GUID) assoicated with the survey.                                                                                                    |
+| BidIncidence                 | int      | Estimated incidence rate for the survey.                                                                                                                |
+| CollectsPII                  | boolean  | `true` indicates that the survey will collect PII.                                                                                                      |
 
 ### POST Create a Survey
 
@@ -95,7 +98,9 @@ request.body = {
     "SurveyPlatformID"=> 2,
     "BidLengthOfInterview"=> 10,
     "BusinessUnitID"=> 9,
-    "SampleTypeID"=> 100
+    "SampleTypeID"=> 100,
+    "BidIncidence"=> 20,
+    "CollectsPII"=> false
  }.to_json
 
  request['Authorization'] = YOUR_API_KEY_HERE
@@ -136,7 +141,9 @@ $params = '{
     "SurveyPlatformID": 2,
     "BidLengthOfInterview": 10,
     "BusinessUnitID": 9,
-    "SampleTypeID": 100
+    "SampleTypeID": 100,
+    "BidIncidence": 20,
+    "CollectsPII": true
  }';
 
 curl_setopt_array($curl, array(
@@ -191,7 +198,9 @@ params = {
     "SurveyPlatformID": 2,
     "BidLengthOfInterview": 10,
     "BusinessUnitID": 9,
-    "SampleTypeID": 100
+    "SampleTypeID": 100,
+    "BidIncidence": 20,
+    "CollectsPII": true
  }
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Authorization' : 'YOUR_API_KEY_HERE', 'Accept': 'text/plain'}
@@ -234,7 +243,9 @@ string args = @"{
                     ""SurveyPlatformID"": 2,
                     ""BidLengthOfInterview"": 10,
                     ""BusinessUnitID"": 9,
-                    ""SampleTypeID"": 100
+                    ""SampleTypeID"": 100,
+                    ""BidIncidence"": 20,
+                    ""CollectsPII"": true
                 }";
 
 request.Method = "POST";
@@ -292,7 +303,9 @@ var json = {
     "SurveyPlatformID": 2,
     "BidLengthOfInterview": 10,
     "BusinessUnitID": 9,
-    "SampleTypeID": 100
+    "SampleTypeID": 100,
+    "BidIncidence": 20,
+    "CollectsPII": true
  };
 
 var params = JSON.stringify(json);
@@ -357,7 +370,9 @@ request.end();
     "BidLengthOfInterview": 10,
     "BusinessUnitID": 9,
     "SampleTypeID": 100,
-    "SurveySID": "E75CDFE2-7221-4FAC-8561-78EE1B1D6ECF"
+    "SurveySID": "E75CDFE2-7221-4FAC-8561-78EE1B1D6ECF",
+    "BidIncidence": 20,
+    "CollectsPII": true
   }
 }
 ```
@@ -384,21 +399,23 @@ Creates a Fulcrum survey.
 | IsActive                     | string   | false    |Indicates if a survey is active or inactive. Inactive is effectively the same as delete. We recommend keeping any surveys that have prescreens or completes in active status.                                                                                                             |
 | Quota                        | int      | false    |Total number of completes needed.                                                                                                                        |
 | FulcrumExchangeAllocation    | double   | false    |Percentage of total completes allocated only to the Exchange. Must be between 0 and 100%.                                                               |
-| FulcrumExchangeHedgeAccess   | boolean  | false    |"true" gives the Exchange access to any unallocated completes.                                                                                          |
-| IsVerifyCallBack             | boolean  | false    |"true" enables Verify CallBack security which requires the correct [%RSFN%] variable to be included on the "complete" client callback for verification. |
-| UniquePID                    | boolean  | false    |"true" enables PID deduplication on a survey preventing a repsondent with the same PID from entering more than once. Recommended on all surveys.        |
-| UniqueIPAddress              | boolean  | false    |"true" enables IP deduplication on a survey preventing a repsondent with the same IP address from entering more than once. Recommended on all surveys.  |
-| IsRelevantID                 | boolean  | false    |"true" enables RelevantID security. RelevantID is a third-party security feature. There is an additional cost for RelevantID.                           |
-| IsDedupe                     | boolean  | false    |"true" enables Relevant ID dedupe security. Should always be enabled when using RelevantID.                                                              |
-| IsGeoIP                      | boolean  | false    |"true" enables RelevantID GeoIP security to determine respondent geogrphical location. Should always be enabled when using RelevantID.                   |
-| IsFraudProfile               | boolean  | false    |"true" enables RelevantID Fraud Profile security. Should always be enabled when using RelevantID.                                                        |
+| FulcrumExchangeHedgeAccess   | boolean  | false    |`true` gives the Exchange access to any unallocated completes.                                                                                          |
+| IsVerifyCallBack             | boolean  | false    |`true` enables Verify CallBack security which requires the correct [%RSFN%] variable to be included on the "complete" client callback for verification. |
+| UniquePID                    | boolean  | false    |`true` enables PID deduplication on a survey preventing a repsondent with the same PID from entering more than once. Recommended on all surveys.        |
+| UniqueIPAddress              | boolean  | false    |`true` enables IP deduplication on a survey preventing a repsondent with the same IP address from entering more than once. Recommended on all surveys.  |
+| IsRelevantID                 | boolean  | false    |`true` enables RelevantID security. RelevantID is a third-party security feature. There is an additional cost for RelevantID.                           |
+| IsDedupe                     | boolean  | false    |`true` enables Relevant ID dedupe security. Should always be enabled when using RelevantID.                                                              |
+| IsGeoIP                      | boolean  | false    |`true` enables RelevantID GeoIP security to determine respondent geogrphical location. Should always be enabled when using RelevantID.                   |
+| IsFraudProfile               | boolean  | false    |`true` enables RelevantID Fraud Profile security. Should always be enabled when using RelevantID.                                                        |
 | FraudProfileThreshold        | int      | false    |Sets the RelevantID Fraud Profile Threshold between 0-100. The lower the number the more aggressive the security. We recommend 11.                     |
-| IsTrueSample                 | boolean  | false    |"true" enables TrueSample security. TrueSample is a third-party security feature. There is an additional cost associated.                               |
+| IsTrueSample                 | boolean  | false    |`true` enables TrueSample security. TrueSample is a third-party security feature. There is an additional cost associated.                               |
 | QuotaCalculationTypeID       | int      | false    |Sets the quota calculation method. Either 1 for ”Completes” (quotas determined by completes) or 2=”Prescreens” (quotas determined when leaving Fulcrum). |
 | SurveyPlatformID             | int      | false    |Sets the external platform ID. We recommend setting to 2 for "undefined" in most situations.                                                             |
 | BidLengthOfInterview         | int      | false    |Estimated time for a respondent to complete the survey excluding the Fulcrum prescreener in minutes as provided by the buyer.                           |
 | BusinessUnitID               | int      | true     |Sets the account [business unit](#get-list-business-units).                                                                                                 |
 | SampleTypeID                 | int      | false    |Sets the type of sample the survey is open to (i.e. consumer, business-to-business, etc). [See Sample Types](#definitions).                                 |
+| BidIncidence                 | int      | false    |Estimated incidence rate for the survey.                                                                                                                |
+| CollectsPII                  | boolean  | false    |`true` indicates that the survey will collect PII.                                                                                                      |
 
 ### PUT Update a Survey
 
@@ -458,7 +475,9 @@ request.body = {
     SurveyPlatformID: 2,
     BidLengthOfInterview: 10,
     BusinessUnitID: 9,
-    SampleTypeID: 100
+    SampleTypeID: 100,
+    BidIncidence: 20,
+    CollectsPII: false
  }.to_json
 
  request['Authorization'] = YOUR_API_KEY_HERE
@@ -500,7 +519,9 @@ $params = '{
     "SurveyPlatformID": 2,
     "BidLengthOfInterview": 10,
     "BusinessUnitID": 9,
-    "SampleTypeID": 100
+    "SampleTypeID": 100,
+    "BidIncidence": 20,
+    "CollectsPII": false
  }';
 
 curl_setopt_array($curl, array(
@@ -556,7 +577,9 @@ params = {
     "SurveyPlatformID": 2,
     "BidLengthOfInterview": 10,
     "BusinessUnitID": 9,
-    "SampleTypeID": 100
+    "SampleTypeID": 100,
+    "BidIncidence": 20,
+    "CollectsPII": false
  }
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Authorization' : 'YOUR_API_KEY_HERE', 'Accept': 'text/plain'}
@@ -600,7 +623,9 @@ string args = @"{
                     ""SurveyPlatformID"": 2,
                     ""BidLengthOfInterview"": 10,
                     ""BusinessUnitID"": 9,
-                    ""SampleTypeID"": 100
+                    ""SampleTypeID"": 100,
+                    ""BidIncidence"": 20,
+                    ""CollectsPII"": false
                 }";
 
 request.Method = "PUT";
@@ -659,7 +684,9 @@ var json = {
     "SurveyPlatformID": 2,
     "BidLengthOfInterview": 10,
     "BusinessUnitID": 9,
-    "SampleTypeID": 100
+    "SampleTypeID": 100,
+    "BidIncidence": 20,
+    "CollectsPII": false
  };
 
 var params = JSON.stringify(json);
@@ -724,7 +751,9 @@ request.end();
     "BidLengthOfInterview": 10,
     "BusinessUnitID": 9,
     "SampleTypeID": 100,
-    "SurveySID": "E75CDFE2-7221-4FAC-8561-78EE1B1D6ECF"
+    "SurveySID": "E75CDFE2-7221-4FAC-8561-78EE1B1D6ECF",
+    "BidIncidence": 20,
+    "CollectsPII": false
   }
 }
 ```
@@ -750,21 +779,23 @@ Update an existing Fulcrum survey.
 | IsActive                     | string   | true     |Indicates if a survey is active or inactive.                                                                                                             |
 | Quota                        | int      | true     |Total number of completes needed.                                                                                                                        |
 | FulcrumExchangeAllocation    | double   | true     |Percentage of total completes allocated only to the Exchange. Must be between 0 and 100%.                                                               |
-| FulcrumExchangeHedgeAccess   | boolean  | true     |"true" gives the Exchange access to any unallocated completes.                                                                                          |
-| IsVerifyCallBack             | boolean  | true     |"true" enables Verify CallBack security which requires the correct [%RSFN%] variable to be included on the "complete" client callback for verification. |
-| UniquePID                    | boolean  | true     |"true" enables PID deduplication on a survey preventing a repsondent with the same PID from entering more than once. Recommended on all surveys.        |
-| UniqueIPAddress              | boolean  | true     |"true" enables IP deduplication on a survey preventing a repsondent with the same IP address from entering more than once. Recommended on all surveys.  |
-| IsRelevantID                 | boolean  | true     |"true" enables RelevantID security. RelevantID is a third-party security feature. There is an additional cost associated.                           |
-| IsDedupe                     | boolean  | true     |"true" enables Relevant ID dedupe security. Should always be enabled when using RelevantID.                                                              |
-| IsGeoIP                      | boolean  | true     |"true" enables RelevantID GeoIP security to determine respondent geogrphical location. Should always be enabled when using RelevantID.                   |
-| IsFraudProfile               | boolean  | true     |"true" enables RelevantID Fraud Profile security. Should always be enabled when using RelevantID.                                                        |
+| FulcrumExchangeHedgeAccess   | boolean  | true     |`true` gives the Exchange access to any unallocated completes.                                                                                          |
+| IsVerifyCallBack             | boolean  | true     |`true` enables Verify CallBack security which requires the correct [%RSFN%] variable to be included on the "complete" client callback for verification. |
+| UniquePID                    | boolean  | true     |`true` enables PID deduplication on a survey preventing a repsondent with the same PID from entering more than once. Recommended on all surveys.        |
+| UniqueIPAddress              | boolean  | true     |`true` enables IP deduplication on a survey preventing a repsondent with the same IP address from entering more than once. Recommended on all surveys.  |
+| IsRelevantID                 | boolean  | true     |`true` enables RelevantID security. RelevantID is a third-party security feature. There is an additional cost associated.                           |
+| IsDedupe                     | boolean  | true     |`true` enables Relevant ID dedupe security. Should always be enabled when using RelevantID.                                                              |
+| IsGeoIP                      | boolean  | true     |`true` enables RelevantID GeoIP security to determine respondent geogrphical location. Should always be enabled when using RelevantID.                   |
+| IsFraudProfile               | boolean  | true     |`true` enables RelevantID Fraud Profile security. Should always be enabled when using RelevantID.                                                        |
 | FraudProfileThreshold        | int      | true     |Set's the RelevantID Fraud Profile Threshold between 0-100. The lower the number the more aggressive the security. We recommend 11.                     |
-| IsTrueSample                 | boolean  | true     |"true" enables TrueSample security. TrueSample is a third-party security feature. There is an additional cost associated.                               |
+| IsTrueSample                 | boolean  | true     |`true` enables TrueSample security. TrueSample is a third-party security feature. There is an additional cost associated.                               |
 | QuotaCalculationTypeID       | int      | true     |Sets the quota calculation method. Either 1 for ”Completes” (quotas counted using completes) or 2=”Prescreens” (quotas counted when leaving Fulcrum for the survey). |
 | SurveyPlatformID             | int      | true     |Sets the external platform ID. We recommend setting to 2 for "undefined" in most situations.                                                             |
 | BidLengthOfInterview         | int      | true     |Estimated time for a respondent to complete the survey excluding the Fulcrum prescreener in minutes as provided by the buyer.                           |
 | BusinessUnitID               | int      | true     |Sets the account [business unit](#get-list-business-units).                                                                                                 |
 | SampleTypeID                 | int      | false    |Sets the type of sample the survey is open to (i.e. consumer, business-to-business, etc). [See Sample Types](#definitions).                                   |
+| BidIncidence                 | int      | false    |Estimated incidence rate for the survey.                                                                                                                |
+| CollectsPII                  | boolean  | false    |`true` indicates that the survey will collect PII.                                                                                                      |
 
 ### GET Show a Survey
 
@@ -898,7 +929,9 @@ request.end();
     "BidLengthOfInterview": 10,
     "BusinessUnitID": 9,
     "SampleTypeID": 100,
-    "SurveySID": "E75CDFE2-7221-4FAC-8561-78EE1B1D6ECF"
+    "SurveySID": "E75CDFE2-7221-4FAC-8561-78EE1B1D6ECF",
+    "BidIncidence": 20,
+    "CollectsPII": false
   }
 }
 ```
@@ -1043,7 +1076,9 @@ request.end();
       "BidLengthOfInterview": 10,
       "BusinessUnitID": 9,
       "SampleTypeID": 100,
-      "SurveySID": "E75CDFE2-7221-4FAC-8561-78EE1B1D6ECF"
+      "SurveySID": "E75CDFE2-7221-4FAC-8561-78EE1B1D6ECF",
+      "BidIncidence": 20,
+      "CollectsPII": false
   }
 }
 ```

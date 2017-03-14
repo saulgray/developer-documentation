@@ -30,6 +30,7 @@ The Survey resource contains basic information about a survey opportunity posted
 | SurveyMobileConversion       | int      | Percentage of mobile respondents who complete the survey after qualifying.                                                                              |
 | SurveyQuotaCalcTypeID        | int      | Indicates whether quotas are calculated based on completes or prescreens (1=Completes, 2=Prescreens).                                                   |
 | SampleTypeID                 | int      | The type of sample the survey is open to (i.e. consumer, business-to-business, etc).                                                                    |
+| CollectsPII                  | boolean  | `true` indicates that the survey will collect PII. Should always be set when PII is collected.                                                          |
 
 ### GET List Exchange Surveys
 
@@ -157,7 +158,8 @@ request.end();
       "SurveyQuotaCalcTypeID": 1,
       "IsTrueSample": false,
       "SurveyMobileConversion": 0,
-      "SampleTypeID": null
+      "SampleTypeID": null,
+      "CollectsPII": false
     }
   ]
 }
