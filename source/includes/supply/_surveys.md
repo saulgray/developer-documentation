@@ -159,7 +159,7 @@ request.end();
       "IsTrueSample": false,
       "SurveyMobileConversion": 0,
       "SampleTypeID": null,
-      "CollectsPII": false
+      "CollectsPII": null
     }
   ]
 }

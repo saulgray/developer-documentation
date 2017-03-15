@@ -52,7 +52,7 @@ POST  https://api.samplicio.us/Demand/v1/Surveys/Create
 > Example Request
 
 ```shell
-curl -H "Content-Type: application/json" -H "Authorization: YOUR_API_KEY_HERE" -X POST --data '{"AccountID": 1,"SurveyStatusCode": "01","SurveyPriority": 11,"SurveyName": "Example API Survey","CountryLanguageID": 9,"IndustryID": 30,"StudyTypeID": 1,"ClientCPI": 1,"QuotaCPI": 2,"ClientSurveyLiveURL": "https://www.surveyURL.com?rid=[%RID%]","TestRedirectURL": "https://www.surveyURL.com?rid=[%RID%]","IsActive": true,"Quota": 1000,"FulcrumExchangeAllocation": 0,"FulcrumExchangeHedgeAccess": true,"IsVerifyCallBack": true,"UniquePID": true,"UniqueIPAddress": true,"IsRelevantID": false,"IsDedupe": false,"IsGeoIP": false,"IsFraudProfile": false,"FraudProfileThreshold": 0,"IsTrueSample": false,"QuotaCalculationTypeID": 1,"SurveyPlatformID": 2,"BidLengthOfInterview": 10,"BusinessUnitID": 9,"SampleTypeID": 100,"BidIncidence": 20,"CollectsPII": true}' https://api.samplicio.us/Demand/v1/Surveys/Create
+curl -H "Content-Type: application/json" -H "Authorization: YOUR_API_KEY_HERE" -X POST --data '{"AccountID": 1,"SurveyStatusCode": "01","SurveyPriority": 11,"SurveyName": "Example API Survey","CountryLanguageID": 9,"IndustryID": 30,"StudyTypeID": 1,"ClientCPI": 1,"QuotaCPI": 2,"ClientSurveyLiveURL": "https://www.surveyURL.com?rid=[%RID%]","TestRedirectURL": "https://www.surveyURL.com?rid=[%RID%]","IsActive": true,"Quota": 1000,"FulcrumExchangeAllocation": 0,"FulcrumExchangeHedgeAccess": true,"IsVerifyCallBack": true,"UniquePID": true,"UniqueIPAddress": true,"IsRelevantID": false,"IsDedupe": false,"IsGeoIP": false,"IsFraudProfile": false,"FraudProfileThreshold": 0,"IsTrueSample": false,"QuotaCalculationTypeID": 1,"SurveyPlatformID": 2,"BidLengthOfInterview": 10,"BusinessUnitID": 9,"SampleTypeID": 100,"BidIncidence": 20,"CollectsPII": null}' https://api.samplicio.us/Demand/v1/Surveys/Create
 ```
 
 ```ruby
@@ -100,7 +100,7 @@ request.body = {
     "BusinessUnitID"=> 9,
     "SampleTypeID"=> 100,
     "BidIncidence"=> 20,
-    "CollectsPII"=> false
+    "CollectsPII"=> nil
  }.to_json
 
  request['Authorization'] = YOUR_API_KEY_HERE
@@ -143,7 +143,7 @@ $params = '{
     "BusinessUnitID": 9,
     "SampleTypeID": 100,
     "BidIncidence": 20,
-    "CollectsPII": true
+    "CollectsPII": null
  }';
 
 curl_setopt_array($curl, array(
@@ -200,7 +200,7 @@ params = {
     "BusinessUnitID": 9,
     "SampleTypeID": 100,
     "BidIncidence": 20,
-    "CollectsPII": true
+    "CollectsPII": None
  }
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Authorization' : 'YOUR_API_KEY_HERE', 'Accept': 'text/plain'}
@@ -245,7 +245,7 @@ string args = @"{
                     ""BusinessUnitID"": 9,
                     ""SampleTypeID"": 100,
                     ""BidIncidence"": 20,
-                    ""CollectsPII"": true
+                    ""CollectsPII"": null
                 }";
 
 request.Method = "POST";
@@ -305,7 +305,7 @@ var json = {
     "BusinessUnitID": 9,
     "SampleTypeID": 100,
     "BidIncidence": 20,
-    "CollectsPII": true
+    "CollectsPII": null
  };
 
 var params = JSON.stringify(json);
@@ -372,7 +372,7 @@ request.end();
     "SampleTypeID": 100,
     "SurveySID": "E75CDFE2-7221-4FAC-8561-78EE1B1D6ECF",
     "BidIncidence": 20,
-    "CollectsPII": true
+    "CollectsPII": null
   }
 }
 ```
@@ -428,7 +428,7 @@ PUT  https://api.samplicio.us/Demand/v1/Surveys/Update/{SurveyNumber}
 > Example Request
 
 ```shell
-curl -H "Content-Type: application/json" -H "Authorization: YOUR_API_KEY_HERE" -X PUT --data '{"AccountID": 1,"SurveyStatusCode": "01","SurveyPriority": 11,"SurveyNumber": 12345,"SurveyName": "Example API Survey","CountryLanguageID": 9,"IndustryID": 30,"StudyTypeID": 1,"ClientCPI": 1,"QuotaCPI": 2,"ClientSurveyLiveURL": "https://www.surveyURL.com?rid=[%RID%]","TestRedirectURL": "https://www.surveyURL.com?rid=[%RID%]","IsActive": true,"Quota": 100,"FulcrumExchangeAllocation": 0,"FulcrumExchangeHedgeAccess": true,"IsVerifyCallBack": true,"UniquePID": true,"UniqueIPAddress": true,"IsRelevantID": false,"IsDedupe": false,"IsGeoIP": false,"IsFraudProfile": false,"FraudProfileThreshold": 0,"IsTrueSample": false,"QuotaCalculationTypeID": 1,"SurveyPlatformID": 2,"BidLengthOfInterview": 10,"BusinessUnitID": 9,"SampleTypeID": 100}' https://api.samplicio.us/Demand/v1/Surveys/Update/{SurveyNumber}
+curl -H "Content-Type: application/json" -H "Authorization: YOUR_API_KEY_HERE" -X PUT --data '{"AccountID": 1,"SurveyStatusCode": "01","SurveyPriority": 11,"SurveyNumber": 12345,"SurveyName": "Example API Survey","CountryLanguageID": 9,"IndustryID": 30,"StudyTypeID": 1,"ClientCPI": 1,"QuotaCPI": 2,"ClientSurveyLiveURL": "https://www.surveyURL.com?rid=[%RID%]","TestRedirectURL": "https://www.surveyURL.com?rid=[%RID%]","IsActive": true,"Quota": 100,"FulcrumExchangeAllocation": 0,"FulcrumExchangeHedgeAccess": true,"IsVerifyCallBack": true,"UniquePID": true,"UniqueIPAddress": true,"IsRelevantID": false,"IsDedupe": false,"IsGeoIP": false,"IsFraudProfile": false,"FraudProfileThreshold": 0,"IsTrueSample": false,"QuotaCalculationTypeID": 1,"SurveyPlatformID": 2,"BidLengthOfInterview": 10,"BusinessUnitID": 9,"SampleTypeID": 100,"CollectsPII": null}' https://api.samplicio.us/Demand/v1/Surveys/Update/{SurveyNumber}
 ```
 
 ```ruby
@@ -477,7 +477,7 @@ request.body = {
     BusinessUnitID: 9,
     SampleTypeID: 100,
     BidIncidence: 20,
-    CollectsPII: false
+    CollectsPII: nil
  }.to_json
 
  request['Authorization'] = YOUR_API_KEY_HERE
@@ -521,7 +521,7 @@ $params = '{
     "BusinessUnitID": 9,
     "SampleTypeID": 100,
     "BidIncidence": 20,
-    "CollectsPII": false
+    "CollectsPII": null
  }';
 
 curl_setopt_array($curl, array(
@@ -579,7 +579,7 @@ params = {
     "BusinessUnitID": 9,
     "SampleTypeID": 100,
     "BidIncidence": 20,
-    "CollectsPII": false
+    "CollectsPII": None
  }
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Authorization' : 'YOUR_API_KEY_HERE', 'Accept': 'text/plain'}
@@ -625,7 +625,7 @@ string args = @"{
                     ""BusinessUnitID"": 9,
                     ""SampleTypeID"": 100,
                     ""BidIncidence"": 20,
-                    ""CollectsPII"": false
+                    ""CollectsPII"": null
                 }";
 
 request.Method = "PUT";
@@ -686,7 +686,7 @@ var json = {
     "BusinessUnitID": 9,
     "SampleTypeID": 100,
     "BidIncidence": 20,
-    "CollectsPII": false
+    "CollectsPII": null
  };
 
 var params = JSON.stringify(json);
@@ -753,7 +753,7 @@ request.end();
     "SampleTypeID": 100,
     "SurveySID": "E75CDFE2-7221-4FAC-8561-78EE1B1D6ECF",
     "BidIncidence": 20,
-    "CollectsPII": false
+    "CollectsPII": null
   }
 }
 ```
@@ -931,7 +931,7 @@ request.end();
     "SampleTypeID": 100,
     "SurveySID": "E75CDFE2-7221-4FAC-8561-78EE1B1D6ECF",
     "BidIncidence": 20,
-    "CollectsPII": false
+    "CollectsPII": null
   }
 }
 ```
@@ -1078,7 +1078,7 @@ request.end();
       "SampleTypeID": 100,
       "SurveySID": "E75CDFE2-7221-4FAC-8561-78EE1B1D6ECF",
       "BidIncidence": 20,
-      "CollectsPII": false
+      "CollectsPII": null
   }
 }
 ```
