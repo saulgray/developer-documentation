@@ -1492,7 +1492,7 @@
       </span><span class="nt">"IsTrueSample"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"SurveyMobileConversion"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="nt">"SampleTypeID"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"CollectsPII"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="nt">"CollectsPII"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -2020,7 +2020,7 @@
       </span><span class="nt">"IsTrueSample"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"SurveyMobileConversion"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="nt">"SampleTypeID"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"CollectsPII"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="nt">"CollectsPII"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -2177,7 +2177,7 @@
     </span><span class="nt">"IsTrueSample"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="nt">"SurveyMobileConversion"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="nt">"SampleTypeID"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"CollectsPII"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="nt">"CollectsPII"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -2325,7 +2325,7 @@
             </span><span class="nt">"IsTrueSample"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
             </span><span class="nt">"SurveyMobileConversion"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
             </span><span class="nt">"SampleTypeID"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"CollectsPII"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+            </span><span class="nt">"CollectsPII"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -4539,7 +4539,7 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell"><code>curl -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"Authorization: YOUR_API_KEY_HERE"</span> -X POST --data <span class="s1">'{"AccountID": 1,"SurveyStatusCode": "01","SurveyPriority": 11,"SurveyName": "Example API Survey","CountryLanguageID": 9,"IndustryID": 30,"StudyTypeID": 1,"ClientCPI": 1,"QuotaCPI": 2,"ClientSurveyLiveURL": "https://www.surveyURL.com?rid=[%RID%]","TestRedirectURL": "https://www.surveyURL.com?rid=[%RID%]","IsActive": true,"Quota": 1000,"FulcrumExchangeAllocation": 0,"FulcrumExchangeHedgeAccess": true,"IsVerifyCallBack": true,"UniquePID": true,"UniqueIPAddress": true,"IsRelevantID": false,"IsDedupe": false,"IsGeoIP": false,"IsFraudProfile": false,"FraudProfileThreshold": 0,"IsTrueSample": false,"QuotaCalculationTypeID": 1,"SurveyPlatformID": 2,"BidLengthOfInterview": 10,"BusinessUnitID": 9,"SampleTypeID": 100,"BidIncidence": 20,"CollectsPII": true}'</span> https://api.samplicio.us/Demand/v1/Surveys/Create
+<pre class="highlight shell"><code>curl -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"Authorization: YOUR_API_KEY_HERE"</span> -X POST --data <span class="s1">'{"AccountID": 1,"SurveyStatusCode": "01","SurveyPriority": 11,"SurveyName": "Example API Survey","CountryLanguageID": 9,"IndustryID": 30,"StudyTypeID": 1,"ClientCPI": 1,"QuotaCPI": 2,"ClientSurveyLiveURL": "https://www.surveyURL.com?rid=[%RID%]","TestRedirectURL": "https://www.surveyURL.com?rid=[%RID%]","IsActive": true,"Quota": 1000,"FulcrumExchangeAllocation": 0,"FulcrumExchangeHedgeAccess": true,"IsVerifyCallBack": true,"UniquePID": true,"UniqueIPAddress": true,"IsRelevantID": false,"IsDedupe": false,"IsGeoIP": false,"IsFraudProfile": false,"FraudProfileThreshold": 0,"IsTrueSample": false,"QuotaCalculationTypeID": 1,"SurveyPlatformID": 2,"BidLengthOfInterview": 10,"BusinessUnitID": 9,"SampleTypeID": 100,"BidIncidence": 20,"CollectsPII": null}'</span> https://api.samplicio.us/Demand/v1/Surveys/Create
 </code></pre>
 <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
 <span class="nb">require</span> <span class="s1">'json'</span>
@@ -4585,7 +4585,7 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
     <span class="s2">"BusinessUnitID"</span><span class="o">=&gt;</span> <span class="mi">9</span><span class="p">,</span>
     <span class="s2">"SampleTypeID"</span><span class="o">=&gt;</span> <span class="mi">100</span><span class="p">,</span>
     <span class="s2">"BidIncidence"</span><span class="o">=&gt;</span> <span class="mi">20</span><span class="p">,</span>
-    <span class="s2">"CollectsPII"</span><span class="o">=&gt;</span> <span class="kp">false</span>
+    <span class="s2">"CollectsPII"</span><span class="o">=&gt;</span> <span class="kp">nil</span>
  <span class="p">}.</span><span class="nf">to_json</span>
 
  <span class="n">request</span><span class="p">[</span><span class="s1">'Authorization'</span><span class="p">]</span> <span class="o">=</span> <span class="no">YOUR_API_KEY_HERE</span>
@@ -4626,7 +4626,7 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
     "BusinessUnitID": 9,
     "SampleTypeID": 100,
     "BidIncidence": 20,
-    "CollectsPII": true
+    "CollectsPII": null
  }'</span><span class="p">;</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
@@ -4681,7 +4681,7 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
     <span class="s">"BusinessUnitID"</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
     <span class="s">"SampleTypeID"</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
     <span class="s">"BidIncidence"</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
-    <span class="s">"CollectsPII"</span><span class="p">:</span> <span class="n">true</span>
+    <span class="s">"CollectsPII"</span><span class="p">:</span> <span class="bp">None</span>
  <span class="p">}</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Content-type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span> <span class="s">'Authorization'</span> <span class="p">:</span> <span class="s">'YOUR_API_KEY_HERE'</span><span class="p">,</span> <span class="s">'Accept'</span><span class="p">:</span> <span class="s">'text/plain'</span><span class="p">}</span>
@@ -4724,7 +4724,7 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
                     <span class="s">""</span><span class="n">BusinessUnitID</span><span class="s">""</span><span class="p">:</span> <span class="m">9</span><span class="p">,</span>
                     <span class="s">""</span><span class="n">SampleTypeID</span><span class="s">""</span><span class="p">:</span> <span class="m">100</span><span class="p">,</span>
                     <span class="s">""</span><span class="n">BidIncidence</span><span class="s">""</span><span class="p">:</span> <span class="m">20</span><span class="p">,</span>
-                    <span class="s">""</span><span class="n">CollectsPII</span><span class="s">""</span><span class="p">:</span> <span class="k">true</span>
+                    <span class="s">""</span><span class="n">CollectsPII</span><span class="s">""</span><span class="p">:</span> <span class="k">null</span>
                 <span class="p">}</span><span class="s">";
 </span>
 <span class="n">request</span><span class="p">.</span><span class="n">Method</span> <span class="p">=</span> <span class="s">"POST"</span><span class="p">;</span>
@@ -4782,7 +4782,7 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
     <span class="s2">"BusinessUnitID"</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
     <span class="s2">"SampleTypeID"</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
     <span class="s2">"BidIncidence"</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
-    <span class="s2">"CollectsPII"</span><span class="p">:</span> <span class="kc">true</span>
+    <span class="s2">"CollectsPII"</span><span class="p">:</span> <span class="kc">null</span>
  <span class="p">};</span>
 
 <span class="kd">var</span> <span class="nx">params</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">json</span><span class="p">);</span>
@@ -4849,7 +4849,7 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
     </span><span class="nt">"SampleTypeID"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
     </span><span class="nt">"SurveySID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E75CDFE2-7221-4FAC-8561-78EE1B1D6ECF"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"BidIncidence"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"CollectsPII"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="nt">"CollectsPII"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -5067,7 +5067,7 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell"><code>curl -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"Authorization: YOUR_API_KEY_HERE"</span> -X PUT --data <span class="s1">'{"AccountID": 1,"SurveyStatusCode": "01","SurveyPriority": 11,"SurveyNumber": 12345,"SurveyName": "Example API Survey","CountryLanguageID": 9,"IndustryID": 30,"StudyTypeID": 1,"ClientCPI": 1,"QuotaCPI": 2,"ClientSurveyLiveURL": "https://www.surveyURL.com?rid=[%RID%]","TestRedirectURL": "https://www.surveyURL.com?rid=[%RID%]","IsActive": true,"Quota": 100,"FulcrumExchangeAllocation": 0,"FulcrumExchangeHedgeAccess": true,"IsVerifyCallBack": true,"UniquePID": true,"UniqueIPAddress": true,"IsRelevantID": false,"IsDedupe": false,"IsGeoIP": false,"IsFraudProfile": false,"FraudProfileThreshold": 0,"IsTrueSample": false,"QuotaCalculationTypeID": 1,"SurveyPlatformID": 2,"BidLengthOfInterview": 10,"BusinessUnitID": 9,"SampleTypeID": 100}'</span> https://api.samplicio.us/Demand/v1/Surveys/Update/<span class="o">{</span>SurveyNumber<span class="o">}</span>
+<pre class="highlight shell"><code>curl -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"Authorization: YOUR_API_KEY_HERE"</span> -X PUT --data <span class="s1">'{"AccountID": 1,"SurveyStatusCode": "01","SurveyPriority": 11,"SurveyNumber": 12345,"SurveyName": "Example API Survey","CountryLanguageID": 9,"IndustryID": 30,"StudyTypeID": 1,"ClientCPI": 1,"QuotaCPI": 2,"ClientSurveyLiveURL": "https://www.surveyURL.com?rid=[%RID%]","TestRedirectURL": "https://www.surveyURL.com?rid=[%RID%]","IsActive": true,"Quota": 100,"FulcrumExchangeAllocation": 0,"FulcrumExchangeHedgeAccess": true,"IsVerifyCallBack": true,"UniquePID": true,"UniqueIPAddress": true,"IsRelevantID": false,"IsDedupe": false,"IsGeoIP": false,"IsFraudProfile": false,"FraudProfileThreshold": 0,"IsTrueSample": false,"QuotaCalculationTypeID": 1,"SurveyPlatformID": 2,"BidLengthOfInterview": 10,"BusinessUnitID": 9,"SampleTypeID": 100,"CollectsPII": null}'</span> https://api.samplicio.us/Demand/v1/Surveys/Update/<span class="o">{</span>SurveyNumber<span class="o">}</span>
 </code></pre>
 <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
 <span class="nb">require</span> <span class="s1">'json'</span>
@@ -5114,7 +5114,7 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
     <span class="no">BusinessUnitID</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
     <span class="no">SampleTypeID</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
     <span class="no">BidIncidence</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
-    <span class="no">CollectsPII</span><span class="p">:</span> <span class="kp">false</span>
+    <span class="no">CollectsPII</span><span class="p">:</span> <span class="kp">nil</span>
  <span class="p">}.</span><span class="nf">to_json</span>
 
  <span class="n">request</span><span class="p">[</span><span class="s1">'Authorization'</span><span class="p">]</span> <span class="o">=</span> <span class="no">YOUR_API_KEY_HERE</span>
@@ -5156,7 +5156,7 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
     "BusinessUnitID": 9,
     "SampleTypeID": 100,
     "BidIncidence": 20,
-    "CollectsPII": false
+    "CollectsPII": null
  }'</span><span class="p">;</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
@@ -5212,7 +5212,7 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
     <span class="s">"BusinessUnitID"</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
     <span class="s">"SampleTypeID"</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
     <span class="s">"BidIncidence"</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
-    <span class="s">"CollectsPII"</span><span class="p">:</span> <span class="n">false</span>
+    <span class="s">"CollectsPII"</span><span class="p">:</span> <span class="bp">None</span>
  <span class="p">}</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Content-type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span> <span class="s">'Authorization'</span> <span class="p">:</span> <span class="s">'YOUR_API_KEY_HERE'</span><span class="p">,</span> <span class="s">'Accept'</span><span class="p">:</span> <span class="s">'text/plain'</span><span class="p">}</span>
@@ -5256,7 +5256,7 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
                     <span class="s">""</span><span class="n">BusinessUnitID</span><span class="s">""</span><span class="p">:</span> <span class="m">9</span><span class="p">,</span>
                     <span class="s">""</span><span class="n">SampleTypeID</span><span class="s">""</span><span class="p">:</span> <span class="m">100</span><span class="p">,</span>
                     <span class="s">""</span><span class="n">BidIncidence</span><span class="s">""</span><span class="p">:</span> <span class="m">20</span><span class="p">,</span>
-                    <span class="s">""</span><span class="n">CollectsPII</span><span class="s">""</span><span class="p">:</span> <span class="k">false</span>
+                    <span class="s">""</span><span class="n">CollectsPII</span><span class="s">""</span><span class="p">:</span> <span class="k">null</span>
                 <span class="p">}</span><span class="s">";
 </span>
 <span class="n">request</span><span class="p">.</span><span class="n">Method</span> <span class="p">=</span> <span class="s">"PUT"</span><span class="p">;</span>
@@ -5315,7 +5315,7 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
     <span class="s2">"BusinessUnitID"</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
     <span class="s2">"SampleTypeID"</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
     <span class="s2">"BidIncidence"</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
-    <span class="s2">"CollectsPII"</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="s2">"CollectsPII"</span><span class="p">:</span> <span class="kc">null</span>
  <span class="p">};</span>
 
 <span class="kd">var</span> <span class="nx">params</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">json</span><span class="p">);</span>
@@ -5382,7 +5382,7 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
     </span><span class="nt">"SampleTypeID"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
     </span><span class="nt">"SurveySID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E75CDFE2-7221-4FAC-8561-78EE1B1D6ECF"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"BidIncidence"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"CollectsPII"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="nt">"CollectsPII"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -5717,7 +5717,7 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
     </span><span class="nt">"SampleTypeID"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
     </span><span class="nt">"SurveySID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E75CDFE2-7221-4FAC-8561-78EE1B1D6ECF"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"BidIncidence"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"CollectsPII"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="nt">"CollectsPII"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -5866,7 +5866,7 @@ While this call does return `QuotaCPI`, it is recommended that <a href="#get-sho
       </span><span class="nt">"SampleTypeID"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
       </span><span class="nt">"SurveySID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E75CDFE2-7221-4FAC-8561-78EE1B1D6ECF"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"BidIncidence"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"CollectsPII"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="nt">"CollectsPII"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
