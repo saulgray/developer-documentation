@@ -100,7 +100,7 @@ request.body = {
     "BusinessUnitID"=> 9,
     "SampleTypeID"=> 100,
     "BidIncidence"=> 20,
-    "CollectsPII"=> false
+    "CollectsPII"=> nil
  }.to_json
 
  request['Authorization'] = YOUR_API_KEY_HERE
@@ -143,7 +143,7 @@ $params = '{
     "BusinessUnitID": 9,
     "SampleTypeID": 100,
     "BidIncidence": 20,
-    "CollectsPII": true
+    "CollectsPII": null
  }';
 
 curl_setopt_array($curl, array(
@@ -200,7 +200,7 @@ params = {
     "BusinessUnitID": 9,
     "SampleTypeID": 100,
     "BidIncidence": 20,
-    "CollectsPII": true
+    "CollectsPII": null
  }
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Authorization' : 'YOUR_API_KEY_HERE', 'Accept': 'text/plain'}
@@ -245,7 +245,7 @@ string args = @"{
                     ""BusinessUnitID"": 9,
                     ""SampleTypeID"": 100,
                     ""BidIncidence"": 20,
-                    ""CollectsPII"": true
+                    ""CollectsPII"": null
                 }";
 
 request.Method = "POST";
@@ -305,7 +305,7 @@ var json = {
     "BusinessUnitID": 9,
     "SampleTypeID": 100,
     "BidIncidence": 20,
-    "CollectsPII": true
+    "CollectsPII": null
  };
 
 var params = JSON.stringify(json);
@@ -372,7 +372,7 @@ request.end();
     "SampleTypeID": 100,
     "SurveySID": "E75CDFE2-7221-4FAC-8561-78EE1B1D6ECF",
     "BidIncidence": 20,
-    "CollectsPII": true
+    "CollectsPII": null
   }
 }
 ```
@@ -477,7 +477,7 @@ request.body = {
     BusinessUnitID: 9,
     SampleTypeID: 100,
     BidIncidence: 20,
-    CollectsPII: false
+    CollectsPII: nil
  }.to_json
 
  request['Authorization'] = YOUR_API_KEY_HERE
@@ -521,7 +521,7 @@ $params = '{
     "BusinessUnitID": 9,
     "SampleTypeID": 100,
     "BidIncidence": 20,
-    "CollectsPII": false
+    "CollectsPII": null
  }';
 
 curl_setopt_array($curl, array(
@@ -579,7 +579,7 @@ params = {
     "BusinessUnitID": 9,
     "SampleTypeID": 100,
     "BidIncidence": 20,
-    "CollectsPII": false
+    "CollectsPII": null
  }
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Authorization' : 'YOUR_API_KEY_HERE', 'Accept': 'text/plain'}
@@ -625,7 +625,7 @@ string args = @"{
                     ""BusinessUnitID"": 9,
                     ""SampleTypeID"": 100,
                     ""BidIncidence"": 20,
-                    ""CollectsPII"": false
+                    ""CollectsPII"": null
                 }";
 
 request.Method = "PUT";
@@ -686,7 +686,7 @@ var json = {
     "BusinessUnitID": 9,
     "SampleTypeID": 100,
     "BidIncidence": 20,
-    "CollectsPII": false
+    "CollectsPII": null
  };
 
 var params = JSON.stringify(json);
@@ -753,7 +753,7 @@ request.end();
     "SampleTypeID": 100,
     "SurveySID": "E75CDFE2-7221-4FAC-8561-78EE1B1D6ECF",
     "BidIncidence": 20,
-    "CollectsPII": false
+    "CollectsPII": null
   }
 }
 ```
@@ -931,7 +931,7 @@ request.end();
     "SampleTypeID": 100,
     "SurveySID": "E75CDFE2-7221-4FAC-8561-78EE1B1D6ECF",
     "BidIncidence": 20,
-    "CollectsPII": false
+    "CollectsPII": null
   }
 }
 ```
@@ -1078,7 +1078,7 @@ request.end();
       "SampleTypeID": 100,
       "SurveySID": "E75CDFE2-7221-4FAC-8561-78EE1B1D6ECF",
       "BidIncidence": 20,
-      "CollectsPII": false
+      "CollectsPII": null
   }
 }
 ```
