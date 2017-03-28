@@ -187,6 +187,7 @@ Creates a group with specific suppliers and allocation for that group.
 | AllocationPercentage | int     | tue      | Group reserved allocation, expressed as a decimal. |
 | IsHedgeAccess        | boolean | true     | Access to unallocated completes on the Exchange.   |
 | Suppliers            | array   | true     | An array of all supplier codes (strings).          |
+| CPI                  | double  | false    | The payout per complete for those suppliers. If not set, QuotaCPI value for that survey will be applied to the exchange group.|
 
 
 ### POST Create an Empty Group
@@ -360,7 +361,7 @@ Creates an empty supplier group with a specific allocation and name.
 | Name                 | string  | true     | Supplier Group name.                               |
 | AllocationPercentage | int     | true     | Group reserved allocation, expressed as a decimal. |
 | IsHedgeAccess        | boolean | false    | Access to unallocated completes on the Exchange.   |
-| SupplierGroupCPI     | double  | false    | The payout per complete for those suppliers.       |
+|    CPI               | double  | false    | The payout per complete for those suppliers. If not set, QuotaCPI value for that survey will be applied to the exchange group.|
 
 
 ### PUT Update a Group
@@ -537,7 +538,7 @@ Updates a supplier group with the specified values.
 | Name                 | string  | true     | Supplier Group name.                               |
 | AllocationPercentage | int     | true     | Group reserved allocation, expressed as a decimal. |
 | IsHedgeAccess        | boolean | true     | Access to unallocated completes on the Exchange.   |
-| SupplierGroupCPI     | double  | false    | The payout per complete for those suppliers.       |
+| CPI                  | double  | false    | The payout per complete for those suppliers. If not set, QuotaCPI value for that survey will be applied to the exchange group. |
 
 
 
