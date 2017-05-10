@@ -3,7 +3,7 @@
 Fulcrum is capable of handling SHA-1 URL hashing on all incoming and outgoing links.  We strongly recommend that all integrations take advantage of this feature to protect against fraudulent link manipulation.
 
 ![SHA-1 Setup](images/sha1_flowchart_v3.png)
- 
+
 Your secret key and variable name configuration can be set or disabled in the Fulcrum UI. In order to verify the validity of any Fulcrum outbound connection or generate a hash to match with any Fulcrum inbound connection, you must create a function that computes an RFC 2014-compliant HMAC signature and substitute the following characters:
 
 | Original | Substitute   |
@@ -22,7 +22,7 @@ For information on how to set a SHA-1 hash variable name and Secret Key in Fulcr
 
 Suppliers that have enabled Incoming SHA-1 hashing will append the signature to the Fulcrum entry links provided to respondents.
 
-Buyers that have enabled Incoming SHA-1 hashing will append the signature to the all callback links used to return respondents to Fuclrum. 
+Buyers that have enabled Incoming SHA-1 hashing will append the signature to the all callback links used to return respondents to Fuclrum.
 
 An example, of a hashed URL that using `ienc` as the variable name and Secret Key of `ZZ6VkORqV25iSWOVb5cwZ03zpns` as the secret key, can be found here.  Please note, `ienc` and the secret key `ZZ6VkORqV25iSWOVb5cwZ03zpns` are just examples values.
 
@@ -42,19 +42,19 @@ ZZ6VkORqV25iSWOVb5cwZ03zpns
 https://www.abc.com/ex.aspx?abc=def&vid=123&
 ```
 
-> URL Without Encryption: 
+> URL Without Encryption:
 
 ```plaintext
-https://www.samplicio.us/router/default.aspx?SID=12345dca-a691-4496-a2fa-12345b99ec29&PID=1234&
+https://www.samplicio.us/s/default.aspx?SID=12345dca-a691-4496-a2fa-12345b99ec29&PID=1234&
 ```
 
-> URL With Encryption: 
+> URL With Encryption:
 
 ```plaintext
-https://www.samplicio.us/router/default.aspx?SID=12345dca-a691-4496-a2fa-12345b99ec29&PID=1234&ienc=n3yzbU4WgqUT5hNKm7AnN07falA
+https://www.samplicio.us/s/default.aspx?SID=12345dca-a691-4496-a2fa-12345b99ec29&PID=1234&ienc=AkcqWn69FGzQQNT0IMAC8ZAiLs0
 ```
 
-Accounts with Outgoing SHA-1 Encryption enabled will need to be able to validate an HMAC signature hash value.  Fulcrum will append this hash value when passing respondents to your platform. Fulcrum will use the SHA-1 variable name and secret key set in Fulcum to generate and appending the hash. 
+Accounts with Outgoing SHA-1 Encryption enabled will need to be able to validate an HMAC signature hash value.  Fulcrum will append this hash value when passing respondents to your platform. Fulcrum will use the SHA-1 variable name and secret key set in Fulcum to generate and appending the hash.
 
 Buyers will find these signatures appended to the links used by respondents to enter a client survey.  
 
