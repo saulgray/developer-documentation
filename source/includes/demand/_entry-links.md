@@ -199,8 +199,8 @@ request.end();
       "FailureLink": "http:\/\/www.anon.com\/surveys?v=1&fs=1&uid=[%MID%]",
       "OverQuotaLink": "http:\/\/www.anon.com\/surveys?v=1&fs=1&uid=[%MID%]",
       "QualityTerminationLink": "http:\/\/www.anon.com\/surveys?v=1&fs=1&uid=[%MID%]",
-      "LiveLink": "http:\/\/samplicio.us\/router\/default.aspx?SID=52c975a7-15fb-804d-9bd2-3d5d553aa7af&PID=",
-      "TestLink": "http:\/ \/samplicio.us\/router\/default.aspx?SID=a948gef7-3591-42c0-ce51-0e4xdf25582f&FIRID=MSDHONI7&SUMSTAT=1&PID=test"
+      "LiveLink": "http:\/\/samplicio.us\/s\/default.aspx?SID=52c975a7-15fb-804d-9bd2-3d5d553aa7af&PID=",
+      "TestLink": "http:\/ \/samplicio.us\/s\/default.aspx?SID=a948gef7-3591-42c0-ce51-0e4xdf25582f&FIRID=MSDHONI7&SUMSTAT=1&PID=test"
     }
   }
 }
