@@ -51,7 +51,7 @@ For a list of top qualifications in other countries, [shoot us an email](mailto:
 > Example Entry to Fulcrum with Supplier's Respondent Data:
 
 ```plaintext
-https://www.samplicio.us/router/default.aspx?SID=f6c83654-3d4f-4f7c-bef1-2f5097b6ae9c&PID=12345&MID=54321&AGE=35&GENDER=2&ZIP=70117
+https://www.samplicio.us/s/default.aspx?SID=f6c83654-3d4f-4f7c-bef1-2f5097b6ae9c&PID=12345&MID=54321&AGE=35&GENDER=2&ZIP=70117
 ```
 
 > Example Supplier End Link with Fulcrum's Respondent Data:
@@ -255,7 +255,7 @@ It is important to check that respondents are not sent to a closed survey. There
 
 #### 3. Why is the `QuestionID` I see in a survey not returning on the [List Standard Questions](#get-list-standard-questions) call?
 
- [List Standard Questions](#get-list-standard-questions) only returns a list of Fulcrum Standard Qualifications.  These are qualifications that are created and maintained by Fulcrum.  If a question for a particular qualification is not returned on that call, it can be assumed that the qualification is a Custom Qualification that is created by a Buyer.  Buyers have the option to set a custom qualifications to “exposed” or “not exposed”.  If a custom qualification is set to “exposed”, the question text and options can be retrieved from [List Custom Questions](#get-list-custom-questions).
+ [List Standard Questions](#get-list-standard-questions) only returns a list of Fulcrum Standard Qualifications.  These are qualifications that are created and maintained by Fulcrum.  If a question for a particular qualification is not returned on that call, it can be assumed that the qualification is a Custom Qualification that is created by a Buyer.  Buyers have the option to set a custom qualifications to “exposed” or “not exposed”.  If a custom qualification is set to “exposed”, the question text can be retrieved from [Show Question Text](#get-show-question-text) and any question options can be retrieved from [Show Question Options](#get-show-question-options).
 
 #### 4. How can I identify mobile optimized surveys?
 

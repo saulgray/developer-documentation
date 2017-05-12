@@ -353,7 +353,7 @@ request.end();
         "HedgeRemaining": 0,
         "TargetModel": {
           "SupplierLinkType": 18,
-          "LiveSupplierLink": "https://samplicio.us/router/default.aspx?SID=da94c7f8-0dcf-4fcc-80d4-6e2beafc3ff4&PID=",
+          "LiveSupplierLink": "https://samplicio.us/s/default.aspx?SID=da94c7f8-0dcf-4fcc-80d4-6e2beafc3ff4&PID=",
           "SupplierLinkSID": "da94c7f8-0dcf-4fcc-80d4-6e2beafc3ff4",
           "TargetCCPI": 3
         }
